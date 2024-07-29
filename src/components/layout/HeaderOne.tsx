@@ -64,16 +64,16 @@ const HeaderOne = ({
                     <div className="main-menu uppercase ml-4">
                         <ul className="flex items-center nav-list">
                             {/* dropdown */}
-                            <li className="group/step-one">
+                            {/* <li className="group/step-one">
                                 <Link href="#" className="nav-link has-dropdown">Home</Link>
                                 <ul className="nav-dropdown">
                                     <li><Link href="/">Home Classic</Link></li>
                                     <li><Link href="/home-dark">Home Dark</Link></li>
                                     <li><Link href="/home-parallax">Home Parallax</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             {/* dropdown */}
-                            <li className="group/step-one">
+                            {/* <li className="group/step-one">
                                 <Link href="#" className="nav-link has-dropdown">Pages</Link>
                                 <ul className="nav-dropdown">
                                     <li><Link href="/about">About Us</Link></li>
@@ -84,9 +84,9 @@ const HeaderOne = ({
                                     <li><Link href="/login">Sign Up / Sign In</Link></li>
                                     <li><Link href="/booking">Booking</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             {/* mega dropdown */}
-                            <li className="group/mega-dropdown">
+                            {/* <li className="group/mega-dropdown">
                                 <Link href="#" className="nav-link has-dropdown">Destination</Link>
                                 <div className="nav-mega-dropdown grid grid-cols-6 gap-x-1">
                                     <div className="col-span-4 border-r">
@@ -125,17 +125,17 @@ const HeaderOne = ({
                                         </Link>
                                     </div>
                                 </div>
-                            </li>
+                            </li> */}
                             {/* dropdown */}
-                            <li className="group/step-one">
+                            {/* <li className="group/step-one">
                                 <Link href="#" className="nav-link has-dropdown">Blogs</Link>
                                 <ul className="nav-dropdown">
                                     <li><Link href="/blog-list">Blog List</Link></li>
                                     <li><Link href="/blog-details">Blog Details</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             {/* dropdown */}
-                            <li className="group/step-one">
+                            {/* <li className="group/step-one">
                                 <Link href="#" className="nav-link has-dropdown">Packages</Link>
                                 <ul className="nav-dropdown">
                                     <li><Link href="/package-list">Package List</Link></li>
@@ -143,18 +143,18 @@ const HeaderOne = ({
                                     <li><Link href="/package-details">Package Details - Layout I</Link></li>
                                     <li><Link href="/package-details-2">Package Details - Layout II</Link></li>
                                 </ul>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                                 <Link href="/dashboard" className="nav-link">Dashboard</Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
-                <div className="shrink-0">
+                {/* <div className="shrink-0">
                     <Link href="/login" className="btn_primary__v1 outlined">
                         Sign In / Register
                     </Link>
-                </div>
+                </div> */}
             </div>
 
             {/* mobile menu */}
@@ -169,13 +169,13 @@ const HeaderOne = ({
                 </Link>
                 <div className="space-x-4 flex items-center">
 
-                    <Link href="/login" className="shrink-0 inline-flex justify-center items-center bg-primary-2 rounded-full h-10 w-10 text-white">
+                    {/* <Link href="/login" className="shrink-0 inline-flex justify-center items-center bg-primary-2 rounded-full h-10 w-10 text-white">
                         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.1601 10.87C12.0601 10.86 11.9401 10.86 11.8301 10.87C9.45006 10.79 7.56006 8.84 7.56006 6.44C7.56006 3.99 9.54006 2 12.0001 2C14.4501 2 16.4401 3.99 16.4401 6.44C16.4301 8.84 14.5401 10.79 12.1601 10.87Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M7.15997 14.56C4.73997 16.18 4.73997 18.82 7.15997 20.43C9.90997 22.27 14.42 22.27 17.17 20.43C19.59 18.81 19.59 16.17 17.17 14.56C14.43 12.73 9.91997 12.73 7.15997 14.56Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                    </Link>
-                    <button
+                    </Link> */}
+                    {/* <button
                         className={`hamburger ${toggle ? 'hum-active' : ''}`}
                         id="hamburger"
                         onClick={() => setToggle(!toggle)}
@@ -183,7 +183,7 @@ const HeaderOne = ({
                         <span />
                         <span />
                         <span />
-                    </button>
+                    </button> */}
                 </div>
                 <div id="mobile-menu" className={`mobil-menu ${toggle ? 'mm-active' : ''}`}>
                 <ul>

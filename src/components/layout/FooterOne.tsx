@@ -21,18 +21,18 @@ const FooterOne = () => {
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
                         </Link>
-                        <Link href={FooterDataOne.twitterLink} className="inline-flex items-center group">
+                        {/* <Link href={FooterDataOne.twitterLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-twitter" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Twitter</h5>
-                        </Link>
-                        <Link href={FooterDataOne.pinterestLink} className="inline-flex items-center group">
+                        </Link> */}
+                        {/* <Link href={FooterDataOne.pinterestLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-pinterest" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Pinterest</h5>
-                        </Link>
+                        </Link> */}
                         <Link href={FooterDataOne.instagramLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-instagram" />
@@ -42,7 +42,7 @@ const FooterOne = () => {
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-12 lg:pt-17 pt-10 gap-base lg:pb-17 pb-12 gradient-border-top">
-                    <div className="lg:col-span-4 col-span-12 text-center lg:text-start">
+                    {/* <div className="lg:col-span-4 col-span-12 text-center lg:text-start">
                         <h3 className="text-white lg:text-[25px] text-2md  font-semibold leading-1.35">Newsletter</h3>
                         <form action="#" className="mt-5 md:max-w-[345px] max-w-[300px] lg:mx-0 mx-auto">
                             <div className="relative">
@@ -121,7 +121,7 @@ const FooterOne = () => {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="text-dark-6 flex gap-4 flex-wrap lg:justify-between justify-center gradient-border-top py-7 relative">
                     <BackToTop />

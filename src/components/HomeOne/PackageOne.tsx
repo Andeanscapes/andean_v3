@@ -33,7 +33,7 @@ const PackageOne = () => {
                         ))
                     }
 
-                    <div className="bg-primary-1  bg-center bg-no-repeat bg-cover text-center relative p-base flex items-center justify-center wow fadeInUp" data-wow-delay="0.4s">
+                    {/* <div className="bg-primary-1  bg-center bg-no-repeat bg-cover text-center relative p-base flex items-center justify-center wow fadeInUp" data-wow-delay="0.4s">
                         <Image
                             src="/assets/images/backgrounds/package-bg.png"
                             alt="background"
@@ -45,7 +45,7 @@ const PackageOne = () => {
                             <Link href="/package-sidebar" className="btn_primary__v1 border border-white mt-base">View
                                 More</Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
