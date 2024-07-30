@@ -7,11 +7,10 @@ import InstagramFeed from "@/components/layout/InstagramFeed";
 import HeroTwo from "@/components/HomeDark/HeroTwo"
 
 export const metadata: Metadata = {
-    title: 'Home 01 | Arid - Travel & Tourism HTML/Tailwind CSS Template',
-    description: 'Welcome, Arid - Travel & Tourism HTML/Tailwind CSS Template',
-    keywords: ['tour', 'travel', 'booking', 'rental', 'nextJs', 'tailwind', 'trip', 'beach', 'holidy', 'cruise', 'vacation' ]
-}
-
+    title: 'Home | Andean Scapes',
+    description: 'Experience the ultimate nature adventure and co-living space in the heart of the Andes. Andean Scapes offers breathtaking mountain views, thrilling emerald mine explorations, and comfortable accommodations for digital nomads and travelers.',
+    keywords: ['Andean Scapes', 'tour', 'travel', 'booking', 'rental', 'trip', 'adventure', 'nature', 'emerald mines', 'co-living', 'vacation', 'Colombia', 'Boyaca', 'digital nomads']
+};
 
 const HomeOne = () => {
     return (
