@@ -125,8 +125,8 @@ const FooterOne = () => {
                 </div>
                 <div className="text-dark-6 flex gap-4 flex-wrap lg:justify-between justify-center gradient-border-top py-7 relative">
                     <BackToTop />
-                    <p>{FooterDataOne.copyrightText}.</p>
-                    <p><Link href="/about" className="hover:text-primary-1 duration-200">Privacy Policy</Link> | <Link href="/about" className="hover:text-primary-1 duration-200">Terms of Use</Link></p>
+                    {/* <p>{FooterDataOne.copyrightText}.</p> */}
+                    {/* <p><Link href="/about" className="hover:text-primary-1 duration-200">Privacy Policy</Link> | <Link href="/about" className="hover:text-primary-1 duration-200">Terms of Use</Link></p> */}
                 </div>
             </div>
         </div>
