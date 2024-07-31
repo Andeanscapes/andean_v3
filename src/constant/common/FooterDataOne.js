@@ -6,7 +6,7 @@ const FooterDataOne ={
     whatsappLink: "/",
     twitterLink: "/",
     pinterestLink: "/",
-    instagramLink: "/",
+    instagramLink: "https://www.instagram.com/hacienda_el_recuerdo",
     facebookLink: "/",
     youtubeLink: "/",
     copyrightText: "© Arid 2019 | All rights reserved.",

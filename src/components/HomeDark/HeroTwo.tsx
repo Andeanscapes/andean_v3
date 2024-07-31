@@ -34,9 +34,9 @@ const HeroTwo = () => {
                                     {slide.sub_title}
                                 </p>
                                 <div className="lg:mt-10 mt-7">
-                                    <Link href="/package-details" className="btn_primary__v1">
+                                    {/* <Link href="/package-details" className="btn_primary__v1">
                                         Book Now
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
                         </div>

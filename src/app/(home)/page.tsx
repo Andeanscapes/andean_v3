@@ -19,7 +19,7 @@ const HomeOne = () => {
             {/* <CategoryOne />
             <PackageOne />
             <VideoBanner /> */}
-            <InstagramFeed />
+            {/* <InstagramFeed /> */}
         </>
     );
 }
