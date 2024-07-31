@@ -16,9 +16,9 @@ const HomeOne = () => {
     return (
         <>
             <HeroTwo/>
-            <CategoryOne />
+            {/* <CategoryOne />
             <PackageOne />
-            <VideoBanner />
+            <VideoBanner /> */}
             <InstagramFeed />
         </>
     );
