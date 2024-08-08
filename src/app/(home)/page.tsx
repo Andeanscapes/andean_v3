@@ -1,10 +1,7 @@
 import { Metadata } from "next";
-import CategoryOne from "@/components/HomeOne/CategoryOne";
-import PackageOne from "@/components/HomeOne/PackageOne";
-import VideoBanner from "@/components/HomeOne/VideoBannerOne";
-import InstagramFeed from "@/components/layout/InstagramFeed";
 
 import HeroTwo from "@/components/HomeDark/HeroTwo"
+import VideoBanner from "@/components/HomeOne/VideoBannerOne"
 
 export const metadata: Metadata = {
     title: 'Home | Andean Scapes',
@@ -14,14 +11,13 @@ export const metadata: Metadata = {
 
 const HomeOne = () => {
     return (
-        <>
+        <main className="bg-[#121316]">
+            <>
             <HeroTwo/>
-            {/* <CategoryOne />
-            <PackageOne />
-            <VideoBanner /> */}
-            {/* <InstagramFeed /> */}
-        </>
-    );
+            <VideoBanner/>
+            </>
+        </main>
+      )
 }
 
 export default HomeOne;

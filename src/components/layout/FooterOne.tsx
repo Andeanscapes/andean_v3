@@ -5,7 +5,7 @@ import BackToTop from "./ui/BackToTop";
 
 const FooterOne = () => {
     return (
-        <div className="footer_style__one bg-center bg-cover bg-no-repeat mt-17 pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterDataOne.bgImg}")` }}>
+        <div className="footer_style__one bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterDataOne.bgImg}")` }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
