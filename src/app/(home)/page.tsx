@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import HeroTwo from "@/components/HomeDark/HeroTwo"
 import VideoBanner from "@/components/HomeOne/VideoBannerOne"
+import InstagramFeed from "@/components/layout/InstagramFeed"
 
 export const metadata: Metadata = {
     title: 'Home | Andean Scapes',
@@ -15,6 +16,7 @@ const HomeOne = () => {
             <>
             <HeroTwo/>
             <VideoBanner/>
+            <InstagramFeed/>
             </>
         </main>
       )
