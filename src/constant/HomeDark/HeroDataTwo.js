@@ -1,6 +1,12 @@
 const HeroDataTwo = {
     slides : [
         {
+            id: '0',
+            imgUrl: '/assets/images/hero/h0.webp',
+            title: 'Your Digital Nomad Retreat in the Heart of the Colombian Andes',
+            sub_title: 'Code amidst the clouds, immerse yourself in the vibrant traditions of Colombian mountains, and find inspiration in nature at Andean Scapes—the ultimate retreat and co-living experience for digital nomads.'
+        },
+        {
             id: '1',
             imgUrl: '/assets/images/hero/h1.webp',
             title: 'Wake Up to Stunning Mountain Views',

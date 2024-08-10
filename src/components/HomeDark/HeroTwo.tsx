@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,11 +8,23 @@ import HeroDataTwo from '@/constant/HomeDark/HeroDataTwo'
 import Link from "next/link";
 
 const HeroTwo = () => {
+    const [isMobile, setIsMobile] = useState(false);
 
     const navigation = {
         nextEl: ".hero-next",
         prevEl: ".hero-prev",
     }
+
+    useEffect(() => {
+        const checkMobile = () => {
+          setIsMobile(window.innerWidth <= 768); // or use navigator.userAgent
+        };
+    
+        checkMobile(); // Check on initial load
+        window.addEventListener('resize', checkMobile); // Update on resize
+    
+        return () => window.removeEventListener('resize', checkMobile);
+      }, []);
 
     return (
         <div className="hero_style__two relative">
@@ -27,12 +40,17 @@ const HeroTwo = () => {
                         <img src={slide.imgUrl} alt="cv" className="z-minus absolute w-full h-full object-cover zoom-image" />
                         <div className="container">
                             <div className="max-w-[850px] mx-auto text-center text-white relative lg:pb-24 pb-20 lg:pt-[220px] pt-36">
+                                <div className="w-full h-full flex items-center justify-center mb-3">
+                                    <img src="/assets/images/logo-white.png" width="150" height="180" />
+                                </div>
                                 <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1.2">
                                     {slide.title}
                                 </h1>
-                                <p className="lg:text-[25px] text-2md mt-4 leading-1.7">
-                                    {slide.sub_title}
-                                </p>
+                                {!isMobile && (
+                                    <p className="lg:text-[25px] text-2md mt-4 leading-1.7">
+                                        {slide.sub_title}
+                                    </p>
+                                )}
                                 <div className="lg:mt-10 mt-7">
                                     {/* <Link href="/package-details" className="btn_primary__v1">
                                         Book Now
