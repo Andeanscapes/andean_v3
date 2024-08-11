@@ -29,7 +29,7 @@ const FooterOne = () => {
                     </Link>
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
 
-                        {whatsappLink({ phoneNumber: FooterDataOne.phone, message: "test message" })}
+                        {whatsappLink({ phoneNumber: FooterDataOne.phone, message: "Hello! I'm interested in your services for Andean Scapes" })}
 
                         {/* <Link href={FooterDataOne.whatsappLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
