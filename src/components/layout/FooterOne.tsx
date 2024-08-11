@@ -1,26 +1,42 @@
 import Link from "next/link";
+import { useCallback } from "react";
 import FooterDataOne from '@/constant/common/FooterDataOne';
-import Image from "next/image";
 import BackToTop from "./ui/BackToTop";
 
 const FooterOne = () => {
+    const whatsappLink = useCallback(({ phoneNumber, message }: { phoneNumber: string, message: string }) => {
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        return (
+            <Link href={whatsappUrl} passHref className="inline-flex items-center group">
+                <div className="social_icon_varient__one">
+                    <i className="bi bi-whatsapp" />
+                </div>
+                <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
+            </Link>
+        );
+    }, []);
+
     return (
         <div className="footer_style__one bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterDataOne.bgImg}")` }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
                         <img
-                            src={FooterDataOne.logo} 
-                            alt="logo" 
+                            src={FooterDataOne.logo}
+                            alt="logo"
                         />
                     </Link>
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
-                        <Link href={FooterDataOne.whatsappLink} className="inline-flex items-center group">
+
+                        {whatsappLink({ phoneNumber: FooterDataOne.phone, message: "test message" })}
+
+                        {/* <Link href={FooterDataOne.whatsappLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-whatsapp" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
-                        </Link>
+                        </Link> */}
                         {/* <Link href={FooterDataOne.twitterLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-twitter" />

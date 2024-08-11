@@ -17,14 +17,14 @@ const HeroTwo = () => {
 
     useEffect(() => {
         const checkMobile = () => {
-          setIsMobile(window.innerWidth <= 768); // or use navigator.userAgent
+            setIsMobile(window.innerWidth <= 768); // or use navigator.userAgent
         };
-    
+
         checkMobile(); // Check on initial load
         window.addEventListener('resize', checkMobile); // Update on resize
-    
+
         return () => window.removeEventListener('resize', checkMobile);
-      }, []);
+    }, []);
 
     return (
         <div className="hero_style__two relative">
@@ -43,18 +43,21 @@ const HeroTwo = () => {
                                 <div className="w-full h-full flex items-center justify-center mb-3">
                                     <img src="/assets/images/logo-white.png" width="150" height="180" />
                                 </div>
-                                <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1.2">
-                                    {slide.title}
-                                </h1>
+                                <div style={ isMobile ? { minHeight: "200px" } : {}}>
+                                    <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1.2">
+                                        {slide.title}
+                                    </h1>
+                                </div>
                                 {!isMobile && (
+
                                     <p className="lg:text-[25px] text-2md mt-4 leading-1.7">
                                         {slide.sub_title}
                                     </p>
                                 )}
                                 <div className="lg:mt-10 mt-7">
-                                    {/* <Link href="/package-details" className="btn_primary__v1">
-                                        Book Now
-                                    </Link> */}
+                                    <Link href="/email-form" className="btn_primary__v1">
+                                        Be the First to Know
+                                    </Link>
                                 </div>
                             </div>
                         </div>

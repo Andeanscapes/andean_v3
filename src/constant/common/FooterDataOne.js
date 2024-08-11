@@ -10,7 +10,7 @@ const FooterDataOne ={
     facebookLink: "/",
     youtubeLink: "/",
     copyrightText: "© Arid 2019 | All rights reserved.",
-    phone: "+ 971 5546 963",
+    phone: "573192510498",
     email: "example@gmail.com",
     address: '3891 Ranchview Dr. Richardson, California 62639'
 }

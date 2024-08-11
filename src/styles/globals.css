@@ -592,6 +592,9 @@ Customiz Third-Party Plugins
 .header-style{
   @apply px-3 xl:py-[10px] py-[8px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out; 
 }
+.herder-variant-four{
+  background-color: rgb(18 19 22 / var(--tw-bg-opacity));
+}
 .herder-variant-three{
   @apply !bg-transparent
 }

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 const HeaderOne = ({
     variant = "default",
 } : {
-    variant?: "default" | "transparent" | "transparent-V2"
+    variant?: "default" | "transparent" | "transparent-V2" | "black"
 }) => {
 
     const [toggle, setToggle] = useState(false);
@@ -46,6 +46,7 @@ const HeaderOne = ({
            ${isSticky ? 'sticky' : ''} 
            ${variant === "transparent" ? "herder-variant-three" : ""}
            ${variant === "transparent-V2" ? "herder-variant-two" : ""}
+           ${variant === "black" ? "herder-variant-four" : ""}
            `}>
             <div className="desktop-menu max-w-[1570px] mx-auto justify-between items-center xl:flex hidden">
 
@@ -151,8 +152,8 @@ const HeaderOne = ({
                     </div>
                 </div>
                 {/* <div className="shrink-0">
-                    <Link href="/login" className="btn_primary__v1 outlined">
-                        Sign In / Register
+                    <Link href="/email-form" className="btn_primary__v1 outlined">
+                        Be the First to Know
                     </Link>
                 </div> */}
             </div>
