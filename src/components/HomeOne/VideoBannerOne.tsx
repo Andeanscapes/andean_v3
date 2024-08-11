@@ -20,7 +20,7 @@ const VideoBanner = () => {
 				channel="youtube"
 				youtube={{ mute: 0, autoplay: 0 }}
 				isOpen={isOpen}
-				videoId="RorgQdsCXss"
+				videoId="6ou7rodBJ1g"
 				onClose={() => setOpen(false)} 
                 ratio='1024:768'
 			/>
