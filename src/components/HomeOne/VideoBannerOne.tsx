@@ -20,8 +20,9 @@ const VideoBanner = () => {
 				channel="youtube"
 				youtube={{ mute: 0, autoplay: 0 }}
 				isOpen={isOpen}
-				videoId="vJoNqBZ9QlM"
+				videoId="RorgQdsCXss"
 				onClose={() => setOpen(false)} 
+                ratio='1024:768'
 			/>
             <div className="container relative z-2 lg:py-40 py-30">
                 <div className="max-w-[560px] mx-auto text-center text-white">
