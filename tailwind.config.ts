@@ -58,9 +58,9 @@ const config: Config = {
       colors: {
         "gradient-1" : 'linear-gradient(180deg, #FFF4E2 0%, rgba(255, 255, 255, 0) 100%)',
         primary:{
-          "1" : "#E8604C",
-          "2" : "#eb7766",
-          "3" : "#F7DCB5",
+          "1" : "#4CAE88",
+          "2" : "#6FC19B",
+          "3" : "#D4EBD2",
         },
         secondary: {
           "1" : "#FF7C5B",

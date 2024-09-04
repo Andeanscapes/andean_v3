@@ -16,7 +16,7 @@ const HeroDataTwo = {
             id: '2',
             imgUrl: '/assets/images/hero/h2.webp',
             title: 'Live and Work in Harmony',
-            sub_title: 'Enjoy modern comforts in a historic setting at Hacienda El Recuerdo. Ideal for digital nomads seeking a unique co-living experience.'
+            sub_title: 'Enjoy modern comforts in a historic setting at Hacienda El Recuerdo (Chivor - Boyacá). Ideal for digital nomads seeking a unique co-living experience.'
         },
         {
             id: '3',
@@ -53,6 +53,30 @@ const HeroDataTwo = {
             imgUrl: '/assets/images/hero/h8.webp',
             title: 'Rest in Comfort and Style',
             sub_title: 'Unwind in our beautifully designed private rooms. Enjoy the perfect blend of comfort, style, and tranquility.'
+        },
+        {
+            id: '9',
+            imgUrl: '/assets/images/hero/h9.webp',  // Replace with the actual path to the new image
+            title: 'Explore Charming Nearby Towns',
+            sub_title: 'Discover the beauty and charm of nearby Colombian towns like Macanal (Boyacá). Immerse yourself in local culture, architecture, and traditions for an authentic experience.',
+            ctaText: 'Plan Your Adventure',
+            ctaLink: '/nearby-towns'
+        },
+        {
+            id: '10',
+            imgUrl: '/assets/images/hero/h10.webp',  // Replace with the actual path to the new image
+            title: 'Connect with Farm Life',
+            sub_title: 'Get hands-on with farm life by milking cows with local farmers at Hacienda El Recuerdo. Learn traditional methods and enjoy a unique rural experience.',
+            ctaText: 'Join a Farm Activity',
+            ctaLink: '/farm-activities'
+        },
+        {
+            id: '11',
+            imgUrl: '/assets/images/hero/h11.webp',  // Replace with the actual path to the new image
+            title: 'Unearth the Treasures of the Andes',
+            sub_title: 'Delve deep into the heart of the Andes and explore the historic emerald mines. Experience the thrill of discovery while learning about the mining traditions and the geological wonders of Colombia.',
+            ctaText: 'Join the Adventure',
+            ctaLink: '/emerald-mine-tour'
         }
     ]
 }
