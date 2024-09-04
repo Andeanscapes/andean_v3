@@ -7,8 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import HeroDataTwo from '@/constant/HomeDark/HeroDataTwo'
 import Link from "next/link";
 
+import {useTranslations} from 'next-intl';
+
 const HeroTwo = () => {
     const [isMobile, setIsMobile] = useState(false);
+
+    const t = useTranslations('HomePage');
 
     const navigation = {
         nextEl: ".hero-next",
@@ -57,7 +61,7 @@ const HeroTwo = () => {
                                 )}
                                 <div className="lg:mt-10 mt-7">
                                     <Link href="/email-form" className="btn_primary__v1">
-                                        Be the First to Know
+                                        { t("beTheFirst") }
                                     </Link>
                                 </div>
                             </div>

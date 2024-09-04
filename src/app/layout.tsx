@@ -1,6 +1,9 @@
 import '@/styles/globals.css';
 import { Jost, Playfair_Display, Satisfy } from 'next/font/google';
 
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
+
 // Import Swiper styles
 import 'swiper/css';
 
@@ -23,15 +26,20 @@ const satisfy = Satisfy({
   variable: '--font-satisfy'
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+    const locale = await getLocale();
+    const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}>
+    <html lang={locale} className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}>
       <body>
+      <NextIntlClientProvider messages={messages}>
         {children}
+      </NextIntlClientProvider>
       </body>
     </html>
   )
