@@ -1,0 +1,4 @@
+# andean_v3/wrangler.toml
+name = "andean-v3"
+pages_build_output_dir = ".vercel/output"
+compatibility_date = "2026-12-31"

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:deploy": "npm run pages:build && export $(grep -v '^#' .env.local | xargs) && npx wrangler pages deploy"
   },
   "dependencies": {
     "@types/react-datepicker": "^4.19.5",
