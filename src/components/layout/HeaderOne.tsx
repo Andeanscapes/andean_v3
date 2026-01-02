@@ -158,7 +158,6 @@ const HeaderOne = ({
                 </div> */}
             </div>
 
-            {/* mobile menu */}
             <div className="mobile-menu xl:hidden flex justify-between items-center relative">
                 <Link href="/" className="shrink-0 max-w-[50px]">
                     <Image
