@@ -1,15 +1,10 @@
-import dynamic from 'next/dynamic';
+import PackageMapNoSSR from '@/components/package/PackageMapNoSSR';
 
 import PackageDetailsSlider from '@/components/package/PackageDetailsSlider';
 import PackageDetailsData from '@/constant/Package/PackageDetailsData';
 import PackageBookingForm from '@/components/package/PackageBookingForm';
 import PackageGallary from '@/components/package/PackageGallary';
 import { Metadata } from 'next';
-
-const DynamicMap = dynamic(() => import('@/components/package/PackageMap'), {
-  ssr: false
-});
-
 
 export const metadata: Metadata = {
   title: 'Package Details | Arid - Travel & Tourism HTML/Tailwind CSS Template',
@@ -301,7 +296,7 @@ const PackageDetails = () => {
                     pharetra, vitae viverra mauris condimentum. Sed ullamcorper dignissim enim, vel egestas
                     lacus tincidunt ac. Duis id interdum ex, eu accumsan massa. Fusce vel nibh diam.</p>
                   {/* <div id="map" className="lg:h-[400px] h-[200px]" /> */}
-                  <DynamicMap position={PackageDetailsData?.position} />
+                  <PackageMapNoSSR position={PackageDetailsData?.position} />
                 </div>
                 <div className="lg:pt-10 pt-8">
                   <h3 className="lg:text-2xl md:text-xl text-lg text-dark-1 leading-[1.42] font-medium mt-[10px] !mb-base">

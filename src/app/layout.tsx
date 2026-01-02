@@ -23,16 +23,16 @@ const satisfy = Satisfy({
   variable: '--font-satisfy'
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}>
-      <body>
+    <html
+      lang="en"
+      className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>
         {children}
       </body>
     </html>
-  )
+  );
 }

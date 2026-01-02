@@ -2,9 +2,6 @@
 "use client"
 import { useState } from 'react';
 import Select from "react-select";
-import DatePicker from 'react-datepicker';
-
-import "react-datepicker/dist/react-datepicker.css";
 
 
 type OptionType = {
@@ -23,8 +20,8 @@ const options : OptionType[] = [
 
 
 const SearchFormOne = () => {
-    const [dateRange, setDateRange] = useState([null, null]);
-    const [startDate, endDate] = dateRange;
+    const [startDate, setStartDate] = useState<string>("");
+    const [endDate, setEndDate] = useState<string>("");
 
     const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
 
@@ -57,18 +54,20 @@ const SearchFormOne = () => {
                     </div>
                 </div>
                 <div className="relative lg:mt-10 mt-6 select_style__one">
-                    <DatePicker
-                        selectsRange={true}
-                        startDate={startDate}
-                        endDate={endDate}
-                        onChange={(update: any) => {
-                            setDateRange(update);
-                        }}
-                        placeholderText="Select Date"
-                        className="search__daterange lg:h-17 h-14 pr-4 lg:pl-[60px] pl-[50px] lg:text-md text-base w-full placeholder:text-dark-2 font-medium outline-none !font-sans"
-
-                    // isClearable={true}
-                    />
+                    <div className="grid grid-cols-2 gap-2">
+                        <input
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="search__daterange lg:h-17 h-14 pr-4 lg:pl-[60px] pl-[50px] lg:text-md text-base w-full placeholder:text-dark-2 font-medium outline-none !font-sans"
+                        />
+                        <input
+                            type="date"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            className="search__daterange lg:h-17 h-14 pr-4 lg:pl-[60px] pl-[50px] lg:text-md text-base w-full placeholder:text-dark-2 font-medium outline-none !font-sans"
+                        />
+                    </div>
                     <div className="absolute top-1/2 -translate-y-1/2 left-5 lg:left-base max-w-[20px]">
                         <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.9583 2.96669V1.66669C13.9583 1.32502 13.675 1.04169 13.3333 1.04169C12.9916 1.04169 12.7083 1.32502 12.7083 1.66669V2.91669H7.29165V1.66669C7.29165 1.32502 7.00831 1.04169 6.66665 1.04169C6.32498 1.04169 6.04165 1.32502 6.04165 1.66669V2.96669C3.79165 3.17502 2.69999 4.51669 2.53332 6.50835C2.51665 6.75002 2.71665 6.95002 2.94999 6.95002H17.05C17.2916 6.95002 17.4916 6.74169 17.4666 6.50835C17.3 4.51669 16.2083 3.17502 13.9583 2.96669Z" fill="currentColor" />

@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react"
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 
 
 
 const PackageBookingForm = () => {
 
-    const [dateRange, setDateRange] = useState([null, null]);
-    const [startDate, endDate] = dateRange;
+    const [startDate, setStartDate] = useState<string>("");
+    const [endDate, setEndDate] = useState<string>("");
 
     const [activTab, setActiveTab] = useState('booking');
     const [dropdownActive, setDropdownActive] = useState(false);
@@ -53,16 +51,20 @@ const PackageBookingForm = () => {
                     <h4 className="lg:text-xl text-lg text-dark-1 font-semibold"><span className="text-md font-sans font-normal text-dark-3">Start from</span> $175</h4>
                     <div className="mt-5 lg:mt-6">
                         <label htmlFor="tourTime" className="mb-2 text-dark-3 capitalize block">Date</label>
-                        <DatePicker
-                        selectsRange={true}
-                        startDate={startDate}
-                        endDate={endDate}
-                        onChange={(update: any) => {
-                            setDateRange(update);
-                        }}
-                        placeholderText="Select Date"
-                        className="search__daterange border border-stock-1 lg:h-[54px] h-12 px-5 py-2 text-dark-2 focus:border-primary-1 w-full placeholder:text-dark-2 outline-none !font-sans text-start"
-                    />
+                        <div className="grid grid-cols-2 gap-2">
+                            <input
+                                type="date"
+                                value={startDate}
+                                onChange={(e) => setStartDate(e.target.value)}
+                                className="search__daterange border border-stock-1 lg:h-[54px] h-12 px-5 py-2 text-dark-2 focus:border-primary-1 w-full placeholder:text-dark-2 outline-none !font-sans text-start"
+                            />
+                            <input
+                                type="date"
+                                value={endDate}
+                                onChange={(e) => setEndDate(e.target.value)}
+                                className="search__daterange border border-stock-1 lg:h-[54px] h-12 px-5 py-2 text-dark-2 focus:border-primary-1 w-full placeholder:text-dark-2 outline-none !font-sans text-start"
+                            />
+                        </div>
                     </div>
                     <div className="js-form-counters lg:mt-6 mt-5 relative">
                         <label htmlFor="tourTime" className="mb-2 text-dark-3 capitalize block">Number of travelers</label>
