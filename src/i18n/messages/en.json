@@ -1,0 +1,68 @@
+{
+    "Home": {
+        "metaTitle": "Home | Andean Scapes",
+        "metaDescription": "Experience the ultimate nature adventure and co-living space in the heart of the Andes."
+    },
+    "HeroTwo": {
+        "cta": "Be the First to Know",
+        "slides": {
+            "0": {
+                "title": "Your Digital Nomad Retreat",
+                "subtitle": "Code amidst the clouds, immerse yourself in the vibrant traditions of Colombian mountains, and find inspiration in nature at Andean Scapes—the ultimate retreat and co-living experience for digital nomads."
+            },
+            "1": {
+                "title": "Wake Up to Stunning Mountain Views",
+                "subtitle": "Start your day with breathtaking mountain vistas. Discover tranquility and inspiration in every sunrise."
+            },
+            "2": {
+                "title": "Live and Work in Harmony",
+                "subtitle": "Enjoy modern comforts in a historic setting at Hacienda El Recuerdo (Chivor - Boyacá). Ideal for digital nomads seeking a unique co-living experience."
+            },
+            "3": {
+                "title": "Discover Hidden Treasures",
+                "subtitle": "Venture into the heart of Colombia's emerald mines. Unearth nature's finest gems and create unforgettable memories"
+            },
+            "4": {
+                "title": "Work Amidst Nature",
+                "subtitle": "Find your productivity sweet spot in our serene outdoor workspaces. Enjoy stunning views while you work."
+            },
+            "5": {
+                "title": "Reconnect with Nature",
+                "subtitle": "Engage in hands-on farm and beekeeping activities. Experience the joy and simplicity of rural life."
+            },
+            "6": {
+                "title": "Adventure Awaits",
+                "subtitle": "Embark on thrilling activities like hiking and horseback riding. Explore the adventurous side of the Andes."
+            },
+            "7": {
+                "title": "Immerse in Local Life",
+                "subtitle": "Dive into the rich local culture with vibrant community events and traditions. Experience authentic Colombian hospitality."
+            },
+            "8": {
+                "title": "Rest in Comfort and Style",
+                "subtitle": "Unwind in our beautifully designed private rooms. Enjoy the perfect blend of comfort, style, and tranquility."
+            },
+            "9": {
+                "title": "Explore Charming Nearby Towns",
+                "subtitle": "Discover the beauty and charm of nearby Colombian towns like Macanal (Boyacá). Immerse yourself in local culture, architecture, and traditions for an authentic experience."
+            },
+            "10": {
+                "title": "Connect with Farm Life",
+                "subtitle": "Get hands-on with farm life by milking cows with local farmers at Hacienda El Recuerdo. Learn traditional methods and enjoy a unique rural experience."
+            },
+            "11": {
+                "title": "Unearth the Treasures of the Andes",
+                "subtitle": "Delve deep into the heart of the Andes and explore the historic emerald mines. Experience the thrill of discovery while learning about the mining traditions and the geological wonders of Colombia."
+            }
+        }
+    },
+    "VideoBanner": {
+        "title": "Discover the Miner’s Journey",
+        "description": "Experience a day in the life of an emerald miner. Watch our exclusive video to uncover the adventure and heritage of Colombia's emerald industry.",
+        "close": "Close",
+        "closeAria": "Close video",
+        "videoTitle": "YouTube video player",
+        "playAria": "Play video",
+        "playAlt": "Play video"
+    }
+}

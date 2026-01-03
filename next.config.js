@@ -1,3 +1,6 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Keep Next.js in server mode (no `next export`) so Cloudflare Pages can serve
@@ -19,25 +22,43 @@ const nextConfig = {
   async redirects() {
     // Keep nav links in existing template components from 404'ing after route cleanup.
     // These are TEMP redirects so you can reintroduce routes later without fighting caches.
-    return [
-      { source: "/email-form", destination: "/", permanent: false },
-      { source: "/home-dark", destination: "/", permanent: false },
-      { source: "/home-parallax", destination: "/", permanent: false },
+    const removedRoutes = [
+      '/email-form',
+      '/home-dark',
+      '/home-parallax',
+      '/about',
+      '/blog-details',
+      '/blog-list',
+      '/contact',
+      '/destination-details',
+      '/destinations',
+      '/gallary',
+      '/guides',
+      '/package-details',
+      '/package-details-2',
+      '/package-list',
+      '/package-sidebar'
+    ];
 
-      { source: "/about", destination: "/", permanent: false },
-      { source: "/blog-details", destination: "/", permanent: false },
-      { source: "/blog-list", destination: "/", permanent: false },
-      { source: "/contact", destination: "/", permanent: false },
-      { source: "/destination-details", destination: "/", permanent: false },
-      { source: "/destinations", destination: "/", permanent: false },
-      { source: "/gallary", destination: "/", permanent: false },
-      { source: "/guides", destination: "/", permanent: false },
-      { source: "/package-details", destination: "/", permanent: false },
-      { source: "/package-details-2", destination: "/", permanent: false },
-      { source: "/package-list", destination: "/", permanent: false },
-      { source: "/package-sidebar", destination: "/", permanent: false },
+    // Since routes now live under `app/[locale]`, requests can resolve as `/en/...` or `/es/...`
+    // (depending on localePrefix + middleware). Redirect both the unprefixed and prefixed forms.
+    const locales = ['en', 'es'];
+
+    return [
+      ...removedRoutes.map((source) => ({
+        source,
+        destination: '/',
+        permanent: false
+      })),
+      ...removedRoutes.flatMap((source) =>
+        locales.map((locale) => ({
+          source: `/${locale}${source}`,
+          destination: locale === 'en' ? '/' : `/${locale}`,
+          permanent: false
+        }))
+      )
     ];
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

@@ -1,0 +1,68 @@
+{
+    "Home": {
+        "metaTitle": "Inicio | Andean Scapes",
+        "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
+    },
+    "HeroTwo": {
+        "cta": "Sé el primero en enterarte",
+        "slides": {
+            "0": {
+                "title": "Tu refugio para nómadas digitales",
+                "subtitle": "Programa entre las nubes, sumérgete en las vibrantes tradiciones de las montañas colombianas y encuentra inspiración en la naturaleza en Andean Scapes: el refugio y experiencia de co‑living definitiva para nómadas digitales."
+            },
+            "1": {
+                "title": "Despierta con vistas increíbles a la montaña",
+                "subtitle": "Comienza el día con panorámicas impresionantes. Descubre tranquilidad e inspiración en cada amanecer."
+            },
+            "2": {
+                "title": "Vive y trabaja en armonía",
+                "subtitle": "Disfruta comodidades modernas en un entorno histórico en Hacienda El Recuerdo (Chivor - Boyacá). Ideal para nómadas digitales que buscan una experiencia de co‑living única."
+            },
+            "3": {
+                "title": "Descubre tesoros escondidos",
+                "subtitle": "Aventúrate al corazón de las minas de esmeraldas de Colombia. Encuentra las joyas más finas de la naturaleza y crea recuerdos inolvidables."
+            },
+            "4": {
+                "title": "Trabaja en medio de la naturaleza",
+                "subtitle": "Encuentra tu punto ideal de productividad en nuestros espacios de trabajo al aire libre. Disfruta vistas espectaculares mientras trabajas."
+            },
+            "5": {
+                "title": "Reconéctate con la naturaleza",
+                "subtitle": "Participa en actividades de granja y apicultura. Vive la alegría y simplicidad de la vida rural."
+            },
+            "6": {
+                "title": "La aventura te espera",
+                "subtitle": "Embárcate en actividades emocionantes como senderismo y cabalgatas. Explora el lado aventurero de los Andes."
+            },
+            "7": {
+                "title": "Sumérgete en la vida local",
+                "subtitle": "Vive la rica cultura local con eventos comunitarios y tradiciones. Experimenta la auténtica hospitalidad colombiana."
+            },
+            "8": {
+                "title": "Descansa con comodidad y estilo",
+                "subtitle": "Relájate en nuestras habitaciones privadas bellamente diseñadas. Disfruta la mezcla perfecta de comodidad, estilo y tranquilidad."
+            },
+            "9": {
+                "title": "Explora pueblos cercanos con encanto",
+                "subtitle": "Descubre la belleza y el encanto de pueblos colombianos cercanos como Macanal (Boyacá). Sumérgete en la cultura, arquitectura y tradiciones para una experiencia auténtica."
+            },
+            "10": {
+                "title": "Conéctate con la vida de granja",
+                "subtitle": "Vive la vida de granja ordeñando vacas con campesinos locales en Hacienda El Recuerdo. Aprende métodos tradicionales y disfruta una experiencia rural única."
+            },
+            "11": {
+                "title": "Descubre los tesoros de los Andes",
+                "subtitle": "Adéntrate en el corazón de los Andes y explora las históricas minas de esmeraldas. Vive la emoción del descubrimiento mientras aprendes sobre las tradiciones mineras y las maravillas geológicas de Colombia."
+            }
+        }
+    },
+    "VideoBanner": {
+        "title": "Descubre el viaje del minero",
+        "description": "Vive un día en la vida de un minero de esmeraldas. Mira nuestro video para descubrir la aventura y la herencia de la industria esmeraldífera de Colombia.",
+        "close": "Cerrar",
+        "closeAria": "Cerrar video",
+        "videoTitle": "Reproductor de YouTube",
+        "playAria": "Reproducir video",
+        "playAlt": "Reproducir video"
+    }
+}

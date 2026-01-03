@@ -6,9 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import HeroDataTwo from '@/constant/HomeDark/HeroDataTwo'
 import Link from "next/link";
+import {useTranslations} from 'next-intl';
 
 const HeroTwo = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const t = useTranslations('HeroTwo');
 
     const navigation = {
         nextEl: ".hero-next",
@@ -45,19 +47,19 @@ const HeroTwo = () => {
                                 </div>
                                 <div style={isMobile ? { minHeight: "200px" } : {}}>
                                     <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1.2">
-                                        {slide.title}
+                                        {t(`slides.${slide.id}.title`)}
                                     </h1>
                                 </div>
                                 {!isMobile && (
                                     <div style={{ minHeight: "150px" }}>
                                         <p className="lg:text-[25px] text-2md mt-4 leading-1.7">
-                                            {slide.sub_title}
+                                            {t(`slides.${slide.id}.subtitle`)}
                                         </p>
                                     </div>
                                 )}
                                 <div className="lg:mt-10 mt-7">
                                     <Link href="/email-form" className="btn_primary__v1">
-                                        Be the First to Know
+                                        {t('cta')}
                                     </Link>
                                 </div>
                             </div>
