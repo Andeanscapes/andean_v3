@@ -15,6 +15,29 @@ const nextConfig = {
             : []),
         ]
       : undefined,
+
+  async redirects() {
+    // Keep nav links in existing template components from 404'ing after route cleanup.
+    // These are TEMP redirects so you can reintroduce routes later without fighting caches.
+    return [
+      { source: "/email-form", destination: "/", permanent: false },
+      { source: "/home-dark", destination: "/", permanent: false },
+      { source: "/home-parallax", destination: "/", permanent: false },
+
+      { source: "/about", destination: "/", permanent: false },
+      { source: "/blog-details", destination: "/", permanent: false },
+      { source: "/blog-list", destination: "/", permanent: false },
+      { source: "/contact", destination: "/", permanent: false },
+      { source: "/destination-details", destination: "/", permanent: false },
+      { source: "/destinations", destination: "/", permanent: false },
+      { source: "/gallary", destination: "/", permanent: false },
+      { source: "/guides", destination: "/", permanent: false },
+      { source: "/package-details", destination: "/", permanent: false },
+      { source: "/package-details-2", destination: "/", permanent: false },
+      { source: "/package-list", destination: "/", permanent: false },
+      { source: "/package-sidebar", destination: "/", permanent: false },
+    ];
+  },
 };
 
 module.exports = nextConfig;
