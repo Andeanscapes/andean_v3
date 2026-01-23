@@ -1,4 +1,4 @@
-const HeroDataTwo = {
+const HeroData = {
   // Keep only non-translatable data here (ids + image URLs).
   // All text content lives in `src/i18n/messages/*` under the `HeroTwo` namespace.
   slides: [
@@ -17,4 +17,4 @@ const HeroDataTwo = {
   ]
 };
 
-export default HeroDataTwo;
+export default HeroData;

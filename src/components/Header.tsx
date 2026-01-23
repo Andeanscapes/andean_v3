@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from 'react'
 
-const HeaderOne = ({
+const Header = ({
     variant = "default",
 } : {
     variant?: "default" | "transparent" | "transparent-V2" | "black"
@@ -251,4 +251,4 @@ const HeaderOne = ({
     );
 }
 
-export default HeaderOne;
+export default Header;

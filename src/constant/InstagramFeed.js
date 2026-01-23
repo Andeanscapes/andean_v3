@@ -1,5 +1,5 @@
 
-const InstagramData = {
+const InstagramFeedData = {
     images:[
         {
             id: '1',
@@ -23,4 +23,4 @@ const InstagramData = {
         }
     ]
 }
-export default InstagramData; 
+export default InstagramFeedData; 

@@ -1,5 +1,5 @@
 
-const FooterDataOne ={
+const FooterData ={
     logo: "/assets/images/logo-white.png",
     bgImg: '/assets/images/backgrounds/footer-bg-1.webp',
     bgImg2: '/assets/images/backgrounds/footer-bg-2.png',
@@ -14,4 +14,4 @@ const FooterDataOne ={
     email: "example@gmail.com",
     address: '3891 Ranchview Dr. Richardson, California 62639'
 }
-export default FooterDataOne; 
+export default FooterData; 

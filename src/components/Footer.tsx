@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useCallback } from "react";
-import FooterDataOne from '@/constant/common/FooterDataOne';
-import BackToTop from "./ui/BackToTop";
+import FooterData from "@/constant/Footer";
+import BackToTop from "./BackToTop";
 
-const FooterOne = () => {
+const Footer = () => {
     const whatsappLink = useCallback(({ phoneNumber, message }: { phoneNumber: string, message: string }) => {
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -18,38 +18,38 @@ const FooterOne = () => {
     }, []);
 
     return (
-        <div className="footer_style__one bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterDataOne.bgImg}")` }}>
+        <div className="footer_style__one bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterData.bgImg}")` }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
                         <img
-                            src={FooterDataOne.logo}
+                            src={FooterData.logo}
                             alt="logo"
                         />
                     </Link>
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
 
-                        {whatsappLink({ phoneNumber: FooterDataOne.phone, message: "Hello! I'm interested in your services for Andean Scapes" })}
+                        {whatsappLink({ phoneNumber: FooterData.phone, message: "Hello! I'm interested in your services for Andean Scapes" })}
 
-                        {/* <Link href={FooterDataOne.whatsappLink} className="inline-flex items-center group">
+                        {/* <Link href={FooterData.whatsappLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-whatsapp" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
                         </Link> */}
-                        {/* <Link href={FooterDataOne.twitterLink} className="inline-flex items-center group">
+                        {/* <Link href={FooterData.twitterLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-twitter" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Twitter</h5>
                         </Link> */}
-                        {/* <Link href={FooterDataOne.pinterestLink} className="inline-flex items-center group">
+                        {/* <Link href={FooterData.pinterestLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-pinterest" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Pinterest</h5>
                         </Link> */}
-                        <Link href={FooterDataOne.instagramLink} className="inline-flex items-center group">
+                        <Link href={FooterData.instagramLink} className="inline-flex items-center group">
                             <div className="social_icon_varient__one">
                                 <i className="bi bi-instagram" />
                             </div>
@@ -111,7 +111,7 @@ const FooterOne = () => {
                                         </svg>
                                     </div>
                                     <Link href="#" className="leading-1.5 pl-[10px] text-base ">
-                                        {FooterDataOne.address}
+                                        {FooterData.address}
                                     </Link>
                                 </li>
                                 <li className="mt-5 first:mt-0 flex items-center lg:justify-start justify-center text-stock-1 hover:text-primary-1 duration-200">
@@ -122,8 +122,8 @@ const FooterOne = () => {
                                             <path d="M16.4751 6.4749L13.5251 3.5249" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>
-                                    <Link href={`tel:${FooterDataOne.phone}`} className="leading-1.5 pl-[10px] text-base ">
-                                        {FooterDataOne.phone}
+                                    <Link href={`tel:${FooterData.phone}`} className="leading-1.5 pl-[10px] text-base ">
+                                        {FooterData.phone}
                                     </Link>
                                 </li>
                                 <li className="mt-5 first:mt-0 flex items-center lg:justify-start justify-center text-stock-1 hover:text-primary-1 duration-200">
@@ -133,7 +133,7 @@ const FooterOne = () => {
                                             <path d="M14.1666 7.5L11.5582 9.58333C10.6999 10.2667 9.29158 10.2667 8.43325 9.58333L5.83325 7.5" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>
-                                    <Link href={`mailto:${FooterDataOne.email}`} className="leading-1.5 pl-[10px] text-base ">{FooterDataOne.email}</Link>
+                                    <Link href={`mailto:${FooterData.email}`} className="leading-1.5 pl-[10px] text-base ">{FooterData.email}</Link>
                                 </li>
                             </ul>
                         </div>
@@ -141,7 +141,7 @@ const FooterOne = () => {
                 </div>
                 <div className="text-dark-6 flex gap-4 flex-wrap lg:justify-between justify-center gradient-border-top py-7 relative">
                     <BackToTop />
-                    {/* <p>{FooterDataOne.copyrightText}.</p> */}
+                    {/* <p>{FooterData.copyrightText}.</p> */}
                     {/* <p><Link href="/about" className="hover:text-primary-1 duration-200">Privacy Policy</Link> | <Link href="/about" className="hover:text-primary-1 duration-200">Terms of Use</Link></p> */}
                 </div>
             </div>
@@ -149,4 +149,4 @@ const FooterOne = () => {
     );
 }
 
-export default FooterOne;
+export default Footer;

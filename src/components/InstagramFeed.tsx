@@ -1,6 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import InstagramData from '@/constant/common/InstagramData'
+import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
 import Image from 'next/image';
 const InstagramFeed = () => {
@@ -70,7 +70,7 @@ const InstagramFeed = () => {
                      }}
                      className='max-w-[1570px] mx-auto px-3 insta-feed-slider'
                 >
-                    {InstagramData.images?.map((item)=>(
+                    {InstagramFeedData.images?.map((item)=>(
                         <SwiperSlide key={item.id}>
                             <div className="relative overflow-hidden group">
                             <Image 

@@ -2,9 +2,7 @@ import type {Metadata} from 'next';
 import {getTranslations} from 'next-intl/server';
 import type {Locale} from '@/i18n/routing';
 
-import HeroTwo from "@/components/HomeDark/HeroTwo"
-import VideoBanner from "@/components/HomeOne/VideoBannerOne"
-import InstagramFeed from "@/components/layout/InstagramFeed"
+import LandingSection from "@/components/LandingSection"
 
 export async function generateMetadata({
   params
@@ -36,16 +34,6 @@ export async function generateMetadata({
   };
 }
 
-const HomeOne = () => {
-    return (
-        <main className="bg-[#121316]">
-            <>
-            <HeroTwo/>
-            <VideoBanner/>
-            <InstagramFeed/>
-            </>
-        </main>
-      )
+export default function Page() {
+  return <LandingSection />
 }
-
-export default HomeOne;
