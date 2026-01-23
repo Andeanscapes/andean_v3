@@ -1,0 +1,68 @@
+{
+  "Home": {
+    "metaTitle": "Accueil | Andean Scapes",
+    "metaDescription": "Expérimenter le meilleur aventure naturelle et l'espace de vie collectif au cœur des Andes."
+  },
+  "HeroTwo": {
+    "cta": "Soyez le premier à savoir",
+    "slides": {
+      "0": {
+        "title": "Votre Refuge Numérique",
+        "subtitle": "Codage dans les nuages, plongez-vous dans les traditions vibrantes des montagnes colombiennes et trouvez l'inspiration dans la nature à Andean Scapes — le véritable refuge et espace de vie collectif pour les numérisés."
+      },
+      "1": {
+        "title": "Découvrez les Magnifiques Vue Montagneuses",
+        "subtitle": "Commencez votre journée avec des vues magnifiques des montagnes. Découvrez la tranquillité et l'inspiration à chaque lever du soleil."
+      },
+      "2": {
+        "title": "Vivre et travailler en harmonie",
+        "subtitle": "Profitez des confort modernes dans un contexte historique à Hacienda El Recuerdo (Chivor - Boyacá). Idéal pour les numérisés cherchant une expérience de vie collectif unique."
+      },
+      "3": {
+        "title": "Découvrez les Trésors cachés",
+        "subtitle": "Entre au cœur des mines emmeraude de la Colombie. Évoquez les plus beaux trésors naturels et créez des souvenirs indélébiles."
+      },
+      "4": {
+        "title": "Travailler dans la Nature",
+        "subtitle": "Trouvez votre pointe de productivité dans nos beaux espaces de travail extérieurs. Profitez des magnifiques vues tout en travaillant."
+      },
+      "5": {
+        "title": "Reconnectez-vous avec la Nature",
+        "subtitle": "Participez à des activités pratiques comme l'agriculture et le kefki. Expérimenter la joie et la simplicité de la vie rurale."
+      },
+      "6": {
+        "title": "Aventure en Attente",
+        "subtitle": "Pratiquez des activités passionnantes comme le randonnée et le cheval périgordien. Explorez l'aspect aventureux des Andes."
+      },
+      "7": {
+        "title": "Immerse-toi dans la Vie Locale",
+        "subtitle": "Dive profondément dans la riche culture locale avec les événements et traditions communautaires vibrantes. Expérimenter l'hospitalité authentique colombienne."
+      },
+      "8": {
+        "title": "Reposez en confort et style",
+        "subtitle": "Relâchez-vous dans nos chambres luxueusement conçues. Profitez du parfait équilibre de confort, de style et de tranquillité."
+      },
+      "9": {
+        "title": "Découvrez les Petits Villageois Charmants Près",
+        "subtitle": "Découvrez la beauté et le charme des petits villageois colombiens comme Macanal (Boyacá). Immergez-vous dans la culture, l'architecture et les traditions locales pour une expérience authentique."
+      },
+      "10": {
+        "title": "Connectez-vous à la Vie Rurale",
+        "subtitle": "Participez à la vie rurale en aidant les fermiers locaux à laitier des vaches à Hacienda El Recuerdo. Apprenez les méthodes traditionnelles et profitez d'une expérience de vie rurale unique."
+      },
+      "11": {
+        "title": "Évoquez les Trésors des Andes",
+        "subtitle": "Enfoncez-vous au cœur des Andes et explorez les anciennes mines emmeraude. Expérimenter l'aventure de la découverte tout en apprenant à propos des traditions miniers et des merveilles géologiques de la Colombie."
+      }
+    }
+  },
+  "VideoBanner": {
+    "title": "Découvrez le Chemin du Mineur",
+    "description": "Expérimenter une journée dans la vie d'un mineur emmeraude. Regardez notre vidéo exclusive pour découvrir l'aventure et l'héritage de l'industrie minière emmeraude de la Colombie.",
+    "close": "Fermer",
+    "closeAria": "Fermer la vidéo",
+    "videoTitle": "Joueuur vidéo YouTube",
+    "playAria": "Lire la vidéo",
+    "playAlt": "Lire la vidéo"
+  }
+}

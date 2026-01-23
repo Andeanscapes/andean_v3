@@ -42,7 +42,7 @@ const nextConfig = {
 
     // Since routes now live under `app/[locale]`, requests can resolve as `/en/...` or `/es/...`
     // (depending on localePrefix + middleware). Redirect both the unprefixed and prefixed forms.
-    const locales = ['en', 'es'];
+    const locales = ['en', 'es', 'fr'];
 
     return [
       ...removedRoutes.map((source) => ({
