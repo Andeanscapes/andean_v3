@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import {getTranslations} from 'next-intl/server';
 import type {Locale} from '@/i18n/routing';
 
-import LandingSection from "@/components/LandingSection"
+import LandingSection from "@/components/LandingSection/LandingSection"
 
 export async function generateMetadata({
   params

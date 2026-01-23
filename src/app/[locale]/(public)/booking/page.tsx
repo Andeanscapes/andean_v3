@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import Separator from '@/components/Separator';
+import Separator from '@/components/Separator/Separator';
 import { Metadata } from 'next';
 
 const Booking = () => {

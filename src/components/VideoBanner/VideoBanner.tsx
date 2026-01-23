@@ -3,33 +3,34 @@ import { Parallax } from 'react-parallax';
 import VideoBannerData from '@/constant/VideoBanner'
 import { useState } from 'react';
 import {useTranslations} from 'next-intl';
+import styles from './VideoBanner.module.css';
 
 const VideoBanner = () => {
   const [isOpen, setOpen] = useState(false);
   const t = useTranslations('VideoBanner');
 
   return (
-    <>
+    <div className={styles.videoBanner}>
       <Parallax
         bgImage={VideoBannerData.bgImage}
         strength={-150}
         bgImageAlt='background'
         bgClassName='object-cover'
-        className="relative overflow-hidden"
+        className={`${styles.parallaxBg} relative overflow-hidden`}
       >
         {isOpen && (
           <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4"
+            className={styles.modalOverlay}
             onClick={() => setOpen(false)}
             role="dialog"
             aria-modal="true"
           >
             <div
-              className="relative w-full max-w-3xl overflow-hidden rounded-xl bg-black"
+              className={styles.modalContent}
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute right-3 top-3 z-10 rounded-md bg-white/10 px-3 py-1 text-white hover:bg-white/20"
+                className={styles.closeButton}
                 onClick={() => setOpen(false)}
                 aria-label={t('closeAria')}
               >
@@ -38,7 +39,7 @@ const VideoBanner = () => {
 
               <div className="aspect-video w-full">
                 <iframe
-                  className="h-full w-full"
+                  className={styles.videoFrame}
                   src="https://www.youtube-nocookie.com/embed/6ou7rodBJ1g?rel=0"
                   title={t('videoTitle')}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -65,7 +66,7 @@ const VideoBanner = () => {
           </div>
         </div>
       </Parallax>
-    </>
+    </div>
   );
 }
 

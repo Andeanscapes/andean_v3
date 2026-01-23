@@ -1,0 +1,33 @@
+/* Hero Component Styles */
+
+.heroSlide {
+  @apply lg:min-h-screen bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1  before:absolute before:content-[''] before:inset-0 before:bg-dark-1 before:bg-opacity-50;
+}
+
+.heroSlide.swiper-slide-active .zoomImage {
+  @apply scale-110 duration-[5s];
+}
+
+.zoomImage {
+  @apply z-minus absolute w-full h-full object-cover;
+}
+
+.glowText {
+  font-family: Poppins;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  text-shadow: hsla(0, 0%, 100%, 0.6) -2px 2px 30px;
+}
+
+.pagination {
+  @apply lg:mt-17 mt-12 flex justify-center;
+}
+
+.pagination :global(.swiper-pagination-bullet) {
+  @apply h-[10px] w-[10px] bg-white rounded-full opacity-100 !mx-[10px] relative before:absolute before:content-[''] before:-inset-1 before:rounded-full before:border before:border-transparent duration-150 before:duration-150;
+}
+
+.pagination :global(.swiper-pagination-bullet.swiper-pagination-bullet-active) {
+  @apply bg-primary-1 before:border-primary-1 before:border-opacity-100;
+}

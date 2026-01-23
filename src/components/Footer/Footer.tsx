@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useCallback } from "react";
 import FooterData from "@/constant/Footer";
-import BackToTop from "./BackToTop";
+import BackToTop from "../BackToTop/BackToTop";
+import styles from './Footer.module.css';
 
 const Footer = () => {
     const whatsappLink = useCallback(({ phoneNumber, message }: { phoneNumber: string, message: string }) => {
@@ -9,7 +10,7 @@ const Footer = () => {
 
         return (
             <Link href={whatsappUrl} passHref className="inline-flex items-center group">
-                <div className="social_icon_varient__one">
+                <div className={styles.socialIcon}>
                     <i className="bi bi-whatsapp" />
                 </div>
                 <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
@@ -18,7 +19,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <div className="footer_style__one bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden" style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterData.bgImg}")` }}>
+        <div className={styles.footerStyleOne} style={{ background: `linear-gradient( rgba(8, 8, 11, .8) 100%, rgba(8, 8, 11, .8)100%), url("${FooterData.bgImg}")` }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
@@ -32,25 +33,25 @@ const Footer = () => {
                         {whatsappLink({ phoneNumber: FooterData.phone, message: "Hello! I'm interested in your services for Andean Scapes" })}
 
                         {/* <Link href={FooterData.whatsappLink} className="inline-flex items-center group">
-                            <div className="social_icon_varient__one">
+                            <div className={styles.socialIcon}>
                                 <i className="bi bi-whatsapp" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">whatsapp </h5>
                         </Link> */}
                         {/* <Link href={FooterData.twitterLink} className="inline-flex items-center group">
-                            <div className="social_icon_varient__one">
+                            <div className={styles.socialIcon}>
                                 <i className="bi bi-twitter" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Twitter</h5>
                         </Link> */}
                         {/* <Link href={FooterData.pinterestLink} className="inline-flex items-center group">
-                            <div className="social_icon_varient__one">
+                            <div className={styles.socialIcon}>
                                 <i className="bi bi-pinterest" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Pinterest</h5>
                         </Link> */}
                         <Link href={FooterData.instagramLink} className="inline-flex items-center group">
-                            <div className="social_icon_varient__one">
+                            <div className={styles.socialIcon}>
                                 <i className="bi bi-instagram" />
                             </div>
                             <h5 className="text-white lg:text-2md text-md font-serif font-bold">Instagram</h5>
@@ -80,10 +81,10 @@ const Footer = () => {
                                 <h3 className="text-white lg:text-[25px] text-2md font-semibold lg:leading-1.35">Navigation</h3>
                             </div>
                             <ul className="footer-link-list">
-                                <li><Link href="/about" className="footer-nav-link">About Company</Link></li>
-                                <li><Link href="/about" className="footer-nav-link">Online Query</Link></li>
-                                <li><Link href="/about" className="footer-nav-link">Become Partner</Link></li>
-                                <li><Link href="/about" className="footer-nav-link">Help &amp; Support</Link></li>
+                                <li><Link href="/about" className={styles.footerNavLink}>About Company</Link></li>
+                                <li><Link href="/about" className={styles.footerNavLink}>Online Query</Link></li>
+                                <li><Link href="/about" className={styles.footerNavLink}>Become Partner</Link></li>
+                                <li><Link href="/about" className={styles.footerNavLink}>Help &amp; Support</Link></li>
                             </ul>
                         </div>
                         <div className="flex-grow">
@@ -92,10 +93,10 @@ const Footer = () => {
                                 </h3>
                             </div>
                             <ul className="footer-link-list">
-                                <li><Link href="/package-details" className="footer-nav-link">Grand Switzerland</Link></li>
-                                <li><Link href="/package-details" className="footer-nav-link">Beauty of Paris</Link></li>
-                                <li><Link href="/package-details" className="footer-nav-link">United States</Link></li>
-                                <li><Link href="/package-details" className="footer-nav-link">Wiesbaden Sea</Link></li>
+                                <li><Link href="/package-details" className={styles.footerNavLink}>Grand Switzerland</Link></li>
+                                <li><Link href="/package-details" className={styles.footerNavLink}>Beauty of Paris</Link></li>
+                                <li><Link href="/package-details" className={styles.footerNavLink}>United States</Link></li>
+                                <li><Link href="/package-details" className={styles.footerNavLink}>Wiesbaden Sea</Link></li>
                             </ul>
                         </div>
                         <div className="max-w-[275px] flex-grow shrink-0 ">

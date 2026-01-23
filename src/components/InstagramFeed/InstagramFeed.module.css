@@ -1,0 +1,9 @@
+/* InstagramFeed Component Styles */
+
+.instagramFeed {
+  @apply lg:pt-30 pt-24;
+}
+
+.feedIcon {
+  @apply absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 bg-white rounded-full flex justify-center items-center lg:shadow-[0_0_0_5px_#ffffff66] opacity-0 duration-300 group-hover:opacity-100 group-hover:top-1/2 hover:bg-primary-1 hover:text-white;
+}

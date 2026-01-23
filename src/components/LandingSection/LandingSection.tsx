@@ -1,8 +1,8 @@
 'use client'
 
-import Hero from "@/components/Hero"
-import VideoBanner from "@/components/VideoBanner"
-import InstagramFeed from "@/components/InstagramFeed"
+import Hero from "@/components/Hero/Hero"
+import VideoBanner from "@/components/VideoBanner/VideoBanner"
+import InstagramFeed from "@/components/InstagramFeed/InstagramFeed"
 
 export default function LandingSection() {
   return (

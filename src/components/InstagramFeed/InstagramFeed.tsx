@@ -3,9 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './InstagramFeed.module.css';
+
 const InstagramFeed = () => {
     return (
-        <div className="instagram_feed_style__one lg:pt-30 pt-24 ">
+        <div className={styles.instagramFeed}>
             {/* <div className="swiper max-w-[1570px] mx-auto px-3 insta-feed-slider">
                 <div className="swiper-wrapper ">
                     <div className="swiper-slide">

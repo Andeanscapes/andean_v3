@@ -1,0 +1,152 @@
+/* Header Component Styles */
+
+.header {
+  @apply px-3 xl:py-[10px] py-[8px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+}
+
+.header.sticky {
+  @apply shadow-lg;
+}
+
+.header.variantTwo {
+  @apply !bg-transparent;
+}
+
+.header.variantTwo.sticky {
+  @apply !bg-[#121316];
+}
+
+.header.variantThree {
+  @apply !bg-transparent;
+}
+
+.header.variantThree.sticky {
+  @apply !bg-white;
+}
+
+/* Navigation */
+.navLink {
+  @apply py-7 inline-block text-base text-dark-1 uppercase;
+}
+
+.variantTwo .navLink {
+  @apply text-white;
+}
+
+.variantThree .navLink {
+  @apply xl:text-white;
+}
+
+.variantThree.sticky .navLink {
+  @apply xl:text-dark-1;
+}
+
+.navLink.hasDropdown {
+  @apply relative before:absolute before:content-['\f4fe'] before:font-bootstarp before:top-1/2 before:-translate-y-1/2 before:right-[-20px] before:text-dark-1;
+}
+
+.variantTwo .navLink.hasDropdown {
+  @apply before:text-white;
+}
+
+.variantThree .navLink.hasDropdown::before {
+  @apply xl:text-white;
+}
+
+.variantThree.sticky .navLink.hasDropdown::before {
+  @apply xl:text-dark-1;
+}
+
+.navLinkSm {
+  @apply !py-[10px] border-b border-stock-1 !block px-3 relative;
+}
+
+.navLinkSm.hasDropdown {
+  @apply before:absolute before:content-['\f282'] before:w-4 before:h-[23px] before:right-3 before:top-1/2 before:-translate-y-1/2 before:font-bootstarp;
+}
+
+.navList > li {
+  @apply relative 2xl:mx-7 mx-5;
+}
+
+.navDropdown {
+  @apply absolute top-full left-0 z-10 w-60 py-2 px-6 translate-y-4 bg-white shadow-sm border-t border-stock-2 opacity-0 invisible group-hover/step-one:opacity-100 group-hover/step-one:visible group-hover/step-one:translate-y-0 duration-300;
+}
+
+.navDropdown > li {
+  @apply border-b border-stock-1 last:border-b-0;
+}
+
+.navDropdown > li a {
+  @apply text-dark-2 text-sm hover:text-primary-1 duration-200 py-[9px] block;
+}
+
+.navDropdownSm {
+  @apply py-2 px-4 mx-2 my-3 relative border border-stock-2 hidden opacity-0 duration-200 transition-opacity;
+}
+
+.variantTwo .navDropdownSm {
+  @apply text-white;
+}
+
+.navDropdownSm > li a {
+  @apply py-2 block;
+}
+
+.navDropdownSm.navShow {
+  @apply block opacity-100;
+}
+
+.mobileMenu {
+  @apply absolute max-h-[500px] overflow-y-scroll w-full bg-white border border-stock-1 top-full left-0 z-10 scale-y-0 origin-top-right duration-200;
+}
+
+.variantTwo .mobileMenu {
+  @apply bg-[#121316];
+}
+
+.mobileMenu.mmActive {
+  @apply scale-y-100;
+}
+
+/* Hamburger */
+.hamburger {
+  @apply shrink-0 inline-flex justify-center items-center h-[1.5rem] w-[2rem] relative outline-none;
+}
+
+.hamburger span {
+  @apply absolute w-full h-[2px] bg-dark-1 rounded-full duration-200;
+}
+
+.variantTwo .hamburger span,
+.variantThree .hamburger span {
+  @apply bg-white;
+}
+
+.variantThree.sticky .hamburger span {
+  @apply bg-dark-1;
+}
+
+.hamburger span:first-child {
+  @apply top-0 origin-left-center;
+}
+
+.hamburger span:last-child {
+  @apply bottom-0 origin-bottom-left;
+}
+
+.hamburger span:nth-child(2) {
+  @apply top-1/2 -translate-y-1/2;
+}
+
+.hamburger.humActive span:nth-child(2) {
+  @apply -translate-x-1/2 opacity-0;
+}
+
+.hamburger.humActive span:first-child {
+  @apply rotate-[45deg] top-[.5px];
+}
+
+.hamburger.humActive span:last-child {
+  @apply rotate-[-45deg] bottom-[.5px];
+}

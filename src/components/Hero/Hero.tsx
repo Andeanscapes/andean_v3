@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import HeroData from '@/constant/Hero'
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
+import styles from './Hero.module.css';
 
 const Hero = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -38,8 +39,8 @@ const Hero = () => {
                 modules={[Navigation]}
             >
                 {HeroData?.slides?.map((slide) => (
-                    <SwiperSlide className="hero-two-single-slide" key={slide.id}>
-                        <img src={slide.imgUrl} alt="cv" className="z-minus absolute w-full h-full object-cover zoom-image" />
+                    <SwiperSlide className={styles.heroSlide} key={slide.id}>
+                        <img src={slide.imgUrl} alt="cv" className={styles.zoomImage} />
                         <div className="container">
                             <div className="max-w-[850px] mx-auto text-center text-white relative lg:pb-24 pb-20 lg:pt-[220px] pt-36">
                                 <div className="w-full h-full flex items-center justify-center mb-3">
