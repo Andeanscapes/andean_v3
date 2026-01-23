@@ -15,17 +15,28 @@ const jost = Jost({
   weight: ['200', '300', '400', '500', '600', '700'],
   subsets: ['latin'],
   style: ['normal', 'italic'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'Arial'],
+  adjustFontFallback: true,
   variable: '--font-jost'
 });
 const playfairDisplay = Playfair_Display({
   weight: ['400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['Georgia', 'serif'],
+  adjustFontFallback: true,
   variable: '--font-playfair'
 });
 const satisfy = Satisfy({
   weight: ['400'],
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['cursive'],
   variable: '--font-satisfy'
 });
 
@@ -44,10 +55,11 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
