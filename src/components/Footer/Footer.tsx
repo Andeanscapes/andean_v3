@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useCallback } from "react";
+import { useCallback, useMemo, memo } from "react";
 import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
@@ -13,8 +13,13 @@ const Footer = () => {
     const ADDRESS = t('address');
     const EMAIL = t('email');
 
-    const textColorClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
-    const secondaryTextColorClass = theme === 'dark' ? 'text-stock-1' : 'text-gray-600';
+    const textColorClass = useMemo(() => 
+        theme === 'dark' ? 'text-white' : 'text-gray-900'
+    , [theme]);
+    
+    const secondaryTextColorClass = useMemo(() => 
+        theme === 'dark' ? 'text-stock-1' : 'text-gray-600'
+    , [theme]);
 
     const whatsappLink = useCallback(({ phoneNumber, message }: { phoneNumber: string, message: string }) => {
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -29,9 +34,11 @@ const Footer = () => {
         );
     }, [textColorClass, t]);
 
-    const footerBg = theme === 'dark' 
-        ? `linear-gradient(rgba(8, 8, 11, 0.95) 100%, rgba(8, 8, 11, 0.95) 100%)`
-        : `linear-gradient(rgba(245, 245, 245, 0.98) 100%, rgba(245, 245, 245, 0.98) 100%)`;
+    const footerBg = useMemo(() => 
+        theme === 'dark' 
+            ? `linear-gradient(rgba(8, 8, 11, 0.95) 100%, rgba(8, 8, 11, 0.95) 100%)`
+            : `linear-gradient(rgba(245, 245, 245, 0.98) 100%, rgba(245, 245, 245, 0.98) 100%)`
+    , [theme]);
 
     return (
         <div className={styles.footerStyleOne} style={{ background: footerBg }}>
@@ -101,4 +108,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default memo(Footer);

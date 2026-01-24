@@ -1,13 +1,17 @@
 'use client'
 import { Parallax } from 'react-parallax';
 import VideoBannerData from '@/constant/VideoBanner'
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import {useTranslations} from 'next-intl';
 import styles from './VideoBanner.module.css';
 
 const VideoBanner = () => {
   const [isOpen, setOpen] = useState(false);
   const t = useTranslations('VideoBanner');
+
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleStopPropagation = useCallback((e: React.MouseEvent) => e.stopPropagation(), []);
 
   return (
     <div className={styles.videoBanner}>
@@ -21,17 +25,17 @@ const VideoBanner = () => {
         {isOpen && (
           <div
             className={styles.modalOverlay}
-            onClick={() => setOpen(false)}
+            onClick={handleClose}
             role="dialog"
             aria-modal="true"
           >
             <div
               className={styles.modalContent}
-              onClick={(e) => e.stopPropagation()}
+              onClick={handleStopPropagation}
             >
               <button
                 className={styles.closeButton}
-                onClick={() => setOpen(false)}
+                onClick={handleClose}
                 aria-label={t('closeAria')}
               >
                 {t('close')}
@@ -57,7 +61,7 @@ const VideoBanner = () => {
               {t('description')}
             </p>
             <button
-              onClick={() => setOpen(true)}
+              onClick={handleOpen}
               className="mt-8 inline-flex relative lg:h-20 lg:w-20 h-16 w-16 justify-center items-center rounded-full bg-primary-1 before:content-[''] before:absolute before:-inset-3 before:border-primary-1 before:border-2 before:rounded-full before:animate-pulse"
               aria-label={t('playAria')}
             >
@@ -70,4 +74,4 @@ const VideoBanner = () => {
   );
 }
 
-export default VideoBanner;
+export default memo(VideoBanner);

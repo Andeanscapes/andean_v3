@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,10 +13,10 @@ const Hero = () => {
     const [isMobile, setIsMobile] = useState(false);
     const t = useTranslations('HeroTwo');
 
-    const navigation = {
+    const navigation = useMemo(() => ({
         nextEl: ".hero-next",
         prevEl: ".hero-prev",
-    }
+    }), []);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -88,4 +88,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default memo(Hero)

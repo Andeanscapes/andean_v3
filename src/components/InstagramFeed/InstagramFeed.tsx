@@ -1,4 +1,5 @@
 'use client'
+import { useMemo, memo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
@@ -9,26 +10,28 @@ import styles from './InstagramFeed.module.css';
 const InstagramFeed = () => {
     const { theme } = useThemeContext();
 
+    const breakpoints = useMemo(() => ({
+        320: {
+            slidesPerView: 2
+        },
+        480: {
+            slidesPerView: 3
+        },
+        768: {
+            slidesPerView: 4
+        },
+        1200: {
+            slidesPerView: 5
+        }
+    }), []);
+
     return (
         <div className={styles.instagramFeed} data-theme={theme}>
             <Swiper 
                      slidesPerView={1}
                      spaceBetween={30}
                      loop={false}
-                     breakpoints = {{
-                        320: {
-                            slidesPerView: 2
-                          },
-                          480: {
-                            slidesPerView: 3
-                          },
-                          768: {
-                            slidesPerView: 4
-                          },
-                          1200: {
-                            slidesPerView: 5
-                          }
-                     }}
+                     breakpoints={breakpoints}
                      className='max-w-[1570px] mx-auto px-3 insta-feed-slider'
                 >
                     {InstagramFeedData.images?.map((item)=>(
@@ -52,4 +55,4 @@ const InstagramFeed = () => {
     );
 }
 
-export default InstagramFeed;
+export default memo(InstagramFeed);

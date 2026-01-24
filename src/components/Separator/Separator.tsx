@@ -1,3 +1,4 @@
+import {memo} from 'react';
 
 const Separator = () => {
   return (
@@ -5,4 +6,4 @@ const Separator = () => {
   )
 }
 
-export default Separator 
+export default memo(Separator);

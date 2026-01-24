@@ -1,6 +1,6 @@
 'use client'
 
-import {useEffect, useMemo, useRef, useState, useTransition} from 'react';
+import {useEffect, useMemo, useRef, useState, useTransition, useCallback, memo} from 'react';
 import type {Locale} from '@/i18n/routing';
 import {routing} from '@/i18n/routing';
 import {usePathname, useRouter} from 'next/navigation';
@@ -22,23 +22,25 @@ const LanguageSelector = () => {
 
   const isDarkTheme = variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
 
-  const getTextColor = () => {
+  const getTextColor = useCallback(() => {
     // If sticky in light mode, use dark text
     if (isSticky && theme === 'light') return 'text-gray-900';
     // Otherwise use variant-based color
     return isDarkTheme ? 'text-white' : 'text-gray-900';
-  };
+  }, [isSticky, theme, isDarkTheme]);
 
-  const getHoverColor = () => 'hover:text-primary-1';
+  const getHoverColor = useCallback(() => 'hover:text-primary-1', []);
 
-  const isDarkDropdown = () => isDarkTheme;
+  const isDarkDropdown = useCallback(() => isDarkTheme, [isDarkTheme]);
 
-  const getDropdownBg = () => {
+  const getDropdownBg = useCallback(() => {
     if (theme === 'dark') return 'bg-dark-1/95 border border-white/10';
     return 'bg-white border border-stock-1';
-  };
+  }, [theme]);
 
-  const getDropdownTextColor = () => (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1');
+  const getDropdownTextColor = useCallback(() => 
+    (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1')
+  , [theme]);
 
   const stripLeadingLocale = (path: string) => {
     const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
@@ -75,13 +77,13 @@ const LanguageSelector = () => {
     });
   }, [router, linkMap]);
 
-  const setLocaleCookie = (code: Locale) => {
+  const setLocaleCookie = useCallback((code: Locale) => {
     try {
       document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
     } catch {}
-  };
+  }, []);
 
-  const onSelect = (code: Locale) => {
+  const onSelect = useCallback((code: Locale) => {
     if (code === currentLocale) {
       setIsOpen(false);
       return;
@@ -95,7 +97,10 @@ const LanguageSelector = () => {
       router.push(targetHref);
       router.refresh();
     });
-  };
+  }, [currentLocale, setLocaleCookie, startTransition, router]);
+
+  const handleToggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
+  const handleCloseDropdown = useCallback(() => setIsOpen(false), []);
 
   const prevPathRef = useRef(pathname);
   useEffect(() => {
@@ -108,7 +113,7 @@ const LanguageSelector = () => {
   return (
     <div className="relative inline-block">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-200 ${getTextColor()} ${getHoverColor()}`}
         aria-label="Select language"
         aria-expanded={isOpen}
@@ -148,10 +153,10 @@ const LanguageSelector = () => {
         </div>
       )}
 
-      {isOpen && <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />}
+      {isOpen && <div className="fixed inset-0 z-40" onClick={handleCloseDropdown} />}
     </div>
   );
 };
 
-export default LanguageSelector;
+export default memo(LanguageSelector);
 

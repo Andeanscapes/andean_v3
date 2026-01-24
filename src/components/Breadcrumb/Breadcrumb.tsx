@@ -1,5 +1,6 @@
 'use client'
 
+import {memo} from 'react';
 import Link from "next/link"
 import { Parallax } from "react-parallax"
 
@@ -38,4 +39,4 @@ const Breadcrumb = (
     )
 }
 
-export default Breadcrumb
+export default memo(Breadcrumb)

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import {memo, useMemo} from "react";
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
@@ -12,15 +13,19 @@ const Header = () => {
     const {variant, isSticky} = useLayoutContext();
     const {theme} = useThemeContext();
 
-    return (
-        <header 
-        data-theme={theme}
-        className={`${styles.headerStyle}
+    const headerClassName = useMemo(() => {
+        return `${styles.headerStyle}
            ${isSticky ? styles.sticky : ''} 
            ${variant === "transparent" ? styles.variantThree : ""}
            ${variant === "transparent-V2" ? styles.variantTwo : ""}
            ${variant === "black" ? styles.variantFour : ""}
-           `}>
+           `;
+    }, [variant, isSticky]);
+
+    return (
+        <header 
+        data-theme={theme}
+        className={headerClassName}>
             <div className="desktop-menu max-w-[1570px] mx-auto justify-between items-center xl:flex hidden">
 
                 <div className="main-menu flex items-center ">
@@ -64,4 +69,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default memo(Header);
