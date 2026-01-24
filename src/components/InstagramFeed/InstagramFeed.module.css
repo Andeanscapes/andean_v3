@@ -1,9 +1,33 @@
 /* InstagramFeed Component Styles */
 
 .instagramFeed {
-  @apply lg:pt-30 pt-24;
+  @apply lg:pt-32 pt-16 pb-8 px-3;
+}
+
+.instagramFeed[data-theme="light"] {
+  @apply bg-white;
+}
+
+.instagramFeed[data-theme="dark"] {
+  @apply bg-dark-2;
+}
+
+.imageContainer {
+  @apply relative overflow-hidden aspect-square;
+}
+
+.instagramFeed[data-theme="light"] .imageContainer {
+  @apply bg-gray-100;
+}
+
+.instagramFeed[data-theme="dark"] .imageContainer {
+  @apply bg-dark-1;
+}
+
+.imageContainer:hover .feedIcon {
+  opacity: 1 !important;
 }
 
 .feedIcon {
-  @apply absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 bg-white rounded-full flex justify-center items-center lg:shadow-[0_0_0_5px_#ffffff66] opacity-0 duration-300 group-hover:opacity-100 group-hover:top-1/2 hover:bg-primary-1 hover:text-white;
+  @apply absolute inset-0 m-auto h-10 w-10 bg-white rounded-full flex justify-center items-center opacity-0 hover:bg-primary-1 hover:text-white transition-opacity duration-300 ease-in-out text-dark-1 z-10 lg:shadow-[0_0_0_5px_#ffffff66] shadow-[0_0_0_3px_#ffffff66];
 }

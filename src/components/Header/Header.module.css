@@ -1,27 +1,40 @@
 /* Header Component Styles */
 
-.header {
-  @apply px-3 xl:py-[10px] py-[8px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+.headerStyle {
+  @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
 }
 
-.header.sticky {
-  @apply shadow-lg;
+.headerStyle.sticky {
+  @apply shadow-lg opacity-90;
 }
 
-.header.variantTwo {
+/* Theme-aware sticky backgrounds for transparent variants */
+.headerStyle.variantTwo.sticky[data-theme="dark"] {
+  @apply !bg-[#121316] opacity-90;
+}
+
+.headerStyle.variantTwo.sticky[data-theme="light"] {
+  @apply !bg-white opacity-90;
+}
+
+.headerStyle.variantThree.sticky[data-theme="dark"] {
+  @apply !bg-[#121316] opacity-90;
+}
+
+.headerStyle.variantThree.sticky[data-theme="light"] {
+  @apply !bg-white opacity-90;
+}
+
+.variantTwo {
   @apply !bg-transparent;
 }
 
-.header.variantTwo.sticky {
+.variantThree {
+  @apply !bg-transparent;
+}
+
+.variantFour {
   @apply !bg-[#121316];
-}
-
-.header.variantThree {
-  @apply !bg-transparent;
-}
-
-.header.variantThree.sticky {
-  @apply !bg-white;
 }
 
 /* Navigation */
@@ -107,6 +120,10 @@
 
 .mobileMenu.mmActive {
   @apply scale-y-100;
+}
+
+.mobileBar {
+  @apply xl:hidden flex justify-between items-center px-3 py-2 w-full;
 }
 
 /* Hamburger */

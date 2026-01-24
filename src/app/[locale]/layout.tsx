@@ -4,6 +4,8 @@ import 'swiper/css';
 import {Jost, Playfair_Display, Satisfy} from 'next/font/google';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
+import {LanguageProvider} from '@/contexts/LanguageContext';
+import {ThemeProvider} from '@/contexts/ThemeContext';
 
 import type {Locale} from '@/i18n/routing';
 
@@ -60,9 +62,13 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning className="antialiased">
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            <LanguageProvider>
+              {children}
+            </LanguageProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

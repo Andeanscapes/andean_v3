@@ -4,7 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+main[data-theme="light"] {
+  @apply bg-white;
+}
 
+main[data-theme="dark"] {
+  @apply bg-dark-2;
+}
 
 @layer base {
     h1,h2,h3,h4,h5{
@@ -72,9 +78,6 @@ Common Text Classes
 }
 .gradient-border-top{
   @apply relative before:content-[''] before:absolute before:w-full before:h-[2px] before:top-0 before:left-0  before:bg-footer-border;
-}
-.insta-feed-icon{
-  @apply absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 bg-white rounded-full flex justify-center items-center lg:shadow-[0_0_0_5px_#ffffff66] opacity-0 duration-300 group-hover:opacity-100 group-hover:top-1/2 hover:bg-primary-1 hover:text-white;
 }
 .footer-link-list li{
   @apply mt-[14px] first:mt-0;
@@ -146,43 +149,6 @@ Custom Components
 }
 .common-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
   @apply bg-primary-1 before:border-primary-1 before:border-opacity-100;
-}
-
-/* hamburger */
-.herder-variant-two .hamburger span{
-  @apply bg-white;
-}
-.herder-variant-three .hamburger span{
-  @apply bg-white;
-}
-.herder-variant-three.sticky .hamburger span{
-  @apply bg-dark-1;
-}
-.hamburger{
-  @apply shrink-0 inline-flex justify-center items-center  h-[1.5rem] w-[2rem]  relative outline-none;
-}
-.hamburger span{
-  @apply absolute w-full h-[2px] bg-dark-1 rounded-full duration-200;
-}
-.hamburger span:first-child{
-  @apply  top-0 origin-left-center;
-  
-}
-.hamburger span:last-child{
-  @apply  bottom-0 origin-bottom-left
-}
-.hamburger span:nth-child(2){
-  @apply  top-1/2 -translate-y-1/2;
-}
-
-.hamburger.hum-active span:nth-child(2){
-  @apply -translate-x-1/2 opacity-0;
-}
-.hamburger.hum-active span:first-child{
-  @apply rotate-[45deg]  top-[.5px]
-}
-.hamburger.hum-active span:last-child{
-  @apply rotate-[-45deg] bottom-[.5px]
 }
 
 /* breadcrumb */
@@ -258,88 +224,8 @@ Styling for long TW class
   @apply  xl:h-[calc(50%-15px)] h-[calc(50%-6px)] shrink-0 relative overflow-hidden xl:first:mb-base first:mb-3;
 }
 
-/* menubar CSS */
-.header-style.herder-variant-two.sticky{
-  @apply bg-[#121316];
-}
-.herder-variant-three.sticky .cart__wrap{
-  @apply text-dark-1;
-}
-.nav-link{
-  @apply py-7 inline-block text-base text-dark-1 uppercase
-}
-.herder-variant-two .nav-link{
-  @apply text-white;
-}
-.herder-variant-three .nav-link{
-  @apply xl:text-white;
-}
-.herder-variant-three.sticky .nav-link{
-  @apply xl:text-dark-1;
-}
-.herder-variant-three .nav-link.has-dropdown::before{
-  @apply xl:text-white;
-}
-.herder-variant-three.sticky .nav-link.has-dropdown::before{
-  @apply xl:text-dark-1;
-}
-.nav-link-sm{
-  @apply !py-[10px] border-b border-stock-1 !block px-3 relative
-}
-.nav-link-sm.has-dropdown.nav-link{
-  @apply before:absolute before:content-['\f282'] before:w-4 before:h-[23px] before:right-3 before:top-1/2 before:-translate-y-1/2 before:font-bootstarp;
-}
-.nav-link.has-dropdown{
-  @apply relative before:absolute before:content-['\f4fe'] before:font-bootstarp before:top-1/2 before:-translate-y-1/2 before:right-[-20px] before:text-dark-1;  
-}
-.herder-variant-two .nav-link.has-dropdown{
-  @apply before:text-white;
-}
-.nav-list > li{
-  @apply relative 2xl:mx-7 mx-5;
-}
-.nav-dropdown{
-  @apply absolute top-full left-0 z-10 w-60 py-2 px-6 translate-y-4 bg-white shadow-sm border-t border-stock-2 opacity-0 invisible group-hover/step-one:opacity-100 group-hover/step-one:visible group-hover/step-one:translate-y-0 duration-300 ;
-}
-.nav-dropdown > li{
-  @apply  border-b border-stock-1 last:border-b-0;
-}
-.nav-dropdown > li a{
-  @apply text-dark-2 text-sm hover:text-primary-1 duration-200 py-[9px] block ;
-}
-.herder-variant-two .nav-dropdown-sm{
-@apply text-white;
-}
-.nav-dropdown-sm{
-  @apply py-2 px-4 mx-2 my-3 relative border border-stock-2 hidden opacity-0 duration-200 transition-opacity;
-}
-.nav-dropdown-sm > li a{
-  @apply py-2 block
-}
-.nav-dropdown-sm.nav-show{
-  @apply block opacity-100;
-}
-.nav-mega-dropdown{
-  @apply absolute top-full left-1/2 -translate-x-1/2 bg-white w-[740px] z-10 pb-0 pl-6 translate-y-4 border border-stock-2 opacity-0 invisible group-hover/mega-dropdown:opacity-100 group-hover/mega-dropdown:visible group-hover/mega-dropdown:translate-y-0 duration-300;
-}
-.nav-mega-dropdown .mega-dropdown-links a{
-  @apply py-2 block hover:text-primary-1 duration-200;
-}
-.herder-variant-two .mobil-menu{
-  @apply bg-[#121316];
-}
-.mobil-menu{
-  @apply absolute max-h-[500px] overflow-y-scroll w-full bg-white border border-stock-1 top-full left-0 z-10  scale-y-0 origin-top-right duration-200;
-}
-.mobil-menu.mm-active{
-  @apply scale-y-100
-}
-.nav-mega-dropdown{
-  @apply text-sm text-dark-2  
-}
-.mega-dropdown-links{
-  @apply py-3
-}
+/* Header styles moved to Header.module.css */
+
 /* Hero style two css */
 .hero-two-single-slide{
   @apply lg:min-h-screen bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1  before:absolute before:content-[''] before:inset-0 before:bg-dark-1 before:bg-opacity-50
@@ -586,28 +472,7 @@ Customiz Third-Party Plugins
   @apply fixed top-0 left-0 w-full xl:py-[8px] z-20 shadow-lg bg-white bg-no-repeat bg-cover;
 } */
 
-.header-style.sticky{
-  @apply shadow-lg;
-}
-.header-style{
-  @apply px-3 xl:py-[10px] py-[8px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out; 
-}
-.herder-variant-four{
-  background-color: rgb(18 19 22 / var(--tw-bg-opacity));
-}
-.herder-variant-three{
-  @apply !bg-transparent
-}
-.herder-variant-three.sticky{
-  @apply !bg-white
-}
-.herder-variant-two{
-  @apply !bg-transparent
-}
-
-.herder-variant-two.sticky{
-  @apply !bg-[#121316]
-}
+/* Header styles moved to Header.module.css */
 
 /* Marquee style */
 .marquee {

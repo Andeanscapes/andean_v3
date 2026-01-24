@@ -63,6 +63,13 @@
         "closeAria": "Close video",
         "videoTitle": "YouTube video player",
         "playAria": "Play video",
-        "playAlt": "Play video"
-    }
+        "playAlt": "Play video"    },
+    "Footer": {
+        "contactUs": "Contact Us",
+        "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
+        "phone": "+57 319-2510498",
+        "email": "andeanscapes@gmail.com",
+        "whatsapp": "whatsapp",
+        "instagram": "Instagram",
+        "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes"    }
 }

@@ -2,38 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from 'react'
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
-import type { HeaderVariant } from "@/types/ui";
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
+import {useLayoutContext} from "@/contexts/LayoutContext";
+import {useThemeContext} from "@/contexts/ThemeContext";
+import styles from "./Header.module.css";
 
-type HeaderProps = { variant?: HeaderVariant };
-
-const Header = ({ variant = "default" }: HeaderProps) => {
-    const [isSticky, setIsSticky] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-          if (window.pageYOffset > 50) {
-            setIsSticky(true);
-          } else {
-            setIsSticky(false);  
-          }
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
+const Header = () => {
+    const {variant, isSticky} = useLayoutContext();
+    const {theme} = useThemeContext();
 
     return (
         <header 
-        className={`header-style 
-           ${isSticky ? 'sticky' : ''} 
-           ${variant === "transparent" ? "herder-variant-three" : ""}
-           ${variant === "transparent-V2" ? "herder-variant-two" : ""}
-           ${variant === "black" ? "herder-variant-four" : ""}
+        data-theme={theme}
+        className={`${styles.headerStyle}
+           ${isSticky ? styles.sticky : ''} 
+           ${variant === "transparent" ? styles.variantThree : ""}
+           ${variant === "transparent-V2" ? styles.variantTwo : ""}
+           ${variant === "black" ? styles.variantFour : ""}
            `}>
             <div className="desktop-menu max-w-[1570px] mx-auto justify-between items-center xl:flex hidden">
 
@@ -50,16 +36,17 @@ const Header = ({ variant = "default" }: HeaderProps) => {
                         />
                     </Link>
                     <div className="main-menu uppercase ml-4">
-                        <ul className="flex items-center nav-list">
+                        <ul className={`flex items-center ${styles.navList}`}>
                         </ul>
                     </div>
                 </div>
                 <div className="flex items-center gap-6">
-                    <LanguageSelector variant={variant} isSticky={isSticky} />
+                    <ThemeToggle />
+                    <LanguageSelector />
                 </div>
             </div>
 
-            <div className="mobile-menu xl:hidden flex justify-between items-center relative">
+            <div className={`${styles.mobileBar}`}>
                 <Link href="/" className="shrink-0 max-w-[50px]">
                     <Image
                         alt='logo'
@@ -69,7 +56,8 @@ const Header = ({ variant = "default" }: HeaderProps) => {
                     />
                 </Link>
                 <div className="space-x-4 flex items-center">
-                    <LanguageSelector variant={variant} isSticky={isSticky} />
+                    <ThemeToggle />
+                    <LanguageSelector />
                 </div>
             </div>
         </header>

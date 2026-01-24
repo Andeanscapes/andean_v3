@@ -3,55 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
 import Image from 'next/image';
+import { useThemeContext } from '@/contexts/ThemeContext';
 import styles from './InstagramFeed.module.css';
 
 const InstagramFeed = () => {
+    const { theme } = useThemeContext();
+
     return (
-        <div className={styles.instagramFeed}>
-            {/* <div className="swiper max-w-[1570px] mx-auto px-3 insta-feed-slider">
-                <div className="swiper-wrapper ">
-                    <div className="swiper-slide">
-                        <div className="relative overflow-hidden group">
-                            <img src="./assets/images/instagram/insta-1.webp" alt="instagram" className="w-full" />
-                            <a href="#" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="swiper-slide">
-                        <div className="relative overflow-hidden group">
-                            <img src="./assets/images/instagram/insta-2.webp" alt="instagram" className="w-full" />
-                            <a href="#" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="swiper-slide">
-                        <div className="relative overflow-hidden group">
-                            <img src="./assets/images/instagram/insta-3.webp" alt="instagram" className="w-full" />
-                            <a href="#" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="swiper-slide">
-                        <div className="relative overflow-hidden group">
-                            <img src="./assets/images/instagram/insta-4.webp" alt="instagram" className="w-full" />
-                            <a href="#" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="swiper-slide">
-                        <div className="relative overflow-hidden group">
-                            <img src="./assets/images/instagram/insta-5.webp" alt="instagram" className="w-full" />
-                            <a href="#" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+        <div className={styles.instagramFeed} data-theme={theme}>
             <Swiper 
                      slidesPerView={1}
                      spaceBetween={30}
@@ -74,15 +33,15 @@ const InstagramFeed = () => {
                 >
                     {InstagramFeedData.images?.map((item)=>(
                         <SwiperSlide key={item.id}>
-                            <div className="relative overflow-hidden group">
+                            <div className={styles.imageContainer}>
                             <Image 
                                 src={item.img} 
                                 alt="instagram images"
-                                height={280}
-                                width={290} 
-                                className="w-full" />
-                            <Link href="https://www.instagram.com/hacienda_el_recuerdo" className="insta-feed-icon">
-                                <i className="bi bi-instagram" />
+                                height={300}
+                                width={300}
+                                className="w-full h-full object-cover" />
+                            <Link href="https://www.instagram.com/hacienda_el_recuerdo" className={styles.feedIcon}>
+                                <i className="bi bi-instagram text-xl" />
                             </Link>
                         </div>
                         </SwiperSlide>

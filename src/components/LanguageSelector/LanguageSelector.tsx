@@ -3,40 +3,42 @@
 import {useEffect, useMemo, useRef, useState, useTransition} from 'react';
 import type {Locale} from '@/i18n/routing';
 import {routing} from '@/i18n/routing';
-import {languages} from '@/i18n/languages';
-import type {HeaderVariant} from '@/types/ui';
-import {useLocale} from 'next-intl';
 import {usePathname, useRouter} from 'next/navigation';
 import Link from 'next/link';
+import {useLayoutContext} from '@/contexts/LayoutContext';
+import {useLanguageContext} from '@/contexts/LanguageContext';
+import {useThemeContext} from '@/contexts/ThemeContext';
 
-type LanguageSelectorProps = {
-  variant?: HeaderVariant;
-  isSticky?: boolean;
-};
-
-const LanguageSelector = ({variant = 'default', isSticky = false}: LanguageSelectorProps) => {
-  const currentLocale = (useLocale() as Locale) || routing.defaultLocale;
+const LanguageSelector = () => {
+  const {currentLocale, availableLanguages} = useLanguageContext();
   const pathname = usePathname();
   const router = useRouter();
+  const {variant, isSticky} = useLayoutContext();
+  const {theme} = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  const currentLanguage = languages.find((l) => l.code === currentLocale);
+  const currentLanguage = availableLanguages.find((l) => l.code === currentLocale);
 
   const isDarkTheme = variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
 
-  const getTextColor = () => (isDarkTheme ? 'text-white' : 'text-dark-1');
+  const getTextColor = () => {
+    // If sticky in light mode, use dark text
+    if (isSticky && theme === 'light') return 'text-gray-900';
+    // Otherwise use variant-based color
+    return isDarkTheme ? 'text-white' : 'text-gray-900';
+  };
 
-  const getHoverColor = () => (isDarkTheme ? 'hover:text-yellow-400' : 'hover:text-primary-1');
+  const getHoverColor = () => 'hover:text-primary-1';
 
   const isDarkDropdown = () => isDarkTheme;
 
   const getDropdownBg = () => {
-    if (isDarkDropdown()) return 'bg-dark-1/95 border border-white/10';
+    if (theme === 'dark') return 'bg-dark-1/95 border border-white/10';
     return 'bg-white border border-stock-1';
   };
 
-  const getDropdownTextColor = () => (isDarkDropdown() ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1');
+  const getDropdownTextColor = () => (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1');
 
   const stripLeadingLocale = (path: string) => {
     const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
@@ -58,11 +60,11 @@ const LanguageSelector = ({variant = 'default', isSticky = false}: LanguageSelec
 
   const linkMap = useMemo(() => {
     const map = {} as Record<Locale, string>;
-    languages.forEach((l) => {
+    availableLanguages.forEach((l) => {
       map[l.code] = buildHref(l.code);
     });
     return map;
-  }, [pathname, variant, isSticky, currentLocale]);
+  }, [pathname, variant, isSticky, currentLocale, availableLanguages]);
 
   useEffect(() => {
     const hrefs = Object.values(linkMap);
@@ -112,25 +114,25 @@ const LanguageSelector = ({variant = 'default', isSticky = false}: LanguageSelec
         aria-expanded={isOpen}
       >
         <span className="text-lg">{currentLanguage?.flag}</span>
-        <span className="text-xs font-medium uppercase tracking-wide hidden sm:inline">{currentLanguage?.code}</span>
-        <svg className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span className={`text-xs font-medium uppercase tracking-wide hidden sm:inline ${getTextColor()} ${getHoverColor()}`}>{currentLanguage?.code}</span>
+        <svg className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${getTextColor()} ${getHoverColor()}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </button>
 
       {isOpen && (
         <div className={`absolute right-0 mt-2 w-40 rounded-lg shadow-lg z-50 overflow-hidden ${getDropdownBg()} backdrop-blur-sm`} role="menu" aria-orientation="vertical">
-          {languages.map((lang) => (
+          {availableLanguages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => onSelect(lang.code)}
               disabled={isPending || currentLocale === lang.code}
               className={`w-full flex items-center gap-3 px-4 py-3 transition-colors duration-200 ${isPending ? 'opacity-50 cursor-wait' : ''} ${
                 currentLocale === lang.code
-                  ? isDarkDropdown()
+                  ? theme === 'dark'
                     ? 'bg-primary-1 text-white'
                     : 'bg-primary-1/10 text-primary-1'
-                  : `${getDropdownTextColor()} ${isDarkDropdown() ? 'hover:bg-white/10' : 'hover:bg-dark-1/5'}`
+                  : `${getDropdownTextColor()} ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-dark-1/5'}`
               }`}
               role="menuitem"
             >
