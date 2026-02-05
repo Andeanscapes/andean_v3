@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "pages:deploy": "npm run pages:build && export $(grep -v '^#' .env.local | xargs) && npx wrangler pages deploy"
   },
@@ -29,13 +31,20 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.0",
+    "@storybook/addon-docs": "8.6.15",
+    "@storybook/addon-links": "8.6.15",
+    "@storybook/react": "8.6.15",
+    "@storybook/react-vite": "8.6.15",
+    "@vitejs/plugin-react": "^4.3.4",
     "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.2.11",
+    "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
+    "storybook": "8.6.15",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "5.4.10"
   }
 }
