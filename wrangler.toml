@@ -1,5 +1,16 @@
 # andean_v3/wrangler.toml
 name = "andean-v3"
-pages_build_output_dir = ".vercel/output/static"
+main = ".open-next/worker.js"
 compatibility_date = "2024-12-31"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+routes = [
+	{ pattern = "andeanscapes.com/*", zone_name = "andeanscapes.com" },
+	{ pattern = "www.andeanscapes.com/*", zone_name = "andeanscapes.com" }
+]
+
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "andean-v3"

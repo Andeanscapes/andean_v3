@@ -7,10 +7,7 @@ import {getMessages, setRequestLocale} from 'next-intl/server';
 import {LanguageProvider} from '@/contexts/LanguageContext';
 import {ThemeProvider} from '@/contexts/ThemeContext';
 
-import type {Locale} from '@/i18n/routing';
-
-// Required for Cloudflare Pages (next-on-pages): run App Router routes on the Edge runtime.
-export const runtime = 'edge';
+import {locales, routing, type Locale} from '@/i18n/routing';
 
 /* Configure Google Fonts */
 const jost = Jost({
@@ -47,9 +44,12 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: Locale}>;
+  params: Promise<{locale: string}>;
 }) {
-  const {locale} = await params;
+  const {locale: localeParam} = await params;
+  const locale = (locales as readonly string[]).includes(localeParam)
+    ? (localeParam as Locale)
+    : routing.defaultLocale;
 
   setRequestLocale(locale);
   const messages = await getMessages();

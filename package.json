@@ -2,19 +2,31 @@
   "name": "arid-next",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "volta": {
+    "node": "20.19.0",
+    "npm": "10.8.2"
+  },
+  "packageManager": "npm@10.8.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "pages:deploy": "npm run pages:build && export $(grep -v '^#' .env.local | xargs) && npx wrangler pages deploy"
+    "preview": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare preview",
+    "deploy": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare deploy",
+    "upload": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare upload",
+    "cf-typegen": "dotenv -e .env.wrangler -- wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@types/react-select": "^5.0.1",
-    "next": "^15.0.0",
+    "next": "^16.1.6",
     "next-intl": "^4.7.0",
     "rc-slider": "^10.5.0",
     "react": "^19.0.0",
@@ -30,7 +42,10 @@
     "yet-another-react-lightbox": "^3.15.6"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@opennextjs/cloudflare": "^1.16.2",
     "@storybook/addon-docs": "8.6.15",
     "@storybook/addon-links": "8.6.15",
     "@storybook/react": "8.6.15",
@@ -41,10 +56,15 @@
     "@types/react": "19.2.11",
     "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.0.1",
+    "dotenv-cli": "^8.0.0",
+    "esbuild": "0.25.4",
+    "jsdom": "^26.1.0",
     "postcss": "^8",
     "storybook": "8.6.15",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
-    "vite": "5.4.10"
+    "vite": "5.4.10",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.62.0"
   }
 }

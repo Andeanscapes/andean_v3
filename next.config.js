@@ -1,6 +1,15 @@
 const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+if (process.env.NODE_ENV === 'development') {
+  try {
+    const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare');
+    initOpenNextCloudflareForDev();
+  } catch {
+    // no-op: OpenNext dev integration is optional
+  }
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Keep Next.js in server mode (no `next export`) so Cloudflare Pages can serve
