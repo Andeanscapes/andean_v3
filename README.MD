@@ -14,6 +14,7 @@ Tip: this repo includes a `.nvmrc`, so you can run:
 ```sh
 nvm install
 nvm use
+
 ```
 
 Optional (recommended for teams): Volta
