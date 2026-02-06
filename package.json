@@ -22,6 +22,7 @@
     "build-storybook": "storybook build",
     "preview": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare preview",
     "deploy": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare deploy",
+    "deploy:dev": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare deploy --env dev",
     "upload": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare upload",
     "cf-typegen": "dotenv -e .env.wrangler -- wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
