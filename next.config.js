@@ -28,6 +28,33 @@ const nextConfig = {
         ]
       : undefined,
 
+  reactStrictMode: true,
+  poweredByHeader: false,
+
+  async headers() {
+    const headers = [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+      // Lock down powerful features by default; loosen only when needed.
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), payment=(), usb=()' }
+    ];
+
+    if (process.env.NODE_ENV === 'production') {
+      headers.push({
+        key: 'Strict-Transport-Security',
+        value: 'max-age=31536000; includeSubDomains; preload'
+      });
+    }
+
+    return [
+      {
+        source: '/:path*',
+        headers
+      }
+    ];
+  },
+
   async redirects() {
     // Keep nav links in existing template components from 404'ing after route cleanup.
     // These are TEMP redirects so you can reintroduce routes later without fighting caches.

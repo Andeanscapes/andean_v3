@@ -4,7 +4,6 @@ import {useEffect, useMemo, useRef, useState, useTransition, useCallback, memo} 
 import type {Locale} from '@/i18n/routing';
 import {routing} from '@/i18n/routing';
 import {usePathname, useRouter} from 'next/navigation';
-import Link from 'next/link';
 import {useLayoutContext} from '@/contexts/LayoutContext';
 import {useLanguageContext} from '@/contexts/LanguageContext';
 import {useThemeContext} from '@/contexts/ThemeContext';
@@ -30,8 +29,6 @@ const LanguageSelector = () => {
   }, [isSticky, theme, isDarkTheme]);
 
   const getHoverColor = useCallback(() => 'hover:text-primary-1', []);
-
-  const isDarkDropdown = useCallback(() => isDarkTheme, [isDarkTheme]);
 
   const getDropdownBg = useCallback(() => {
     if (theme === 'dark') return 'bg-dark-1/95 border border-white/10';
@@ -72,7 +69,7 @@ const LanguageSelector = () => {
     const hrefs = Object.values(linkMap);
     hrefs.forEach((href) => {
       try {
-        router.prefetch(href as any);
+        router.prefetch(href as unknown as string);
       } catch {}
     });
   }, [router, linkMap]);
