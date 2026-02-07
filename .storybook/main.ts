@@ -1,6 +1,7 @@
 import path from 'path'
 import { mergeConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/postcss'
 import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
@@ -31,7 +32,7 @@ const config: StorybookConfig = {
       css: {
         postcss: {
           plugins: [
-            require('@tailwindcss/postcss')
+            tailwindcss
           ]
         }
       }
