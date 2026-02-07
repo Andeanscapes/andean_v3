@@ -50,7 +50,7 @@ src/
 - **URL Structure:** `/` (English), `/es` (Spanish), `/fr` (French)
 - **Locale prefix:** `as-needed` - keeps English unprefixed
 - **Route structure:** ALL pages under `src/app/[locale]/` (NOT `src/app/`)
-- **Middleware:** [src/middleware.ts](src/middleware.ts) with `localeDetection: false` (explicit routing, no auto-detection for security)
+- **Proxy:** [src/proxy.ts](src/proxy.ts) with `localeDetection: false` (explicit routing, no auto-detection for security)
 - **Contexts:** `LanguageContext` provides `currentLocale` and `availableLanguages` via `use-context-selector`
 - **Messages:** [src/i18n/messages/](src/i18n/messages/) for translations
 - **Usage:** Import `useTranslations('Namespace')` in components, `getMessages()` + `setRequestLocale()` in Server Components
@@ -104,9 +104,9 @@ export function useMyContext() {
 
 ### Installation & Configuration
 - **Package:** `daisyui` installed as production dependency
-- **Config:** Enabled in [tailwind.config.ts](tailwind.config.ts) with `plugins: [require('daisyui')]`
+- **Config (Tailwind v4):** Enabled via Tailwind v4 directives in `globals.css` (e.g., using the Tailwind `@plugin` mechanism), not via `tailwind.config.ts`
 - **Themes:** Light/dark mode via `data-theme` attribute (controlled by `ThemeContext`)
-- **Mode:** `styled: true` (daisyUI classes included), `base: true` (resets included), `utils: true` (utilities available)
+- **Mode:** DaisyUI options such as `styled`, `base`, and `utils` are configured through the Tailwind v4 setup in `globals.css` so that classes, resets, and utilities are available as expected
 
 ### Component Wrapper Pattern (CRITICAL)
 **Never use daisyUI classes directly in components.** Always wrap in `src/components/ui/` abstraction layer:
@@ -419,7 +419,7 @@ Available CSS variables in all components:
 
 1. **Next.js 16 changes:**
    - No `next lint` command (use `npm run lint` with ESLint v9)
-   - Middleware file convention: `src/middleware.ts` (NOT `src/app/middleware.ts`)
+   - Proxy file convention: `src/proxy.ts` (NOT `src/middleware.ts` or `src/app/middleware.ts`)
 
 2. **Cloudflare deployment:**
    - NEVER run `wrangler deploy` directly (breaks build)
