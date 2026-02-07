@@ -50,7 +50,7 @@ src/
 - **URL Structure:** `/` (English), `/es` (Spanish), `/fr` (French)
 - **Locale prefix:** `as-needed` - keeps English unprefixed
 - **Route structure:** ALL pages under `src/app/[locale]/` (NOT `src/app/`)
-- **Proxy:** [src/proxy.ts](src/proxy.ts) with `localeDetection: false` (explicit routing, no auto-detection for security)
+- **Middleware:** [src/middleware.ts](src/middleware.ts) with `localeDetection: false` (explicit routing, no auto-detection for security)
 - **Contexts:** `LanguageContext` provides `currentLocale` and `availableLanguages` via `use-context-selector`
 - **Messages:** [src/i18n/messages/](src/i18n/messages/) for translations
 - **Usage:** Import `useTranslations('Namespace')` in components, `getMessages()` + `setRequestLocale()` in Server Components
@@ -419,7 +419,7 @@ Available CSS variables in all components:
 
 1. **Next.js 16 changes:**
    - No `next lint` command (use `npm run lint` with ESLint v9)
-   - Proxy file convention: `src/proxy.ts` (NOT `src/middleware.ts` or `src/app/middleware.ts`)
+   - Middleware file convention: `src/middleware.ts` (Next.js 16 proxy.ts NOT yet supported by @opennextjs/cloudflare)
 
 2. **Cloudflare deployment:**
    - NEVER run `wrangler deploy` directly (breaks build)

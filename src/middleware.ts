@@ -1,8 +1,6 @@
 import createMiddleware from 'next-intl/middleware';
 import {routing} from './i18n/routing';
 
-export const runtime = 'edge';
-
 export default createMiddleware({
   ...routing,
   // Disable automatic locale detection from browser headers
