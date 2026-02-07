@@ -56,8 +56,8 @@ const VideoBanner = () => {
 
         <div className="container relative z-2 lg:py-40 py-30">
           <div className="max-w-[560px] mx-auto text-center text-white">
-            <h2 className="lg:text-4xl text-2xl font-bold leading-1.3">{t('title')}</h2>
-            <p className="lg:text-2md text-md font-medium leading-1.5 mt-4">
+            <h2 className="lg:text-4xl text-2xl font-bold leading-1_3">{t('title')}</h2>
+            <p className="lg:text-2md text-md font-medium leading-1_5 mt-4">
               {t('description')}
             </p>
             <button

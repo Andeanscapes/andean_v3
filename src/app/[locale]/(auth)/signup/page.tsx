@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const signup = () => {
     return (
         <div
-            className="fixed inset-0 w-full h-full bg-opacity-40 z-50 overflow-y-scroll bg-no-repeat bg-cover bg-center"
+            className="fixed inset-0 w-full h-full z-50 overflow-y-scroll bg-no-repeat bg-cover bg-center"
             style={{ backgroundImage: 'linear-gradient(to right, rgba(30, 30, 30, .3), rgba(30, 30, 30, .3)), url("/assets/images/hero/h4.webp")' }}
         >
             <div className="max-w-[550px] h-full flex justify-center items-center py-5 px-5 mx-auto">
