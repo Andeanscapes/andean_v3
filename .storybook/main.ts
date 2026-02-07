@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.ts', '../src/**/*.stories.tsx'],
+  stories: ['../src/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-docs'
@@ -17,8 +17,8 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   },
   staticDirs: ['../public'],
-  viteFinal: async (config) =>
-    mergeConfig(config, {
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
       plugins: [react()],
       esbuild: {
         jsx: 'automatic'
@@ -27,8 +27,16 @@ const config: StorybookConfig = {
         alias: {
           '@': path.resolve(__dirname, '../src')
         }
+      },
+      css: {
+        postcss: {
+          plugins: [
+            require('@tailwindcss/postcss')
+          ]
+        }
       }
-    })
+    });
+  }
 }
 
 export default config

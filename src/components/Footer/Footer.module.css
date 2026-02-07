@@ -1,3 +1,5 @@
+@reference "../../styles/globals.css";
+
 /* Footer Component Styles */
 
 .footer {
@@ -13,7 +15,7 @@
 }
 
 .footerNavLink {
-  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1.8 inline-block duration-200 hover:text-primary-1;
+  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1_8 inline-block duration-200 hover:text-primary-1;
 }
 
 .footerLinkList li {

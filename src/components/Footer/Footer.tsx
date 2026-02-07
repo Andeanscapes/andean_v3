@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
                 <div className="grid lg:grid-cols-12 lg:pt-17 pt-10 gap-base lg:pb-17 pb-12 gradient-border-top">
                     <div className="lg:col-span-12 col-span-12 text-center lg:text-start">
-                        <h3 className={`lg:text-[25px] text-2md font-semibold leading-1.35 ${textColorClass}`}>{t('contactUs')}</h3>
+                        <h3 className={`lg:text-[25px] text-2md font-semibold leading-1_35 ${textColorClass}`}>{t('contactUs')}</h3>
                         <ul className="mt-8">
                             <li className={`mt-5 first:mt-0 flex items-center lg:justify-start justify-center ${secondaryTextColorClass} hover:text-primary-1 duration-200`}>
                                 <div className="text-primary-1 shrink-0">
@@ -72,7 +72,7 @@ const Footer = () => {
                                         <path d="M3.01675 7.07484C4.65842 -0.141827 15.3501 -0.133494 16.9834 7.08317C17.9417 11.3165 15.3084 14.8998 13.0001 17.1165C11.3251 18.7332 8.67508 18.7332 6.99175 17.1165C4.69175 14.8998 2.05842 11.3082 3.01675 7.07484Z" stroke="currentColor" strokeWidth="1.5" />
                                     </svg>
                                 </div>
-                                <Link href="#" className="leading-1.5 pl-[10px] text-base ">
+                                <Link href="#" className="leading-1_5 pl-[10px] text-base ">
                                     {ADDRESS}
                                 </Link>
                             </li>
@@ -84,7 +84,7 @@ const Footer = () => {
                                         <path d="M16.4751 6.4749L13.5251 3.5249" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <Link href={`tel:${PHONE}`} className="leading-1.5 pl-[10px] text-base ">
+                                <Link href={`tel:${PHONE}`} className="leading-1_5 pl-[10px] text-base ">
                                     {PHONE}
                                 </Link>
                             </li>
@@ -95,7 +95,7 @@ const Footer = () => {
                                         <path d="M14.1666 7.5L11.5582 9.58333C10.6999 10.2667 9.29158 10.2667 8.43325 9.58333L5.83325 7.5" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <Link href={`mailto:${EMAIL}`} className="leading-1.5 pl-[10px] text-base ">{EMAIL}</Link>
+                                <Link href={`mailto:${EMAIL}`} className="leading-1_5 pl-[10px] text-base ">{EMAIL}</Link>
                             </li>
                         </ul>
                     </div>

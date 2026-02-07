@@ -20,7 +20,7 @@ const Breadcrumb = (
             bgClassName='object-cover'
             className="relative overflow-hidden"
         >
-            <div className="lg:py-36 py-20 relative overflow-hidden bg-[#030610] bg-opacity-40">
+            <div className="lg:py-36 py-20 relative overflow-hidden bg-[#030610]/40">
                 <img src="/assets/images/illustration/breadcrunb__shape.png" alt="shape" className="absolute bottom-0 left-0 z-1 lg:w-[12.5%] w-[20%]" />
                 <img src="/assets/images/illustration/bird-illustration-w.png" alt="shape" className="absolute top-[10%] right-[4%] z-1 w-[7.5%]" />
                 <div className="container relative z-2">

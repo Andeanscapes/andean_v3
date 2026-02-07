@@ -47,13 +47,13 @@ const Hero = () => {
                                     <img src="/assets/images/logo-white.png" width="150" height="180" />
                                 </div>
                                 <div style={isMobile ? { minHeight: "200px" } : {}}>
-                                    <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1.2">
+                                    <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1_2">
                                         {t(`slides.${slide.id}.title`)}
                                     </h1>
                                 </div>
                                 {!isMobile && (
                                     <div style={{ minHeight: "150px" }}>
-                                        <p className="lg:text-[25px] text-2md mt-4 leading-1.7">
+                                        <p className="lg:text-[25px] text-2md mt-4 leading-1_7">
                                             {t(`slides.${slide.id}.subtitle`)}
                                         </p>
                                     </div>
