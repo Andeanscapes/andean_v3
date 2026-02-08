@@ -5,6 +5,7 @@ import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useThemeContext } from '@/contexts/ThemeContext';
+import { SOCIAL_LINKS } from '@/constant/SiteConfig';
 import styles from './InstagramFeed.module.css';
 
 const InstagramFeed = () => {
@@ -43,7 +44,7 @@ const InstagramFeed = () => {
                                 height={300}
                                 width={300}
                                 className="w-full h-full object-cover" />
-                            <Link href="https://www.instagram.com/hacienda_el_recuerdo" className={styles.feedIcon}>
+                            <Link href={SOCIAL_LINKS.instagram} className={styles.feedIcon} target="_blank" rel="noopener noreferrer">
                                 <i className="bi bi-instagram text-xl" />
                             </Link>
                         </div>

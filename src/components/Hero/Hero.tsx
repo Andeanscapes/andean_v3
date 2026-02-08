@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import HeroData from '@/constant/Hero'
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
+import { BOOKING_LINKS } from '@/constant/SiteConfig';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -59,7 +60,7 @@ const Hero = () => {
                                     </div>
                                 )}
                                 <div className="lg:mt-10 mt-7">
-                                    <Link href="/email-form" className="btn btn-primary btn-lg text-base font-medium font-sans">
+                                    <Link href={BOOKING_LINKS.airbnb} className="btn btn-primary btn-lg text-base font-medium font-sans" target="_blank" rel="noopener noreferrer">
                                         {t('cta')}
                                     </Link>
                                 </div>

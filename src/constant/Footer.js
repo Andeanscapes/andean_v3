@@ -1,17 +1,18 @@
+import { SOCIAL_LINKS, SITE_INFO, CONTACT_INFO } from './SiteConfig';
 
 const FooterData ={
-    logo: "/assets/images/logo-white.png",
+    logo: SITE_INFO.logoWhite,
     bgImg: '/assets/images/backgrounds/footer-bg-1.webp',
     bgImg2: '/assets/images/backgrounds/footer-bg-2.png',
-    whatsappLink: "/",
-    twitterLink: "/",
-    pinterestLink: "/",
-    instagramLink: "https://www.instagram.com/hacienda_el_recuerdo",
-    facebookLink: "/",
-    youtubeLink: "/",
+    whatsappLink: SOCIAL_LINKS.whatsapp,
+    twitterLink: SOCIAL_LINKS.twitter,
+    pinterestLink: SOCIAL_LINKS.pinterest,
+    instagramLink: SOCIAL_LINKS.instagram,
+    facebookLink: SOCIAL_LINKS.facebook,
+    youtubeLink: SOCIAL_LINKS.youtube,
     copyrightText: "© Arid 2019 | All rights reserved.",
-    phone: "573192510498",
-    email: "example@gmail.com",
-    address: '3891 Ranchview Dr. Richardson, California 62639'
+    phone: CONTACT_INFO.phone,
+    email: CONTACT_INFO.email,
+    address: 'Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)'
 }
 export default FooterData; 
