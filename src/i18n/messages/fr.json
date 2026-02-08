@@ -3,8 +3,11 @@
     "metaTitle": "Accueil | Andean Scapes",
     "metaDescription": "Expérimenter le meilleur aventure naturelle et l'espace de vie collectif au cœur des Andes."
   },
+  "Header": {
+    "bookNow": "RÉSERVER MAINTENANT"
+  },
   "HeroTwo": {
-    "cta": "Soyez le premier à savoir",
+    "cta": "RÉSERVER MAINTENANT",
     "slides": {
       "0": {
         "title": "Votre Refuge Numérique",
@@ -68,8 +71,6 @@
   "Footer": {
     "contactUs": "Nous Contacter",
     "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
-    "phone": "+57 319-2510498",
-    "email": "andeanscapes@gmail.com",
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Bonjour! Je suis intéressé par vos services pour Andean Scapes"
