@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <LayoutProvider variant={variant} isSticky={isSticky}>
             <Header />
-            <main className="pb-24 lg:pb-30" data-theme={theme}>
+            <main id="main-content" className="pb-24 lg:pb-30" data-theme={theme}>
                 {children}
             </main>
             <Footer />

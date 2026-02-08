@@ -3,6 +3,12 @@
     "metaTitle": "Accueil | Andean Scapes",
     "metaDescription": "Expérimenter le meilleur aventure naturelle et l'espace de vie collectif au cœur des Andes."
   },
+  "navigation": {
+    "experiences": "Expériences",
+    "reviews": "Avis",
+    "help": "Aide",
+    "book": "Réserver"
+  },
   "HeroTwo": {
     "cta": "Soyez le premier à savoir",
     "slides": {

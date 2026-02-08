@@ -24,9 +24,22 @@ const config: StorybookConfig = {
       esbuild: {
         jsx: 'automatic'
       },
+      define: {
+        'process.env': {},
+        // eslint-disable-next-line no-undef
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '../src')
+          '@': path.resolve(__dirname, '../src'),
+          // Mock Next.js modules for Storybook
+          'next/navigation': path.resolve(__dirname, './mocks.ts'),
+          'next-intl': path.resolve(__dirname, './mocks.ts'),
+          'next/image': path.resolve(__dirname, './mocks.ts'),
+          'next/link': path.resolve(__dirname, './mocks.ts'),
+          '@/contexts/ThemeContext': path.resolve(__dirname, './decorators.tsx'),
+          '@/contexts/LanguageContext': path.resolve(__dirname, './decorators.tsx'),
+          '@/contexts/LayoutContext': path.resolve(__dirname, './decorators.tsx'),
         }
       },
       css: {

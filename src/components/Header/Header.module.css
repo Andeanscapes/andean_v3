@@ -1,42 +1,104 @@
 @reference "../../styles/globals.css";
 
+/* Skip Link for Accessibility */
+.skipLink {
+  @apply absolute left-[-9999px] top-0 z-[9999] bg-primary-1 text-white px-6 py-3 rounded-br-lg font-medium;
+  @apply focus:left-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-1;
+}
+
 /* Header Component Styles */
 
 .headerStyle {
-  @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+  @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-300 ease-in-out;
+  transition-property: background-color, box-shadow, opacity, backdrop-filter;
 }
 
 .headerStyle.sticky {
-  @apply shadow-lg opacity-90;
+  @apply shadow-lg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modern glassmorphism effect */
+@supports (backdrop-filter: blur(12px)) {
+  .headerStyle.sticky {
+    background-color: rgba(255, 255, 255, 0.85);
+  }
 }
 
 /* Theme-aware sticky backgrounds for transparent variants */
 .headerStyle.variantTwo.sticky[data-theme="dark"] {
-  @apply !bg-[#121316] opacity-90;
+  background-color: rgba(18, 19, 22, 0.85);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .headerStyle.variantTwo.sticky[data-theme="dark"] {
+    background-color: rgba(18, 19, 22, 0.7);
+  }
 }
 
 .headerStyle.variantTwo.sticky[data-theme="light"] {
-  @apply !bg-white opacity-90;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .headerStyle.variantTwo.sticky[data-theme="light"] {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .headerStyle.variantThree.sticky[data-theme="dark"] {
-  @apply !bg-[#121316] opacity-90;
+  background-color: rgba(18, 19, 22, 0.85);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .headerStyle.variantThree.sticky[data-theme="dark"] {
+    background-color: rgba(18, 19, 22, 0.7);
+  }
 }
 
 .headerStyle.variantThree.sticky[data-theme="light"] {
-  @apply !bg-white opacity-90;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .headerStyle.variantThree.sticky[data-theme="light"] {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .variantTwo {
-  @apply !bg-transparent;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.variantTwo[data-theme="dark"] {
+  background-color: rgba(18, 19, 22, 0.9);
 }
 
 .variantThree {
-  @apply !bg-transparent;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.variantThree[data-theme="dark"] {
+  background-color: rgba(18, 19, 22, 0.9);
 }
 
 .variantFour {
   @apply !bg-[#121316];
+}
+
+/* Divider between actions */
+.divider {
+  @apply h-6 w-px bg-stock-1;
+}
+
+.variantTwo .divider,
+.variantThree .divider {
+  @apply bg-white/20;
+}
+
+.variantThree.sticky .divider[data-theme="light"] {
+  @apply bg-stock-1;
 }
 
 /* Navigation */
@@ -168,4 +230,19 @@
 
 .hamburger.humActive span:last-child {
   @apply rotate-[-45deg] bottom-[.5px];
+}
+/* Focus visible styles for accessibility */
+:global(*:focus-visible) {
+  @apply outline-2 outline-offset-2 outline-primary-1;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .headerStyle,
+  .headerStyle *,
+  .skipLink {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

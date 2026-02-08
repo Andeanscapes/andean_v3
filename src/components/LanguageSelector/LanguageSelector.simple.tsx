@@ -1,39 +1,36 @@
 'use client'
 
-import {useEffect, useMemo, useRef, useState, useTransition, useCallback, memo} from 'react';
-import type {Locale} from '@/i18n/routing';
-import {routing} from '@/i18n/routing';
-import {usePathname, useRouter} from 'next/navigation';
+import {useState, useCallback, memo} from 'react';
 import {useLayoutContext} from '@/contexts/LayoutContext';
-import {useLanguageContext} from '@/contexts/LanguageContext';
 import {useThemeContext} from '@/contexts/ThemeContext';
 import {GlobeIcon, USFlagIcon, ESFlagIcon, COFlagIcon, FRFlagIcon} from '@/components/ui/icons';
 
 const flagComponents: Record<string, React.FC<{className?: string; 'aria-hidden'?: boolean}>> = {
   en: USFlagIcon,
   es: ESFlagIcon,
-  fr: FRFlagIcon,
   local: COFlagIcon,
+  fr: FRFlagIcon,
 };
+
+// Mock languages for Storybook
+const mockLanguages = [
+  { code: 'en' as const, label: 'English', flag: '🇺🇸' },
+  { code: 'es' as const, label: 'Español', flag: '🇪🇸' },
+  { code: 'fr' as const, label: 'Français', flag: '🇫🇷' },
+  { code: 'local' as const, label: 'Local', flag: '🇨🇴' }
+];
+
+type LocaleType = 'en' | 'es' | 'fr' | 'local';
 
 type DropdownPlacement = 'up' | 'down';
 
-const LanguageSelector = ({
-  placement = 'down',
-  persistMenuOpenKey
-}: {
-  placement?: DropdownPlacement;
-  persistMenuOpenKey?: string;
-}) => {
-  const {currentLocale, availableLanguages} = useLanguageContext();
-  const pathname = usePathname();
-  const router = useRouter();
+const LanguageSelectorSimple = ({ placement = 'down' }: { placement?: DropdownPlacement }) => {
   const {variant, isSticky} = useLayoutContext();
   const {theme} = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
-  const [isPending, startTransition] = useTransition();
+  const [currentLocale, setCurrentLocale] = useState<LocaleType>('en');
 
-  const currentLanguage = availableLanguages.find((l) => l.code === currentLocale);
+  const currentLanguage = mockLanguages.find((l) => l.code === currentLocale);
   const FlagComponent = flagComponents[currentLocale] || GlobeIcon;
 
   const isDarkTheme = variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
@@ -52,89 +49,26 @@ const LanguageSelector = ({
     (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1')
   , [theme]);
 
-  const stripLeadingLocale = (path: string) => {
-    const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
-    for (const pref of withSlashPrefixes) {
-      if (path.startsWith(pref)) return `/${path.slice(pref.length)}`;
-    }
-    for (const l of routing.locales) {
-      if (path === `/${l}`) return '/';
-    }
-    return path;
-  };
-
-  const buildHref = (target: Locale) => {
-    const path = pathname || '/';
-    const rest = stripLeadingLocale(path);
-    const needsPrefix = target !== routing.defaultLocale;
-    return needsPrefix ? `/${target}${rest === '/' ? '' : rest}` : rest;
-  };
-
-  const linkMap = useMemo(() => {
-    const map = {} as Record<Locale, string>;
-    availableLanguages.forEach((l) => {
-      map[l.code] = buildHref(l.code);
-    });
-    return map;
-  }, [pathname, variant, isSticky, currentLocale, availableLanguages]);
-
-  useEffect(() => {
-    const hrefs = Object.values(linkMap);
-    hrefs.forEach((href) => {
-      try {
-        router.prefetch(href as unknown as string);
-      } catch {}
-    });
-  }, [router, linkMap]);
-
-  const setLocaleCookie = useCallback((code: Locale) => {
-    try {
-      document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
-    } catch {}
+  const onSelect = useCallback((code: LocaleType) => {
+    setCurrentLocale(code);
+    setIsOpen(false);
   }, []);
 
-  const onSelect = useCallback((code: Locale) => {
-    if (code === currentLocale) {
-      setIsOpen(false);
-      return;
-    }
-    
-    if (persistMenuOpenKey) {
-      try {
-        sessionStorage.setItem(persistMenuOpenKey, 'true');
-      } catch {
-        // Ignore errors
-      }
-    }
+  const handleToggle = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen]);
 
-    setLocaleCookie(code);
+  const handleCloseDropdown = useCallback(() => {
     setIsOpen(false);
-    
-    const targetHref = buildHref(code);
-    startTransition(() => {
-      router.push(targetHref);
-      router.refresh();
-    });
-  }, [currentLocale, setLocaleCookie, startTransition, router, persistMenuOpenKey]);
-
-  const handleToggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
-  const handleCloseDropdown = useCallback(() => setIsOpen(false), []);
-
-  const prevPathRef = useRef(pathname);
-  useEffect(() => {
-    if (pathname !== prevPathRef.current) {
-      setIsOpen(false);
-      prevPathRef.current = pathname;
-    }
-  }, [pathname]);
+  }, []);
 
   return (
     <div className="dropdown dropdown-end relative" style={{zIndex: 9999}}>
       <button
         type="button"
         tabIndex={0}
-        onClick={(event) => {
-          event.stopPropagation();
+        onClick={(e) => {
+          e.stopPropagation();
           handleToggle();
         }}
         style={{position: 'relative', zIndex: 10000, pointerEvents: 'auto'}}
@@ -154,16 +88,13 @@ const LanguageSelector = ({
           role="menu" 
           aria-label="Language selection"
         >
-          {availableLanguages.map((lang) => {
+          {mockLanguages.map((lang) => {
             const LangFlag = flagComponents[lang.code] || GlobeIcon;
             return (
               <li key={lang.code} role="none">
                 <button
                   onClick={() => onSelect(lang.code)}
-                  disabled={isPending || currentLocale === lang.code}
                   className={`flex items-center gap-3 transition-colors duration-200 focus-visible:outline-primary-1 ${
-                    isPending ? 'opacity-50 cursor-wait' : ''
-                  } ${
                     currentLocale === lang.code
                       ? theme === 'dark'
                         ? 'bg-primary-1 text-white active'
@@ -176,7 +107,7 @@ const LanguageSelector = ({
                   <LangFlag className="w-5 h-5" aria-hidden={true} />
                   <span className="text-sm font-medium">{lang.label}</span>
                   {currentLocale === lang.code && (
-                    <svg className="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg className="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20" aria-hidden={true}>
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   )}
@@ -192,5 +123,4 @@ const LanguageSelector = ({
   );
 };
 
-export default memo(LanguageSelector);
-
+export default memo(LanguageSelectorSimple);

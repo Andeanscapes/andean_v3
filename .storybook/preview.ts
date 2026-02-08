@@ -1,18 +1,9 @@
-import type { Preview, Decorator } from '@storybook/react'
-import React from 'react'
+import type { Preview } from '@storybook/react'
 import '../src/styles/globals.css'
-
-const withTheme: Decorator = (Story) => {
-  React.useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'light');
-  }, []);
-  return React.createElement('div', { 
-    'data-theme': 'light',
-    style: { minHeight: '100vh', padding: '2rem', backgroundColor: '#ffffff' }
-  }, React.createElement(Story));
-};
+import { withMockProviders } from './decorators'
 
 const preview: Preview = {
+  decorators: [withMockProviders],
   parameters: {
     controls: {
       matchers: {
@@ -20,9 +11,29 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark', value: '#0f172a' },
+        { name: 'gradient-hero', value: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
+        { name: 'gradient-pink', value: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }
+      ]
+    }
   },
-  decorators: [withTheme]
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: ['light', 'dark'],
+        dynamicTitle: true,
+      },
+    },
+  },
 }
 
 export default preview

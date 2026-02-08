@@ -3,6 +3,12 @@
         "metaTitle": "Home | Andean Scapes",
         "metaDescription": "Experience the ultimate nature adventure and co-living space in the heart of the Andes."
     },
+    "navigation": {
+        "experiences": "Experiences",
+        "reviews": "Reviews",
+        "help": "Help",
+        "book": "Book"
+    },
     "HeroTwo": {
         "cta": "Be the First to Know",
         "slides": {

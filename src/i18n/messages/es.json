@@ -3,6 +3,12 @@
         "metaTitle": "Inicio | Andean Scapes",
         "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
     },
+    "navigation": {
+        "experiences": "Experiencias",
+        "reviews": "Reseñas",
+        "help": "Ayuda",
+        "book": "Reservar"
+    },
     "HeroTwo": {
         "cta": "Sé el primero en enterarte",
         "slides": {
