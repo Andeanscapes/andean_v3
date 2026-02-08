@@ -59,7 +59,7 @@ const Hero = () => {
                                     </div>
                                 )}
                                 <div className="lg:mt-10 mt-7">
-                                    <Link href="/email-form" className="btn_primary__v1">
+                                    <Link href="/email-form" className="btn btn-primary btn-lg text-base font-medium font-sans">
                                         {t('cta')}
                                     </Link>
                                 </div>

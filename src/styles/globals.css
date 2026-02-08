@@ -7,6 +7,35 @@
   logs: false;
 }
 
+/* ── Custom DaisyUI Theme: map project brand colors to DaisyUI semantic tokens ── */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
+  --color-primary-content: oklch(98% 0.01 165);        /* white text on primary */
+  --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
+  --color-secondary-content: oklch(98% 0.01 35);       /* white text on secondary */
+  --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B – lighter green */
+  --color-accent-content: oklch(20% 0.02 165);
+  --color-neutral: oklch(23.5% 0.000 89.9);            /* #1E1E1E – dark-base */
+  --color-neutral-content: oklch(98% 0.01 90);
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
+  --color-primary-content: oklch(98% 0.01 165);
+  --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
+  --color-secondary-content: oklch(98% 0.01 35);
+  --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B */
+  --color-accent-content: oklch(90% 0.02 165);
+  --color-neutral: oklch(30% 0.005 270);
+  --color-neutral-content: oklch(90% 0.01 270);
+}
+
 /* ── Source paths for content detection ── */
 @source "../../src";
 @source "../../.storybook";
@@ -117,6 +146,40 @@
 }
 @utility z-3 {
   z-index: 3;
+}
+
+/* ── Color mapping: Legacy class names now use DaisyUI semantic tokens ── */
+/* These utilities ensure backward compatibility while using DaisyUI theme colors */
+@layer utilities {
+  /* Background colors */
+  .bg-primary-1 { @apply bg-primary; }
+  .bg-primary-2 { @apply bg-primary/80; }
+  .bg-primary-3 { @apply bg-primary/30; }
+  .bg-secondary-1 { @apply bg-secondary; }
+  .bg-secondary-2 { @apply bg-secondary/80; }
+  
+  /* Text colors */
+  .text-primary-1 { @apply text-primary; }
+  .text-secondary-1 { @apply text-secondary; }
+  
+  /* Border colors */
+  .border-primary-1 { @apply border-primary; }
+  .border-primary-2 { @apply border-primary/80; }
+  .border-secondary-1 { @apply border-secondary; }
+  
+  /* Hover states */
+  .hover\:text-primary-1:hover { @apply text-primary; }
+  .hover\:bg-primary-1:hover { @apply bg-primary; }
+  .hover\:bg-primary-2:hover { @apply bg-primary/80; }
+  
+  /* Focus states */
+  .focus\:bg-primary-1:focus { @apply bg-primary; }
+  
+  /* Dark colors */
+  .bg-dark-1 { @apply bg-neutral; }
+  .text-dark-1 { @apply text-neutral; }
+  .border-dark-1 { @apply border-neutral; }
+  .bg-dark-1\/95 { @apply bg-neutral/95; }
 }
 @utility z-999 {
   z-index: 999;
