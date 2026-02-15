@@ -3,8 +3,11 @@
         "metaTitle": "Inicio | Andean Scapes HZ",
         "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
     },
+    "Header": {
+        "bookNow": "RESERVA AHORA"
+    },
     "HeroTwo": {
-        "cta": "Sé el primero en enterarte",
+        "cta": "RESERVA AHORA",
         "slides": {
             "0": {
                 "title": "Tu refugio para nómadas digitales",
@@ -54,7 +57,9 @@
                 "title": "Descubre los tesoros de los Andes",
                 "subtitle": "Adéntrate en el corazón de los Andes y explora las históricas minas de esmeraldas. Vive la emoción del descubrimiento mientras aprendes sobre las tradiciones mineras y las maravillas geológicas de Colombia."
             }
-        }
+        },
+        "availabilityCta": "Ver disponibilidad",
+        "scrollCue": "Reserva en 1 minuto"
     },
     "VideoBanner": {
         "title": "Descubre el viaje del minero",
@@ -65,11 +70,22 @@
         "playAria": "Reproducir video",
         "playAlt": "Reproducir video"
     },
+    "BookingCtas": {
+        "title": "¿Listo para tu aventura? ⛏️💎",
+        "subtitle": "Aventura minera en Chivor + estancia rural. Planes 2D/1N y 3D/2N.",
+        "airbnbCta": "Ver disponibilidad en Airbnb",
+        "airbnbSupport": "Pago seguro + reviews",
+        "reviewsLabel": "reviews",
+        "trustPolicy": "Pago seguro · Cancelación según Airbnb",
+        "whatsappHelpText": "¿Dudas o quieres cotizar antes de reservar?",
+        "whatsappCta": "Hablar por WhatsApp",
+        "stickyWhatsappText": "¿Dudas? WhatsApp",
+        "whatsappSupport": "Te ayudamos a elegir 2D/1N o 3D/2N · Respuesta rápida",
+        "bookingScopeNote": "La reserva en Airbnb incluye solo habitación en Hacienda El Recuerdo. El tour minero se cotiza aparte."
+    },
     "Footer": {
         "contactUs": "Contáctenos",
         "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
-        "phone": "+57 319-2510498",
-        "email": "andeanscapes@gmail.com",
         "whatsapp": "whatsapp",
         "instagram": "Instagram",
         "whatsappMessage": "¡Hola! Estoy interesado en tus servicios para Andean Scapes"

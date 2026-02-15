@@ -19,7 +19,7 @@ export default function NotFound() {
                 <div className="max-w-[774px] text-center mx-auto">
                     <img src="/assets/images/error.png" alt="error" />
                     <h2 className="section-title-v1">Oops! That Page Can't Be Found.</h2>
-                    <p className="regular-text-v1 !leading-1.6 mt-[10px]">It looks like nothing was found at this location. You can either go back to the last <br /> page or go to Home Page</p>
+                    <p className="regular-text-v1 !leading-1_6 mt-[10px]">It looks like nothing was found at this location. You can either go back to the last <br /> page or go to Home Page</p>
                     <div className="mt-12">
                         <Link href="/" className="btn_primary__v1">
                             <i className="bi bi-chevron-left" />

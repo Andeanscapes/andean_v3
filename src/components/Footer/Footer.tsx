@@ -3,15 +3,14 @@ import { useCallback, useMemo, memo } from "react";
 import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
+import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from "@/constant/SiteConfig";
 import styles from './Footer.module.css';
 
 const Footer = () => {
     const t = useTranslations('Footer');
     const { theme } = useThemeContext();
 
-    const PHONE = t('phone');
     const ADDRESS = t('address');
-    const EMAIL = t('email');
 
     const textColorClass = useMemo(() => 
         theme === 'dark' ? 'text-white' : 'text-gray-900'
@@ -21,11 +20,9 @@ const Footer = () => {
         theme === 'dark' ? 'text-stock-1' : 'text-gray-600'
     , [theme]);
 
-    const whatsappLink = useCallback(({ phoneNumber, message }: { phoneNumber: string, message: string }) => {
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
+    const whatsappLink = useCallback(() => {
         return (
-            <Link href={whatsappUrl} passHref className="inline-flex items-center group">
+            <Link href={SOCIAL_LINKS.whatsapp} passHref className="inline-flex items-center group" target="_blank" rel="noopener noreferrer">
                 <div className={styles.socialIcon}>
                     <i className="bi bi-whatsapp" />
                 </div>
@@ -40,20 +37,25 @@ const Footer = () => {
             : `linear-gradient(rgba(245, 245, 245, 0.98) 100%, rgba(245, 245, 245, 0.98) 100%)`
     , [theme]);
 
+    const logoSrc = useMemo(() =>
+        theme === 'light' ? SITE_INFO.logoWhite : SITE_INFO.logo
+    , [theme]);
+
     return (
         <div className={styles.footerStyleOne} style={{ background: footerBg }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
                         <img
-                            src="/assets/images/logo.png"
+                            src={logoSrc}
                             alt="logo"
+                            className="w-[120px] h-[72px] object-contain"
                         />
                     </Link>
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
-                        {whatsappLink({ phoneNumber: PHONE.replace(/\D/g, ''), message: t('whatsappMessage') })}
+                        {whatsappLink()}
 
-                        <Link href="https://www.instagram.com/" className="inline-flex items-center group">
+                        <Link href={SOCIAL_LINKS.instagram} className="inline-flex items-center group" target="_blank" rel="noopener noreferrer">
                             <div className={styles.socialIcon}>
                                 <i className="bi bi-instagram" />
                             </div>
@@ -63,7 +65,7 @@ const Footer = () => {
                 </div>
                 <div className="grid lg:grid-cols-12 lg:pt-17 pt-10 gap-base lg:pb-17 pb-12 gradient-border-top">
                     <div className="lg:col-span-12 col-span-12 text-center lg:text-start">
-                        <h3 className={`lg:text-[25px] text-2md font-semibold leading-1.35 ${textColorClass}`}>{t('contactUs')}</h3>
+                        <h3 className={`lg:text-[25px] text-2md font-semibold leading-1_35 ${textColorClass}`}>{t('contactUs')}</h3>
                         <ul className="mt-8">
                             <li className={`mt-5 first:mt-0 flex items-center lg:justify-start justify-center ${secondaryTextColorClass} hover:text-primary-1 duration-200`}>
                                 <div className="text-primary-1 shrink-0">
@@ -72,7 +74,7 @@ const Footer = () => {
                                         <path d="M3.01675 7.07484C4.65842 -0.141827 15.3501 -0.133494 16.9834 7.08317C17.9417 11.3165 15.3084 14.8998 13.0001 17.1165C11.3251 18.7332 8.67508 18.7332 6.99175 17.1165C4.69175 14.8998 2.05842 11.3082 3.01675 7.07484Z" stroke="currentColor" strokeWidth="1.5" />
                                     </svg>
                                 </div>
-                                <Link href="#" className="leading-1.5 pl-[10px] text-base ">
+                                <Link href="#" className="leading-1_5 pl-[10px] text-base ">
                                     {ADDRESS}
                                 </Link>
                             </li>
@@ -84,8 +86,8 @@ const Footer = () => {
                                         <path d="M16.4751 6.4749L13.5251 3.5249" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <Link href={`tel:${PHONE}`} className="leading-1.5 pl-[10px] text-base ">
-                                    {PHONE}
+                                <Link href={`tel:${CONTACT_INFO.phone}`} className="leading-1_5 pl-[10px] text-base ">
+                                    {CONTACT_INFO.phoneDisplay}
                                 </Link>
                             </li>
                             <li className={`mt-5 first:mt-0 flex items-center lg:justify-start justify-center ${secondaryTextColorClass} hover:text-primary-1 duration-200`}>
@@ -95,7 +97,7 @@ const Footer = () => {
                                         <path d="M14.1666 7.5L11.5582 9.58333C10.6999 10.2667 9.29158 10.2667 8.43325 9.58333L5.83325 7.5" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit={10} strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </div>
-                                <Link href={`mailto:${EMAIL}`} className="leading-1.5 pl-[10px] text-base ">{EMAIL}</Link>
+                                <Link href={`mailto:${CONTACT_INFO.email}`} className="leading-1_5 pl-[10px] text-base ">{CONTACT_INFO.email}</Link>
                             </li>
                         </ul>
                     </div>

@@ -1,8 +1,217 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 /* used google fonts */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark;
+  logs: false;
+}
+
+/* ── Custom DaisyUI Theme: map project brand colors to DaisyUI semantic tokens ── */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
+  --color-primary-content: oklch(98% 0.01 165);        /* white text on primary */
+  --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
+  --color-secondary-content: oklch(98% 0.01 35);       /* white text on secondary */
+  --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B – lighter green */
+  --color-accent-content: oklch(20% 0.02 165);
+  --color-neutral: oklch(23.5% 0.000 89.9);            /* #1E1E1E – dark-base */
+  --color-neutral-content: oklch(98% 0.01 90);
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
+  --color-primary-content: oklch(98% 0.01 165);
+  --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
+  --color-secondary-content: oklch(98% 0.01 35);
+  --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B */
+  --color-accent-content: oklch(90% 0.02 165);
+  --color-neutral: oklch(30% 0.005 270);
+  --color-neutral-content: oklch(90% 0.01 270);
+}
+
+/* ── Source paths for content detection ── */
+@source "../../src";
+@source "../../.storybook";
+
+/* ── Custom Theme (migrated from tailwind.config.js) ── */
+@theme {
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+
+  /* Font Families */
+  --font-sans: var(--font-jost);
+  --font-cursive: var(--font-satisfy);
+  --font-serif: var(--font-playfair);
+  --font-bootstarp: 'bootstrap-icons';
+
+  /* Font Sizes */
+  --text-xxs: 8px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-2md: 20px;
+  --text-lg: 24px;
+  --text-xl: 30px;
+  --text-2xl: 35px;
+  --text-3xl: 40px;
+  --text-3xl--line-height: 1.5;
+  --text-4xl: 48px;
+  --text-5xl: 56px;
+  --text-6xl: 72px;
+  --text-7xl: 80px;
+
+  /* Colors */
+  --color-primary-1: #4CAE88;
+  --color-primary-2: #6FC19B;
+  --color-primary-3: #D4EBD2;
+  --color-secondary-1: #FF7C5B;
+  --color-secondary-2: #FFB29E;
+  --color-dark-base: #1E1E1E;
+  --color-dark-1: #030415;
+  --color-dark-2: #353535;
+  --color-dark-3: #5B5B5B;
+  --color-dark-4: #7B7B7B;
+  --color-dark-5: #EBEBEB;
+  --color-dark-6: #F3F3F3;
+  --color-status-info: #219FFF;
+  --color-status-info-shad: #E9F6FF;
+  --color-status-success: #17BD8D;
+  --color-status-success-shad: #E9FBF6;
+  --color-status-warning: #FFC233;
+  --color-status-warning-shad: #FFF9EB;
+  --color-status-danger: #F53D6B;
+  --color-status-danger-shad: #FFE3EB;
+  --color-stock-1: #DDDDDD;
+  --color-stock-2: #EEEEEE;
+
+  /* Background Images */
+  --background-image-footer-border: linear-gradient(90deg, rgba(53, 53, 53, 0) 0%, rgba(53, 53, 53, 0.8) 48.96%, rgba(53, 53, 53, 0) 100%);
+
+  /* Z-Index - using Tailwind v4 arbitrary values, custom utilities below */
+
+  /* Line Heights */
+  --leading-1: 1;
+  --leading-1_1: 1.1;
+  --leading-1_2: 1.2;
+  --leading-1_3: 1.3;
+  --leading-1_35: 1.35;
+  --leading-1_4: 1.4;
+  --leading-1_45: 1.45;
+  --leading-1_5: 1.5;
+  --leading-1_6: 1.6;
+  --leading-1_7: 1.7;
+  --leading-1_8: 1.8;
+  --leading-1_9: 1.9;
+
+  /* Spacing */
+  --spacing-base: 30px;
+  --spacing-17: 70px;
+  --spacing-30: 120px;
+
+  /* Box Shadows */
+  --shadow-custom-1: 8px 5px 45px rgba(0, 0, 0, 0.08);
+  --shadow-custom-2: 4px 3px 40px rgba(16, 33, 34, 0.06);
+
+  /* Keyframes */
+  --animate-paluse: paluse 2s ease-in-out 0.5s infinite;
+}
+
+@keyframes paluse {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Custom z-index utilities */
+@utility z-minus {
+  z-index: -1;
+}
+@utility z-1 {
+  z-index: 1;
+}
+@utility z-2 {
+  z-index: 2;
+}
+@utility z-3 {
+  z-index: 3;
+}
+
+/* ── Color mapping: Legacy class names now use DaisyUI semantic tokens ── */
+/* These utilities ensure backward compatibility while using DaisyUI theme colors */
+@layer utilities {
+  /* Background colors */
+  .bg-primary-1 { @apply bg-primary; }
+  .bg-primary-2 { @apply bg-primary/80; }
+  .bg-primary-3 { @apply bg-primary/30; }
+  .bg-secondary-1 { @apply bg-secondary; }
+  .bg-secondary-2 { @apply bg-secondary/80; }
+  
+  /* Text colors */
+  .text-primary-1 { @apply text-primary; }
+  .text-secondary-1 { @apply text-secondary; }
+  
+  /* Border colors */
+  .border-primary-1 { @apply border-primary; }
+  .border-primary-2 { @apply border-primary/80; }
+  .border-secondary-1 { @apply border-secondary; }
+  
+  /* Hover states */
+  .hover\:text-primary-1:hover { @apply text-primary; }
+  .hover\:bg-primary-1:hover { @apply bg-primary; }
+  .hover\:bg-primary-2:hover { @apply bg-primary/80; }
+  
+  /* Focus states */
+  .focus\:bg-primary-1:focus { @apply bg-primary; }
+  
+  /* Dark colors */
+  .bg-dark-1 { @apply bg-neutral; }
+  .text-dark-1 { @apply text-neutral; }
+  .border-dark-1 { @apply border-neutral; }
+  .bg-dark-1\/95 { @apply bg-neutral/95; }
+}
+@utility z-999 {
+  z-index: 999;
+}
+
+/* Custom spacing utility */
+@utility right-container {
+  right: calc((100% - 1176px) / 2);
+}
+
+/* Custom transform origins */
+@utility origin-left-center {
+  transform-origin: left center;
+}
+
+/* Container override — replaces container config from old tailwind.config */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 12px;
+  @media (width >= 576px) {
+    padding-inline: 12px;
+  }
+  @media (width >= 992px) {
+    padding-inline: 1rem;
+  }
+  @media (width >= 1200px) {
+    padding-inline: 1rem;
+  }
+  @media (width >= 1400px) {
+    padding-inline: 5rem;
+  }
+}
 
 main[data-theme="light"] {
   @apply bg-white;
@@ -50,28 +259,28 @@ Common Text Classes
   @apply font-bold lg:text-3xl md:text-2xl text-xl text-white leading-[1.46] mt-[10px];
 }
 .section-sub-title-v1{
-  @apply font-cursive lg:text-lg text-2md text-primary-1 mb-1 leading-1.2 ;
+  @apply font-cursive lg:text-lg text-2md text-primary-1 mb-1 leading-1_2 ;
 }
 .variant-2.section-sub-title-v1{
   @apply text-secondary-1;
 }
 .regular-text-v1{
-  @apply lg:text-base text-sm font-sans text-dark-3 leading-1.9 ;
+  @apply lg:text-base text-sm font-sans text-dark-3 leading-1_9 ;
 }
 .partner-logo-item{
   @apply lg:h-[154px] h-24 flex justify-center items-center border-r border-primary-1;
 }
 .card-title-alpha{
-  @apply capitalize lg:text-[22px] text-2md text-dark-1 font-medium leading-1.4 lg:leading-1.4 hover:text-primary-1 duration-300;
+  @apply capitalize lg:text-[22px] text-2md text-dark-1 font-medium leading-1_4 lg:leading-1_4 hover:text-primary-1 duration-300;
 }
 .card-title-alpha-v2{
-  @apply lg:text-[22px] text-white font-medium text-2md leading-1.4 lg:leading-1.4 hover:text-primary-1 duration-300;
+  @apply lg:text-[22px] text-white font-medium text-2md leading-1_4 lg:leading-1_4 hover:text-primary-1 duration-300;
 }
 .footer-nav-link{
-  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1.8 inline-block duration-200 hover:text-primary-1 ; 
+  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1_8 inline-block duration-200 hover:text-primary-1 ; 
 }
 .footer-nav-link-v2{
-  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1.8 inline-block duration-200 hover:text-primary-1 ; 
+  @apply text-stock-1 relative font-medium lg:text-base text-sm leading-1_8 inline-block duration-200 hover:text-primary-1 ; 
 }
 .gradient-border-bottom{
   @apply relative before:content-[''] before:absolute before:w-full before:h-[2px] before:bottom-0 before:left-0  before:bg-footer-border;
@@ -116,7 +325,7 @@ Custom Components
 @apply text-dark-1 text-base bg-primary-1 inline-flex font-medium px-9 py-[15px]  z-1  relative before:absolute before:content-[''] before:bottom-0 before:left-0 before:w-full before:h-full before:bg-[#e7e180] before:z-minus before:scale-y-0 before:origin-bottom hover:before:scale-y-100 before:duration-300 before:ease-in
 }
 .package-filter-btn{
-  @apply border-primary-1 border text-primary-1 inline-flex items-center justify-center h-14 lg:h-16 lg:text-2md text-base gap-[10px] lg:px-9 px-6 py-4 hover:border-primary-2 hover:bg-primary-1 hover:bg-opacity-10 duration-200 focus:bg-primary-1 focus:border-primary-2 focus:bg-opacity-10 lg:mr-base lg:last:mr-0 mr-4 last:mr-0;
+  @apply border-primary-1 border text-primary-1 inline-flex items-center justify-center h-14 lg:h-16 lg:text-2md text-base gap-[10px] lg:px-9 px-6 py-4 hover:border-primary-2 hover:bg-primary-1/10 duration-200 focus:bg-primary-1/10 focus:border-primary-2 lg:mr-base lg:last:mr-0 mr-4 last:mr-0;
 }
 .package-filter-btn *{
 @apply pointer-events-none;
@@ -148,7 +357,7 @@ Custom Components
   @apply h-[10px] w-[10px] bg-white rounded-full opacity-100 !mx-[10px] relative before:absolute before:content-[''] before:-inset-1 before:rounded-full before:border before:border-transparent duration-150 before:duration-150;
 }
 .common-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
-  @apply bg-primary-1 before:border-primary-1 before:border-opacity-100;
+  @apply bg-primary-1 before:border-primary-1;
 }
 
 /* breadcrumb */
@@ -160,7 +369,7 @@ Custom Components
 }
 
 .breadcrumb li.active_page{
-  @apply inline-block px-3 first:pl-0 text-opacity-70;
+  @apply inline-block px-3 first:pl-0 text-white/70;
 }
 
 /*social icon */
@@ -168,7 +377,7 @@ Custom Components
   @apply inline-block mt-3 lg:ml-5 ml-4 first:ml-0 lg:first:ml-0;
 }
 .guide_social__icon a{
-  @apply h-[34px] w-[34px] border border-stock-1 border-opacity-80 flex justify-center items-center text-dark-2 hover:bg-primary-1 hover:border-primary-1 hover:text-dark-1 duration-300;
+  @apply h-[34px] w-[34px] border border-stock-1/80 flex justify-center items-center text-dark-2 hover:bg-primary-1 hover:border-primary-1 hover:text-dark-1 duration-300;
 }
 .primary_social__icon{
   @apply border border-stock-1 h-9 w-9 rounded-[3px] inline-flex justify-center items-center text-dark-3 duration-200 hover:bg-primary-1 hover:text-white
@@ -228,7 +437,7 @@ Styling for long TW class
 
 /* Hero style two css */
 .hero-two-single-slide{
-  @apply lg:min-h-screen bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1  before:absolute before:content-[''] before:inset-0 before:bg-dark-1 before:bg-opacity-50
+  @apply lg:min-h-screen bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1  before:absolute before:content-[''] before:inset-0 before:bg-dark-1/50
 }
 .hero-two-single-slide.swiper-slide-active .zoom-image{
   @apply scale-110 duration-[5s]
@@ -513,7 +722,7 @@ Customiz Third-Party Plugins
 
 /* Range Slider */
 .range-slider .ui-slider{
-  @apply rounded-none h-[6px] bg-primary-1 bg-opacity-20;
+  @apply rounded-none h-[6px] bg-primary-1/20;
 }
 .range-slider .ui-slider-range{
   @apply bg-primary-1
@@ -527,7 +736,7 @@ Customiz Third-Party Plugins
 
 /* Dropdown Component */
 .person-dropdown{
-  @apply w-full py-5 px-4 border-primary-1 border border-opacity-70
+  @apply w-full py-5 px-4 border border-primary-1/70
 }
 
 
@@ -708,7 +917,7 @@ Customiz Third-Party Plugins
 }
 
 .dashboard-table tr{
-  @apply even:bg-primary-1 even:bg-opacity-5
+  @apply even:bg-primary-1/5
 }
 .dashboard-table thead{
   @apply bg-primary-1;

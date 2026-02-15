@@ -3,15 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import {memo, useMemo} from "react";
+import {useTranslations} from 'next-intl';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
+import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
 import styles from "./Header.module.css";
 
 const Header = () => {
     const {variant, isSticky} = useLayoutContext();
     const {theme} = useThemeContext();
+    const t = useTranslations('Header');
 
     const headerClassName = useMemo(() => {
         return `${styles.headerStyle}
@@ -21,6 +24,10 @@ const Header = () => {
            ${variant === "black" ? styles.variantFour : ""}
            `;
     }, [variant, isSticky]);
+
+    const logoSrc = useMemo(() => {
+        return theme === 'light' ? SITE_INFO.logoWhite : SITE_INFO.logo;
+    }, [theme]);
 
     return (
         <header 
@@ -36,7 +43,7 @@ const Header = () => {
                             height='70'
                             // layout="responsive"
                             className="max-w-[58px]"
-                            src="/assets/images/logo.png"
+                            src={logoSrc}
                             priority
                         />
                     </Link>
@@ -46,6 +53,14 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex items-center gap-6">
+                    <Link 
+                        href={BOOKING_LINKS.airbnb} 
+                        className="btn btn-primary btn-sm text-sm font-medium font-sans"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        {t('bookNow')}
+                    </Link>
                     <ThemeToggle />
                     <LanguageSelector />
                 </div>
@@ -57,10 +72,18 @@ const Header = () => {
                         alt='logo'
                         width='100'
                         height='70'
-                        src="/assets/images/logo.png"
+                        src={logoSrc}
                     />
                 </Link>
                 <div className="space-x-4 flex items-center">
+                    <Link 
+                        href={BOOKING_LINKS.airbnb} 
+                        className="btn btn-primary btn-sm text-xs font-medium font-sans"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        {t('bookNow')}
+                    </Link>
                     <ThemeToggle />
                     <LanguageSelector />
                 </div>
