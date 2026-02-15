@@ -57,7 +57,9 @@
                 "title": "Unearth the Treasures of the Andes",
                 "subtitle": "Delve deep into the heart of the Andes and explore the historic emerald mines. Experience the thrill of discovery while learning about the mining traditions and the geological wonders of Colombia."
             }
-        }
+        },
+        "availabilityCta": "Check availability",
+        "scrollCue": "Book in 1 minute"
     },
     "VideoBanner": {
         "title": "Discover the Miner’s Journey",
@@ -66,11 +68,26 @@
         "closeAria": "Close video",
         "videoTitle": "YouTube video player",
         "playAria": "Play video",
-        "playAlt": "Play video"    },
+        "playAlt": "Play video"
+    },
+    "BookingCtas": {
+        "title": "Ready for your adventure? ⛏️💎",
+        "subtitle": "Mining adventure in Chivor + rural stay. 2D/1N and 3D/2N plans.",
+        "airbnbCta": "Check availability on Airbnb",
+        "airbnbSupport": "Secure payment + reviews",
+        "reviewsLabel": "reviews",
+        "trustPolicy": "Secure payment · Cancellation per Airbnb policy",
+        "whatsappHelpText": "Questions or want a quote before booking?",
+        "whatsappCta": "Chat on WhatsApp",
+        "stickyWhatsappText": "Questions? WhatsApp",
+        "whatsappSupport": "We help you choose 2D/1N or 3D/2N · Fast response",
+        "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately."
+    },
     "Footer": {
         "contactUs": "Contact Us",
         "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
         "whatsapp": "whatsapp",
         "instagram": "Instagram",
-        "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes"    }
+        "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes"
+    }
 }

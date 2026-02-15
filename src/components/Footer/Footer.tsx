@@ -3,7 +3,7 @@ import { useCallback, useMemo, memo } from "react";
 import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
-import { SOCIAL_LINKS, CONTACT_INFO } from "@/constant/SiteConfig";
+import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from "@/constant/SiteConfig";
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -37,14 +37,19 @@ const Footer = () => {
             : `linear-gradient(rgba(245, 245, 245, 0.98) 100%, rgba(245, 245, 245, 0.98) 100%)`
     , [theme]);
 
+    const logoSrc = useMemo(() =>
+        theme === 'light' ? SITE_INFO.logoWhite : SITE_INFO.logo
+    , [theme]);
+
     return (
         <div className={styles.footerStyleOne} style={{ background: footerBg }}>
             <div className="container">
                 <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
                     <Link href="/">
                         <img
-                            src="/assets/images/logo.png"
+                            src={logoSrc}
                             alt="logo"
+                            className="w-[120px] h-[72px] object-contain"
                         />
                     </Link>
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">

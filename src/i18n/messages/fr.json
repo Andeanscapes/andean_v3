@@ -57,7 +57,9 @@
         "title": "Évoquez les Trésors des Andes",
         "subtitle": "Enfoncez-vous au cœur des Andes et explorez les anciennes mines emmeraude. Expérimenter l'aventure de la découverte tout en apprenant à propos des traditions miniers et des merveilles géologiques de la Colombie."
       }
-    }
+    },
+    "availabilityCta": "Voir les disponibilités",
+    "scrollCue": "Réservez en 1 minute"
   },
   "VideoBanner": {
     "title": "Découvrez le Chemin du Mineur",
@@ -67,6 +69,19 @@
     "videoTitle": "Joueuur vidéo YouTube",
     "playAria": "Lire la vidéo",
     "playAlt": "Lire la vidéo"
+  },
+  "BookingCtas": {
+    "title": "Prêt pour votre aventure ? ⛏️💎",
+    "subtitle": "Aventure minière à Chivor + séjour rural. Forfaits 2D/1N et 3D/2N.",
+    "airbnbCta": "Voir les disponibilités sur Airbnb",
+    "airbnbSupport": "Paiement sécurisé + avis",
+    "reviewsLabel": "avis",
+    "trustPolicy": "Paiement sécurisé · Annulation selon Airbnb",
+    "whatsappHelpText": "Des questions ou besoin d'un devis avant de réserver ?",
+    "whatsappCta": "Parler sur WhatsApp",
+    "stickyWhatsappText": "Questions ? WhatsApp",
+    "whatsappSupport": "Nous vous aidons à choisir 2D/1N ou 3D/2N · Réponse rapide",
+    "bookingScopeNote": "La réservation Airbnb couvre uniquement la chambre à Hacienda El Recuerdo. Le tour de mine est facturé séparément."
   },
   "Footer": {
     "contactUs": "Nous Contacter",

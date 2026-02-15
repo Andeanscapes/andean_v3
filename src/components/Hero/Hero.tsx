@@ -1,13 +1,12 @@
 'use client'
 
-import { useState, useEffect, useMemo, memo } from 'react';
+import { useState, useEffect, useMemo, useCallback, memo } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from 'next/link';
 
 import HeroData from '@/constant/Hero'
-import Link from "next/link";
 import {useTranslations} from 'next-intl';
-import { BOOKING_LINKS } from '@/constant/SiteConfig';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -18,6 +17,21 @@ const Hero = () => {
         nextEl: ".hero-next",
         prevEl: ".hero-prev",
     }), []);
+
+    const handleBookingScroll = useCallback((event: React.MouseEvent) => {
+        event.preventDefault();
+        const bookingSection = document.getElementById('booking');
+
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.location.hash !== '#booking') {
+                window.history.replaceState(null, '', '#booking');
+            }
+            return;
+        }
+
+        window.location.hash = 'booking';
+    }, []);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -41,11 +55,11 @@ const Hero = () => {
             >
                 {HeroData?.slides?.map((slide) => (
                     <SwiperSlide className={styles.heroSlide} key={slide.id}>
-                        <img src={slide.imgUrl} alt="cv" className={styles.zoomImage} />
+                        <img src={slide.imgUrl} alt={t(`slides.${slide.id}.title`)} className={styles.zoomImage} />
                         <div className="container">
-                            <div className="max-w-[850px] mx-auto text-center text-white relative lg:pb-24 pb-20 lg:pt-[220px] pt-36">
+                            <div className="max-w-[850px] mx-auto text-center text-white relative lg:py-8 py-16">
                                 <div className="w-full h-full flex items-center justify-center mb-3">
-                                    <img src="/assets/images/logo-white.png" width="150" height="180" />
+                                    <img src="/assets/images/logo.png" alt="" width="150" height="180" />
                                 </div>
                                 <div style={isMobile ? { minHeight: "200px" } : {}}>
                                     <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1_2">
@@ -60,8 +74,8 @@ const Hero = () => {
                                     </div>
                                 )}
                                 <div className="lg:mt-10 mt-7">
-                                    <Link href={BOOKING_LINKS.airbnb} className="btn btn-primary btn-lg text-base font-medium font-sans" target="_blank" rel="noopener noreferrer">
-                                        {t('cta')}
+                                    <Link href="#booking" onClick={handleBookingScroll} className="btn btn-primary btn-lg text-base font-medium font-sans">
+                                        {t('availabilityCta')}
                                     </Link>
                                 </div>
                             </div>
@@ -84,6 +98,13 @@ const Hero = () => {
                         <path className="group-hover:-translate-x-2 duration-200" d="M78 25.75C78.4142 25.75 78.75 25.4142 78.75 25C78.75 24.5858 78.4142 24.25 78 24.25L78 25.75ZM20.4697 24.4697C20.1768 24.7626 20.1768 25.2374 20.4697 25.5303L25.2426 30.3033C25.5355 30.5962 26.0104 30.5962 26.3033 30.3033C26.5962 30.0104 26.5962 29.5355 26.3033 29.2426L22.0607 25L26.3033 20.7574C26.5962 20.4645 26.5962 19.9896 26.3033 19.6967C26.0104 19.4038 25.5355 19.4038 25.2426 19.6967L20.4697 24.4697ZM78 24.25L21 24.25L21 25.75L78 25.75L78 24.25Z" fill="currentColor" />
                     </svg>
                 </div>
+            </div>
+
+            <div className="absolute bottom-6 left-1/2 z-3 -translate-x-1/2 md:hidden text-white/80">
+                <p className="text-sm font-medium animate-bounce">
+                    <span aria-hidden="true">↓ </span>
+                    {t('scrollCue')}
+                </p>
             </div>
         </div>
     )
