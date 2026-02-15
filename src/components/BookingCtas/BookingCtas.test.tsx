@@ -1,6 +1,6 @@
 import {cleanup, render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import type {AnchorHTMLAttributes} from 'react'
+import type {ReactNode} from 'react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import BookingCtas from './BookingCtas'
@@ -28,7 +28,7 @@ vi.mock('next/link', () => ({
     href,
     children,
     ...props
-  }: AnchorHTMLAttributes<HTMLAnchorElement> & {href: string}) => (
+  }: {href: string; children: ReactNode} & Omit<JSX.IntrinsicElements['a'], 'href'>) => (
     <a href={href} {...props}>
       {children}
     </a>

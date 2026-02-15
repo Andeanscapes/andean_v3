@@ -59,7 +59,7 @@ const Hero = () => {
                         <div className="container">
                             <div className="max-w-[850px] mx-auto text-center text-white relative lg:py-8 py-16">
                                 <div className="w-full h-full flex items-center justify-center mb-3">
-                                    <img src="/assets/images/logo-white.png" alt="" width="150" height="180" />
+                                    <img src="/assets/images/logo.png" alt="" width="150" height="180" />
                                 </div>
                                 <div style={isMobile ? { minHeight: "200px" } : {}}>
                                     <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1_2">
