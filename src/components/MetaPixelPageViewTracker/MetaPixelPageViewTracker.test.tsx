@@ -5,10 +5,15 @@ import MetaPixelPageViewTracker from './MetaPixelPageViewTracker'
 
 let mockPathname = '/en'
 let mockSearch = ''
+type FbqWindow = {
+  fbq?: (...args: unknown[]) => void
+}
 
 vi.mock('next/navigation', () => ({
   usePathname: () => mockPathname,
-  useSearchParams: () => new URLSearchParams(mockSearch)
+  useSearchParams: () => ({
+    toString: () => mockSearch
+  })
 }))
 
 describe('MetaPixelPageViewTracker', () => {
@@ -20,12 +25,12 @@ describe('MetaPixelPageViewTracker', () => {
 
   afterEach(() => {
     cleanup()
-    delete (window as Window & {fbq?: (...args: unknown[]) => void}).fbq
+    delete (window as unknown as FbqWindow).fbq
   })
 
   it('tracks page view on mount when fbq is available', () => {
     const fbq = vi.fn()
-    ;(window as Window & {fbq?: (...args: unknown[]) => void}).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     render(<MetaPixelPageViewTracker />)
 
@@ -39,7 +44,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when route changes', () => {
     const fbq = vi.fn()
-    ;(window as Window & {fbq?: (...args: unknown[]) => void}).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)
@@ -53,7 +58,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when query string changes', () => {
     const fbq = vi.fn()
-    ;(window as Window & {fbq?: (...args: unknown[]) => void}).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)
