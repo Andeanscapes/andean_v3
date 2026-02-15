@@ -8,7 +8,7 @@ import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
-import {BOOKING_LINKS} from "@/constant/SiteConfig";
+import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -25,6 +25,10 @@ const Header = () => {
            `;
     }, [variant, isSticky]);
 
+    const logoSrc = useMemo(() => {
+        return theme === 'light' ? SITE_INFO.logoWhite : SITE_INFO.logo;
+    }, [theme]);
+
     return (
         <header 
         data-theme={theme}
@@ -39,7 +43,7 @@ const Header = () => {
                             height='70'
                             // layout="responsive"
                             className="max-w-[58px]"
-                            src="/assets/images/logo.png"
+                            src={logoSrc}
                             priority
                         />
                     </Link>
@@ -68,7 +72,7 @@ const Header = () => {
                         alt='logo'
                         width='100'
                         height='70'
-                        src="/assets/images/logo.png"
+                        src={logoSrc}
                     />
                 </Link>
                 <div className="space-x-4 flex items-center">
