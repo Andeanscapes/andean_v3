@@ -37,7 +37,7 @@ export default function BookingCtas({
   }, []);
 
   const stickyCta = (
-    <div className="fixed inset-x-0 bottom-0 z-[2147483647] border-t border-base-300 bg-base-100/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-[45] border-t border-base-300 bg-base-100/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden">
       <div className="mx-auto flex max-w-3xl flex-col gap-1">
         <Link
           href={BOOKING_LINKS.airbnb}
