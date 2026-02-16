@@ -1,5 +1,5 @@
-import {cleanup, render} from '@testing-library/react'
-import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
+import { cleanup, render } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import MetaPixelPageViewTracker from './MetaPixelPageViewTracker'
 

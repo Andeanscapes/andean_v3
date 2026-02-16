@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
 import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from "@/constant/SiteConfig";
+import { trackLandingActionToBook, trackMetaCustomEvent } from "@/lib/meta-pixel";
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -22,7 +23,17 @@ const Footer = () => {
 
     const whatsappLink = useCallback(() => {
         return (
-            <Link href={SOCIAL_LINKS.whatsapp} passHref className="inline-flex items-center group" target="_blank" rel="noopener noreferrer">
+            <Link
+                href={SOCIAL_LINKS.whatsapp}
+                passHref
+                className="inline-flex items-center group"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                    trackMetaCustomEvent('WhatsAppClick', { placement: 'footer' });
+                    trackLandingActionToBook('whatsapp', 'footer');
+                }}
+            >
                 <div className={styles.socialIcon}>
                     <i className="bi bi-whatsapp" />
                 </div>
