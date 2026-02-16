@@ -21,10 +21,7 @@ const Hero = () => {
 
     const handleBookingScroll = useCallback((event: React.MouseEvent) => {
         event.preventDefault();
-<<<<<<< HEAD
-=======
         trackMetaCustomEvent('AvailabilityClick', { placement: 'hero' });
->>>>>>> origin/develop
         const bookingSection = document.getElementById('booking');
 
         if (bookingSection) {
