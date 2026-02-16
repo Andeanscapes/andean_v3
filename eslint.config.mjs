@@ -52,6 +52,7 @@ export default [
         React: 'readonly',
         JSX: 'readonly',
         console: 'readonly',
+        process: 'readonly',
         window: 'readonly',
         document: 'readonly',
         localStorage: 'readonly',
