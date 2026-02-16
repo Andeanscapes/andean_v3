@@ -23,3 +23,22 @@ export function trackLandingActionToBook(
 ) {
   trackMetaCustomEvent('LandingActionToBook', {action, placement});
 }
+
+/**
+ * Helper function to track booking CTA interactions.
+ * Consolidates dual tracking pattern (legacy event + normalized event) into a single call.
+ * 
+ * @param action - The action type ('airbnb' or 'whatsapp')
+ * @param placement - The UI placement identifier (e.g., 'booking_cta', 'booking_cta_sticky')
+ */
+export function trackBookingCtaClick(
+  action: 'airbnb' | 'whatsapp',
+  placement: string
+) {
+  // Track legacy event for backwards compatibility
+  const legacyEventName = action === 'airbnb' ? 'AirbnbClick' : 'WhatsAppClick';
+  trackMetaCustomEvent(legacyEventName, { placement });
+  
+  // Track normalized event for consistent analytics
+  trackLandingActionToBook(action, placement);
+}

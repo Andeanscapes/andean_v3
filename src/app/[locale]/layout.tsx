@@ -17,10 +17,9 @@ const nodeEnv = (
   }
 ).process?.env;
 
-const META_PIXEL_ID =
-  nodeEnv?.NEXT_PUBLIC_META_PIXEL_ID ??
-  (nodeEnv?.NODE_ENV === 'production' ? '' : 'TEST_META_PIXEL_ID');
-const HAS_META_PIXEL = META_PIXEL_ID.length > 0;
+const rawMetaPixelId = nodeEnv?.NEXT_PUBLIC_META_PIXEL_ID ?? '';
+const META_PIXEL_ID = /^[0-9]+$/.test(rawMetaPixelId) ? rawMetaPixelId : '';
+const HAS_META_PIXEL = META_PIXEL_ID !== '';
 
 /* Configure Google Fonts */
 const jost = Jost({

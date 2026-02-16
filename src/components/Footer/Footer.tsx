@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
 import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from "@/constant/SiteConfig";
-import { trackLandingActionToBook, trackMetaCustomEvent } from "@/lib/meta-pixel";
+import { trackBookingCtaClick } from "@/lib/meta-pixel";
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -30,8 +30,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                    trackMetaCustomEvent('WhatsAppClick', { placement: 'footer' });
-                    trackLandingActionToBook('whatsapp', 'footer');
+                    trackBookingCtaClick('whatsapp', 'footer');
                 }}
             >
                 <div className={styles.socialIcon}>

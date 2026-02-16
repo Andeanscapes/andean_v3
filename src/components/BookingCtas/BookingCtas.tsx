@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BOOKING_LINKS } from '@/constant/SiteConfig';
-import { trackLandingActionToBook, trackMetaCustomEvent } from '@/lib/meta-pixel';
+import { trackBookingCtaClick } from '@/lib/meta-pixel';
 
 type BookingCtasProps = {
   title?: string;
@@ -38,26 +38,22 @@ export default function BookingCtas({
   }, []);
 
   const handleAirbnbClick = useCallback(() => {
-    trackMetaCustomEvent('AirbnbClick', { placement: 'booking_cta' });
-    trackLandingActionToBook('airbnb', 'booking_cta');
+    trackBookingCtaClick('airbnb', 'booking_cta');
     onAirbnbClick?.();
   }, [onAirbnbClick]);
 
   const handleWhatsAppClick = useCallback(() => {
-    trackMetaCustomEvent('WhatsAppClick', { placement: 'booking_cta' });
-    trackLandingActionToBook('whatsapp', 'booking_cta');
+    trackBookingCtaClick('whatsapp', 'booking_cta');
     onWhatsAppClick?.();
   }, [onWhatsAppClick]);
 
   const handleStickyAirbnbClick = useCallback(() => {
-    trackMetaCustomEvent('AirbnbClick', { placement: 'booking_cta_sticky' });
-    trackLandingActionToBook('airbnb', 'booking_cta_sticky');
+    trackBookingCtaClick('airbnb', 'booking_cta_sticky');
     onAirbnbClick?.();
   }, [onAirbnbClick]);
 
   const handleStickyWhatsAppClick = useCallback(() => {
-    trackMetaCustomEvent('WhatsAppClick', { placement: 'booking_cta_sticky' });
-    trackLandingActionToBook('whatsapp', 'booking_cta_sticky');
+    trackBookingCtaClick('whatsapp', 'booking_cta_sticky');
     onWhatsAppClick?.();
   }, [onWhatsAppClick]);
 

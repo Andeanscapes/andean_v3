@@ -25,12 +25,12 @@ describe('MetaPixelPageViewTracker', () => {
 
   afterEach(() => {
     cleanup()
-    delete (window as unknown as FbqWindow).fbq
+    delete (globalThis as typeof globalThis & FbqWindow).fbq
   })
 
   it('tracks page view on mount when fbq is available', () => {
     const fbq = vi.fn()
-    ;(window as unknown as FbqWindow).fbq = fbq
+    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
 
     render(<MetaPixelPageViewTracker />)
 
@@ -44,7 +44,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when route changes', () => {
     const fbq = vi.fn()
-    ;(window as unknown as FbqWindow).fbq = fbq
+    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)
@@ -58,7 +58,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when query string changes', () => {
     const fbq = vi.fn()
-    ;(window as unknown as FbqWindow).fbq = fbq
+    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)

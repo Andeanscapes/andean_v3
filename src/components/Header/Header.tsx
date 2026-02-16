@@ -9,7 +9,7 @@ import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
 import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
-import {trackLandingActionToBook, trackMetaCustomEvent} from "@/lib/meta-pixel";
+import {trackBookingCtaClick} from "@/lib/meta-pixel";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -31,13 +31,11 @@ const Header = () => {
     }, [theme]);
 
     const handleDesktopBookNowClick = useCallback(() => {
-        trackMetaCustomEvent('AirbnbClick', { placement: 'header_desktop' });
-        trackLandingActionToBook('airbnb', 'header_desktop');
+        trackBookingCtaClick('airbnb', 'header_desktop');
     }, []);
 
     const handleMobileBookNowClick = useCallback(() => {
-        trackMetaCustomEvent('AirbnbClick', { placement: 'header_mobile' });
-        trackLandingActionToBook('airbnb', 'header_mobile');
+        trackBookingCtaClick('airbnb', 'header_mobile');
     }, []);
 
     return (
