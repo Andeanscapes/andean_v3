@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 import HeroData from '@/constant/Hero'
 import {useTranslations} from 'next-intl';
+import {trackMetaCustomEvent} from '@/lib/meta-pixel';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -20,6 +21,10 @@ const Hero = () => {
 
     const handleBookingScroll = useCallback((event: React.MouseEvent) => {
         event.preventDefault();
+<<<<<<< HEAD
+=======
+        trackMetaCustomEvent('AvailabilityClick', { placement: 'hero' });
+>>>>>>> origin/develop
         const bookingSection = document.getElementById('booking');
 
         if (bookingSection) {
