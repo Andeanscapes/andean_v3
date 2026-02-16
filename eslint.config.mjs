@@ -51,6 +51,7 @@ export default [
       globals: {
         React: 'readonly',
         JSX: 'readonly',
+        console: 'readonly',
         window: 'readonly',
         document: 'readonly',
         localStorage: 'readonly',
