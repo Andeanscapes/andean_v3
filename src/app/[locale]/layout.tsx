@@ -11,13 +11,8 @@ import MetaPixelPageViewTracker from '@/components/MetaPixelPageViewTracker/Meta
 
 import {locales, routing, type Locale} from '@/i18n/routing';
 
-const nodeEnv = (
-  globalThis as typeof globalThis & {
-    process?: {env?: Record<string, string | undefined>};
-  }
-).process?.env;
-
-const rawMetaPixelId = nodeEnv?.NEXT_PUBLIC_META_PIXEL_ID ?? '';
+// Next.js replaces process.env.NEXT_PUBLIC_* at build time
+const rawMetaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '';
 const META_PIXEL_ID = /^[0-9]+$/.test(rawMetaPixelId) ? rawMetaPixelId : '';
 const HAS_META_PIXEL = META_PIXEL_ID !== '';
 
