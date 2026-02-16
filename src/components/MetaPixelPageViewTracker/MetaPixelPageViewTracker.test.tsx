@@ -1,5 +1,5 @@
-import { cleanup, render } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import {cleanup, render} from '@testing-library/react'
+import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import MetaPixelPageViewTracker from './MetaPixelPageViewTracker'
 
@@ -25,12 +25,12 @@ describe('MetaPixelPageViewTracker', () => {
 
   afterEach(() => {
     cleanup()
-    delete (globalThis as typeof globalThis & FbqWindow).fbq
+    delete (window as unknown as FbqWindow).fbq
   })
 
   it('tracks page view on mount when fbq is available', () => {
     const fbq = vi.fn()
-    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     render(<MetaPixelPageViewTracker />)
 
@@ -44,7 +44,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when route changes', () => {
     const fbq = vi.fn()
-    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)
@@ -58,7 +58,7 @@ describe('MetaPixelPageViewTracker', () => {
 
   it('tracks again when query string changes', () => {
     const fbq = vi.fn()
-    ;(globalThis as typeof globalThis & FbqWindow).fbq = fbq
+    ;(window as unknown as FbqWindow).fbq = fbq
 
     const {rerender} = render(<MetaPixelPageViewTracker />)
     expect(fbq).toHaveBeenCalledTimes(1)
