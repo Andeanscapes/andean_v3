@@ -11,7 +11,15 @@ import MetaPixelPageViewTracker from '@/components/MetaPixelPageViewTracker/Meta
 
 import {locales, routing, type Locale} from '@/i18n/routing';
 
-const META_PIXEL_ID = '1312669440005600';
+const nodeEnv = (
+  globalThis as typeof globalThis & {
+    process?: {env?: Record<string, string | undefined>};
+  }
+).process?.env;
+
+const rawMetaPixelId = nodeEnv?.NEXT_PUBLIC_META_PIXEL_ID ?? '';
+const META_PIXEL_ID = /^[0-9]+$/.test(rawMetaPixelId) ? rawMetaPixelId : '';
+const HAS_META_PIXEL = META_PIXEL_ID !== '';
 
 /* Configure Google Fonts */
 const jost = Jost({
@@ -66,32 +74,37 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning className="antialiased">
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${META_PIXEL_ID}');
-          `}
-        </Script>
-        <noscript>
-          <img
-            alt=""
-            height="1"
-            width="1"
-            style={{display: 'none'}}
-            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-          />
-        </noscript>
+        {/* TODO(security): When CSP is enforced, allow connect.facebook.net and nonce/hash this inline script. */}
+        {HAS_META_PIXEL ? (
+          <>
+            <Script id="meta-pixel" strategy="afterInteractive">
+              {`
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${META_PIXEL_ID}');
+              `}
+            </Script>
+            <noscript>
+              <img
+                alt=""
+                height="1"
+                width="1"
+                style={{display: 'none'}}
+                src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+              />
+            </noscript>
+          </>
+        ) : null}
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <LanguageProvider>
-              <MetaPixelPageViewTracker />
+              {HAS_META_PIXEL ? <MetaPixelPageViewTracker /> : null}
               {children}
             </LanguageProvider>
           </NextIntlClientProvider>

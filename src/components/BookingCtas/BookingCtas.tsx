@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BOOKING_LINKS } from '@/constant/SiteConfig';
+import { trackBookingCtaClick } from '@/lib/meta-pixel';
 
 type BookingCtasProps = {
   title?: string;
@@ -36,6 +37,26 @@ export default function BookingCtas({
     setIsMounted(true);
   }, []);
 
+  const handleAirbnbClick = useCallback(() => {
+    trackBookingCtaClick('airbnb', 'booking_cta');
+    onAirbnbClick?.();
+  }, [onAirbnbClick]);
+
+  const handleWhatsAppClick = useCallback(() => {
+    trackBookingCtaClick('whatsapp', 'booking_cta');
+    onWhatsAppClick?.();
+  }, [onWhatsAppClick]);
+
+  const handleStickyAirbnbClick = useCallback(() => {
+    trackBookingCtaClick('airbnb', 'booking_cta_sticky');
+    onAirbnbClick?.();
+  }, [onAirbnbClick]);
+
+  const handleStickyWhatsAppClick = useCallback(() => {
+    trackBookingCtaClick('whatsapp', 'booking_cta_sticky');
+    onWhatsAppClick?.();
+  }, [onWhatsAppClick]);
+
   const stickyCta = (
     <div className="fixed inset-x-0 bottom-0 z-[45] border-t border-base-300 bg-base-100/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur md:hidden">
       <div className="mx-auto flex max-w-3xl flex-col gap-1">
@@ -43,7 +64,7 @@ export default function BookingCtas({
           href={BOOKING_LINKS.airbnb}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onAirbnbClick}
+          onClick={handleStickyAirbnbClick}
           className="btn btn-primary btn-md w-full"
         >
           {airbnbCtaLabel}
@@ -52,7 +73,7 @@ export default function BookingCtas({
           href={BOOKING_LINKS.whatsappMiningAdventure}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onWhatsAppClick}
+          onClick={handleStickyWhatsAppClick}
           className="link link-hover self-center text-xs"
         >
           {t('stickyWhatsappText')}
@@ -76,7 +97,7 @@ export default function BookingCtas({
                 href={BOOKING_LINKS.airbnb}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={onAirbnbClick}
+                onClick={handleAirbnbClick}
                 className="btn btn-primary btn-lg w-full md:w-auto"
               >
                 {airbnbCtaLabel}
@@ -99,7 +120,7 @@ export default function BookingCtas({
                   href={BOOKING_LINKS.whatsappMiningAdventure}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={onWhatsAppClick}
+                  onClick={handleWhatsAppClick}
                   className="btn btn-outline btn-sm md:btn-md"
                 >
                   {t('whatsappCta')}
