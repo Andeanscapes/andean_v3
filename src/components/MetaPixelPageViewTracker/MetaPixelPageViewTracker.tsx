@@ -3,10 +3,12 @@
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
+type FbqWindow = {
+  fbq?: (...args: unknown[]) => void;
+};
+
+function getFbq() {
+  return (globalThis as typeof globalThis & FbqWindow).fbq;
 }
 
 export default function MetaPixelPageViewTracker() {
@@ -15,8 +17,9 @@ export default function MetaPixelPageViewTracker() {
   const search = searchParams?.toString() ?? '';
 
   useEffect(() => {
-    if (typeof window.fbq !== 'function') return;
-    window.fbq('track', 'PageView');
+    const fbq = getFbq();
+    if (typeof fbq !== 'function') return;
+    fbq('track', 'PageView');
   }, [pathname, search]);
 
   return null;

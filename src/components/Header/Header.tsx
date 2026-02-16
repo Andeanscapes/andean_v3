@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {memo, useMemo} from "react";
+import {memo, useCallback, useMemo} from "react";
 import {useTranslations} from 'next-intl';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
 import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
+import {trackBookingCtaClick} from "@/lib/meta-pixel";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -28,6 +29,14 @@ const Header = () => {
     const logoSrc = useMemo(() => {
         return theme === 'light' ? SITE_INFO.logoWhite : SITE_INFO.logo;
     }, [theme]);
+
+    const handleDesktopBookNowClick = useCallback(() => {
+        trackBookingCtaClick('airbnb', 'header_desktop');
+    }, []);
+
+    const handleMobileBookNowClick = useCallback(() => {
+        trackBookingCtaClick('airbnb', 'header_mobile');
+    }, []);
 
     return (
         <header 
@@ -58,6 +67,7 @@ const Header = () => {
                         className="btn btn-primary btn-sm text-sm font-medium font-sans"
                         target="_blank" 
                         rel="noopener noreferrer"
+                        onClick={handleDesktopBookNowClick}
                     >
                         {t('bookNow')}
                     </Link>
@@ -81,6 +91,7 @@ const Header = () => {
                         className="btn btn-primary btn-sm text-xs font-medium font-sans"
                         target="_blank" 
                         rel="noopener noreferrer"
+                        onClick={handleMobileBookNowClick}
                     >
                         {t('bookNow')}
                     </Link>
