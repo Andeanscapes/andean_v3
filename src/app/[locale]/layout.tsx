@@ -88,6 +88,9 @@ export default async function LocaleLayout({
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '${META_PIXEL_ID}');
+                if (typeof console !== 'undefined') {
+                  console.log('[Meta Pixel] Initialized with ID: ${META_PIXEL_ID}');
+                }
               `}
             </Script>
             <noscript>

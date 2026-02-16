@@ -13,7 +13,11 @@ export function trackMetaCustomEvent(
   params?: Record<string, unknown>
 ) {
   const fbq = getFbq();
-  if (typeof fbq !== 'function') return;
+  if (typeof fbq !== 'function') {
+    console.warn('[Meta Pixel] fbq function not available for custom event:', eventName);
+    return;
+  }
+  console.log('[Meta Pixel] Custom event:', eventName, params);
   fbq('trackCustom', eventName, params);
 }
 
