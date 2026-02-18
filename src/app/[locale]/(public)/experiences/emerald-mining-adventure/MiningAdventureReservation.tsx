@@ -26,15 +26,15 @@ export default function MiningAdventureReservation({
       <ExperienceHero config={config} />
       
       {/* Form content in centered container */}
-      <div className="container mx-auto max-w-2xl px-4 py-6 pb-96">
+      <div className="container mx-auto max-w-4xl px-4 py-6 pb-6">
         <DateSelector availableDates={availableDates} />
         <PeopleSelector maxPeople={config.maxPeople} minPeople={config.minPeople} />
         <TransportOptions transportOptions={transportOptions} />
         <ContactFields />
         <IncludesAccordion config={config} />
         <PriceSummary depositPercent={config.depositPercent} />
+        <ConfirmationAction config={config} whatsappLink={whatsappLink} />
       </div>
-      <ConfirmationAction config={config} whatsappLink={whatsappLink} />
     </ExperienceReservationProvider>
   );
 }

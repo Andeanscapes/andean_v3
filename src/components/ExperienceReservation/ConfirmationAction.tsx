@@ -47,8 +47,8 @@ export function ConfirmationAction({
   };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 px-4 pb-[calc(env(safe-area-inset-bottom)+0.4rem)] pt-0.5">
-      <Card className="mx-auto w-full max-w-2xl rounded-2xl border border-base-200 bg-base-100/98 p-2 text-base-content shadow-2xl backdrop-blur">
+    <div className="sticky bottom-0 z-50 -mx-4 px-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] pt-4 mt-6">
+      <Card className="w-full rounded-2xl border border-base-200 bg-base-100/98 p-2 text-base-content shadow-2xl backdrop-blur">
         {/* Términos */}
         <label className="label cursor-pointer mb-1 text-base-content">
           <input

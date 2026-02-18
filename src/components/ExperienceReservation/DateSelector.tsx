@@ -41,7 +41,7 @@ export function DateSelector({ availableDates }: DateSelectorProps) {
             onClick={() => setDate(date.id, date.label, date.spots)}
             className={`w-full text-left justify-between border shadow-sm transition hover:shadow-md hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
               selectedDateId === date.id
-                ? 'bg-primary/10 border-primary ring-2 ring-primary/50 text-primary-content font-semibold'
+                ? 'bg-primary/10 border-primary ring-2 ring-primary/50 text-base-content font-semibold'
                 : 'bg-base-200/50 border-base-300/60 text-base-content/90'
             }`}
             variant="primary"
