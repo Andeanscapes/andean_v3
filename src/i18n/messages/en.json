@@ -83,6 +83,96 @@
         "whatsappSupport": "We help you choose 2D/1N or 3D/2N · Fast response",
         "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately."
     },
+    "EmeraldMiningAdventure": {
+        "metaTitle": "Book Your Emerald Mining Adventure | Andean Scapes",
+        "metaDescription": "Discover Colombia's emerald mines. 2D/1N or 3D/2N adventure in Chivor - Boyacá with meals, workshop and transport included.",
+        "title": "Emerald Mining Adventure",
+        "subtitle": "2D/1N or 3D/2N in the Chivor - Boyacá emerald mines",
+        "selectDate": "Select your date",
+        "selectPeople": "How many people?",
+        "peopleCountLabel": "Number of people",
+        "roomModeLabel": "Room type",
+        "roomModePrivate": "Private",
+        "roomModeCouple": "Couple",
+        "transportLabel": "How would you prefer to arrive?",
+        "transportNoOwnCar": "I don't have my own car",
+        "transportHaveOwnCar": "I have my own 4x4",
+        "transportBus": "Bus transport",
+        "contactLabel": "Contact information",
+        "nameLabel": "Name",
+        "phoneLabel": "Phone",
+        "emailLabel": "Email (optional)",
+        "includesTitle": "What's included?",
+        "includesItem1": "1 night with private bathroom",
+        "includesItem2": "Meals (breakfast, lunch, dinner)",
+        "includesItem3": "6-hour mine tour",
+        "includesItem4": "Emerald sorting workshop",
+        "includesItem5": "Transport from Hacienda El Recuerdo",
+        "includesDetails": "See details",
+        "pricePerPerson": "Price per person",
+        "totalPrice": "Total price",
+        "depositPercent": "Deposit (15%)",
+        "paymentButton": "Continue to payment",
+        "termsCheckbox": "I accept the terms and conditions",
+        "whatsappCta": "Or inquire via WhatsApp"
+    },
+    "experiences": {
+        "common": {
+            "deposit": "Reserve with",
+            "balance": "Balance to pay on tour day",
+            "security": "100% secure payment with Mercado Pago",
+            "ctaPrimary": "Book now",
+            "ctaSecondary": "WhatsApp inquiry"
+        },
+        "ui": {
+            "availableDates": "Available Dates",
+            "spotsAvailable": "{count, plural, one {# spot} other {# spots}}",
+            "controlledDatesNote": "Dates controlled for logistics.",
+            "limitedSpots": "Limited spots",
+            "officialDates": "Official dates",
+            "depositLabel": "Deposit",
+            "howManyPeople": "How many people?",
+            "peopleLabel": "People",
+            "roomType": "Room type:",
+            "private": "Private",
+            "couple": "Couple",
+            "coupleNote": "💑 Couple simplifies the decision to 2 people in a shared room.",
+            "contactDataTitle": "Contact information to confirm your spot",
+            "fullName": "Full name",
+            "fullNamePlaceholder": "John Doe",
+            "phone": "Phone",
+            "phonePlaceholder": "+57 300 123 4567",
+            "email": "Email",
+            "emailPlaceholder": "your@email.com",
+            "emailHelper": "Optional - for additional confirmation",
+            "startingPoint": "Starting point: Chivor (urban area)",
+            "howToArrive": "How will you arrive?"
+        },
+        "emeraldMining": {
+            "title": "Emerald Mining Adventure",
+            "subtitle": "Unique experience in Muzo",
+            "description": "Discover the depths of Colombia's most famous emerald mine",
+            "includesFullDetails": "Includes bilingual specialized guide, all necessary safety equipment, round-trip transportation from Bogotá, accident insurance, and refreshments.",
+            "includes": {
+                "guide": "Specialized guide",
+                "equipment": "Safety equipment",
+                "transport": "Round-trip transportation",
+                "insurance": "Accident insurance"
+            },
+            "transport": {
+                "carNo4x4": "Personal Car (Non-4x4)",
+                "carNo4x4Description": "Additional local 4x4 transport cost applies",
+                "have4x4": "I have 4x4",
+                "have4x4Description": "No additional cost",
+                "bus": "Public Bus",
+                "busDescription": "Local transfer included from terminal"
+            },
+            "roomMode": {
+                "private": "Private Room",
+                "couple": "Couple Room"
+            }
+        }
+    },
     "Footer": {
         "contactUs": "Contact Us",
         "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",

@@ -1,6 +1,6 @@
 import {cleanup, render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import type {ReactNode} from 'react'
+import React, {type ReactNode} from 'react'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import BookingCtas from './BookingCtas'
@@ -36,7 +36,7 @@ vi.mock('next/link', () => ({
     href,
     children,
     ...props
-  }: {href: string; children: ReactNode} & Omit<JSX.IntrinsicElements['a'], 'href'>) => (
+  }: {href: string; children: ReactNode} & Omit<React.JSX.IntrinsicElements['a'], 'href'>) => (
     <a href={href} {...props}>
       {children}
     </a>

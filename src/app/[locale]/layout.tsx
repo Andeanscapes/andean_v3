@@ -3,11 +3,8 @@ import 'swiper/css';
 
 import {Jost, Playfair_Display, Satisfy} from 'next/font/google';
 import Script from 'next/script';
-import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
-import {LanguageProvider} from '@/contexts/LanguageContext';
-import {ThemeProvider} from '@/contexts/ThemeContext';
-import MetaPixelPageViewTracker from '@/components/MetaPixelPageViewTracker/MetaPixelPageViewTracker';
+import {Providers} from '@/app/providers';
 
 import {locales, routing, type Locale} from '@/i18n/routing';
 
@@ -99,14 +96,9 @@ export default async function LocaleLayout({
             </noscript>
           </>
         ) : null}
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            <LanguageProvider>
-              {HAS_META_PIXEL ? <MetaPixelPageViewTracker /> : null}
-              {children}
-            </LanguageProvider>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <Providers locale={locale} messages={messages} hasMetaPixel={HAS_META_PIXEL}>
+          {children}
+        </Providers>
       </body>
     </html>
   );

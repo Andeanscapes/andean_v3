@@ -83,6 +83,96 @@
     "whatsappSupport": "Nous vous aidons à choisir 2D/1N ou 3D/2N · Réponse rapide",
     "bookingScopeNote": "La réservation Airbnb couvre uniquement la chambre à Hacienda El Recuerdo. Le tour de mine est facturé séparément."
   },
+  "EmeraldMiningAdventure": {
+    "metaTitle": "Réservez votre Aventure Minière d'Émeraude | Andean Scapes",
+    "metaDescription": "Découvrez les mines d'émeraude de Colombie. Aventure 2D/1N ou 3D/2N à Chivor - Boyacá avec repas, atelier et transport inclus.",
+    "title": "Aventure Minière d'Émeraude",
+    "subtitle": "2D/1N ou 3D/2N dans les mines d'émeraude de Chivor - Boyacá",
+    "selectDate": "Sélectionnez votre date",
+    "selectPeople": "Combien de personnes ?",
+    "peopleCountLabel": "Nombre de personnes",
+    "roomModeLabel": "Type de chambre",
+    "roomModePrivate": "Privée",
+    "roomModeCouple": "Couple",
+    "transportLabel": "Comment préférez-vous arriver ?",
+    "transportNoOwnCar": "Je n'ai pas de voiture personnelle",
+    "transportHaveOwnCar": "J'ai mon propre 4x4",
+    "transportBus": "Transport en autobus",
+    "contactLabel": "Informations de contact",
+    "nameLabel": "Nom",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "E-mail (facultatif)",
+    "includesTitle": "Qu'inclut-il ?",
+    "includesItem1": "1 nuit avec salle de bain privée",
+    "includesItem2": "Repas (petit-déjeuner, déjeuner, dîner)",
+    "includesItem3": "Visite de mine de 6 heures",
+    "includesItem4": "Atelier de tri d'émeraudes",
+    "includesItem5": "Transport depuis Hacienda El Recuerdo",
+    "includesDetails": "Voir les détails",
+    "pricePerPerson": "Prix par personne",
+    "totalPrice": "Prix total",
+    "depositPercent": "Dépôt (15%)",
+    "paymentButton": "Continuer vers le paiement",
+    "termsCheckbox": "J'accepte les conditions d'utilisation",
+    "whatsappCta": "Ou renseignez-vous via WhatsApp"
+  },
+  "experiences": {
+    "common": {
+      "deposit": "Réserver avec",
+      "balance": "Solde à payer le jour du tour",
+      "security": "Paiement 100% sécurisé avec Mercado Pago",
+      "ctaPrimary": "Réserver maintenant",
+      "ctaSecondary": "Demande WhatsApp"
+    },
+    "ui": {
+      "availableDates": "Dates disponibles",
+      "spotsAvailable": "{count, plural, one {# place} other {# places}}",
+      "controlledDatesNote": "Dates contrôlées pour la logistique.",
+      "limitedSpots": "Places limitées",
+      "officialDates": "Dates officielles",
+      "depositLabel": "Dépôt",
+      "howManyPeople": "Combien de personnes ?",
+      "peopleLabel": "Personnes",
+      "roomType": "Type de chambre :",
+      "private": "Privée",
+      "couple": "Couple",
+      "coupleNote": "💑 Couple simplifie la décision à 2 personnes dans une chambre partagée.",
+      "contactDataTitle": "Informations de contact pour confirmer votre place",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Jean Dupont",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+57 300 123 4567",
+      "email": "E-mail",
+      "emailPlaceholder": "votre@email.com",
+      "emailHelper": "Facultatif - pour confirmation supplémentaire",
+      "startingPoint": "Point de départ : Chivor (zone urbaine)",
+      "howToArrive": "Comment allez-vous arriver ?"
+    },
+    "emeraldMining": {
+      "title": "Aventure Minière d'Émeraude",
+      "subtitle": "Expérience unique à Muzo",
+      "description": "Découvrez les profondeurs de la mine d'émeraude la plus célèbre de Colombie",
+      "includesFullDetails": "Comprend un guide spécialisé bilingue, tout l'équipement de sécurité nécessaire, le transport aller-retour depuis Bogotá, l'assurance accident et les rafraîchissements.",
+      "includes": {
+        "guide": "Guide spécialisé",
+        "equipment": "Équipement de sécurité",
+        "transport": "Transport aller-retour",
+        "insurance": "Assurance accident"
+      },
+      "transport": {
+        "carNo4x4": "Voiture personnelle (Non-4x4)",
+        "carNo4x4Description": "Coût de transport local 4x4 supplémentaire s'applique",
+        "have4x4": "J'ai un 4x4",
+        "have4x4Description": "Aucun coût supplémentaire",
+        "bus": "Bus public",
+        "busDescription": "Transfert local inclus depuis le terminal"
+      },
+      "roomMode": {
+        "private": "Chambre privée",
+        "couple": "Chambre de couple"
+      }
+    }
+  },
   "Footer": {
     "contactUs": "Nous Contacter",
     "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
