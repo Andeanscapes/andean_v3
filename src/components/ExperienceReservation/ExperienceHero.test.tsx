@@ -16,8 +16,7 @@ describe('ExperienceHero', () => {
 
   it('renders all badges', () => {
     render(<ExperienceHero config={MOCK_TRANSLATED_CONFIG} />);
-    expect(screen.getByText('Cupos limitados')).toBeInTheDocument();
-    expect(screen.getByText('Fechas oficiales')).toBeInTheDocument();
+    expect(screen.getByText('Cupos')).toBeInTheDocument();
     expect(screen.getByText(`Depósito ${MOCK_TRANSLATED_CONFIG.depositPercent}%`)).toBeInTheDocument();
   });
 });

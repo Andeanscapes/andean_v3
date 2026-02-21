@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {memo, useMemo} from "react";
+import {useMemo} from "react";
 import {useTranslations} from 'next-intl';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";

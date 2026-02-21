@@ -87,7 +87,7 @@
         "metaTitle": "Book Your Emerald Mining Adventure | Andean Scapes",
         "metaDescription": "Discover Colombia's emerald mines. 2D/1N or 3D/2N adventure in Chivor - Boyacá with meals, workshop and transport included.",
         "title": "Emerald Mining Adventure",
-        "subtitle": "2D/1N or 3D/2N in the Chivor - Boyacá emerald mines",
+        "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
         "selectDate": "Select your date",
         "selectPeople": "How many people?",
         "peopleCountLabel": "Number of people",
@@ -121,21 +121,46 @@
             "deposit": "Reserve with",
             "balance": "Balance to pay on tour day",
             "security": "100% secure payment with Mercado Pago",
-            "ctaPrimary": "Book now",
-            "ctaSecondary": "WhatsApp inquiry"
+            "ctaPrimary": "Pay 15% deposit",
+            "ctaSecondary": "Questions? WhatsApp us"
         },
         "ui": {
             "availableDates": "Available Dates",
             "spotsAvailable": "{count, plural, one {# spot} other {# spots}}",
             "controlledDatesNote": "Dates controlled for logistics.",
             "limitedSpots": "Limited spots",
+            "limitedSpotsShort": "Limited",
             "officialDates": "Official dates",
             "depositLabel": "Deposit",
+            "heroCta": "Check dates",
+            "heroSummary": "2D/1N • Mine visit + emerald workshop • Starts in Chivor • Small groups",
+            "totalLabel": "Total",
+            "payTodayLabel": "Pay today",
+            "balanceNote": "Balance due on tour day. Instant confirmation.",
+            "termsCheckbox": "I accept the terms and conditions",
+            "completeRequiredFields": "Complete all required fields to continue",
+            "processing": "Processing...",
+            "paymentMethods": "Card · PSE · Secure payment",
+            "validationError": "Validation error",
+            "scrollHint": "Scroll to see more dates",
+            "selectedDateLabel": "Selected",
             "howManyPeople": "How many people?",
             "peopleLabel": "People",
             "roomType": "Room type:",
+            "guestsPerRoom": "Guests per room",
+            "numberOfRooms": "Number of rooms",
+            "guests": "guests",
+            "privateBathroom": "private bathroom",
             "private": "Private",
             "couple": "Couple",
+            "roomMixHint": "Add more than one room type if needed",
+            "selectedRoomsLabel": "Selected rooms",
+            "clearSelection": "Clear",
+            "noRoomsSelected": "No rooms selected",
+            "addRoom": "Add room",
+            "roomSelectionTitle": "Choose rooms",
+            "closeModal": "Close",
+            "unitsAvailable": "{count} units",
             "coupleNote": "💑 Couple simplifies the decision to 2 people in a shared room.",
             "contactDataTitle": "Contact information to confirm your spot",
             "fullName": "Full name",
@@ -146,11 +171,16 @@
             "emailPlaceholder": "your@email.com",
             "emailHelper": "Optional - for additional confirmation",
             "startingPoint": "Starting point: Chivor (urban area)",
-            "howToArrive": "How will you arrive?"
+            "howToArrive": "How will you arrive?",
+            "roomMode": {
+                "standard": "Standard Room",
+                "family": "Family Room",
+                "cabin": "Cabin"
+            }
         },
         "emeraldMining": {
             "title": "Emerald Mining Adventure",
-            "subtitle": "Unique experience in Muzo",
+            "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
             "description": "Discover the depths of Colombia's most famous emerald mine",
             "includesFullDetails": "Includes bilingual specialized guide, all necessary safety equipment, round-trip transportation from Bogotá, accident insurance, and refreshments.",
             "includes": {
@@ -168,8 +198,17 @@
                 "busDescription": "Local transfer included from terminal"
             },
             "roomMode": {
-                "private": "Private Room",
-                "couple": "Couple Room"
+                "standardSingle": "Standard Room (1)",
+                "standardCouple": "Standard Room (2)",
+                "familySingle": "Family Room (1)",
+                "familyCouple": "Family Room (2)",
+                "familyThree": "Family Room (3)",
+                "cabinSingle": "Cabin (1)",
+                "cabinCouple": "Cabin (2)",
+                "cabinSix": "Cabin (6)",
+                "standard": "Standard Room",
+                "family": "Family Room",
+                "cabin": "Cabin"
             }
         }
     },

@@ -3,9 +3,9 @@
 import { useContextSelector } from 'use-context-selector';
 import { ExperienceReservationContext } from '@/contexts/ExperienceReservationContext';
 import type {
-  RoomMode,
   TransportMode,
   ReservationContextValue,
+  RoomSelection,
 } from '@/lib/experiences/types';
 
 const requireContext = (
@@ -37,23 +37,27 @@ export function useReservationDate() {
   };
 }
 
-export function usePeopleAndMode() {
+export function useReservationRooms() {
   return useContextSelector(ExperienceReservationContext, (ctx) => {
     const safe = requireContext(ctx);
     return {
       peopleCount: safe.state.peopleCount,
-      roomMode: safe.state.roomMode,
-      setPeopleCount: (count: number) =>
-        safe.dispatch({ type: 'SET_PEOPLE_COUNT', payload: count }),
-      setRoomMode: (mode: RoomMode) =>
-        safe.dispatch({ type: 'SET_ROOM_MODE', payload: mode }),
+      roomSelections: safe.state.roomSelections,
+      setRoomSelections: (selections: RoomSelection[]) =>
+        safe.dispatch({ type: 'SET_ROOM_SELECTIONS', payload: selections }),
     };
   }) as {
     peopleCount: number;
-    roomMode: RoomMode;
-    setPeopleCount: (count: number) => void;
-    setRoomMode: (mode: RoomMode) => void;
+    roomSelections: RoomSelection[];
+    setRoomSelections: (selections: RoomSelection[]) => void;
   };
+}
+
+export function useReservationRoomModes() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.roomModes;
+  });
 }
 
 export function useReservationTransport() {
@@ -140,6 +144,7 @@ export function useReservationValidation() {
       isValid:
         safe.state.selectedDateId !== null &&
         safe.state.peopleCount >= 1 &&
+        safe.state.roomSelections.length > 0 &&
         safe.state.transportMode !== null &&
         safe.state.contact.name.length >= 2 &&
         safe.state.contact.phone.length >= 7 &&

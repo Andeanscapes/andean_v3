@@ -1,6 +1,14 @@
 // Generic Types for Experience Reservations
 
-export type RoomMode = 'private' | 'couple';
+export type RoomMode =
+  | 'standard_single'
+  | 'standard_couple'
+  | 'family_single'
+  | 'family_couple'
+  | 'family_3'
+  | 'cabin_single'
+  | 'cabin_couple'
+  | 'cabin_6';
 export type TransportMode = 'car_no_4x4' | 'have_4x4' | 'bus';
 
 export interface AvailableDate {
@@ -32,7 +40,7 @@ export interface ReservationState {
 
   // People
   peopleCount: number;
-  roomMode: RoomMode;
+  roomSelections: RoomSelection[];
 
   // Transport
   transportMode: TransportMode | null;
@@ -55,8 +63,7 @@ export type ReservationAction =
       type: 'SET_DATE';
       payload: { id: string; label: string; spots: number };
     }
-  | { type: 'SET_PEOPLE_COUNT'; payload: number }
-  | { type: 'SET_ROOM_MODE'; payload: RoomMode }
+  | { type: 'SET_ROOM_SELECTIONS'; payload: RoomSelection[] }
   | { type: 'SET_TRANSPORT'; payload: TransportMode }
   | {
       type: 'SET_CONTACT';
@@ -69,6 +76,7 @@ export type ReservationAction =
 export interface ReservationContextValue {
   state: ReservationState;
   dispatch: (action: ReservationAction) => void;
+  roomModes: RoomModeOption[];
 }
 
 // Experience Configuration Interface
@@ -92,6 +100,11 @@ export interface ExperienceConfig {
   };
 }
 
+export interface RoomSelection {
+  roomMode: RoomMode;
+  quantity: number;
+}
+
 export interface TransportOption {
   value: string;
   label: string;
@@ -103,6 +116,8 @@ export interface RoomModeOption {
   label: string;
   price_multiplier: number;
   fixed_people?: number;
+  room_type_id: 'standard' | 'family' | 'cabin';
+  units_available: number;
 }
 
 // Consolidated experience data (ready for API responses)

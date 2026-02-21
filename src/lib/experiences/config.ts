@@ -2,6 +2,7 @@ import type {
   ExperienceConfig,
   TransportOption,
   RoomModeOption,
+  RoomSelection,
 } from './types';
 
 export function createExperienceConfig(
@@ -16,19 +17,30 @@ export function createExperienceConfig(
   };
 }
 
+export function computePeopleCount(
+  roomSelections: RoomSelection[],
+  roomModes: RoomModeOption[]
+) {
+  return roomSelections.reduce((sum, selection) => {
+    const mode = roomModes.find((room) => room.value === selection.roomMode);
+    const peoplePerRoom = mode?.fixed_people ?? 1;
+    return sum + peoplePerRoom * selection.quantity;
+  }, 0);
+}
+
 // Helper function to calculate pricing
 export function calculatePricing(
   basePricePerPerson: number,
-  peopleCount: number,
   depositPercent: number,
   roomModes: RoomModeOption[],
-  roomMode: 'private' | 'couple'
+  roomSelections: RoomSelection[]
 ) {
-  const selectedRoom = roomModes.find((r) => r.value === roomMode);
-  const multiplier = selectedRoom?.price_multiplier || 1;
-  const effectivePeople = selectedRoom?.fixed_people || peopleCount;
-
-  const total = basePricePerPerson * effectivePeople * multiplier;
+  const total = roomSelections.reduce((sum, selection) => {
+    const mode = roomModes.find((room) => room.value === selection.roomMode);
+    const multiplier = mode?.price_multiplier ?? 1;
+    const peoplePerRoom = mode?.fixed_people ?? 1;
+    return sum + basePricePerPerson * peoplePerRoom * multiplier * selection.quantity;
+  }, 0);
   const depositAmount = Math.round(total * (depositPercent / 100));
 
   return {

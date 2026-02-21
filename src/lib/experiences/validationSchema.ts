@@ -10,7 +10,23 @@ export const reservationSchema = z.object({
     .min(1, 'Mínimo 1 persona')
     .max(10, 'Máximo 10 personas'),
 
-  roomMode: z.enum(['private', 'couple']),
+  roomSelections: z
+    .array(
+      z.object({
+        roomMode: z.enum([
+          'standard_single',
+          'standard_couple',
+          'family_single',
+          'family_couple',
+          'family_3',
+          'cabin_single',
+          'cabin_couple',
+          'cabin_6',
+        ]),
+        quantity: z.number().min(1).max(10),
+      })
+    )
+    .min(1, 'Selecciona al menos un tipo de habitación'),
 
   transportMode: z.enum(['car_no_4x4', 'have_4x4', 'bus']).refine(
     (val) => !!val,
@@ -52,8 +68,8 @@ export function validateReservationField(
       reservationSchema.shape.selectedDateId.parse(value);
     } else if (field === 'peopleCount') {
       reservationSchema.shape.peopleCount.parse(value);
-    } else if (field === 'roomMode') {
-      reservationSchema.shape.roomMode.parse(value);
+    } else if (field === 'roomSelections') {
+      reservationSchema.shape.roomSelections.parse(value);
     } else if (field === 'transportMode') {
       reservationSchema.shape.transportMode.parse(value);
     } else if (field === 'contact') {

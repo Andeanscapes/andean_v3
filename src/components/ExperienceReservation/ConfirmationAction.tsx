@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { Button } from '@/components/ui/Button/Button';
 import { useMercadoPagoLink } from '@/hooks/experiences/useMercadoPagoLink';
@@ -10,6 +11,7 @@ import {
 } from '@/hooks/experiences/useReservationContext';
 import { reservationSchema } from '@/lib/experiences/validationSchema';
 import type { ExperienceConfig } from '@/lib/experiences/types';
+import { useLanguageContext } from '@/contexts/LanguageContext';
 
 interface ConfirmationActionProps {
   config: ExperienceConfig;
@@ -20,10 +22,17 @@ export function ConfirmationAction({
   config,
   whatsappLink,
 }: ConfirmationActionProps) {
+  const t = useTranslations('experiences.ui');
   const { isValid, state, setTermsAccepted } = useReservationValidation();
   const { depositAmount } = useReservationPricing();
   const { createLink, loading, error } = useMercadoPagoLink(config.id);
   const [validationError, setValidationError] = useState<string | null>(null);
+  const { currentLocale } = useLanguageContext();
+  const localeMap: Record<string, string> = {
+    en: 'en-US',
+    es: 'es-CO',
+    fr: 'fr-FR',
+  };
 
   const handlePayment = async () => {
     setValidationError(null);
@@ -32,7 +41,7 @@ export function ConfirmationAction({
       reservationSchema.parse({
         selectedDateId: state.selectedDateId,
         peopleCount: state.peopleCount,
-        roomMode: state.roomMode,
+        roomSelections: state.roomSelections,
         transportMode: state.transportMode,
         contact: state.contact,
         termsAccepted: state.termsAccepted,
@@ -41,7 +50,7 @@ export function ConfirmationAction({
       await createLink(state);
     } catch (err) {
       const errorMessage =
-        err instanceof Error ? err.message : 'Error en la validación';
+        err instanceof Error ? err.message : t('validationError');
       setValidationError(errorMessage);
     }
   };
@@ -58,7 +67,7 @@ export function ConfirmationAction({
             className="checkbox checkbox-primary"
           />
           <span className="label-text text-xs ml-2 text-base-content/90">
-            Acepto términos y condiciones
+            {t('termsCheckbox')}
           </span>
         </label>
 
@@ -77,7 +86,7 @@ export function ConfirmationAction({
         {/* Helper text */}
         {!isValid && (
           <p className="text-xs text-base-content/85 mb-1 text-center">
-            Completa todos los campos requeridos para continuar
+            {t('completeRequiredFields')}
           </p>
         )}
 
@@ -92,7 +101,7 @@ export function ConfirmationAction({
             {loading ? (
               <>
                 <span className="loading loading-spinner loading-sm"></span>
-                Procesando...
+                {t('processing')}
               </>
             ) : (
               <div className="flex flex-col items-center gap-0.5">
@@ -101,10 +110,13 @@ export function ConfirmationAction({
                 </span>
                 {isValid && depositAmount > 0 && (
                   <span className="text-[10px] opacity-90">
-                    Hoy pagas: $
-                    {depositAmount.toLocaleString('es-CO', {
-                      maximumFractionDigits: 0,
-                    })}
+                    {t('payTodayLabel')}: $
+                    {depositAmount.toLocaleString(
+                      localeMap[currentLocale] ?? 'es-CO',
+                      {
+                        maximumFractionDigits: 0,
+                      }
+                    )}
                   </span>
                 )}
               </div>
@@ -112,7 +124,7 @@ export function ConfirmationAction({
           </Button>
 
           <p className="text-xs text-center text-base-content/85">
-            Tarjeta · PSE · Pago seguro
+            {t('paymentMethods')}
           </p>
 
           <a

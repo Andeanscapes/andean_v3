@@ -8,8 +8,9 @@ import type {
   ReservationContextValue,
   ExperienceConfig,
   RoomModeOption,
+  RoomSelection,
 } from '@/lib/experiences/types';
-import { calculatePricing } from '@/lib/experiences/config';
+import { calculatePricing, computePeopleCount } from '@/lib/experiences/config';
 import { createReservationStorage } from '@/lib/experiences/reservationStorage';
 
 export const ExperienceReservationContext =
@@ -26,12 +27,14 @@ function createInitialState(
   depositPercent: number,
   roomModes: RoomModeOption[]
 ): ReservationState {
+  const roomSelections: RoomSelection[] = [];
+  const peopleCount = computePeopleCount(roomSelections, roomModes);
   return {
     selectedDateId: null,
     selectedDateLabel: null,
     availableSpots: null,
-    peopleCount: 2,
-    roomMode: 'private',
+    peopleCount,
+    roomSelections,
     transportMode: null,
     contact: {
       name: '',
@@ -41,10 +44,9 @@ function createInitialState(
     termsAccepted: false,
     pricing: calculatePricing(
       basePricePerPerson,
-      2,
       depositPercent,
       roomModes,
-      'private'
+      roomSelections
     ),
     isHydrated: false,
   };
@@ -69,28 +71,14 @@ function createReservationReducer(
         };
       }
 
-      case 'SET_PEOPLE_COUNT': {
-        const newCount = Math.max(1, Math.min(10, action.payload));
+      case 'SET_ROOM_SELECTIONS': {
+        const peopleCount = computePeopleCount(action.payload, roomModes);
         return {
           ...state,
-          peopleCount: newCount,
+          roomSelections: action.payload,
+          peopleCount,
           pricing: calculatePricing(
             basePricePerPerson,
-            newCount,
-            depositPercent,
-            roomModes,
-            state.roomMode
-          ),
-        };
-      }
-
-      case 'SET_ROOM_MODE': {
-        return {
-          ...state,
-          roomMode: action.payload,
-          pricing: calculatePricing(
-            basePricePerPerson,
-            state.peopleCount,
             depositPercent,
             roomModes,
             action.payload
@@ -123,14 +111,27 @@ function createReservationReducer(
       }
 
       case 'HYDRATE': {
-        const hydrated = { ...state, ...action.payload, isHydrated: true };
+        const payload = action.payload as Partial<ReservationState> & {
+          roomMode?: RoomSelection['roomMode'];
+        };
+        const roomSelections = Array.isArray(payload.roomSelections)
+          ? payload.roomSelections
+          : payload.roomMode
+            ? [{ roomMode: payload.roomMode, quantity: 1 }]
+            : state.roomSelections;
+        const hydrated: ReservationState = {
+          ...state,
+          ...payload,
+          roomSelections,
+          peopleCount: computePeopleCount(roomSelections, roomModes),
+          isHydrated: true,
+        };
         // Recalculate pricing based on hydrated values
         hydrated.pricing = calculatePricing(
           basePricePerPerson,
-          hydrated.peopleCount,
           depositPercent,
           roomModes,
-          hydrated.roomMode
+          hydrated.roomSelections
         );
         return hydrated;
       }
@@ -185,7 +186,7 @@ export function ExperienceReservationProvider({
   }, [state, storage]);
 
   return (
-    <ExperienceReservationContext.Provider value={{ state, dispatch }}>
+    <ExperienceReservationContext.Provider value={{ state, dispatch, roomModes }}>
       {children}
     </ExperienceReservationContext.Provider>
   );

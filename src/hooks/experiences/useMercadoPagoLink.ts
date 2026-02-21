@@ -21,7 +21,7 @@ export function useMercadoPagoLink(experienceId: string) {
           dateId: reservation.selectedDateId,
           dateLabel: reservation.selectedDateLabel,
           peopleCount: reservation.peopleCount,
-          roomMode: reservation.roomMode,
+          roomSelections: reservation.roomSelections,
           transportMode: reservation.transportMode,
         }),
       });

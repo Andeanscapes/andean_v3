@@ -121,22 +121,47 @@
       "deposit": "Réserver avec",
       "balance": "Solde à payer le jour du tour",
       "security": "Paiement 100% sécurisé avec Mercado Pago",
-      "ctaPrimary": "Réserver maintenant",
-      "ctaSecondary": "Demande WhatsApp"
+      "ctaPrimary": "Payer 15% d'acompte",
+      "ctaSecondary": "Des questions ? WhatsApp"
     },
     "ui": {
       "availableDates": "Dates disponibles",
       "spotsAvailable": "{count, plural, one {# place} other {# places}}",
       "controlledDatesNote": "Dates contrôlées pour la logistique.",
       "limitedSpots": "Places limitées",
+      "limitedSpotsShort": "Places",
       "officialDates": "Dates officielles",
       "depositLabel": "Dépôt",
+      "heroCta": "Voir les dates",
+      "heroSummary": "2J/1N • Visite de la mine + atelier d'émeraudes • Départ de Chivor • Petits groupes",
+      "totalLabel": "Total",
+      "payTodayLabel": "Vous payez aujourd'hui",
+      "balanceNote": "Solde à payer le jour du tour. Confirmation immédiate.",
+      "termsCheckbox": "J'accepte les conditions d'utilisation",
+      "completeRequiredFields": "Complétez tous les champs requis pour continuer",
+      "processing": "Traitement...",
+      "paymentMethods": "Carte · PSE · Paiement sécurisé",
+      "validationError": "Erreur de validation",
+      "scrollHint": "Faites defiler pour voir plus de dates",
+      "selectedDateLabel": "Sélectionnée",
       "howManyPeople": "Combien de personnes ?",
       "peopleLabel": "Personnes",
       "roomType": "Type de chambre :",
+      "guestsPerRoom": "Personnes par chambre",
+      "numberOfRooms": "Nombre de chambres",
+      "guests": "personnes",
+      "privateBathroom": "salle de bain privée",
       "private": "Privée",
       "couple": "Couple",
+      "roomMixHint": "Vous pouvez combiner plusieurs types de chambres",
       "coupleNote": "💑 Couple simplifie la décision à 2 personnes dans une chambre partagée.",
+      "selectedRoomsLabel": "Chambres sélectionnées",
+      "clearSelection": "Effacer",
+      "noRoomsSelected": "Aucune chambre sélectionnée",
+      "addRoom": "Ajouter une chambre",
+      "roomSelectionTitle": "Choisir les chambres",
+      "closeModal": "Fermer",
+      "unitsAvailable": "{count} disponibles",
       "contactDataTitle": "Informations de contact pour confirmer votre place",
       "fullName": "Nom complet",
       "fullNamePlaceholder": "Jean Dupont",
@@ -146,11 +171,16 @@
       "emailPlaceholder": "votre@email.com",
       "emailHelper": "Facultatif - pour confirmation supplémentaire",
       "startingPoint": "Point de départ : Chivor (zone urbaine)",
-      "howToArrive": "Comment allez-vous arriver ?"
+      "howToArrive": "Comment allez-vous arriver ?",
+      "roomMode": {
+        "standard": "Chambre Standard",
+        "family": "Chambre Familiale",
+        "cabin": "Cabane"
+      }
     },
     "emeraldMining": {
       "title": "Aventure Minière d'Émeraude",
-      "subtitle": "Expérience unique à Muzo",
+      "subtitle": "Expérience tout compris à Chivor (Boyacá), Colombie 🇨🇴",
       "description": "Découvrez les profondeurs de la mine d'émeraude la plus célèbre de Colombie",
       "includesFullDetails": "Comprend un guide spécialisé bilingue, tout l'équipement de sécurité nécessaire, le transport aller-retour depuis Bogotá, l'assurance accident et les rafraîchissements.",
       "includes": {
@@ -168,8 +198,17 @@
         "busDescription": "Transfert local inclus depuis le terminal"
       },
       "roomMode": {
-        "private": "Chambre privée",
-        "couple": "Chambre de couple"
+        "standardSingle": "Chambre standard (1)",
+        "standardCouple": "Chambre standard (2)",
+        "familySingle": "Chambre familiale (1)",
+        "familyCouple": "Chambre familiale (2)",
+        "familyThree": "Chambre familiale (3)",
+        "cabinSingle": "Cabane (1)",
+        "cabinCouple": "Cabane (2)",
+        "cabinSix": "Cabane (6)",
+        "standard": "Chambre Standard",
+        "family": "Chambre Familiale",
+        "cabin": "Cabane"
       }
     }
   },

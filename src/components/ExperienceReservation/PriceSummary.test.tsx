@@ -15,7 +15,7 @@ describe('PriceSummary', () => {
 
   it('displays formatted prices', () => {
     render(<PriceSummary />);
-    const prices = screen.getAllByText(/\$/);
+    const prices = screen.getAllByText(/COP|\$/);
     expect(prices.length).toBeGreaterThan(0);
   });
 
