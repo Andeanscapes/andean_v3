@@ -4,7 +4,44 @@
         "metaDescription": "Experience the ultimate nature adventure and co-living space in the heart of the Andes."
     },
     "Header": {
-        "bookNow": "BOOK NOW"
+        "bookNow": "BOOK NOW",
+        "experiences": "EXPERIENCES"
+    },
+    "ExperiencesList": {
+        "metaTitle": "Experiences | Andean Scapes",
+        "metaDescription": "Explore all Andean Scapes experiences and choose your next adventure in the Colombian Andes.",
+        "hero": {
+            "title": "Explore The Colombian Andes",
+            "subtitle": "All-inclusive cultural + nature escapes in the heart of Colombia.",
+            "summary": "Handpicked experiences with trusted local hosts",
+            "highlightText": "Nature, Culture and Real Local Stories",
+            "ctaLabel": "Explore experiences",
+            "helperText": "Small groups · Local expertise · Flexible planning",
+            "badges": {
+                "nature": "Nature",
+                "culture": "Culture",
+                "hosted": "Hosted by locals"
+            }
+        },
+        "sectionTitle": "Explore Experiences",
+        "sectionSubtitle": "Curated adventures with local hosts",
+        "featuredTag": "Featured",
+        "comingSoonTag": "Coming soon",
+        "fromLabel": "From",
+        "viewDetails": "View details",
+        "transportIncluded": "Transport included",
+        "smallGroups": "Small groups",
+        "localGuides": "Expert local guides",
+        "cards": {
+            "culture": {
+                "title": "Andean Culture Route",
+                "description": "Local traditions, artisan stories and scenic moments across Boyacá."
+            },
+            "nature": {
+                "title": "Nature Escape",
+                "description": "A slower experience focused on mountain views, local food and nature walks."
+            }
+        }
     },
     "HeroTwo": {
         "cta": "BOOK NOW",
@@ -82,6 +119,135 @@
         "stickyWhatsappText": "Questions? WhatsApp",
         "whatsappSupport": "We help you choose 2D/1N or 3D/2N · Fast response",
         "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately."
+    },
+    "EmeraldMiningAdventure": {
+        "metaTitle": "Book Your Emerald Mining Adventure | Andean Scapes",
+        "metaDescription": "Discover Colombia's emerald mines. 2D/1N or 3D/2N adventure in Chivor - Boyacá with meals, workshop and transport included.",
+        "title": "Emerald Mining Adventure",
+        "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
+        "selectDate": "Select your date",
+        "selectPeople": "How many people?",
+        "peopleCountLabel": "Number of people",
+        "roomModeLabel": "Room type",
+        "roomModePrivate": "Private",
+        "roomModeCouple": "Couple",
+        "transportLabel": "How would you prefer to arrive?",
+        "transportNoOwnCar": "I don't have my own car",
+        "transportHaveOwnCar": "I have my own 4x4",
+        "transportBus": "Bus transport",
+        "contactLabel": "Contact information",
+        "nameLabel": "Name",
+        "phoneLabel": "Phone",
+        "emailLabel": "Email (optional)",
+        "includesTitle": "What's included?",
+        "includesItem1": "1 night with private bathroom",
+        "includesItem2": "Meals (breakfast, lunch, dinner)",
+        "includesItem3": "6-hour mine tour",
+        "includesItem4": "Emerald sorting workshop",
+        "includesItem5": "Transport from Hacienda El Recuerdo",
+        "includesDetails": "See details",
+        "pricePerPerson": "Price per person",
+        "totalPrice": "Total price",
+        "depositPercent": "Deposit (15%)",
+        "paymentButton": "Continue to payment",
+        "termsCheckbox": "I accept the terms and conditions",
+        "whatsappCta": "Or inquire via WhatsApp"
+    },
+    "experiences": {
+        "common": {
+            "deposit": "Reserve with",
+            "balance": "Balance to pay on tour day",
+            "security": "100% secure payment with Mercado Pago",
+            "ctaPrimary": "Pay 15% deposit",
+            "ctaSecondary": "Questions? WhatsApp us"
+        },
+        "ui": {
+            "availableDates": "Available Dates",
+            "spotsAvailable": "{count, plural, one {# spot} other {# spots}}",
+            "controlledDatesNote": "Dates controlled for logistics.",
+            "limitedSpots": "Limited spots",
+            "limitedSpotsShort": "Limited",
+            "officialDates": "Official dates",
+            "depositLabel": "Deposit",
+            "heroCta": "Check dates",
+            "heroSummary": "2D/1N • Mine visit + emerald workshop • Starts in Chivor • Small groups",
+            "totalLabel": "Total",
+            "payTodayLabel": "Pay today",
+            "balanceNote": "Balance due on tour day. Instant confirmation.",
+            "termsCheckbox": "I accept the terms and conditions",
+            "completeRequiredFields": "Complete all required fields to continue",
+            "processing": "Processing...",
+            "paymentMethods": "Card · PSE · Secure payment",
+            "validationError": "Validation error",
+            "scrollHint": "Scroll to see more dates",
+            "selectedDateLabel": "Selected",
+            "howManyPeople": "How many people?",
+            "peopleLabel": "People",
+            "roomType": "Room type:",
+            "guestsPerRoom": "Guests per room",
+            "numberOfRooms": "Number of rooms",
+            "guests": "guests",
+            "privateBathroom": "private bathroom",
+            "private": "Private",
+            "couple": "Couple",
+            "roomMixHint": "Add more than one room type if needed",
+            "selectedRoomsLabel": "Selected rooms",
+            "clearSelection": "Clear",
+            "noRoomsSelected": "No rooms selected",
+            "addRoom": "Add room",
+            "roomSelectionTitle": "Choose rooms",
+            "closeModal": "Close",
+            "unitsAvailable": "{count} units",
+            "coupleNote": "💑 Couple simplifies the decision to 2 people in a shared room.",
+            "contactDataTitle": "Contact information to confirm your spot",
+            "fullName": "Full name",
+            "fullNamePlaceholder": "John Doe",
+            "phone": "Phone",
+            "phonePlaceholder": "+57 300 123 4567",
+            "email": "Email",
+            "emailPlaceholder": "your@email.com",
+            "emailHelper": "Optional - for additional confirmation",
+            "startingPoint": "Starting point: Chivor (urban area)",
+            "howToArrive": "How will you arrive?",
+            "roomMode": {
+                "standard": "Standard Room",
+                "family": "Family Room",
+                "cabin": "Cabin"
+            }
+        },
+        "emeraldMining": {
+            "title": "Emerald Mining Adventure",
+            "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
+            "description": "Discover the depths of Colombia's most famous emerald mine",
+            "includesFullDetails": "Includes bilingual specialized guide, all necessary safety equipment, round-trip transportation from Bogotá, accident insurance, and refreshments.",
+            "includes": {
+                "guide": "Specialized guide",
+                "equipment": "Safety equipment",
+                "transport": "Round-trip transportation",
+                "insurance": "Accident insurance"
+            },
+            "transport": {
+                "carNo4x4": "Personal Car (Non-4x4)",
+                "carNo4x4Description": "Additional local 4x4 transport cost applies",
+                "have4x4": "I have 4x4",
+                "have4x4Description": "No additional cost",
+                "bus": "Public Bus",
+                "busDescription": "Local transfer included from terminal"
+            },
+            "roomMode": {
+                "standardSingle": "Standard Room (1)",
+                "standardCouple": "Standard Room (2)",
+                "familySingle": "Family Room (1)",
+                "familyCouple": "Family Room (2)",
+                "familyThree": "Family Room (3)",
+                "cabinSingle": "Cabin (1)",
+                "cabinCouple": "Cabin (2)",
+                "cabinSix": "Cabin (6)",
+                "standard": "Standard Room",
+                "family": "Family Room",
+                "cabin": "Cabin"
+            }
+        }
     },
     "Footer": {
         "contactUs": "Contact Us",

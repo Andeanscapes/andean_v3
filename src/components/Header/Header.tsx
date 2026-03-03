@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {memo, useMemo} from "react";
+import {useMemo} from "react";
 import {useTranslations} from 'next-intl';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
@@ -11,7 +11,11 @@ import {useThemeContext} from "@/contexts/ThemeContext";
 import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
 import styles from "./Header.module.css";
 
-const Header = () => {
+interface HeaderProps {
+    hideBookingCta?: boolean;
+}
+
+const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
     const {variant, isSticky} = useLayoutContext();
     const {theme} = useThemeContext();
     const t = useTranslations('Header');
@@ -49,18 +53,25 @@ const Header = () => {
                     </Link>
                     <div className="main-menu uppercase ml-4">
                         <ul className={`flex items-center ${styles.navList}`}>
+                            <li>
+                                <Link href="/experiences" className={styles.navLink}>
+                                    {t('experiences')}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div className="flex items-center gap-6">
-                    <Link 
-                        href={BOOKING_LINKS.airbnb} 
-                        className="btn btn-primary btn-sm text-sm font-medium font-sans"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                    >
-                        {t('bookNow')}
-                    </Link>
+                    {!hideBookingCta && (
+                        <Link 
+                            href={BOOKING_LINKS.airbnb} 
+                            className="btn btn-primary btn-sm text-sm font-medium font-sans"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            {t('bookNow')}
+                        </Link>
+                    )}
                     <ThemeToggle />
                     <LanguageSelector />
                 </div>
@@ -76,14 +87,19 @@ const Header = () => {
                     />
                 </Link>
                 <div className="space-x-4 flex items-center">
-                    <Link 
-                        href={BOOKING_LINKS.airbnb} 
-                        className="btn btn-primary btn-sm text-xs font-medium font-sans"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                    >
-                        {t('bookNow')}
+                    <Link href="/experiences" className="text-xs font-medium uppercase">
+                        {t('experiences')}
                     </Link>
+                    {!hideBookingCta && (
+                        <Link 
+                            href={BOOKING_LINKS.airbnb} 
+                            className="btn btn-primary btn-sm text-xs font-medium font-sans"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            {t('bookNow')}
+                        </Link>
+                    )}
                     <ThemeToggle />
                     <LanguageSelector />
                 </div>
@@ -92,4 +108,4 @@ const Header = () => {
     );
 }
 
-export default memo(Header);
+export default Header;

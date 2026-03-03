@@ -1,10 +1,11 @@
 @reference "../../styles/globals.css";
 
-/* VideoBanner Component Styles */
+@layer components {
+  /* VideoBanner Component Styles */
 
-.videoBanner {
-  @apply relative;
-}
+  .videoBanner {
+    @apply relative;
+  }
 
 .parallaxBg {
   min-height: 400px;
@@ -24,4 +25,4 @@
 
 .videoFrame {
   @apply w-full h-full border-0;
-}
+}}

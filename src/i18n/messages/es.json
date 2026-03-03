@@ -4,7 +4,44 @@
         "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
     },
     "Header": {
-        "bookNow": "RESERVA AHORA"
+        "bookNow": "RESERVA AHORA",
+        "experiences": "EXPERIENCIAS"
+    },
+    "ExperiencesList": {
+        "metaTitle": "Experiencias | Andean Scapes",
+        "metaDescription": "Explora todas las experiencias de Andean Scapes y elige tu próxima aventura en los Andes colombianos.",
+        "hero": {
+            "title": "Explora los Andes Colombianos",
+            "subtitle": "Escapadas culturales + naturaleza todo incluido en el corazón de Colombia.",
+            "summary": "Experiencias seleccionadas con anfitriones locales de confianza",
+            "highlightText": "Naturaleza, cultura e historias locales reales",
+            "ctaLabel": "Explorar experiencias",
+            "helperText": "Grupos pequeños · Experiencia local · Planeación flexible",
+            "badges": {
+                "nature": "Naturaleza",
+                "culture": "Cultura",
+                "hosted": "Alojado por locales"
+            }
+        },
+        "sectionTitle": "Explora experiencias",
+        "sectionSubtitle": "Aventuras curadas con anfitriones locales",
+        "featuredTag": "Destacada",
+        "comingSoonTag": "Próximamente",
+        "fromLabel": "Desde",
+        "viewDetails": "Ver detalles",
+        "transportIncluded": "Transporte incluido",
+        "smallGroups": "Grupos pequeños",
+        "localGuides": "Guías locales expertos",
+        "cards": {
+            "culture": {
+                "title": "Ruta cultural andina",
+                "description": "Tradiciones locales, historias artesanales y paisajes de Boyacá."
+            },
+            "nature": {
+                "title": "Escape natural",
+                "description": "Una experiencia más tranquila con vistas de montaña, comida local y caminatas en naturaleza."
+            }
+        }
     },
     "HeroTwo": {
         "cta": "RESERVA AHORA",
@@ -82,6 +119,139 @@
         "stickyWhatsappText": "¿Dudas? WhatsApp",
         "whatsappSupport": "Te ayudamos a elegir 2D/1N o 3D/2N · Respuesta rápida",
         "bookingScopeNote": "La reserva en Airbnb incluye solo habitación en Hacienda El Recuerdo. El tour minero se cotiza aparte."
+    },
+    "EmeraldMiningAdventure": {
+        "metaTitle": "Reserva tu Aventura Esmeralera | Andean Scapes",
+        "metaDescription": "Descubre las minas de esmeralda de Colombia. Aventura 2D/1N o 3D/2N en Chivor - Boyacá con comidas, taller y transporte incluido.",
+        "title": "Aventura Esmeralera",
+        "subtitle": "2D/1N o 3D/2N en las minas de esmeralda de Chivor - Boyacá",
+        "selectDate": "Selecciona tu fecha",
+        "selectPeople": "¿Cuántas personas?",
+        "peopleCountLabel": "Cantidad de personas",
+        "roomModeLabel": "Tipo de habitación",
+        "roomModePrivate": "Privado",
+        "roomModeCouple": "Pareja",
+        "transportLabel": "¿Cómo prefieres llegar?",
+        "transportNoOwnCar": "No tengo carro propio",
+        "transportHaveOwnCar": "Tengo carro 4x4 propio",
+        "transportBus": "Transporte en bus",
+        "contactLabel": "Información de contacto",
+        "nameLabel": "Nombre",
+        "phoneLabel": "Teléfono",
+        "emailLabel": "Correo (opcional)",
+        "includesTitle": "¿Qué incluye?",
+        "includesItem1": "1 noche con baño privado",
+        "includesItem2": "Comidas (desayuno, almuerzo, cena)",
+        "includesItem3": "Tour de 6 horas en la mina",
+        "includesItem4": "Taller de clasificación de esmeraldas",
+        "includesItem5": "Transporte desde Hacienda El Recuerdo",
+        "includesDetails": "Ver detalles",
+        "pricePerPerson": "Precio por persona",
+        "totalPrice": "Precio total",
+        "depositPercent": "Depósito (15%)",
+        "paymentButton": "Continuar al pago",
+        "termsCheckbox": "Acepto los términos y condiciones",
+        "whatsappCta": "O consulta por WhatsApp"
+    },
+    "experiences": {
+        "common": {
+            "deposit": "Reserva con",
+            "balance": "Saldo a pagar el día del tour",
+            "security": "Pago 100% seguro con Mercado Pago",
+            "ctaPrimary": "Paga 15% de depósito",
+            "ctaSecondary": "¿Dudas? WhatsApp"
+        },
+        "ui": {
+            "availableDates": "Fechas disponibles",
+            "spotsAvailable": "{count, plural, one {# cupo} other {# cupos}}",
+            "controlledDatesNote": "Fechas controladas para logística.",
+            "limitedSpots": "Cupos limitados",
+            "limitedSpotsShort": "Cupos",
+            "officialDates": "Fechas oficiales",
+            "depositLabel": "Depósito",
+            "heroCta": "Ver fechas",
+            "heroSummary": "2D/1N • Visita a la mina + taller de esmeraldas • Inicio en Chivor • Grupos pequeños",
+            "totalLabel": "Total",
+            "payTodayLabel": "Hoy pagas",
+            "balanceNote": "Saldo se paga el día del tour. Confirmación inmediata.",
+            "termsCheckbox": "Acepto términos y condiciones",
+            "completeRequiredFields": "Completa todos los campos requeridos para continuar",
+            "processing": "Procesando...",
+            "paymentMethods": "Tarjeta · PSE · Pago seguro",
+            "validationError": "Error en la validación",
+            "scrollHint": "Desliza para ver mas fechas",
+            "selectedDateLabel": "Seleccionada",
+            "howManyPeople": "¿Cuántas personas?",
+            "peopleLabel": "Personas",
+            "roomType": "Tipo de habitación:",
+            "guestsPerRoom": "Huéspedes por habitación",
+            "numberOfRooms": "Cantidad de habitaciones",
+            "guests": "huéspedes",
+            "privateBathroom": "baño privado",
+            "private": "Privado",
+            "couple": "Pareja",
+            "roomMixHint": "Puedes combinar varios tipos de habitación",
+            "selectedRoomsLabel": "Habitaciones seleccionadas",
+            "clearSelection": "Limpiar",
+            "noRoomsSelected": "Ninguna habitación seleccionada",
+            "addRoom": "Agregar habitación",
+            "roomSelectionTitle": "Elige habitaciones",
+            "closeModal": "Cerrar",
+            "unitsAvailable": "{count} disponibles",
+            "coupleNote": "💑 Pareja simplifica la decisión a 2 personas en habitación compartida.",
+            "contactDataTitle": "Datos para confirmar tu cupo",
+            "fullName": "Nombre completo",
+            "fullNamePlaceholder": "Juan Pérez",
+            "phone": "Celular",
+            "phonePlaceholder": "+57 300 123 4567",
+            "email": "Email",
+            "emailPlaceholder": "tu@email.com",
+            "emailHelper": "Opcional - para confirmación adicional",
+            "startingPoint": "Punto de inicio: Chivor (casco urbano)",
+            "howToArrive": "¿Cómo llegas?",
+            "roomMode": {
+                "standard": "Habitación Estándar",
+                "family": "Habitación Familiar",
+                "cabin": "Cabaña"
+            }
+        },
+        "emeraldMining": {
+            "title": "Aventura de Minería de Esmeraldas",
+            "subtitle": "Experiencia todo incluido en Chivor (Boyacá), Colombia 🇨🇴",
+            "description": "Descubre las profundidades de la mina de esmeraldas más famosa de Colombia",
+            "includesFullDetails": "Incluye guía especializado bilingüe, todo el equipo de seguridad necesario, transporte desde Bogotá, seguro de accidentes y refrigerio.",
+            "includes": {
+                "guide": "Guía especializado",
+                "equipment": "Equipo de seguridad",
+                "transport": "Transporte ida y vuelta",
+                "insurance": "Seguro de accidentes"
+            },
+            "transport": {
+                "carNo4x4": "Carro Particular (No 4x4)",
+                "carNo4x4Description": "Aplica costo adicional de transporte 4x4 local",
+                "have4x4": "Tengo 4x4",
+                "have4x4Description": "Sin costo adicional",
+                "bus": "Bus Público",
+                "busDescription": "Traslado local incluido desde terminal"
+            },
+            "roomMode": {
+                "private": "Habitación Privada",
+                "couple": "Habitación de Pareja",
+                "familyRoom": "Habitación Familiar (3)",
+                "familyCabin": "Cabaña Familiar (6)",
+                "standard": "Habitación Estándar",
+                "family": "Habitación Familiar",
+                "cabin": "Cabaña",
+                "standardSingle": "Habitación Estándar (1)",
+                "standardCouple": "Habitación Estándar (2)",
+                "familySingle": "Habitación Familiar (1)",
+                "familyCouple": "Habitación Familiar (2)",
+                "familyThree": "Habitación Familiar (3)",
+                "cabinSingle": "Cabaña (1)",
+                "cabinCouple": "Cabaña (2)",
+                "cabinSix": "Cabaña (6)"
+            }
+        }
     },
     "Footer": {
         "contactUs": "Contáctenos",

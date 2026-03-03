@@ -1,0 +1,126 @@
+/**
+ * Form validation schemas for experiences
+ */
+
+import { z } from 'zod';
+
+export const reservationSchema = z.object({
+  selectedDateId: z
+    .string()
+    .min(1, 'Selecciona una fecha disponible'),
+
+  peopleCount: z
+    .number()
+    .min(1, 'Mínimo 1 persona')
+    .max(10, 'Máximo 10 personas'),
+
+  roomSelections: z
+    .array(
+      z.object({
+        roomMode: z.enum([
+          'standard_single',
+          'standard_couple',
+          'family_single',
+          'family_couple',
+          'family_3',
+          'cabin_single',
+          'cabin_couple',
+          'cabin_6',
+        ]),
+        quantity: z.number().min(1).max(10),
+      })
+    )
+    .min(1, 'Selecciona al menos un tipo de habitación'),
+
+  transportMode: z.enum(['car_no_4x4', 'have_4x4', 'bus']).refine(
+    (val) => !!val,
+    { message: 'Selecciona tu modo de transporte' }
+  ),
+
+  contact: z.object({
+    name: z
+      .string()
+      .min(2, 'Nombre requerido (mínimo 2 caracteres)'),
+    phone: z
+      .string()
+      .regex(
+        /^\+?[\d\s\-()]{7,}$/,
+        'Celular inválido (mínimo 7 dígitos)'
+      ),
+    email: z
+      .string()
+      .email('Email inválido')
+      .optional()
+      .or(z.literal('')),
+  }),
+
+  termsAccepted: z
+    .boolean()
+    .refine((val) => val === true, {
+      message: 'Debes aceptar los términos y condiciones',
+    }),
+});
+
+export type ReservationFormData = z.infer<typeof reservationSchema>;
+
+export function validateReservationField(
+  field: keyof ReservationFormData,
+  value: unknown
+): string | null {
+  try {
+    if (field === 'selectedDateId') {
+      reservationSchema.shape.selectedDateId.parse(value);
+    } else if (field === 'peopleCount') {
+      reservationSchema.shape.peopleCount.parse(value);
+    } else if (field === 'roomSelections') {
+      reservationSchema.shape.roomSelections.parse(value);
+    } else if (field === 'transportMode') {
+      reservationSchema.shape.transportMode.parse(value);
+    } else if (field === 'contact') {
+      reservationSchema.shape.contact.parse(value);
+    } else if (field === 'termsAccepted') {
+      reservationSchema.shape.termsAccepted.parse(value);
+    }
+    return null;
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return err.issues?.[0]?.message || 'Error de validación';
+    }
+    return 'Error de validación';
+  }
+}
+
+export function flattenZodErrors(error: z.ZodError): Record<string, string> {
+  return error.issues.reduce(
+    (acc, err) => {
+      const path = err.path.join('.');
+      if (!acc[path]) {
+        acc[path] = err.message;
+      }
+      return acc;
+    },
+    {} as Record<string, string>
+  );
+}
+
+// Contact field validation with Spanish messages
+export function validateContactField(
+  field: 'name' | 'phone' | 'email',
+  value: string
+): string | null {
+  try {
+    if (field === 'name') {
+      reservationSchema.shape.contact.shape.name.parse(value);
+    } else if (field === 'phone') {
+      reservationSchema.shape.contact.shape.phone.parse(value);
+    } else if (field === 'email') {
+      reservationSchema.shape.contact.shape.email.parse(value);
+    }
+    return null;
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return err.issues?.[0]?.message || 'Error de validación';
+    }
+    return 'Error de validación';
+  }
+}

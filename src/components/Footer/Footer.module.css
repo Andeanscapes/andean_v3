@@ -1,10 +1,11 @@
 @reference "../../styles/globals.css";
 
-/* Footer Component Styles */
+@layer components {
+  /* Footer Component Styles */
 
-.footer {
-  @apply px-3 relative overflow-hidden;
-}
+  .footer {
+    @apply px-3 relative overflow-hidden;
+  }
 
 .footerStyleOne {
   @apply bg-center bg-cover bg-no-repeat pt-17 bg-fixed overflow-hidden;
@@ -24,4 +25,4 @@
 
 .gradientBorderTop {
   @apply relative before:content-[''] before:absolute before:w-full before:h-[2px] before:top-0 before:left-0 before:bg-footer-border;
-}
+}}

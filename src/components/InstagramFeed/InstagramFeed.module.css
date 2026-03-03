@@ -1,10 +1,11 @@
 @reference "../../styles/globals.css";
 
-/* InstagramFeed Component Styles */
+@layer components {
+  /* InstagramFeed Component Styles */
 
-.instagramFeed {
-  @apply lg:pt-32 pt-16 pb-8 px-3;
-}
+  .instagramFeed {
+    @apply lg:pt-32 pt-16 pb-8 px-3;
+  }
 
 .instagramFeed[data-theme="light"] {
   @apply bg-white;
@@ -32,4 +33,4 @@
 
 .feedIcon {
   @apply absolute inset-0 m-auto h-10 w-10 bg-white rounded-full flex justify-center items-center opacity-0 hover:bg-primary-1 hover:text-white transition-opacity duration-300 ease-in-out text-dark-1 z-10 lg:shadow-[0_0_0_5px_#ffffff66] shadow-[0_0_0_3px_#ffffff66];
-}
+}}

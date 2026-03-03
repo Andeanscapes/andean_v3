@@ -4,7 +4,44 @@
     "metaDescription": "Expérimenter le meilleur aventure naturelle et l'espace de vie collectif au cœur des Andes."
   },
   "Header": {
-    "bookNow": "RÉSERVER MAINTENANT"
+    "bookNow": "RÉSERVER MAINTENANT",
+    "experiences": "EXPÉRIENCES"
+  },
+  "ExperiencesList": {
+    "metaTitle": "Expériences | Andean Scapes",
+    "metaDescription": "Explorez toutes les expériences Andean Scapes et choisissez votre prochaine aventure dans les Andes colombiennes.",
+    "hero": {
+      "title": "Explorez les Andes Colombiennes",
+      "subtitle": "Escapades culturelles + nature tout compris au cœur de la Colombie.",
+      "summary": "Expériences sélectionnées avec des hôtes locaux de confiance",
+      "highlightText": "Nature, culture et histoires locales authentiques",
+      "ctaLabel": "Explorer les expériences",
+      "helperText": "Petits groupes · Expertise locale · Planification flexible",
+      "badges": {
+        "nature": "Nature",
+        "culture": "Culture",
+        "hosted": "Animé par des locaux"
+      }
+    },
+    "sectionTitle": "Explorer les expériences",
+    "sectionSubtitle": "Aventures sélectionnées avec des hôtes locaux",
+    "featuredTag": "À la une",
+    "comingSoonTag": "Bientôt",
+    "fromLabel": "À partir de",
+    "viewDetails": "Voir les détails",
+    "transportIncluded": "Transport inclus",
+    "smallGroups": "Petits groupes",
+    "localGuides": "Guides locaux experts",
+    "cards": {
+      "culture": {
+        "title": "Route culturelle andine",
+        "description": "Traditions locales, récits artisanaux et paysages de Boyacá."
+      },
+      "nature": {
+        "title": "Escapade nature",
+        "description": "Une expérience plus calme axée sur les vues de montagne, la cuisine locale et les balades nature."
+      }
+    }
   },
   "HeroTwo": {
     "cta": "RÉSERVER MAINTENANT",
@@ -82,6 +119,135 @@
     "stickyWhatsappText": "Questions ? WhatsApp",
     "whatsappSupport": "Nous vous aidons à choisir 2D/1N ou 3D/2N · Réponse rapide",
     "bookingScopeNote": "La réservation Airbnb couvre uniquement la chambre à Hacienda El Recuerdo. Le tour de mine est facturé séparément."
+  },
+  "EmeraldMiningAdventure": {
+    "metaTitle": "Réservez votre Aventure Minière d'Émeraude | Andean Scapes",
+    "metaDescription": "Découvrez les mines d'émeraude de Colombie. Aventure 2D/1N ou 3D/2N à Chivor - Boyacá avec repas, atelier et transport inclus.",
+    "title": "Aventure Minière d'Émeraude",
+    "subtitle": "2D/1N ou 3D/2N dans les mines d'émeraude de Chivor - Boyacá",
+    "selectDate": "Sélectionnez votre date",
+    "selectPeople": "Combien de personnes ?",
+    "peopleCountLabel": "Nombre de personnes",
+    "roomModeLabel": "Type de chambre",
+    "roomModePrivate": "Privée",
+    "roomModeCouple": "Couple",
+    "transportLabel": "Comment préférez-vous arriver ?",
+    "transportNoOwnCar": "Je n'ai pas de voiture personnelle",
+    "transportHaveOwnCar": "J'ai mon propre 4x4",
+    "transportBus": "Transport en autobus",
+    "contactLabel": "Informations de contact",
+    "nameLabel": "Nom",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "E-mail (facultatif)",
+    "includesTitle": "Qu'inclut-il ?",
+    "includesItem1": "1 nuit avec salle de bain privée",
+    "includesItem2": "Repas (petit-déjeuner, déjeuner, dîner)",
+    "includesItem3": "Visite de mine de 6 heures",
+    "includesItem4": "Atelier de tri d'émeraudes",
+    "includesItem5": "Transport depuis Hacienda El Recuerdo",
+    "includesDetails": "Voir les détails",
+    "pricePerPerson": "Prix par personne",
+    "totalPrice": "Prix total",
+    "depositPercent": "Dépôt (15%)",
+    "paymentButton": "Continuer vers le paiement",
+    "termsCheckbox": "J'accepte les conditions d'utilisation",
+    "whatsappCta": "Ou renseignez-vous via WhatsApp"
+  },
+  "experiences": {
+    "common": {
+      "deposit": "Réserver avec",
+      "balance": "Solde à payer le jour du tour",
+      "security": "Paiement 100% sécurisé avec Mercado Pago",
+      "ctaPrimary": "Payer 15% d'acompte",
+      "ctaSecondary": "Des questions ? WhatsApp"
+    },
+    "ui": {
+      "availableDates": "Dates disponibles",
+      "spotsAvailable": "{count, plural, one {# place} other {# places}}",
+      "controlledDatesNote": "Dates contrôlées pour la logistique.",
+      "limitedSpots": "Places limitées",
+      "limitedSpotsShort": "Places",
+      "officialDates": "Dates officielles",
+      "depositLabel": "Dépôt",
+      "heroCta": "Voir les dates",
+      "heroSummary": "2J/1N • Visite de la mine + atelier d'émeraudes • Départ de Chivor • Petits groupes",
+      "totalLabel": "Total",
+      "payTodayLabel": "Vous payez aujourd'hui",
+      "balanceNote": "Solde à payer le jour du tour. Confirmation immédiate.",
+      "termsCheckbox": "J'accepte les conditions d'utilisation",
+      "completeRequiredFields": "Complétez tous les champs requis pour continuer",
+      "processing": "Traitement...",
+      "paymentMethods": "Carte · PSE · Paiement sécurisé",
+      "validationError": "Erreur de validation",
+      "scrollHint": "Faites defiler pour voir plus de dates",
+      "selectedDateLabel": "Sélectionnée",
+      "howManyPeople": "Combien de personnes ?",
+      "peopleLabel": "Personnes",
+      "roomType": "Type de chambre :",
+      "guestsPerRoom": "Personnes par chambre",
+      "numberOfRooms": "Nombre de chambres",
+      "guests": "personnes",
+      "privateBathroom": "salle de bain privée",
+      "private": "Privée",
+      "couple": "Couple",
+      "roomMixHint": "Vous pouvez combiner plusieurs types de chambres",
+      "coupleNote": "💑 Couple simplifie la décision à 2 personnes dans une chambre partagée.",
+      "selectedRoomsLabel": "Chambres sélectionnées",
+      "clearSelection": "Effacer",
+      "noRoomsSelected": "Aucune chambre sélectionnée",
+      "addRoom": "Ajouter une chambre",
+      "roomSelectionTitle": "Choisir les chambres",
+      "closeModal": "Fermer",
+      "unitsAvailable": "{count} disponibles",
+      "contactDataTitle": "Informations de contact pour confirmer votre place",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Jean Dupont",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+57 300 123 4567",
+      "email": "E-mail",
+      "emailPlaceholder": "votre@email.com",
+      "emailHelper": "Facultatif - pour confirmation supplémentaire",
+      "startingPoint": "Point de départ : Chivor (zone urbaine)",
+      "howToArrive": "Comment allez-vous arriver ?",
+      "roomMode": {
+        "standard": "Chambre Standard",
+        "family": "Chambre Familiale",
+        "cabin": "Cabane"
+      }
+    },
+    "emeraldMining": {
+      "title": "Aventure Minière d'Émeraude",
+      "subtitle": "Expérience tout compris à Chivor (Boyacá), Colombie 🇨🇴",
+      "description": "Découvrez les profondeurs de la mine d'émeraude la plus célèbre de Colombie",
+      "includesFullDetails": "Comprend un guide spécialisé bilingue, tout l'équipement de sécurité nécessaire, le transport aller-retour depuis Bogotá, l'assurance accident et les rafraîchissements.",
+      "includes": {
+        "guide": "Guide spécialisé",
+        "equipment": "Équipement de sécurité",
+        "transport": "Transport aller-retour",
+        "insurance": "Assurance accident"
+      },
+      "transport": {
+        "carNo4x4": "Voiture personnelle (Non-4x4)",
+        "carNo4x4Description": "Coût de transport local 4x4 supplémentaire s'applique",
+        "have4x4": "J'ai un 4x4",
+        "have4x4Description": "Aucun coût supplémentaire",
+        "bus": "Bus public",
+        "busDescription": "Transfert local inclus depuis le terminal"
+      },
+      "roomMode": {
+        "standardSingle": "Chambre standard (1)",
+        "standardCouple": "Chambre standard (2)",
+        "familySingle": "Chambre familiale (1)",
+        "familyCouple": "Chambre familiale (2)",
+        "familyThree": "Chambre familiale (3)",
+        "cabinSingle": "Cabane (1)",
+        "cabinCouple": "Cabane (2)",
+        "cabinSix": "Cabane (6)",
+        "standard": "Chambre Standard",
+        "family": "Chambre Familiale",
+        "cabin": "Cabane"
+      }
+    }
   },
   "Footer": {
     "contactUs": "Nous Contacter",
