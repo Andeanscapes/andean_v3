@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import 'swiper/css';
 
-import {Jost, Playfair_Display, Satisfy} from 'next/font/google';
+import {Inter} from 'next/font/google';
 import Script from 'next/script';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {Providers} from '@/app/providers';
@@ -13,34 +13,18 @@ const rawMetaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '';
 const META_PIXEL_ID = /^[0-9]+$/.test(rawMetaPixelId) ? rawMetaPixelId : '';
 const HAS_META_PIXEL = META_PIXEL_ID !== '';
 
-/* Configure Google Fonts */
-const jost = Jost({
-  weight: ['200', '300', '400', '500', '600', '700'],
+/* Configure Google Fonts - Apple 2026 Aesthetic */
+// Single modern sans-serif: Inter - the closest to San Francisco
+// Used by Apple alternatives, Stripe, Figma, GitHub
+const inter = Inter({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
-  style: ['normal', 'italic'],
+  style: ['normal'],
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'Arial'],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI'],
   adjustFontFallback: true,
-  variable: '--font-jost'
-});
-const playfairDisplay = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['Georgia', 'serif'],
-  adjustFontFallback: true,
-  variable: '--font-playfair'
-});
-const satisfy = Satisfy({
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['cursive'],
-  variable: '--font-satisfy'
+  variable: '--font-inter'
 });
 
 export default async function LocaleLayout({
@@ -62,7 +46,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       data-scroll-behavior="smooth"
-      className={`${jost.variable} ${playfairDisplay.variable} ${satisfy.variable}`}
+      className={`${inter.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning className="antialiased">

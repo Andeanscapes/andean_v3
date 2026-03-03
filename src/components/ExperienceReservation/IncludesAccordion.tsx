@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/ui/Card/Card';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
-import type { ExperienceConfig } from '@/lib/experiences/types';
+import type { ExperienceConfig } from '@/lib/schemas';
 
 interface IncludesAccordionProps {
   config: ExperienceConfig;

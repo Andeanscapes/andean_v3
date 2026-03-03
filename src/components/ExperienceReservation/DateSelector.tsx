@@ -6,8 +6,8 @@ import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import { useReservationDate } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
-import { formatAvailableDates } from '@/lib/experiences/dateFormatters';
-import type { AvailableDate } from '@/lib/experiences/types';
+import { formatAvailableDates } from '@/utils/dateFormatters';
+import type { AvailableDate } from '@/lib/schemas';
 
 interface DateSelectorProps {
   availableDates: AvailableDate[];
@@ -38,7 +38,7 @@ export function DateSelector({ availableDates }: DateSelectorProps) {
           {t('availableDates')}
         </h2>
         {selectedDateLabel && (
-          <p className="text-xs text-base-content/75">
+          <p className="text-xs text-primary/90">
             {t('selectedDateLabel')}: {selectedDateLabel}
           </p>
         )}

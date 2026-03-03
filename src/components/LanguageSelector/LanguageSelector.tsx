@@ -39,23 +39,24 @@ const LanguageSelector = () => {
     (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1')
   , [theme]);
 
-  const stripLeadingLocale = (path: string) => {
-    const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
-    for (const pref of withSlashPrefixes) {
-      if (path.startsWith(pref)) return `/${path.slice(pref.length)}`;
-    }
-    for (const l of routing.locales) {
-      if (path === `/${l}`) return '/';
-    }
-    return path;
-  };
-
-  const buildHref = (target: Locale) => {
+  const buildHref = useCallback((target: Locale) => {
+    // Strip leading locale from pathname if present
+    const stripLeadingLocale = (path: string) => {
+      const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
+      for (const pref of withSlashPrefixes) {
+        if (path.startsWith(pref)) return `/${path.slice(pref.length)}`;
+      }
+      for (const l of routing.locales) {
+        if (path === `/${l}`) return '/';
+      }
+      return path;
+    };
+    
     const path = pathname || '/';
     const rest = stripLeadingLocale(path);
     const needsPrefix = target !== routing.defaultLocale;
     return needsPrefix ? `/${target}${rest === '/' ? '' : rest}` : rest;
-  };
+  }, [pathname]);
 
   const linkMap = useMemo(() => {
     const map = {} as Record<Locale, string>;
@@ -94,7 +95,7 @@ const LanguageSelector = () => {
       router.push(targetHref);
       router.refresh();
     });
-  }, [currentLocale, setLocaleCookie, startTransition, router]);
+  }, [currentLocale, buildHref, setLocaleCookie, startTransition, router]);
 
   const handleToggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
   const handleCloseDropdown = useCallback(() => setIsOpen(false), []);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { ReservationState } from '@/lib/experiences/types';
+import type { ReservationState } from '@/lib/schemas';
 
 export function useMercadoPagoLink(experienceId: string) {
   const [loading, setLoading] = useState(false);

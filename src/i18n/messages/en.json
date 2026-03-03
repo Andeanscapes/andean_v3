@@ -4,7 +4,44 @@
         "metaDescription": "Experience the ultimate nature adventure and co-living space in the heart of the Andes."
     },
     "Header": {
-        "bookNow": "BOOK NOW"
+        "bookNow": "BOOK NOW",
+        "experiences": "EXPERIENCES"
+    },
+    "ExperiencesList": {
+        "metaTitle": "Experiences | Andean Scapes",
+        "metaDescription": "Explore all Andean Scapes experiences and choose your next adventure in the Colombian Andes.",
+        "hero": {
+            "title": "Explore The Colombian Andes",
+            "subtitle": "All-inclusive cultural + nature escapes in the heart of Colombia.",
+            "summary": "Handpicked experiences with trusted local hosts",
+            "highlightText": "Nature, Culture and Real Local Stories",
+            "ctaLabel": "Explore experiences",
+            "helperText": "Small groups · Local expertise · Flexible planning",
+            "badges": {
+                "nature": "Nature",
+                "culture": "Culture",
+                "hosted": "Hosted by locals"
+            }
+        },
+        "sectionTitle": "Explore Experiences",
+        "sectionSubtitle": "Curated adventures with local hosts",
+        "featuredTag": "Featured",
+        "comingSoonTag": "Coming soon",
+        "fromLabel": "From",
+        "viewDetails": "View details",
+        "transportIncluded": "Transport included",
+        "smallGroups": "Small groups",
+        "localGuides": "Expert local guides",
+        "cards": {
+            "culture": {
+                "title": "Andean Culture Route",
+                "description": "Local traditions, artisan stories and scenic moments across Boyacá."
+            },
+            "nature": {
+                "title": "Nature Escape",
+                "description": "A slower experience focused on mountain views, local food and nature walks."
+            }
+        }
     },
     "HeroTwo": {
         "cta": "BOOK NOW",

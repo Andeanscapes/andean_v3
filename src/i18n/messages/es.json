@@ -4,7 +4,44 @@
         "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
     },
     "Header": {
-        "bookNow": "RESERVA AHORA"
+        "bookNow": "RESERVA AHORA",
+        "experiences": "EXPERIENCIAS"
+    },
+    "ExperiencesList": {
+        "metaTitle": "Experiencias | Andean Scapes",
+        "metaDescription": "Explora todas las experiencias de Andean Scapes y elige tu próxima aventura en los Andes colombianos.",
+        "hero": {
+            "title": "Explora los Andes Colombianos",
+            "subtitle": "Escapadas culturales + naturaleza todo incluido en el corazón de Colombia.",
+            "summary": "Experiencias seleccionadas con anfitriones locales de confianza",
+            "highlightText": "Naturaleza, cultura e historias locales reales",
+            "ctaLabel": "Explorar experiencias",
+            "helperText": "Grupos pequeños · Experiencia local · Planeación flexible",
+            "badges": {
+                "nature": "Naturaleza",
+                "culture": "Cultura",
+                "hosted": "Alojado por locales"
+            }
+        },
+        "sectionTitle": "Explora experiencias",
+        "sectionSubtitle": "Aventuras curadas con anfitriones locales",
+        "featuredTag": "Destacada",
+        "comingSoonTag": "Próximamente",
+        "fromLabel": "Desde",
+        "viewDetails": "Ver detalles",
+        "transportIncluded": "Transporte incluido",
+        "smallGroups": "Grupos pequeños",
+        "localGuides": "Guías locales expertos",
+        "cards": {
+            "culture": {
+                "title": "Ruta cultural andina",
+                "description": "Tradiciones locales, historias artesanales y paisajes de Boyacá."
+            },
+            "nature": {
+                "title": "Escape natural",
+                "description": "Una experiencia más tranquila con vistas de montaña, comida local y caminatas en naturaleza."
+            }
+        }
     },
     "HeroTwo": {
         "cta": "RESERVA AHORA",

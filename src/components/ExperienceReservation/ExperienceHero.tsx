@@ -1,27 +1,82 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import type { ExperienceConfig } from '@/lib/experiences/types';
+import type {
+  ExperienceConfig,
+  ExperienceHeroBadgeIcon,
+  ExperienceHeroContent,
+} from '@/lib/schemas';
 import { Button } from '@/components/ui/Button/Button';
 import { Badge } from '@/components/ui/Badge/Badge';
 
-interface ExperienceHeroProps {
-  config: ExperienceConfig;
+type ExperienceHeroProps = {
+  config?: ExperienceConfig;
+  heroContent?: ExperienceHeroContent;
+  content?: ExperienceHeroContent;
+};
+
+function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
+  if (icon === 'none') {
+    return null;
+  }
+
+  if (icon === 'deposit') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-3.5 w-3.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12h8" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-3.5 w-3.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 3" />
+    </svg>
+  );
 }
 
-export function ExperienceHero({ config }: ExperienceHeroProps) {
-  const t = useTranslations('experiences.ui');
-  const tCommon = useTranslations('experiences.common');
+export function ExperienceHero({ config, heroContent, content }: ExperienceHeroProps) {
+  // Video URL served as static asset
+  const VIDEO_URL = '/videos/emerald-mining.mp4';
 
-  // Video URL served via API route
-  const VIDEO_URL = '/api/videos/emerald-mining.mp4';
+  // Priority: heroContent (from service) > content (override) > build from config
+  const resolvedContent: Required<ExperienceHeroContent> = {
+    title: heroContent?.title ?? content?.title ?? config?.title ?? '',
+    subtitle: heroContent?.subtitle ?? content?.subtitle ?? config?.subtitle ?? '',
+    summary: heroContent?.summary ?? content?.summary ?? '',
+    highlightText: heroContent?.highlightText ?? content?.highlightText ?? '',
+    ctaLabel: heroContent?.ctaLabel ?? content?.ctaLabel ?? '',
+    helperText: heroContent?.helperText ?? content?.helperText ?? '',
+    hideCta: heroContent?.hideCta ?? content?.hideCta ?? false,
+    ctaTargetId: heroContent?.ctaTargetId ?? content?.ctaTargetId ?? 'available-dates',
+    badges: heroContent?.badges ?? content?.badges ?? [],
+  };
 
   const handleCtaClick = () => {
     if (typeof window === 'undefined') {
       return;
     }
 
-    const datesSection = document.getElementById('available-dates');
+    const datesSection = document.getElementById(resolvedContent.ctaTargetId);
     if (datesSection) {
       datesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       const headerEl = document.querySelector('header');
@@ -38,7 +93,7 @@ export function ExperienceHero({ config }: ExperienceHeroProps) {
 
   return (
     <div
-      className="relative w-full h-[55vh] md:h-[60vh] overflow-hidden"
+      className="relative w-full h-[45vh] md:h-[50vh] overflow-hidden"
     >
       {/* Video Background */}
       <video
@@ -63,79 +118,48 @@ export function ExperienceHero({ config }: ExperienceHeroProps) {
         <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-5 py-6 md:px-8 md:py-8">
           <div className="text-center">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-white drop-shadow-lg">
-              {config.title}
+              {resolvedContent.title}
             </h1>
             <p className="text-base md:text-xl text-slate-100/95 font-medium mb-2 drop-shadow-md">
-              {config.subtitle}
+              {resolvedContent.subtitle}
             </p>
-            <p className="text-xs md:text-sm text-white/80 mb-3">
-              {t('heroSummary')}
+            <p className="hidden md:block text-xs md:text-sm text-white/80 mb-3">
+              {resolvedContent.summary}
             </p>
-            <p className="text-sm md:text-base text-white/85 mb-5">
-              {t('limitedSpots')} · {t('depositLabel')} {config.depositPercent}%
+            <p className="hidden md:block text-sm md:text-base text-white/85 mb-5">
+              {resolvedContent.highlightText}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-2">
-              <Button
-                variant="primary"
-                size="lg"
-                className="min-h-[48px] h-12 px-6 text-sm md:text-base font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
-                onClick={handleCtaClick}
-              >
-                {t('heroCta')}
-              </Button>
+              {!resolvedContent.hideCta ? (
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="min-h-[48px] h-12 px-6 text-sm md:text-base font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+                  onClick={handleCtaClick}
+                >
+                  {resolvedContent.ctaLabel}
+                </Button>
+              ) : null}
               <p className="text-xs md:text-sm text-white/75">
-                {tCommon('security')}
+                {resolvedContent.helperText}
               </p>
             </div>
             
             <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <Badge
-                variant="secondary"
-                size="sm"
-                className="border-white/20 bg-base-900/80 text-white shadow-sm backdrop-blur-md"
-              >
-                <span className="inline-flex items-center gap-1.5">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 3" />
-                  </svg>
-                  <span>{t('limitedSpotsShort')}</span>
-                </span>
-              </Badge>
-              <Badge
-                variant="secondary"
-                size="sm"
-                className="border-white/20 bg-base-900/80 text-white shadow-sm backdrop-blur-md"
-              >
-                <span className="inline-flex items-center gap-1.5">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M8 12h8" />
-                  </svg>
-                  <span>
-                    {t('depositLabel')} {config.depositPercent}%
+              {resolvedContent.badges.map((badge) => (
+                <Badge
+                  key={badge.label}
+                  variant="secondary"
+                  size="sm"
+                  className="border-white/20 bg-base-900/80 text-white shadow-sm backdrop-blur-md"
+                >
+                  <span className="inline-flex items-center gap-1.5">
+                    <HeroBadgeIcon icon={badge.icon ?? 'none'} />
+                    <span>{badge.label}</span>
                   </span>
-                </span>
-              </Badge>
+                </Badge>
+              ))}
             </div>
           </div>
         </div>

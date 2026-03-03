@@ -9,7 +9,7 @@ import { ContactFields } from '@/components/ExperienceReservation/ContactFields'
 import { IncludesAccordion } from '@/components/ExperienceReservation/IncludesAccordion';
 import { PriceSummary } from '@/components/ExperienceReservation/PriceSummary';
 import { ConfirmationAction } from '@/components/ExperienceReservation/ConfirmationAction';
-import type { ExperienceData } from '@/lib/experiences/types';
+import type { ExperienceData } from '@/lib/schemas';
 
 interface MiningAdventureReservationProps {
   experienceData: ExperienceData;
@@ -18,12 +18,12 @@ interface MiningAdventureReservationProps {
 export default function MiningAdventureReservation({
   experienceData,
 }: MiningAdventureReservationProps) {
-  const { config, transportOptions, roomModes, availableDates, whatsappLink } = experienceData;
+  const { config, transportOptions, roomModes, availableDates, whatsappLink, heroContent } = experienceData;
 
   return (
     <ExperienceReservationProvider config={config} roomModes={roomModes}>
       {/* Full-width Hero */}
-      <ExperienceHero config={config} />
+      <ExperienceHero config={config} heroContent={heroContent} />
       
       {/* Form content in centered container */}
       <div className="container mx-auto max-w-4xl px-4 py-6 pb-6">

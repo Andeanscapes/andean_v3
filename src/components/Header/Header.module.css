@@ -1,10 +1,11 @@
 @reference "../../styles/globals.css";
 
-/* Header Component Styles */
+@layer components {
+  /* Header Component Styles */
 
-.headerStyle {
-  @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
-}
+  .headerStyle {
+    @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+  }
 
 .headerStyle.sticky {
   @apply shadow-lg opacity-90;
@@ -168,4 +169,4 @@
 
 .hamburger.humActive span:last-child {
   @apply rotate-[-45deg] bottom-[.5px];
-}
+}}

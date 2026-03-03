@@ -1,4 +1,4 @@
-import type { ReservationState } from './types';
+import type { ReservationState } from '@/lib/schemas';
 
 export function createReservationStorage(experienceId: string) {
   const STORAGE_KEY = `andeanScapes:${experienceId}Reservation:v1`;

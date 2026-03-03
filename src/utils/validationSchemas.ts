@@ -1,3 +1,7 @@
+/**
+ * Form validation schemas for experiences
+ */
+
 import { z } from 'zod';
 
 export const reservationSchema = z.object({
@@ -99,18 +103,18 @@ export function flattenZodErrors(error: z.ZodError): Record<string, string> {
   );
 }
 
+// Contact field validation with Spanish messages
 export function validateContactField(
   field: 'name' | 'phone' | 'email',
   value: string
 ): string | null {
   try {
-    const contactSchema = reservationSchema.shape.contact;
     if (field === 'name') {
-      contactSchema.shape.name.parse(value);
+      reservationSchema.shape.contact.shape.name.parse(value);
     } else if (field === 'phone') {
-      contactSchema.shape.phone.parse(value);
+      reservationSchema.shape.contact.shape.phone.parse(value);
     } else if (field === 'email') {
-      contactSchema.shape.email.parse(value);
+      reservationSchema.shape.contact.shape.email.parse(value);
     }
     return null;
   } catch (err) {

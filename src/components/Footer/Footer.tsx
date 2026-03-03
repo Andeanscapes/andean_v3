@@ -17,7 +17,7 @@ const Footer = () => {
     , [theme]);
     
     const secondaryTextColorClass = useMemo(() => 
-        theme === 'dark' ? 'text-stock-1' : 'text-gray-600'
+        theme === 'dark' ? 'text-stock-1' : 'text-gray-800'
     , [theme]);
 
     const whatsappLink = useCallback(() => {

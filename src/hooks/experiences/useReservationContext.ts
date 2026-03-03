@@ -6,7 +6,7 @@ import type {
   TransportMode,
   ReservationContextValue,
   RoomSelection,
-} from '@/lib/experiences/types';
+} from '@/lib/schemas';
 
 const requireContext = (
   context: ReservationContextValue | null
@@ -156,8 +156,8 @@ export function useReservationValidation() {
     };
   }) as {
     isValid: boolean;
-    state: import('@/lib/experiences/types').ReservationState;
-    dispatch: (action: import('@/lib/experiences/types').ReservationAction) => void;
+    state: import('@/lib/schemas').ReservationState;
+    dispatch: (action: import('@/lib/schemas').ReservationAction) => void;
     setTermsAccepted: (value: boolean) => void;
   };
 }

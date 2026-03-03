@@ -1,487 +1,240 @@
-# Andean Scapes - AI Coding Agent Instructions
-
-## Project Overview
-Next.js 16.1.6 + React 19 tourism website deployed to **Cloudflare Pages** via `@opennextjs/cloudflare`. GitFlow with `develop` (dev env) and `main` (prod) branches. **Public repo** - no credentials in code. **Security-first architecture** with comprehensive validation, HTTP headers, and XSS prevention patterns.
-
-## Tech Stack
-- **Framework:** Next.js 16 (App Router) + React 19
-- **Language:** TypeScript 5 (strict mode)
-- **Styling:** Tailwind CSS + CSS Modules + daisyUI
-- **Component Library:** daisyUI (wrapped via `/src/components/ui/` abstraction layer)
-- **Deployment:** Cloudflare Pages (`@opennextjs/cloudflare`)
-- **i18n:** next-intl (3 locales: `en`, `es`, `fr`)
-- **State:** `use-context-selector` (performance-optimized contexts)
-- **Validation:** Zod schemas ([src/lib/validation.ts](src/lib/validation.ts))
-- **Testing:** Vitest + Testing Library
-- **Component Docs:** Storybook
-
-## Architecture
-
-### Deployment & Environments
-- **Production:** `andeanscapes.com` (push to `main` → GitHub Actions → Cloudflare)
-- **Development:** `andean-v3-dev.workers.dev` (push to `develop` → auto-deploy)
-- **Build:** `npm run build` → `opennextjs-cloudflare build` (generates `.open-next/`)
-- **Deploy:** Use npm scripts, NOT direct Wrangler commands:
-  - `npm run deploy` (prod)
-  - `npm run deploy:dev` (dev)
-  - Both require `.env.wrangler` file (see `.env.wrangler.example`)
-- **Preview:** `npm run preview` - Local Cloudflare Workers preview
-
-### Project Structure
-```
-src/
-├── app/
-│   ├── [locale]/          # i18n-aware routes (en, es, fr)
-│   │   ├── (auth)/        # Route group: auth pages (login, signup)
-│   │   ├── (public)/      # Route group: public pages (home, about)
-│   │   ├── layout.tsx     # Root layout with fonts, providers
-│   │   └── not-found.tsx  # 404 page
-│   └── api/               # API routes (see src/app/api/README.md)
-├── components/            # React components (see COMPONENT_PATTERNS.md)
-├── contexts/              # LanguageContext, ThemeContext, LayoutContext
-├── i18n/                  # routing.ts, messages/{en,es,fr}.json
-├── lib/                   # api-client.ts, validation.ts
-├── styles/                # globals.css
-└── types/                 # ui.ts (TypeScript interfaces)
-```
-
-### i18n Architecture (next-intl)
-- **Locales:** `en` (default), `es`, `fr` - defined in [src/i18n/routing.ts](src/i18n/routing.ts)
-- **URL Structure:** `/` (English), `/es` (Spanish), `/fr` (French)
-- **Locale prefix:** `as-needed` - keeps English unprefixed
-- **Route structure:** ALL pages under `src/app/[locale]/` (NOT `src/app/`)
-- **Middleware:** [src/middleware.ts](src/middleware.ts) with `localeDetection: false` (explicit routing, no auto-detection for security)
-- **Contexts:** `LanguageContext` provides `currentLocale` and `availableLanguages` via `use-context-selector`
-- **Messages:** [src/i18n/messages/](src/i18n/messages/) for translations
-- **Usage:** Import `useTranslations('Namespace')` in components, `getMessages()` + `setRequestLocale()` in Server Components
-
-### State Management Pattern
-**Use `use-context-selector` NOT React Context:**
-```typescript
-// Pattern from src/contexts/LanguageContext.tsx
-import { createContext, useContextSelector } from 'use-context-selector';
-
-const Context = createContext<Type | null>(null);
-
-export function useMyContext() {
-  const value = useContextSelector(Context, (ctx) => ctx?.field ?? fallback);
-  return value;
-}
-```
-**Why:** Avoids unnecessary re-renders when only part of context changes.
-
-## Development Philosophy & Guidelines
-
-### Site Context
-**Andean Scapes** is a public-facing ecommerce platform exposed to sensitive data (personal information, payment details, user accounts) and security-critical operations. All development must prioritize:
-- **Security first:** Assume all user input is hostile; validate rigorously
-- **Data protection:** GDPR/privacy compliance in all data handling
-- **Simplicity:** Choose simple solutions over complex ones; avoid over-engineering
-- **Minimal changes:** Only modify what's requested; don't refactor unrelated code or add unnecessary features
-- **No premature optimization:** Solve today's problem simply, not tomorrow's speculative problem
-
-### Code Style & Practices
-- **No `any` types:** ALWAYS use explicit TypeScript types (if needed, use `unknown` and narrow via type guards)
-- **No unnecessary comments:** Code should be self-documenting; omit comments unless they explain *why* not *what*
-- **Separation of concerns:** UI components render data only; NO business logic in React components
-- **No prop drilling:** Use `LanguageContext`, `ThemeContext`, `LayoutContext` patterns (via `use-context-selector`) to pass data down 2+ levels
-- **Component wrappers for third-party libraries:**
-  - If using daisyUI, Shadcn, or other UI libraries: wrap them in simple, abstracted components (`/src/components/ui/Button.tsx`, etc.)
-  - This allows library swaps with minimal code changes (only update the wrapper)
-  - Example: Create `/src/components/ui/Modal.tsx` that wraps daisyUI modal; swap daisyUI for another library by updating only that file
-- **Composition over configuration:** Build small, focused components that compose into larger patterns
-- **Scalability mindset:** Structure code to handle 10x more features/users without refactoring
-- **Decouple dependencies:** Never import from 3rd-party libraries directly in business logic; always go through wrapper components
-
-### When Writing Code
-1. **Do the simplest thing that works** — resist adding "flexibility" for hypothetical future use cases
-2. **Don't refactor:** If it works and passes linting/tests, leave it alone (unless explicitly asked)
-3. **Don't overthink:** Simple, readable code > clever optimizations
-4. **Keep components dumb:** Pass all logic as props/context; components should only render
-5. **Reuse via context:** Before adding more props, check if data belongs in a context (e.g., user theme, language, layout state)
-
-## daisyUI Component Architecture
-
-### Installation & Configuration
-- **Package:** `daisyui` installed as production dependency
-- **Config (Tailwind v4):** Enabled via Tailwind v4 directives in `globals.css` (e.g., using the Tailwind `@plugin` mechanism), not via `tailwind.config.ts`
-- **Themes:** Light/dark mode via `data-theme` attribute (controlled by `ThemeContext`)
-- **Mode:** DaisyUI options such as `styled`, `base`, and `utils` are configured through the Tailwind v4 setup in `globals.css` so that classes, resets, and utilities are available as expected
-
-### Component Wrapper Pattern (CRITICAL)
-**Never use daisyUI classes directly in components.** Always wrap in `src/components/ui/` abstraction layer:
-
-```typescript
-// ❌ DON'T: Direct daisyUI usage
-'use client';
-export function MyComponent() {
-  return <button className="btn btn-primary">Click me</button>;
-}
-
-// ✅ DO: Wrapped abstraction
-// src/components/ui/Button.tsx
-'use client';
-import React from 'react';
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  loading?: boolean;
-}
-
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  loading = false,
-  children,
-  className,
-  ...props
-}: ButtonProps) {
-  const variantMap = {
-    primary: 'btn-primary',
-    secondary: 'btn-secondary',
-    ghost: 'btn-ghost',
-  };
-
-  const sizeMap = {
-    sm: 'btn-sm',
-    md: 'btn-md',
-    lg: 'btn-lg',
-  };
-
-  return (
-    <button
-      className={`btn ${variantMap[variant]} ${sizeMap[size]} ${loading ? 'loading' : ''} ${className || ''}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
-
-// Usage in components:
-import { Button } from '@/components/ui/Button';
-export function MyComponent() {
-  return <Button variant="primary">Click me</Button>;
-}
-```
-
-### Why Wrappers Matter
-1. **Future-proof:** Swap daisyUI for Shadcn, Mantine, etc. by updating only `/src/components/ui/` files
-2. **Type safety:** Define explicit prop interfaces (no magic `className` strings scattered everywhere)
-3. **Consistency:** Enforce naming conventions and variant standardization across the app
-4. **Testability:** Test wrapper components once; all consuming components inherit safety
-5. **Maintainability:** Single source of truth for each component's styling logic
-
-### Anti-patterns (DO NOT DO THIS)
-❌ **Mixing daisyUI + Tailwind classes directly:**
-```typescript
-// WRONG: Classes scattered, hard to refactor
-<div className="btn btn-primary px-4 py-2 text-lg font-bold shadow-lg">
-  Content
-</div>
-```
-
-❌ **Using `@apply` to create wrapper classes:**
-```typescript
-/* WRONG: Defeats the purpose of wrappers */
-@apply btn btn-primary;
-```
-
-❌ **Conditional class strings:**
-```typescript
-// WRONG: Hard to track, prone to conflicts
-const buttonClass = isActive ? 'btn-active' : 'btn-ghost';
-return <button className={`btn ${buttonClass}`}>Click</button>;
-```
-
-✅ **CORRECT: Encapsulated, typed wrappers:**
-```typescript
-interface ButtonProps {
-  isActive?: boolean;
-}
-
-export function Button({ isActive, ...props }: ButtonProps) {
-  return (
-    <button className={isActive ? 'btn btn-primary' : 'btn btn-ghost'} {...props} />
-  );
-}
-```
-
-### Common daisyUI Wrapper Examples
-Create these in `/src/components/ui/`:
-- `Button.tsx` - button with variants (primary, secondary, ghost, outline)
-- `Modal.tsx` - dialog/modal with open/close handlers
-- `Card.tsx` - card container with optional border/shadow variants
-- `Input.tsx` - text input with label, error, placeholder
-- `Select.tsx` - dropdown select (wraps daisyUI select or react-select)
-- `Badge.tsx` - status badges (info, success, warning, danger)
-- `Spinner.tsx` - loading indicator
-- `Alert.tsx` - notification/alert box
-- `Tabs.tsx` - tab navigation (if needed)
-- `Dropdown.tsx` - dropdown menu (if needed)
-
-### Theme Context Integration
-daisyUI's theme system works via `data-theme` attribute. Use `ThemeContext` to manage it:
-```typescript
-// In ThemeContext.tsx
-export function useTheme() {
-  return useContextSelector(ThemeContext, (ctx) => ({
-    theme: ctx?.theme ?? 'light',
-    toggleTheme: ctx?.toggleTheme,
-  }));
-}
-
-// In layout or root component
-useEffect(() => {
-  const root = document.documentElement;
-  const { theme } = useTheme();
-  root.setAttribute('data-theme', theme);
-}, [theme]);
-```
-
-### Storybook Integration
-Document wrapped components in Storybook:
-```typescript
-// src/components/ui/Button.stories.tsx
-import { Button } from './Button';
-import type { Meta, StoryObj } from '@storybook/react';
-
-const meta: Meta<typeof Button> = {
-  component: Button,
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'ghost'],
-    },
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof Button>;
-
-export const Primary: Story = {
-  args: { variant: 'primary', children: 'Click me' },
-};
-```
-
-## Security Patterns (CRITICAL)
-
-### 1. Data Validation (Zod)
-**Always validate external input** using [src/lib/validation.ts](src/lib/validation.ts):
-```typescript
-import { tryValidate, tourFilterSchema } from '@/lib/validation';
-
-const result = tryValidate(tourFilterSchema, userInput);
-if (!result.success) {
-  // Handle validation errors: result.errors
-  return NextResponse.json(
-    { code: 'VALIDATION_ERROR', errors: result.errors },
-    { status: 400 }
-  );
-}
-// Use result.data (validated)
-```
-
-### 2. API Routes
-Follow patterns in [src/app/api/README.md](src/app/api/README.md):
-- **CORS validation:** Check `origin` header against allowed origins
-- **Input validation:** Use `tryValidate()` on query params and request body
-- **Error handling:** Return normalized `{ code, message, errors? }` responses
-- **CORS headers:** Add via `addCorsHeaders()` helper
-
-Example structure:
-```typescript
-export async function GET(request: NextRequest) {
-  // 1. Validate origin
-  if (!validateOrigin(request)) {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-  }
-  
-  // 2. Validate input
-  const filters = tryValidate(
-    tourFilterSchema,
-    Object.fromEntries(request.nextUrl.searchParams)
-  );
-  
-  if (!filters.success) {
-    return NextResponse.json(
-      { code: 'VALIDATION_ERROR', errors: filters.errors },
-      { status: 400 }
-    );
-  }
-  
-  // 3. Fetch data with filters.data
-  // 4. Return with CORS headers
-}
-```
-
-### 3. React Components
-See [src/components/COMPONENT_PATTERNS.md](src/components/COMPONENT_PATTERNS.md):
-- **XSS Prevention:** NEVER use `dangerouslySetInnerHTML` without DOMPurify sanitization
-- **Input Handling:** Validate on submit, set `maxLength` on inputs, encode before API calls
-- **External Links:** Always use `rel="noopener noreferrer"` + validate URL schemes (no `javascript:` or `data:`)
-- **Client-Side Fetch:** Use [src/lib/api-client.ts](src/lib/api-client.ts) `apiCall<T>()` helper (includes timeout, retry, CSRF headers)
-
-Example:
-```typescript
-'use client';
-import { apiCall } from '@/lib/api-client';
-
-async function fetchTours(filters: TourFilters) {
-  const tours = await apiCall<Tour[]>('/tours', {
-    method: 'GET',
-    timeout: 5000,
-    retry: 2
-  });
-}
-```
-
-### 4. HTTP Security Headers
-Auto-configured in [public/_headers](public/_headers) and [next.config.js](next.config.js):
-- **HSTS:** `max-age=31536000` (production only)
-- **X-Content-Type-Options:** `nosniff`
-- **X-Frame-Options:** `SAMEORIGIN`
-- **Referrer-Policy:** `strict-origin-when-cross-origin`
-- **Permissions-Policy:** Blocks camera, microphone, payment, USB access
-- **CSP-ready:** Add Content-Security-Policy when implementing
-- **NEVER modify without reading** [SECURITY.md](SECURITY.md)
-
-### Linting & Type Safety
-- **ESLint v9 flat-config:** [eslint.config.mjs](eslint.config.mjs) (NOT `.eslintrc`)
-  - CommonJS globals for `.js` files (`require`, `module`, `__dirname`)
-  - Browser globals for `.ts/.tsx` (`Headers`, `AbortController`, `setTimeout`)
-- **TypeScript:** Strict mode enabled ([tsconfig.json](tsconfig.json))
-- **Lint command:** `npm run lint` (max-warnings=0 enforced in CI)
-- **Path alias:** `@/*` → `src/*` (use in all imports)
-
-## Critical Workflows
-
-### Development Flow
-1. Work in `develop` branch
-2. Run `npm run dev` (port 3000)
-3. Make changes, write tests (`npm test`)
-4. Lint code (`npm run lint`)
-5. Commit + push → auto-deploys to `andean-v3-dev.workers.dev`
-6. Create PR `develop` → `main` when ready for prod
-7. CI runs lint + tests (`ci.yml`)
-8. Merge (squash) → auto-deploys to production (`deploy.yml`)
-
-### Commands
-| Task | Command |
-|------|---------|
-| Dev server | `npm run dev` |
-| Build | `npm run build` |
-| Lint | `npm run lint` (or `npm run lint:fix`) |
-| Test | `npm test` (or `npm run test:watch`) |
-| Deploy prod | `npm run deploy` (requires `.env.wrangler`) |
-| Deploy dev | `npm run deploy:dev` |
-| Preview (local) | `npm run preview` |
-| Storybook | `npm run storybook` (port 6006) |
-| Build Storybook | `npm run build-storybook` |
-| Cloudflare types | `npm run cf-typegen` |
-
-### Branch Protection (Public Repo)
-- **main:** Requires PR + CI passing (no direct push)
-- **develop:** Requires PR (can self-approve)
-- **Merge strategy:** Squash-only (clean history)
-- **Secrets:** CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID in GitHub repo settings
-
-## File Conventions
-
-### Component Structure
-```
-src/components/ComponentName/
-├── ComponentName.tsx          # Main component
-├── ComponentName.module.css   # CSS Modules (optional)
-├── ComponentName.stories.tsx  # Storybook stories
-└── ComponentName.test.tsx     # Vitest tests
-```
-**Patterns:** See [src/components/COMPONENT_PATTERNS.md](src/components/COMPONENT_PATTERNS.md) for XSS prevention, safe HTML rendering, input validation.
-
-### API Routes
-- Location: `src/app/api/[endpoint]/route.ts`
-- Pattern: Export `GET`, `POST`, `OPTIONS` (for CORS preflight) functions
-- Always validate CORS + inputs (see [src/app/api/README.md](src/app/api/README.md))
-
-### Layout & Pages
-- Root layout: [src/app/[locale]/layout.tsx](src/app/[locale]/layout.tsx) (fonts: Jost, Playfair Display, Satisfy)
-- Pages: `src/app/[locale]/(group)/page.tsx`
-- Route groups: `(auth)`, `(public)` - organize routes without affecting URL
-
-### Fonts (Pre-configured)
-Available CSS variables in all components:
-- `--font-jost` - Body text (weights: 200-700)
-- `--font-playfair` - Headings (weights: 400-900)
-- `--font-satisfy` - Accents/decorative (weight: 400)
-
-## Common Gotchas
-
-1. **Next.js 16 changes:**
-   - No `next lint` command (use `npm run lint` with ESLint v9)
-   - Middleware file convention: `src/middleware.ts` (Next.js 16 proxy.ts NOT yet supported by @opennextjs/cloudflare)
-
-2. **Cloudflare deployment:**
-   - NEVER run `wrangler deploy` directly (breaks build)
-   - Use `npm run deploy` or `npm run deploy:dev` (includes build step)
-   - Dev environment has NO routes (only `workers.dev` subdomain)
-   - Requires `.env.wrangler` file with CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN
-
-3. **i18n routing:**
-   - ALL pages must be under `src/app/[locale]/`
-   - Use `next-intl` routing helpers (`Link`, `useRouter`) NOT Next.js directly
-   - Locale detection is explicit (`localeDetection: false` in middleware)
-   - Add translations to ALL 3 locales: `src/i18n/messages/{en,es,fr}.json`
-
-4. **Contexts:**
-   - Use `use-context-selector` for performance (see [src/contexts/LanguageContext.tsx](src/contexts/LanguageContext.tsx) example)
-   - Export custom hooks (`useLanguageContext`) NOT raw context
-
-5. **Git workflow:**
-   - PR must pass CI (lint + test) before merge
-   - Branches auto-delete after merge
-
-6. **Path imports:**
-   - Always use `@/*` alias: `import { apiCall } from '@/lib/api-client';`
-   - NEVER use relative paths like `../../lib/api-client`
-
-7. **TypeScript strict mode:**
-   - No `any` types allowed
-   - All function parameters and returns must be typed
-   - Use `interface` for object shapes, `type` for unions/intersections
-
-## When Adding Features
-
-1. **Define types** in `src/types/` or extend existing interfaces
-2. **Add Zod schema** to [src/lib/validation.ts](src/lib/validation.ts)
-3. **Create API route** following [src/app/api/README.md](src/app/api/README.md) patterns (CORS + validation)
-4. **Build component** per [src/components/COMPONENT_PATTERNS.md](src/components/COMPONENT_PATTERNS.md) (XSS prevention)
-5. **Add translations** to all 3 locale files: `src/i18n/messages/{en,es,fr}.json`
-6. **Write tests** in `.test.tsx` file (Vitest + Testing Library)
-7. **Document in Storybook** via `.stories.tsx` if component is reusable
-8. **Run lint + test** before committing
-
-## Key Files to Reference
-
-- **[SECURITY.md](SECURITY.md)** - Comprehensive security guide (HIGH/MEDIUM/LOW priority risks), audit results
-- **[QUICKSTART.md](QUICKSTART.md)** - Step-by-step screen building guide with validation examples
-- **[REVIEW_SUMMARY.md](REVIEW_SUMMARY.md)** - Project health status, dependency audit, security checklist
-- **[src/lib/api-client.ts](src/lib/api-client.ts)** - Centralized fetch wrapper with retry, timeout, CSRF headers
-- **[src/lib/validation.ts](src/lib/validation.ts)** - All Zod schemas (tours, auth, filters)
-- **[src/app/api/README.md](src/app/api/README.md)** - API security patterns (CORS, validation, error handling)
-- **[src/components/COMPONENT_PATTERNS.md](src/components/COMPONENT_PATTERNS.md)** - React XSS prevention, safe HTML, input handling
-- **[src/i18n/routing.ts](src/i18n/routing.ts)** - Locale configuration
-- **[wrangler.toml](wrangler.toml)** - Cloudflare config (prod routes + dev environment)
-- **[next.config.js](next.config.js)** - Security headers, dev origins allowlist, OpenNext integration
-- **[public/_headers](public/_headers)** - HTTP security headers for static assets
-
-## Testing
-- **Unit tests:** Vitest with Testing Library ([src/test/setup.ts](src/test/setup.ts))
-- **Run:** `npm test` (single run) or `npm run test:watch` (watch mode)
-- **Coverage:** Not configured (add if needed)
-- **Component tests:** [src/components/BackToTop/BackToTop.test.tsx](src/components/BackToTop/BackToTop.test.tsx) as example
-
-## Known Issues (from REVIEW_SUMMARY.md)
-- **Unused code:** LanguageSelector component has dead code branches
-- **Dev vulnerabilities:** 13 low/moderate in dev dependencies (AWS SDK, esbuild) - non-critical
-- **Production vulnerabilities:** 0 (as of Feb 2026)
+# Andean Scapes — Canonical AI Instructions
+
+## Purpose
+This is the single, authoritative instruction file for AI behavior in this repository.
+Use it for:
+- GitHub Copilot code generation
+- Copilot Chat in VS Code
+- AI-assisted PR/code review
+
+If any guidance elsewhere conflicts with this file, this file is authoritative.
+
+---
+
+## Tech Baseline
+- Next.js 16 (App Router) + React 19
+- TypeScript (`strict: true`)
+- Tailwind CSS v4 + daisyUI
+- i18n with `next-intl` (`en`, `es`, `fr`; `en` unprefixed)
+- State with `use-context-selector`
+- Validation with Zod (`src/lib/validation.ts`)
+- Deployment on Cloudflare Pages via `@opennextjs/cloudflare`
+- Tests with Vitest + Testing Library
+
+---
+
+## Non-Negotiable Rules
+1. Security first: treat all external input as untrusted.
+2. Minimal scope: implement only what was requested.
+3. No `any`: use explicit types, `unknown`, and type guards.
+4. No secrets in code/docs/tests/examples.
+5. Feature UI must consume wrappers from `src/components/ui/*`.
+6. Any user-facing copy change must keep `en`, `es`, `fr` in sync.
+7. Preserve behavior and architecture unless refactor is explicitly requested.
+
+---
+
+## Architecture (Deep)
+
+### 1) App Router + Locale Topology
+- Root locale shell: `src/app/[locale]/layout.tsx`.
+- Route groups: `src/app/[locale]/(public)` and `src/app/[locale]/(auth)`.
+- Middleware (`src/middleware.ts`) uses `localeDetection: false` and excludes `api`, `_next`, `_vercel`, static files.
+- `src/i18n/request.ts` resolves locale from middleware segment (`requestLocale`) and loads `messages/{locale}.json`.
+
+AI expectation:
+- Never bypass locale segment patterns.
+- Do not introduce alternative i18n mechanisms outside `next-intl`.
+- Keep default-locale unprefixed behavior aligned with `src/i18n/routing.ts` (`localePrefix: 'as-needed'`).
+
+### 2) Provider Topology (Critical)
+Current provider stack is intentional and must be preserved:
+
+1. `ThemeProvider` (global theme and hydration-safe theme init)
+2. `NextIntlClientProvider` (locale/messages/timeZone)
+3. `LanguageProvider` (derived locale metadata for UI selectors)
+4. Optional `MetaPixelPageViewTracker` (only when env-based flag allows)
+5. Route content (`children`)
+
+Implemented in: `src/app/providers.tsx` and mounted in `src/app/[locale]/layout.tsx`.
+
+#### Provider Scope Rules
+- Global providers belong in `src/app/providers.tsx` only.
+- Segment/layout-specific providers belong in their own layout scope (example: `LayoutProvider` inside `(public)/layout.tsx`).
+- Feature-state providers belong in feature entry components (example: `ExperienceReservationProvider` in `MiningAdventureReservation.tsx`).
+- Do not move feature providers to global scope unless explicitly requested.
+
+#### Why this matters
+- Keeps server layout clean and deterministic.
+- Avoids unnecessary re-renders and state coupling.
+- Prevents hydration drift by isolating browser-dependent state.
+
+### 3) Server/Client Boundaries
+Follow this exact split:
+- Server Components fetch/prepare data (`page.tsx`, metadata, i18n server calls).
+- Client Components render interactive flows and local UI state.
+- Do not call browser APIs in Server Components.
+- Do not move data-fetching concerns into client code unless required.
+
+Reference flow:
+- `.../emerald-mining-adventure/page.tsx` (server) calls `getExperienceDataSSR(...)`.
+- `MiningAdventureReservation.tsx` (client) receives ready-to-render data and mounts `ExperienceReservationProvider`.
+
+### 4) Experience Data Architecture
+Business/data logic lives in `src/lib/services/experiences.service.ts`.
+- Service fetches raw experience config and applies translation key resolution via `next-intl`.
+- UI components consume translated `ExperienceData` objects.
+- Keep translation-key architecture intact (config stores keys, service resolves text).
+
+AI expectation:
+- New experience: add config + update service switch + create route entry.
+- Avoid embedding translated literals directly in service config when key-based pattern exists.
+
+### 5) Context + Selector Pattern
+This project uses `use-context-selector` to reduce re-renders.
+
+Rules:
+- Context shape must be explicit and typed.
+- Export narrow selector hooks (`useReservationDate`, `useReservationRooms`, etc.) instead of broad mutable context access in feature components.
+- If a hook requires provider presence, fail fast with clear error (existing `requireContext` pattern).
+- Keep reducer actions discriminated unions (no untyped payloads).
+
+---
+
+## Code Patterns (Required)
+
+### Pattern A — API Input Validation
+- Validate query/body/path input with Zod in `src/lib/validation.ts`.
+- Prefer `tryValidate(...)` for normalized error output.
+- Return stable error payloads from routes; never expose stack traces.
+
+### Pattern B — API Consumption
+- Prefer `apiCall<T>()` from `src/lib/api-client.ts` for typed requests and normalized errors.
+- Only skip `apiCall` when there is a clear technical reason (document it in code review notes).
+
+### Pattern C — External URL Safety
+- Reject unsafe schemes (`javascript:`, `data:`) for user-controlled links.
+- For external tabs use `target="_blank"` + `rel="noopener noreferrer"`.
+
+### Pattern D — HTML Rendering
+- Avoid `dangerouslySetInnerHTML` unless content is sanitized.
+- Treat CMS/user HTML as untrusted by default.
+
+### Pattern E — Storage/Hydration
+- Browser persistence (e.g., `localStorage`) is client-only and hydration-safe.
+- Use hydration flags where needed (`isHydrated` pattern in reservation context).
+- Never persist secrets/tokens in localStorage/sessionStorage.
+
+### Pattern F — UI Composition
+- Feature components should compose typed wrappers from `src/components/ui/*`.
+- If wrapper missing, add wrapper first; do not scatter raw third-party primitive usage across features.
+
+---
+
+## Route & Layout Conventions
+- Keep shared app shell concerns in `src/app/[locale]/layout.tsx`.
+- Keep public-shell concerns (`Header`, `Footer`, sticky state) in `src/app/[locale]/(public)/layout.tsx`.
+- Avoid introducing global side effects in feature pages.
+- Metadata generation stays in server page modules via `generateMetadata`.
+
+---
+
+## Security Baseline
+
+### API routes (`src/app/api/**/route.ts`)
+1. Validate origin/CORS according to project policy.
+2. Validate all inputs before business logic.
+3. Return normalized errors.
+4. Do not leak internals.
+
+### Frontend security
+- Sanitize/encode user-controlled values.
+- No unsafe URL schemes.
+- No secret exposure in client code.
+- Keep security headers strategy aligned with `next.config.js` + `public/_headers`.
+
+---
+
+## i18n Rules
+- Locales are `en`, `es`, `fr`.
+- Keep copy keys and messages synchronized across all locales.
+- Do not hardcode user-facing literals in components when translation keys exist.
+- Preserve UTC + locale formatting strategy (`timeZone: 'UTC'` in intl providers/request config).
+
+---
+
+## Testing Guidance
+- Use targeted tests first; broaden only when needed.
+- For provider-dependent components, use existing wrapper strategy in `src/test/test-utils.tsx`.
+- Keep tests deterministic; avoid network dependency in unit tests.
+- Update tests only when behavior changed.
+
+---
+
+## AI Delivery Workflow
+1. Read scope and affected files.
+2. Implement smallest safe change.
+3. Verify architecture/security/i18n/type impacts.
+4. Run checks (when applicable):
+   - `npm run lint`
+   - `npm test`
+5. Report: what changed, where, risks/follow-ups.
+
+---
+
+## AI Code Review Checklist (PR)
+
+### Correctness
+- Does it solve the requested outcome end-to-end?
+- Are error/empty/loading/null states handled?
+
+### Architecture
+- Are server/client boundaries respected?
+- Are providers placed in correct scope (global vs layout vs feature)?
+- Are service-layer and selector-hook patterns preserved?
+
+### Security
+- Is untrusted input validated?
+- Any XSS/open redirect/unsafe URL risk?
+- Any secret exposure risk?
+
+### i18n
+- Are translation keys/messages used consistently?
+- Are `en/es/fr` updated for user-visible text changes?
+
+### Type Safety
+- Any `any` introduced?
+- Are exports explicitly typed?
+
+### Quality/Scope
+- Is change minimal and reversible?
+- Any unrelated refactor slipped in?
+- Are lint/tests results clear?
+
+---
+
+## Command Reference
+- Dev: `npm run dev`
+- Lint: `npm run lint`
+- Lint fix: `npm run lint:fix`
+- Test: `npm test`
+- Build: `npm run build`
+- Preview: `npm run preview`
+- Deploy prod: `npm run deploy`
+- Deploy dev: `npm run deploy:dev`
+- Storybook: `npm run storybook`
+
+Deployment rule: use npm scripts only (never raw `wrangler deploy`).
+
+---
+
+## Recommended Copilot Review Prompt
+Use this prompt for PR review:
+
+"Review this PR against `.github/copilot-instructions.md` focusing on provider topology, server/client boundaries, service-layer integrity, security validation, i18n consistency, strict TypeScript, and minimal-scope changes. Report concrete issues first, then optional improvements."
+
+---
+
+## Maintenance Rule
+When architecture, security posture, or workflow changes, update this file first.
+Keep this document concise, current, and enforceable.

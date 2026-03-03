@@ -53,6 +53,11 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     </Link>
                     <div className="main-menu uppercase ml-4">
                         <ul className={`flex items-center ${styles.navList}`}>
+                            <li>
+                                <Link href="/experiences" className={styles.navLink}>
+                                    {t('experiences')}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -82,6 +87,9 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     />
                 </Link>
                 <div className="space-x-4 flex items-center">
+                    <Link href="/experiences" className="text-xs font-medium uppercase">
+                        {t('experiences')}
+                    </Link>
                     {!hideBookingCta && (
                         <Link 
                             href={BOOKING_LINKS.airbnb} 

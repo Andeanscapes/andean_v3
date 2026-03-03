@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { Input } from '@/components/ui/Input/Input';
 import { useReservationContact } from '@/hooks/experiences/useReservationContext';
-import { validateContactField } from '@/lib/experiences/validationSchema';
+import { validateContactField } from '@/utils/validationSchemas';
 
 export function ContactFields() {
   const t = useTranslations('experiences.ui');

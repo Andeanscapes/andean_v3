@@ -49,7 +49,7 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
             {formatPrice(depositAmount)}
           </span>
         </div>
-        <p className="text-xs text-base-content/85 mt-3">
+        <p className="text-xs text-primary/90 mt-3">
           💰 {t('balanceNote')}
         </p>
       </div>

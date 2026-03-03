@@ -1,10 +1,11 @@
 @reference "../../styles/globals.css";
 
-/* Hero Component Styles */
+@layer components {
+  /* Hero Component Styles */
 
-.heroSlide {
-  @apply min-h-[70vh] lg:min-h-[52vh] bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1 before:absolute before:content-[''] before:inset-0 before:bg-dark-1/50;
-}
+  .heroSlide {
+    @apply min-h-[70vh] lg:min-h-[52vh] bg-cover bg-center bg-no-repeat !flex justify-center items-center !relative z-1 before:absolute before:content-[''] before:inset-0 before:bg-dark-1/50;
+  }
 
 .heroSlide.swiper-slide-active .zoomImage {
   @apply scale-110 duration-[5s];
@@ -32,4 +33,4 @@
 
 .pagination :global(.swiper-pagination-bullet.swiper-pagination-bullet-active) {
   @apply bg-primary-1 before:border-primary-1;
-}
+}}

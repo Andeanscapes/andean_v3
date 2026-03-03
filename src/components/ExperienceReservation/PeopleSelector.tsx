@@ -8,8 +8,8 @@ import { Stepper } from '@/components/ui/Stepper/Stepper';
 import { Modal } from '@/components/ui/Modal/Modal';
 import { SegmentedControl } from '@/components/ui/SegmentedControl/SegmentedControl';
 import { useReservationRoomModes, useReservationRooms } from '@/hooks/experiences/useReservationContext';
-import type { RoomMode, RoomSelection } from '@/lib/experiences/types';
-import { computePeopleCount } from '@/lib/experiences/config';
+import type { RoomMode, RoomSelection } from '@/lib/schemas';
+import { computePeopleCount } from '@/utils/helpers';
 
 interface RoomTypeGroup {
   id: string;
@@ -107,7 +107,7 @@ export function PeopleSelector({
     <Card className="mb-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
         <h2 className="text-xl font-semibold">{t('howManyPeople')}</h2>
-        <p className="text-xs text-base-content/75">
+        <p className="text-xs text-primary/90">
           {t('peopleLabel')}: {peopleCount}
         </p>
       </div>
@@ -116,7 +116,7 @@ export function PeopleSelector({
         <p className="text-sm text-base-content/80 mb-3">{t('roomType')}</p>
         <div className="rounded-xl border border-base-300/60 bg-base-200/40 px-3 py-3">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-xs text-base-content/70">
+            <p className="text-xs text-primary/90">
               {t('selectedRoomsLabel')}
             </p>
             {selectedRooms.length > 0 && (
@@ -166,7 +166,7 @@ export function PeopleSelector({
         </div>
       </div>
 
-      <p className="text-xs text-base-content/70 mt-4">
+      <p className="text-xs text-primary/90 mt-4">
         {t('roomMixHint')}
       </p>
 

@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
-import type { ExperienceConfig, RoomModeOption } from '@/lib/experiences/types';
+import type { ExperienceConfig, RoomModeOption } from '@/lib/schemas';
 
 /**
  * Mock messages for next-intl testing

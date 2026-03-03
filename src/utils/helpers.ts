@@ -1,9 +1,13 @@
+/**
+ * Generic helper utilities for experiences and other features
+ */
+
 import type {
   ExperienceConfig,
   TransportOption,
   RoomModeOption,
   RoomSelection,
-} from './types';
+} from '@/lib/schemas';
 
 export function createExperienceConfig(
   config: ExperienceConfig,

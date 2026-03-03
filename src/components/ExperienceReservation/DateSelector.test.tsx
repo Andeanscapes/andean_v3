@@ -2,7 +2,7 @@ import { render, screen } from '@/test/test-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { DateSelector } from './DateSelector';
-import type { AvailableDate } from '@/lib/experiences/types';
+import type { AvailableDate } from '@/lib/schemas';
 
 const MOCK_AVAILABLE_DATES: AvailableDate[] = [
   {

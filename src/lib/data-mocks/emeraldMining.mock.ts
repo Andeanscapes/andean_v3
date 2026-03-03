@@ -1,4 +1,4 @@
-import type { ExperienceData } from '../experiences/types';
+import type { ExperienceData } from '../schemas';
 
 /**
  * Mock data for Emerald Mining Adventure - TECHNICAL DATA ONLY

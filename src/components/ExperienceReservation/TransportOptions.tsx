@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { RadioGroup } from '@/components/ui/RadioGroup/RadioGroup';
 import { useReservationTransport } from '@/hooks/experiences/useReservationContext';
-import type { TransportMode, TransportOption } from '@/lib/experiences/types';
+import type { TransportMode, TransportOption } from '@/lib/schemas';
 
 interface TransportOptionsProps {
   transportOptions: TransportOption[];

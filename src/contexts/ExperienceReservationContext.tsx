@@ -9,9 +9,9 @@ import type {
   ExperienceConfig,
   RoomModeOption,
   RoomSelection,
-} from '@/lib/experiences/types';
-import { calculatePricing, computePeopleCount } from '@/lib/experiences/config';
-import { createReservationStorage } from '@/lib/experiences/reservationStorage';
+} from '@/lib/schemas';
+import { calculatePricing, computePeopleCount } from '@/utils/helpers';
+import { createReservationStorage } from '@/utils/reservationStorage';
 
 export const ExperienceReservationContext =
   createContext<ReservationContextValue | null>(null);

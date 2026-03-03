@@ -59,17 +59,17 @@ const Hero = () => {
                     <SwiperSlide className={styles.heroSlide} key={slide.id}>
                         <img src={slide.imgUrl} alt={t(`slides.${slide.id}.title`)} className={styles.zoomImage} />
                         <div className="container">
-                            <div className="max-w-[850px] mx-auto text-center text-white relative lg:py-8 py-16">
+                            <div className="max-w-[850px] mx-auto text-center text-white relative lg:py-4 py-16">
                                 <div className="w-full h-full flex items-center justify-center mb-3">
                                     <img src="/assets/images/logo.png" alt="" width="150" height="180" />
                                 </div>
-                                <div style={isMobile ? { minHeight: "200px" } : {}}>
+                                <div style={isMobile ? { minHeight: "200px" } : { minHeight: "96px" }}>
                                     <h1 className="xl:text-7xl lg:text-4xl md:text-2xl text-2xl font-semibold leading-1_2">
                                         {t(`slides.${slide.id}.title`)}
                                     </h1>
                                 </div>
                                 {!isMobile && (
-                                    <div style={{ minHeight: "150px" }}>
+                                    <div style={{ minHeight: "96px" }}>
                                         <p className="lg:text-[25px] text-2md mt-4 leading-1_7">
                                             {t(`slides.${slide.id}.subtitle`)}
                                         </p>

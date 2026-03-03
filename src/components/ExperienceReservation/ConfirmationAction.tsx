@@ -9,8 +9,8 @@ import {
   useReservationValidation,
   useReservationPricing,
 } from '@/hooks/experiences/useReservationContext';
-import { reservationSchema } from '@/lib/experiences/validationSchema';
-import type { ExperienceConfig } from '@/lib/experiences/types';
+import { reservationSchema } from '@/utils/validationSchemas';
+import type { ExperienceConfig } from '@/lib/schemas';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 
 interface ConfirmationActionProps {

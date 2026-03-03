@@ -1,4 +1,4 @@
-import type { AvailableDate } from './types';
+import type { AvailableDate } from '@/lib/schemas';
 
 /**
  * Formats a date range for display based on user's locale
