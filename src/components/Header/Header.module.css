@@ -4,28 +4,32 @@
   /* Header Component Styles */
 
   .headerStyle {
-    @apply px-3 xl:py-[10px] py-[14px] fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
   }
 
 .headerStyle.sticky {
-  @apply shadow-lg opacity-90;
+  @apply shadow-lg;
+}
+
+.headerStyle.menuOpen {
+  @apply !opacity-100;
 }
 
 /* Theme-aware sticky backgrounds for transparent variants */
 .headerStyle.variantTwo.sticky[data-theme="dark"] {
-  @apply !bg-[#121316] opacity-90;
+  @apply !bg-[#121316]/95;
 }
 
 .headerStyle.variantTwo.sticky[data-theme="light"] {
-  @apply !bg-white opacity-90;
+  @apply !bg-white/95;
 }
 
 .headerStyle.variantThree.sticky[data-theme="dark"] {
-  @apply !bg-[#121316] opacity-90;
+  @apply !bg-[#121316]/95;
 }
 
 .headerStyle.variantThree.sticky[data-theme="light"] {
-  @apply !bg-white opacity-90;
+  @apply !bg-white/95;
 }
 
 .variantTwo {
@@ -42,19 +46,7 @@
 
 /* Navigation */
 .navLink {
-  @apply py-7 inline-block text-base text-dark-1 uppercase;
-}
-
-.variantTwo .navLink {
-  @apply text-white;
-}
-
-.variantThree .navLink {
-  @apply xl:text-white;
-}
-
-.variantThree.sticky .navLink {
-  @apply xl:text-dark-1;
+  @apply h-16 inline-flex items-center text-base uppercase;
 }
 
 .navLink.hasDropdown {
@@ -126,7 +118,7 @@
 }
 
 .mobileBar {
-  @apply xl:hidden flex justify-between items-center px-3 py-2 w-full;
+  @apply xl:hidden flex min-h-14 justify-between items-center px-3 py-2 w-full;
 }
 
 /* Hamburger */

@@ -1,10 +1,20 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { lazy, Suspense } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { getExperiencesListSSR } from '@/lib/services/experiences.service';
+
+const ExperienceCardImage = lazy(() => import('@/components/ExperienceList/ExperienceCardImage'));
+
+function ExperienceCardImageFallback() {
+  return (
+    <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">
+      <div aria-hidden="true" className="absolute inset-0 animate-pulse bg-gradient-to-br from-base-200 via-base-300 to-base-200" />
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -47,14 +57,14 @@ export default async function ExperiencesPage({
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {listData.cards.map((card) => (
             <Card key={card.id} padding="sm" className="overflow-hidden">
-              <div className="relative h-64 w-full overflow-hidden rounded-xl">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                />
+              <div className="relative">
+                <Suspense fallback={<ExperienceCardImageFallback />}>
+                  <ExperienceCardImage
+                    src={card.image}
+                    alt={card.title}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </Suspense>
                 <div className="absolute left-3 top-3">
                   <Badge variant="secondary" size="sm" className="bg-base-100/90">
                     {card.tag}

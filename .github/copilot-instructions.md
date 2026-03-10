@@ -99,6 +99,22 @@ Rules:
 - If a hook requires provider presence, fail fast with clear error (existing `requireContext` pattern).
 - Keep reducer actions discriminated unions (no untyped payloads).
 
+### 6) Media & Image Optimization (Branch: Performance)
+Responsive images use `<picture>` element with media queries and lazy loading.
+
+Rules:
+- All experience cards must use `ExperienceCardImage` component from `src/components/ExperienceList/ExperienceCardImage.tsx`.
+- Mobile images derive from desktop path: `emerald-mining-card.webp` → `emerald-mining-card-mobile.webp`.
+- Media breakpoint: `(max-width: 767px)` for mobile, `(min-width: 768px)` for desktop.
+- Wrap images in `Suspense` with light fallback skeleton (see `src/app/[locale]/(public)/experiences/page.tsx`).
+- Always use `loading="lazy"` + `decoding="async"` for images below the fold.
+- Quality: mobile 740x700 (~150–200 KB), desktop 740x700 (~200–300 KB).
+
+Why:
+- Browsers only download size-appropriate images based on viewport.
+- Lazy loading + Suspense defers rendering until user scrolls or code-splits.
+- Zero wasted bandwidth; mobile users avoid desktop-sized assets.
+
 ---
 
 ## Code Patterns (Required)
@@ -129,6 +145,28 @@ Rules:
 - Feature components should compose typed wrappers from `src/components/ui/*`.
 - If wrapper missing, add wrapper first; do not scatter raw third-party primitive usage across features.
 
+### Pattern G — Responsive Media & Lazy Loading
+- Card images must use `<picture>` element with media queries; never hardcode single-size src.
+- Always wrap images in `Suspense` with `ExperienceCardImageFallback` loader skeleton.
+- Use `lazy()` + `Suspense` at the page level to defer image component code-splitting.
+- Mobile images: `{name}-mobile.webp` (740x700, ~150–200 KB). Desktop: `{name}.webp` (740x700, ~200–300 KB).
+- Set `loading="lazy"`, `decoding="async"`, `quality={75}` for all images.
+- Placeholder: Use blur SVG data URL for fade-in effect during load.
+
+Example flow:
+```tsx
+const ExperienceCardImage = lazy(() => import('@/components/ExperienceList/ExperienceCardImage'));
+
+<Suspense fallback={<ExperienceCardImageFallback />}>
+  <ExperienceCardImage src={card.image} alt={card.title} sizes="..." />
+</Suspense>
+```
+
+Why:
+- Reduces initial page weight; mobile avoids desktop images entirely.
+- Suspense + lazy decouples image component from page bundle.
+- Skeleton UX keeps UI responsive during async image load.
+
 ---
 
 ## Route & Layout Conventions
@@ -136,6 +174,33 @@ Rules:
 - Keep public-shell concerns (`Header`, `Footer`, sticky state) in `src/app/[locale]/(public)/layout.tsx`.
 - Avoid introducing global side effects in feature pages.
 - Metadata generation stays in server page modules via `generateMetadata`.
+
+---
+
+## Hero Videos & Performance (Branch: Performance)
+Hero background videos must be optimized for Cloudflare deployment.
+
+Rules:
+- Use `.webm` format (VP9 codec) as primary source; keep `.mp4` (H.264) as fallback for older browsers.
+- Mobile conditional rendering: detect viewport with `window.matchMedia('(min-width: 768px)')` + `prefers-reduced-motion`.
+- Desktop: `preload="metadata"`. Mobile: `preload="none"` to defer download until needed.
+- Set `decoding="async"` and `playsInline` for all videos.
+- Cache headers in `public/_headers`: `/videos/*` → `Cache-Control: public,max-age=31536000,immutable`.
+
+Example flow (see `ExperienceHero.tsx`):
+```tsx
+const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasDataSaver = navigator.connection?.saveData === true;
+
+setShouldRenderVideo(!prefersReducedMotion && !hasDataSaver);
+setIsDesktopViewport(isDesktop);
+```
+
+Why:
+- Reduces hero jank; mobile doesn't decode heavy video on first paint.
+- Respects accessibility + network constraints (prefers-reduced-motion, data-saver).
+- Cloudflare aggressively caches static video assets.
 
 ---
 
@@ -168,6 +233,8 @@ Rules:
 - For provider-dependent components, use existing wrapper strategy in `src/test/test-utils.tsx`.
 - Keep tests deterministic; avoid network dependency in unit tests.
 - Update tests only when behavior changed.
+- Media components: test responsive `<picture>` sources, media queries, lazy attributes, and loading states (see `src/components/ExperienceList/ExperienceCardImage.test.tsx`).
+- Always test accessibility: `aria-hidden`, image alt text, loading skeletons.
 
 ---
 

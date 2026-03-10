@@ -47,7 +47,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="hero_style__two relative">
+        <div className="hero_style__two relative overflow-hidden">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}

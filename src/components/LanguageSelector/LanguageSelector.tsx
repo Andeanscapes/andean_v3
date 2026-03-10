@@ -7,8 +7,9 @@ import {usePathname, useRouter} from 'next/navigation';
 import {useLayoutContext} from '@/contexts/LayoutContext';
 import {useLanguageContext} from '@/contexts/LanguageContext';
 import {useThemeContext} from '@/contexts/ThemeContext';
+import {Check, ChevronDown, Languages} from 'lucide-react';
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) => {
   const {currentLocale, availableLanguages} = useLanguageContext();
   const pathname = usePathname();
   const router = useRouter();
@@ -22,11 +23,12 @@ const LanguageSelector = () => {
   const isDarkTheme = variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
 
   const getTextColor = useCallback(() => {
+    if (colorOverride) return colorOverride;
     // If sticky in light mode, use dark text
     if (isSticky && theme === 'light') return 'text-gray-900';
     // Otherwise use variant-based color
     return isDarkTheme ? 'text-white' : 'text-gray-900';
-  }, [isSticky, theme, isDarkTheme]);
+  }, [colorOverride, isSticky, theme, isDarkTheme]);
 
   const getHoverColor = useCallback(() => 'hover:text-primary-1', []);
 
@@ -36,7 +38,7 @@ const LanguageSelector = () => {
   }, [theme]);
 
   const getDropdownTextColor = useCallback(() => 
-    (theme === 'dark' ? 'text-white/90 hover:text-white' : 'text-dark-1 hover:text-primary-1')
+    (theme === 'dark' ? 'text-white hover:text-white' : 'text-dark-1 hover:text-primary-1')
   , [theme]);
 
   const buildHref = useCallback((target: Locale) => {
@@ -116,11 +118,9 @@ const LanguageSelector = () => {
         aria-label="Select language"
         aria-expanded={isOpen}
       >
-        <span className="text-lg">{currentLanguage?.flag}</span>
+        <Languages className="h-4 w-4" aria-hidden="true" />
         <span className={`text-xs font-medium uppercase tracking-wide hidden sm:inline ${getTextColor()} ${getHoverColor()}`}>{currentLanguage?.code}</span>
-        <svg className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${getTextColor()} ${getHoverColor()}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${getTextColor()} ${getHoverColor()}`} aria-hidden="true" />
       </button>
 
       {isOpen && (
@@ -135,16 +135,13 @@ const LanguageSelector = () => {
                   ? theme === 'dark'
                     ? 'bg-primary-1 text-white'
                     : 'bg-primary-1/10 text-primary-1'
-                  : `${getDropdownTextColor()} ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-dark-1/5'}`
+                  : `${getDropdownTextColor()} ${theme === 'dark' ? 'hover:bg-white/15' : 'hover:bg-dark-1/5'}`
               }`}
               role="menuitem"
             >
-              <span className="text-lg">{lang.flag}</span>
               <span className="text-sm font-medium">{lang.label}</span>
               {currentLocale === lang.code && (
-                <svg className="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
+                <Check className="h-4 w-4 ml-auto" aria-hidden="true" />
               )}
             </button>
           ))}
