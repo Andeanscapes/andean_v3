@@ -43,7 +43,7 @@
     "react-parallax": "^3.5.1",
     "react-photo-album": "^2.3.0",
     "react-select": "^5.8.0",
-    "swiper": "^11.0.4",
+    "swiper": "^12.1.2",
     "use-context-selector": "^1.4.1",
     "yet-another-react-lightbox": "^3.15.6"
   },
@@ -73,10 +73,10 @@
     "jsdom": "^26.1.0",
     "patch-package": "^8.0.1",
     "postcss": "^8",
-    "storybook": "8.6.15",
+    "storybook": "^8.6.18",
     "tailwindcss": "^4.1.18",
     "typescript": "^5",
-    "vite": "5.4.10",
+    "vite": "^5.4.21",
     "vitest": "^3.2.4",
     "wrangler": "^4.63.0"
   },

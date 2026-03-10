@@ -38,27 +38,6 @@ export const createTourSchema = z.object({
 
 export type CreateTour = z.infer<typeof createTourSchema>;
 
-// Auth schemas
-export const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8)
-});
-
-export const signupSchema = z.object({
-  name: z.string().min(2).max(100),
-  email: z.string().email(),
-  password: z.string().min(12).regex(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/,
-    'Password must contain lowercase, uppercase, number, and special character'
-  ),
-  confirmPassword: z.string()
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"]
-});
-
-export type SignupData = z.infer<typeof signupSchema>;
-
 /**
  * Safe validation wrapper with error normalization
  */

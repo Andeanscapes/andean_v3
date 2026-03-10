@@ -3,6 +3,32 @@
 import { useState } from 'react';
 import type { ReservationState } from '@/lib/schemas';
 
+/** Allowed payment-redirect hostnames – add new providers here. */
+const ALLOWED_PAYMENT_HOSTS = [
+  'www.mercadopago.com',
+  'www.mercadopago.com.co',
+  'www.mercadopago.com.ar',
+  'www.mercadopago.com.mx',
+  'www.mercadopago.com.br',
+] as const;
+
+/**
+ * Validates that a URL is safe to redirect to (no open-redirect).
+ * Only https:// URLs pointing to known payment hosts are accepted.
+ */
+function isSafePaymentUrl(raw: unknown): raw is string {
+  if (typeof raw !== 'string') return false;
+  try {
+    const parsed = new URL(raw);
+    return (
+      parsed.protocol === 'https:' &&
+      (ALLOWED_PAYMENT_HOSTS as readonly string[]).includes(parsed.hostname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function useMercadoPagoLink(experienceId: string) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,6 +57,10 @@ export function useMercadoPagoLink(experienceId: string) {
       }
 
       const { url } = await response.json();
+
+      if (!isSafePaymentUrl(url)) {
+        throw new Error('Received unsafe payment URL');
+      }
 
       // Redirect to Mercado Pago
       if (typeof window !== 'undefined') {

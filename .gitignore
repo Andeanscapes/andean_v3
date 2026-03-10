@@ -36,6 +36,9 @@ yarn-error.log*
 # OpenNext build output
 .open-next
 
+# Storybook build output
+storybook-static
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
