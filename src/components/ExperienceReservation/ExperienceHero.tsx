@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import type {
   ExperienceConfig,
   ExperienceHeroBadgeIcon,
@@ -12,6 +14,12 @@ type ExperienceHeroProps = {
   config?: ExperienceConfig;
   heroContent?: ExperienceHeroContent;
   content?: ExperienceHeroContent;
+};
+
+type NavigatorWithConnection = Navigator & {
+  connection?: {
+    saveData?: boolean;
+  };
 };
 
 function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
@@ -56,7 +64,25 @@ function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
 
 export function ExperienceHero({ config, heroContent, content }: ExperienceHeroProps) {
   // Video URL served as static asset
-  const VIDEO_URL = '/videos/emerald-mining.mp4';
+  const VIDEO_URL = '/videos/emerald-mining.webm';
+  const MOBILE_VIDEO_URL = '/videos/emerald-mining-mobile.webm';
+  const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
+  const [isDesktopViewport, setIsDesktopViewport] = useState(false);
+
+  useEffect(() => {
+    const supportsMatchMedia = typeof window.matchMedia === 'function';
+    const isDesktop = supportsMatchMedia
+      ? window.matchMedia('(min-width: 768px)').matches
+      : true;
+    const prefersReducedMotion = supportsMatchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false;
+    const navigatorWithConnection = navigator as NavigatorWithConnection;
+    const hasDataSaver = navigatorWithConnection.connection?.saveData === true;
+
+    setIsDesktopViewport(isDesktop);
+    setShouldRenderVideo(!prefersReducedMotion && !hasDataSaver);
+  }, []);
 
   // Priority: heroContent (from service) > content (override) > build from config
   const resolvedContent: Required<ExperienceHeroContent> = {
@@ -96,25 +122,28 @@ export function ExperienceHero({ config, heroContent, content }: ExperienceHeroP
       className="relative w-full h-[45vh] md:h-[50vh] overflow-hidden"
     >
       {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover bg-base-950"
-      >
-        <source src={VIDEO_URL} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {shouldRenderVideo ? (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload={isDesktopViewport ? 'metadata' : 'none'}
+          className="absolute inset-0 w-full h-full object-cover bg-base-950"
+        >
+          <source src={MOBILE_VIDEO_URL} type="video/webm" media="(max-width: 767px)" />
+          <source src={VIDEO_URL} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      ) : null}
 
       {/* Overlay stack for contrast */}
       <div className="pointer-events-none absolute inset-0 bg-black/40" />
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-black/70 to-transparent" />
-      <div className="pointer-events-none absolute -bottom-24 -left-16 h-48 w-48 rounded-full bg-emerald-400/25 blur-3xl md:h-72 md:w-72" />
+      <div className="pointer-events-none absolute -bottom-24 -left-16 hidden h-48 w-48 rounded-full bg-emerald-400/25 blur-3xl md:block md:h-72 md:w-72" />
 
       {/* Content */}
-      <div className="relative backdrop-blur-md z-10 h-full flex items-center justify-center pt-16">
+      <div className="relative z-10 h-full flex items-center justify-center pt-16 backdrop-blur-sm md:backdrop-blur-md">
         <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-5 py-6 md:px-8 md:py-8">
           <div className="text-center">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-white drop-shadow-lg">
