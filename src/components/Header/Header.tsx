@@ -1,10 +1,9 @@
 'use client'
 
 import Image from "next/image";
-import Link from "next/link";
+import {Link, usePathname} from "@/i18n/navigation";
 import {useEffect, useMemo, useState} from "react";
 import {createPortal} from "react-dom";
-import {usePathname} from "next/navigation";
 import {useTranslations} from 'next-intl';
 import {X} from 'lucide-react';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";

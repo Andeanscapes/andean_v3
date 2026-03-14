@@ -1,4 +1,4 @@
-import Link from "next/link";
+import {Link} from "@/i18n/navigation";
 import { useCallback, useMemo, memo } from "react";
 import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";

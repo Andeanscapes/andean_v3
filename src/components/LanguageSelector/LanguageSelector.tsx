@@ -1,9 +1,8 @@
 'use client'
 
-import {useEffect, useMemo, useRef, useState, useTransition, useCallback, memo} from 'react';
+import {useEffect, useRef, useState, useTransition, useCallback, memo} from 'react';
 import type {Locale} from '@/i18n/routing';
-import {routing} from '@/i18n/routing';
-import {usePathname, useRouter} from 'next/navigation';
+import {usePathname, useRouter} from '@/i18n/navigation';
 import {useLayoutContext} from '@/contexts/LayoutContext';
 import {useLanguageContext} from '@/contexts/LanguageContext';
 import {useThemeContext} from '@/contexts/ThemeContext';
@@ -41,63 +40,19 @@ const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) =>
     (theme === 'dark' ? 'text-white hover:text-white' : 'text-dark-1 hover:text-primary-1')
   , [theme]);
 
-  const buildHref = useCallback((target: Locale) => {
-    // Strip leading locale from pathname if present
-    const stripLeadingLocale = (path: string) => {
-      const withSlashPrefixes = routing.locales.map((l) => `/${l}/`);
-      for (const pref of withSlashPrefixes) {
-        if (path.startsWith(pref)) return `/${path.slice(pref.length)}`;
-      }
-      for (const l of routing.locales) {
-        if (path === `/${l}`) return '/';
-      }
-      return path;
-    };
-    
-    const path = pathname || '/';
-    const rest = stripLeadingLocale(path);
-    const needsPrefix = target !== routing.defaultLocale;
-    return needsPrefix ? `/${target}${rest === '/' ? '' : rest}` : rest;
-  }, [pathname]);
-
-  const linkMap = useMemo(() => {
-    const map = {} as Record<Locale, string>;
-    availableLanguages.forEach((l) => {
-      map[l.code] = buildHref(l.code);
-    });
-    return map;
-  }, [pathname, variant, isSticky, currentLocale, availableLanguages]);
-
-  useEffect(() => {
-    const hrefs = Object.values(linkMap);
-    hrefs.forEach((href) => {
-      try {
-        router.prefetch(href as unknown as string);
-      } catch {}
-    });
-  }, [router, linkMap]);
-
-  const setLocaleCookie = useCallback((code: Locale) => {
-    try {
-      document.cookie = `NEXT_LOCALE=${code}; path=/; max-age=31536000; samesite=lax`;
-    } catch {}
-  }, []);
-
   const onSelect = useCallback((code: Locale) => {
     if (code === currentLocale) {
       setIsOpen(false);
       return;
     }
     
-    setLocaleCookie(code);
     setIsOpen(false);
     
-    const targetHref = buildHref(code);
     startTransition(() => {
-      router.push(targetHref);
+      router.push(pathname || '/', {locale: code});
       router.refresh();
     });
-  }, [currentLocale, buildHref, setLocaleCookie, startTransition, router]);
+  }, [currentLocale, pathname, startTransition, router]);
 
   const handleToggle = useCallback(() => setIsOpen(!isOpen), [isOpen]);
   const handleCloseDropdown = useCallback(() => setIsOpen(false), []);
