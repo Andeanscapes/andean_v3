@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { Button } from '@/components/ui/Button/Button';
@@ -27,7 +27,7 @@ interface PeopleSelectorProps {
   minPeople?: number;
 }
 
-export function PeopleSelector({
+function PeopleSelectorComponent({
   maxPeople = 4,
 }: PeopleSelectorProps) {
   const t = useTranslations('experiences.ui');
@@ -290,3 +290,5 @@ export function PeopleSelector({
     </Card>
   );
 }
+
+export const PeopleSelector = memo(PeopleSelectorComponent);

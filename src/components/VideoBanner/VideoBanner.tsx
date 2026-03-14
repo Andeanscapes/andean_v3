@@ -1,7 +1,7 @@
 'use client'
 import { Parallax } from 'react-parallax';
 import VideoBannerData from '@/constant/VideoBanner'
-import { useState, useCallback, memo } from 'react';
+import { useState, useCallback } from 'react';
 import {useTranslations} from 'next-intl';
 import styles from './VideoBanner.module.css';
 
@@ -74,4 +74,4 @@ const VideoBanner = () => {
   );
 }
 
-export default memo(VideoBanner);
+export default VideoBanner;

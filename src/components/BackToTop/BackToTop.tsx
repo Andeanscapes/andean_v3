@@ -1,6 +1,6 @@
 'use client'
 
-import {useCallback, memo} from 'react'
+import {useCallback} from 'react'
 
 const BackToTop = () => {
 
@@ -17,4 +17,4 @@ const BackToTop = () => {
     );
 }
 
-export default memo(BackToTop);
+export default BackToTop;
