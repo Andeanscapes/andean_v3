@@ -4,7 +4,12 @@
   /* Header Component Styles */
 
   .headerStyle {
-    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out;
+    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full bg-white duration-200 ease-in-out overflow-visible;
+  }
+
+  .headerStyle > * {
+    position: relative;
+    z-index: 1;
   }
 
 .headerStyle.sticky {
@@ -34,6 +39,33 @@
 
 .variantTwo {
   @apply !bg-transparent;
+}
+
+/* Top gradient overlay for transparent header at scroll 0 */
+.variantTwo::before,
+.variantThree::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.variantTwo[data-theme="dark"]::before,
+.variantThree[data-theme="dark"]::before,
+.variantTwo[data-theme="light"]::before,
+.variantThree[data-theme="light"]::before {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 40%, transparent 100%);
+}
+
+.variantTwo.sticky::before,
+.variantThree.sticky::before {
+  opacity: 0;
 }
 
 .variantThree {
