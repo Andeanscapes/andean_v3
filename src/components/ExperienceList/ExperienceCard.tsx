@@ -1,7 +1,7 @@
 'use client';
 
 import { lazy, Suspense } from 'react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import type { ExperienceListCard } from '@/lib/schemas';

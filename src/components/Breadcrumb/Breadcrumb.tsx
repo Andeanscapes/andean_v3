@@ -1,7 +1,7 @@
 'use client'
 
 import {memo} from 'react';
-import Link from "next/link"
+import {Link} from "@/i18n/navigation"
 import { Parallax } from "react-parallax"
 
 const Breadcrumb = (

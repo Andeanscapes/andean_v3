@@ -4,9 +4,9 @@ import type React from 'react';
 import { ExperienceCard } from './ExperienceCard';
 import type { ExperienceListCard } from '@/lib/schemas';
 
-// Mock next/link
-vi.mock('next/link', () => ({
-  default: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+// Mock @/i18n/navigation
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
     <a href={href} {...props}>{children}</a>
   ),
 }));

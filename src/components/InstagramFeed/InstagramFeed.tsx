@@ -2,7 +2,7 @@
 import { useMemo, memo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import InstagramFeedData from '@/constant/InstagramFeed'
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import Image from 'next/image';
 import { useThemeContext } from '@/contexts/ThemeContext';
 import { SOCIAL_LINKS } from '@/constant/SiteConfig';
