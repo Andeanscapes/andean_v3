@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 
 import HeroData from '@/constant/Hero'
 import {useTranslations} from 'next-intl';

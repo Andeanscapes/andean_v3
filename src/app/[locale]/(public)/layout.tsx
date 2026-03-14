@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import {LayoutProvider} from "@/contexts/LayoutContext";
