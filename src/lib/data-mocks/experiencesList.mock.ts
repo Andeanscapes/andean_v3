@@ -8,6 +8,8 @@ interface ExperiencesListCardConfig {
   href: string;
   tagKey: string;
   trustKey: string;
+  priceQualifierKey?: string;
+  metadataKeys?: string[];
   price?: number;
   experienceId?: string;
 }
@@ -67,6 +69,12 @@ export const EXPERIENCES_LIST_CONFIG: ExperiencesListConfig = {
       href: '/experiences/emerald-mining-adventure',
       tagKey: 'ExperiencesList.featuredTag',
       trustKey: 'ExperiencesList.transportIncluded',
+      priceQualifierKey: 'ExperiencesList.priceQualifierPerPerson',
+      metadataKeys: [
+        'ExperiencesList.cardMeta.duration2d1n',
+        'ExperiencesList.transportIncluded',
+        'ExperiencesList.cardMeta.startsInChivor',
+      ],
       experienceId: 'emeraldMining',
     },
   ],

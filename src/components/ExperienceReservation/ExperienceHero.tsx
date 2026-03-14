@@ -119,7 +119,7 @@ export function ExperienceHero({ config, heroContent, content }: ExperienceHeroP
 
   return (
     <div
-      className="relative w-full h-[45vh] md:h-[50vh] overflow-hidden"
+      className="relative w-full h-[31vh] min-h-[230px] md:h-[50vh] md:min-h-0 overflow-hidden"
     >
       {/* Video Background */}
       {shouldRenderVideo ? (
@@ -143,13 +143,13 @@ export function ExperienceHero({ config, heroContent, content }: ExperienceHeroP
       <div className="pointer-events-none absolute -bottom-24 -left-16 hidden h-48 w-48 rounded-full bg-emerald-400/25 blur-3xl md:block md:h-72 md:w-72" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center pt-16 backdrop-blur-sm md:backdrop-blur-md">
-        <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-5 py-6 md:px-8 md:py-8">
+      <div className="relative z-10 h-full flex items-center justify-center pt-8 backdrop-blur-sm md:pt-16 md:backdrop-blur-md">
+        <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-4 py-2.5 md:px-8 md:py-8">
           <div className="text-center">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 text-white drop-shadow-lg">
+            <h1 className="mb-1 text-[1.35rem] font-bold leading-tight text-white drop-shadow-lg md:mb-2 md:text-4xl lg:text-5xl">
               {resolvedContent.title}
             </h1>
-            <p className="text-base md:text-xl text-slate-100/95 font-medium mb-2 drop-shadow-md">
+            <p className="mx-auto mb-1.5 max-w-[34ch] text-sm font-medium leading-snug text-slate-100/95 drop-shadow-md md:mb-2 md:max-w-none md:text-xl md:leading-normal">
               {resolvedContent.subtitle}
             </p>
             <p className="hidden md:block text-xs md:text-sm text-white/80 mb-3">
@@ -159,29 +159,29 @@ export function ExperienceHero({ config, heroContent, content }: ExperienceHeroP
               {resolvedContent.highlightText}
             </p>
 
-            <div className="flex flex-col items-center justify-center gap-2">
+            <div className="flex flex-col items-center justify-center gap-0 md:gap-2">
               {!resolvedContent.hideCta ? (
                 <Button
                   variant="primary"
                   size="lg"
-                  className="min-h-[48px] h-12 px-6 text-sm md:text-base font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+                  className="h-12 min-h-[48px] px-6 text-sm font-semibold shadow-md transition duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 md:text-base"
                   onClick={handleCtaClick}
                 >
                   {resolvedContent.ctaLabel}
                 </Button>
               ) : null}
-              <p className="text-xs md:text-sm text-white/75">
+              <p className="mt-1.5 text-[11px] leading-tight text-white/70 md:mt-2 md:text-sm md:text-white/75">
                 {resolvedContent.helperText}
               </p>
             </div>
             
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
+            <div className="mt-4 hidden flex-wrap justify-center gap-2 md:mt-5 md:flex md:gap-3">
               {resolvedContent.badges.map((badge) => (
                 <Badge
                   key={badge.label}
                   variant="secondary"
                   size="sm"
-                  className="border-white/20 bg-base-900/80 text-white shadow-sm backdrop-blur-md"
+                  className="border-white/20 bg-base-900/80 px-2 py-0.5 text-[11px] text-white shadow-sm backdrop-blur-md md:px-2.5 md:py-1 md:text-xs"
                 >
                   <span className="inline-flex items-center gap-1.5">
                     <HeroBadgeIcon icon={badge.icon ?? 'none'} />
