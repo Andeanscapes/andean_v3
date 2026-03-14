@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useCallback, useMemo, memo } from "react";
+import { useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import BackToTop from "../BackToTop/BackToTop";
 import { useThemeContext } from "@/contexts/ThemeContext";
@@ -110,4 +110,4 @@ const Footer = () => {
     );
 }
 
-export default memo(Footer);
+export default Footer;

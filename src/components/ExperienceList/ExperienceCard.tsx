@@ -1,6 +1,6 @@
 'use client';
 
-import { lazy, Suspense } from 'react';
+import { lazy, memo, Suspense } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
@@ -23,7 +23,7 @@ export interface ExperienceCardProps {
   formattedPrice: string;
 }
 
-export function ExperienceCard({ card, fromLabel, viewDetailsLabel, formattedPrice }: ExperienceCardProps) {
+function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedPrice }: ExperienceCardProps) {
   return (
     <Card padding="sm" className="h-full">
       <div className="relative">
@@ -88,3 +88,5 @@ export function ExperienceCard({ card, fromLabel, viewDetailsLabel, formattedPri
     </Card>
   );
 }
+
+export const ExperienceCard = memo(ExperienceCardComponent);

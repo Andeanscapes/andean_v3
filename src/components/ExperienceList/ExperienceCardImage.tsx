@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ImageIcon } from 'lucide-react';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 type ExperienceCardImageProps = {
   src: string;
@@ -24,7 +24,7 @@ const shimmerBlurDataUrl = `data:image/svg+xml;charset=UTF-8,${encodeURIComponen
   </svg>`
 )}`;
 
-export default function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
+function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   
   // Derive mobile image path from desktop path
@@ -78,3 +78,5 @@ export default function ExperienceCardImage({ src, alt, sizes }: ExperienceCardI
     </div>
   );
 }
+
+export default memo(ExperienceCardImage);

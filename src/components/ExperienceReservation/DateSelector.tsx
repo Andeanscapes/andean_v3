@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
@@ -13,7 +13,7 @@ interface DateSelectorProps {
   availableDates: AvailableDate[];
 }
 
-export function DateSelector({ availableDates }: DateSelectorProps) {
+function DateSelectorComponent({ availableDates }: DateSelectorProps) {
   const t = useTranslations('experiences.ui');
   const { selectedDateId, selectedDateLabel, setDate } = useReservationDate();
   const { currentLocale } = useLanguageContext();
@@ -98,3 +98,5 @@ export function DateSelector({ availableDates }: DateSelectorProps) {
     </Card>
   );
 }
+
+export const DateSelector = memo(DateSelectorComponent);

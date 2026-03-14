@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, useCallback, memo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link';
@@ -112,4 +112,4 @@ const Hero = () => {
     )
 }
 
-export default memo(Hero)
+export default Hero

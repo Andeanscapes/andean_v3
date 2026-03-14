@@ -1,5 +1,5 @@
 'use client'
-import { useMemo, memo } from 'react';
+import { useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import InstagramFeedData from '@/constant/InstagramFeed'
 import Link from 'next/link';
@@ -56,4 +56,4 @@ const InstagramFeed = () => {
     );
 }
 
-export default memo(InstagramFeed);
+export default InstagramFeed;

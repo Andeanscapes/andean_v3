@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import type {
   ExperienceConfig,
@@ -62,7 +62,7 @@ function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
   );
 }
 
-export function ExperienceHero({ config, heroContent, content }: ExperienceHeroProps) {
+function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHeroProps) {
   // Video URL served as static asset
   const VIDEO_URL = '/videos/emerald-mining.webm';
   const MOBILE_VIDEO_URL = '/videos/emerald-mining-mobile.webm';
@@ -196,3 +196,5 @@ export function ExperienceHero({ config, heroContent, content }: ExperienceHeroP
     </div>
   );
 }
+
+export const ExperienceHero = memo(ExperienceHeroComponent);
