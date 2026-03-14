@@ -135,6 +135,8 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
         description: t(card.descriptionKey),
         image: card.image,
         price: price ?? 0,
+        priceQualifier: card.priceQualifierKey ? t(card.priceQualifierKey) : undefined,
+        metadata: (card.metadataKeys ?? []).map((key) => t(key)),
         href: card.href,
         tag: t(card.tagKey),
         trust: t(card.trustKey),

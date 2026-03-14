@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import { render, screen, waitFor } from '@/test/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import ExperienceCardImage from './ExperienceCardImage';
 
 describe('ExperienceCardImage', () => {

@@ -1,2 +1,5 @@
-
+<!-- Polyfill Node.js process for Next.js modules (next/link, next/image) in Storybook -->
+<script>
+  window.process = window.process || { env: {} };
+</script>
 <!-- Tailwind v4 + DaisyUI styles are loaded via globals.css import in preview.ts -->

@@ -31,6 +31,8 @@ export const ExperienceCardConfigSchema = z.object({
   href: z.string(),
   tagKey: z.string(),
   trustKey: z.string(),
+  priceQualifierKey: z.string().optional(),
+  metadataKeys: z.array(z.string()).max(3).optional(),
   price: z.number().optional(),
   experienceId: z.string().optional(),
 });
@@ -54,6 +56,8 @@ export const ExperienceListCardSchema = z.object({
   description: z.string(),
   image: z.string(),
   price: z.number(),
+  priceQualifier: z.string().optional(),
+  metadata: z.array(z.string()).max(3),
   href: z.string(),
   tag: z.string(),
   trust: z.string(),

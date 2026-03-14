@@ -28,8 +28,14 @@
         "featuredTag": "Destacada",
         "comingSoonTag": "Próximamente",
         "fromLabel": "Desde",
-        "viewDetails": "Ver detalles",
+        "priceQualifierPerPerson": "por persona",
+        "viewDetails": "Ver experiencia",
         "transportIncluded": "Transporte incluido",
+        "cardMeta": {
+            "duration2d1n": "2D / 1N",
+            "startsInChivor": "Inicio en Chivor",
+            "smallGroup": "Grupo pequeño"
+        },
         "smallGroups": "Grupos pequeños",
         "localGuides": "Guías locales expertos",
         "cards": {
