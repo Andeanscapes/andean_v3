@@ -143,6 +143,22 @@ export const EMERALD_MINING_DATA: ExperienceData = {
         ],
       },
     ],
+    // Host / guide data - translatable content as keys, non-translatable as values
+    host: {
+      name: 'Carlos',
+      avatarUrl: '/assets/images/hero/h7.webp',
+      bio: 'experiences.emeraldMining.host.bio',
+      idealForItems: [
+        'experiences.emeraldMining.host.idealFor1',
+        'experiences.emeraldMining.host.idealFor2',
+        'experiences.emeraldMining.host.idealFor3',
+      ],
+      goodToKnowItems: [
+        'experiences.emeraldMining.host.goodToKnow1',
+        'experiences.emeraldMining.host.goodToKnow2',
+        'experiences.emeraldMining.host.goodToKnow3',
+      ],
+    },
   },
   transportOptions: [
     {

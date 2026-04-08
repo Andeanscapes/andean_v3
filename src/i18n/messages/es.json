@@ -178,6 +178,9 @@
             "heroCta": "Ver fechas",
             "heroSummary": "2D/1N • Visita a la mina + taller de esmeraldas • Inicio en Chivor • Grupos pequeños",
             "onSelectedDates": "en fechas seleccionadas",
+            "topSellerLabel": "TOP VENTAS",
+            "perPersonLabel": "por persona",
+            "reviewsCountLabel": "({count} reseñas)",
             "freeCancellation": "Cancelación gratuita",
             "verifiedReviews": "Reseñas verificadas",
             "verifiedGuideBadge": "GUÍA VERIFICADO",
@@ -227,7 +230,7 @@
             "experienceDetails": {
                 "selectDate": "Selecciona una fecha",
                 "overviewTitle": "Descripción de la Experiencia",
-                "valuePropositionsTitle": "Por Qué Elegir Esta Experiencia",
+                "valuePropositionsTitle": "La Diferencia de la Minería de Esmeraldas",
                 "tile1Title": "Minería Auténtica",
                 "tile1Desc": "Vive la minería de esmeraldas real con guías locales expertos en minas históricas",
                 "tile2Title": "Acceso Local Exclusivo",
@@ -236,6 +239,8 @@
                 "tile3Desc": "Sumérgete en la cultura andina auténtica y los paisajes de montaña",
                 "tripLogisticsTitle": "Logística del Viaje e Inclusiones Detalladas",
                 "itineraryTitle": "Itinerario Interactivo",
+                "includedLabel": "Incluido",
+                "notIncludedLabel": "No Incluido",
                 "faqsTitle": "Preguntas Frecuentes",
                 "hostPreparationTitle": "Anfitrión y Preparación",
                 "idealFor": "Ideal para",
@@ -249,7 +254,12 @@
                 "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
                 "checkDatesBtn": "Ver Disponibilidad",
                 "talkToHostBtn": "Hablar con Anfitrión",
-                "bookNowBtn": "Reservar Ahora"
+                "bookNowBtn": "Reservar Ahora",
+                "experienceSummary": "Vive un legado esmeraldero privado donde patrimonio, saber local y servicio curado se unen para una travesía andina inolvidable.",
+                "valueStackPrivateMineAccess": "Acceso Privado a Mina",
+                "valueStackLocalExpertGuides": "Guías Locales Expertos",
+                "valueStackAllMealsIncluded": "Todas las Comidas Incluidas",
+                "valueStackPremiumTransport": "Transporte 4x4 Premium"
             }
         },
         "emeraldMining": {
@@ -291,7 +301,7 @@
             "experienceDetails": {
                 "selectDate": "Selecciona una fecha",
                 "overviewTitle": "Descripción de la Experiencia",
-                "valuePropositionsTitle": "Por Qué Elegir Esta Experiencia",
+                "valuePropositionsTitle": "La Diferencia de la Minería de Esmeraldas",
                 "tile1Title": "Minería Auténtica",
                 "tile1Desc": "Vive la minería de esmeraldas real con guías locales expertos en minas históricas",
                 "tile2Title": "Acceso Local Exclusivo",
@@ -300,6 +310,8 @@
                 "tile3Desc": "Sumérgete en la cultura andina auténtica y los paisajes de montaña",
                 "tripLogisticsTitle": "Logística del Viaje e Inclusiones Detalladas",
                 "itineraryTitle": "Itinerario Interactivo",
+                "includedLabel": "Incluido",
+                "notIncludedLabel": "No Incluido",
                 "faqsTitle": "Preguntas Frecuentes",
                 "hostPreparationTitle": "Anfitrión y Preparación",
                 "idealFor": "Ideal para",
@@ -364,6 +376,15 @@
                 "stop6Note1": "Conversación de cierre grupal",
                 "stop6Note2": "Repaso de seguridad",
                 "stop6Note3": "Certificado de participación"
+            },
+            "host": {
+                "bio": "Anfitrión local especializado en rutas de minería de esmeraldas y experiencias culturales andinas.",
+                "idealFor1": "Buscadores de Aventura",
+                "idealFor2": "Entusiastas de la Cultura",
+                "idealFor3": "Amantes de la Naturaleza",
+                "goodToKnow1": "Se requiere condición física básica",
+                "goodToKnow2": "Se recomienda calzado cerrado",
+                "goodToKnow3": "Ambiente de grupo pequeño"
             }
         }
     },

@@ -77,6 +77,10 @@ export async function getBookingDataSSR(
     verifiedReviewsLine: t('experiences.ui.verifiedReviews'),
     whatsappCtaLabel: t('BookingCtas.whatsappCta'),
     fallbackDateLabel: t('experiences.ui.availableDates'),
+    topSellerLabel: t('experiences.ui.topSellerLabel'),
+    perPersonLabel: t('experiences.ui.perPersonLabel'),
+    reviewsCountLabel: t('experiences.ui.reviewsCountLabel', { count: 528 }),
+    bookingButtonLabel: t('experiences.ui.experienceDetails.bookNowBtn'),
     cardBackgroundGradient: 'rgba(10, 25, 47, 0.85)',
   };
 
@@ -136,6 +140,9 @@ export async function getBookingDataSSR(
     widgetContent,
     valuePropositionsContent,
     inclusionsContent: rawData.config.logistics && rawData.config.included && rawData.config.notIncluded ? {
+      sectionTitle: t('experiences.ui.experienceDetails.tripLogisticsTitle'),
+      includedLabel: t('experiences.ui.experienceDetails.includedLabel'),
+      notIncludedLabel: t('experiences.ui.experienceDetails.notIncludedLabel'),
       logistics: rawData.config.logistics.map((item) => ({
         ...item,
         label: t(item.label),
@@ -151,12 +158,24 @@ export async function getBookingDataSSR(
       location: rawData.config.location,
     } : undefined,
     itineraryContent: rawData.config.itinerary ? {
+      sectionTitle: t('experiences.ui.experienceDetails.itineraryTitle'),
       stops: rawData.config.itinerary.map((stop) => ({
         ...stop,
         title: t(stop.title),
         description: stop.description ? t(stop.description) : undefined,
         notes: stop.notes?.map((note) => t(note)),
       })),
+    } : undefined,
+    hostContent: rawData.config.host ? {
+      sectionTitle: t('experiences.ui.experienceDetails.hostPreparationTitle'),
+      name: rawData.config.host.name,
+      avatarUrl: rawData.config.host.avatarUrl,
+      bio: t(rawData.config.host.bio),
+      verifiedBadgeLabel: t('experiences.ui.verifiedGuideBadge'),
+      idealForLabel: t('experiences.ui.experienceDetails.idealFor'),
+      idealForItems: rawData.config.host.idealForItems.map((key) => t(key)),
+      goodToKnowLabel: t('experiences.ui.experienceDetails.goodToKnow'),
+      goodToKnowItems: rawData.config.host.goodToKnowItems.map((key) => t(key)),
     } : undefined,
   };
 }

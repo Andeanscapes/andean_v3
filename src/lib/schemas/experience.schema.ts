@@ -78,6 +78,13 @@ export const ExperienceConfigSchema = z.object({
     imageUrl: z.string().optional(),
     notes: z.array(z.string()).optional(),
   })).optional(),
+  host: z.object({
+    name: z.string(),
+    avatarUrl: z.string(),
+    bio: z.string(),
+    idealForItems: z.array(z.string()),
+    goodToKnowItems: z.array(z.string()),
+  }).optional(),
 });
 
 // Transport option
@@ -163,6 +170,10 @@ export const ExperienceWidgetContentSchema = z.object({
   verifiedReviewsLine: z.string(),
   whatsappCtaLabel: z.string(),
   fallbackDateLabel: z.string(),
+  topSellerLabel: z.string().optional(),
+  perPersonLabel: z.string().optional(),
+  reviewsCountLabel: z.string().optional(),
+  bookingButtonLabel: z.string().optional(),
   cardBackgroundGradient: z.string().optional(),
 });
 
@@ -202,6 +213,9 @@ export const ExperienceLocationSchema = z.object({
 });
 
 export const ExperienceInclusionsContentSchema = z.object({
+  sectionTitle: z.string(),
+  includedLabel: z.string(),
+  notIncludedLabel: z.string(),
   logistics: z.array(ExperienceLogisticsItemSchema),
   included: z.array(ExperienceInclusionItemSchema),
   notIncluded: z.array(ExperienceInclusionItemSchema),
@@ -218,7 +232,20 @@ export const ItineraryStopSchema = z.object({
   notes: z.array(z.string()).optional(),
 });
 
+export const HostContentSchema = z.object({
+  sectionTitle: z.string(),
+  name: z.string(),
+  bio: z.string(),
+  avatarUrl: z.string(),
+  verifiedBadgeLabel: z.string(),
+  idealForLabel: z.string(),
+  idealForItems: z.array(z.string()),
+  goodToKnowLabel: z.string(),
+  goodToKnowItems: z.array(z.string()),
+});
+
 export const ItineraryContentSchema = z.object({
+  sectionTitle: z.string(),
   stops: z.array(ItineraryStopSchema),
 });
 
@@ -261,6 +288,7 @@ export const ExperienceDataSchema = z.object({
   valuePropositionsContent: ValuePropositionsContentSchema.optional(),
   inclusionsContent: ExperienceInclusionsContentSchema.optional(),
   itineraryContent: ItineraryContentSchema.optional(),
+  hostContent: HostContentSchema.optional(),
 });
 
 // Export inferred TypeScript types
@@ -286,6 +314,7 @@ export type ExperienceLocation = z.infer<typeof ExperienceLocationSchema>;
 export type ExperienceInclusionsContent = z.infer<typeof ExperienceInclusionsContentSchema>;
 export type ItineraryStop = z.infer<typeof ItineraryStopSchema>;
 export type ItineraryContent = z.infer<typeof ItineraryContentSchema>;
+export type HostContent = z.infer<typeof HostContentSchema>;
 export type ReservationState = z.infer<typeof ReservationStateSchema>;
 export type ExperienceData = z.infer<typeof ExperienceDataSchema>;
 

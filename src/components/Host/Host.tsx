@@ -1,83 +1,85 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { Card } from '@/components/ui/Card/Card';
+import type { ExperienceData } from '@/lib/schemas';
 
 interface HostProps {
   className?: string;
+  experienceData: ExperienceData;
 }
 
-export default function Host({ className = '' }: HostProps) {
-  const t = useTranslations();
+export default function Host({ className = '', experienceData }: HostProps) {
+  const hostContent = experienceData.hostContent;
 
-  const idealForItems = ['Adventure Seekers', 'Culture Enthusiasts', 'Nature Lovers'];
-  const goodToKnowItems = ['Basic Fitness', 'Closed Shoes', 'Small Group Setting'];
+  if (!hostContent) return null;
 
   return (
-    <section className={`px-4 pb-12 md:px-6 lg:px-8 ${className}`.trim()}>
-      <div className="mx-auto max-w-7xl">
-        <h2 className="mb-6 text-3xl font-semibold text-base-content">
-          {t('experiences.ui.experienceDetails.hostPreparationTitle')}
-        </h2>
-
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <Card padding="md" className="border-white/15 bg-slate-900/60">
-            <div className="flex items-start gap-4">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-emerald-400/80 bg-base-100/20">
-                <div
-                  className="h-full w-full bg-cover bg-center"
-                  style={{ backgroundImage: "url('/assets/images/hero/h7.webp')" }}
-                />
-                <span className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400 text-sm font-bold text-emerald-950">
-                  ✓
-                </span>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-semibold text-white">Carlos</h3>
-                <p className="mt-1 inline-block rounded-md bg-emerald-500/20 px-2 py-1 text-sm font-semibold text-emerald-200">
-                  VERIFIED GUIDE
-                </p>
-                <p className="mt-3 text-lg leading-relaxed text-white/75">
-                  Local host specialized in emerald mining routes and Andean cultural experiences.
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <Card padding="md" className="border-white/15 bg-slate-900/60">
-            <div className="space-y-5">
-              <div>
-                <h3 className="text-3xl font-semibold text-white">
-                  {t('experiences.ui.experienceDetails.idealFor')}
-                </h3>
-                <ul className="mt-3 space-y-2">
-                  {idealForItems.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-2xl text-emerald-100">
-                      <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-semibold text-white">
-                  {t('experiences.ui.experienceDetails.goodToKnow')}
-                </h3>
-                <ul className="mt-3 space-y-2">
-                  {goodToKnowItems.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-2xl text-emerald-100">
-                      <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Card>
-        </div>
+    <div className={`w-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-xl ${className}`.trim()}>
+      {/* Header: host title from service */}
+      <div className="px-6 pt-6">
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+          {hostContent.sectionTitle}
+        </p>
       </div>
-    </section>
+
+      {/* Guide profile */}
+      <div className="px-6 py-5">
+        <div className="flex items-center gap-4">
+          <div className="relative shrink-0">
+            <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-emerald-400/60">
+              <div
+                className="h-full w-full bg-cover bg-center"
+                style={{ backgroundImage: `url('${hostContent.avatarUrl}')` }}
+              />
+            </div>
+            <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400 text-[10px] font-bold text-emerald-950">
+              ✓
+            </span>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white">{hostContent.name}</h3>
+            <span className="mt-0.5 inline-block rounded bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-emerald-300">
+              {hostContent.verifiedBadgeLabel}
+            </span>
+          </div>
+        </div>
+        <p className="mt-4 text-sm leading-relaxed text-white/70">
+          {hostContent.bio}
+        </p>
+      </div>
+
+      <div className="border-b border-white/5" />
+
+      {/* Ideal For */}
+      <div className="px-6 py-5">
+        <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-emerald-400">
+          {hostContent.idealForLabel}
+        </h4>
+        <ul className="space-y-2">
+          {hostContent.idealForItems.map((item) => (
+            <li key={item} className="flex items-center gap-2.5 text-sm text-white/80">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="border-b border-white/5" />
+
+      {/* Good to Know */}
+      <div className="px-6 py-5">
+        <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-emerald-400">
+          {hostContent.goodToKnowLabel}
+        </h4>
+        <ul className="space-y-2">
+          {hostContent.goodToKnowItems.map((item) => (
+            <li key={item} className="flex items-center gap-2.5 text-sm text-white/80">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

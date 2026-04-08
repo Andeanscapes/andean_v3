@@ -1,135 +1,131 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import type { ExperienceData } from '@/lib/schemas';
-import type { CSSProperties } from 'react';
 
 interface ItineraryProps {
   className?: string;
   experienceData: ExperienceData;
+  sidebar?: ReactNode;
 }
 
-// Helper to convert time string to minutes (e.g., "11:00 AM" -> 660)
-function timeToMinutes(timeStr: string): number {
-  const [time, period] = timeStr.split(' ');
-  const [hours, minutes] = time.split(':').map(Number);
-  const isAM = period === 'AM';
-
-  let totalMinutes = hours * 60 + minutes;
-  if (!isAM && hours !== 12) {
-    totalMinutes += 12 * 60; // Convert PM to 24-hour format
-  }
-  if (isAM && hours === 12) {
-    totalMinutes -= 12 * 60; // Midnight edge case
-  }
-
-  return totalMinutes;
-}
-
-export default function Itinerary({ className = '', experienceData }: ItineraryProps) {
+export default function Itinerary({ className = '', experienceData, sidebar }: ItineraryProps) {
   const itineraryContent = experienceData.itineraryContent;
 
   if (!itineraryContent?.stops || itineraryContent.stops.length === 0) return null;
-
-  // Calculate min/max times to establish range
-  const times = itineraryContent.stops.map((stop) => timeToMinutes(stop.time));
-  const minTime = Math.min(...times);
-  const maxTime = Math.max(...times);
-  const timeRange = maxTime - minTime || 1; // Avoid division by zero
 
   return (
     <section className={`relative px-4 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
       <div className="relative mx-auto max-w-screen-2xl">
         <h2 className="mb-8 text-2xl font-bold leading-tight text-base-content md:text-3xl">
-          Interactive Itinerary
+          {itineraryContent.sectionTitle}
         </h2>
 
-        {/* Timeline with left and right columns */}
-        <div className="relative">
-          {/* Central vertical line - positioned between columns */}
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-primary/30 lg:block"
-          />
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_380px]">
+          {/* Left: timeline */}
+          <div className="w-full">
+            {/* Single-column timeline container */}
+            <div className="relative ml-0 md:ml-12">
+              <div className="space-y-6">
+                {itineraryContent.stops.map((stop, index) => {
+                  const isLast = index === itineraryContent.stops.length - 1;
+                  return (
+                  <div key={stop.id} className="relative ml-8 min-[380px]:ml-10 md:ml-16">
+                    {/* Timeline dot on the vertical line */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute -left-[calc(2rem+6px)] top-5 h-3 w-3 rounded-full bg-primary ring-2 ring-base-100 min-[380px]:-left-[calc(2.5rem+6px)] md:-left-[calc(4rem+6px)]"
+                    />
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
-            {itineraryContent.stops.map((stop, index) => {
-              const isLeft = index % 2 === 0;
-              const stopMinutes = timeToMinutes(stop.time);
-              // Calculate vertical offset as percentage of total time range
-              const offsetPercent = ((stopMinutes - minTime) / timeRange) * 100;
-              // Convert to pixels (increased multiplier for more spread)
-              const offsetPixels = offsetPercent * 2.5;
+                    {/* Vertical line segment below dot — omitted for last stop */}
+                    {!isLast && (
+                      <div
+                        aria-hidden="true"
+                        className="absolute -left-[calc(2rem+1px)] top-[calc(1.25rem+6px)] w-[2px] bg-primary/20 min-[380px]:-left-[calc(2.5rem+1px)] md:-left-[calc(4rem+1px)]"
+                        style={{ height: 'calc(100% + 1.5rem)' }}
+                      />
+                    )}
 
-              return (
-                <div
-                  key={stop.id}
-                  className={`relative lg:[margin-top:var(--desktop-offset)] ${isLeft ? 'lg:pr-8' : 'lg:pl-8'}`}
-                  style={{
-                    '--desktop-offset': index > 0 ? `${Math.min(120, offsetPixels * 0.8)}px` : '0px',
-                  } as CSSProperties}
-                >
-                  {/* Timeline dot - positioned on the line */}
-                  <div
-                    aria-hidden="true"
-                    className={`absolute hidden h-3 w-3 rounded-full bg-primary ring-3 ring-base-100 lg:block ${
-                      isLeft ? '-right-[18px]' : '-left-[18px]'
-                    }`}
-                    style={{
-                      top: '20px',
-                    }}
-                  />
+                    {/* Card */}
+                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:shadow-md">
+                      {stop.imageUrl ? (
+                        /* Desktop: side-by-side grid | Mobile: stacked */
+                        <div className="flex flex-col md:grid md:grid-cols-[1.2fr_1fr]">
+                          {/* Text pane */}
+                          <div className="p-5 md:p-8">
+                            <div className="flex flex-wrap items-center gap-3">
+                              <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-500 ring-1 ring-emerald-500/30">
+                                {stop.time}
+                              </span>
+                              <h3 className="text-xl font-semibold text-base-content">{stop.title}</h3>
+                            </div>
 
-                  {/* Horizontal line from dot to card */}
-                  <div
-                    aria-hidden="true"
-                    className={`absolute hidden h-px bg-primary/50 lg:block z-0 ${
-                      isLeft ? 'lg:right-0' : 'lg:left-0'
-                    }`}
-                    style={{
-                      top: '20px',
-                      [isLeft ? 'right' : 'left']: isLeft ? '-18px' : '-18px',
-                      width: '60px',
-                      height: '1px',
-                    }}
-                  />
+                            {stop.description ? (
+                              <p className="mt-3 text-sm text-base-content/70">{stop.description}</p>
+                            ) : null}
 
-                  {/* Card */}
-                  <div className="rounded-lg border border-base-content/10 bg-base-100 p-4 shadow-sm">
-                    <p className="text-xs font-bold uppercase tracking-widest text-primary">{stop.time}</p>
-                    <h3 className="mt-1 text-base font-semibold text-base-content md:text-lg">{stop.title}</h3>
+                            {stop.notes && stop.notes.length > 0 ? (
+                              <ul className="mt-3 space-y-1.5">
+                                {stop.notes.map((note) => (
+                                  <li key={note} className="flex items-start gap-2 text-xs text-base-content/80">
+                                    <span className="mt-0.5 flex-shrink-0 text-primary">•</span>
+                                    <span>{note}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </div>
 
-                    {stop.description ? (
-                      <p className="mt-2 text-xs text-base-content/70 md:text-sm">{stop.description}</p>
-                    ) : null}
+                          {/* Image pane */}
+                          <div className="h-48 md:h-full md:min-h-[250px]">
+                            <img
+                              src={stop.imageUrl}
+                              alt={stop.title}
+                              className="h-full w-full object-cover md:rounded-r-2xl"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        /* No image: simple padded layout */
+                        <div className="p-5 md:p-8">
+                          <div className="flex flex-wrap items-center gap-3">
+                            <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-500 ring-1 ring-emerald-500/30">
+                              {stop.time}
+                            </span>
+                            <h3 className="text-xl font-semibold text-base-content">{stop.title}</h3>
+                          </div>
 
-                    {/* Image if available */}
-                    {stop.imageUrl ? (
-                      <div className="mt-3 overflow-hidden rounded-md border border-base-content/5">
-                        <img
-                          src={stop.imageUrl}
-                          alt={stop.title}
-                          className="h-24 w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    ) : null}
+                          {stop.description ? (
+                            <p className="mt-3 text-sm text-base-content/70">{stop.description}</p>
+                          ) : null}
 
-                    {/* Notes if available */}
-                    {stop.notes && stop.notes.length > 0 ? (
-                      <ul className="mt-3 space-y-1">
-                        {stop.notes.map((note) => (
-                          <li key={note} className="flex items-start gap-2 text-xs text-base-content/80">
-                            <span className="mt-1 flex-shrink-0 text-primary">•</span>
-                            <span>{note}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
+                          {stop.notes && stop.notes.length > 0 ? (
+                            <ul className="mt-3 space-y-1.5">
+                              {stop.notes.map((note) => (
+                                <li key={note} className="flex items-start gap-2 text-xs text-base-content/80">
+                                  <span className="mt-0.5 flex-shrink-0 text-primary">•</span>
+                                  <span>{note}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
           </div>
+
+          {/* Right: sticky sidebar */}
+          {sidebar ? (
+            <div className="h-fit w-full self-start lg:sticky lg:top-24">
+              {sidebar}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

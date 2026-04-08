@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import { useLocale } from 'next-intl';
-import { MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
 import { Button } from '@/components/ui/Button/Button';
@@ -16,7 +16,7 @@ export default function ExpericeWidget({
   experienceData,
 }: ExpericeWidgetProps) {
   const locale = useLocale();
-  const { config, availableDates, roomModes, transportOptions, whatsappLink, widgetContent } = experienceData;
+  const { config, availableDates, transportOptions, whatsappLink, widgetContent } = experienceData;
 
   const nextDateLabel = useMemo(() => {
     const firstAvailableDate = availableDates.find((date) => date.isAvailable);
@@ -40,19 +40,46 @@ export default function ExpericeWidget({
     <>
       <Card
         padding="md"
-        className="border-white/20 bg-base-100/10 backdrop-blur-md md:p-6"
+        className="relative border border-neutral-300 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:p-8 dark:border-white/20 dark:shadow-none"
       >
-        <div className="space-y-4">
+        <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-white dark:bg-base-100/10 dark:backdrop-blur-md" />
+
+        <span className="absolute -top-2 left-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:-top-3 md:-left-2 md:px-3 md:text-[10px]">
+          {widgetContent?.topSellerLabel}
+        </span>
+
+        <div className="relative z-10 space-y-4 md:space-y-5">
           <div>
-            <p className="text-3xl font-bold text-base-content">{formattedPrice}</p>
-            <p className="text-sm text-base-content/70">{widgetContent?.onSelectedDatesLabel}</p>
+            <p className="mt-2 text-2xl font-extrabold text-base-content md:mt-0 md:text-3xl">
+              {formattedPrice}
+              <span className="ml-1 text-[10px] font-normal tracking-wide text-neutral-700 dark:text-base-content/60 md:text-xs">
+                {widgetContent?.perPersonLabel}
+              </span>
+            </p>
+            <div className="mt-1 flex items-center">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    size={14}
+                    fill="currentColor"
+                    stroke="currentColor"
+                    className="text-emerald-600 dark:text-[#00F08F]"
+                  />
+                ))}
+              </div>
+              <span className="ml-2 text-xs text-neutral-700 dark:text-base-content/60">
+                {widgetContent?.reviewsCountLabel}
+              </span>
+            </div>
+            <p className="text-sm text-neutral-700 dark:text-base-content/70">{widgetContent?.onSelectedDatesLabel}</p>
           </div>
 
           <div className="space-y-1">
             <label className="text-sm font-medium text-base-content/90">
               {widgetContent?.selectDateLabel}
             </label>
-            <select className="select select-bordered w-full bg-base-100/95 text-base-content">
+            <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
               <option>{nextDateLabel}</option>
               {availableDates
                 .filter((date) => date.isAvailable)
@@ -64,10 +91,10 @@ export default function ExpericeWidget({
             </select>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3">
             <div className="space-y-1">
               <label className="text-sm font-medium text-base-content/90">{widgetContent?.peopleLabel}</label>
-              <select className="select select-bordered w-full bg-base-100/95 text-base-content">
+              <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
                 {Array.from({ length: config.maxPeople - config.minPeople + 1 }).map((_, idx) => {
                   const value = config.minPeople + idx;
                   return (
@@ -78,22 +105,11 @@ export default function ExpericeWidget({
                 })}
               </select>
             </div>
-
-            <div className="space-y-1">
-              <label className="text-sm font-medium text-base-content/90">{widgetContent?.roomTypeLabel}</label>
-              <select className="select select-bordered w-full bg-base-100/95 text-base-content">
-                {roomModes.map((mode) => (
-                  <option key={mode.value} value={mode.value}>
-                    {mode.label}
-                  </option>
-                ))}
-              </select>
-            </div>
           </div>
 
           <div className="space-y-1">
             <label className="text-sm font-medium text-base-content/90">{widgetContent?.howToArriveLabel}</label>
-            <select className="select select-bordered w-full bg-base-100/95 text-base-content">
+            <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
               {transportOptions.map((transport) => (
                 <option key={transport.value} value={transport.value}>
                   {transport.label}
@@ -102,15 +118,30 @@ export default function ExpericeWidget({
             </select>
           </div>
 
-          <Button size="lg" className="w-full border-0 bg-success text-success-content hover:bg-success/90">
-            {widgetContent?.checkDatesButtonLabel}
+          <Button
+            size="lg"
+            className="w-full !min-h-0 border-0 bg-[#00F08F] py-3 font-extrabold text-neutral-900 shadow-[0_0_20px_rgba(0,240,143,0.3)] transition-transform hover:scale-[1.02] hover:bg-[#00D47E] md:py-4 dark:text-black"
+          >
+            <span className="inline-flex items-center gap-2">
+              {widgetContent?.bookingButtonLabel}
+              <ArrowRight size={18} className="flex-shrink-0" />
+            </span>
           </Button>
 
-          <ul className="space-y-1 text-sm text-base-content/70">
-            <li>{widgetContent?.securityLine}</li>
-            <li>{widgetContent?.freeCancellationLine}</li>
-            <li>{widgetContent?.verifiedReviewsLine}</li>
-          </ul>
+          <div className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-base-content/70">
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <span>{widgetContent?.securityLine}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Undo2 size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <span>{widgetContent?.freeCancellationLine}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <span>{widgetContent?.verifiedReviewsLine}</span>
+            </div>
+          </div>
         </div>
       </Card>
 
@@ -118,7 +149,7 @@ export default function ExpericeWidget({
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-outline mt-4 w-full gap-2 h-auto min-h-12 hover:bg-base-200 dark:border-white/40 dark:bg-base-100/10 dark:text-white dark:hover:bg-base-100/20"
+        className="btn btn-outline mt-3 w-full gap-2 h-auto min-h-12 hover:bg-base-200 md:mt-4 dark:border-white/40 dark:bg-base-100/10 dark:text-white dark:hover:bg-base-100/20"
       >
         <MessageCircle size={18} className="flex-shrink-0" />
         {widgetContent?.whatsappCtaLabel}

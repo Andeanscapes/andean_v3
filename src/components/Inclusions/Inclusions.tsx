@@ -30,7 +30,7 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
 
   return (
     <section
-      className={`relative overflow-hidden px-4 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
+      className={`relative overflow-hidden px-5 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
       style={bgImageUrl ? {
         backgroundImage: `url('${bgImageUrl}')`,
         backgroundSize: 'cover',
@@ -47,18 +47,18 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
 
       <div className="relative mx-auto max-w-screen-2xl">
         <h2 className="mb-8 text-2xl font-bold leading-tight text-white md:text-3xl">
-          Trip Logistics &amp; Detailed Inclusions
+          {inclusionsContent.sectionTitle}
         </h2>
 
         {/* 3-col on desktop: logistics | included+notIncluded | map */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-6 lg:items-stretch">
 
           {/* Col 1: Logistics */}
-          <div>
+          <div className="flex flex-col lg:min-h-[420px] lg:h-full">
             <div className="h-full rounded-2xl border border-white/15 bg-black/25 p-6">
-              <div className="space-y-5">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-5">
                 {inclusionsContent.logistics.map((item) => (
-                  <div key={item.id} className="flex items-start gap-4">
+                  <div key={item.id} className="flex items-start gap-3">
                     <div className="mt-0.5 flex-shrink-0 text-emerald-400">
                       {iconMap[item.icon] || <Clock className="h-5 w-5" />}
                     </div>
@@ -75,13 +75,13 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
           </div>
 
           {/* Col 2: Included & Not Included */}
-          <div className="space-y-4">
+          <div className="flex flex-col space-y-4 lg:min-h-[420px] lg:h-full">
             <div className="rounded-2xl border border-emerald-400/30 bg-emerald-950/30 p-6">
               <div className="mb-4 flex items-center gap-2.5">
                 <CheckCircle2 className="h-5 w-5 text-emerald-400" />
-                <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-400">Included</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-400">{inclusionsContent.includedLabel}</h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2 md:space-y-3">
                 {inclusionsContent.included.map((item) => (
                   <li key={item.id} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
@@ -92,11 +92,11 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
             </div>
 
             <div className="rounded-2xl border border-rose-400/30 bg-rose-950/30 p-6">
-              <div className="mb-4 flex items-center gap-2.5">
+              <div className="mb-4 mt-2 flex items-center gap-2.5">
                 <XCircle className="h-5 w-5 text-rose-400" />
-                <h3 className="text-xs font-bold uppercase tracking-widest text-rose-400">Not Included</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-rose-400">{inclusionsContent.notIncludedLabel}</h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2 md:space-y-3">
                 {inclusionsContent.notIncluded.map((item) => (
                   <li key={item.id} className="flex items-start gap-3">
                     <XCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-rose-400" />
@@ -109,16 +109,18 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
 
           {/* Col 3: Map */}
           {mapSrc ? (
-            <div className="flex flex-col">
-              <div className="h-full overflow-hidden rounded-2xl border border-white/15">
+            <div className="flex flex-col lg:min-h-[420px] lg:h-full">
+              <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-black/25 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+                <div className="aspect-video lg:aspect-auto lg:h-full">
                 <iframe
                   src={mapSrc}
                   title={location?.label ?? 'Meeting point'}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="h-full min-h-[280px] w-full lg:min-h-0"
+                  className="h-full w-full"
                   style={{ border: 0 }}
                 />
+                </div>
               </div>
               {location?.label ? (
                 <p className="mt-2 flex items-center gap-1.5 text-xs text-white/60">

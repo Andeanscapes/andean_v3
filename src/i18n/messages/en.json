@@ -178,6 +178,9 @@
             "heroCta": "Check dates",
             "heroSummary": "2D/1N • Mine visit + emerald workshop • Starts in Chivor • Small groups",
             "onSelectedDates": "on selected dates",
+            "topSellerLabel": "TOP SELLER",
+            "perPersonLabel": "per person",
+            "reviewsCountLabel": "({count} reviews)",
             "freeCancellation": "Free cancellation",
             "verifiedReviews": "Verified reviews",
             "verifiedGuideBadge": "VERIFIED GUIDE",
@@ -227,7 +230,7 @@
             "experienceDetails": {
                 "selectDate": "Select a date",
                 "overviewTitle": "Experience Overview",
-                "valuePropositionsTitle": "Why Choose This Experience",
+                "valuePropositionsTitle": "The Emerald Mining Difference",
                 "tile1Title": "Authentic Mining",
                 "tile1Desc": "Experience real emerald mining with expert local guides in historic mines",
                 "tile2Title": "Rare Local Access",
@@ -236,6 +239,8 @@
                 "tile3Desc": "Immerse yourself in authentic Andean culture and mountain landscapes",
                 "tripLogisticsTitle": "Trip Logistics & Detailed Inclusions",
                 "itineraryTitle": "Interactive Itinerary",
+                "includedLabel": "Included",
+                "notIncludedLabel": "Not Included",
                 "faqsTitle": "Frequently Asked Questions",
                 "hostPreparationTitle": "Host & Preparation",
                 "idealFor": "Ideal for",
@@ -249,7 +254,12 @@
                 "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
                 "checkDatesBtn": "Check Dates",
                 "talkToHostBtn": "Talk to Host",
-                "bookNowBtn": "Book Now"
+                "bookNowBtn": "Book Now",
+                "experienceSummary": "Step into a private emerald legacy where heritage, craftsmanship, and curated service come together for an unforgettable Andean journey.",
+                "valueStackPrivateMineAccess": "Private Mine Access",
+                "valueStackLocalExpertGuides": "Local Expert Guides",
+                "valueStackAllMealsIncluded": "All Meals Included",
+                "valueStackPremiumTransport": "Premium 4x4 Transport"
             }
         },
         "emeraldMining": {
@@ -287,7 +297,7 @@
             "experienceDetails": {
                 "selectDate": "Select a date",
                 "overviewTitle": "Experience Overview",
-                "valuePropositionsTitle": "Why Choose This Experience",
+                "valuePropositionsTitle": "The Emerald Mining Difference",
                 "tile1Title": "Authentic Mining",
                 "tile1Desc": "Experience real emerald mining with expert local guides in historic mines",
                 "tile2Title": "Rare Local Access",
@@ -296,6 +306,8 @@
                 "tile3Desc": "Immerse yourself in authentic Andean culture and mountain landscapes",
                 "tripLogisticsTitle": "Trip Logistics & Detailed Inclusions",
                 "itineraryTitle": "Interactive Itinerary",
+                "includedLabel": "Included",
+                "notIncludedLabel": "Not Included",
                 "faqsTitle": "Frequently Asked Questions",
                 "hostPreparationTitle": "Host & Preparation",
                 "idealFor": "Ideal for",
@@ -360,6 +372,15 @@
                 "stop6Note1": "Group wrap-up discussion",
                 "stop6Note2": "Safety debrief",
                 "stop6Note3": "Certificate of participation"
+            },
+            "host": {
+                "bio": "Local host specialized in emerald mining routes and Andean cultural experiences.",
+                "idealFor1": "Adventure Seekers",
+                "idealFor2": "Culture Enthusiasts",
+                "idealFor3": "Nature Lovers",
+                "goodToKnow1": "Basic Fitness Required",
+                "goodToKnow2": "Closed Shoes Recommended",
+                "goodToKnow3": "Small Group Setting"
             }
         }
     },

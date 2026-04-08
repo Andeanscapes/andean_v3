@@ -178,6 +178,9 @@
       "heroCta": "Voir les dates",
       "heroSummary": "2J/1N • Visite de la mine + atelier d'émeraudes • Départ de Chivor • Petits groupes",
       "onSelectedDates": "aux dates sélectionnées",
+      "topSellerLabel": "MEILLEURE VENTE",
+      "perPersonLabel": "par personne",
+      "reviewsCountLabel": "({count} avis)",
       "freeCancellation": "Annulation gratuite",
       "verifiedReviews": "Avis vérifiés",
       "verifiedGuideBadge": "GUIDE VÉRIFIÉ",
@@ -227,7 +230,7 @@
       "experienceDetails": {
         "selectDate": "Sélectionnez une date",
         "overviewTitle": "Aperçu de l'Expérience",
-        "valuePropositionsTitle": "Pourquoi Choisir Cette Expérience",
+        "valuePropositionsTitle": "La Différence de l'Aventure Émeraude",
         "tile1Title": "Exploitation Minière Authentique",
         "tile1Desc": "Vivez l'exploitation minière authentique d'émeraudes avec des guides locaux experts dans des mines historiques",
         "tile2Title": "Accès Local Exclusif",
@@ -236,6 +239,8 @@
         "tile3Desc": "Immergez-vous dans la culture authentique des Andes et les paysages montagneux",
         "tripLogisticsTitle": "Logistique du Voyage et Inclusions Détaillées",
         "itineraryTitle": "Itinéraire Interactif",
+        "includedLabel": "Inclus",
+        "notIncludedLabel": "Non Inclus",
         "faqsTitle": "Questions Fréquemment Posées",
         "hostPreparationTitle": "Hôte et Préparation",
         "idealFor": "Idéal pour",
@@ -249,7 +254,12 @@
         "exploreHiddenHeart": "Explorez le Cœur Caché des Andes",
         "checkDatesBtn": "Vérifier les Disponibilités",
         "talkToHostBtn": "Parler à l'Hôte",
-        "bookNowBtn": "Réserver Maintenant"
+        "bookNowBtn": "Réserver Maintenant",
+        "experienceSummary": "Entrez dans un héritage privé de l'émeraude où patrimoine, savoir-faire et service soigné se rencontrent pour une aventure andine inoubliable.",
+        "valueStackPrivateMineAccess": "Accès Privé à la Mine",
+        "valueStackLocalExpertGuides": "Guides Locaux Experts",
+        "valueStackAllMealsIncluded": "Tous les Repas Inclus",
+        "valueStackPremiumTransport": "Transport 4x4 Premium"
       }
     },
     "emeraldMining": {
@@ -287,7 +297,7 @@
       "experienceDetails": {
         "selectDate": "Sélectionnez une date",
         "overviewTitle": "Aperçu de l'Expérience",
-        "valuePropositionsTitle": "Pourquoi Choisir Cette Expérience",
+        "valuePropositionsTitle": "La Différence de l'Aventure Émeraude",
         "tile1Title": "Exploitation Minière Authentique",
         "tile1Desc": "Vivez l'exploitation minière authentique d'émeraudes avec des guides locaux experts dans des mines historiques",
         "tile2Title": "Accès Local Exclusif",
@@ -296,6 +306,8 @@
         "tile3Desc": "Immergez-vous dans la culture authentique des Andes et les paysages montagneux",
         "tripLogisticsTitle": "Logistique du Voyage et Inclusions Détaillées",
         "itineraryTitle": "Itinéraire Interactif",
+        "includedLabel": "Inclus",
+        "notIncludedLabel": "Non Inclus",
         "faqsTitle": "Questions Fréquemment Posées",
         "hostPreparationTitle": "Hôte et Préparation",
         "idealFor": "Idéal pour",
@@ -360,6 +372,15 @@
         "stop6Note1": "Discussion de clôture en groupe",
         "stop6Note2": "Débriefing sécurité",
         "stop6Note3": "Certificat de participation"
+      },
+      "host": {
+        "bio": "Hôte local spécialisé dans les circuits miniers d'émeraudes et les expériences culturelles andines.",
+        "idealFor1": "Chercheurs d'Aventure",
+        "idealFor2": "Passionnés de Culture",
+        "idealFor3": "Amoureux de la Nature",
+        "goodToKnow1": "Condition physique de base requise",
+        "goodToKnow2": "Chaussures fermées recommandées",
+        "goodToKnow3": "Petit groupe"
       }
     }
   },

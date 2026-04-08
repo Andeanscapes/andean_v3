@@ -25,8 +25,7 @@ export default function ExperienceDetailsPage({
       />
       <ValuePropositions experienceData={experienceData} />
       <Inclusions experienceData={experienceData} />
-      <Itinerary experienceData={experienceData} />
-      <Host />
+      <Itinerary experienceData={experienceData} sidebar={<Host experienceData={experienceData} />} />
       <Faqs />
     </>
   );
