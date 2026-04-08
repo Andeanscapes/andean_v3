@@ -78,7 +78,11 @@ export const EMERALD_MINING_DATA: ExperienceData = {
         title: 'experiences.emeraldMining.itinerary.stop1Title',
         description: 'experiences.emeraldMining.itinerary.stop1Desc',
         imageUrl: '/assets/images/hero/h10.webp',
-        notes: ['Guided entry into historic mine', 'See raw emerald deposits', 'Expert mining guide included'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop1Note1',
+          'experiences.emeraldMining.itinerary.stop1Note2',
+          'experiences.emeraldMining.itinerary.stop1Note3',
+        ],
       },
       {
         id: 'stop-2',
@@ -86,7 +90,11 @@ export const EMERALD_MINING_DATA: ExperienceData = {
         title: 'experiences.emeraldMining.itinerary.stop2Title',
         description: 'experiences.emeraldMining.itinerary.stop2Desc',
         imageUrl: '/assets/images/hero/h11.webp',
-        notes: ['Traditional extraction techniques', 'Photo opportunities', 'Learn mining history'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop2Note1',
+          'experiences.emeraldMining.itinerary.stop2Note2',
+          'experiences.emeraldMining.itinerary.stop2Note3',
+        ],
       },
       {
         id: 'stop-3',
@@ -94,14 +102,22 @@ export const EMERALD_MINING_DATA: ExperienceData = {
         title: 'experiences.emeraldMining.itinerary.stop3Title',
         description: 'experiences.emeraldMining.itinerary.stop3Desc',
         imageUrl: '/assets/images/hero/h8.webp',
-        notes: ['Hands-on emerald sorting', 'Identify impurities and quality', 'Keep your findings'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop3Note1',
+          'experiences.emeraldMining.itinerary.stop3Note2',
+          'experiences.emeraldMining.itinerary.stop3Note3',
+        ],
       },
       {
         id: 'stop-4',
         time: '2:00 PM',
         title: 'experiences.emeraldMining.itinerary.stop4Title',
         description: 'experiences.emeraldMining.itinerary.stop4Desc',
-        notes: ['Meal break with local food', 'Relax and hydrate', 'Meet other travelers'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop4Note1',
+          'experiences.emeraldMining.itinerary.stop4Note2',
+          'experiences.emeraldMining.itinerary.stop4Note3',
+        ],
       },
       {
         id: 'stop-5',
@@ -109,14 +125,22 @@ export const EMERALD_MINING_DATA: ExperienceData = {
         title: 'experiences.emeraldMining.itinerary.stop5Title',
         description: 'experiences.emeraldMining.itinerary.stop5Desc',
         imageUrl: '/assets/images/hero/h7.webp',
-        notes: ['Learn emerald grading standards', 'Q&A with expert gemologist', 'Discuss future workshops'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop5Note1',
+          'experiences.emeraldMining.itinerary.stop5Note2',
+          'experiences.emeraldMining.itinerary.stop5Note3',
+        ],
       },
       {
         id: 'stop-6',
         time: '4:30 PM',
         title: 'experiences.emeraldMining.itinerary.stop6Title',
         description: 'experiences.emeraldMining.itinerary.stop6Desc',
-        notes: ['Group wrap-up discussion', 'Safety debrief', 'Certificate of participation'],
+        notes: [
+          'experiences.emeraldMining.itinerary.stop6Note1',
+          'experiences.emeraldMining.itinerary.stop6Note2',
+          'experiences.emeraldMining.itinerary.stop6Note3',
+        ],
       },
     ],
   },
