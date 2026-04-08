@@ -65,6 +65,46 @@ export async function getBookingDataSSR(
     },
   };
 
+  const widgetContent = {
+    onSelectedDatesLabel: t('experiences.ui.onSelectedDates'),
+    selectDateLabel: t('experiences.ui.experienceDetails.selectDate'),
+    peopleLabel: t('experiences.ui.peopleLabel'),
+    roomTypeLabel: t('experiences.ui.roomType'),
+    howToArriveLabel: t('experiences.ui.howToArrive'),
+    checkDatesButtonLabel: t('experiences.ui.experienceDetails.checkDatesBtn'),
+    securityLine: t('experiences.common.security'),
+    freeCancellationLine: t('experiences.ui.freeCancellation'),
+    verifiedReviewsLine: t('experiences.ui.verifiedReviews'),
+    whatsappCtaLabel: t('BookingCtas.whatsappCta'),
+    fallbackDateLabel: t('experiences.ui.availableDates'),
+    cardBackgroundGradient: 'rgba(10, 25, 47, 0.85)',
+  };
+
+  const valuePropositionsContent = {
+    title: t('experiences.ui.experienceDetails.valuePropositionsTitle'),
+    items: [
+      {
+        id: 'tile-1',
+        title: t('experiences.ui.experienceDetails.tile1Title'),
+        description: t('experiences.ui.experienceDetails.tile1Desc'),
+        imageUrl: rawData.config.images?.valuePropositionTile1 || '/assets/images/hero/h10.webp',
+        badge: t('experiences.ui.verifiedGuideBadge'),
+      },
+      {
+        id: 'tile-2',
+        title: t('experiences.ui.experienceDetails.tile2Title'),
+        description: t('experiences.ui.experienceDetails.tile2Desc'),
+        imageUrl: rawData.config.images?.valuePropositionTile2 || '/assets/images/hero/h7.webp',
+      },
+      {
+        id: 'tile-3',
+        title: t('experiences.ui.experienceDetails.tile3Title'),
+        description: t('experiences.ui.experienceDetails.tile3Desc'),
+        imageUrl: rawData.config.images?.valuePropositionTile3 || '/assets/images/hero/h8.webp',
+      },
+    ],
+  };
+
   // 3. Return fully translated data
   return {
     ...rawData,
@@ -87,11 +127,37 @@ export async function getBookingDataSSR(
       helperText: t('experiences.common.security'),
       hideCta: false,
       ctaTargetId: 'available-dates',
+      backgroundImageUrl: rawData.config.images?.heroBackground || '/assets/images/hero/h10.webp',
       badges: [
         { label: t('experiences.ui.limitedSpots'), icon: 'limited' },
         { label: `${t('experiences.ui.depositLabel')} ${depositPercent}%`, icon: 'deposit' },
       ],
     },
+    widgetContent,
+    valuePropositionsContent,
+    inclusionsContent: rawData.config.logistics && rawData.config.included && rawData.config.notIncluded ? {
+      logistics: rawData.config.logistics.map((item) => ({
+        ...item,
+        label: t(item.label),
+      })),
+      included: rawData.config.included.map((item) => ({
+        ...item,
+        title: t(item.title),
+      })),
+      notIncluded: rawData.config.notIncluded.map((item) => ({
+        ...item,
+        title: t(item.title),
+      })),
+      location: rawData.config.location,
+    } : undefined,
+    itineraryContent: rawData.config.itinerary ? {
+      stops: rawData.config.itinerary.map((stop) => ({
+        ...stop,
+        title: t(stop.title),
+        description: stop.description ? t(stop.description) : undefined,
+        notes: stop.notes?.map((note) => t(note)),
+      })),
+    } : undefined,
   };
 }
 

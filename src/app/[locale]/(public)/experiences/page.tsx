@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { ExperienceCard } from '@/components/ExperienceList/ExperienceCard';
-import { getExperiencesListSSR } from '@/lib/services/experiences.service';
+import { getExperiencesListSSR } from '@/lib/services/experiences-list.service';
 
 export async function generateMetadata({
   params,

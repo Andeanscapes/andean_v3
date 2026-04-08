@@ -14,18 +14,18 @@ interface ExperienceDetailsPageProps {
 export default function ExperienceDetailsPage({
   experienceData,
 }: ExperienceDetailsPageProps) {
-  const { config } = experienceData;
+  const { config, heroContent } = experienceData;
 
   return (
     <>
       <ExperienceHero
-        title={config.title}
-        subtitle={config.subtitle}
+        title={heroContent?.title ?? config.title}
+        subtitle={heroContent?.subtitle ?? config.subtitle}
         widget={<ExpericeWidget experienceData={experienceData} />}
       />
-      <ValuePropositions />
-      <Inclusions />
-      <Itinerary />
+      <ValuePropositions experienceData={experienceData} />
+      <Inclusions experienceData={experienceData} />
+      <Itinerary experienceData={experienceData} />
       <Host />
       <Faqs />
     </>

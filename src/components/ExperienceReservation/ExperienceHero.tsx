@@ -96,6 +96,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
     helperText: heroContent?.helperText ?? content?.helperText ?? '',
     hideCta: heroContent?.hideCta ?? content?.hideCta ?? false,
     ctaTargetId: heroContent?.ctaTargetId ?? content?.ctaTargetId ?? 'available-dates',
+    backgroundImageUrl: heroContent?.backgroundImageUrl ?? content?.backgroundImageUrl ?? '/assets/images/hero/h10.webp',
     badges: heroContent?.badges ?? content?.badges ?? [],
   };
 

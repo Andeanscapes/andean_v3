@@ -177,6 +177,10 @@
             "depositLabel": "Depósito",
             "heroCta": "Ver fechas",
             "heroSummary": "2D/1N • Visita a la mina + taller de esmeraldas • Inicio en Chivor • Grupos pequeños",
+            "onSelectedDates": "en fechas seleccionadas",
+            "freeCancellation": "Cancelación gratuita",
+            "verifiedReviews": "Reseñas verificadas",
+            "verifiedGuideBadge": "GUÍA VERIFICADO",
             "totalLabel": "Total",
             "payTodayLabel": "Hoy pagas",
             "balanceNote": "Saldo se paga el día del tour. Confirmación inmediata.",
@@ -219,6 +223,33 @@
                 "standard": "Habitación Estándar",
                 "family": "Habitación Familiar",
                 "cabin": "Cabaña"
+            },
+            "experienceDetails": {
+                "selectDate": "Selecciona una fecha",
+                "overviewTitle": "Descripción de la Experiencia",
+                "valuePropositionsTitle": "Por Qué Elegir Esta Experiencia",
+                "tile1Title": "Minería Auténtica",
+                "tile1Desc": "Vive la minería de esmeraldas real con guías locales expertos en minas históricas",
+                "tile2Title": "Acceso Local Exclusivo",
+                "tile2Desc": "Acceso exclusivo a minas de esmeraldas en funcionamiento y talleres de clasificación",
+                "tile3Title": "Naturaleza y Cultura",
+                "tile3Desc": "Sumérgete en la cultura andina auténtica y los paisajes de montaña",
+                "tripLogisticsTitle": "Logística del Viaje e Inclusiones Detalladas",
+                "itineraryTitle": "Itinerario Interactivo",
+                "faqsTitle": "Preguntas Frecuentes",
+                "hostPreparationTitle": "Anfitrión y Preparación",
+                "idealFor": "Ideal para",
+                "goodToKnow": "Bueno a Saber",
+                "faq1Q": "¿Cuál es el nivel de dificultad?",
+                "faq1A": "Se requiere senderismo moderado y fitness básico para tours de minas",
+                "faq2Q": "¿Cuál es la mejor época para visitar?",
+                "faq2A": "De diciembre a marzo ofrece el mejor clima en los Andes colombianos",
+                "faq3Q": "¿Cómo organizo el transporte?",
+                "faq3A": "Proporcionamos transporte desde Chivor, o arreglamos desde Bogotá a solicitud",
+                "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
+                "checkDatesBtn": "Ver Disponibilidad",
+                "talkToHostBtn": "Hablar con Anfitrión",
+                "bookNowBtn": "Reservar Ahora"
             }
         },
         "emeraldMining": {
@@ -283,15 +314,38 @@
                 "checkDatesBtn": "Ver Disponibilidad",
                 "talkToHostBtn": "Hablar con Anfitrión",
                 "bookNowBtn": "Reservar Ahora"
-            }
-        },
-        "emeraldMining": {
-            "title": "Aventura de Minería de Esmeraldas",
-            "description": "Descubre las profundidades de la mina de esmeraldas más famosa de Colombia",
-            "roomMode": {
-                "standard": "Habitación Estándar",
-                "family": "Habitación Familiar",
-                "cabin": "Cabaña"
+            },
+            "logistics": {
+                "start": "Hora de inicio",
+                "duration": "Duración",
+                "transport": "Transporte",
+                "difficulty": "Dificultad",
+                "end": "Hora de finalización"
+            },
+            "included": {
+                "guide": "Guía experto en minería",
+                "equipment": "Equipo de seguridad",
+                "meals": "Comidas (desayuno, almuerzo, cena)",
+                "insurance": "Seguro de viaje"
+            },
+            "notIncluded": {
+                "accommodation": "Transporte de aeropuerto",
+                "drinks": "Bebidas personales",
+                "souvenirs": "Gemas de recuerdo"
+            },
+            "itinerary": {
+                "stop1Title": "Ingresa a la Mina de Esmeraldas",
+                "stop1Desc": "Comienza tu aventura minera en una de las minas de esmeraldas más históricas de Colombia",
+                "stop2Title": "Explora Mina Secundaria",
+                "stop2Desc": "Visita un depósito adicional con formaciones geológicas ricas",
+                "stop3Title": "Taller de Clasificación de Esmeraldas",
+                "stop3Desc": "Aprende técnicas profesionales para identificar y calificar esmeraldas",
+                "stop4Title": "Descanso para Almorzar",
+                "stop4Desc": "Disfruta de la auténtica gastronomía colombiana con sabores locales",
+                "stop5Title": "Masterclass en Gemmología",
+                "stop5Desc": "Información experta sobre la calidad, origen e historia de las esmeraldas",
+                "stop6Title": "Cierre y Celebración",
+                "stop6Desc": "Reflexiona sobre el día y recibe tu certificado de participación"
             }
         }
     },

@@ -1,96 +1,134 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { Card } from '@/components/ui/Card/Card';
+import { CheckCircle2, XCircle, Clock, Car, Flame, Mountain, Sunset, MapPin } from 'lucide-react';
+import type { ExperienceData } from '@/lib/schemas';
 
 interface InclusionsProps {
   className?: string;
+  experienceData: ExperienceData;
 }
 
-interface LogisticsItem {
-  id: string;
-  label: string;
-  value?: string;
-}
+// Map icon names to lucide components
+const iconMap: Record<string, React.ReactNode> = {
+  clock: <Clock className="h-5 w-5" />,
+  hourglass: <Flame className="h-5 w-5" />,
+  car: <Car className="h-5 w-5" />,
+  activity: <Mountain className="h-5 w-5" />,
+  sunset: <Sunset className="h-5 w-5" />,
+};
 
-export default function Inclusions({ className = '' }: InclusionsProps) {
-  const t = useTranslations();
+export default function Inclusions({ className = '', experienceData }: InclusionsProps) {
+  const inclusionsContent = experienceData.inclusionsContent;
+  const bgImageUrl = experienceData.heroContent?.backgroundImageUrl;
 
-  const logistics: LogisticsItem[] = [
-    { id: 'start', label: 'Start', value: '11:00 AM' },
-    { id: 'duration', label: '3 Hours' },
-    { id: 'transport', label: '4x4' },
-    { id: 'difficulty', label: 'Moderate Hiking' },
-    { id: 'end', label: 'End Time', value: '8:30 AM' },
-  ];
+  if (!inclusionsContent) return null;
 
-  const includedItems = [
-    'Adventure Seekers',
-    'Enclusion',
-    'Culture vibes',
-    'Future parts',
-  ];
-
-  const notIncludedItems = ['Backgarable', 'Not included', 'Not included'];
+  const { location } = inclusionsContent;
+  const mapSrc = location
+    ? `https://maps.google.com/maps?q=${location.lat},${location.lng}&z=${location.zoom ?? 13}&output=embed`
+    : null;
 
   return (
-    <section className={`px-4 pb-10 md:px-6 lg:px-8 ${className}`.trim()}>
-      <div className="mx-auto max-w-7xl">
-        <h2 className="mb-6 text-3xl font-semibold text-base-content">
-          {t('experiences.ui.experienceDetails.tripLogisticsTitle')}
+    <section
+      className={`relative overflow-hidden px-4 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
+      style={bgImageUrl ? {
+        backgroundImage: `url('${bgImageUrl}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      } : undefined}
+    >
+      {/* Dark base overlay */}
+      <div aria-hidden="true" className="absolute inset-0 bg-slate-950/95" />
+      {/* Emerald-to-rose tinted gradient overlay */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-transparent to-rose-950/95"
+      />
+
+      <div className="relative mx-auto max-w-screen-2xl">
+        <h2 className="mb-8 text-2xl font-bold leading-tight text-white md:text-3xl">
+          Trip Logistics &amp; Detailed Inclusions
         </h2>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-          <Card
-            padding="md"
-            className="border-white/15 bg-slate-900/60 lg:col-span-5"
-          >
-            <div className="space-y-4">
-              {logistics.map((item) => (
-                <div key={item.id} className="flex items-start gap-3">
-                  <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  <div>
-                    <p className="text-3xl font-semibold leading-tight text-white">{item.label}</p>
-                    {item.value ? (
-                      <p className="mt-1 text-lg text-white/70">{item.value}</p>
-                    ) : null}
+        {/* 3-col on desktop: logistics | included+notIncluded | map */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-6">
+
+          {/* Col 1: Logistics */}
+          <div>
+            <div className="h-full rounded-2xl border border-white/15 bg-black/25 p-6">
+              <div className="space-y-5">
+                {inclusionsContent.logistics.map((item) => (
+                  <div key={item.id} className="flex items-start gap-4">
+                    <div className="mt-0.5 flex-shrink-0 text-emerald-400">
+                      {iconMap[item.icon] || <Clock className="h-5 w-5" />}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium text-white/70">{item.label}</p>
+                      {item.value ? (
+                        <p className="mt-0.5 text-base font-bold text-emerald-400">{item.value}</p>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </Card>
-
-          <div className="grid grid-cols-1 gap-4 lg:col-span-7">
-            <Card
-              padding="md"
-              className="border-emerald-300/25 bg-emerald-900/35"
-            >
-              <h3 className="mb-3 text-3xl font-semibold text-emerald-100">Included</h3>
-              <ul className="space-y-2">
-                {includedItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-2xl text-emerald-50">
-                    <span className="mt-2 inline-block h-2 w-2 rounded-full bg-emerald-300" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-
-            <Card
-              padding="md"
-              className="border-rose-300/25 bg-rose-950/35"
-            >
-              <h3 className="mb-3 text-3xl font-semibold text-rose-100">Not Included</h3>
-              <ul className="space-y-2">
-                {notIncludedItems.map((item, index) => (
-                  <li key={`${item}-${index}`} className="flex items-start gap-3 text-2xl text-rose-50">
-                    <span className="mt-2 inline-block h-2 w-2 rounded-full bg-rose-300" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
           </div>
+
+          {/* Col 2: Included & Not Included */}
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-emerald-400/30 bg-emerald-950/30 p-6">
+              <div className="mb-4 flex items-center gap-2.5">
+                <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+                <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-400">Included</h3>
+              </div>
+              <ul className="space-y-3">
+                {inclusionsContent.included.map((item) => (
+                  <li key={item.id} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+                    <span className="text-sm text-emerald-100/90">{item.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-rose-400/30 bg-rose-950/30 p-6">
+              <div className="mb-4 flex items-center gap-2.5">
+                <XCircle className="h-5 w-5 text-rose-400" />
+                <h3 className="text-xs font-bold uppercase tracking-widest text-rose-400">Not Included</h3>
+              </div>
+              <ul className="space-y-3">
+                {inclusionsContent.notIncluded.map((item) => (
+                  <li key={item.id} className="flex items-start gap-3">
+                    <XCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-rose-400" />
+                    <span className="text-sm text-rose-100/90">{item.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Col 3: Map */}
+          {mapSrc ? (
+            <div className="flex flex-col">
+              <div className="h-full overflow-hidden rounded-2xl border border-white/15">
+                <iframe
+                  src={mapSrc}
+                  title={location?.label ?? 'Meeting point'}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full min-h-[280px] w-full lg:min-h-0"
+                  style={{ border: 0 }}
+                />
+              </div>
+              {location?.label ? (
+                <p className="mt-2 flex items-center gap-1.5 text-xs text-white/60">
+                  <MapPin className="h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+                  {location.label}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+
         </div>
       </div>
     </section>
