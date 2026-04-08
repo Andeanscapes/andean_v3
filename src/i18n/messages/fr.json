@@ -252,6 +252,44 @@
         "standard": "Chambre Standard",
         "family": "Chambre Familiale",
         "cabin": "Cabane"
+      },
+      "experienceDetails": {
+        "selectDate": "Sélectionnez une date",
+        "overviewTitle": "Aperçu de l'Expérience",
+        "valuePropositionsTitle": "Pourquoi Choisir Cette Expérience",
+        "tile1Title": "Exploitation Minière Authentique",
+        "tile1Desc": "Vivez l'exploitation minière authentique d'émeraudes avec des guides locaux experts dans des mines historiques",
+        "tile2Title": "Accès Local Exclusif",
+        "tile2Desc": "Accès exclusif aux mines d'émeraudes en activité et aux ateliers de tri",
+        "tile3Title": "Nature et Culture",
+        "tile3Desc": "Immergez-vous dans la culture authentique des Andes et les paysages montagneux",
+        "tripLogisticsTitle": "Logistique du Voyage et Inclusions Détaillées",
+        "itineraryTitle": "Itinéraire Interactif",
+        "faqsTitle": "Questions Fréquemment Posées",
+        "hostPreparationTitle": "Hôte et Préparation",
+        "idealFor": "Idéal pour",
+        "goodToKnow": "Bon à Savoir",
+        "faq1Q": "Quel est le niveau de difficulté?",
+        "faq1A": "Randonnée modérée et condition physique de base requise pour les visites de mines",
+        "faq2Q": "Quelle est la meilleure période pour visiter?",
+        "faq2A": "De décembre à mars offre le meilleur temps dans les Andes colombiennes",
+        "faq3Q": "Comment organiser le transport?",
+        "faq3A": "Nous fournissons le transport depuis Chivor, ou arrangé depuis Bogotá sur demande",
+        "exploreHiddenHeart": "Explorez le Cœur Caché des Andes",
+        "checkDatesBtn": "Vérifier les Disponibilités",
+        "talkToHostBtn": "Parler à l'Hôte",
+        "bookNowBtn": "Réserver Maintenant"
+      }
+    },
+    "emeraldMining": {
+      "title": "Aventure de Minière d'Émeraude",
+      "subtitle": "Expérience tout compris à Chivor (Boyaca), Colombie 🇨🇴",
+      "description": "Découvrez les profondeurs de la mine d'émeraude la plus célèbre de Colombie",
+      "includesFullDetails": "Inclut guide spécialisé bilingue, tout l'équipement de sécurité nécessaire, transport aller-retour de Bogotá, assurance accident et rafraîchissements.",
+      "roomMode": {
+        "standard": "Chambre Standard",
+        "family": "Chambre Familiale",
+        "cabin": "Cabane"
       }
     }
   },

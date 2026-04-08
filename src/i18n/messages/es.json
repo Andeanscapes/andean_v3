@@ -256,6 +256,42 @@
                 "cabinSingle": "Cabaña (1)",
                 "cabinCouple": "Cabaña (2)",
                 "cabinSix": "Cabaña (6)"
+            },
+            "experienceDetails": {
+                "selectDate": "Selecciona una fecha",
+                "overviewTitle": "Descripción de la Experiencia",
+                "valuePropositionsTitle": "Por Qué Elegir Esta Experiencia",
+                "tile1Title": "Minería Auténtica",
+                "tile1Desc": "Vive la minería de esmeraldas real con guías locales expertos en minas históricas",
+                "tile2Title": "Acceso Local Exclusivo",
+                "tile2Desc": "Acceso exclusivo a minas de esmeraldas en funcionamiento y talleres de clasificación",
+                "tile3Title": "Naturaleza y Cultura",
+                "tile3Desc": "Sumérgete en la cultura andina auténtica y los paisajes de montaña",
+                "tripLogisticsTitle": "Logística del Viaje e Inclusiones Detalladas",
+                "itineraryTitle": "Itinerario Interactivo",
+                "faqsTitle": "Preguntas Frecuentes",
+                "hostPreparationTitle": "Anfitrión y Preparación",
+                "idealFor": "Ideal para",
+                "goodToKnow": "Bueno a Saber",
+                "faq1Q": "¿Cuál es el nivel de dificultad?",
+                "faq1A": "Se requiere senderismo moderado y fitness básico para tours de minas",
+                "faq2Q": "¿Cuál es la mejor época para visitar?",
+                "faq2A": "De diciembre a marzo ofrece el mejor clima en los Andes colombianos",
+                "faq3Q": "¿Cómo organizo el transporte?",
+                "faq3A": "Proporcionamos transporte desde Chivor, o arreglamos desde Bogotá a solicitud",
+                "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
+                "checkDatesBtn": "Ver Disponibilidad",
+                "talkToHostBtn": "Hablar con Anfitrión",
+                "bookNowBtn": "Reservar Ahora"
+            }
+        },
+        "emeraldMining": {
+            "title": "Aventura de Minería de Esmeraldas",
+            "description": "Descubre las profundidades de la mina de esmeraldas más famosa de Colombia",
+            "roomMode": {
+                "standard": "Habitación Estándar",
+                "family": "Habitación Familiar",
+                "cabin": "Cabaña"
             }
         }
     },

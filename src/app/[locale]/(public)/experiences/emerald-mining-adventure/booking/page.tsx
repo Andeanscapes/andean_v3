@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import ExperienceDetailsPage from './ExperienceDetailsPage';
-import { getExperienceDataSSR } from '@/lib/services/experiences.service';
+import MiningAdventureReservation from '../MiningAdventureReservation';
+import { getBookingDataSSR } from '@/lib/services/book.service';
 
 export async function generateMetadata({
   params,
@@ -21,20 +21,20 @@ export async function generateMetadata({
       description:
         t('metaDescription') ||
         'Explora las minas de esmeralda del Chivor en una experiencia única',
-      url: 'https://andeanscapes.com/experiences/emerald-mining-adventure',
+      url: 'https://andeanscapes.com/experiences/emerald-mining-adventure/booking',
     },
   };
 }
 
-export default async function Page({
+export default async function BookingPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   
-  // Fetch experience data server-side with translations
-  const experienceData = await getExperienceDataSSR('emeraldMining', locale);
+  // Fetch booking data server-side with translations
+  const experienceData = await getBookingDataSSR('emeraldMining', locale);
 
-  return <ExperienceDetailsPage experienceData={experienceData} />;
+  return <MiningAdventureReservation experienceData={experienceData} />;
 }

@@ -26,10 +26,17 @@ const shimmerBlurDataUrl = `data:image/svg+xml;charset=UTF-8,${encodeURIComponen
 
 function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const cdnBaseUrl =
+    process.env.NEXT_PUBLIC_CDN_BASE_URL ?? 'https://cdn.andeanscapes.com';
+  const normalizedCdnBaseUrl = cdnBaseUrl.replace(/\/$/, '');
+  const resolvedSrc = src.startsWith('/images/')
+    ? `${normalizedCdnBaseUrl}${src}`
+    : src;
   
   // Derive mobile image path from desktop path
   // e.g., 'emerald-mining-card.webp' → 'emerald-mining-card-mobile.webp'
-  const mobileSrc = src.replace(/\.webp$/, '-mobile.webp');
+  const mobileSrc = resolvedSrc.replace(/\.webp$/, '-mobile.webp');
 
   return (
     <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">
@@ -58,9 +65,9 @@ function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
 
       <picture>
         <source media="(max-width: 767px)" srcSet={mobileSrc} type="image/webp" />
-        <source media="(min-width: 768px)" srcSet={src} type="image/webp" />
+        <source media="(min-width: 768px)" srcSet={resolvedSrc} type="image/webp" />
         <Image
-          src={src}
+          src={resolvedSrc}
           alt={alt}
           fill
           sizes={sizes}

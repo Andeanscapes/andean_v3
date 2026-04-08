@@ -1,25 +1,28 @@
 /**
- * REFERENCE: Simplified Service Pattern
+ * Booking Service
  *
- * This shows the clean, scalable approach:
- * 1. Fetch data (with fallback)
+ * Responsible for fetching, validating, and translating
+ * experience data specifically for the booking flow.
+ *
+ * Pattern:
+ * 1. Fetch data (with fallback for development)
  * 2. Validate with Zod
  * 3. Translate content
  * 4. Return ready-to-render data
  */
 
 import type { ExperienceData } from '../schemas';
-import { EMERALD_MINING_DATA } from '../data-mocks/emeraldMining.mock';
+import { EMERALD_MINING_DATA } from '../data-mocks/emeraldMining.booking.mock';
 import { getTranslations } from 'next-intl/server';
 
 /**
- * Fetch and translate experience data for SSR
+ * Fetch and translate experience data for the booking SSR page.
  * Pattern: Fetch → Validate → Translate → Return
- * 
+ *
  * @param experienceId - Experience identifier (e.g., 'emeraldMining')
  * @param locale - Locale for translations (e.g., 'en', 'es', 'fr')
  */
-export async function getExperienceDataSSR(
+export async function getBookingDataSSR(
   experienceId: string,
   locale: string
 ): Promise<ExperienceData> {

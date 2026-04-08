@@ -1,5 +1,5 @@
 import type { ExperienceData, ExperiencesListData } from '../schemas';
-import { EMERALD_MINING_DATA } from '../data-mocks/emeraldMining.mock';
+import { EMERALD_MINING_DATA } from '../data-mocks/emeraldMining.booking.mock';
 import { EXPERIENCES_LIST_CONFIG } from '../data-mocks/experiencesList.mock';
 import { getTranslations } from 'next-intl/server';
 
