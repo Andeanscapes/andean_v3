@@ -104,10 +104,10 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     <Link href="/" className="shrink-0">
                         <Image
                             alt='logo'
-                            width='100'
-                            height='70'
-                            // layout="responsive"
-                            className="max-w-[48px]"
+                            width={150}
+                            height={150}
+                            sizes="48px"
+                            className="h-[48px] w-[48px] object-contain"
                             src={logoSrc}
                             priority
                         />
@@ -142,8 +142,10 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                 <Link href="/" className="shrink-0 max-w-[42px]">
                     <Image
                         alt='logo'
-                        width='100'
-                        height='70'
+                        width={150}
+                        height={150}
+                        sizes="42px"
+                        className="h-[42px] w-[42px] object-contain"
                         src={logoSrc}
                     />
                 </Link>
@@ -198,7 +200,14 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     >
                         <div className="flex items-center justify-between border-b border-stock-1 pb-4">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="shrink-0 max-w-[42px]">
-                                <Image alt='logo' width='100' height='70' src={logoSrc} />
+                                <Image
+                                    alt='logo'
+                                    width={150}
+                                    height={150}
+                                    sizes="42px"
+                                    className="h-[42px] w-[42px] object-contain"
+                                    src={logoSrc}
+                                />
                             </Link>
                             <button
                                 type="button"

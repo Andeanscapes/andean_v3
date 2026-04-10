@@ -15,12 +15,16 @@ export default function MetaPixelPageViewTracker() {
   const search = searchParams?.toString() ?? '';
 
   useEffect(() => {
-    if (typeof window.fbq !== 'function') {
-      console.warn('[Meta Pixel] fbq function not available');
+    const hostname = window.location.hostname;
+    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+    if (process.env.NODE_ENV === 'development' && isLocalhost) {
       return;
     }
-    const fullPath = search ? `${pathname}?${search}` : pathname;
-    console.log('[Meta Pixel] PageView tracked:', fullPath);
+
+    if (typeof window.fbq !== 'function') {
+      return;
+    }
+
     window.fbq('track', 'PageView');
   }, [pathname, search]);
 

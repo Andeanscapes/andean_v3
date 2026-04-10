@@ -4,6 +4,7 @@ import {Link} from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { MessageCircle } from 'lucide-react';
 import { BOOKING_LINKS } from '@/constant/SiteConfig';
 import { trackBookingCtaClick } from '@/lib/meta-pixel';
 
@@ -74,8 +75,9 @@ export default function BookingCtas({
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleStickyWhatsAppClick}
-          className="link link-hover self-center text-xs"
+          className="btn btn-ghost gap-2 self-center text-xs"
         >
+          <MessageCircle size={16} className="text-success flex-shrink-0" />
           {t('stickyWhatsappText')}
         </Link>
       </div>
@@ -121,8 +123,9 @@ export default function BookingCtas({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleWhatsAppClick}
-                  className="btn btn-outline btn-sm md:btn-md"
+                  className="btn btn-outline btn-sm md:btn-md gap-2 h-auto min-h-10 md:min-h-12"
                 >
+                  <MessageCircle size={18} className="flex-shrink-0" />
                   {t('whatsappCta')}
                 </Link>
                 <p className="text-xs text-base-content/70">

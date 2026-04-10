@@ -65,7 +65,7 @@ export const EXPERIENCES_LIST_CONFIG: ExperiencesListConfig = {
       id: 'emerald-mining-adventure',
       titleKey: 'experiences.emeraldMining.title',
       descriptionKey: 'experiences.emeraldMining.description',
-      image: '/assets/images/details/emerald-mining-card.webp',
+      image: `/images/experiences/emerald-mining/card.webp`,
       href: '/experiences/emerald-mining-adventure',
       tagKey: 'ExperiencesList.featuredTag',
       trustKey: 'ExperiencesList.transportIncluded',

@@ -63,9 +63,11 @@ function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
 }
 
 function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHeroProps) {
-  // Video URL served as static asset
-  const VIDEO_URL = '/videos/emerald-mining.webm';
-  const MOBILE_VIDEO_URL = '/videos/emerald-mining-mobile.webm';
+  const videoCdnBaseUrl =
+    process.env.NEXT_PUBLIC_CDN_BASE_URL ?? 'https://cdn.andeanscapes.com';
+  const normalizedVideoCdnBaseUrl = videoCdnBaseUrl.replace(/\/$/, '');
+  const VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero.webm`;
+  const MOBILE_VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero-mobile.webm`;
   const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
   const [isDesktopViewport, setIsDesktopViewport] = useState(false);
 
@@ -94,6 +96,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
     helperText: heroContent?.helperText ?? content?.helperText ?? '',
     hideCta: heroContent?.hideCta ?? content?.hideCta ?? false,
     ctaTargetId: heroContent?.ctaTargetId ?? content?.ctaTargetId ?? 'available-dates',
+    backgroundImageUrl: heroContent?.backgroundImageUrl ?? content?.backgroundImageUrl ?? '/assets/images/hero/h10.webp',
     badges: heroContent?.badges ?? content?.badges ?? [],
   };
 

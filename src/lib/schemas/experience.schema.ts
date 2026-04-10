@@ -22,6 +22,14 @@ export const TransportModeSchema = z.enum(['car_no_4x4', 'have_4x4', 'bus']);
 // Room type enum
 export const RoomTypeSchema = z.enum(['standard', 'family', 'cabin']);
 
+// Experience images
+export const ExperienceImagesSchema = z.object({
+  heroBackground: z.string().optional(),
+  valuePropositionTile1: z.string().optional(),
+  valuePropositionTile2: z.string().optional(),
+  valuePropositionTile3: z.string().optional(),
+});
+
 // Experience config
 export const ExperienceConfigSchema = z.object({
   id: z.string(),
@@ -32,6 +40,7 @@ export const ExperienceConfigSchema = z.object({
   depositPercent: z.number(),
   maxPeople: z.number(),
   minPeople: z.number(),
+  images: ExperienceImagesSchema.optional(),
   includesItems: z.array(z.string()),
   includesFullDetails: z.string(),
   microcopy: z.object({
@@ -41,6 +50,41 @@ export const ExperienceConfigSchema = z.object({
     ctaPrimary: z.string(),
     ctaSecondary: z.string(),
   }),
+  logistics: z.array(z.object({
+    id: z.string(),
+    icon: z.string(),
+    label: z.string(),
+    value: z.string().optional(),
+  })).optional(),
+  included: z.array(z.object({
+    id: z.string(),
+    title: z.string(),
+  })).optional(),
+  notIncluded: z.array(z.object({
+    id: z.string(),
+    title: z.string(),
+  })).optional(),
+  location: z.object({
+    lat: z.number(),
+    lng: z.number(),
+    label: z.string().optional(),
+    zoom: z.number().optional(),
+  }).optional(),
+  itinerary: z.array(z.object({
+    id: z.string(),
+    time: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+    imageUrl: z.string().optional(),
+    notes: z.array(z.string()).optional(),
+  })).optional(),
+  host: z.object({
+    name: z.string(),
+    avatarUrl: z.string(),
+    bio: z.string(),
+    idealForItems: z.array(z.string()),
+    goodToKnowItems: z.array(z.string()),
+  }).optional(),
 });
 
 // Transport option
@@ -109,7 +153,100 @@ export const ExperienceHeroContentSchema = z.object({
   helperText: z.string().optional(),
   hideCta: z.boolean().optional(),
   ctaTargetId: z.string().optional(),
+  backgroundImageUrl: z.string().optional(),
   badges: z.array(ExperienceHeroBadgeItemSchema).optional(),
+});
+
+// Experience widget content (already translated in service layer)
+export const ExperienceWidgetContentSchema = z.object({
+  onSelectedDatesLabel: z.string(),
+  selectDateLabel: z.string(),
+  peopleLabel: z.string(),
+  roomTypeLabel: z.string(),
+  howToArriveLabel: z.string(),
+  checkDatesButtonLabel: z.string(),
+  securityLine: z.string(),
+  freeCancellationLine: z.string(),
+  verifiedReviewsLine: z.string(),
+  whatsappCtaLabel: z.string(),
+  fallbackDateLabel: z.string(),
+  topSellerLabel: z.string().optional(),
+  perPersonLabel: z.string().optional(),
+  reviewsCountLabel: z.string().optional(),
+  bookingButtonLabel: z.string().optional(),
+  cardBackgroundGradient: z.string().optional(),
+});
+
+export const ValuePropositionItemSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string(),
+  imageUrl: z.string(),
+  badge: z.string().optional(),
+});
+
+export const ValuePropositionsContentSchema = z.object({
+  title: z.string(),
+  items: z.array(ValuePropositionItemSchema),
+});
+
+// Logistics item
+export const ExperienceLogisticsItemSchema = z.object({
+  id: z.string(),
+  icon: z.string(),
+  label: z.string(),
+  value: z.string().optional(),
+});
+
+// Inclusions item
+export const ExperienceInclusionItemSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+});
+
+// Inclusions content
+export const ExperienceLocationSchema = z.object({
+  lat: z.number(),
+  lng: z.number(),
+  label: z.string().optional(),
+  zoom: z.number().optional(),
+});
+
+export const ExperienceInclusionsContentSchema = z.object({
+  sectionTitle: z.string(),
+  includedLabel: z.string(),
+  notIncludedLabel: z.string(),
+  logistics: z.array(ExperienceLogisticsItemSchema),
+  included: z.array(ExperienceInclusionItemSchema),
+  notIncluded: z.array(ExperienceInclusionItemSchema),
+  location: ExperienceLocationSchema.optional(),
+});
+
+// Itinerary stop
+export const ItineraryStopSchema = z.object({
+  id: z.string(),
+  time: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+  imageUrl: z.string().optional(),
+  notes: z.array(z.string()).optional(),
+});
+
+export const HostContentSchema = z.object({
+  sectionTitle: z.string(),
+  name: z.string(),
+  bio: z.string(),
+  avatarUrl: z.string(),
+  verifiedBadgeLabel: z.string(),
+  idealForLabel: z.string(),
+  idealForItems: z.array(z.string()),
+  goodToKnowLabel: z.string(),
+  goodToKnowItems: z.array(z.string()),
+});
+
+export const ItineraryContentSchema = z.object({
+  sectionTitle: z.string(),
+  stops: z.array(ItineraryStopSchema),
 });
 
 // Reservation state
@@ -147,6 +284,11 @@ export const ExperienceDataSchema = z.object({
   availableDates: z.array(AvailableDateSchema),
   whatsappLink: z.string(),
   heroContent: ExperienceHeroContentSchema.optional(),
+  widgetContent: ExperienceWidgetContentSchema.optional(),
+  valuePropositionsContent: ValuePropositionsContentSchema.optional(),
+  inclusionsContent: ExperienceInclusionsContentSchema.optional(),
+  itineraryContent: ItineraryContentSchema.optional(),
+  hostContent: HostContentSchema.optional(),
 });
 
 // Export inferred TypeScript types
@@ -163,6 +305,16 @@ export type ReservationPricing = z.infer<typeof ReservationPricingSchema>;
 export type ExperienceHeroBadgeIcon = z.infer<typeof ExperienceHeroBadgeIconSchema>;
 export type ExperienceHeroBadgeItem = z.infer<typeof ExperienceHeroBadgeItemSchema>;
 export type ExperienceHeroContent = z.infer<typeof ExperienceHeroContentSchema>;
+export type ExperienceWidgetContent = z.infer<typeof ExperienceWidgetContentSchema>;
+export type ValuePropositionItem = z.infer<typeof ValuePropositionItemSchema>;
+export type ValuePropositionsContent = z.infer<typeof ValuePropositionsContentSchema>;
+export type ExperienceLogisticsItem = z.infer<typeof ExperienceLogisticsItemSchema>;
+export type ExperienceInclusionItem = z.infer<typeof ExperienceInclusionItemSchema>;
+export type ExperienceLocation = z.infer<typeof ExperienceLocationSchema>;
+export type ExperienceInclusionsContent = z.infer<typeof ExperienceInclusionsContentSchema>;
+export type ItineraryStop = z.infer<typeof ItineraryStopSchema>;
+export type ItineraryContent = z.infer<typeof ItineraryContentSchema>;
+export type HostContent = z.infer<typeof HostContentSchema>;
 export type ReservationState = z.infer<typeof ReservationStateSchema>;
 export type ExperienceData = z.infer<typeof ExperienceDataSchema>;
 

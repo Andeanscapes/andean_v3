@@ -12,11 +12,28 @@ if (process.env.NODE_ENV === 'development') {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Keep Next.js in server mode (no `next export`) so Cloudflare Pages can serve
-  // Next routes like `/_next/*` (required for <Image /> optimization and future server features).
+  // 1. ADDED: Image Optimization configuration for R2
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.andeanscapes.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 
-  // Fix dev warning: "Cross origin request detected ... you will need to explicitly configure allowedDevOrigins"
-  // Add comma-separated origins to NEXT_ALLOWED_DEV_ORIGINS if your LAN IP changes often.
+  reactStrictMode: true,
+  poweredByHeader: false,
+  productionBrowserSourceMaps: true,
+
   allowedDevOrigins:
     process.env.NODE_ENV === "development"
       ? [
@@ -28,15 +45,11 @@ const nextConfig = {
         ]
       : undefined,
 
-  reactStrictMode: true,
-  poweredByHeader: false,
-
   async headers() {
     const headers = [
       { key: 'X-Content-Type-Options', value: 'nosniff' },
       { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
       { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-      // Lock down powerful features by default; loosen only when needed.
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), payment=(), usb=()' }
     ];
 
@@ -56,28 +69,13 @@ const nextConfig = {
   },
 
   async redirects() {
-    // Keep nav links in existing template components from 404'ing after route cleanup.
-    // These are TEMP redirects so you can reintroduce routes later without fighting caches.
     const removedRoutes = [
-      '/email-form',
-      '/home-dark',
-      '/home-parallax',
-      '/about',
-      '/blog-details',
-      '/blog-list',
-      '/contact',
-      '/destination-details',
-      '/destinations',
-      '/gallary',
-      '/guides',
-      '/package-details',
-      '/package-details-2',
-      '/package-list',
-      '/package-sidebar'
+      '/email-form', '/home-dark', '/home-parallax', '/about', '/blog-details',
+      '/blog-list', '/contact', '/destination-details', '/destinations',
+      '/gallary', '/guides', '/package-details', '/package-details-2',
+      '/package-list', '/package-sidebar'
     ];
 
-    // Since routes now live under `app/[locale]`, requests can resolve as `/en/...` or `/es/...`
-    // (depending on localePrefix + middleware). Redirect both the unprefixed and prefixed forms.
     const locales = ['en', 'es', 'fr'];
 
     return [

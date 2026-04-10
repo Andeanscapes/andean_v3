@@ -11,20 +11,20 @@ import { PriceSummary } from '@/components/ExperienceReservation/PriceSummary';
 import { ConfirmationAction } from '@/components/ExperienceReservation/ConfirmationAction';
 import type { ExperienceData } from '@/lib/schemas';
 
-interface MiningAdventureReservationProps {
+interface ExperienceReservationPageProps {
   experienceData: ExperienceData;
 }
 
-export default function MiningAdventureReservation({
+export default function ExperienceReservationPage({
   experienceData,
-}: MiningAdventureReservationProps) {
+}: ExperienceReservationPageProps) {
   const { config, transportOptions, roomModes, availableDates, whatsappLink, heroContent } = experienceData;
 
   return (
     <ExperienceReservationProvider config={config} roomModes={roomModes}>
       {/* Full-width Hero */}
       <ExperienceHero config={config} heroContent={heroContent} />
-      
+
       {/* Form content in centered container */}
       <div className="container mx-auto max-w-4xl px-4 py-6 pb-6">
         <DateSelector availableDates={availableDates} />
@@ -38,4 +38,3 @@ export default function MiningAdventureReservation({
     </ExperienceReservationProvider>
   );
 }
-

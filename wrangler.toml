@@ -18,3 +18,7 @@ service = "andean-v3"
 [env.dev]
 name = "andean-v3-dev"
 routes = []
+
+[[env.dev.services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "andean-v3-dev"

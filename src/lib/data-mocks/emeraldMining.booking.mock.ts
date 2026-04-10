@@ -20,6 +20,13 @@ export const EMERALD_MINING_DATA: ExperienceData = {
     depositPercent: 15,
     maxPeople: 10,
     minPeople: 1,
+    // Image paths - configurable per experience
+    images: {
+      heroBackground: '/assets/images/hero/h10.webp',
+      valuePropositionTile1: '/assets/images/hero/h10.webp',
+      valuePropositionTile2: '/assets/images/hero/h7.webp',
+      valuePropositionTile3: '/assets/images/hero/h8.webp',
+    },
     // These should be translation keys too
     includesItems: [
       'experiences.emeraldMining.includes.guide',
@@ -34,6 +41,123 @@ export const EMERALD_MINING_DATA: ExperienceData = {
       security: 'experiences.common.security',
       ctaPrimary: 'experiences.common.ctaPrimary',
       ctaSecondary: 'experiences.common.ctaSecondary',
+    },
+    // Trip logistics data - will be translated by service
+    logistics: [
+      { id: 'start', icon: 'clock', label: 'experiences.emeraldMining.logistics.start', value: '11:00 AM' },
+      { id: 'duration', icon: 'hourglass', label: 'experiences.emeraldMining.logistics.duration', value: '3 Hours' },
+      { id: 'transport', icon: 'car', label: 'experiences.emeraldMining.logistics.transport', value: '4x4' },
+      { id: 'difficulty', icon: 'activity', label: 'experiences.emeraldMining.logistics.difficulty', value: 'Moderate' },
+      { id: 'end', icon: 'sunset', label: 'experiences.emeraldMining.logistics.end', value: '3:30 PM' },
+    ],
+    // Included items - will be translated by service
+    included: [
+      { id: 'guide', title: 'experiences.emeraldMining.included.guide' },
+      { id: 'equipment', title: 'experiences.emeraldMining.included.equipment' },
+      { id: 'meals', title: 'experiences.emeraldMining.included.meals' },
+      { id: 'insurance', title: 'experiences.emeraldMining.included.insurance' },
+    ],
+    // Not included items - will be translated by service
+    notIncluded: [
+      { id: 'accommodation', title: 'experiences.emeraldMining.notIncluded.accommodation' },
+      { id: 'drinks', title: 'experiences.emeraldMining.notIncluded.drinks' },
+      { id: 'souvenirs', title: 'experiences.emeraldMining.notIncluded.souvenirs' },
+    ],
+    // Meeting point coordinates — Chivor, Boyacá, Colombia
+    location: {
+      lat: 4.8699,
+      lng: -73.2897,
+      label: 'Chivor, Boyacá, Colombia',
+      zoom: 13,
+    },
+    // Itinerary stops - will be translated by service
+    itinerary: [
+      {
+        id: 'stop-1',
+        time: '11:00 AM',
+        title: 'experiences.emeraldMining.itinerary.stop1Title',
+        description: 'experiences.emeraldMining.itinerary.stop1Desc',
+        imageUrl: '/assets/images/hero/h10.webp',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop1Note1',
+          'experiences.emeraldMining.itinerary.stop1Note2',
+          'experiences.emeraldMining.itinerary.stop1Note3',
+        ],
+      },
+      {
+        id: 'stop-2',
+        time: '12:00 PM',
+        title: 'experiences.emeraldMining.itinerary.stop2Title',
+        description: 'experiences.emeraldMining.itinerary.stop2Desc',
+        imageUrl: '/assets/images/hero/h11.webp',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop2Note1',
+          'experiences.emeraldMining.itinerary.stop2Note2',
+          'experiences.emeraldMining.itinerary.stop2Note3',
+        ],
+      },
+      {
+        id: 'stop-3',
+        time: '1:00 PM',
+        title: 'experiences.emeraldMining.itinerary.stop3Title',
+        description: 'experiences.emeraldMining.itinerary.stop3Desc',
+        imageUrl: '/assets/images/hero/h8.webp',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop3Note1',
+          'experiences.emeraldMining.itinerary.stop3Note2',
+          'experiences.emeraldMining.itinerary.stop3Note3',
+        ],
+      },
+      {
+        id: 'stop-4',
+        time: '2:00 PM',
+        title: 'experiences.emeraldMining.itinerary.stop4Title',
+        description: 'experiences.emeraldMining.itinerary.stop4Desc',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop4Note1',
+          'experiences.emeraldMining.itinerary.stop4Note2',
+          'experiences.emeraldMining.itinerary.stop4Note3',
+        ],
+      },
+      {
+        id: 'stop-5',
+        time: '3:00 PM',
+        title: 'experiences.emeraldMining.itinerary.stop5Title',
+        description: 'experiences.emeraldMining.itinerary.stop5Desc',
+        imageUrl: '/assets/images/hero/h7.webp',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop5Note1',
+          'experiences.emeraldMining.itinerary.stop5Note2',
+          'experiences.emeraldMining.itinerary.stop5Note3',
+        ],
+      },
+      {
+        id: 'stop-6',
+        time: '4:30 PM',
+        title: 'experiences.emeraldMining.itinerary.stop6Title',
+        description: 'experiences.emeraldMining.itinerary.stop6Desc',
+        notes: [
+          'experiences.emeraldMining.itinerary.stop6Note1',
+          'experiences.emeraldMining.itinerary.stop6Note2',
+          'experiences.emeraldMining.itinerary.stop6Note3',
+        ],
+      },
+    ],
+    // Host / guide data - translatable content as keys, non-translatable as values
+    host: {
+      name: 'Carlos',
+      avatarUrl: '/assets/images/hero/h7.webp',
+      bio: 'experiences.emeraldMining.host.bio',
+      idealForItems: [
+        'experiences.emeraldMining.host.idealFor1',
+        'experiences.emeraldMining.host.idealFor2',
+        'experiences.emeraldMining.host.idealFor3',
+      ],
+      goodToKnowItems: [
+        'experiences.emeraldMining.host.goodToKnow1',
+        'experiences.emeraldMining.host.goodToKnow2',
+        'experiences.emeraldMining.host.goodToKnow3',
+      ],
     },
   },
   transportOptions: [
