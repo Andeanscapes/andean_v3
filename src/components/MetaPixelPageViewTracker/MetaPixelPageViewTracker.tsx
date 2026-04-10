@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -11,11 +11,13 @@ declare global {
 
 export default function MetaPixelPageViewTracker() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const search = searchParams?.toString() ?? '';
 
   useEffect(() => {
     const hostname = window.location.hostname;
     const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
-    if (isLocalhost) {
+    if (process.env.NODE_ENV === 'development' && isLocalhost) {
       return;
     }
 
@@ -24,7 +26,7 @@ export default function MetaPixelPageViewTracker() {
     }
 
     window.fbq('track', 'PageView');
-  }, [pathname]);
+  }, [pathname, search]);
 
   return null;
 }
