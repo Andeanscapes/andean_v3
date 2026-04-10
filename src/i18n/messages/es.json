@@ -259,7 +259,49 @@
                 "valueStackPrivateMineAccess": "Acceso Privado a Mina",
                 "valueStackLocalExpertGuides": "Guías Locales Expertos",
                 "valueStackAllMealsIncluded": "Todas las Comidas Incluidas",
-                "valueStackPremiumTransport": "Transporte 4x4 Premium"
+                "valueStackPremiumTransport": "Transporte 4x4 Premium",
+                "accommodationTitle": "Tu Estadía",
+                "selectYourStayTitle": "Opciones de Estadía",
+                "hostChoiceLabel": "Elección del Anfitrión",
+                "tierBadgeHeritage": "Heritage / Tradicional",
+                "tierBadgeAdventure": "Premium / Aventura",
+                "tierBadgeDefault": "Estadía Signature",
+                "selectedStayLabel": "Seleccionado",
+                "locationLabel": "Ubicación",
+                "maxCapacityLabel": "Hasta {count}",
+                "privateBathroomYes": "Baño Privado",
+                "privateBathroomNo": "Baño Compartido",
+                "wifiYes": "WiFi",
+                "wifiNo": "Sin WiFi",
+                "viewGalleryLabel": "Ver Galería",
+                "gallerySubtitle": "Habitación, vistas y amenidades",
+                "activityGallerySubtitle": "Fotos y momentos destacados",
+                "closeGalleryLabel": "Cerrar",
+                "perNightLabel": "/noche",
+                "perPersonPerNightLabel": "/persona/noche",
+                "includedServicesLabel": "Servicios Incluidos",
+                "roomCapacityLabel": "Hasta {count} huéspedes"
+            }
+        },
+        "tiers": {
+            "heritage": {
+                "name": "Hacienda El Recuerdo",
+                "desc": "Estadía con herencia colonial rodeada de territorio esmeraldero. Encanto rústico con habitaciones privadas y comida casera.",
+                "rooms": {
+                    "standard": "Habitación Estándar",
+                    "family": "Suite Familiar"
+                },
+                "services": {
+                    "breakfast": "Desayuno Tradicional",
+                    "dinner": "Cena Casera"
+                }
+            },
+            "adventure": {
+                "name": "Glamping Aventura",
+                "desc": "Duerme bajo las estrellas en domos geodésicos con vistas panorámicas a la montaña. Una experiencia premium al aire libre.",
+                "rooms": {
+                    "dome": "Domo Estelar"
+                }
             }
         },
         "emeraldMining": {
@@ -346,36 +388,26 @@
                 "souvenirs": "Gemas de recuerdo"
             },
             "itinerary": {
+                "day1Title": "Día 1 — Expedición Minera",
+                "day2Title": "Día 2 — Descubrimiento y Despedida",
                 "stop1Title": "Ingresa a la Mina de Esmeraldas",
+                "stop1ShortDesc": "La mina de esmeraldas más histórica de Colombia",
                 "stop1Desc": "Comienza tu aventura minera en una de las minas de esmeraldas más históricas de Colombia",
-                "stop1Note1": "Ingreso guiado a mina histórica",
-                "stop1Note2": "Observa depósitos de esmeralda en bruto",
-                "stop1Note3": "Guía experto en minería incluido",
-                "stop2Title": "Explora Mina Secundaria",
-                "stop2Desc": "Visita un depósito adicional con formaciones geológicas ricas",
-                "stop2Note1": "Técnicas tradicionales de extracción",
-                "stop2Note2": "Oportunidades para fotos",
-                "stop2Note3": "Aprende historia minera",
-                "stop3Title": "Taller de Clasificación de Esmeraldas",
-                "stop3Desc": "Aprende técnicas profesionales para identificar y calificar esmeraldas",
-                "stop3Note1": "Clasificación práctica de esmeraldas",
-                "stop3Note2": "Identifica impurezas y calidad",
-                "stop3Note3": "Conserva tus hallazgos",
-                "stop4Title": "Descanso para Almorzar",
-                "stop4Desc": "Disfruta de la auténtica gastronomía colombiana con sabores locales",
-                "stop4Note1": "Pausa de comida local",
-                "stop4Note2": "Descansa e hidrátate",
-                "stop4Note3": "Conoce a otros viajeros",
-                "stop5Title": "Masterclass en Gemmología",
+                "stop2Title": "Explora Mina Secundaria y Taller de Clasificación",
+                "stop2ShortDesc": "Aprende clasificación y tasación profesional de gemas",
+                "stop2Desc": "Visita un depósito adicional y aprende técnicas profesionales de clasificación",
+                "stop3Title": "Check-in en Tu Estadía",
+                "stop3ShortDesc": "Instálate en tu alojamiento seleccionado",
+                "stop3Desc": "Instálate en tu alojamiento seleccionado",
+                "stop4Title": "Desayuno Andino Tradicional",
+                "stop4ShortDesc": "Empieza el día con auténticos sabores andinos",
+                "stop4Desc": "Comienza el día dos con auténticos sabores locales",
+                "stop5Title": "Masterclass en Gemología",
+                "stop5ShortDesc": "Conocimiento experto sobre esmeraldas colombianas",
                 "stop5Desc": "Información experta sobre la calidad, origen e historia de las esmeraldas",
-                "stop5Note1": "Aprende estándares de clasificación",
-                "stop5Note2": "Preguntas y respuestas con gemólogo experto",
-                "stop5Note3": "Conversación sobre futuros talleres",
-                "stop6Title": "Cierre y Celebración",
-                "stop6Desc": "Reflexiona sobre el día y recibe tu certificado de participación",
-                "stop6Note1": "Conversación de cierre grupal",
-                "stop6Note2": "Repaso de seguridad",
-                "stop6Note3": "Certificado de participación"
+                "stop6Title": "Clasificación Final y Despedida",
+                "stop6ShortDesc": "Ceremonia de certificado y despedida",
+                "stop6Desc": "Reflexiona sobre el viaje y recibe tu certificado de participación"
             },
             "host": {
                 "bio": "Anfitrión local especializado en rutas de minería de esmeraldas y experiencias culturales andinas.",
@@ -394,6 +426,30 @@
         "whatsapp": "whatsapp",
         "instagram": "Instagram",
         "whatsappMessage": "¡Hola! Estoy interesado en tus servicios para Andean Scapes",
-        "backToTop": "Volver arriba"
+        "backToTop": "Volver arriba",
+        "valueProposition": "Andean Scapes: Aventuras curadas en la Capital Esmeraldera.",
+        "verifiedBySeal": "Verificado por Andean Scapes",
+        "verifiedFiveStarReviews": "500+ reseñas verificadas de 5 estrellas",
+        "ugcAlt": "Momento de viajero {index}",
+        "supportTitle": "Recibe Soporte",
+        "supportSubtitle": "Elige tu canal de soporte preferido y te conectamos rápido.",
+        "chatWithGuide": "Chatea con un Guía",
+        "emailSupport": "Soporte por Email",
+        "startWhatsapp": "Iniciar Chat por WhatsApp",
+        "sendEmail": "Enviar Email",
+        "territoryEssentials": "Esenciales del Territorio",
+        "logistics": "Logística",
+        "transportation": "Transporte",
+        "staySelection": "Opciones de Estadía",
+        "allyNetwork": "Nuestra Red de Aliados Curados",
+        "allyHacienda": "Hacienda El Recuerdo",
+        "allyGlamping": "Glamping Aventura",
+        "allyExperiences": "Todas las Experiencias",
+        "legalSafety": "Legal y Seguridad",
+        "certifications": "Certificaciones",
+        "insurance": "Seguros",
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "allRightsReserved": "Todos los derechos reservados."
     }
 }

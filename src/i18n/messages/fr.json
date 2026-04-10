@@ -259,7 +259,49 @@
         "valueStackPrivateMineAccess": "Accès Privé à la Mine",
         "valueStackLocalExpertGuides": "Guides Locaux Experts",
         "valueStackAllMealsIncluded": "Tous les Repas Inclus",
-        "valueStackPremiumTransport": "Transport 4x4 Premium"
+        "valueStackPremiumTransport": "Transport 4x4 Premium",
+                "accommodationTitle": "Votre Séjour",
+          "selectYourStayTitle": "Options de Séjour",
+                "hostChoiceLabel": "Choix de l'Hôte",
+                "tierBadgeHeritage": "Heritage / Traditionnel",
+                "tierBadgeAdventure": "Premium / Aventure",
+                "tierBadgeDefault": "Séjour Signature",
+                "selectedStayLabel": "Sélectionné",
+                "locationLabel": "Emplacement",
+                "maxCapacityLabel": "Jusqu'à {count}",
+                "privateBathroomYes": "Salle de Bain Privée",
+                "privateBathroomNo": "Salle de Bain Partagée",
+                "wifiYes": "WiFi",
+                "wifiNo": "Sans WiFi",
+                "viewGalleryLabel": "Voir la Galerie",
+                "gallerySubtitle": "Chambre, vues et équipements",
+                "activityGallerySubtitle": "Photos et moments forts de l'activité",
+                "closeGalleryLabel": "Fermer",
+                "perNightLabel": "/nuit",
+                "perPersonPerNightLabel": "/personne/nuit",
+                "includedServicesLabel": "Services Inclus",
+                "roomCapacityLabel": "Jusqu'à {count} personnes"
+      }
+    },
+    "tiers": {
+      "heritage": {
+        "name": "Hacienda El Recuerdo",
+        "desc": "Un séjour dans un patrimoine colonial entouré de pays émeraude. Charme rustique avec chambres privées et repas maison.",
+        "rooms": {
+          "standard": "Chambre Standard",
+          "family": "Suite Familiale"
+        },
+        "services": {
+          "breakfast": "Petit-déjeuner Traditionnel",
+          "dinner": "Dîner Maison"
+        }
+      },
+      "adventure": {
+        "name": "Glamping Aventure",
+        "desc": "Dormez sous les étoiles dans des dômes géodésiques avec vue panoramique sur les montagnes. Une expérience premium en plein air.",
+        "rooms": {
+          "dome": "Dôme Stellaire"
+        }
       }
     },
     "emeraldMining": {
@@ -342,36 +384,26 @@
         "souvenirs": "Pierres souvenir"
       },
       "itinerary": {
+        "day1Title": "Jour 1 — Expédition Minière",
+        "day2Title": "Jour 2 — Découverte et Adieu",
         "stop1Title": "Entrez dans la Mine d'Émeraude",
+        "stop1ShortDesc": "La mine d'émeraudes la plus historique de Colombie",
         "stop1Desc": "Commencez votre aventure minière dans l'une des mines d'émeraudes les plus historiques de la Colombie",
-        "stop1Note1": "Entrée guidée dans la mine historique",
-        "stop1Note2": "Observez des gisements d'émeraudes brutes",
-        "stop1Note3": "Guide minier expert inclus",
-        "stop2Title": "Explorez la Mine Secondaire",
-        "stop2Desc": "Visitez un gisement supplémentaire avec des formations géologiques riches",
-        "stop2Note1": "Techniques d'extraction traditionnelles",
-        "stop2Note2": "Opportunités photo",
-        "stop2Note3": "Découvrez l'histoire minière",
-        "stop3Title": "Atelier de Tri des Émeraudes",
-        "stop3Desc": "Apprenez les techniques professionnelles pour identifier et évaluer les émeraudes",
-        "stop3Note1": "Tri pratique des émeraudes",
-        "stop3Note2": "Identifier les impuretés et la qualité",
-        "stop3Note3": "Conservez vos découvertes",
-        "stop4Title": "Pause Déjeuner",
-        "stop4Desc": "Dégustez l'authentique cuisine colombienne avec des saveurs locales",
-        "stop4Note1": "Pause repas avec cuisine locale",
-        "stop4Note2": "Reposez-vous et hydratez-vous",
-        "stop4Note3": "Rencontrez d'autres voyageurs",
+        "stop2Title": "Explorez la Mine Secondaire et Atelier de Tri",
+        "stop2ShortDesc": "Apprenez le tri et la classification professionnels",
+        "stop2Desc": "Visitez un gisement supplémentaire et apprenez les techniques professionnelles de tri",
+        "stop3Title": "Enregistrement à Votre Séjour",
+        "stop3ShortDesc": "Installez-vous dans votre hébergement choisi",
+        "stop3Desc": "Installez-vous dans votre hébergement sélectionné",
+        "stop4Title": "Petit-déjeuner Andin Traditionnel",
+        "stop4ShortDesc": "Commencez la journée avec des saveurs andines authentiques",
+        "stop4Desc": "Commencez le deuxième jour avec des saveurs locales authentiques",
         "stop5Title": "Masterclass en Gemmologie",
+        "stop5ShortDesc": "Expertise sur la qualité et l'origine des émeraudes",
         "stop5Desc": "Aperçus d'experts sur la qualité, l'origine et l'histoire des émeraudes",
-        "stop5Note1": "Apprenez les standards de gradation",
-        "stop5Note2": "Questions-réponses avec un gemmologue expert",
-        "stop5Note3": "Discussion sur les futurs ateliers",
-        "stop6Title": "Clôture et Célébration",
-        "stop6Desc": "Réfléchissez sur la journée et recevez votre certificat de participation",
-        "stop6Note1": "Discussion de clôture en groupe",
-        "stop6Note2": "Débriefing sécurité",
-        "stop6Note3": "Certificat de participation"
+        "stop6Title": "Tri Final et Adieu",
+        "stop6ShortDesc": "Cérémonie de certificat et au revoir",
+        "stop6Desc": "Réfléchissez sur le voyage et recevez votre certificat de participation"
       },
       "host": {
         "bio": "Hôte local spécialisé dans les circuits miniers d'émeraudes et les expériences culturelles andines.",
@@ -390,6 +422,30 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Bonjour! Je suis intéressé par vos services pour Andean Scapes",
-    "backToTop": "Retour en haut"
+    "backToTop": "Retour en haut",
+    "valueProposition": "Andean Scapes: Aventures curatoriales dans la Capitale de l'Émeraude.",
+    "verifiedBySeal": "Vérifié par Andean Scapes",
+    "verifiedFiveStarReviews": "500+ avis vérifiés 5 étoiles",
+    "ugcAlt": "Moment voyageur {index}",
+    "supportTitle": "Obtenir de l'Aide",
+    "supportSubtitle": "Choisissez votre canal d'assistance préféré et nous vous connectons rapidement.",
+    "chatWithGuide": "Parler avec un Guide",
+    "emailSupport": "Support Email",
+    "startWhatsapp": "Démarrer le Chat WhatsApp",
+    "sendEmail": "Envoyer un Email",
+    "territoryEssentials": "Essentiels du Territoire",
+    "logistics": "Logistique",
+    "transportation": "Transport",
+    "staySelection": "Options de Séjour",
+    "allyNetwork": "Notre Réseau d'Alliés Curés",
+    "allyHacienda": "Hacienda El Recuerdo",
+    "allyGlamping": "Glamping Aventura",
+    "allyExperiences": "Toutes les Expériences",
+    "legalSafety": "Légal & Sécurité",
+    "certifications": "Certifications",
+    "insurance": "Assurance",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "allRightsReserved": "Tous droits réservés."
   }
 }

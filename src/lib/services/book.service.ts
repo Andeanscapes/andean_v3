@@ -116,7 +116,7 @@ export async function getBookingDataSSR(
     transportOptions: rawData.transportOptions.map((option) => ({
       ...option,
       label: t(option.label),
-      description: t(option.description),
+      description: option.description ? t(option.description) : undefined,
     })),
     roomModes: rawData.roomModes.map((mode) => ({
       ...mode,
@@ -159,11 +159,36 @@ export async function getBookingDataSSR(
     } : undefined,
     itineraryContent: rawData.config.itinerary ? {
       sectionTitle: t('experiences.ui.experienceDetails.itineraryTitle'),
-      stops: rawData.config.itinerary.map((stop) => ({
-        ...stop,
-        title: t(stop.title),
-        description: stop.description ? t(stop.description) : undefined,
-        notes: stop.notes?.map((note) => t(note)),
+      days: rawData.config.itinerary.map((day) => ({
+        day: day.day,
+        label: t(day.label),
+        stops: day.stops.map((stop) => ({
+          ...stop,
+          title: t(stop.title),
+          shortDescription: stop.shortDescription ? t(stop.shortDescription) : undefined,
+          description: stop.description ? t(stop.description) : undefined,
+          notes: stop.notes?.map((note) => t(note)),
+        })),
+      })),
+    } : undefined,
+    accommodationTiersContent: rawData.accommodationTiers ? {
+      sectionTitle: t('experiences.ui.experienceDetails.accommodationTitle'),
+      tiers: rawData.accommodationTiers.map((tier) => ({
+        id: tier.id,
+        tierTag: t(tier.tierTag),
+        tierLabel: t(tier.tierLabel),
+        tierDescription: t(tier.tierDescription),
+        isHostChoice: tier.isHostChoice,
+        images: tier.images,
+        quickSpecs: tier.quickSpecs,
+        rooms: tier.rooms.map((room) => ({
+          ...room,
+          label: t(room.label),
+        })),
+        services: tier.services?.map((svc) => ({
+          ...svc,
+          label: t(svc.label),
+        })),
       })),
     } : undefined,
     hostContent: rawData.config.host ? {

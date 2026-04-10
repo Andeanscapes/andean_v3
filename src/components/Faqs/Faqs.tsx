@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
@@ -19,6 +19,18 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
   const t = useTranslations();
   const { config, whatsappLink, heroContent } = experienceData;
   const bgImageUrl = heroContent?.backgroundImageUrl;
+
+  const handleSupportClick = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const supportModule = document.getElementById('support-module');
+    if (supportModule) {
+      supportModule.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+  }, [whatsappLink]);
 
   const faqItems = [
     {
@@ -42,7 +54,7 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
 
   return (
     <SectionContainer
-      sectionClassName={`relative overflow-hidden bg-[#0A0A0A] px-4 pt-10 pb-0 backdrop-blur-none md:px-6 md:pt-14 md:pb-0 lg:px-10 lg:pt-16 lg:pb-0 ${className}`.trim()}
+      sectionClassName={`relative overflow-hidden bg-[#0A0A0A] px-4 pt-8 pb-0 backdrop-blur-none md:px-6 md:pt-14 md:pb-0 lg:px-10 lg:pt-16 lg:pb-0 ${className}`.trim()}
     >
       {bgImageUrl ? (
         <BackgroundImageWithFallback src={bgImageUrl} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
@@ -54,27 +66,27 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
       />
 
       <div className="relative">
-        <div className="mb-8 max-w-3xl">
+        <div className="mb-6 max-w-3xl md:mb-8">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-emerald-400/90">
             {t('experiences.ui.experienceDetails.faqsTitle')}
           </p>
-          <h2 className="text-2xl font-bold leading-tight text-white md:text-3xl">
+          <h2 className="text-xl font-bold leading-tight text-white md:text-3xl">
             {config.title}
           </h2>
-          <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-white/68 md:text-base">
+          <p className="mt-2 max-w-2xl text-xs font-medium leading-relaxed text-white/68 md:mt-3 md:text-base">
             {config.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
+        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
           <Accordion
             items={faqItems}
             defaultOpen={['faq-1']}
             useJoin={false}
-            className={`${shouldUseTwoColumns ? 'lg:columns-2 lg:gap-4' : ''} [&_.collapse]:mb-3 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-5 [&_.collapse-content]:pb-4 [&_.collapse-content]:text-base [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70`}
+            className={`${shouldUseTwoColumns ? 'lg:columns-2 lg:gap-4' : ''} [&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base`}
             itemClassName={`${shouldUseTwoColumns ? 'lg:break-inside-avoid lg:mb-4' : ''} border border-white/10 bg-slate-900/45 backdrop-blur-xl transition-colors duration-200 hover:border-emerald-400/35 active:border-emerald-500/50`}
-            titleClassName="flex min-h-11 items-center px-5 py-3 text-xl font-semibold text-white transition-colors duration-200"
-            contentInnerClassName="pt-2 max-h-[300px] overflow-y-auto pr-1"
+            titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-semibold leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-xl"
+            contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
             activeItemClassName="border-emerald-500/50 border-l-4 border-l-emerald-500 bg-slate-900/60 shadow-[0_0_0_1px_rgba(16,185,129,0.18)]"
             activeTitleClassName="text-emerald-400"
           />
@@ -109,9 +121,8 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
                     </span>
                   </PrimaryCtaButton>
                   <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#support-module"
+                    onClick={handleSupportClick}
                     className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 hover:brightness-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.14)]"
                   >
                     <span className="inline-flex items-center gap-2">

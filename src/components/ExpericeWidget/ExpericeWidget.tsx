@@ -7,6 +7,7 @@ import type { ExperienceData } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { Card } from '@/components/ui/Card/Card';
+import { useThemeContext } from '@/contexts/ThemeContext';
 
 interface ExpericeWidgetProps {
   experienceData: ExperienceData;
@@ -17,6 +18,7 @@ function ExpericeWidgetComponent({
 }: ExpericeWidgetProps) {
   const widgetId = useId();
   const locale = useLocale();
+  const { theme } = useThemeContext();
   const { config, availableDates, transportOptions, whatsappLink, widgetContent } = experienceData;
 
   const nextDateLabel = useMemo(() => {
@@ -34,16 +36,37 @@ function ExpericeWidgetComponent({
       style: 'currency',
       currency: 'COP',
       maximumFractionDigits: 0,
-    }).format(config.basePricePerPerson);
-  }, [config.basePricePerPerson, locale]);
+    }).format(config.experiencePricePerPerson);
+  }, [config.experiencePricePerPerson, locale]);
+
+  const isDarkTheme = theme === 'dark';
+
+  const cardClass = isDarkTheme
+    ? 'relative border border-white/15 bg-slate-900/45 p-4 shadow-none backdrop-blur-xl md:p-8'
+    : 'relative border border-neutral-200 bg-white/95 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:p-8';
+
+  const overlayClass = isDarkTheme
+    ? 'pointer-events-none absolute inset-0 rounded-[inherit] bg-slate-950/35'
+    : 'pointer-events-none absolute inset-0 rounded-[inherit] bg-white/80';
+
+  const selectClass = isDarkTheme
+    ? 'select select-bordered w-full border-white/20 bg-slate-900/85 text-base-content'
+    : 'select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900';
+
+  const mutedTextClass = isDarkTheme ? 'text-base-content/60' : 'text-neutral-700';
+  const bodyTextClass = isDarkTheme ? 'text-base-content/70' : 'text-neutral-700';
+  const iconClass = isDarkTheme ? 'text-[#00F08F]' : 'text-emerald-600';
+  const whatsappSecondaryCtaClass = isDarkTheme
+    ? 'btn btn-outline mt-3 h-auto min-h-12 w-full gap-2 border-white/40 bg-slate-900/40 text-white hover:bg-slate-900/60 md:mt-4'
+    : 'btn btn-outline mt-3 h-auto min-h-12 w-full gap-2 border-neutral-300 bg-white/70 text-neutral-900 hover:bg-neutral-100 md:mt-4';
 
   return (
     <>
       <Card
         padding="md"
-        className="relative border border-neutral-300 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:p-8 dark:border-white/20 dark:shadow-none"
+        className={cardClass}
       >
-        <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-white dark:bg-base-100/10 dark:backdrop-blur-md" />
+        <div className={overlayClass} />
 
         <span className="absolute -top-2 left-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:-top-3 md:-left-2 md:px-3 md:text-[10px]">
           {widgetContent?.topSellerLabel}
@@ -53,7 +76,7 @@ function ExpericeWidgetComponent({
           <div>
             <p className="mt-2 text-2xl font-extrabold text-base-content md:mt-0 md:text-3xl">
               {formattedPrice}
-              <span className="ml-1 text-[10px] font-normal tracking-wide text-neutral-700 dark:text-base-content/60 md:text-xs">
+              <span className={`ml-1 text-[10px] font-normal tracking-wide md:text-xs ${mutedTextClass}`}>
                 {widgetContent?.perPersonLabel}
               </span>
             </p>
@@ -65,15 +88,15 @@ function ExpericeWidgetComponent({
                     size={14}
                     fill="currentColor"
                     stroke="currentColor"
-                    className="text-emerald-600 dark:text-[#00F08F]"
+                    className={iconClass}
                   />
                 ))}
               </div>
-              <span className="ml-2 text-xs text-neutral-700 dark:text-base-content/60">
+              <span className={`ml-2 text-xs ${mutedTextClass}`}>
                 {widgetContent?.reviewsCountLabel}
               </span>
             </div>
-            <p className="text-sm text-neutral-700 dark:text-base-content/70">{widgetContent?.onSelectedDatesLabel}</p>
+            <p className={`text-sm ${bodyTextClass}`}>{widgetContent?.onSelectedDatesLabel}</p>
           </div>
 
           <div className="space-y-1">
@@ -82,7 +105,7 @@ function ExpericeWidgetComponent({
             </label>
             <select
               id={`${widgetId}-date`}
-              className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+              className={selectClass}
             >
               <option>{nextDateLabel}</option>
               {availableDates
@@ -100,7 +123,7 @@ function ExpericeWidgetComponent({
               <label htmlFor={`${widgetId}-people`} className="text-sm font-medium text-base-content/90">{widgetContent?.peopleLabel}</label>
               <select
                 id={`${widgetId}-people`}
-                className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+                className={selectClass}
               >
                 {Array.from({ length: config.maxPeople - config.minPeople + 1 }).map((_, idx) => {
                   const value = config.minPeople + idx;
@@ -118,7 +141,7 @@ function ExpericeWidgetComponent({
             <label htmlFor={`${widgetId}-transport`} className="text-sm font-medium text-base-content/90">{widgetContent?.howToArriveLabel}</label>
             <select
               id={`${widgetId}-transport`}
-              className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+              className={selectClass}
             >
               {transportOptions.map((transport) => (
                 <option key={transport.value} value={transport.value}>
@@ -128,24 +151,24 @@ function ExpericeWidgetComponent({
             </select>
           </div>
 
-          <PrimaryCtaButton size="lg" className="w-full py-3 text-neutral-900 md:py-4 dark:text-black">
+          <PrimaryCtaButton size="lg" className="w-full py-3 md:py-4">
             <span className="inline-flex items-center gap-2">
               {widgetContent?.bookingButtonLabel}
               <ArrowRight size={18} className="flex-shrink-0" />
             </span>
           </PrimaryCtaButton>
 
-          <div className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-base-content/70">
+          <div className={`flex flex-col gap-1 text-sm ${bodyTextClass}`}>
             <div className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <ShieldCheck size={14} className={iconClass} />
               <span>{widgetContent?.securityLine}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Undo2 size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <Undo2 size={14} className={iconClass} />
               <span>{widgetContent?.freeCancellationLine}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Star size={14} className="text-emerald-600 dark:text-[#00F08F]" />
+              <Star size={14} className={iconClass} />
               <span>{widgetContent?.verifiedReviewsLine}</span>
             </div>
           </div>
@@ -156,7 +179,7 @@ function ExpericeWidgetComponent({
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-outline mt-3 w-full gap-2 h-auto min-h-12 hover:bg-base-200 md:mt-4 dark:border-white/40 dark:bg-base-100/10 dark:text-white dark:hover:bg-base-100/20"
+        className={whatsappSecondaryCtaClass}
       >
         <MessageCircle size={18} className="flex-shrink-0" />
         {widgetContent?.whatsappCtaLabel}

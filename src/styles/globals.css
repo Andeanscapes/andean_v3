@@ -12,8 +12,8 @@
   name: "light";
   default: true;
   color-scheme: light;
-  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
-  --color-primary-content: oklch(98% 0.01 165);        /* white text on primary */
+  --color-primary: #00D47E;                            /* darker green for light-theme contrast */
+  --color-primary-content: oklch(20% 0.02 165);        /* dark text on bright primary */
   --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
   --color-secondary-content: oklch(98% 0.01 35);       /* white text on secondary */
   --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B – lighter green */
@@ -26,8 +26,8 @@
   name: "dark";
   prefersdark: true;
   color-scheme: dark;
-  --color-primary: oklch(68.2% 0.109 165.1);          /* #4CAE88 – brand green */
-  --color-primary-content: oklch(98% 0.01 165);
+  --color-primary: #00F08F;                           /* brighter emerald for dark-theme contrast */
+  --color-primary-content: oklch(20% 0.02 165);
   --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
   --color-secondary-content: oklch(98% 0.01 35);
   --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B */
@@ -70,9 +70,9 @@
   --text-6xl: 72px;
   --text-7xl: 80px;
 
-  --color-primary-1: #4CAE88;
-  --color-primary-2: #6FC19B;
-  --color-primary-3: #D4EBD2;
+  --color-primary-1: #00F08F;
+  --color-primary-2: #00D47E;
+  --color-primary-3: #D6FCEB;
   --color-secondary-1: #FF7C5B;
   --color-secondary-2: #FFB29E;
   --color-dark-base: #1E1E1E;
@@ -207,7 +207,7 @@ main[data-theme="light"] {
 }
 
 main[data-theme="dark"] {
-  @apply bg-dark-2;
+  @apply bg-slate-950;
 }
 
 @layer base {

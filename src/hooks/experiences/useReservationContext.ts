@@ -116,7 +116,7 @@ export function useReservationPricing() {
     const safe = requireContext(ctx);
     return safe.state.pricing;
   }) as {
-    basePricePerPerson: number;
+    experiencePricePerPerson: number;
     total: number;
     depositPercent: number;
     depositAmount: number;

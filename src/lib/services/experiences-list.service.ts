@@ -1,4 +1,5 @@
 import type { ExperiencesListData } from '../schemas';
+import type { ExperienceData } from '../schemas';
 import { EXPERIENCES_LIST_CONFIG } from '../data-mocks/experiencesList.mock';
 import { getTranslations } from 'next-intl/server';
 import { getExperienceDataByIdSSR } from './experiences-catalog.service';
@@ -44,7 +45,7 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
           price = cached;
         } else {
           const expData = await getExperienceDataByIdSSR(card.experienceId, locale);
-          price = expData.config.basePricePerPerson;
+          price = computeFromPrice(expData);
           experiencePriceCache.set(card.experienceId, price);
         }
       }
@@ -88,4 +89,45 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
     },
     cards,
   };
+}
+
+/**
+ * Compute the all-in "From" price per person for the list card.
+ * Formula: experiencePrice + cheapestTier(roomPerPerson + services) × nights
+ * Falls back to experiencePricePerPerson if no tiers exist.
+ */
+function computeFromPrice(expData: ExperienceData): number {
+  const { experiencePricePerPerson, numberOfNights } = expData.config;
+  const tiers = expData.accommodationTiers;
+
+  if (!tiers || tiers.length === 0) {
+    return experiencePricePerPerson;
+  }
+
+  const nights = numberOfNights;
+  let cheapestTierCost = Infinity;
+
+  for (const tier of tiers) {
+    // Find cheapest room per person in this tier
+    let cheapestRoomPerPerson = Infinity;
+    for (const room of tier.rooms) {
+      const perPerson = room.pricePerNight / room.capacity;
+      if (perPerson < cheapestRoomPerPerson) {
+        cheapestRoomPerPerson = perPerson;
+      }
+    }
+
+    // Sum all service costs per person per night
+    const servicesPerPerson = (tier.services ?? []).reduce(
+      (sum, svc) => sum + svc.pricePerPersonPerNight,
+      0
+    );
+
+    const tierTotal = (cheapestRoomPerPerson + servicesPerPerson) * nights;
+    if (tierTotal < cheapestTierCost) {
+      cheapestTierCost = tierTotal;
+    }
+  }
+
+  return experiencePricePerPerson + (cheapestTierCost === Infinity ? 0 : cheapestTierCost);
 }

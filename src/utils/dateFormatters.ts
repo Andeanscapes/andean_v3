@@ -4,7 +4,7 @@ import type { AvailableDate } from '@/lib/schemas';
  * Formats a date range for display based on user's locale
  * 
  * @param startDate - ISO 8601 UTC string
- * @param endDate - ISO 8601 UTC string
+ * @param endDate - Optional ISO 8601 UTC string
  * @param locale - User's locale (e.g., 'es', 'en', 'fr')
  * @returns Formatted date range string
  * 
@@ -12,14 +12,20 @@ import type { AvailableDate } from '@/lib/schemas';
  * - es: "Sáb 16 - Dom 17 Mar"
  * - en: "Sat 16 - Sun 17 Mar"
  * - fr: "Sam 16 - Dim 17 Mar"
+ * - single day: "Sat 16 Mar"
  */
 export function formatDateRange(
   startDate: string,
-  endDate: string,
+  endDate: string | undefined,
   locale: string
 ): string {
   const start = new Date(startDate);
-  const end = new Date(endDate);
+  const end = endDate ? new Date(endDate) : null;
+
+  // Fallback label when upstream data is invalid.
+  if (Number.isNaN(start.getTime())) {
+    return 'TBD';
+  }
 
   const weekdayFormatter = new Intl.DateTimeFormat(locale, {
     weekday: 'short',
@@ -38,9 +44,14 @@ export function formatDateRange(
 
   const startWeekday = weekdayFormatter.format(start);
   const startDay = dayFormatter.format(start);
+  const month = monthFormatter.format(start);
+
+  if (!end || Number.isNaN(end.getTime())) {
+    return `${startWeekday} ${startDay} ${month}`;
+  }
+
   const endWeekday = weekdayFormatter.format(end);
   const endDay = dayFormatter.format(end);
-  const month = monthFormatter.format(start);
 
   return `${startWeekday} ${startDay} - ${endWeekday} ${endDay} ${month}`;
 }

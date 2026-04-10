@@ -27,7 +27,7 @@ export function PrimaryCtaButton(props: PrimaryCtaButtonProps) {
     const sizeClass = size === 'lg' ? 'btn-lg min-h-11 px-4 md:px-5' : 'btn-md min-h-11 px-4';
     const widthClass = fullWidth ? 'w-full' : '';
     const baseClass =
-      'btn border-0 bg-[#00F08F] font-extrabold text-slate-950 shadow-[0_0_20px_rgba(0,240,143,0.28)] transition-all duration-200 hover:bg-[#00D47E] hover:brightness-105 active:scale-[0.98] active:brightness-95';
+      'btn border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95';
     const composedClass = `${baseClass} ${sizeClass} ${widthClass} ${className}`.trim();
 
     return (
@@ -41,7 +41,7 @@ export function PrimaryCtaButton(props: PrimaryCtaButtonProps) {
   const sizeClass = size === 'lg' ? 'btn-lg min-h-11 px-4 md:px-5' : 'btn-md min-h-11 px-4';
   const widthClass = fullWidth ? 'w-full' : '';
   const baseClass =
-    'btn border-0 bg-[#00F08F] font-extrabold text-slate-950 shadow-[0_0_20px_rgba(0,240,143,0.28)] transition-all duration-200 hover:bg-[#00D47E] hover:brightness-105 active:scale-[0.98] active:brightness-95';
+    'btn border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95';
   const composedClass = `${baseClass} ${sizeClass} ${widthClass} ${className}`.trim();
 
   return (

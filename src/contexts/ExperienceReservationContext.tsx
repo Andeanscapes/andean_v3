@@ -23,7 +23,7 @@ interface ExperienceReservationProviderProps {
 }
 
 function createInitialState(
-  basePricePerPerson: number,
+  experiencePricePerPerson: number,
   depositPercent: number,
   roomModes: RoomModeOption[]
 ): ReservationState {
@@ -43,7 +43,7 @@ function createInitialState(
     },
     termsAccepted: false,
     pricing: calculatePricing(
-      basePricePerPerson,
+      experiencePricePerPerson,
       depositPercent,
       roomModes,
       roomSelections
@@ -53,7 +53,7 @@ function createInitialState(
 }
 
 function createReservationReducer(
-  basePricePerPerson: number,
+  experiencePricePerPerson: number,
   depositPercent: number,
   roomModes: RoomModeOption[]
 ) {
@@ -78,7 +78,7 @@ function createReservationReducer(
           roomSelections: action.payload,
           peopleCount,
           pricing: calculatePricing(
-            basePricePerPerson,
+            experiencePricePerPerson,
             depositPercent,
             roomModes,
             action.payload
@@ -128,7 +128,7 @@ function createReservationReducer(
         };
         // Recalculate pricing based on hydrated values
         hydrated.pricing = calculatePricing(
-          basePricePerPerson,
+          experiencePricePerPerson,
           depositPercent,
           roomModes,
           hydrated.roomSelections
@@ -137,7 +137,7 @@ function createReservationReducer(
       }
 
       case 'RESET': {
-        return createInitialState(basePricePerPerson, depositPercent, roomModes);
+        return createInitialState(experiencePricePerPerson, depositPercent, roomModes);
       }
 
       default:
@@ -153,11 +153,11 @@ export function ExperienceReservationProvider({
 }: ExperienceReservationProviderProps) {
   const [state, dispatch] = useReducer(
     createReservationReducer(
-      config.basePricePerPerson,
+      config.experiencePricePerPerson,
       config.depositPercent,
       roomModes
     ),
-    createInitialState(config.basePricePerPerson, config.depositPercent, roomModes)
+    createInitialState(config.experiencePricePerPerson, config.depositPercent, roomModes)
   );
 
   const storage = useMemo(

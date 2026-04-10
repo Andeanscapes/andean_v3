@@ -3,6 +3,7 @@ import ExperienceHero from '@/components/ExperienceHero/ExperienceHero';
 import ExpericeWidget from '@/components/ExpericeWidget/ExpericeWidget';
 import ValuePropositions from '@/components/ValuePropositions/ValuePropositions';
 import Inclusions from '@/components/Inclusions/Inclusions';
+import AccommodationTiers from '@/components/AccommodationTiers/AccommodationTiers';
 import Itinerary from '@/components/Itinerary/Itinerary';
 import Host from '@/components/Host/Host';
 import Faqs from '@/components/Faqs/Faqs';
@@ -26,6 +27,7 @@ export default function ExperienceDetailsPage({
       />
       <ValuePropositions experienceData={experienceData} />
       <Inclusions experienceData={experienceData} />
+      <AccommodationTiers experienceData={experienceData} />
       <Itinerary experienceData={experienceData} sidebar={<Host experienceData={experienceData} />} />
       <Faqs experienceData={experienceData} />
       <MobileStickyBookingBar experienceData={experienceData} />

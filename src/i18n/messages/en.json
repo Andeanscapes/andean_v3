@@ -259,7 +259,49 @@
                 "valueStackPrivateMineAccess": "Private Mine Access",
                 "valueStackLocalExpertGuides": "Local Expert Guides",
                 "valueStackAllMealsIncluded": "All Meals Included",
-                "valueStackPremiumTransport": "Premium 4x4 Transport"
+                "valueStackPremiumTransport": "Premium 4x4 Transport",
+                "accommodationTitle": "Your Stay",
+                "selectYourStayTitle": "Stay Options",
+                "hostChoiceLabel": "Host's Choice",
+                "tierBadgeHeritage": "Heritage / Traditional",
+                "tierBadgeAdventure": "Premium / Adventure",
+                "tierBadgeDefault": "Signature Stay",
+                "selectedStayLabel": "Selected",
+                "locationLabel": "Location",
+                "maxCapacityLabel": "Up to {count}",
+                "privateBathroomYes": "Private Bath",
+                "privateBathroomNo": "Shared Bath",
+                "wifiYes": "WiFi",
+                "wifiNo": "No WiFi",
+                "viewGalleryLabel": "View Gallery",
+                "gallerySubtitle": "Room, views, and amenities",
+                "activityGallerySubtitle": "Activity photos and highlights",
+                "closeGalleryLabel": "Close",
+                "perNightLabel": "/night",
+                "perPersonPerNightLabel": "/person/night",
+                "includedServicesLabel": "Included Services",
+                "roomCapacityLabel": "Up to {count} guests"
+            }
+        },
+        "tiers": {
+            "heritage": {
+                "name": "Hacienda El Recuerdo",
+                "desc": "A colonial heritage stay surrounded by emerald country. Rustic charm with private rooms and home-cooked meals.",
+                "rooms": {
+                    "standard": "Standard Room",
+                    "family": "Family Suite"
+                },
+                "services": {
+                    "breakfast": "Traditional Breakfast",
+                    "dinner": "Homestyle Dinner"
+                }
+            },
+            "adventure": {
+                "name": "Glamping Adventure",
+                "desc": "Sleep under the stars in geodesic domes with panoramic mountain views. A premium outdoor experience.",
+                "rooms": {
+                    "dome": "Stellar Dome"
+                }
             }
         },
         "emeraldMining": {
@@ -342,36 +384,26 @@
                 "souvenirs": "Souvenir gems"
             },
             "itinerary": {
+                "day1Title": "Day 1 — Mining Expedition",
+                "day2Title": "Day 2 — Discovery & Farewell",
                 "stop1Title": "Enter the Emerald Mine",
+                "stop1ShortDesc": "Colombia's most historic emerald mine awaits",
                 "stop1Desc": "Begin your mining adventure in one of Colombia's most historic emerald mines",
-                "stop1Note1": "Guided entry into historic mine",
-                "stop1Note2": "See raw emerald deposits",
-                "stop1Note3": "Expert mining guide included",
-                "stop2Title": "Explore Secondary Mine",
-                "stop2Desc": "Visit an additional emerald deposit with rich geological formations",
-                "stop2Note1": "Traditional extraction techniques",
-                "stop2Note2": "Photo opportunities",
-                "stop2Note3": "Learn mining history",
-                "stop3Title": "Emerald Sorting Workshop",
-                "stop3Desc": "Learn professional techniques for identifying and grading emeralds",
-                "stop3Note1": "Hands-on emerald sorting",
-                "stop3Note2": "Identify impurities and quality",
-                "stop3Note3": "Keep your findings",
-                "stop4Title": "Lunch Break",
-                "stop4Desc": "Enjoy authentic Colombian cuisine with local flavors",
-                "stop4Note1": "Meal break with local food",
-                "stop4Note2": "Relax and hydrate",
-                "stop4Note3": "Meet other travelers",
+                "stop2Title": "Explore Secondary Mine & Sorting Workshop",
+                "stop2ShortDesc": "Learn professional gem grading and sorting",
+                "stop2Desc": "Visit an additional emerald deposit and learn professional grading techniques",
+                "stop3Title": "Check-in at Your Stay",
+                "stop3ShortDesc": "Settle into your selected accommodation",
+                "stop3Desc": "Settle into your selected accommodation tier",
+                "stop4Title": "Traditional Andean Breakfast",
+                "stop4ShortDesc": "Start day two with authentic Andean flavors",
+                "stop4Desc": "Start day two with authentic local flavors",
                 "stop5Title": "Gemology Masterclass",
+                "stop5ShortDesc": "Expert insights into emerald quality and origins",
                 "stop5Desc": "Expert insights into emerald quality, origins, and the industry",
-                "stop5Note1": "Learn emerald grading standards",
-                "stop5Note2": "Q&A with expert gemologist",
-                "stop5Note3": "Discuss future workshops",
-                "stop6Title": "Wrap-up & Celebration",
-                "stop6Desc": "Reflect on the day and receive your certificate of participation",
-                "stop6Note1": "Group wrap-up discussion",
-                "stop6Note2": "Safety debrief",
-                "stop6Note3": "Certificate of participation"
+                "stop6Title": "Final Sorting & Farewell",
+                "stop6ShortDesc": "Certificate ceremony and farewell",
+                "stop6Desc": "Reflect on the journey and receive your certificate of participation"
             },
             "host": {
                 "bio": "Local host specialized in emerald mining routes and Andean cultural experiences.",
@@ -390,6 +422,30 @@
         "whatsapp": "whatsapp",
         "instagram": "Instagram",
         "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes",
-        "backToTop": "Back to top"
+        "backToTop": "Back to top",
+        "valueProposition": "Andean Scapes: Curated Adventures in the Esmeralda Capital.",
+        "verifiedBySeal": "Verified by Andean Scapes",
+        "verifiedFiveStarReviews": "500+ Verified 5-Star Reviews",
+        "ugcAlt": "Traveler moment {index}",
+        "supportTitle": "Get Support",
+        "supportSubtitle": "Choose your preferred support channel and we will connect you fast.",
+        "chatWithGuide": "Chat with a Guide",
+        "emailSupport": "Email Support",
+        "startWhatsapp": "Start WhatsApp Chat",
+        "sendEmail": "Send Email",
+        "territoryEssentials": "Territory Essentials",
+        "logistics": "Logistics",
+        "transportation": "Transportation",
+        "staySelection": "Stay Options",
+        "allyNetwork": "Our Curated Ally Network",
+        "allyHacienda": "Hacienda El Recuerdo",
+        "allyGlamping": "Glamping Aventura",
+        "allyExperiences": "All Experiences",
+        "legalSafety": "Legal & Safety",
+        "certifications": "Certifications",
+        "insurance": "Insurance",
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "allRightsReserved": "All rights reserved."
     }
 }

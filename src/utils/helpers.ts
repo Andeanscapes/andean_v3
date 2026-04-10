@@ -34,7 +34,7 @@ export function computePeopleCount(
 
 // Helper function to calculate pricing
 export function calculatePricing(
-  basePricePerPerson: number,
+  experiencePricePerPerson: number,
   depositPercent: number,
   roomModes: RoomModeOption[],
   roomSelections: RoomSelection[]
@@ -43,12 +43,12 @@ export function calculatePricing(
     const mode = roomModes.find((room) => room.value === selection.roomMode);
     const multiplier = mode?.price_multiplier ?? 1;
     const peoplePerRoom = mode?.fixed_people ?? 1;
-    return sum + basePricePerPerson * peoplePerRoom * multiplier * selection.quantity;
+    return sum + experiencePricePerPerson * peoplePerRoom * multiplier * selection.quantity;
   }, 0);
   const depositAmount = Math.round(total * (depositPercent / 100));
 
   return {
-    basePricePerPerson,
+    experiencePricePerPerson,
     total,
     depositPercent,
     depositAmount,
