@@ -18,6 +18,7 @@ const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) =>
   const [isPending, startTransition] = useTransition();
 
   const currentLanguage = availableLanguages.find((l) => l.code === currentLocale);
+  const currentLanguageCode = currentLanguage?.code ?? currentLocale;
 
   const isDarkTheme = variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
 
@@ -70,11 +71,11 @@ const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) =>
       <button
         onClick={handleToggle}
         className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-200 ${getTextColor()} ${getHoverColor()}`}
-        aria-label="Select language"
+        aria-label={`Select language ${currentLanguageCode}`}
         aria-expanded={isOpen}
       >
         <Languages className="h-4 w-4" aria-hidden="true" />
-        <span className={`text-xs font-medium uppercase tracking-wide hidden sm:inline ${getTextColor()} ${getHoverColor()}`}>{currentLanguage?.code}</span>
+        <span className={`text-xs font-medium uppercase tracking-wide hidden sm:inline ${getTextColor()} ${getHoverColor()}`}>{currentLanguageCode}</span>
         <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${getTextColor()} ${getHoverColor()}`} aria-hidden="true" />
       </button>
 

@@ -1,7 +1,10 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { memo, type ReactNode } from 'react';
 import type { ExperienceData } from '@/lib/schemas';
+import { useThemeContext } from '@/contexts/ThemeContext';
+import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
+import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 
 interface ItineraryProps {
   className?: string;
@@ -9,15 +12,22 @@ interface ItineraryProps {
   sidebar?: ReactNode;
 }
 
-export default function Itinerary({ className = '', experienceData, sidebar }: ItineraryProps) {
+function ItineraryComponent({ className = '', experienceData, sidebar }: ItineraryProps) {
   const itineraryContent = experienceData.itineraryContent;
+  const { theme } = useThemeContext();
+
+  const timelineCardClass =
+    theme === 'light'
+      ? 'rounded-2xl shadow-[0_10px_30px_rgba(15,23,42,0.08)]'
+      : 'rounded-2xl shadow-sm';
+  const timelineCardVariant = theme === 'light' ? 'light' : 'dark';
 
   if (!itineraryContent?.stops || itineraryContent.stops.length === 0) return null;
 
   return (
-    <section className={`relative px-4 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
-      <div className="relative mx-auto max-w-screen-2xl">
-        <h2 className="mb-8 text-2xl font-bold leading-tight text-base-content md:text-3xl">
+    <SectionContainer sectionClassName={`relative px-4 py-12 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
+      <div className="relative">
+        <h2 className="mb-8 text-3xl font-bold leading-tight text-base-content md:text-5xl lg:text-6xl">
           {itineraryContent.sectionTitle}
         </h2>
 
@@ -47,7 +57,11 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
                     )}
 
                     {/* Card */}
-                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 shadow-sm backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:shadow-md">
+                    <GlassCard
+                      variant={timelineCardVariant}
+                      hoverEffect
+                      className={`${timelineCardClass} group overflow-hidden transition-all duration-200`}
+                    >
                       {stop.imageUrl ? (
                         /* Desktop: side-by-side grid | Mobile: stacked */
                         <div className="flex flex-col md:grid md:grid-cols-[1.2fr_1fr]">
@@ -61,13 +75,13 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
                             </div>
 
                             {stop.description ? (
-                              <p className="mt-3 text-sm text-base-content/70">{stop.description}</p>
+                              <p className="mt-3 text-sm font-medium text-base-content/70">{stop.description}</p>
                             ) : null}
 
                             {stop.notes && stop.notes.length > 0 ? (
                               <ul className="mt-3 space-y-1.5">
                                 {stop.notes.map((note) => (
-                                  <li key={note} className="flex items-start gap-2 text-xs text-base-content/80">
+                                  <li key={note} className="flex items-start gap-2 text-xs font-medium text-base-content/80">
                                     <span className="mt-0.5 flex-shrink-0 text-primary">•</span>
                                     <span>{note}</span>
                                   </li>
@@ -77,12 +91,13 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
                           </div>
 
                           {/* Image pane */}
-                          <div className="h-48 md:h-full md:min-h-[250px]">
+                          <div className="aspect-[4/3] overflow-hidden md:aspect-auto md:h-full md:min-h-[250px]">
                             <img
                               src={stop.imageUrl}
                               alt={stop.title}
-                              className="h-full w-full object-cover md:rounded-r-2xl"
+                              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 md:rounded-r-2xl"
                               loading="lazy"
+                              decoding="async"
                             />
                           </div>
                         </div>
@@ -97,13 +112,13 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
                           </div>
 
                           {stop.description ? (
-                            <p className="mt-3 text-sm text-base-content/70">{stop.description}</p>
+                            <p className="mt-3 text-sm font-medium text-base-content/70">{stop.description}</p>
                           ) : null}
 
                           {stop.notes && stop.notes.length > 0 ? (
                             <ul className="mt-3 space-y-1.5">
                               {stop.notes.map((note) => (
-                                <li key={note} className="flex items-start gap-2 text-xs text-base-content/80">
+                                <li key={note} className="flex items-start gap-2 text-xs font-medium text-base-content/80">
                                   <span className="mt-0.5 flex-shrink-0 text-primary">•</span>
                                   <span>{note}</span>
                                 </li>
@@ -112,7 +127,7 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
                           ) : null}
                         </div>
                       )}
-                    </div>
+                    </GlassCard>
                   </div>
                   );
                 })}
@@ -128,7 +143,11 @@ export default function Itinerary({ className = '', experienceData, sidebar }: I
           ) : null}
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
+
+ItineraryComponent.displayName = 'Itinerary';
+
+export default memo(ItineraryComponent);
 

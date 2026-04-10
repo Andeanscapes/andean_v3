@@ -1,20 +1,21 @@
 'use client';
 
-import { useMemo } from 'react';
+import { memo, useId, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
-import { Button } from '@/components/ui/Button/Button';
+import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { Card } from '@/components/ui/Card/Card';
 
 interface ExpericeWidgetProps {
   experienceData: ExperienceData;
 }
 
-export default function ExpericeWidget({
+function ExpericeWidgetComponent({
   experienceData,
 }: ExpericeWidgetProps) {
+  const widgetId = useId();
   const locale = useLocale();
   const { config, availableDates, transportOptions, whatsappLink, widgetContent } = experienceData;
 
@@ -76,10 +77,13 @@ export default function ExpericeWidget({
           </div>
 
           <div className="space-y-1">
-            <label className="text-sm font-medium text-base-content/90">
+            <label htmlFor={`${widgetId}-date`} className="text-sm font-medium text-base-content/90">
               {widgetContent?.selectDateLabel}
             </label>
-            <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
+            <select
+              id={`${widgetId}-date`}
+              className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+            >
               <option>{nextDateLabel}</option>
               {availableDates
                 .filter((date) => date.isAvailable)
@@ -93,8 +97,11 @@ export default function ExpericeWidget({
 
           <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3">
             <div className="space-y-1">
-              <label className="text-sm font-medium text-base-content/90">{widgetContent?.peopleLabel}</label>
-              <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
+              <label htmlFor={`${widgetId}-people`} className="text-sm font-medium text-base-content/90">{widgetContent?.peopleLabel}</label>
+              <select
+                id={`${widgetId}-people`}
+                className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+              >
                 {Array.from({ length: config.maxPeople - config.minPeople + 1 }).map((_, idx) => {
                   const value = config.minPeople + idx;
                   return (
@@ -108,8 +115,11 @@ export default function ExpericeWidget({
           </div>
 
           <div className="space-y-1">
-            <label className="text-sm font-medium text-base-content/90">{widgetContent?.howToArriveLabel}</label>
-            <select className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content">
+            <label htmlFor={`${widgetId}-transport`} className="text-sm font-medium text-base-content/90">{widgetContent?.howToArriveLabel}</label>
+            <select
+              id={`${widgetId}-transport`}
+              className="select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900 dark:border-white/20 dark:bg-base-100/95 dark:text-base-content"
+            >
               {transportOptions.map((transport) => (
                 <option key={transport.value} value={transport.value}>
                   {transport.label}
@@ -118,15 +128,12 @@ export default function ExpericeWidget({
             </select>
           </div>
 
-          <Button
-            size="lg"
-            className="w-full !min-h-0 border-0 bg-[#00F08F] py-3 font-extrabold text-neutral-900 shadow-[0_0_20px_rgba(0,240,143,0.3)] transition-transform hover:scale-[1.02] hover:bg-[#00D47E] md:py-4 dark:text-black"
-          >
+          <PrimaryCtaButton size="lg" className="w-full py-3 text-neutral-900 md:py-4 dark:text-black">
             <span className="inline-flex items-center gap-2">
               {widgetContent?.bookingButtonLabel}
               <ArrowRight size={18} className="flex-shrink-0" />
             </span>
-          </Button>
+          </PrimaryCtaButton>
 
           <div className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-base-content/70">
             <div className="flex items-center gap-2">
@@ -157,3 +164,7 @@ export default function ExpericeWidget({
     </>
   );
 }
+
+ExpericeWidgetComponent.displayName = 'ExpericeWidget';
+
+export default memo(ExpericeWidgetComponent);

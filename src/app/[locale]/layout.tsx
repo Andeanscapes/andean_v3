@@ -11,7 +11,9 @@ import {locales, routing, type Locale} from '@/i18n/routing';
 // Next.js replaces process.env.NEXT_PUBLIC_* at build time
 const rawMetaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '';
 const META_PIXEL_ID = /^[0-9]+$/.test(rawMetaPixelId) ? rawMetaPixelId : '';
-const HAS_META_PIXEL = META_PIXEL_ID !== '';
+const META_PIXEL_DEV_OVERRIDE = process.env.NEXT_PUBLIC_ENABLE_META_PIXEL_IN_DEV === 'true';
+const HAS_META_PIXEL = META_PIXEL_ID !== '' &&
+  (process.env.NODE_ENV === 'production' || META_PIXEL_DEV_OVERRIDE);
 
 /* Configure Google Fonts - Apple 2026 Aesthetic */
 // Single modern sans-serif: Inter - the closest to San Francisco
@@ -64,9 +66,6 @@ export default async function LocaleLayout({
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '${META_PIXEL_ID}');
-                if (typeof console !== 'undefined') {
-                  console.log('[Meta Pixel] Initialized with ID: ${META_PIXEL_ID}');
-                }
               `}
             </Script>
             <noscript>

@@ -22,19 +22,23 @@ const Footer = () => {
 
     const whatsappLink = useCallback(() => {
         return (
-            <Link href={SOCIAL_LINKS.whatsapp} passHref className="inline-flex items-center group" target="_blank" rel="noopener noreferrer">
+            <Link href={SOCIAL_LINKS.whatsapp} passHref className="inline-flex min-h-11 items-center rounded-md px-1 transition-colors duration-200 active:bg-white/10 group" target="_blank" rel="noopener noreferrer">
                 <div className={styles.socialIcon}>
                     <i className="bi bi-whatsapp" />
                 </div>
-                <h5 className={`${textColorClass} lg:text-2md text-md font-serif font-bold hover:text-primary-1 duration-200`}>{t('whatsapp')} </h5>
+                <span className={`${textColorClass} lg:text-2md text-md font-serif font-bold hover:text-primary-1 duration-200`}>{t('whatsapp')} </span>
             </Link>
         );
     }, [textColorClass, t]);
 
     const footerBg = useMemo(() => 
         theme === 'dark' 
-            ? `linear-gradient(rgba(8, 8, 11, 0.95) 100%, rgba(8, 8, 11, 0.95) 100%)`
+            ? '#0A0A0A'
             : `linear-gradient(rgba(245, 245, 245, 0.98) 100%, rgba(245, 245, 245, 0.98) 100%)`
+    , [theme]);
+
+    const topBorderClass = useMemo(() =>
+        theme === 'dark' ? 'border-t border-white/5' : 'border-t border-black/5'
     , [theme]);
 
     const logoSrc = useMemo(() =>
@@ -42,9 +46,9 @@ const Footer = () => {
     , [theme]);
 
     return (
-        <div className={styles.footerStyleOne} style={{ background: footerBg }}>
+        <div className={`${styles.footerStyleOne} ${topBorderClass} mt-0 backdrop-blur-none`} style={{ background: footerBg }}>
             <div className="container">
-                <div className="flex lg:justify-between justify-center items-center flex-wrap gap-base pb-base">
+                <div className="flex min-h-[112px] lg:justify-between justify-center items-center flex-wrap gap-base py-6">
                     <Link href="/">
                         <img
                             src={logoSrc}
@@ -55,17 +59,17 @@ const Footer = () => {
                     <div className="flex align-middle justify-center lg:gap-x-9 gap-y-5 gap-x-7 flex-wrap">
                         {whatsappLink()}
 
-                        <Link href={SOCIAL_LINKS.instagram} className="inline-flex items-center group" target="_blank" rel="noopener noreferrer">
+                        <Link href={SOCIAL_LINKS.instagram} className="inline-flex min-h-11 items-center rounded-md px-1 transition-colors duration-200 active:bg-white/10 group" target="_blank" rel="noopener noreferrer">
                             <div className={styles.socialIcon}>
                                 <i className="bi bi-instagram" />
                             </div>
-                            <h5 className={`${textColorClass} lg:text-2md text-md font-serif font-bold hover:text-primary-1 duration-200`}>{t('instagram')}</h5>
+                            <span className={`${textColorClass} lg:text-2md text-md font-serif font-bold hover:text-primary-1 duration-200`}>{t('instagram')}</span>
                         </Link>
                     </div>
                 </div>
-                <div className="grid lg:grid-cols-12 lg:pt-17 pt-10 gap-base lg:pb-17 pb-12 gradient-border-top">
+                <div className="grid lg:grid-cols-12 pt-0 gap-base lg:pb-17 pb-12 gradient-border-top">
                     <div className="lg:col-span-12 col-span-12 text-center lg:text-start">
-                        <h3 className={`lg:text-[25px] text-2md font-semibold leading-1_35 ${textColorClass}`}>{t('contactUs')}</h3>
+                        <h3 className={`text-base lg:text-lg font-semibold tracking-wider leading-1_35 ${textColorClass}`}>{t('contactUs')}</h3>
                         <ul className="mt-8">
                             <li className={`mt-5 first:mt-0 flex items-center lg:justify-start justify-center ${secondaryTextColorClass} hover:text-primary-1 duration-200`}>
                                 <div className="text-primary-1 shrink-0">
@@ -103,7 +107,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="flex gap-4 flex-wrap lg:justify-between justify-center gradient-border-top py-7 relative">
-                    <BackToTop />
+                    <BackToTop ariaLabel={t('backToTop')} />
                 </div>
             </div>
         </div>

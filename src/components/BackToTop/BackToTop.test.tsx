@@ -19,14 +19,14 @@ describe('BackToTop', () => {
   })
 
   it('renders a button', () => {
-    render(<BackToTop />)
+    render(<BackToTop ariaLabel="Back to top" />)
 
     expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
   it('scrolls to top on click', async () => {
     const user = userEvent.setup()
-    render(<BackToTop />)
+    render(<BackToTop ariaLabel="Back to top" />)
 
     await user.click(screen.getByRole('button'))
 

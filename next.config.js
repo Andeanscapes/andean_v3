@@ -32,6 +32,7 @@ const nextConfig = {
 
   reactStrictMode: true,
   poweredByHeader: false,
+  productionBrowserSourceMaps: true,
 
   allowedDevOrigins:
     process.env.NODE_ENV === "development"

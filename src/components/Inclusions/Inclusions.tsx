@@ -1,7 +1,11 @@
 'use client';
 
+import { memo } from 'react';
 import { CheckCircle2, XCircle, Clock, Car, Flame, Mountain, Sunset, MapPin } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
+import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
+import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
+import BackgroundImageWithFallback from '@/components/media/BackgroundImageWithFallback';
 
 interface InclusionsProps {
   className?: string;
@@ -17,7 +21,7 @@ const iconMap: Record<string, React.ReactNode> = {
   sunset: <Sunset className="h-5 w-5" />,
 };
 
-export default function Inclusions({ className = '', experienceData }: InclusionsProps) {
+function InclusionsComponent({ className = '', experienceData }: InclusionsProps) {
   const inclusionsContent = experienceData.inclusionsContent;
   const bgImageUrl = experienceData.heroContent?.backgroundImageUrl;
 
@@ -29,14 +33,10 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
     : null;
 
   return (
-    <section
-      className={`relative overflow-hidden px-5 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
-      style={bgImageUrl ? {
-        backgroundImage: `url('${bgImageUrl}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      } : undefined}
-    >
+    <SectionContainer sectionClassName={`relative overflow-hidden px-5 py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
+      {bgImageUrl ? (
+        <BackgroundImageWithFallback src={bgImageUrl} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      ) : null}
       {/* Dark base overlay */}
       <div aria-hidden="true" className="absolute inset-0 bg-slate-950/95" />
       {/* Emerald-to-rose tinted gradient overlay */}
@@ -45,7 +45,7 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
         className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-transparent to-rose-950/95"
       />
 
-      <div className="relative mx-auto max-w-screen-2xl">
+      <div className="relative">
         <h2 className="mb-8 text-2xl font-bold leading-tight text-white md:text-3xl">
           {inclusionsContent.sectionTitle}
         </h2>
@@ -55,7 +55,7 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
 
           {/* Col 1: Logistics */}
           <div className="flex flex-col lg:min-h-[420px] lg:h-full">
-            <div className="h-full rounded-2xl border border-white/15 bg-black/25 p-6">
+            <GlassCard className="h-full rounded-2xl border-white/15 bg-black/25 p-6">
               <div className="grid grid-cols-2 gap-x-4 gap-y-5">
                 {inclusionsContent.logistics.map((item) => (
                   <div key={item.id} className="flex items-start gap-3">
@@ -71,12 +71,12 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
                   </div>
                 ))}
               </div>
-            </div>
+            </GlassCard>
           </div>
 
           {/* Col 2: Included & Not Included */}
           <div className="flex flex-col space-y-4 lg:min-h-[420px] lg:h-full">
-            <div className="rounded-2xl border border-emerald-400/30 bg-emerald-950/30 p-6">
+            <GlassCard variant="emeraldTint" className="rounded-2xl p-6">
               <div className="mb-4 flex items-center gap-2.5">
                 <CheckCircle2 className="h-5 w-5 text-emerald-400" />
                 <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-400">{inclusionsContent.includedLabel}</h3>
@@ -89,9 +89,9 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlassCard>
 
-            <div className="rounded-2xl border border-rose-400/30 bg-rose-950/30 p-6">
+            <GlassCard variant="roseTint" className="rounded-2xl p-6">
               <div className="mb-4 mt-2 flex items-center gap-2.5">
                 <XCircle className="h-5 w-5 text-rose-400" />
                 <h3 className="text-xs font-bold uppercase tracking-widest text-rose-400">{inclusionsContent.notIncludedLabel}</h3>
@@ -104,7 +104,7 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlassCard>
           </div>
 
           {/* Col 3: Map */}
@@ -133,6 +133,10 @@ export default function Inclusions({ className = '', experienceData }: Inclusion
 
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
+
+InclusionsComponent.displayName = 'Inclusions';
+
+export default memo(InclusionsComponent);

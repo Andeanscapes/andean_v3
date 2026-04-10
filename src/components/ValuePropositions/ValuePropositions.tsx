@@ -1,19 +1,21 @@
 'use client';
 
+import { memo } from 'react';
 import type { ExperienceData } from '@/lib/schemas';
-import { Card } from '@/components/ui/Card/Card';
+import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
+import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
+import BackgroundImageWithFallback from '@/components/media/BackgroundImageWithFallback';
 
 interface ValuePropositionsProps {
   className?: string;
   experienceData: ExperienceData;
 }
 
-export default function ValuePropositions({ className = '', experienceData }: ValuePropositionsProps) {
+function ValuePropositionsComponent({ className = '', experienceData }: ValuePropositionsProps) {
   const valuePropositions = experienceData.valuePropositionsContent;
 
   return (
-    <section className={`px-4 pb-20 pt-10 md:px-6 md:pb-20 md:pt-20 lg:px-10 ${className}`.trim()}>
-      <div className="mx-auto max-w-screen-2xl">
+    <SectionContainer sectionClassName={`px-4 pb-12 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 ${className}`.trim()}>
         <div className="mb-10 md:mb-12 lg:mb-14">
           <h2 className="text-3xl font-bold leading-tight text-base-content md:text-4xl">
             {valuePropositions?.title}
@@ -22,20 +24,23 @@ export default function ValuePropositions({ className = '', experienceData }: Va
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
           {valuePropositions?.items.map((item) => (
-            <Card
+            <GlassCard
               key={item.id}
-              padding="sm"
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border-white/10 bg-slate-900/40 backdrop-blur-md transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:border-[#00F08F]/50 hover:bg-slate-900/60"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border-white/10 backdrop-blur-md transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:border-[#00F08F]/50 hover:bg-slate-900/60"
             >
+              <BackgroundImageWithFallback
+                src={item.imageUrl}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                fallbackClassName="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900/80 via-slate-800/65 to-slate-900/70"
+              />
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{
-                  backgroundImage: item.id === 'tile-3'
-                    ? `linear-gradient(135deg, rgba(8,18,32,0.9), rgba(0,0,0,0.4)), url('${item.imageUrl}')`
-                    : `linear-gradient(135deg, rgba(8,18,32,0.85), rgba(8,18,32,0.4)), url('${item.imageUrl}')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
+                aria-hidden="true"
+                className={
+                  item.id === 'tile-3'
+                    ? 'pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-black/45'
+                    : 'pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-950/85 via-slate-900/65 to-slate-900/35'
+                }
               />
 
               {item.id === 'tile-3' ? (
@@ -60,10 +65,13 @@ export default function ValuePropositions({ className = '', experienceData }: Va
                   </p>
                 </div>
               </div>
-            </Card>
+            </GlassCard>
           ))}
         </div>
-      </div>
-    </section>
+    </SectionContainer>
   );
 }
+
+ValuePropositionsComponent.displayName = 'ValuePropositions';
+
+export default memo(ValuePropositionsComponent);

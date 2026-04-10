@@ -6,6 +6,7 @@ import Inclusions from '@/components/Inclusions/Inclusions';
 import Itinerary from '@/components/Itinerary/Itinerary';
 import Host from '@/components/Host/Host';
 import Faqs from '@/components/Faqs/Faqs';
+import MobileStickyBookingBar from './MobileStickyBookingBar';
 
 interface ExperienceDetailsPageProps {
   experienceData: ExperienceData;
@@ -26,7 +27,8 @@ export default function ExperienceDetailsPage({
       <ValuePropositions experienceData={experienceData} />
       <Inclusions experienceData={experienceData} />
       <Itinerary experienceData={experienceData} sidebar={<Host experienceData={experienceData} />} />
-      <Faqs />
+      <Faqs experienceData={experienceData} />
+      <MobileStickyBookingBar experienceData={experienceData} />
     </>
   );
 }

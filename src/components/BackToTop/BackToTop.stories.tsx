@@ -14,6 +14,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    ariaLabel: 'Back to top'
+  },
   render: () => (
     <div className="bg-white">
       <div className="mx-auto max-w-3xl px-6 py-10 space-y-4">
@@ -42,7 +45,7 @@ export const Default: Story = {
           </div>
 
           <div className="relative flex justify-center bg-gray-950 py-7">
-            <BackToTop />
+            <BackToTop ariaLabel="Back to top" />
           </div>
         </div>
       </div>

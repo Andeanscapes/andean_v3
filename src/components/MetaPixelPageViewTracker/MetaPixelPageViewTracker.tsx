@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -11,18 +11,20 @@ declare global {
 
 export default function MetaPixelPageViewTracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const search = searchParams?.toString() ?? '';
 
   useEffect(() => {
-    if (typeof window.fbq !== 'function') {
-      console.warn('[Meta Pixel] fbq function not available');
+    const hostname = window.location.hostname;
+    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+    if (isLocalhost) {
       return;
     }
-    const fullPath = search ? `${pathname}?${search}` : pathname;
-    console.log('[Meta Pixel] PageView tracked:', fullPath);
+
+    if (typeof window.fbq !== 'function') {
+      return;
+    }
+
     window.fbq('track', 'PageView');
-  }, [pathname, search]);
+  }, [pathname]);
 
   return null;
 }

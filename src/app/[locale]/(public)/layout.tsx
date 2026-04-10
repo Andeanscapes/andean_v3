@@ -14,6 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const pathname = usePathname();
     
     const isExperiencesPage = pathname?.includes('/experiences/');
+    const mainPaddingClass = isExperiencesPage ? 'pb-0' : 'pb-24 lg:pb-30';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,7 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <LayoutProvider variant={variant} isSticky={isSticky}>
             <Header hideBookingCta={isExperiencesPage} />
-            <main className="pb-24 lg:pb-30" data-theme={theme}>
+            <main className={mainPaddingClass} data-theme={theme}>
                 {children}
             </main>
             <Footer />
