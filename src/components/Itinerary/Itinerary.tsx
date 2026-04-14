@@ -5,6 +5,7 @@ import { Award, BookOpen, ChevronDown, Coffee, Gem, Hotel, Images, Mountain, Sea
 import { useTranslations } from 'next-intl';
 import type { ExperienceData, ItineraryDayStopContent } from '@/lib/schemas';
 import { useThemeContext } from '@/contexts/ThemeContext';
+import { useDetailSelectedTier } from '@/hooks/experiences/useExperienceDetailContext';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { GalleryModal } from '@/components/ui/GalleryModal/GalleryModal';
@@ -170,8 +171,16 @@ interface ItineraryProps {
 }
 
 function ItineraryComponent({ className = '', experienceData, sidebar }: ItineraryProps) {
-  const itineraryContent = experienceData.itineraryContent;
+  const { selectedTierId } = useDetailSelectedTier();
   const { theme } = useThemeContext();
+
+  // Derive itinerary from selected tier, fallback to top-level itineraryContent
+  const selectedTierContent = selectedTierId
+    ? experienceData.accommodationTiersContent?.tiers.find((t) => t.id === selectedTierId)
+    : null;
+  const itineraryContent = selectedTierContent?.itinerary
+    ? { sectionTitle: experienceData.itineraryContent?.sectionTitle ?? '', days: selectedTierContent.itinerary }
+    : experienceData.itineraryContent;
 
   const cardClass =
     theme === 'light'

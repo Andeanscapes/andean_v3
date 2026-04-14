@@ -1,7 +1,9 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
+import { useThemeContext } from '@/contexts/ThemeContext';
 import type { ExperienceConfig } from '@/lib/schemas';
 
 interface IncludesAccordionProps {
@@ -9,10 +11,18 @@ interface IncludesAccordionProps {
 }
 
 export function IncludesAccordion({ config }: IncludesAccordionProps) {
+  const t = useTranslations('experiences.ui');
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
+
+  const cardClass = isDark
+    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
+    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
+
   const accordionItems = [
     {
       id: 'includes',
-      title: '¿Qué incluye?',
+      title: t('whatIsIncluded'),
       content: (
         <div className="space-y-2">
           <ul className="list-disc list-inside space-y-1 text-sm text-base-content/90">
@@ -21,7 +31,7 @@ export function IncludesAccordion({ config }: IncludesAccordionProps) {
             ))}
           </ul>
           <button className="btn btn-link btn-sm mt-3 text-primary hover:text-primary/90">
-            Ver detalles completos
+            {t('viewFullDetails')}
           </button>
         </div>
       ),
@@ -29,7 +39,7 @@ export function IncludesAccordion({ config }: IncludesAccordionProps) {
   ];
 
   return (
-    <Card className="mb-6">
+    <Card className={cardClass}>
       <Accordion
         items={accordionItems}
         defaultOpen={['includes']}

@@ -37,18 +37,48 @@ export function useReservationDate() {
   };
 }
 
+export function useReservationTier() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      selectedTierId: safe.state.selectedTierId,
+      setTier: (tierId: string) =>
+        safe.dispatch({ type: 'SET_TIER', payload: tierId }),
+    };
+  }) as {
+    selectedTierId: string | null;
+    setTier: (tierId: string) => void;
+  };
+}
+
+export function useReservationAccommodationTiers() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.accommodationTiersContent;
+  });
+}
+
+export function useReservationAvailableDates() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.availableDates;
+  });
+}
+
 export function useReservationRooms() {
   return useContextSelector(ExperienceReservationContext, (ctx) => {
     const safe = requireContext(ctx);
     return {
       peopleCount: safe.state.peopleCount,
       roomSelections: safe.state.roomSelections,
+      isRoomSuggested: safe.state.isRoomSuggested,
       setRoomSelections: (selections: RoomSelection[]) =>
         safe.dispatch({ type: 'SET_ROOM_SELECTIONS', payload: selections }),
     };
   }) as {
     peopleCount: number;
     roomSelections: RoomSelection[];
+    isRoomSuggested: boolean;
     setRoomSelections: (selections: RoomSelection[]) => void;
   };
 }
@@ -120,6 +150,7 @@ export function useReservationPricing() {
     total: number;
     depositPercent: number;
     depositAmount: number;
+    roundtripTransferCost: number;
   };
 }
 

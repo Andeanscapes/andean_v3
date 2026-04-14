@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import { useTranslations } from 'next-intl';
 import type { ExperienceData } from '@/lib/schemas';
+import { useDetailSelectedTier } from '@/hooks/experiences/useExperienceDetailContext';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { StayCard } from './StayCard';
 
@@ -13,6 +14,7 @@ interface AccommodationTiersProps {
 
 function AccommodationTiersComponent({ className = '', experienceData }: AccommodationTiersProps) {
   const t = useTranslations();
+  const { selectedTierId, setTier } = useDetailSelectedTier();
   const tiersContent = experienceData.accommodationTiersContent;
 
   if (!tiersContent?.tiers || tiersContent.tiers.length === 0) return null;
@@ -34,6 +36,8 @@ function AccommodationTiersComponent({ className = '', experienceData }: Accommo
             key={tier.id}
             tier={tier}
             locationLabel={locationLabel}
+            isSelected={tier.id === selectedTierId}
+            onSelect={setTier}
           />
         ))}
       </div>

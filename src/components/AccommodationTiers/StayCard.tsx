@@ -11,9 +11,11 @@ import { GalleryModal } from '@/components/ui/GalleryModal/GalleryModal';
 interface StayCardProps {
   tier: AccommodationTierContent;
   locationLabel?: string;
+  isSelected?: boolean;
+  onSelect?: (tierId: string) => void;
 }
 
-export function StayCard({ tier, locationLabel }: StayCardProps) {
+export function StayCard({ tier, locationLabel, isSelected = false, onSelect }: StayCardProps) {
   const t = useTranslations();
   const { theme } = useThemeContext();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -35,7 +37,12 @@ export function StayCard({ tier, locationLabel }: StayCardProps) {
       <GlassCard
         variant={theme === 'light' ? 'light' : 'dark'}
         hoverEffect
-        className="group overflow-hidden rounded-2xl"
+        className={`group overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 ${isSelected ? 'ring-2 ring-[#00F08F] shadow-[0_0_20px_rgba(0,240,143,0.15)]' : ''}`}
+        onClick={() => onSelect?.(tier.id)}
+        role="button"
+        tabIndex={0}
+        aria-pressed={isSelected}
+        onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect?.(tier.id); } }}
       >
         <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
           <img
@@ -49,6 +56,15 @@ export function StayCard({ tier, locationLabel }: StayCardProps) {
           {tier.isHostChoice ? (
             <span className="absolute left-3 top-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:px-3 md:text-[10px]">
               {t('experiences.ui.experienceDetails.hostChoiceLabel')}
+            </span>
+          ) : null}
+
+          {isSelected ? (
+            <span className="absolute bottom-3 right-3 flex items-center gap-1 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:px-3 md:text-[10px]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-2.5 w-2.5 md:h-3 md:w-3">
+                <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+              </svg>
+              {t('experiences.ui.experienceDetails.selectedLabel')}
             </span>
           ) : null}
         </div>

@@ -1,13 +1,23 @@
 'use client';
 
 import { memo, useId, useMemo } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
-import type { ExperienceData } from '@/lib/schemas';
+import type { ExperienceData, TransportMode } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
+import { buildBookingUrl } from '@/utils/helpers';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { Card } from '@/components/ui/Card/Card';
+import { Select } from '@/components/ui/Select/Select';
 import { useThemeContext } from '@/contexts/ThemeContext';
+import {
+  useDetailSelectedDate,
+  useDetailPeopleCount,
+  useDetailTransport,
+  useDetailSelectedTierData,
+  useDetailSelectedTier,
+} from '@/hooks/experiences/useExperienceDetailContext';
 
 interface ExpericeWidgetProps {
   experienceData: ExperienceData;
@@ -18,8 +28,28 @@ function ExpericeWidgetComponent({
 }: ExpericeWidgetProps) {
   const widgetId = useId();
   const locale = useLocale();
+  const t = useTranslations('experiences.ui');
   const { theme } = useThemeContext();
+  const { selectedDateId, setDate } = useDetailSelectedDate();
+  const { peopleCount, setPeopleCount } = useDetailPeopleCount();
+  const { transportMode, setTransportMode } = useDetailTransport();
+  const { selectedTierId } = useDetailSelectedTier();
+  const selectedTierData = useDetailSelectedTierData();
   const { config, availableDates, transportOptions, whatsappLink, widgetContent } = experienceData;
+  const pathname = usePathname();
+
+  const roundtripConfig = selectedTierData?.roundtripTransfer ?? null;
+
+  const bookingHref = useMemo(
+    () =>
+      buildBookingUrl(`${pathname}/booking`, {
+        tier: selectedTierId,
+        date: selectedDateId,
+        people: peopleCount,
+        transport: transportMode,
+      }),
+    [pathname, selectedTierId, selectedDateId, peopleCount, transportMode],
+  );
 
   const nextDateLabel = useMemo(() => {
     const firstAvailableDate = availableDates.find((date) => date.isAvailable);
@@ -32,12 +62,23 @@ function ExpericeWidgetComponent({
   }, [availableDates, locale, widgetContent?.fallbackDateLabel]);
 
   const formattedPrice = useMemo(() => {
+    const basePrice = config.experiencePricePerPerson;
+    const tierRoomPrice = selectedTierData
+      ? Math.min(...selectedTierData.rooms.map((r) => r.pricePerNight))
+      : 0;
+    let combinedPrice = (basePrice + tierRoomPrice) * peopleCount;
+
+    if (transportMode === 'roundtrip_transfer' && roundtripConfig) {
+      const vehicleCount = Math.ceil(Math.max(peopleCount, 1) / roundtripConfig.maxPeoplePerVehicle);
+      combinedPrice += vehicleCount * roundtripConfig.pricePerVehicle;
+    }
+
     return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: 'COP',
       maximumFractionDigits: 0,
-    }).format(config.experiencePricePerPerson);
-  }, [config.experiencePricePerPerson, locale]);
+    }).format(combinedPrice);
+  }, [config.experiencePricePerPerson, selectedTierData, peopleCount, locale, transportMode, roundtripConfig]);
 
   const isDarkTheme = theme === 'dark';
 
@@ -49,9 +90,21 @@ function ExpericeWidgetComponent({
     ? 'pointer-events-none absolute inset-0 rounded-[inherit] bg-slate-950/35'
     : 'pointer-events-none absolute inset-0 rounded-[inherit] bg-white/80';
 
-  const selectClass = isDarkTheme
-    ? 'select select-bordered w-full border-white/20 bg-slate-900/85 text-base-content'
-    : 'select select-bordered w-full border-neutral-300 bg-neutral-100 text-neutral-900';
+  const selectTriggerClass = isDarkTheme
+    ? 'flex w-full items-center justify-between gap-2 rounded-lg border border-white/20 bg-slate-900 px-3 py-2.5 text-sm text-base-content transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F08F]/60'
+    : 'flex w-full items-center justify-between gap-2 rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60';
+
+  const selectPanelClass = isDarkTheme
+    ? 'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-white/15 bg-slate-900 shadow-[0_8px_32px_rgba(0,0,0,0.55)]'
+    : 'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]';
+
+  const selectOptionClass = isDarkTheme
+    ? 'flex cursor-pointer select-none items-center px-3 py-2.5 text-sm text-base-content/90 transition-colors border-t border-white/8 first:border-t-0'
+    : 'flex cursor-pointer select-none items-center px-3 py-2.5 text-sm text-neutral-800 transition-colors border-t border-neutral-200 first:border-t-0';
+
+  const selectOptionHoverClass = isDarkTheme
+    ? 'hover:bg-white/10 hover:text-white'
+    : 'hover:bg-emerald-50 hover:text-emerald-900';
 
   const mutedTextClass = isDarkTheme ? 'text-base-content/60' : 'text-neutral-700';
   const bodyTextClass = isDarkTheme ? 'text-base-content/70' : 'text-neutral-700';
@@ -75,9 +128,14 @@ function ExpericeWidgetComponent({
         <div className="relative z-10 space-y-4 md:space-y-5">
           <div>
             <p className="mt-2 text-2xl font-extrabold text-base-content md:mt-0 md:text-3xl">
+              {widgetContent?.fromLabel ? (
+                <span className={`mr-1 text-sm font-normal tracking-wide md:text-base ${mutedTextClass}`}>
+                  {widgetContent.fromLabel}
+                </span>
+              ) : null}
               {formattedPrice}
               <span className={`ml-1 text-[10px] font-normal tracking-wide md:text-xs ${mutedTextClass}`}>
-                {widgetContent?.perPersonLabel}
+                {peopleCount > 1 ? widgetContent?.totalLabel : widgetContent?.perPersonLabel}
               </span>
             </p>
             <div className="mt-1 flex items-center">
@@ -103,55 +161,63 @@ function ExpericeWidgetComponent({
             <label htmlFor={`${widgetId}-date`} className="text-sm font-medium text-base-content/90">
               {widgetContent?.selectDateLabel}
             </label>
-            <select
+            <Select
               id={`${widgetId}-date`}
-              className={selectClass}
-            >
-              <option>{nextDateLabel}</option>
-              {availableDates
-                .filter((date) => date.isAvailable)
-                .map((date) => (
-                  <option key={date.id} value={date.id}>
-                    {formatDateRange(date.startDate, date.endDate, locale)}
-                  </option>
-                ))}
-            </select>
+              aria-labelledby={`${widgetId}-date`}
+              options={[
+                { value: '', label: nextDateLabel },
+                ...availableDates
+                  .filter((date) => date.isAvailable)
+                  .map((date) => ({
+                    value: date.id,
+                    label: formatDateRange(date.startDate, date.endDate, locale),
+                  })),
+              ]}
+              value={selectedDateId ?? ''}
+              onChange={(v) => setDate(String(v))}
+              triggerClassName={selectTriggerClass}
+              panelClassName={selectPanelClass}
+              optionClassName={selectOptionClass}
+              optionHoverClassName={selectOptionHoverClass}
+            />
           </div>
 
           <div className="grid grid-cols-1 gap-1.5 sm:gap-2 md:gap-3">
             <div className="space-y-1">
               <label htmlFor={`${widgetId}-people`} className="text-sm font-medium text-base-content/90">{widgetContent?.peopleLabel}</label>
-              <select
+              <Select
                 id={`${widgetId}-people`}
-                className={selectClass}
-              >
-                {Array.from({ length: config.maxPeople - config.minPeople + 1 }).map((_, idx) => {
-                  const value = config.minPeople + idx;
-                  return (
-                    <option key={value} value={value}>
-                      {value}
-                    </option>
-                  );
+                aria-labelledby={`${widgetId}-people`}
+                options={Array.from({ length: config.maxPeople - config.minPeople + 1 }).map((_, idx) => {
+                  const v = config.minPeople + idx;
+                  return { value: v, label: String(v) };
                 })}
-              </select>
+                value={peopleCount}
+                onChange={(v) => setPeopleCount(Number(v))}
+                triggerClassName={selectTriggerClass}
+                panelClassName={selectPanelClass}
+                optionClassName={selectOptionClass}
+                optionHoverClassName={selectOptionHoverClass}
+              />
             </div>
           </div>
 
           <div className="space-y-1">
             <label htmlFor={`${widgetId}-transport`} className="text-sm font-medium text-base-content/90">{widgetContent?.howToArriveLabel}</label>
-            <select
+            <Select
               id={`${widgetId}-transport`}
-              className={selectClass}
-            >
-              {transportOptions.map((transport) => (
-                <option key={transport.value} value={transport.value}>
-                  {transport.label}
-                </option>
-              ))}
-            </select>
+              aria-labelledby={`${widgetId}-transport`}
+              options={transportOptions.map((t) => ({ value: t.value, label: t.label }))}
+              value={transportMode ?? ''}
+              onChange={(v) => { if (v) setTransportMode(v as TransportMode); }}
+              triggerClassName={selectTriggerClass}
+              panelClassName={selectPanelClass}
+              optionClassName={selectOptionClass}
+              optionHoverClassName={selectOptionHoverClass}
+            />
           </div>
 
-          <PrimaryCtaButton size="lg" className="w-full py-3 md:py-4">
+          <PrimaryCtaButton href={bookingHref} size="lg" className="w-full py-3 md:py-4">
             <span className="inline-flex items-center gap-2">
               {widgetContent?.bookingButtonLabel}
               <ArrowRight size={18} className="flex-shrink-0" />

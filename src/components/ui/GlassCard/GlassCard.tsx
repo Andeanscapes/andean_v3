@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 type GlassCardVariant = 'dark' | 'light' | 'emeraldTint' | 'roseTint';
 
-interface GlassCardProps {
+interface GlassCardProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children' | 'className'> {
   children: ReactNode;
   className?: string;
   hoverEffect?: boolean;
@@ -21,10 +21,11 @@ export function GlassCard({
   className = '',
   hoverEffect = false,
   variant = 'dark',
+  ...rest
 }: GlassCardProps) {
   const hoverClass = hoverEffect
     ? 'transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:shadow-md'
     : '';
 
-  return <div className={`${variantClasses[variant]} ${hoverClass} ${className}`.trim()}>{children}</div>;
+  return <div className={`${variantClasses[variant]} ${hoverClass} ${className}`.trim()} {...rest}>{children}</div>;
 }

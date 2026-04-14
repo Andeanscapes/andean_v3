@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/Button/Button';
 import { Stepper } from '@/components/ui/Stepper/Stepper';
 import { Modal } from '@/components/ui/Modal/Modal';
 import { SegmentedControl } from '@/components/ui/SegmentedControl/SegmentedControl';
-import { useReservationRoomModes, useReservationRooms } from '@/hooks/experiences/useReservationContext';
+import { useReservationRoomModes, useReservationRooms, useReservationTier } from '@/hooks/experiences/useReservationContext';
+import { useThemeContext } from '@/contexts/ThemeContext';
 import type { RoomMode, RoomSelection } from '@/lib/schemas';
 import { computePeopleCount } from '@/utils/helpers';
 
@@ -31,11 +32,21 @@ function PeopleSelectorComponent({
   maxPeople = 4,
 }: PeopleSelectorProps) {
   const t = useTranslations('experiences.ui');
-  const { peopleCount, roomSelections, setRoomSelections } =
+  const { peopleCount, roomSelections, isRoomSuggested, setRoomSelections } =
     useReservationRooms();
-  const roomModes = useReservationRoomModes();
+  const allRoomModes = useReservationRoomModes();
+  const { selectedTierId } = useReservationTier();
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [occupancyByRoomType, setOccupancyByRoomType] = useState<Record<string, RoomMode>>({});
+
+  // Filter room modes by selected tier when tier_id is available
+  const roomModes = useMemo(() => {
+    if (!selectedTierId) return allRoomModes;
+    const filtered = allRoomModes.filter((m) => m.tier_id === selectedTierId);
+    return filtered.length > 0 ? filtered : allRoomModes;
+  }, [allRoomModes, selectedTierId]);
 
   const roomTypeGroups = useMemo<RoomTypeGroup[]>(() => {
     const groupMap = new Map<string, RoomTypeGroup>();
@@ -103,8 +114,12 @@ function PeopleSelectorComponent({
       .filter((selection) => selection.quantity > 0);
   }, [roomModes, roomSelections]);
 
+  const cardClass = isDark
+    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
+    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
+
   return (
-    <Card className="mb-6">
+    <Card className={cardClass}>
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
         <h2 className="text-xl font-semibold">{t('howManyPeople')}</h2>
         <p className="text-xs text-primary/90">
@@ -116,8 +131,10 @@ function PeopleSelectorComponent({
         <p className="text-sm text-base-content/80 mb-3">{t('roomType')}</p>
         <div className="rounded-xl border border-base-300/60 bg-base-200/40 px-3 py-3">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-xs text-primary/90">
-              {t('selectedRoomsLabel')}
+            <p className="text-xs font-medium text-primary/90">
+              {isRoomSuggested && roomSelections.length > 0
+                ? t('suggestedRoomsLabel', { count: peopleCount })
+                : t('selectedRoomsLabel')}
             </p>
             {selectedRooms.length > 0 && (
               <button
@@ -153,6 +170,11 @@ function PeopleSelectorComponent({
               ))}
             </div>
           )}
+          {isRoomSuggested && roomSelections.length > 0 && (
+            <p className="mt-2 mb-1 text-[11px] text-amber-400/80">
+              {t('suggestedRoomsNote')}
+            </p>
+          )}
           <div className="mt-3">
             <Button
               type="button"
@@ -160,7 +182,7 @@ function PeopleSelectorComponent({
               size="sm"
               onClick={() => setIsModalOpen(true)}
             >
-              {t('addRoom')}
+              {isRoomSuggested && roomSelections.length > 0 ? t('editRooms') : t('addRoom')}
             </Button>
           </div>
         </div>

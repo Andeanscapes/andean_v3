@@ -1,4 +1,7 @@
+'use client';
+
 import type { ExperienceData } from '@/lib/schemas';
+import { ExperienceDetailProvider } from '@/contexts/ExperienceDetailContext';
 import ExperienceHero from '@/components/ExperienceHero/ExperienceHero';
 import ExpericeWidget from '@/components/ExpericeWidget/ExpericeWidget';
 import ValuePropositions from '@/components/ValuePropositions/ValuePropositions';
@@ -19,7 +22,7 @@ export default function ExperienceDetailsPage({
   const { config, heroContent } = experienceData;
 
   return (
-    <>
+    <ExperienceDetailProvider experienceData={experienceData}>
       <ExperienceHero
         title={heroContent?.title ?? config.title}
         subtitle={heroContent?.subtitle ?? config.subtitle}
@@ -31,6 +34,6 @@ export default function ExperienceDetailsPage({
       <Itinerary experienceData={experienceData} sidebar={<Host experienceData={experienceData} />} />
       <Faqs experienceData={experienceData} />
       <MobileStickyBookingBar experienceData={experienceData} />
-    </>
+    </ExperienceDetailProvider>
   );
 }

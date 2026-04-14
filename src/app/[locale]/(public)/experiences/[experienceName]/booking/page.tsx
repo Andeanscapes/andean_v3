@@ -14,6 +14,7 @@ import {
   SEO_SITE_URL,
   toAbsoluteUrl,
 } from '../seo';
+import { parseBookingSearchParams } from '@/utils/helpers';
 
 export async function generateStaticParams() {
   const experienceNames = await getExperiencePathListSSR();
@@ -81,8 +82,10 @@ export async function generateMetadata({
 
 export default async function BookingPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; experienceName: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale: localeParam, experienceName } = await params;
   const locale = sanitizeLocale(localeParam);
@@ -93,6 +96,13 @@ export default async function BookingPage({
   }
 
   const experienceData = await getExperienceDataSSR(experienceName, locale);
+  const rawSearchParams = await searchParams;
+  const initialSelections = parseBookingSearchParams(rawSearchParams);
 
-  return <ExperienceReservationPage experienceData={experienceData} />;
+  return (
+    <ExperienceReservationPage
+      experienceData={experienceData}
+      initialSelections={initialSelections}
+    />
+  );
 }

@@ -12,6 +12,7 @@ import {
 import { reservationSchema } from '@/utils/validationSchemas';
 import type { ExperienceConfig } from '@/lib/schemas';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { useThemeContext } from '@/contexts/ThemeContext';
 
 interface ConfirmationActionProps {
   config: ExperienceConfig;
@@ -28,6 +29,8 @@ export function ConfirmationAction({
   const { createLink, loading, error } = useMercadoPagoLink(config.id);
   const [validationError, setValidationError] = useState<string | null>(null);
   const { currentLocale } = useLanguageContext();
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
   const localeMap: Record<string, string> = {
     en: 'en-US',
     es: 'es-CO',
@@ -57,7 +60,7 @@ export function ConfirmationAction({
 
   return (
     <div className="sticky bottom-0 z-50 -mx-4 px-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] pt-4 mt-6">
-      <Card className="w-full rounded-2xl border border-base-200 bg-base-100/98 p-2 text-base-content shadow-2xl backdrop-blur">
+      <Card className={`w-full rounded-2xl p-2 text-base-content shadow-2xl backdrop-blur ${isDark ? 'border border-white/15 bg-slate-900/95' : 'border border-neutral-200 bg-white/98'}`}>
         {/* Términos */}
         <label className="label cursor-pointer mb-1 text-base-content">
           <input

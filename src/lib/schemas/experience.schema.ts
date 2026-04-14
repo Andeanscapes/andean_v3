@@ -17,7 +17,15 @@ export const RoomModeSchema = z.enum([
 ]);
 
 // Transport mode enum
-export const TransportModeSchema = z.enum(['car_no_4x4', 'have_4x4', 'bus']);
+export const TransportModeSchema = z.enum(['car_no_4x4', 'have_4x4', 'bus', 'roundtrip_transfer']);
+
+// Round-trip transfer config (per tier, origin→destination→origin)
+export const RoundtripTransferConfigSchema = z.object({
+  origin: z.string(),
+  destination: z.string(),
+  pricePerVehicle: z.number(),
+  maxPeoplePerVehicle: z.number(),
+});
 
 // Room type enum
 export const RoomTypeSchema = z.enum(['standard', 'family', 'cabin']);
@@ -87,6 +95,11 @@ export const AccommodationTierSchema = z.object({
   quickSpecs: AccommodationTierQuickSpecsSchema,
   rooms: z.array(AccommodationRoomSchema),
   services: z.array(TierServiceSchema).optional(),
+  roundtripTransfer: RoundtripTransferConfigSchema.optional(),
+  itinerary: z.array(ItineraryDaySchema).optional(),
+  tierNote: z.string().optional(),
+  idealForItems: z.array(z.string()).optional(),
+  goodToKnowItems: z.array(z.string()).optional(),
 });
 
 // Experience config
@@ -155,6 +168,7 @@ export const RoomModeOptionSchema = z.object({
   fixed_people: z.number().optional(),
   room_type_id: RoomTypeSchema,
   units_available: z.number(),
+  tier_id: z.string().optional(),
 });
 
 // Available date
@@ -185,6 +199,7 @@ export const ReservationPricingSchema = z.object({
   total: z.number(),
   depositPercent: z.number(),
   depositAmount: z.number(),
+  roundtripTransferCost: z.number(),
 });
 
 // Experience hero badge icon
@@ -224,6 +239,8 @@ export const ExperienceWidgetContentSchema = z.object({
   whatsappCtaLabel: z.string(),
   fallbackDateLabel: z.string(),
   topSellerLabel: z.string().optional(),
+  fromLabel: z.string().optional(),
+  totalLabel: z.string().optional(),
   perPersonLabel: z.string().optional(),
   reviewsCountLabel: z.string().optional(),
   bookingButtonLabel: z.string().optional(),
@@ -320,6 +337,11 @@ export const AccommodationTierContentSchema = z.object({
   quickSpecs: AccommodationTierQuickSpecsSchema,
   rooms: z.array(AccommodationRoomContentSchema),
   services: z.array(TierServiceContentSchema).optional(),
+  roundtripTransfer: RoundtripTransferConfigSchema.optional(),
+  itinerary: z.array(ItineraryDayContentSchema).optional(),
+  tierNote: z.string().optional(),
+  idealForItems: z.array(z.string()).optional(),
+  goodToKnowItems: z.array(z.string()).optional(),
 });
 
 // Accommodation tiers content (section-level translated wrapper)
@@ -347,6 +369,9 @@ export const ItineraryContentSchema = z.object({
 
 // Reservation state
 export const ReservationStateSchema = z.object({
+  // Tier selection
+  selectedTierId: z.string().nullable(),
+
   // Date selection
   selectedDateId: z.string().nullable(),
   selectedDateLabel: z.string().nullable(),
@@ -370,6 +395,10 @@ export const ReservationStateSchema = z.object({
 
   // SSR hydration flag
   isHydrated: z.boolean(),
+
+  // Set to true when roomSelections were populated by the suggestion algorithm.
+  // Cleared to false as soon as the user manually changes any room selection.
+  isRoomSuggested: z.boolean(),
 });
 
 // Complete experience data
@@ -416,6 +445,7 @@ export type ItineraryDayStopContent = z.infer<typeof ItineraryDayStopContentSche
 export type ItineraryDayContent = z.infer<typeof ItineraryDayContentSchema>;
 export type AccommodationRoom = z.infer<typeof AccommodationRoomSchema>;
 export type TierService = z.infer<typeof TierServiceSchema>;
+export type RoundtripTransferConfig = z.infer<typeof RoundtripTransferConfigSchema>;
 export type AccommodationTierImages = z.infer<typeof AccommodationTierImagesSchema>;
 export type AccommodationTierQuickSpecs = z.infer<typeof AccommodationTierQuickSpecsSchema>;
 export type AccommodationTier = z.infer<typeof AccommodationTierSchema>;
@@ -430,6 +460,7 @@ export type ExperienceData = z.infer<typeof ExperienceDataSchema>;
 
 // Reservation actions (discriminated union - not validated at runtime, but typed)
 export type ReservationAction =
+  | { type: 'SET_TIER'; payload: string }
   | {
       type: 'SET_DATE';
       payload: { id: string; label: string; spots: number };
@@ -449,4 +480,6 @@ export interface ReservationContextValue {
   state: ReservationState;
   dispatch: (action: ReservationAction) => void;
   roomModes: RoomModeOption[];
+  accommodationTiersContent: AccommodationTiersContent | null;
+  availableDates: AvailableDate[];
 }

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import { useReservationDate } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { useThemeContext } from '@/contexts/ThemeContext';
 import { formatAvailableDates } from '@/utils/dateFormatters';
 import type { AvailableDate } from '@/lib/schemas';
 
@@ -17,6 +18,12 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
   const t = useTranslations('experiences.ui');
   const { selectedDateId, selectedDateLabel, setDate } = useReservationDate();
   const { currentLocale } = useLanguageContext();
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
+
+  const cardClass = isDark
+    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
+    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
 
   // Format dates based on user's locale
   const formattedDates = useMemo(
@@ -32,7 +39,7 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
   const showScrollHint = availableOnly.length > 6;
 
   return (
-    <Card id="available-dates" className="mb-6">
+    <Card id="available-dates" className={cardClass}>
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
         <h2 className="text-xl font-semibold text-base-content">
           {t('availableDates')}
