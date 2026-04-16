@@ -31,34 +31,52 @@ interface ExperienceReservationProviderProps {
 function createInitialState(
   experiencePricePerPerson: number,
   depositPercent: number,
-  roomModes: RoomModeOption[]
+  roomModes: RoomModeOption[],
+  initialSelections?: BookingSelections | null,
+  tiersContent?: AccommodationTiersContent | null,
 ): ReservationState {
-  const roomSelections: RoomSelection[] = [];
+  // Synchronously apply URL-param selections so the first render already has
+  // the correct tier/date/transport — this moves LCP image discovery to the
+  // initial render instead of after the HYDRATE useEffect fires.
+  const tierId = initialSelections?.tier ?? null;
+  const transportMode = (initialSelections?.transport ?? null) as ReservationState['transportMode'];
+  const dateId = initialSelections?.date ?? null;
+
+  let roomSelections: RoomSelection[] = [];
+  if (initialSelections?.people && initialSelections.people > 0) {
+    roomSelections = suggestRoomSelections(initialSelections.people, roomModes, tierId);
+  }
   const peopleCount = computePeopleCount(roomSelections, roomModes);
+  // getRoundtripConfig is a function declaration below — safe to call before its
+  // textual position because function declarations are hoisted.
+  const roundtripConfig = getRoundtripConfig(tierId, tiersContent ?? null);
+
   return {
-    selectedTierId: null,
-    selectedDateId: null,
+    selectedTierId: tierId,
+    selectedDateId: dateId,
     selectedDateLabel: null,
     availableSpots: null,
     peopleCount,
     roomSelections,
-    transportMode: null,
+    transportMode,
     contact: {
       name: '',
       phone: '',
       email: '',
     },
     termsAccepted: false,
+    communityContributionEnabled: false,
     pricing: calculatePricing(
       experiencePricePerPerson,
       depositPercent,
       roomModes,
       roomSelections,
-      null,
-      null,
+      transportMode,
+      roundtripConfig,
+      false,
     ),
     isHydrated: false,
-    isRoomSuggested: false,
+    isRoomSuggested: roomSelections.length > 0,
   };
 }
 
@@ -96,6 +114,7 @@ function createReservationReducer(
             emptySelections,
             state.transportMode,
             getRoundtripConfig(action.payload, tiersContent),
+            state.communityContributionEnabled,
           ),
         };
       }
@@ -123,6 +142,27 @@ function createReservationReducer(
             action.payload,
             state.transportMode,
             getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
+          ),
+        };
+      }
+
+      case 'SET_PEOPLE': {
+        const suggested = suggestRoomSelections(action.payload, roomModes, state.selectedTierId);
+        const newPeopleCount = computePeopleCount(suggested, roomModes);
+        return {
+          ...state,
+          roomSelections: suggested,
+          isRoomSuggested: true,
+          peopleCount: newPeopleCount,
+          pricing: calculatePricing(
+            experiencePricePerPerson,
+            depositPercent,
+            roomModes,
+            suggested,
+            state.transportMode,
+            getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
           ),
         };
       }
@@ -138,6 +178,7 @@ function createReservationReducer(
             state.roomSelections,
             action.payload,
             getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
           ),
         };
       }
@@ -156,6 +197,23 @@ function createReservationReducer(
         return {
           ...state,
           termsAccepted: action.payload,
+        };
+      }
+
+      case 'SET_COMMUNITY_CONTRIBUTION': {
+        const pricing = calculatePricing(
+          experiencePricePerPerson,
+          depositPercent,
+          roomModes,
+          state.roomSelections,
+          state.transportMode,
+          getRoundtripConfig(state.selectedTierId, tiersContent),
+          action.payload,
+        );
+        return {
+          ...state,
+          communityContributionEnabled: action.payload,
+          pricing,
         };
       }
 
@@ -183,6 +241,7 @@ function createReservationReducer(
           hydrated.roomSelections,
           hydrated.transportMode,
           getRoundtripConfig(hydrated.selectedTierId, tiersContent),
+          hydrated.communityContributionEnabled,
         );
         return hydrated;
       }
@@ -212,7 +271,13 @@ export function ExperienceReservationProvider({
       roomModes,
       accommodationTiersContent ?? null,
     ),
-    createInitialState(config.experiencePricePerPerson, config.depositPercent, roomModes)
+    createInitialState(
+      config.experiencePricePerPerson,
+      config.depositPercent,
+      roomModes,
+      initialSelections,
+      accommodationTiersContent,
+    )
   );
 
   const storage = useMemo(

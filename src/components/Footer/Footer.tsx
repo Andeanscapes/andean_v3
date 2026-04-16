@@ -24,10 +24,10 @@ const Footer = () => {
 
     const trustGallery = useMemo(
         () => [
-            '/assets/images/hero/h7.webp',
-            '/assets/images/hero/h8.webp',
-            '/assets/images/hero/h10.webp',
-            '/assets/images/hero/h11.webp',
+            '/assets/images/hero/h7-thumb.webp',
+            '/assets/images/hero/h8-thumb.webp',
+            '/assets/images/hero/h10-thumb.webp',
+            '/assets/images/hero/h11-thumb.webp',
         ],
         []
     );
@@ -84,6 +84,8 @@ const Footer = () => {
                                     <img
                                         src={src}
                                         alt={t('ugcAlt', { index: index + 1 })}
+                                        width={150}
+                                        height={150}
                                         className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                                         loading="lazy"
                                         decoding="async"

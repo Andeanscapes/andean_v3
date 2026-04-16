@@ -79,6 +79,7 @@ export const EMERALD_MINING_DATA: ExperienceData = {
       isHostChoice: true,
       images: {
         main: '/assets/images/hero/h7.webp',
+        thumbnail: '/assets/images/hero/h7-thumb.webp',
         gallery: ['/assets/images/hero/h8.webp', '/assets/images/hero/h10.webp'],
       },
       quickSpecs: {
@@ -179,6 +180,7 @@ export const EMERALD_MINING_DATA: ExperienceData = {
       tierDescription: 'experiences.tiers.adventure.desc',
       images: {
         main: '/assets/images/hero/h10.webp',
+        thumbnail: '/assets/images/hero/h10-thumb.webp',
         gallery: ['/assets/images/hero/h11.webp'],
       },
       quickSpecs: {

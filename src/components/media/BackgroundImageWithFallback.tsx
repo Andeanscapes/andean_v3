@@ -1,8 +1,6 @@
 'use client';
 
-import { lazy, Suspense } from 'react';
-
-const OptimizedBackgroundImage = lazy(() => import('@/components/media/OptimizedBackgroundImage'));
+import OptimizedBackgroundImage from '@/components/media/OptimizedBackgroundImage';
 
 interface BackgroundImageWithFallbackProps {
   src: string;
@@ -20,13 +18,12 @@ export default function BackgroundImageWithFallback({
   fallbackClassName = 'absolute inset-0 animate-pulse bg-gradient-to-br from-slate-950/85 via-slate-900/70 to-slate-950/85',
 }: BackgroundImageWithFallbackProps) {
   return (
-    <Suspense fallback={<div aria-hidden="true" className={fallbackClassName} />}>
-      <OptimizedBackgroundImage
-        src={src}
-        className={className}
-        loading={loading}
-        fetchPriority={fetchPriority}
-      />
-    </Suspense>
+    <OptimizedBackgroundImage
+      src={src}
+      className={className}
+      loading={loading}
+      fetchPriority={fetchPriority}
+      placeholderClassName={fallbackClassName}
+    />
   );
 }

@@ -6,7 +6,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { MessageCircle } from 'lucide-react';
 import { BOOKING_LINKS } from '@/constant/SiteConfig';
-import { trackBookingCtaClick } from '@/lib/meta-pixel';
 
 type BookingCtasProps = {
   title?: string;
@@ -39,22 +38,18 @@ export default function BookingCtas({
   }, []);
 
   const handleAirbnbClick = useCallback(() => {
-    trackBookingCtaClick('airbnb', 'booking_cta');
     onAirbnbClick?.();
   }, [onAirbnbClick]);
 
   const handleWhatsAppClick = useCallback(() => {
-    trackBookingCtaClick('whatsapp', 'booking_cta');
     onWhatsAppClick?.();
   }, [onWhatsAppClick]);
 
   const handleStickyAirbnbClick = useCallback(() => {
-    trackBookingCtaClick('airbnb', 'booking_cta_sticky');
     onAirbnbClick?.();
   }, [onAirbnbClick]);
 
   const handleStickyWhatsAppClick = useCallback(() => {
-    trackBookingCtaClick('whatsapp', 'booking_cta_sticky');
     onWhatsAppClick?.();
   }, [onWhatsAppClick]);
 

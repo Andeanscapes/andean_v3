@@ -67,6 +67,8 @@ export default [
         RequestInit: 'readonly',
         AbortController: 'readonly',
         DOMException: 'readonly',
+        IntersectionObserver: 'readonly',
+        IntersectionObserverEntry: 'readonly',
         HTMLButtonElement: 'readonly',
         HTMLElement: 'readonly',
         HTMLInputElement: 'readonly',

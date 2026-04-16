@@ -86,7 +86,12 @@
 }
 
 .navLink.hasDropdown {
-  @apply relative before:absolute before:content-['\f4fe'] before:font-bootstarp before:top-1/2 before:-translate-y-1/2 before:right-[-20px] before:text-dark-1;
+  @apply relative;
+}
+
+.navLink.hasDropdown::before {
+  content: '';
+  @apply absolute top-1/2 -translate-y-1/2 right-[-20px] w-[7px] h-[7px] border-r-[1.5px] border-b-[1.5px] border-current text-dark-1 rotate-45;
 }
 
 .variantTwo .navLink.hasDropdown {
@@ -105,8 +110,9 @@
   @apply !py-[10px] border-b border-stock-1 !block px-3 relative;
 }
 
-.navLinkSm.hasDropdown {
-  @apply before:absolute before:content-['\f282'] before:w-4 before:h-[23px] before:right-3 before:top-1/2 before:-translate-y-1/2 before:font-bootstarp;
+.navLinkSm.hasDropdown::before {
+  content: '';
+  @apply absolute right-3 top-1/2 -translate-y-1/2 w-[7px] h-[7px] border-r-[1.5px] border-b-[1.5px] border-current rotate-45;
 }
 
 .navList > li {

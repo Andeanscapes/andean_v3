@@ -122,8 +122,28 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
 
   return (
     <div
-      className="relative w-full h-[31vh] min-h-[230px] md:h-[50vh] md:min-h-0 overflow-hidden"
+      className="relative w-full h-[31vh] min-h-[230px] md:h-[50vh] md:min-h-0 overflow-hidden bg-base-950"
     >
+      {/* <picture> with responsive sources — proper LCP candidate,
+          discoverable by preload scanner, benefits from fetchPriority.
+          Mobile variant is ~70 % smaller than the desktop image. */}
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcSet={resolvedContent.backgroundImageUrl.replace(/\.webp$/, '-mobile.webp')}
+        />
+        <img
+          src={resolvedContent.backgroundImageUrl}
+          alt=""
+          aria-hidden="true"
+          width={1900}
+          height={900}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       {/* Video Background */}
       {shouldRenderVideo ? (
         <video

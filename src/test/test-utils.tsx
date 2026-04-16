@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
-import type { ExperienceConfig, RoomModeOption, AvailableDate } from '@/lib/schemas';
+import type { ExperienceConfig, ExperienceData, RoomModeOption, AvailableDate } from '@/lib/schemas';
 
 /**
  * Mock messages for next-intl testing
@@ -29,6 +29,7 @@ const MOCK_MESSAGES = {
       validationError: 'Error en la validación',
       scrollHint: 'Desliza para ver mas fechas',
       selectedDateLabel: 'Seleccionada',
+      roomPickerTitle: 'Selección de habitaciones',
       howManyPeople: '¿Cuántas personas?',
       peopleLabel: 'Personas',
       roomType: 'Tipo de habitación:',
@@ -74,6 +75,12 @@ const MOCK_MESSAGES = {
         standard: 'Habitación Estándar',
         family: 'Habitación Familiar',
         cabin: 'Cabaña',
+      },
+      experienceDetails: {
+        itineraryTitle: 'Itinerario Interactivo',
+        viewGalleryLabel: 'Ver Galería',
+        activityGallerySubtitle: 'Fotos y momentos destacados',
+        closeGalleryLabel: 'Cerrar',
       },
     },
     common: {
@@ -201,6 +208,39 @@ const MOCK_AVAILABLE_DATES: AvailableDate[] = [
   { id: 'apr-18-2026', startDate: '2026-04-18T00:00:00.000Z', spots: 4, isAvailable: true },
 ];
 
+const MOCK_EXPERIENCE_DATA: ExperienceData = {
+  config: MOCK_TRANSLATED_CONFIG,
+  transportOptions: [
+    { value: 'car_no_4x4', label: 'Carro Particular (No 4x4)', description: 'Aplica costo adicional' },
+  ],
+  roomModes: MOCK_TRANSLATED_ROOM_MODES,
+  availableDates: MOCK_AVAILABLE_DATES,
+  whatsappLink: 'https://wa.me/573001234567',
+  itineraryContent: {
+    sectionTitle: 'Itinerario Interactivo',
+    days: [
+      {
+        day: 1,
+        label: 'Día 1 — Llegada y mina',
+        stops: [
+          {
+            time: '11:00 AM',
+            title: 'Registro y bienvenida',
+            shortDescription: 'Punto de encuentro en Chivor',
+            categoryIcon: 'Gem',
+          },
+          {
+            time: '2:00 PM',
+            title: 'Visita a la mina',
+            shortDescription: 'Exploración guiada de los túneles',
+            categoryIcon: 'Mountain',
+          },
+        ],
+      },
+    ],
+  },
+};
+
 /**
  * Custom render function that wraps components with required providers
  */
@@ -227,4 +267,4 @@ function customRender(
 
 export * from '@testing-library/react';
 export { customRender as render };
-export { MOCK_TRANSLATED_CONFIG, MOCK_TRANSLATED_ROOM_MODES };
+export { MOCK_TRANSLATED_CONFIG, MOCK_TRANSLATED_ROOM_MODES, MOCK_EXPERIENCE_DATA };

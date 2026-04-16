@@ -9,9 +9,10 @@ interface ModalProps {
   closeLabel?: string;
   onClose: () => void;
   children: React.ReactNode;
+  contentClassName?: string;
 }
 
-export function Modal({ open, title, closeLabel = 'Close', onClose, children }: ModalProps) {
+export function Modal({ open, title, closeLabel = 'Close', onClose, children, contentClassName }: ModalProps) {
   useEffect(() => {
     const handleEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -46,7 +47,7 @@ export function Modal({ open, title, closeLabel = 'Close', onClose, children }: 
       onClick={handleOverlayClick}
     >
       <div 
-        className="w-full max-w-lg rounded-2xl bg-base-100 p-4 text-base-content shadow-2xl"
+        className={contentClassName ?? 'w-full max-w-lg rounded-2xl bg-base-100 p-4 text-base-content shadow-2xl'}
         onClick={handleContentClick}
       >
         <div className="mb-4 flex items-center justify-between gap-4">

@@ -6,6 +6,7 @@ import {
   useReservationPricing,
   useReservationTier,
   useReservationAccommodationTiers,
+  useReservationCommunityContribution,
 } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
@@ -15,9 +16,10 @@ interface PriceSummaryProps {
 }
 
 export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
-  const { total, depositAmount, roundtripTransferCost } = useReservationPricing();
+  const { total, depositAmount, roundtripTransferCost, communityContributionAmount } = useReservationPricing();
   const { selectedTierId } = useReservationTier();
   const tiersContent = useReservationAccommodationTiers();
+  const { communityContributionEnabled } = useReservationCommunityContribution();
   const t = useTranslations('experiences.ui');
   const { currentLocale } = useLanguageContext();
   const { theme } = useThemeContext();
@@ -27,8 +29,8 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
   const roundtripConfig = selectedTier?.roundtripTransfer ?? null;
 
   const cardClass = isDark
-    ? 'mb-6 border-2 border-[#00F08F]/20 bg-slate-900/50 backdrop-blur-xl'
-    : 'mb-6 border-2 border-emerald-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
+    ? 'mb-4 border-2 border-[#00F08F]/20 bg-slate-900/50 backdrop-blur-2xl !p-4 lg:!p-6'
+    : 'mb-4 border-2 border-emerald-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)] !p-4 lg:!p-6';
 
   const localeMap: Record<string, string> = {
     en: 'en-US',
@@ -51,7 +53,8 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
         {selectedTier && (
           <div className={`flex items-center gap-2 mb-2 pb-2 border-b ${isDark ? 'border-white/10' : 'border-neutral-200'}`}>
             <div className="h-8 w-8 shrink-0 overflow-hidden rounded-md">
-              <img src={selectedTier.images.main} alt={selectedTier.tierLabel} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              {/* Above-fold LCP candidate — eager load with high fetch priority */}
+              <img src={selectedTier.images.thumbnail ?? selectedTier.images.main} alt={selectedTier.tierLabel} className="h-full w-full object-cover" loading="eager" decoding="async" fetchPriority="high" />
             </div>
             <span className={`text-sm font-medium ${isDark ? 'text-base-content/80' : 'text-neutral-700'}`}>
               {selectedTier.tierLabel}
@@ -68,11 +71,21 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
             </span>
           </div>
         )}
+        {communityContributionEnabled && communityContributionAmount > 0 && (
+          <div className={`flex justify-between items-center text-sm py-1.5 ${isDark ? 'text-emerald-400/80' : 'text-emerald-700'}`}>
+            <span className="flex items-center gap-1.5">
+              🌱 {t('communityContributionImpact')}
+            </span>
+            <span className="font-medium">
+              {formatPrice(communityContributionAmount)}
+            </span>
+          </div>
+        )}
         <div className="flex justify-between items-center">
-          <span className="font-semibold text-base-content">
+          <span className={`font-semibold tracking-wide text-base-content`}>
             {t('totalLabel')}:
           </span>
-          <span className="text-lg font-bold text-base-content">
+          <span className="text-lg font-bold tracking-wide text-base-content">
             {formatPrice(total)}
           </span>
         </div>
@@ -81,7 +94,7 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
           <span className="text-sm font-semibold text-base-content">
             {t('payTodayLabel')} ({depositPercent}%):
           </span>
-          <span className="text-xl font-bold text-primary">
+          <span className="text-xl font-bold tracking-wide text-primary">
             {formatPrice(depositAmount)}
           </span>
         </div>

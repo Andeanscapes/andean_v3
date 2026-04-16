@@ -83,6 +83,20 @@ export function useReservationRooms() {
   };
 }
 
+export function useReservationPeopleCount() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      peopleCount: safe.state.peopleCount,
+      setPeopleCount: (count: number) =>
+        safe.dispatch({ type: 'SET_PEOPLE', payload: count }),
+    };
+  }) as {
+    peopleCount: number;
+    setPeopleCount: (count: number) => void;
+  };
+}
+
 export function useReservationRoomModes() {
   return useContextSelector(ExperienceReservationContext, (ctx) => {
     const safe = requireContext(ctx);
@@ -151,6 +165,21 @@ export function useReservationPricing() {
     depositPercent: number;
     depositAmount: number;
     roundtripTransferCost: number;
+    communityContributionAmount: number;
+  };
+}
+
+export function useReservationCommunityContribution() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      communityContributionEnabled: safe.state.communityContributionEnabled,
+      setCommunityContribution: (enabled: boolean) =>
+        safe.dispatch({ type: 'SET_COMMUNITY_CONTRIBUTION', payload: enabled }),
+    };
+  }) as {
+    communityContributionEnabled: boolean;
+    setCommunityContribution: (enabled: boolean) => void;
   };
 }
 

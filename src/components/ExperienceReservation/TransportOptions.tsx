@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import { RadioGroup } from '@/components/ui/RadioGroup/RadioGroup';
@@ -31,6 +31,7 @@ export function TransportOptions({
   const { theme } = useThemeContext();
   const { currentLocale } = useLanguageContext();
   const isDark = theme === 'dark';
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const localeMap: Record<string, string> = {
     en: 'en-US',
@@ -52,9 +53,11 @@ export function TransportOptions({
     }).format(price);
   };
 
-  const cardClass = isDark
-    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
-    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
+  const cardClass = `transition-all duration-300 ${isDark
+    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-2xl'
+    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]'} ${
+    transportMode ? 'shadow-[0_0_20px_rgba(0,168,107,0.2)]' : ''
+  }`;
 
   const radioOptions = useMemo(() => {
     return transportOptions.map((opt) => {
@@ -89,13 +92,49 @@ export function TransportOptions({
           description,
         };
       }
+
+      if (opt.value === 'car_no_4x4') {
+        return {
+          value: opt.value,
+          label: (
+            <span className="inline-flex items-center gap-2 flex-wrap">
+              <span>{opt.label}</span>
+              <span className="relative inline-flex">
+                <button
+                  type="button"
+                  aria-label={t('transportTooltipCarNo4x4')}
+                  onClick={(e) => { e.preventDefault(); setTooltipOpen((v) => !v); }}
+                  onBlur={() => setTooltipOpen(false)}
+                  className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-amber-400/70 bg-amber-50 text-amber-600 text-[10px] font-bold hover:bg-amber-100 focus-visible:ring-2 focus-visible:ring-amber-400/60 dark:border-amber-500/50 dark:bg-amber-900/30 dark:text-amber-400"
+                >
+                  i
+                </button>
+                {tooltipOpen && (
+                  <span
+                    role="tooltip"
+                    className={`absolute left-6 top-0 z-20 w-60 rounded-lg border p-2.5 text-[11px] leading-relaxed shadow-lg ${
+                      isDark
+                        ? 'border-white/10 bg-slate-800 text-base-content/90'
+                        : 'border-amber-200 bg-amber-50 text-amber-900'
+                    }`}
+                  >
+                    {t('transportTooltipCarNo4x4')}
+                  </span>
+                )}
+              </span>
+            </span>
+          ),
+          description: opt.description,
+        };
+      }
+
       return {
         value: opt.value,
         label: opt.label,
         description: opt.description,
       };
     });
-  }, [transportOptions, roundtripConfig, peopleCount, isDark, currentLocale, t]);
+  }, [transportOptions, roundtripConfig, peopleCount, isDark, currentLocale, t, tooltipOpen]);
 
   return (
     <Card className={cardClass}>

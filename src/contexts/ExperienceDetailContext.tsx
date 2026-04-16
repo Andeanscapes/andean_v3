@@ -45,11 +45,13 @@ function createInitialState(experienceData: ExperienceData): ExperienceDetailSta
     experienceData.accommodationTiers?.find((t) => t.isHostChoice) ??
     experienceData.accommodationTiers?.[0];
 
+  const defaultTransport = (experienceData.transportOptions?.[0]?.value ?? null) as TransportMode | null;
+
   return {
     selectedTierId: defaultTier?.id ?? null,
     selectedDateId: null,
     peopleCount: experienceData.config.minPeople,
-    transportMode: null,
+    transportMode: defaultTransport,
     roundtripTransferRequested: false,
     isHydrated: false,
   };

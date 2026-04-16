@@ -75,6 +75,7 @@ export const TierServiceSchema = z.object({
 // Accommodation tier images
 export const AccommodationTierImagesSchema = z.object({
   main: z.string(),
+  thumbnail: z.string().optional(),
   gallery: z.array(z.string()),
 });
 
@@ -200,6 +201,7 @@ export const ReservationPricingSchema = z.object({
   depositPercent: z.number(),
   depositAmount: z.number(),
   roundtripTransferCost: z.number(),
+  communityContributionAmount: z.number(),
 });
 
 // Experience hero badge icon
@@ -399,6 +401,9 @@ export const ReservationStateSchema = z.object({
   // Set to true when roomSelections were populated by the suggestion algorithm.
   // Cleared to false as soon as the user manually changes any room selection.
   isRoomSuggested: z.boolean(),
+
+  // Community contribution toggle (adds fixed COP amount to total)
+  communityContributionEnabled: z.boolean(),
 });
 
 // Complete experience data
@@ -466,12 +471,14 @@ export type ReservationAction =
       payload: { id: string; label: string; spots: number };
     }
   | { type: 'SET_ROOM_SELECTIONS'; payload: RoomSelection[] }
+  | { type: 'SET_PEOPLE'; payload: number }
   | { type: 'SET_TRANSPORT'; payload: TransportMode }
   | {
       type: 'SET_CONTACT';
       payload: { field: 'name' | 'phone' | 'email'; value: string };
     }
   | { type: 'SET_TERMS'; payload: boolean }
+  | { type: 'SET_COMMUNITY_CONTRIBUTION'; payload: boolean }
   | { type: 'HYDRATE'; payload: Partial<ReservationState> }
   | { type: 'RESET' };
 

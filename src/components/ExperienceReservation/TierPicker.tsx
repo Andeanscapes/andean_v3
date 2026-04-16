@@ -96,7 +96,7 @@ function TierPickerComponent() {
             >
               <div className="h-14 w-14 shrink-0 overflow-hidden rounded-lg">
                 <img
-                  src={tier.images.main}
+                  src={tier.images.thumbnail ?? tier.images.main}
                   alt={tier.tierLabel}
                   className="h-full w-full object-cover"
                   loading="lazy"
