@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
+import { useThemeContext } from '@/contexts/ThemeContext';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { DateSelector } from '@/components/ExperienceReservation/DateSelector';
 import { PeopleSelector } from '@/components/ExperienceReservation/PeopleSelector';
@@ -52,6 +53,8 @@ export default function ExperienceReservationPage({
   initialSelections,
 }: ExperienceReservationPageProps) {
   const { config, transportOptions, roomModes, availableDates, whatsappLink, heroContent, accommodationTiersContent } = experienceData;
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
 
   return (
     <ExperienceReservationProvider
@@ -64,8 +67,8 @@ export default function ExperienceReservationPage({
       {/* Full-width Hero */}
       <ExperienceHero config={config} heroContent={heroContent} />
 
-      {/* Page body: dark charcoal bg with subtle emerald corner gradients */}
-      <div className="booking-bg min-h-screen">
+      {/* Page body */}
+      <div className={`min-h-screen ${isDark ? 'booking-bg' : 'bg-base-200'}`}>
         <div className="container mx-auto max-w-6xl px-4 py-6">
           {/*
            * Desktop: two-column grid — main form (left) + sticky sidebar (right).

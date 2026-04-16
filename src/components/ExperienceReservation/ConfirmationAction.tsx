@@ -82,7 +82,7 @@ export function ConfirmationAction({
             <p className="text-xs font-semibold text-base-content leading-snug">
               🌱 {t('communityContributionLabel')}
             </p>
-            <p className={`text-[11px] mt-0.5 leading-relaxed ${communityContributionEnabled ? 'text-emerald-600 dark:text-emerald-400' : 'text-base-content/60'}`}>
+            <p className={`text-[11px] mt-0.5 leading-relaxed ${communityContributionEnabled ? (isDark ? 'text-emerald-400' : 'text-[#006B40]') : (isDark ? 'text-base-content/60' : 'text-base-content/75')}`}>
               {communityContributionEnabled ? t('communityContributionImpact') : t('communityContributionDescription')}
             </p>
           </div>
@@ -116,7 +116,7 @@ export function ConfirmationAction({
 
         {/* Helper text */}
         {!isValid && (
-          <p className="text-xs text-base-content/85 mb-1 text-center">
+          <p className="text-xs text-base-content/90 mb-1 text-center">
             {t('completeRequiredFields')}
           </p>
         )}
@@ -155,7 +155,7 @@ export function ConfirmationAction({
           </Button>
 
           {/* Social proof */}
-          <p className="flex items-center justify-center gap-1.5 text-[11px] text-base-content/60 px-2 text-center">
+          <p className={`flex items-center justify-center gap-1.5 text-[11px] px-2 text-center ${isDark ? 'text-base-content/60' : 'text-base-content/70'}`}>
             <span className="relative inline-flex h-1.5 w-1.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" style={{ animationDuration: '1.8s' }} />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
@@ -163,7 +163,7 @@ export function ConfirmationAction({
             {t('socialProofBookings')}
           </p>
 
-          <p className="text-xs text-center text-base-content/85">
+          <p className="text-xs text-center text-base-content/90">
             {t('paymentMethods')}
           </p>
         </div>

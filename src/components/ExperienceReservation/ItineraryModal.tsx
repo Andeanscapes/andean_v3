@@ -192,18 +192,18 @@ export function ItineraryModal({ open, onClose, experienceData }: ItineraryModal
       title={sectionTitle}
       closeLabel={t('experiences.ui.closeModal')}
       onClose={onClose}
-      contentClassName="w-full max-w-3xl rounded-2xl bg-base-100 p-4 text-base-content shadow-2xl"
+      contentClassName="w-full max-w-3xl sm:rounded-2xl bg-base-100 text-base-content shadow-2xl"
     >
-      <div className="max-h-[75vh] overflow-y-auto -mx-4 px-4">
+      <div>
         {days.length === 0 ? (
           <p className="py-6 text-center text-sm text-base-content/60">
             {t('experiences.ui.viewFullDetails')}
           </p>
         ) : (
-          <div className="space-y-6 pb-4">
+          <div className="space-y-10 pb-4">
             {days.map((day) => (
               <div key={day.day}>
-                <h3 className="mb-3 text-base font-bold text-primary">
+                <h3 className="mb-4 text-base font-bold text-primary">
                   {day.label}
                 </h3>
                 <div className="relative ml-6">

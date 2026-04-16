@@ -90,7 +90,7 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
           </span>
         </div>
         <div className="divider my-2"></div>
-        <div className="flex justify-between items-center bg-primary/5 -mx-4 px-4 py-2 rounded-lg">
+        <div className={`flex justify-between items-center -mx-4 px-4 py-2 rounded-lg ${isDark ? 'bg-primary/5' : 'bg-emerald-50'}`}>
           <span className="text-sm font-semibold text-base-content">
             {t('payTodayLabel')} ({depositPercent}%):
           </span>
@@ -98,7 +98,7 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
             {formatPrice(depositAmount)}
           </span>
         </div>
-        <p className="text-xs text-primary/90 mt-3">
+        <p className={`text-xs mt-3 ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
           💰 {t('balanceNote')}
         </p>
       </div>

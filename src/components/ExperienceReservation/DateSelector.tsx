@@ -45,13 +45,13 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
           {t('availableDates')}
         </h2>
         {selectedDateLabel && (
-          <p className="text-xs text-primary/90">
+          <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
             {t('selectedDateLabel')}: {selectedDateLabel}
           </p>
         )}
       </div>
       <div className="relative">
-        <div className="max-h-64 overflow-y-auto pr-1 pb-3 pt-3 space-y-2">
+        <div className="max-h-64 overflow-y-auto -mx-1.5 px-2.5 py-1.5 space-y-2">
           {availableOnly.map((date) => {
             const isSelected = selectedDateId === date.id;
             const isLowAvailability = date.spots > 0 && date.spots < 3;
@@ -62,7 +62,9 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
                 onClick={() => setDate(date.id, date.label, date.spots)}
                 className={`w-full text-left justify-between border shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
                   isSelected
-                    ? 'bg-primary/10 border-primary ring-2 ring-primary/50 text-base-content font-semibold shadow-md scale-[1.02] shadow-[0_0_15px_rgba(0,168,107,0.3)]'
+                    ? isDark
+                      ? 'bg-primary/10 border-primary ring-2 ring-primary/50 text-base-content font-semibold shadow-md shadow-[0_0_15px_rgba(0,168,107,0.3)]'
+                      : 'bg-primary/20 border-primary/90 ring-2 ring-primary/80 text-base-content font-semibold shadow-md shadow-[0_0_15px_rgba(0,168,107,0.5)]'
                     : 'bg-base-200/50 border-base-300/60 text-base-content/90'
                 }`}
                 variant="primary"

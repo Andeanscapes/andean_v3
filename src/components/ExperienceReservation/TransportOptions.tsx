@@ -105,9 +105,11 @@ export function TransportOptions({
                   aria-label={t('transportTooltipCarNo4x4')}
                   onClick={(e) => { e.preventDefault(); setTooltipOpen((v) => !v); }}
                   onBlur={() => setTooltipOpen(false)}
-                  className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-amber-400/70 bg-amber-50 text-amber-600 text-[10px] font-bold hover:bg-amber-100 focus-visible:ring-2 focus-visible:ring-amber-400/60 dark:border-amber-500/50 dark:bg-amber-900/30 dark:text-amber-400"
+                  className="inline-flex h-[18px] w-[18px] items-center justify-center text-amber-500 hover:text-amber-600 focus-visible:ring-2 focus-visible:ring-amber-500/60 rounded-full dark:text-amber-400 dark:hover:text-amber-300"
                 >
-                  i
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-1 4a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5z"/>
+                  </svg>
                 </button>
                 {tooltipOpen && (
                   <span

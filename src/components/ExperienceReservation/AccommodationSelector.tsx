@@ -122,7 +122,7 @@ function AccommodationSelectorComponent({
     <Card className={cardClass}>
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
         <h2 className="text-xl font-semibold">{t('roomPickerTitle')}</h2>
-        <p className="text-xs text-primary/90">
+        <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
           {t('peopleLabel')}: {peopleCount}
         </p>
       </div>
@@ -131,7 +131,7 @@ function AccommodationSelectorComponent({
         <p className="text-sm text-base-content/80 mb-3">{t('roomType')}</p>
         <div className="rounded-xl border border-base-300/60 bg-base-200/40 px-3 py-3">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-xs font-medium text-primary/90">
+            <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
               {isRoomSuggested && roomSelections.length > 0
                 ? t('suggestedRoomsLabel', { count: peopleCount })
                 : t('selectedRoomsLabel')}
@@ -143,7 +143,7 @@ function AccommodationSelectorComponent({
                   setRoomSelections([]);
                   setOccupancyByRoomType({});
                 }}
-                className="text-xs text-base-content/50 hover:text-base-content/70 transition-colors underline"
+                className={`text-xs underline transition-colors ${isDark ? 'text-base-content/50 hover:text-base-content/70' : 'text-base-content/60 hover:text-base-content/90'}`}
               >
                 {t('clearSelection')}
               </button>
@@ -171,7 +171,7 @@ function AccommodationSelectorComponent({
             </div>
           )}
           {isRoomSuggested && roomSelections.length > 0 && (
-            <p className="mt-2 mb-1 text-[11px] text-amber-400/80">
+            <p className={`mt-2 mb-1 text-[11px] ${isDark ? 'text-amber-400/80' : 'text-amber-700'}`}>
               {t('suggestedRoomsNote')}
             </p>
           )}
@@ -188,7 +188,7 @@ function AccommodationSelectorComponent({
         </div>
       </div>
 
-      <p className="text-xs text-primary/90 mt-4">
+      <p className={`text-xs mt-4 ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
         {t('roomMixHint')}
       </p>
 
