@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useId, useMemo } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
 import type { ExperienceData, TransportMode } from '@/lib/schemas';
@@ -28,7 +28,6 @@ function ExpericeWidgetComponent({
 }: ExpericeWidgetProps) {
   const widgetId = useId();
   const locale = useLocale();
-  const t = useTranslations('experiences.ui');
   const { theme } = useThemeContext();
   const { selectedDateId, setDate } = useDetailSelectedDate();
   const { peopleCount, setPeopleCount } = useDetailPeopleCount();

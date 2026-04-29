@@ -181,7 +181,6 @@ export function Select({
           tabIndex={-1}
           onKeyDown={handleListKeyDown}
           className={`${panelClassName ?? defaultPanel} max-h-60 overflow-y-auto focus:outline-none`}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         >
           {options.map((option, index) => {
             const isSelected = option.value === value;
