@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
+import { AlertCircle, TriangleAlert } from 'lucide-react';
 import { Card } from '@/components/ui/Card/Card';
 import { Button } from '@/components/ui/Button/Button';
 import { useMercadoPagoLink } from '@/hooks/experiences/useMercadoPagoLink';
@@ -28,6 +30,9 @@ export function ConfirmationAction({
   const { depositAmount } = useReservationPricing();
   const { createLink, loading, error } = useMercadoPagoLink(config.id);
   const [validationError, setValidationError] = useState<string | null>(null);
+  const [toastKey, setToastKey] = useState(0);
+  const [showTermsToast, setShowTermsToast] = useState(false);
+  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { currentLocale } = useLanguageContext();
   const { theme } = useThemeContext();
   const isDark = theme === 'dark';
@@ -39,6 +44,14 @@ export function ConfirmationAction({
 
   const handlePayment = async () => {
     setValidationError(null);
+
+    if (!state.termsAccepted) {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+      setToastKey((k) => k + 1);
+      setShowTermsToast(true);
+      toastTimerRef.current = setTimeout(() => setShowTermsToast(false), 3500);
+      return;
+    }
 
     try {
       reservationSchema.parse({
@@ -57,6 +70,24 @@ export function ConfirmationAction({
       setValidationError(errorMessage);
     }
   };
+
+  // Cleanup toast timer on unmount
+  useEffect(() => {
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, []);
+
+  // All fields valid except terms — button active but shows toast on click
+  const isReadyExceptTerms =
+    state.selectedDateId !== null &&
+    state.peopleCount >= 1 &&
+    state.roomSelections.length > 0 &&
+    state.transportMode !== null &&
+    state.contact.name.length >= 2 &&
+    state.contact.phone.length >= 7;
+
+  const isButtonEnabled = (isReadyExceptTerms || isValid) && !loading;
 
   return (
     /* In-scroll on mobile; static in desktop sidebar. MobileStickyDock handles payment on mobile. */
@@ -100,7 +131,7 @@ export function ConfirmationAction({
         <div className="hidden lg:block space-y-1 mt-2">
           <Button
             onClick={handlePayment}
-            disabled={!isValid || loading}
+            disabled={!isButtonEnabled}
             fullWidth
             className="btn-md btn-primary shadow-lg hover:shadow-xl hover:shadow-[0_0_15px_rgba(0,168,107,0.4)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 disabled:opacity-70 disabled:shadow-md min-h-[48px] transition-all duration-200"
           >
@@ -129,6 +160,14 @@ export function ConfirmationAction({
             )}
           </Button>
 
+          {/* Terms not accepted label — shown below button */}
+          {isReadyExceptTerms && !state.termsAccepted && (
+            <p className="mt-1.5 flex items-center justify-center gap-1.5 rounded-xl border border-amber-400/15 bg-amber-400/10 px-2.5 py-1.5 text-xs font-medium text-amber-300">
+              <TriangleAlert size={12} className="shrink-0" />
+              {t('mobileDockMissingTerms')}
+            </p>
+          )}
+
           {/* Social proof */}
           <p className={`flex items-center justify-center gap-1.5 text-[11px] px-2 text-center ${isDark ? 'text-base-content/60' : 'text-base-content/70'}`}>
             <span className="relative inline-flex h-1.5 w-1.5 shrink-0">
@@ -155,6 +194,16 @@ export function ConfirmationAction({
           </a>
         </div>
       </Card>
+
+      {showTermsToast && typeof document !== 'undefined' && createPortal(
+        <div key={toastKey} className="toast toast-top toast-end z-[9999]">
+          <div className="flex items-center gap-2 rounded-xl border border-amber-400/15 bg-amber-400/10 px-3 py-2.5 text-xs font-medium text-amber-300 shadow-lg backdrop-blur-xl">
+            <AlertCircle size={14} className="shrink-0" />
+            <span>{t('termsToastMessage')}</span>
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   );
 }

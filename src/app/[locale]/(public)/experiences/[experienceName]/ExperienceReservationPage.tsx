@@ -87,14 +87,14 @@ export default function ExperienceReservationPage({
               <IncludesAccordion experienceData={experienceData} />
               {/* Mobile-only: price summary + in-flow actions (above fixed dock) */}
               <div className="lg:hidden pb-28">
-                <PriceSummary depositPercent={config.depositPercent} />
+                <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} />
                 <ConfirmationAction config={config} whatsappLink={whatsappLink} />
               </div>
             </main>
 
             {/* ── Right column: sticky sidebar (desktop only) ── */}
             <aside className="hidden lg:block lg:sticky lg:top-20 space-y-0 pb-6">
-              <PriceSummary depositPercent={config.depositPercent} />
+              <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} />
               <ConfirmationAction config={config} whatsappLink={whatsappLink} />
             </aside>
           </div>

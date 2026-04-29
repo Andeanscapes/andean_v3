@@ -163,10 +163,10 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
           tabIndex={isVisible ? 0 : -1}
         >
           <span className="min-w-0 flex-1">
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-base-content/45">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
               {t('mobileDockSummaryLabel')}
             </span>
-            <span className="block truncate text-xs font-medium text-base-content/90">
+            <span className="block truncate text-xs font-medium text-white/90">
               {summaryText}
             </span>
           </span>
@@ -178,31 +178,31 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
         {isExpanded && (
           <div
             id="mobile-booking-summary"
-            className="mb-2 max-h-[45vh] overflow-y-auto rounded-2xl border border-white/15 bg-slate-900/95 p-3 text-sm text-base-content shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
+            className="mb-2 max-h-[45vh] overflow-y-auto rounded-2xl border border-white/15 bg-slate-900/95 p-3 text-sm text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
           >
             <dl className="grid grid-cols-[88px_1fr] gap-x-3 gap-y-2">
-              <dt className="text-base-content/50">{t('mobileDockDate')}</dt>
-              <dd className="font-medium text-base-content">{selectedDateLabel ?? t('mobileDockNotSelected')}</dd>
+              <dt className="text-white/50">{t('mobileDockDate')}</dt>
+              <dd className="font-medium text-white">{selectedDateLabel ?? t('mobileDockNotSelected')}</dd>
 
-              <dt className="text-base-content/50">{t('mobileDockPeople')}</dt>
-              <dd className="font-medium text-base-content">
+              <dt className="text-white/50">{t('mobileDockPeople')}</dt>
+              <dd className="font-medium text-white">
                 {peopleCount > 0 ? t('mobileDockPeopleSummary', { count: peopleCount }) : t('mobileDockNotSelected')}
               </dd>
 
-              <dt className="text-base-content/50">{t('mobileDockStay')}</dt>
-              <dd className="truncate font-medium text-base-content">{selectedTier?.tierLabel ?? t('mobileDockNotSelected')}</dd>
+              <dt className="text-white/50">{t('mobileDockStay')}</dt>
+              <dd className="truncate font-medium text-white">{selectedTier?.tierLabel ?? t('mobileDockNotSelected')}</dd>
 
-              <dt className="text-base-content/50">{t('mobileDockRoom')}</dt>
-              <dd className="font-medium text-base-content">{roomSummary ?? t('mobileDockNotSelected')}</dd>
+              <dt className="text-white/50">{t('mobileDockRoom')}</dt>
+              <dd className="font-medium text-white">{roomSummary ?? t('mobileDockNotSelected')}</dd>
 
-              <dt className="text-base-content/50">{t('mobileDockTransport')}</dt>
-              <dd className="font-medium text-base-content">{selectedTransport ?? t('mobileDockNotSelected')}</dd>
+              <dt className="text-white/50">{t('mobileDockTransport')}</dt>
+              <dd className="font-medium text-white">{selectedTransport ?? t('mobileDockNotSelected')}</dd>
             </dl>
 
             <div className="mt-3 border-t border-white/10 pt-3">
-              <div className="flex items-center justify-between text-base-content/70">
+              <div className="flex items-center justify-between text-white/70">
                 <span>{t('totalLabel')}</span>
-                <span className="font-semibold text-base-content">{formatPrice(total)}</span>
+                <span className="font-semibold text-white">{formatPrice(total)}</span>
               </div>
               {missingStep && (
                 <p className="mt-2 rounded-xl border border-amber-400/15 bg-amber-400/10 px-2.5 py-1.5 text-xs font-medium text-amber-300">
