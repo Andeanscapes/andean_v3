@@ -101,7 +101,7 @@ export default function ExperienceReservationPage({
         </div>
 
         {/* Mobile: fixed floating dock — scroll-activated, handles payment CTA */}
-        <MobileStickyDock config={config} />
+        <MobileStickyDock config={config} transportOptions={transportOptions} />
       </div>
     </ExperienceReservationProvider>
   );
