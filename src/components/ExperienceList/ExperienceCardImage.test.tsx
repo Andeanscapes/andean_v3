@@ -1,7 +1,21 @@
 /* eslint-disable no-undef */
+import type { ImgHTMLAttributes } from 'react';
 import { render, screen, waitFor } from '@/test/test-utils';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import ExperienceCardImage from './ExperienceCardImage';
+
+type MockNextImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+  fill?: boolean;
+  quality?: number;
+  placeholder?: string;
+  blurDataURL?: string;
+};
+
+vi.mock('next/image', () => ({
+  default: ({ fill: _fill, quality: _quality, placeholder: _placeholder, blurDataURL: _blurDataURL, ...props }: MockNextImageProps) => (
+    <img {...props} />
+  ),
+}));
 
 describe('ExperienceCardImage', () => {
   const mockProps = {
