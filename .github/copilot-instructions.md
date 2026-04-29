@@ -351,3 +351,245 @@ Use this prompt for PR review:
 ## Maintenance Rule
 When architecture, design-system primitives, security posture, or workflow changes, update this file first.
 Keep it concise, current, and enforceable.
+
+---
+
+## Future Architecture & Roadmap (AI Reference)
+
+This section informs AI of the planned architecture so suggestions today do not block tomorrow's migration. **Current code remains source of truth**; this is forward-looking context only.
+
+### Status
+- **Today:** Mock-fed services (`EXPERIENCE_DATA_REGISTRY`, `EXPERIENCES_LIST_CONFIG`), translations in `src/i18n/messages/*.json`, no real API yet.
+- **Target:** Pattern 4 — backend owns all content + translations, frontend fetches at runtime. UI and API live in **separate repositories**.
+- **Timeline:** ~4-5 weeks to MVP (live paid bookings), ~7-8 weeks to marketing-team CMS.
+
+### Repository Split (3 separate repos)
+
+```
+andean-scapes-web/       ← this repo (Next.js, Cloudflare Pages)
+andean-scapes-api/       ← new repo (Cloudflare Workers, TypeScript)
+andean-scapes-payments/  ← new repo (AWS Lambda, Go)
+```
+
+**Why separate repos:**
+- Clean boundary per concern — independent deploy cycles
+- API and payments can evolve independently
+- Go lives only in payments (contained scope, ideal for learning Go)
+- Frontend never touches payment or API internals
+
+### Language per repo
+
+| Repo | Language | Runtime | Why |
+|---|---|---|---|
+| `andean-scapes-web` | TypeScript / React | Cloudflare Pages (Next.js) | Current stack, no change |
+| `andean-scapes-api` | TypeScript | Cloudflare Workers | Native D1/KV/R2 bindings, $0, edge-native |
+| `andean-scapes-payments` | **Go** | AWS Lambda | First-class Go runtime, ~50ms cold start, small binaries, 1M req/mo free |
+
+**Why Go is ideal for Lambda (payments):**
+- AWS officially maintains the Go runtime (`provided.al2023`)
+- Go binaries are small and fast — best cold start of any compiled language on Lambda
+- Stripe webhook handlers are stateless, short-lived — perfect Lambda use case
+- 1M requests/mo free tier is more than sufficient indefinitely
+- Good scope to learn Go in production without risk (payments is isolated, well-defined)
+- No runtime cost: Lambda charges only per invocation, not idle time
+
+**Why Go on Cloudflare Workers is not viable:**
+- Workers only support Go via WebAssembly (Wasm) — not first-class
+- Free tier bundle limit: 1MB compressed; Go Wasm binaries: 2-8MB
+- D1/KV/R2 bindings are JS APIs — Go Wasm requires JS interop glue
+- WASI on Workers is experimental, not production-ready
+
+### Target Stack
+
+| Layer | Service | Language | Cost |
+|---|---|---|---|
+| Frontend hosting | Cloudflare Pages | TypeScript / Next.js | $0 |
+| API runtime | Cloudflare Workers | TypeScript | $0 (100k req/day free) |
+| Database | Cloudflare D1 (SQLite) | — | $0 (5GB + 25M reads/day) |
+| Cache | Cloudflare Cache API + KV | — | $0 |
+| Image storage | Cloudflare R2 | — | $0 (10GB, no egress) |
+| Admin auth | Cloudflare Access | — | $0 (≤50 users) |
+| Payments | AWS Lambda | **Go** | $0 (1M req/mo free) |
+| Email | Resend | — | $0 (3k/mo free) |
+| ORM (API) | Drizzle | TypeScript | $0 |
+
+**Total: $0/mo** at launch scale. Workers paid tier ($5/mo) only needed above ~10M req/mo.
+
+### Target Repository Structure
+
+**`andean-scapes-web/` (this repo) — frontend only, no changes to structure**
+```
+andean_v3/
+├── src/               # Next.js app (stays exactly here, nothing moves)
+└── .github/
+    └── copilot-instructions.md
+```
+
+**`andean-scapes-api/` (new repo) — Cloudflare Worker, TypeScript**
+```
+andean-scapes-api/
+├── src/
+│   ├── routes/        # experiences.ts, i18n.ts, bookings.ts, admin/
+│   ├── db/            # Drizzle schema + D1 client
+│   ├── cache.ts       # Cache API + KV helpers
+│   └── index.ts       # Worker entry point (Hono router)
+├── migrations/        # D1 SQL migration files
+├── seeds/             # Seed scripts (experiences + translations from current JSON)
+├── wrangler.toml      # Cloudflare Workers config (D1, KV, R2 bindings)
+└── package.json
+```
+
+**`andean-scapes-payments/` (new repo) — AWS Lambda, Go**
+```
+andean-scapes-payments/
+├── cmd/
+│   ├── checkout/      # POST /checkout — creates Stripe session
+│   └── webhook/       # POST /webhook — handles Stripe events
+├── internal/
+│   ├── stripe/        # Stripe client wrapper
+│   └── db/            # D1 HTTP client (updates booking status)
+├── template.yaml      # AWS SAM template (Lambda + API Gateway)
+└── Makefile           # build, deploy, test targets
+```
+
+**Schema sharing between repos:**
+- `andean-scapes-web`: Zod schemas stay in `src/lib/schemas/` — validated on API responses received
+- `andean-scapes-api`: own Zod schemas for request/response validation — source of truth for API contract
+- `andean-scapes-payments`: Go structs mirror the booking schema — kept in sync manually (small surface)
+- No shared package needed at this scale. If contracts diverge significantly, publish `@andean/contracts` to npm and a Go module.
+
+### Target API Contract (v1)
+
+```
+GET  /api/v1/experiences                         # list, locale-agnostic, cached
+GET  /api/v1/experiences/:slug                   # detail, locale-agnostic, cached
+GET  /api/v1/i18n/:locale?namespaces=...         # translation bundle, cached
+POST /api/v1/bookings/checkout                   # creates Stripe session via Lambda
+POST /api/v1/bookings/webhook                    # Stripe webhook (Lambda-forwarded)
+GET|POST|PUT|DELETE /api/v1/admin/experiences/*  # CMS writes (Cloudflare Access gated)
+PUT  /api/v1/admin/translations/:locale/:key     # translation edit
+POST /api/v1/admin/images/upload                 # R2 signed URL
+POST /api/v1/admin/publish                       # cache invalidation trigger
+```
+
+### Translation Architecture (Pattern 4, Strategy B — runtime fetch)
+
+- D1 `translations` table holds every key/locale/value pair
+- `GET /api/v1/i18n/:locale` serves flat JSON bundles (same shape as current `messages/*.json`)
+- `src/i18n/request.ts` fetches bundle at runtime; static JSON kept as cold-start fallback
+- **Component code is unchanged**: `t('experiences.tiers.heritage.title')` still works
+- Marketing publishes in admin UI → Worker writes D1 → `revalidateTag()` → live within seconds
+- Locale fallback: missing `fr` key → falls back to `en` in Worker handler
+
+### Database Schema (D1 / SQLite)
+
+```sql
+experiences   (id, slug, i18n_namespace, data JSON, status, published_at, version, ...)
+translations  (key, locale, value, updated_at)   PRIMARY KEY (key, locale)
+bookings      (id, experience_id, stripe_session_id, status, total_amount, currency, ...)
+admin_users   (id, email, role)
+```
+
+`experiences.data` is a JSON blob of structural data only (prices, images, dates, coordinates). Zero translatable text in this column.
+
+### Phased Migration Plan
+
+**Phase 0** — Pre-flight: account provisioning, finalize open decisions (1-2 days)
+**Phase 1** — API contract on Workers, mock-fed (1-2 weeks). Frontend calls real HTTP API; Worker still serves current mocks. Zero user-facing change.
+**Phase 2** — D1 + booking flow (2-3 weeks). DB-backed catalog. Stripe checkout end-to-end. Admin write API functional via Postman (no UI yet).
+**Phase 3** — Admin UI for marketing team (2-3 weeks). `/admin/*` in Next.js, Cloudflare Access auth, CRUD for experiences + translations, R2 image upload.
+**Phase 4** — Production hardening (1 week). Backups, alerts, email automation, locale fallback, rate limiting, staging environment.
+
+**MVP cutline:** complete Phases 1+2. First paid booking possible before Phase 3 (marketing edits via Postman during interim).
+
+### MVP Scope (First Live Sale)
+
+- 2 experiences: **Hacienda El Recuerdo** + **1 emerald-mining experience**
+- 3 locales: en / es / fr (seeded from current JSON files)
+- Existing public list + detail pages: swap data source from mocks → Worker API
+- Existing booking form: wire to `POST /api/v1/bookings/checkout`
+- Stripe test → live checkout flow
+- Booking confirmation email: manual until Phase 4 automates it
+
+### AI Behavior Rules for Future Compatibility
+
+AI MUST respect these rules when suggesting code, even before the migration happens:
+
+1. **Preserve service seams.** `book.service.ts` and `experiences-list.service.ts` follow `fetch → validate → translate → return`. The "fetch" step is the single line that becomes a real `fetch()` in Phase 1. Never inline mock access into components or hooks.
+
+2. **Zod schemas are the API contract.** Schemas in `src/lib/schemas/` will move to `packages/shared/` in Phase 1. Keep them pure — no `next/server`, no React imports, no Next.js-specific types.
+
+3. **Key-based translations only.** Never embed localized strings in mock data or API responses. Always `i18nNamespace` + relative key references. Frontend `next-intl` remains the renderer. Do not propose returning pre-translated strings from the API (Pattern 2 — rejected).
+
+4. **Single mock registry.** All raw experience data flows through `EXPERIENCE_DATA_REGISTRY` (`src/lib/data-mocks/experiences.registry.ts`). Phase 2 replaces this one import with a D1 query. Do NOT create parallel registries.
+
+5. **`computeFromPrice` is interim.** This helper in `experiences-list.service.ts` is deleted in Phase 2 when the API returns `fromPrice` denormalized. Do not build on top of it.
+
+6. **Translators are pure functions.** `src/utils/experienceTranslators.ts` accepts raw data + `t()`, returns projected content. No I/O, no side effects, no runtime dependencies. They run unchanged after migration.
+
+7. **Context composition over storage bridging.** `ExperienceDetailProvider` wraps `ExperienceReservationProvider`. Never restore the deleted `useEffect` localStorage bridge. Cross-context state belongs in a shared parent provider.
+
+8. **No new mock files.** Extend `src/test/test-utils.tsx` (`MOCK_EXPERIENCE_DATA`, `MOCK_MESSAGES`) for test data. Do not create domain-specific mock files outside this convention.
+
+9. **Workers-compatible backend code.** Prefer Workers-compatible patterns: no Node-only APIs, no long-running processes, mindful of 10ms CPU limit on free tier. Drizzle is the chosen ORM — do not suggest Prisma.
+
+10. **SQLite-aware schema.** Respect D1/SQLite limitations: TEXT/INTEGER/JSON types, single-region writes, no Postgres-only features.
+
+11. **Admin UI lives in Next.js.** `/admin/*` routes are part of `apps/web`, gated by Cloudflare Access. Do not propose Payload, Sanity, Strapi, or any external CMS — explicitly rejected for cost and lock-in reasons.
+
+12. **Payments stay in Lambda.** Stripe logic lives in AWS Lambda. Workers handles routing only. Do not move Stripe interaction into Workers.
+
+13. **Locale-agnostic API responses.** `/experiences/:slug` and `/experiences` never accept `?locale=`. Translations come exclusively from `/i18n/:locale`. Do not merge these endpoints.
+
+14. **Cache via tags.** Reads use `next: { revalidate: 3600, tags: [...] }`. Writes trigger `revalidateTag()`. Do not introduce per-locale URLs on data endpoints that would fragment CDN caching.
+
+### Decisions Locked — Do Not Re-Propose
+
+| Decision | Rejected alternatives |
+|---|---|
+| Cloudflare-native stack | Vercel, AWS-primary, mixed clouds |
+| Custom Next.js admin UI | Payload, Sanity, Contentful, Strapi |
+| Cloudflare D1 for database | Postgres, MongoDB for v1 |
+| Drizzle ORM | Prisma, raw SQL, TypeORM |
+| Pattern 4 + Strategy B (runtime fetch) | Patterns 1/2/3, Strategy A (build-time) |
+| AWS Lambda for payments | Stripe logic in Workers |
+| Single repo, `api/` folder at root | pnpm workspaces monorepo, Turborepo, Nx, separate repos |
+| Cloudflare Access for admin auth | Custom JWT, NextAuth for v1 |
+
+### Open Decisions (AI may help evaluate)
+
+- API domain: `api.andeanscapes.com` vs `*.workers.dev` for MVP
+- Email provider: Resend vs SES
+- Currency strategy: USD-only at launch vs multi-currency from day one
+- Tax/VAT handling at Stripe checkout
+- Booking cancellation/refund flow — MVP scope or post-launch
+
+### Current State → Phase 1 Migration Map
+
+| Current artifact | Phase 1 action | Phase 2 action |
+|---|---|---|
+| `EXPERIENCE_DATA_REGISTRY` | Copy to `apps/api/src/data/` (still mock) | Seed into D1, delete mock file |
+| `EXPERIENCES_LIST_CONFIG` | Extract to `apps/api/src/data/` | Replace with D1 query |
+| `book.service.ts` fetch step | `getFallbackData()` → `fetch(workerUrl)` | No change (already real fetch) |
+| `experiences-list.service.ts` | Const access → `fetch(workerUrl)` | `computeFromPrice` deleted |
+| Zod schemas | Move to `packages/shared/` | No change |
+| `src/i18n/messages/*.json` | Copy to API repo as seed source | Seed D1, keep as fallback |
+| Tests (140 passing) | Update mocks for HTTP boundary | Add integration tests for Worker |
+
+Zero throwaway work. Every refactor in the current codebase directly enables Phase 1.
+
+### Correct vs Incorrect Suggestions (Examples)
+
+```
+✅ "Update Zod schema in src/lib/schemas/ for the new field, update mock, update translators"
+✅ "Fix booking flow bug within service layer, preserve fetch-validate-translate-return shape"
+✅ "Extend MOCK_EXPERIENCE_DATA in test-utils.tsx for new test coverage"
+
+❌ "Add a service that bypasses Zod validation"
+❌ "Embed translated strings directly in experience mock data"
+❌ "Create a parallel mock registry for this new feature"
+❌ "Use Payload/Sanity for content management"
+❌ "Move pricing formula into a multi-file pipeline before the API exists"
+❌ "Add ?locale= parameter to the experience detail endpoint"
+❌ "Use Prisma for D1 access"
+```
