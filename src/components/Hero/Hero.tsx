@@ -1,5 +1,6 @@
 'use client'
 
+import 'swiper/css';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,7 +8,6 @@ import {Link} from '@/i18n/navigation';
 
 import HeroData from '@/constant/Hero'
 import {useTranslations} from 'next-intl';
-import {trackMetaCustomEvent} from '@/lib/meta-pixel';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -21,7 +21,6 @@ const Hero = () => {
 
     const handleBookingScroll = useCallback((event: React.MouseEvent) => {
         event.preventDefault();
-        trackMetaCustomEvent('AvailabilityClick', { placement: 'hero' });
         const bookingSection = document.getElementById('booking');
 
         if (bookingSection) {

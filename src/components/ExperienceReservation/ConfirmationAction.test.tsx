@@ -69,7 +69,7 @@ describe('ConfirmationAction', () => {
       />
     );
 
-    const checkbox = screen.getByRole('checkbox');
+    const checkbox = screen.getByRole('checkbox', { name: /terms|conditions|acepto|terminos/i });
     expect(checkbox).not.toBeChecked();
 
     await user.click(checkbox);

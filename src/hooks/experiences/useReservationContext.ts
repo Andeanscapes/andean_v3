@@ -37,19 +37,63 @@ export function useReservationDate() {
   };
 }
 
+export function useReservationTier() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      selectedTierId: safe.state.selectedTierId,
+      setTier: (tierId: string) =>
+        safe.dispatch({ type: 'SET_TIER', payload: tierId }),
+    };
+  }) as {
+    selectedTierId: string | null;
+    setTier: (tierId: string) => void;
+  };
+}
+
+export function useReservationAccommodationTiers() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.accommodationTiersContent;
+  });
+}
+
+export function useReservationAvailableDates() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.availableDates;
+  });
+}
+
 export function useReservationRooms() {
   return useContextSelector(ExperienceReservationContext, (ctx) => {
     const safe = requireContext(ctx);
     return {
       peopleCount: safe.state.peopleCount,
       roomSelections: safe.state.roomSelections,
+      isRoomSuggested: safe.state.isRoomSuggested,
       setRoomSelections: (selections: RoomSelection[]) =>
         safe.dispatch({ type: 'SET_ROOM_SELECTIONS', payload: selections }),
     };
   }) as {
     peopleCount: number;
     roomSelections: RoomSelection[];
+    isRoomSuggested: boolean;
     setRoomSelections: (selections: RoomSelection[]) => void;
+  };
+}
+
+export function useReservationPeopleCount() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      peopleCount: safe.state.peopleCount,
+      setPeopleCount: (count: number) =>
+        safe.dispatch({ type: 'SET_PEOPLE', payload: count }),
+    };
+  }) as {
+    peopleCount: number;
+    setPeopleCount: (count: number) => void;
   };
 }
 
@@ -116,10 +160,26 @@ export function useReservationPricing() {
     const safe = requireContext(ctx);
     return safe.state.pricing;
   }) as {
-    basePricePerPerson: number;
+    experiencePricePerPerson: number;
     total: number;
     depositPercent: number;
     depositAmount: number;
+    roundtripTransferCost: number;
+    communityContributionAmount: number;
+  };
+}
+
+export function useReservationCommunityContribution() {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return {
+      communityContributionEnabled: safe.state.communityContributionEnabled,
+      setCommunityContribution: (enabled: boolean) =>
+        safe.dispatch({ type: 'SET_COMMUNITY_CONTRIBUTION', payload: enabled }),
+    };
+  }) as {
+    communityContributionEnabled: boolean;
+    setCommunityContribution: (enabled: boolean) => void;
   };
 }
 

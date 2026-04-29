@@ -1,20 +1,11 @@
 'use client';
 
-import { lazy, memo, Suspense } from 'react';
+import { memo } from 'react';
 import {Link} from '@/i18n/navigation';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
+import ExperienceCardImage from './ExperienceCardImage';
 import type { ExperienceListCard } from '@/lib/schemas';
-
-const ExperienceCardImage = lazy(() => import('./ExperienceCardImage'));
-
-function ExperienceCardImageFallback() {
-  return (
-    <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">
-      <div aria-hidden="true" className="absolute inset-0 animate-pulse bg-gradient-to-br from-base-200 via-base-300 to-base-200" />
-    </div>
-  );
-}
 
 export interface ExperienceCardProps {
   card: ExperienceListCard;
@@ -27,13 +18,11 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
   return (
     <Card padding="sm" className="h-full">
       <div className="relative">
-        <Suspense fallback={<ExperienceCardImageFallback />}>
-          <ExperienceCardImage
-            src={card.image}
-            alt={card.title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </Suspense>
+        <ExperienceCardImage
+          src={card.image}
+          alt={card.title}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
         <div className="absolute left-3 top-3">
           <Badge variant="secondary" size="sm" className="bg-base-100/90 px-2 py-0.5 text-[11px] md:px-2.5 md:py-1 md:text-xs">
             {card.tag}

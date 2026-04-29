@@ -8,10 +8,12 @@ import { useMercadoPagoLink } from '@/hooks/experiences/useMercadoPagoLink';
 import {
   useReservationValidation,
   useReservationPricing,
+  useReservationCommunityContribution,
 } from '@/hooks/experiences/useReservationContext';
 import { reservationSchema } from '@/utils/validationSchemas';
 import type { ExperienceConfig } from '@/lib/schemas';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { useThemeContext } from '@/contexts/ThemeContext';
 
 interface ConfirmationActionProps {
   config: ExperienceConfig;
@@ -25,9 +27,12 @@ export function ConfirmationAction({
   const t = useTranslations('experiences.ui');
   const { isValid, state, setTermsAccepted } = useReservationValidation();
   const { depositAmount } = useReservationPricing();
+  const { communityContributionEnabled, setCommunityContribution } = useReservationCommunityContribution();
   const { createLink, loading, error } = useMercadoPagoLink(config.id);
   const [validationError, setValidationError] = useState<string | null>(null);
   const { currentLocale } = useLanguageContext();
+  const { theme } = useThemeContext();
+  const isDark = theme === 'dark';
   const localeMap: Record<string, string> = {
     en: 'en-US',
     es: 'es-CO',
@@ -56,8 +61,33 @@ export function ConfirmationAction({
   };
 
   return (
-    <div className="sticky bottom-0 z-50 -mx-4 px-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] pt-4 mt-6">
-      <Card className="w-full rounded-2xl border border-base-200 bg-base-100/98 p-2 text-base-content shadow-2xl backdrop-blur">
+    /* In-scroll on mobile; static in desktop sidebar. MobileStickyDock handles payment on mobile. */
+    <div>
+      <Card className={`w-full rounded-2xl !p-2 lg:!p-3 text-base-content shadow-2xl backdrop-blur-2xl ${isDark ? 'border border-white/15 bg-slate-900/95' : 'border border-neutral-200 bg-white/98'}`}>
+
+        {/* Community Contribution toggle */}
+        <label className={`flex cursor-pointer items-start gap-3 rounded-xl p-2 lg:p-2.5 mb-2 transition-colors ${
+          communityContributionEnabled
+            ? (isDark ? 'bg-emerald-900/20 border border-emerald-500/30' : 'bg-emerald-50 border border-emerald-200')
+            : (isDark ? 'border border-white/8 bg-white/3' : 'border border-neutral-100 bg-neutral-50/60')
+        }`}>
+          <input
+            type="checkbox"
+            checked={communityContributionEnabled}
+            onChange={(e) => setCommunityContribution(e.target.checked)}
+            className="checkbox checkbox-sm checkbox-primary mt-0.5 shrink-0"
+            aria-label={t('communityContributionLabel')}
+          />
+          <div className="min-w-0">
+            <p className="text-xs font-semibold text-base-content leading-snug">
+              🌱 {t('communityContributionLabel')}
+            </p>
+            <p className={`text-[11px] mt-0.5 leading-relaxed ${communityContributionEnabled ? (isDark ? 'text-emerald-400' : 'text-[#006B40]') : (isDark ? 'text-base-content/60' : 'text-base-content/75')}`}>
+              {communityContributionEnabled ? t('communityContributionImpact') : t('communityContributionDescription')}
+            </p>
+          </div>
+        </label>
+
         {/* Términos */}
         <label className="label cursor-pointer mb-1 text-base-content">
           <input
@@ -65,6 +95,7 @@ export function ConfirmationAction({
             checked={state.termsAccepted}
             onChange={(e) => setTermsAccepted(e.target.checked)}
             className="checkbox checkbox-primary"
+            aria-label={t('termsCheckbox')}
           />
           <span className="label-text text-xs ml-2 text-base-content/90">
             {t('termsCheckbox')}
@@ -85,18 +116,18 @@ export function ConfirmationAction({
 
         {/* Helper text */}
         {!isValid && (
-          <p className="text-xs text-base-content/85 mb-1 text-center">
+          <p className="text-xs text-base-content/90 mb-1 text-center">
             {t('completeRequiredFields')}
           </p>
         )}
 
-        {/* Buttons */}
-        <div className="space-y-1 mt-2">
+        {/* Payment actions — desktop only; MobileStickyDock handles mobile */}
+        <div className="hidden lg:block space-y-1 mt-2">
           <Button
             onClick={handlePayment}
             disabled={!isValid || loading}
             fullWidth
-            className="btn-md btn-primary shadow-lg hover:shadow-xl active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 disabled:opacity-70 disabled:shadow-md min-h-[48px]"
+            className="btn-md btn-primary shadow-lg hover:shadow-xl hover:shadow-[0_0_15px_rgba(0,168,107,0.4)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 disabled:opacity-70 disabled:shadow-md min-h-[48px] transition-all duration-200"
           >
             {loading ? (
               <>
@@ -123,10 +154,22 @@ export function ConfirmationAction({
             )}
           </Button>
 
-          <p className="text-xs text-center text-base-content/85">
-            {t('paymentMethods')}
+          {/* Social proof */}
+          <p className={`flex items-center justify-center gap-1.5 text-[11px] px-2 text-center ${isDark ? 'text-base-content/60' : 'text-base-content/70'}`}>
+            <span className="relative inline-flex h-1.5 w-1.5 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" style={{ animationDuration: '1.8s' }} />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            </span>
+            {t('socialProofBookings')}
           </p>
 
+          <p className="text-xs text-center text-base-content/90">
+            {t('paymentMethods')}
+          </p>
+        </div>
+
+        {/* WhatsApp fallback — always visible */}
+        <div className="mt-1.5">
           <a
             href={whatsappLink}
             target="_blank"

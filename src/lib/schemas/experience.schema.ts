@@ -17,7 +17,15 @@ export const RoomModeSchema = z.enum([
 ]);
 
 // Transport mode enum
-export const TransportModeSchema = z.enum(['car_no_4x4', 'have_4x4', 'bus']);
+export const TransportModeSchema = z.enum(['car_no_4x4', 'have_4x4', 'bus', 'roundtrip_transfer']);
+
+// Round-trip transfer config (per tier, origin→destination→origin)
+export const RoundtripTransferConfigSchema = z.object({
+  origin: z.string(),
+  destination: z.string(),
+  pricePerVehicle: z.number(),
+  maxPeoplePerVehicle: z.number(),
+});
 
 // Room type enum
 export const RoomTypeSchema = z.enum(['standard', 'family', 'cabin']);
@@ -30,13 +38,79 @@ export const ExperienceImagesSchema = z.object({
   valuePropositionTile3: z.string().optional(),
 });
 
+// Itinerary day stop (raw config — keys, not translated)
+export const ItineraryDayStopSchema = z.object({
+  time: z.string(),
+  title: z.string(),
+  shortDescription: z.string().optional(),
+  description: z.string().optional(),
+  imageUrl: z.string().optional(),
+  images: z.array(z.string()).optional(),
+  categoryIcon: z.string().optional(),
+  notes: z.array(z.string()).optional(),
+});
+
+// Itinerary day (raw config)
+export const ItineraryDaySchema = z.object({
+  day: z.number(),
+  label: z.string(),
+  stops: z.array(ItineraryDayStopSchema),
+});
+
+// Accommodation room
+export const AccommodationRoomSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  capacity: z.number(),
+  pricePerNight: z.number(),
+});
+
+// Tier service (e.g. breakfast, dinner)
+export const TierServiceSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  pricePerPersonPerNight: z.number(),
+});
+
+// Accommodation tier images
+export const AccommodationTierImagesSchema = z.object({
+  main: z.string(),
+  thumbnail: z.string().optional(),
+  gallery: z.array(z.string()),
+});
+
+// Accommodation tier quick specs
+export const AccommodationTierQuickSpecsSchema = z.object({
+  hasPrivateBathroom: z.boolean(),
+  hasWifi: z.boolean(),
+});
+
+// Accommodation tier (raw config)
+export const AccommodationTierSchema = z.object({
+  id: z.string(),
+  tierTag: z.string(),
+  tierLabel: z.string(),
+  tierDescription: z.string(),
+  isHostChoice: z.boolean().optional(),
+  images: AccommodationTierImagesSchema,
+  quickSpecs: AccommodationTierQuickSpecsSchema,
+  rooms: z.array(AccommodationRoomSchema),
+  services: z.array(TierServiceSchema).optional(),
+  roundtripTransfer: RoundtripTransferConfigSchema.optional(),
+  itinerary: z.array(ItineraryDaySchema).optional(),
+  tierNote: z.string().optional(),
+  idealForItems: z.array(z.string()).optional(),
+  goodToKnowItems: z.array(z.string()).optional(),
+});
+
 // Experience config
 export const ExperienceConfigSchema = z.object({
   id: z.string(),
   title: z.string(),
   subtitle: z.string(),
   description: z.string(),
-  basePricePerPerson: z.number(),
+  experiencePricePerPerson: z.number(),
+  numberOfNights: z.number(),
   depositPercent: z.number(),
   maxPeople: z.number(),
   minPeople: z.number(),
@@ -70,14 +144,7 @@ export const ExperienceConfigSchema = z.object({
     label: z.string().optional(),
     zoom: z.number().optional(),
   }).optional(),
-  itinerary: z.array(z.object({
-    id: z.string(),
-    time: z.string(),
-    title: z.string(),
-    description: z.string().optional(),
-    imageUrl: z.string().optional(),
-    notes: z.array(z.string()).optional(),
-  })).optional(),
+  itinerary: z.array(ItineraryDaySchema).optional(),
   host: z.object({
     name: z.string(),
     avatarUrl: z.string(),
@@ -91,7 +158,7 @@ export const ExperienceConfigSchema = z.object({
 export const TransportOptionSchema = z.object({
   value: z.string(),
   label: z.string(),
-  description: z.string(),
+  description: z.string().optional(),
 });
 
 // Room mode option
@@ -102,13 +169,14 @@ export const RoomModeOptionSchema = z.object({
   fixed_people: z.number().optional(),
   room_type_id: RoomTypeSchema,
   units_available: z.number(),
+  tier_id: z.string().optional(),
 });
 
 // Available date
 export const AvailableDateSchema = z.object({
   id: z.string(),
   startDate: z.string(),
-  endDate: z.string(),
+  endDate: z.string().optional(),
   spots: z.number(),
   isAvailable: z.boolean(),
 });
@@ -128,10 +196,12 @@ export const ReservationContactSchema = z.object({
 
 // Reservation pricing
 export const ReservationPricingSchema = z.object({
-  basePricePerPerson: z.number(),
+  experiencePricePerPerson: z.number(),
   total: z.number(),
   depositPercent: z.number(),
   depositAmount: z.number(),
+  roundtripTransferCost: z.number(),
+  communityContributionAmount: z.number(),
 });
 
 // Experience hero badge icon
@@ -171,6 +241,8 @@ export const ExperienceWidgetContentSchema = z.object({
   whatsappCtaLabel: z.string(),
   fallbackDateLabel: z.string(),
   topSellerLabel: z.string().optional(),
+  fromLabel: z.string().optional(),
+  totalLabel: z.string().optional(),
   perPersonLabel: z.string().optional(),
   reviewsCountLabel: z.string().optional(),
   bookingButtonLabel: z.string().optional(),
@@ -222,14 +294,62 @@ export const ExperienceInclusionsContentSchema = z.object({
   location: ExperienceLocationSchema.optional(),
 });
 
-// Itinerary stop
-export const ItineraryStopSchema = z.object({
-  id: z.string(),
+// Itinerary day stop (translated — UI-ready)
+export const ItineraryDayStopContentSchema = z.object({
   time: z.string(),
   title: z.string(),
+  shortDescription: z.string().optional(),
   description: z.string().optional(),
   imageUrl: z.string().optional(),
+  images: z.array(z.string()).optional(),
+  categoryIcon: z.string().optional(),
   notes: z.array(z.string()).optional(),
+});
+
+// Itinerary day (translated — UI-ready)
+export const ItineraryDayContentSchema = z.object({
+  day: z.number(),
+  label: z.string(),
+  stops: z.array(ItineraryDayStopContentSchema),
+});
+
+// Accommodation room (translated)
+export const AccommodationRoomContentSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  capacity: z.number(),
+  pricePerNight: z.number(),
+});
+
+// Tier service (translated)
+export const TierServiceContentSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  pricePerPersonPerNight: z.number(),
+});
+
+// Accommodation tier (translated — UI-ready)
+export const AccommodationTierContentSchema = z.object({
+  id: z.string(),
+  tierTag: z.string(),
+  tierLabel: z.string(),
+  tierDescription: z.string(),
+  isHostChoice: z.boolean().optional(),
+  images: AccommodationTierImagesSchema,
+  quickSpecs: AccommodationTierQuickSpecsSchema,
+  rooms: z.array(AccommodationRoomContentSchema),
+  services: z.array(TierServiceContentSchema).optional(),
+  roundtripTransfer: RoundtripTransferConfigSchema.optional(),
+  itinerary: z.array(ItineraryDayContentSchema).optional(),
+  tierNote: z.string().optional(),
+  idealForItems: z.array(z.string()).optional(),
+  goodToKnowItems: z.array(z.string()).optional(),
+});
+
+// Accommodation tiers content (section-level translated wrapper)
+export const AccommodationTiersContentSchema = z.object({
+  sectionTitle: z.string(),
+  tiers: z.array(AccommodationTierContentSchema),
 });
 
 export const HostContentSchema = z.object({
@@ -246,11 +366,14 @@ export const HostContentSchema = z.object({
 
 export const ItineraryContentSchema = z.object({
   sectionTitle: z.string(),
-  stops: z.array(ItineraryStopSchema),
+  days: z.array(ItineraryDayContentSchema),
 });
 
 // Reservation state
 export const ReservationStateSchema = z.object({
+  // Tier selection
+  selectedTierId: z.string().nullable(),
+
   // Date selection
   selectedDateId: z.string().nullable(),
   selectedDateLabel: z.string().nullable(),
@@ -274,6 +397,13 @@ export const ReservationStateSchema = z.object({
 
   // SSR hydration flag
   isHydrated: z.boolean(),
+
+  // Set to true when roomSelections were populated by the suggestion algorithm.
+  // Cleared to false as soon as the user manually changes any room selection.
+  isRoomSuggested: z.boolean(),
+
+  // Community contribution toggle (adds fixed COP amount to total)
+  communityContributionEnabled: z.boolean(),
 });
 
 // Complete experience data
@@ -281,6 +411,7 @@ export const ExperienceDataSchema = z.object({
   config: ExperienceConfigSchema,
   transportOptions: z.array(TransportOptionSchema),
   roomModes: z.array(RoomModeOptionSchema),
+  accommodationTiers: z.array(AccommodationTierSchema).optional(),
   availableDates: z.array(AvailableDateSchema),
   whatsappLink: z.string(),
   heroContent: ExperienceHeroContentSchema.optional(),
@@ -288,6 +419,7 @@ export const ExperienceDataSchema = z.object({
   valuePropositionsContent: ValuePropositionsContentSchema.optional(),
   inclusionsContent: ExperienceInclusionsContentSchema.optional(),
   itineraryContent: ItineraryContentSchema.optional(),
+  accommodationTiersContent: AccommodationTiersContentSchema.optional(),
   hostContent: HostContentSchema.optional(),
 });
 
@@ -312,7 +444,20 @@ export type ExperienceLogisticsItem = z.infer<typeof ExperienceLogisticsItemSche
 export type ExperienceInclusionItem = z.infer<typeof ExperienceInclusionItemSchema>;
 export type ExperienceLocation = z.infer<typeof ExperienceLocationSchema>;
 export type ExperienceInclusionsContent = z.infer<typeof ExperienceInclusionsContentSchema>;
-export type ItineraryStop = z.infer<typeof ItineraryStopSchema>;
+export type ItineraryDayStop = z.infer<typeof ItineraryDayStopSchema>;
+export type ItineraryDay = z.infer<typeof ItineraryDaySchema>;
+export type ItineraryDayStopContent = z.infer<typeof ItineraryDayStopContentSchema>;
+export type ItineraryDayContent = z.infer<typeof ItineraryDayContentSchema>;
+export type AccommodationRoom = z.infer<typeof AccommodationRoomSchema>;
+export type TierService = z.infer<typeof TierServiceSchema>;
+export type RoundtripTransferConfig = z.infer<typeof RoundtripTransferConfigSchema>;
+export type AccommodationTierImages = z.infer<typeof AccommodationTierImagesSchema>;
+export type AccommodationTierQuickSpecs = z.infer<typeof AccommodationTierQuickSpecsSchema>;
+export type AccommodationTier = z.infer<typeof AccommodationTierSchema>;
+export type AccommodationRoomContent = z.infer<typeof AccommodationRoomContentSchema>;
+export type TierServiceContent = z.infer<typeof TierServiceContentSchema>;
+export type AccommodationTierContent = z.infer<typeof AccommodationTierContentSchema>;
+export type AccommodationTiersContent = z.infer<typeof AccommodationTiersContentSchema>;
 export type ItineraryContent = z.infer<typeof ItineraryContentSchema>;
 export type HostContent = z.infer<typeof HostContentSchema>;
 export type ReservationState = z.infer<typeof ReservationStateSchema>;
@@ -320,17 +465,20 @@ export type ExperienceData = z.infer<typeof ExperienceDataSchema>;
 
 // Reservation actions (discriminated union - not validated at runtime, but typed)
 export type ReservationAction =
+  | { type: 'SET_TIER'; payload: string }
   | {
       type: 'SET_DATE';
       payload: { id: string; label: string; spots: number };
     }
   | { type: 'SET_ROOM_SELECTIONS'; payload: RoomSelection[] }
+  | { type: 'SET_PEOPLE'; payload: number }
   | { type: 'SET_TRANSPORT'; payload: TransportMode }
   | {
       type: 'SET_CONTACT';
       payload: { field: 'name' | 'phone' | 'email'; value: string };
     }
   | { type: 'SET_TERMS'; payload: boolean }
+  | { type: 'SET_COMMUNITY_CONTRIBUTION'; payload: boolean }
   | { type: 'HYDRATE'; payload: Partial<ReservationState> }
   | { type: 'RESET' };
 
@@ -339,4 +487,6 @@ export interface ReservationContextValue {
   state: ReservationState;
   dispatch: (action: ReservationAction) => void;
   roomModes: RoomModeOption[];
+  accommodationTiersContent: AccommodationTiersContent | null;
+  availableDates: AvailableDate[];
 }

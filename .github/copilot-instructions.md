@@ -71,8 +71,7 @@ The global provider stack is intentional and must remain ordered as follows:
 2. `NextIntlClientProvider`
 3. `LanguageProvider`
 4. `WebVitalsReporter`
-5. Optional `MetaPixelPageViewTracker`
-6. Route content
+5. Route content
 
 This is implemented in `src/app/providers.tsx` and mounted from `src/app/[locale]/layout.tsx`.
 
@@ -387,7 +386,7 @@ Current provider stack is intentional and must be preserved:
 1. `ThemeProvider` (global theme and hydration-safe theme init)
 2. `NextIntlClientProvider` (locale/messages/timeZone)
 3. `LanguageProvider` (derived locale metadata for UI selectors)
-4. Optional `MetaPixelPageViewTracker` (only when env-based flag allows)
+4. `WebVitalsReporter` (performance monitoring)
 5. Route content (`children`)
 
 Implemented in: `src/app/providers.tsx` and mounted in `src/app/[locale]/layout.tsx`.

@@ -68,6 +68,9 @@ export function ThemeProvider({
   );
 }
 
+const noopToggle = () => {};
+const noopSetTheme = (_theme: Theme) => {};
+
 export function useThemeContext() {
   const theme = useContextSelector(
     ThemeContext,
@@ -75,11 +78,11 @@ export function useThemeContext() {
   );
   const toggleTheme = useContextSelector(
     ThemeContext,
-    (value) => value?.toggleTheme ?? (() => {})
+    (value) => value?.toggleTheme ?? noopToggle
   );
   const setTheme = useContextSelector(
     ThemeContext,
-    (value) => value?.setTheme ?? (() => {})
+    (value) => value?.setTheme ?? noopSetTheme
   );
 
   return { theme, toggleTheme, setTheme };

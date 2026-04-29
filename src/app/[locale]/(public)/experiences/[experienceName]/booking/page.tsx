@@ -14,6 +14,10 @@ import {
   SEO_SITE_URL,
   toAbsoluteUrl,
 } from '../seo';
+import { parseBookingSearchParams } from '@/utils/helpers';
+
+// searchParams requires dynamic rendering — opt out of static prerendering
+export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams() {
   const experienceNames = await getExperiencePathListSSR();
@@ -46,7 +50,7 @@ export async function generateMetadata({
       '/assets/images/hero/h10.webp'
   );
   const title = t('metaTitle') || 'Andean Scapes';
-  const description = t('metaDescription') || 'Reserva tu experiencia en Andean Scapes';
+  const description = t('metaDescription') || 'Book your experience at Andean Scapes';
 
   return {
     title,
@@ -81,11 +85,14 @@ export async function generateMetadata({
 
 export default async function BookingPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; experienceName: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale: localeParam, experienceName } = await params;
   const locale = sanitizeLocale(localeParam);
+
   const experience = await getExperienceByNameSSR(experienceName);
 
   if (!experience) {
@@ -93,6 +100,34 @@ export default async function BookingPage({
   }
 
   const experienceData = await getExperienceDataSSR(experienceName, locale);
+  const rawSearchParams = await searchParams;
+  const initialSelections = parseBookingSearchParams(rawSearchParams);
+  const heroImageUrl =
+    experienceData.heroContent?.backgroundImageUrl ?? '/assets/images/hero/h10.webp';
+  const heroImageUrlMobile = heroImageUrl.replace(/\.webp$/, '-mobile.webp');
 
-  return <ExperienceReservationPage experienceData={experienceData} />;
+  // If a tier is pre-selected via URL params, preload its thumbnail so the
+  // browser fetches it alongside the hero — avoids an LCP image discovered
+  // only after React hydrates and the context HYDRATE action fires.
+  const matchedTierImages = initialSelections?.tier
+    ? experienceData.accommodationTiersContent?.tiers.find(
+        (t) => t.id === initialSelections.tier
+      )?.images
+    : undefined;
+  const tierThumbnailUrl = matchedTierImages?.thumbnail ?? matchedTierImages?.main;
+
+  return (
+    <>
+      {/* Responsive hero preloads — browser picks the matching media query */}
+      <link rel="preload" as="image" href={heroImageUrlMobile} media="(max-width: 767px)" fetchPriority="high" />
+      <link rel="preload" as="image" href={heroImageUrl} media="(min-width: 768px)" fetchPriority="high" />
+      {tierThumbnailUrl && (
+        <link rel="preload" as="image" href={tierThumbnailUrl} fetchPriority="high" />
+      )}
+      <ExperienceReservationPage
+        experienceData={experienceData}
+        initialSelections={initialSelections}
+      />
+    </>
+  );
 }

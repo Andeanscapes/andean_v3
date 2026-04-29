@@ -67,16 +67,24 @@ export default [
         RequestInit: 'readonly',
         AbortController: 'readonly',
         DOMException: 'readonly',
+        IntersectionObserver: 'readonly',
+        IntersectionObserverEntry: 'readonly',
         HTMLButtonElement: 'readonly',
         HTMLElement: 'readonly',
+        HTMLAnchorElement: 'readonly',
         HTMLInputElement: 'readonly',
         HTMLDivElement: 'readonly',
+        HTMLUListElement: 'readonly',
+        MouseEvent: 'readonly',
+        Node: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         setInterval: 'readonly',
-        clearInterval: 'readonly'
+        clearInterval: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly'
       }
     },
     plugins: {

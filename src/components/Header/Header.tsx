@@ -30,14 +30,14 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
 
     const navTextColorClass =
         isSticky && theme === 'light'
-            ? 'text-gray-900'
+            ? 'text-slate-900'
             : isDarkThemeVariant
-                ? 'text-white'
-                : 'text-gray-900';
+                ? 'text-slate-300'
+                : 'text-slate-900';
 
     const navInteractiveClass = 'hover:text-primary-1 transition-colors duration-200';
 
-    const mobileMenuTextColorClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const mobileMenuTextColorClass = theme === 'dark' ? 'text-slate-300' : 'text-slate-900';
 
     const headerClassName = useMemo(() => {
         return `${styles.headerStyle}
@@ -50,9 +50,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
         }, [variant, isSticky, isMobileMenuOpen]);
 
     const logoSrc = useMemo(() => {
-        // Sticky + light mode: header becomes white bg → use logoWhite (dark letters)
         if (isSticky && theme === 'light') return SITE_INFO.logoWhite;
-        // All other cases: transparent/dark header → use logo (white letters)
         return SITE_INFO.logo;
     }, [theme, isSticky]);
 
@@ -126,7 +124,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     {!hideBookingCta && (
                         <Link 
                             href={BOOKING_LINKS.airbnb} 
-                            className="btn btn-primary btn-sm text-sm font-medium font-sans"
+                            className="btn btn-sm border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
@@ -191,14 +189,16 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     <aside
                         id="mobile-header-menu"
                         data-theme={theme}
-                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] p-5 shadow-xl transition-transform duration-300 ease-out ${
-                            theme === 'dark' ? 'bg-dark-1' : 'bg-white'
+                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] p-5 shadow-xl backdrop-blur-md transition-transform duration-300 ease-out ${
+                            theme === 'dark'
+                                ? 'border-l border-white/10 bg-slate-950/96'
+                                : 'border-l border-black/10 bg-white/96'
                         } ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                         role="dialog"
                         aria-modal="true"
                         aria-label="Mobile navigation"
                     >
-                        <div className="flex items-center justify-between border-b border-stock-1 pb-4">
+                        <div className={`flex items-center justify-between pb-4 ${theme === 'dark' ? 'border-b border-white/10' : 'border-b border-black/10'}`}>
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="shrink-0 max-w-[42px]">
                                 <Image
                                     alt='logo'
@@ -231,7 +231,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             {!hideBookingCta && (
                                 <Link
                                     href={BOOKING_LINKS.airbnb}
-                                    className="btn btn-primary btn-sm w-full text-sm font-medium font-sans"
+                                    className="btn btn-sm w-full border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     onClick={() => setIsMobileMenuOpen(false)}
@@ -241,9 +241,9 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             )}
                         </nav>
 
-                        <div className="mt-5 flex items-center gap-3 border-t border-stock-1 pt-4">
-                            <ThemeToggle colorOverride={theme === 'dark' ? 'text-white' : 'text-gray-900'} />
-                            <LanguageSelector colorOverride={theme === 'dark' ? 'text-white' : 'text-gray-900'} />
+                        <div className={`mt-5 flex items-center gap-3 pt-4 ${theme === 'dark' ? 'border-t border-white/10' : 'border-t border-black/10'}`}>
+                            <ThemeToggle colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
+                            <LanguageSelector colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
                         </div>
                     </aside>
                 </>,

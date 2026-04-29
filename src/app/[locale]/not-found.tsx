@@ -36,7 +36,9 @@ export default function NotFound() {
                     <p className="regular-text-v1 !leading-1_6 mt-[10px]">It looks like nothing was found at this location. You can either go back to the last <br /> page or go to Home Page</p>
                     <div className="mt-12">
                         <Link href="/" className="btn_primary__v1">
-                            <i className="bi bi-chevron-left" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            </svg>
                             Back To Home
                         </Link>
                     </div>

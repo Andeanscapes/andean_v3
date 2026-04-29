@@ -1,9 +1,11 @@
 'use client';
 
 import { memo } from 'react';
+import { Hotel } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
 import { useThemeContext } from '@/contexts/ThemeContext';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
+import { useDetailSelectedTierData } from '@/hooks/experiences/useExperienceDetailContext';
 
 interface HostProps {
   className?: string;
@@ -12,6 +14,7 @@ interface HostProps {
 
 function HostComponent({ className = '', experienceData }: HostProps) {
   const hostContent = experienceData.hostContent;
+  const selectedTier = useDetailSelectedTierData();
   const { theme } = useThemeContext();
 
   const containerClass =
@@ -28,8 +31,25 @@ function HostComponent({ className = '', experienceData }: HostProps) {
     theme === 'light'
       ? 'bg-emerald-100 text-emerald-700 ring-1 ring-emerald-200'
       : 'bg-emerald-500/20 text-emerald-300';
+  const tierBadgeClass =
+    theme === 'light'
+      ? 'rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest bg-emerald-100 text-emerald-700 ring-1 ring-emerald-200'
+      : 'rounded px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest bg-emerald-500/20 text-emerald-300';
 
   if (!hostContent) return null;
+
+  // Use tier-specific overrides when available, fall back to host-level content
+  const idealForItems = selectedTier?.idealForItems?.length
+    ? selectedTier.idealForItems
+    : hostContent.idealForItems;
+
+  const goodToKnowItems = selectedTier?.goodToKnowItems?.length
+    ? selectedTier.goodToKnowItems
+    : hostContent.goodToKnowItems;
+
+  const hasTierOverride = !!(
+    selectedTier && (selectedTier.idealForItems?.length || selectedTier.goodToKnowItems?.length)
+  );
 
   return (
     <GlassCard variant={containerVariant} className={`w-full overflow-hidden rounded-3xl ${containerClass} ${className}`.trim()}>
@@ -43,19 +63,43 @@ function HostComponent({ className = '', experienceData }: HostProps) {
       {/* Guide profile */}
       <div className="px-6 py-5">
         <div className="flex items-center gap-4">
-          <div className="relative shrink-0">
-            <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-emerald-400/60">
-              <img
-                src={hostContent.avatarUrl}
-                alt={hostContent.name}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
+          {/* Stacked avatars: host + selected tier as siblings */}
+          <div className="flex shrink-0 items-center gap-2">
+            {/* Host avatar */}
+            <div className="relative">
+              <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-emerald-400/60">
+                <img
+                  src={hostContent.avatarUrl}
+                  alt={hostContent.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400 text-[10px] font-bold text-emerald-950">
+                ✓
+              </span>
             </div>
-            <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400 text-[10px] font-bold text-emerald-950">
-              ✓
-            </span>
+
+            {/* Tier avatar — sibling, slight left overlap */}
+            {selectedTier ? (
+              <div className="relative">
+                <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-emerald-400/80 shadow-md">
+                  <img
+                    src={selectedTier.images.main}
+                    alt={selectedTier.tierLabel}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <span className={`absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full ${
+                  theme === 'light' ? 'bg-emerald-400 text-emerald-950' : 'bg-emerald-400 text-slate-950'
+                }`}>
+                  <Hotel className="h-2.5 w-2.5" />
+                </span>
+              </div>
+            ) : null}
           </div>
           <div>
             <h3 className={`text-lg font-semibold ${titleClass}`}>{hostContent.name}</h3>
@@ -67,17 +111,34 @@ function HostComponent({ className = '', experienceData }: HostProps) {
         <p className={`mt-4 text-sm font-medium leading-relaxed ${bodyClass}`}>
           {hostContent.bio}
         </p>
+
+        {/* Tier-specific note */}
+        {selectedTier?.tierNote ? (
+          <div className={`mt-3 rounded-lg border px-3 py-2.5 text-xs leading-relaxed ${
+            theme === 'light'
+              ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+              : 'border-emerald-500/25 bg-emerald-500/10 text-emerald-300'
+          }`}>
+            <span className="mr-1.5 font-bold">{selectedTier.tierLabel}:</span>
+            {selectedTier.tierNote}
+          </div>
+        ) : null}
       </div>
 
       <div className={dividerClass} />
 
       {/* Ideal For */}
       <div className="px-6 py-5">
-        <h4 className={`mb-3 text-xs font-bold uppercase tracking-widest ${sectionLabelClass}`}>
-          {hostContent.idealForLabel}
-        </h4>
+        <div className="mb-3 flex items-center gap-2">
+          <h4 className={`text-xs font-bold uppercase tracking-widest ${sectionLabelClass}`}>
+            {hostContent.idealForLabel}
+          </h4>
+          {hasTierOverride && selectedTier?.idealForItems?.length ? (
+            <span className={tierBadgeClass}>{selectedTier.tierLabel}</span>
+          ) : null}
+        </div>
         <ul className="space-y-2">
-          {hostContent.idealForItems.map((item) => (
+          {idealForItems.map((item) => (
             <li key={item} className={`flex items-center gap-2.5 text-sm font-medium ${listClass}`}>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
               {item}
@@ -90,11 +151,16 @@ function HostComponent({ className = '', experienceData }: HostProps) {
 
       {/* Good to Know */}
       <div className="px-6 py-5">
-        <h4 className={`mb-3 text-xs font-bold uppercase tracking-widest ${sectionLabelClass}`}>
-          {hostContent.goodToKnowLabel}
-        </h4>
+        <div className="mb-3 flex items-center gap-2">
+          <h4 className={`text-xs font-bold uppercase tracking-widest ${sectionLabelClass}`}>
+            {hostContent.goodToKnowLabel}
+          </h4>
+          {hasTierOverride && selectedTier?.goodToKnowItems?.length ? (
+            <span className={tierBadgeClass}>{selectedTier.tierLabel}</span>
+          ) : null}
+        </div>
         <ul className="space-y-2">
-          {hostContent.goodToKnowItems.map((item) => (
+          {goodToKnowItems.map((item) => (
             <li key={item} className={`flex items-center gap-2.5 text-sm font-medium ${listClass}`}>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
               {item}

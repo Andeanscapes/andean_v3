@@ -2,7 +2,7 @@
 name = "andean-v3"
 main = ".open-next/worker.js"
 compatibility_date = "2024-12-31"
-compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+compatibility_flags = ["nodejs_compat"]
 
 routes = [
 	{ pattern = "andeanscapes.com/*", zone_name = "andeanscapes.com" },

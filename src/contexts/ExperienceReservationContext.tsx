@@ -9,9 +9,12 @@ import type {
   ExperienceConfig,
   RoomModeOption,
   RoomSelection,
+  AccommodationTiersContent,
+  AvailableDate,
+  RoundtripTransferConfig,
 } from '@/lib/schemas';
-import { calculatePricing, computePeopleCount } from '@/utils/helpers';
-import { createReservationStorage } from '@/utils/reservationStorage';
+import { calculatePricing, computePeopleCount, suggestRoomSelections, type BookingSelections } from '@/utils/helpers';
+import { createReservationStorage, createDetailSelectionStorage } from '@/utils/reservationStorage';
 
 export const ExperienceReservationContext =
   createContext<ReservationContextValue | null>(null);
@@ -20,48 +23,102 @@ interface ExperienceReservationProviderProps {
   children: ReactNode;
   config: ExperienceConfig;
   roomModes: RoomModeOption[];
+  accommodationTiersContent?: AccommodationTiersContent;
+  availableDates?: AvailableDate[];
+  initialSelections?: BookingSelections;
 }
 
 function createInitialState(
-  basePricePerPerson: number,
+  experiencePricePerPerson: number,
   depositPercent: number,
-  roomModes: RoomModeOption[]
+  roomModes: RoomModeOption[],
+  initialSelections?: BookingSelections | null,
+  tiersContent?: AccommodationTiersContent | null,
 ): ReservationState {
-  const roomSelections: RoomSelection[] = [];
+  // Synchronously apply URL-param selections so the first render already has
+  // the correct tier/date/transport — this moves LCP image discovery to the
+  // initial render instead of after the HYDRATE useEffect fires.
+  const tierId = initialSelections?.tier ?? null;
+  const transportMode = (initialSelections?.transport ?? null) as ReservationState['transportMode'];
+  const dateId = initialSelections?.date ?? null;
+
+  let roomSelections: RoomSelection[] = [];
+  if (initialSelections?.people && initialSelections.people > 0) {
+    roomSelections = suggestRoomSelections(initialSelections.people, roomModes, tierId);
+  }
   const peopleCount = computePeopleCount(roomSelections, roomModes);
+  // getRoundtripConfig is a function declaration below — safe to call before its
+  // textual position because function declarations are hoisted.
+  const roundtripConfig = getRoundtripConfig(tierId, tiersContent ?? null);
+
   return {
-    selectedDateId: null,
+    selectedTierId: tierId,
+    selectedDateId: dateId,
     selectedDateLabel: null,
     availableSpots: null,
     peopleCount,
     roomSelections,
-    transportMode: null,
+    transportMode,
     contact: {
       name: '',
       phone: '',
       email: '',
     },
     termsAccepted: false,
+    communityContributionEnabled: false,
     pricing: calculatePricing(
-      basePricePerPerson,
+      experiencePricePerPerson,
       depositPercent,
       roomModes,
-      roomSelections
+      roomSelections,
+      transportMode,
+      roundtripConfig,
+      false,
     ),
     isHydrated: false,
+    isRoomSuggested: roomSelections.length > 0,
   };
 }
 
+function getRoundtripConfig(
+  tierId: string | null,
+  tiersContent: AccommodationTiersContent | null,
+): RoundtripTransferConfig | null {
+  if (!tierId || !tiersContent) return null;
+  return tiersContent.tiers.find((t) => t.id === tierId)?.roundtripTransfer ?? null;
+}
+
 function createReservationReducer(
-  basePricePerPerson: number,
+  experiencePricePerPerson: number,
   depositPercent: number,
-  roomModes: RoomModeOption[]
+  roomModes: RoomModeOption[],
+  tiersContent: AccommodationTiersContent | null,
 ) {
   return function reservationReducer(
     state: ReservationState,
     action: ReservationAction
   ): ReservationState {
     switch (action.type) {
+      case 'SET_TIER': {
+        const emptySelections: RoomSelection[] = [];
+        return {
+          ...state,
+          selectedTierId: action.payload,
+          roomSelections: emptySelections,
+          isRoomSuggested: false,
+          peopleCount: 0,
+          pricing: calculatePricing(
+            experiencePricePerPerson,
+            depositPercent,
+            roomModes,
+            emptySelections,
+            state.transportMode,
+            getRoundtripConfig(action.payload, tiersContent),
+            state.communityContributionEnabled,
+          ),
+        };
+      }
+
       case 'SET_DATE': {
         return {
           ...state,
@@ -76,12 +133,36 @@ function createReservationReducer(
         return {
           ...state,
           roomSelections: action.payload,
+          isRoomSuggested: false,
           peopleCount,
           pricing: calculatePricing(
-            basePricePerPerson,
+            experiencePricePerPerson,
             depositPercent,
             roomModes,
-            action.payload
+            action.payload,
+            state.transportMode,
+            getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
+          ),
+        };
+      }
+
+      case 'SET_PEOPLE': {
+        const suggested = suggestRoomSelections(action.payload, roomModes, state.selectedTierId);
+        const newPeopleCount = computePeopleCount(suggested, roomModes);
+        return {
+          ...state,
+          roomSelections: suggested,
+          isRoomSuggested: true,
+          peopleCount: newPeopleCount,
+          pricing: calculatePricing(
+            experiencePricePerPerson,
+            depositPercent,
+            roomModes,
+            suggested,
+            state.transportMode,
+            getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
           ),
         };
       }
@@ -90,6 +171,15 @@ function createReservationReducer(
         return {
           ...state,
           transportMode: action.payload,
+          pricing: calculatePricing(
+            experiencePricePerPerson,
+            depositPercent,
+            roomModes,
+            state.roomSelections,
+            action.payload,
+            getRoundtripConfig(state.selectedTierId, tiersContent),
+            state.communityContributionEnabled,
+          ),
         };
       }
 
@@ -107,6 +197,23 @@ function createReservationReducer(
         return {
           ...state,
           termsAccepted: action.payload,
+        };
+      }
+
+      case 'SET_COMMUNITY_CONTRIBUTION': {
+        const pricing = calculatePricing(
+          experiencePricePerPerson,
+          depositPercent,
+          roomModes,
+          state.roomSelections,
+          state.transportMode,
+          getRoundtripConfig(state.selectedTierId, tiersContent),
+          action.payload,
+        );
+        return {
+          ...state,
+          communityContributionEnabled: action.payload,
+          pricing,
         };
       }
 
@@ -128,16 +235,19 @@ function createReservationReducer(
         };
         // Recalculate pricing based on hydrated values
         hydrated.pricing = calculatePricing(
-          basePricePerPerson,
+          experiencePricePerPerson,
           depositPercent,
           roomModes,
-          hydrated.roomSelections
+          hydrated.roomSelections,
+          hydrated.transportMode,
+          getRoundtripConfig(hydrated.selectedTierId, tiersContent),
+          hydrated.communityContributionEnabled,
         );
         return hydrated;
       }
 
       case 'RESET': {
-        return createInitialState(basePricePerPerson, depositPercent, roomModes);
+        return createInitialState(experiencePricePerPerson, depositPercent, roomModes);
       }
 
       default:
@@ -150,14 +260,24 @@ export function ExperienceReservationProvider({
   children,
   config,
   roomModes,
+  accommodationTiersContent,
+  availableDates = [],
+  initialSelections,
 }: ExperienceReservationProviderProps) {
   const [state, dispatch] = useReducer(
     createReservationReducer(
-      config.basePricePerPerson,
+      config.experiencePricePerPerson,
       config.depositPercent,
-      roomModes
+      roomModes,
+      accommodationTiersContent ?? null,
     ),
-    createInitialState(config.basePricePerPerson, config.depositPercent, roomModes)
+    createInitialState(
+      config.experiencePricePerPerson,
+      config.depositPercent,
+      roomModes,
+      initialSelections,
+      accommodationTiersContent,
+    )
   );
 
   const storage = useMemo(
@@ -165,18 +285,101 @@ export function ExperienceReservationProvider({
     [config.id]
   );
 
-  // Hydrate from localStorage on mount
+  const detailStorage = useMemo(
+    () => createDetailSelectionStorage(config.id),
+    [config.id]
+  );
+
+  // Hydrate from localStorage on mount, merging detail selections and query params
   useEffect(() => {
     const saved = storage.loadFromStorage();
-    if (saved) {
-      dispatch({ type: 'HYDRATE', payload: saved });
+    const detailSaved = detailStorage.loadFromStorage();
+
+    const merged: Partial<ReservationState> = { ...(saved ?? {}) };
+
+    // Bridge detail-page selections into reservation state
+    if (detailSaved) {
+      if (detailSaved.selectedTierId && !merged.selectedTierId) {
+        merged.selectedTierId = detailSaved.selectedTierId;
+      }
+      if (detailSaved.selectedDateId && !merged.selectedDateId) {
+        merged.selectedDateId = detailSaved.selectedDateId;
+      }
+      if (detailSaved.transportMode && !merged.transportMode) {
+        merged.transportMode = detailSaved.transportMode;
+      }
+      // Clear detail selections after consuming (one-time bridge)
+      detailStorage.clearStorage();
+    }
+
+    // Query-string selections take highest priority (shared / deep-linked URL)
+    if (initialSelections) {
+      if (initialSelections.tier) merged.selectedTierId = initialSelections.tier;
+      if (initialSelections.date) merged.selectedDateId = initialSelections.date;
+      if (initialSelections.transport) merged.transportMode = initialSelections.transport;
+    }
+
+    // Resolve date metadata (spots) from available dates when only id is known
+    if (merged.selectedDateId && merged.availableSpots == null) {
+      const matchedDate = availableDates.find((d) => d.id === merged.selectedDateId);
+      if (matchedDate) {
+        merged.availableSpots = matchedDate.spots;
+      }
+    }
+
+    // Suggest best-fit room selections when people count comes from the URL.
+    // This fires whenever the booking page is opened via a CTA from the detail page
+    // or when the shared link includes ?people=N. It overrides any saved selections
+    // so the booking page always starts pre-filled with a sensible room config.
+    if (initialSelections?.people && initialSelections.people > 0) {
+      const tierId = (merged.selectedTierId ?? null) as string | null;
+      let suggested = suggestRoomSelections(initialSelections.people, roomModes, tierId);
+
+      // If the tier has no eligible rooms (unknown tier id, all units gone, etc.),
+      // fall back to searching across all room modes — same as if no tier was given.
+      if (suggested.length === 0 && tierId !== null) {
+        suggested = suggestRoomSelections(initialSelections.people, roomModes, null);
+      }
+
+      // Always apply: empty result means fresh start (no rooms pre-selected),
+      // which is correct — don't leave stale localStorage data behind.
+      merged.roomSelections = suggested;
+      if (suggested.length > 0) merged.isRoomSuggested = true;
+    }
+
+    if (Object.keys(merged).length > 0) {
+      dispatch({ type: 'HYDRATE', payload: merged });
     } else {
       dispatch({
         type: 'HYDRATE',
         payload: { isHydrated: true },
       });
     }
-  }, [storage]);
+  }, [storage, detailStorage, initialSelections, availableDates]);
+
+  // Keep URL query params in sync with booking selections so the link is always shareable
+  useEffect(() => {
+    if (!state.isHydrated || typeof window === 'undefined') return;
+
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+
+    if (state.selectedTierId) params.set('tier', state.selectedTierId);
+    else params.delete('tier');
+
+    if (state.selectedDateId) params.set('date', state.selectedDateId);
+    else params.delete('date');
+
+    if (state.transportMode) params.set('transport', state.transportMode);
+    else params.delete('transport');
+
+    if (state.peopleCount > 0) params.set('people', String(state.peopleCount));
+    else params.delete('people');
+
+    const qs = params.toString();
+    const newUrl = qs ? `${url.pathname}?${qs}` : url.pathname;
+    window.history.replaceState({}, '', newUrl);
+  }, [state.isHydrated, state.selectedTierId, state.selectedDateId, state.transportMode, state.peopleCount]);
 
   // Save to localStorage on state change (after hydration)
   useEffect(() => {
@@ -185,8 +388,19 @@ export function ExperienceReservationProvider({
     }
   }, [state, storage]);
 
+  const contextValue = useMemo<ReservationContextValue>(
+    () => ({
+      state,
+      dispatch,
+      roomModes,
+      accommodationTiersContent: accommodationTiersContent ?? null,
+      availableDates,
+    }),
+    [state, dispatch, roomModes, accommodationTiersContent, availableDates]
+  );
+
   return (
-    <ExperienceReservationContext.Provider value={{ state, dispatch, roomModes }}>
+    <ExperienceReservationContext.Provider value={contextValue}>
       {children}
     </ExperienceReservationContext.Provider>
   );

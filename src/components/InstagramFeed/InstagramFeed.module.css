@@ -12,7 +12,7 @@
 }
 
 .instagramFeed[data-theme="dark"] {
-  @apply bg-dark-2;
+  @apply bg-slate-950;
 }
 
 .imageContainer {
@@ -24,7 +24,7 @@
 }
 
 .instagramFeed[data-theme="dark"] .imageContainer {
-  @apply bg-dark-1;
+  @apply bg-slate-900;
 }
 
 .imageContainer:hover .feedIcon {

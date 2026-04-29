@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
-import type { ExperienceConfig, RoomModeOption } from '@/lib/schemas';
+import type { ExperienceConfig, ExperienceData, RoomModeOption, AvailableDate } from '@/lib/schemas';
 
 /**
  * Mock messages for next-intl testing
@@ -23,12 +23,18 @@ const MOCK_MESSAGES = {
       payTodayLabel: 'Hoy pagas',
       balanceNote: 'Saldo se paga el día del tour. Confirmación inmediata.',
       termsCheckbox: 'Acepto términos y condiciones',
+      communityContributionLabel: 'Aporte comunitario opcional',
+      communityContributionDescription: 'Ayuda a financiar proyectos locales',
+      communityContributionImpact: 'Tu aporte se sumará al total de la reserva',
+      socialProofBookings: '12 viajeros reservaron esta semana',
       completeRequiredFields: 'Completa todos los campos requeridos para continuar',
       processing: 'Procesando...',
       paymentMethods: 'Tarjeta · PSE · Pago seguro',
       validationError: 'Error en la validación',
       scrollHint: 'Desliza para ver mas fechas',
       selectedDateLabel: 'Seleccionada',
+      lowAvailability: 'Pocos cupos',
+      roomPickerTitle: 'Selección de habitaciones',
       howManyPeople: '¿Cuántas personas?',
       peopleLabel: 'Personas',
       roomType: 'Tipo de habitación:',
@@ -40,11 +46,25 @@ const MOCK_MESSAGES = {
       couple: 'Pareja',
       roomMixHint: 'Puedes combinar varios tipos de habitación',
       coupleNote: '💑 Pareja simplifica la decisión a 2 personas en habitación compartida.',
+      selectTierTitle: 'Elige tu alojamiento',
+      tierPriceRange: 'Rango de precio',
+      changeTierWarning: 'Cambiar de alojamiento reiniciará tu selección de habitaciones',
+      whatIsIncluded: '¿Qué incluye?',
+      viewFullDetails: 'Ver detalles completos',
+      selectedTierLabel: 'Seleccionado',
       contactDataTitle: 'Datos para confirmar tu cupo',
         selectedRoomsLabel: 'Habitaciones seleccionadas',
         clearSelection: 'Limpiar',
         noRoomsSelected: 'Ninguna habitación seleccionada',
         addRoom: 'Agregar habitación',
+        editRooms: 'Revisar / editar',
+        suggestedRoomsLabel: 'Sugerido para {count} personas ✨',
+        suggestedRoomsNote: 'Basado en tu grupo — ajusta si lo necesitas',
+        addRoundtripTransfer: 'Agregar transporte ida y vuelta {origin} ↔ {destination}',
+        roundtripTransferPerVehicle: 'por vehículo',
+        roundtripTransferVehicles: '{count, plural, one {# vehículo} other {# vehículos}}',
+        roundtripTransferLineItem: 'Ida y vuelta {origin} ↔ {destination}',
+        transportTooltipCarNo4x4: 'Necesitarás transporte local 4x4 para llegar a la mina',
         roomSelectionTitle: 'Elige habitaciones',
         closeModal: 'Cerrar',
       fullName: 'Nombre completo',
@@ -62,6 +82,12 @@ const MOCK_MESSAGES = {
         family: 'Habitación Familiar',
         cabin: 'Cabaña',
       },
+      experienceDetails: {
+        itineraryTitle: 'Itinerario Interactivo',
+        viewGalleryLabel: 'Ver Galería',
+        activityGallerySubtitle: 'Fotos y momentos destacados',
+        closeGalleryLabel: 'Cerrar',
+      },
     },
     common: {
       deposit: 'Reserva con',
@@ -78,6 +104,8 @@ const MOCK_MESSAGES = {
         have4x4Description: 'Sin costo adicional',
         bus: 'Bus Público',
         busDescription: 'Traslado local incluido desde terminal',
+        roundtripTransfer: 'Transporte privado ida y vuelta',
+        roundtripTransferDescription: 'Servicio de vehículo privado, máx. 4 personas por vehículo',
       },
     },
   },
@@ -92,7 +120,8 @@ const MOCK_TRANSLATED_CONFIG: ExperienceConfig = {
   title: 'Aventura de Minería de Esmeraldas',
   subtitle: 'Experiencia todo incluido en Chivor (Boyacá), Colombia 🇨🇴',
   description: 'Descubre las profundidades de la mina de esmeraldas más famosa de Colombia',
-  basePricePerPerson: 430000,
+  experiencePricePerPerson: 430000,
+  numberOfNights: 1,
   depositPercent: 15,
   maxPeople: 10,
   minPeople: 1,
@@ -180,6 +209,44 @@ const MOCK_TRANSLATED_ROOM_MODES: RoomModeOption[] = [
   },
 ];
 
+const MOCK_AVAILABLE_DATES: AvailableDate[] = [
+  { id: 'apr-11-2026', startDate: '2026-04-11T00:00:00.000Z', spots: 5, isAvailable: true },
+  { id: 'apr-18-2026', startDate: '2026-04-18T00:00:00.000Z', spots: 4, isAvailable: true },
+];
+
+const MOCK_EXPERIENCE_DATA: ExperienceData = {
+  config: MOCK_TRANSLATED_CONFIG,
+  transportOptions: [
+    { value: 'car_no_4x4', label: 'Carro Particular (No 4x4)', description: 'Aplica costo adicional' },
+  ],
+  roomModes: MOCK_TRANSLATED_ROOM_MODES,
+  availableDates: MOCK_AVAILABLE_DATES,
+  whatsappLink: 'https://wa.me/573001234567',
+  itineraryContent: {
+    sectionTitle: 'Itinerario Interactivo',
+    days: [
+      {
+        day: 1,
+        label: 'Día 1 — Llegada y mina',
+        stops: [
+          {
+            time: '11:00 AM',
+            title: 'Registro y bienvenida',
+            shortDescription: 'Punto de encuentro en Chivor',
+            categoryIcon: 'Gem',
+          },
+          {
+            time: '2:00 PM',
+            title: 'Visita a la mina',
+            shortDescription: 'Exploración guiada de los túneles',
+            categoryIcon: 'Mountain',
+          },
+        ],
+      },
+    ],
+  },
+};
+
 /**
  * Custom render function that wraps components with required providers
  */
@@ -193,6 +260,7 @@ function customRender(
         <ExperienceReservationProvider
           config={MOCK_TRANSLATED_CONFIG}
           roomModes={MOCK_TRANSLATED_ROOM_MODES}
+          availableDates={MOCK_AVAILABLE_DATES}
         >
           {children}
         </ExperienceReservationProvider>
@@ -205,4 +273,4 @@ function customRender(
 
 export * from '@testing-library/react';
 export { customRender as render };
-export { MOCK_TRANSLATED_CONFIG, MOCK_TRANSLATED_ROOM_MODES };
+export { MOCK_TRANSLATED_CONFIG, MOCK_TRANSLATED_ROOM_MODES, MOCK_EXPERIENCE_DATA };

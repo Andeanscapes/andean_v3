@@ -23,7 +23,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <div className="form-control w-full">
+      <div className="form-control w-full" suppressHydrationWarning>
         {label && (
           <label className="label">
             <span className={`label-text ${error ? 'text-error' : 'text-base-content/90'}`}>
@@ -35,6 +35,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           type={type}
+          suppressHydrationWarning
           className={`input input-bordered w-full ${
             error ? 'input-error' : ''
           } ${className} focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 focus-visible:outline-none`}

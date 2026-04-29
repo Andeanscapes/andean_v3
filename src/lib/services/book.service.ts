@@ -78,6 +78,8 @@ export async function getBookingDataSSR(
     whatsappCtaLabel: t('BookingCtas.whatsappCta'),
     fallbackDateLabel: t('experiences.ui.availableDates'),
     topSellerLabel: t('experiences.ui.topSellerLabel'),
+    fromLabel: t('experiences.ui.fromLabel'),
+    totalLabel: t('experiences.ui.totalLabel'),
     perPersonLabel: t('experiences.ui.perPersonLabel'),
     reviewsCountLabel: t('experiences.ui.reviewsCountLabel', { count: 528 }),
     bookingButtonLabel: t('experiences.ui.experienceDetails.bookNowBtn'),
@@ -116,7 +118,7 @@ export async function getBookingDataSSR(
     transportOptions: rawData.transportOptions.map((option) => ({
       ...option,
       label: t(option.label),
-      description: t(option.description),
+      description: option.description ? t(option.description) : undefined,
     })),
     roomModes: rawData.roomModes.map((mode) => ({
       ...mode,
@@ -157,13 +159,78 @@ export async function getBookingDataSSR(
       })),
       location: rawData.config.location,
     } : undefined,
-    itineraryContent: rawData.config.itinerary ? {
-      sectionTitle: t('experiences.ui.experienceDetails.itineraryTitle'),
-      stops: rawData.config.itinerary.map((stop) => ({
-        ...stop,
-        title: t(stop.title),
-        description: stop.description ? t(stop.description) : undefined,
-        notes: stop.notes?.map((note) => t(note)),
+    itineraryContent: (() => {
+      const sectionTitle = t('experiences.ui.experienceDetails.itineraryTitle');
+      // Prefer config-level itinerary (backward compat)
+      if (rawData.config.itinerary) {
+        return {
+          sectionTitle,
+          days: rawData.config.itinerary.map((day) => ({
+            day: day.day,
+            label: t(day.label),
+            stops: day.stops.map((stop) => ({
+              ...stop,
+              title: t(stop.title),
+              shortDescription: stop.shortDescription ? t(stop.shortDescription) : undefined,
+              description: stop.description ? t(stop.description) : undefined,
+              notes: stop.notes?.map((note) => t(note)),
+            })),
+          })),
+        };
+      }
+      // Fallback: derive from host-choice tier or first tier
+      const fallbackTier = rawData.accommodationTiers?.find((tier) => tier.isHostChoice) ?? rawData.accommodationTiers?.[0];
+      if (fallbackTier?.itinerary) {
+        return {
+          sectionTitle,
+          days: fallbackTier.itinerary.map((day) => ({
+            day: day.day,
+            label: t(day.label),
+            stops: day.stops.map((stop) => ({
+              ...stop,
+              title: t(stop.title),
+              shortDescription: stop.shortDescription ? t(stop.shortDescription) : undefined,
+              description: stop.description ? t(stop.description) : undefined,
+              notes: stop.notes?.map((note) => t(note)),
+            })),
+          })),
+        };
+      }
+      return undefined;
+    })(),
+    accommodationTiersContent: rawData.accommodationTiers ? {
+      sectionTitle: t('experiences.ui.experienceDetails.accommodationTitle'),
+      tiers: rawData.accommodationTiers.map((tier) => ({
+        id: tier.id,
+        tierTag: t(tier.tierTag),
+        tierLabel: t(tier.tierLabel),
+        tierDescription: t(tier.tierDescription),
+        isHostChoice: tier.isHostChoice,
+        images: tier.images,
+        quickSpecs: tier.quickSpecs,
+        rooms: tier.rooms.map((room) => ({
+          ...room,
+          label: t(room.label),
+        })),
+        services: tier.services?.map((svc) => ({
+          ...svc,
+          label: t(svc.label),
+        })),
+        roundtripTransfer: tier.roundtripTransfer,
+        itinerary: tier.itinerary?.map((day) => ({
+          day: day.day,
+          label: t(day.label),
+          stops: day.stops.map((stop) => ({
+            ...stop,
+            title: t(stop.title),
+            shortDescription: stop.shortDescription ? t(stop.shortDescription) : undefined,
+            description: stop.description ? t(stop.description) : undefined,
+            notes: stop.notes?.map((note) => t(note)),
+          })),
+        })),
+        tierNote: tier.tierNote ? t(tier.tierNote) : undefined,
+        idealForItems: tier.idealForItems?.map((key) => t(key)),
+        goodToKnowItems: tier.goodToKnowItems?.map((key) => t(key)),
       })),
     } : undefined,
     hostContent: rawData.config.host ? {

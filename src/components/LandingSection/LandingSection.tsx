@@ -19,7 +19,7 @@ export default function LandingSection() {
   }, [])
 
   return (
-    <main>
+    <main data-theme={theme}>
       <>
         <Hero />
         <section id="booking" className="relative scroll-mt-24 overflow-hidden">

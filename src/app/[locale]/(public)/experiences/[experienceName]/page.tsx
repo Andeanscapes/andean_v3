@@ -113,7 +113,7 @@ export default async function ExperiencePage({
     offers: {
       '@type': 'Offer',
       priceCurrency: 'COP',
-      price: experienceData.config.basePricePerPerson,
+      price: experienceData.config.experiencePricePerPerson,
       availability: 'https://schema.org/InStock',
       url: pageUrl,
     },
