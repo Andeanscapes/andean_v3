@@ -6,19 +6,9 @@ import {
 } from '@/contexts/ExperienceDetailContext';
 import type { TransportMode, AccommodationTierContent } from '@/lib/schemas';
 
-function requireContext<T>(
-  value: T | null,
-  hookName: string,
-): T {
-  if (value === null) {
-    throw new Error(`${hookName} must be used within ExperienceDetailProvider`);
-  }
-  return value;
-}
-
 function useDetail<T>(selector: (ctx: ExperienceDetailContextValue) => T): T {
   const value = useContextSelector(ExperienceDetailContext, (ctx) => {
-    if (ctx === null) return null as unknown as T;
+    if (ctx === null) throw new Error('useDetail must be used within ExperienceDetailProvider');
     return selector(ctx);
   });
   return value;
@@ -119,6 +109,3 @@ export function useDetailSelectionState() {
 export function useDetailExperienceData() {
   return useDetail((ctx) => ctx.experienceData);
 }
-
-// Re-export requireContext for use in consumer components if needed
-export { requireContext };

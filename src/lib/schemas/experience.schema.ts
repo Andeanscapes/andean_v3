@@ -115,8 +115,9 @@ export const ExperienceConfigSchema = z.object({
   maxPeople: z.number(),
   minPeople: z.number(),
   images: ExperienceImagesSchema.optional(),
-  includesItems: z.array(z.string()),
-  includesFullDetails: z.string(),
+  includesItems: z.array(z.string()).optional().default([]),
+  includesFullDetails: z.string().optional().default(''),
+  reviewsCount: z.number().optional(),
   microcopy: z.object({
     deposit: z.string(),
     balance: z.string(),

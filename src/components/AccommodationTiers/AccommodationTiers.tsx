@@ -22,7 +22,7 @@ function AccommodationTiersComponent({ className = '', experienceData }: Accommo
   const sectionTitle = tiersContent.tiers.length === 1
     ? t('experiences.ui.experienceDetails.accommodationTitle')
     : t('experiences.ui.experienceDetails.selectYourStayTitle');
-  const locationLabel = experienceData.config.location?.label;
+  const locationLabel = experienceData.inclusionsContent?.location?.label ?? experienceData.config.location?.label;
 
   return (
     <SectionContainer sectionClassName={`relative overflow-hidden px-4 py-12 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>

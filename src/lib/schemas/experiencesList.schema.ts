@@ -3,6 +3,7 @@
  */
 
 import { z } from 'zod';
+import { ExperienceHeroContentSchema } from './experience.schema';
 
 // Experience hero badge
 export const ExperienceHeroBadgeSchema = z.object({
@@ -71,7 +72,7 @@ export const ExperiencesListDataSchema = z.object({
   sectionSubtitle: z.string(),
   fromLabel: z.string(),
   viewDetails: z.string(),
-  hero: z.any(), // ExperienceHeroContent from experience schema
+  hero: ExperienceHeroContentSchema,
   cards: z.array(ExperienceListCardSchema),
 });
 

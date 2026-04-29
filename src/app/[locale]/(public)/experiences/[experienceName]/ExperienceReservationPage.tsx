@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
+import { ExperienceDetailProvider } from '@/contexts/ExperienceDetailContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { DateSelector } from '@/components/ExperienceReservation/DateSelector';
@@ -57,13 +58,14 @@ export default function ExperienceReservationPage({
   const isDark = theme === 'dark';
 
   return (
-    <ExperienceReservationProvider
-      config={config}
-      roomModes={roomModes}
-      accommodationTiersContent={accommodationTiersContent}
-      availableDates={availableDates}
-      initialSelections={initialSelections}
-    >
+    <ExperienceDetailProvider experienceData={experienceData}>
+      <ExperienceReservationProvider
+        config={config}
+        roomModes={roomModes}
+        accommodationTiersContent={accommodationTiersContent}
+        availableDates={availableDates}
+        initialSelections={initialSelections}
+      >
       {/* Full-width Hero */}
       <ExperienceHero config={config} heroContent={heroContent} />
 
@@ -103,6 +105,7 @@ export default function ExperienceReservationPage({
         {/* Mobile: fixed floating dock — scroll-activated, handles payment CTA */}
         <MobileStickyDock config={config} transportOptions={transportOptions} />
       </div>
-    </ExperienceReservationProvider>
+      </ExperienceReservationProvider>
+    </ExperienceDetailProvider>
   );
 }

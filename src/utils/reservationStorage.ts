@@ -1,4 +1,5 @@
 import type { ReservationState } from '@/lib/schemas';
+import { ReservationStateSchema } from '@/lib/schemas';
 import type { ExperienceDetailState } from '@/contexts/ExperienceDetailContext';
 
 export function createReservationStorage(experienceId: string) {
@@ -19,12 +20,18 @@ export function createReservationStorage(experienceId: string) {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (!stored) return null;
 
-      const parsed = JSON.parse(stored);
+      const parsed: unknown = JSON.parse(stored);
+      if (typeof parsed !== 'object' || parsed === null) return null;
 
-      // Minimal validation
-      if (typeof parsed !== 'object') return null;
+      // Validate against partial schema — invalid/stale entries are discarded
+      const result = ReservationStateSchema.partial().safeParse(parsed);
+      if (!result.success) {
+        console.warn('[ReservationStorage] Stale or invalid data — clearing storage.', result.error.format());
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
 
-      return parsed;
+      return result.data;
     } catch (err) {
       console.error('[ReservationStorage] Failed to load:', err);
       return null;

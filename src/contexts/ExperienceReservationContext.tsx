@@ -14,7 +14,7 @@ import type {
   RoundtripTransferConfig,
 } from '@/lib/schemas';
 import { calculatePricing, computePeopleCount, suggestRoomSelections, type BookingSelections } from '@/utils/helpers';
-import { createReservationStorage, createDetailSelectionStorage } from '@/utils/reservationStorage';
+import { createReservationStorage } from '@/utils/reservationStorage';
 
 export const ExperienceReservationContext =
   createContext<ReservationContextValue | null>(null);
@@ -261,32 +261,11 @@ export function ExperienceReservationProvider({
     [config.id]
   );
 
-  const detailStorage = useMemo(
-    () => createDetailSelectionStorage(config.id),
-    [config.id]
-  );
-
-  // Hydrate from localStorage on mount, merging detail selections and query params
+  // Hydrate from localStorage on mount, merging query params
   useEffect(() => {
     const saved = storage.loadFromStorage();
-    const detailSaved = detailStorage.loadFromStorage();
 
     const merged: Partial<ReservationState> = { ...(saved ?? {}) };
-
-    // Bridge detail-page selections into reservation state
-    if (detailSaved) {
-      if (detailSaved.selectedTierId && !merged.selectedTierId) {
-        merged.selectedTierId = detailSaved.selectedTierId;
-      }
-      if (detailSaved.selectedDateId && !merged.selectedDateId) {
-        merged.selectedDateId = detailSaved.selectedDateId;
-      }
-      if (detailSaved.transportMode && !merged.transportMode) {
-        merged.transportMode = detailSaved.transportMode;
-      }
-      // Clear detail selections after consuming (one-time bridge)
-      detailStorage.clearStorage();
-    }
 
     // Query-string selections take highest priority (shared / deep-linked URL)
     if (initialSelections) {
@@ -331,7 +310,7 @@ export function ExperienceReservationProvider({
         payload: { isHydrated: true },
       });
     }
-  }, [storage, detailStorage, initialSelections, availableDates]);
+  }, [storage, initialSelections, availableDates]);
 
   // Keep URL query params in sync with booking selections so the link is always shareable
   useEffect(() => {

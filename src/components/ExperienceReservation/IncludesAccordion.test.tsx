@@ -5,20 +5,27 @@ import { IncludesAccordion } from './IncludesAccordion';
 import { MOCK_EXPERIENCE_DATA } from '@/test/test-utils';
 
 describe('IncludesAccordion', () => {
-  it('renders accordion title', () => {
+  it('renders included items section header', () => {
     render(<IncludesAccordion experienceData={MOCK_EXPERIENCE_DATA} />);
+    // whatIsIncluded translation key → '¿Qué incluye?'
     expect(screen.getByText('¿Qué incluye?')).toBeInTheDocument();
   });
 
-  it('renders all includes items from config', () => {
+  it('renders included items from inclusionsContent', () => {
     render(<IncludesAccordion experienceData={MOCK_EXPERIENCE_DATA} />);
-    MOCK_EXPERIENCE_DATA.config.includesItems.forEach((item) => {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    });
+    expect(screen.getByText('Guía especializado')).toBeInTheDocument();
+    expect(screen.getByText('Equipo de seguridad')).toBeInTheDocument();
   });
 
-  it('has details button', () => {
+  it('renders logistics items from inclusionsContent', () => {
     render(<IncludesAccordion experienceData={MOCK_EXPERIENCE_DATA} />);
+    expect(screen.getByText('Duración')).toBeInTheDocument();
+    expect(screen.getByText('2 días / 1 noche')).toBeInTheDocument();
+  });
+
+  it('has view full details button', () => {
+    render(<IncludesAccordion experienceData={MOCK_EXPERIENCE_DATA} />);
+    // viewFullDetails translation key → 'Ver detalles completos'
     expect(screen.getByText('Ver detalles completos')).toBeInTheDocument();
   });
 
