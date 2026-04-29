@@ -162,7 +162,7 @@ export function ConfirmationAction({
 
           {/* Terms not accepted label — shown below button */}
           {isReadyExceptTerms && !state.termsAccepted && (
-            <p className="mt-1.5 flex items-center justify-center gap-1.5 rounded-xl border border-amber-400/15 bg-amber-400/10 px-2.5 py-1.5 text-xs font-medium text-amber-300">
+            <p className={`mt-1.5 flex items-center justify-center gap-1.5 rounded-xl border px-2.5 py-1.5 text-xs font-medium ${isDark ? 'border-amber-400/15 bg-amber-400/10 text-amber-300' : 'border-amber-500/40 bg-amber-50 text-amber-700'}`}>
               <TriangleAlert size={12} className="shrink-0" />
               {t('mobileDockMissingTerms')}
             </p>
@@ -197,7 +197,7 @@ export function ConfirmationAction({
 
       {showTermsToast && typeof document !== 'undefined' && createPortal(
         <div key={toastKey} className="toast toast-top toast-end z-[9999]">
-          <div className="flex items-center gap-2 rounded-xl border border-amber-400/15 bg-amber-400/10 px-3 py-2.5 text-xs font-medium text-amber-300 shadow-lg backdrop-blur-xl">
+          <div className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 text-xs font-medium shadow-lg backdrop-blur-xl ${isDark ? 'border-amber-400/15 bg-amber-400/10 text-amber-300' : 'border-amber-500/40 bg-amber-50 text-amber-700'}`}>
             <AlertCircle size={14} className="shrink-0" />
             <span>{t('termsToastMessage')}</span>
           </div>
