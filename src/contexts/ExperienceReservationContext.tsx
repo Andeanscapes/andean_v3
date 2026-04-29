@@ -65,7 +65,6 @@ function createInitialState(
       email: '',
     },
     termsAccepted: false,
-    communityContributionEnabled: false,
     pricing: calculatePricing(
       experiencePricePerPerson,
       depositPercent,
@@ -73,7 +72,6 @@ function createInitialState(
       roomSelections,
       transportMode,
       roundtripConfig,
-      false,
     ),
     isHydrated: false,
     isRoomSuggested: roomSelections.length > 0,
@@ -114,7 +112,6 @@ function createReservationReducer(
             emptySelections,
             state.transportMode,
             getRoundtripConfig(action.payload, tiersContent),
-            state.communityContributionEnabled,
           ),
         };
       }
@@ -142,7 +139,6 @@ function createReservationReducer(
             action.payload,
             state.transportMode,
             getRoundtripConfig(state.selectedTierId, tiersContent),
-            state.communityContributionEnabled,
           ),
         };
       }
@@ -162,7 +158,6 @@ function createReservationReducer(
             suggested,
             state.transportMode,
             getRoundtripConfig(state.selectedTierId, tiersContent),
-            state.communityContributionEnabled,
           ),
         };
       }
@@ -178,7 +173,6 @@ function createReservationReducer(
             state.roomSelections,
             action.payload,
             getRoundtripConfig(state.selectedTierId, tiersContent),
-            state.communityContributionEnabled,
           ),
         };
       }
@@ -197,23 +191,6 @@ function createReservationReducer(
         return {
           ...state,
           termsAccepted: action.payload,
-        };
-      }
-
-      case 'SET_COMMUNITY_CONTRIBUTION': {
-        const pricing = calculatePricing(
-          experiencePricePerPerson,
-          depositPercent,
-          roomModes,
-          state.roomSelections,
-          state.transportMode,
-          getRoundtripConfig(state.selectedTierId, tiersContent),
-          action.payload,
-        );
-        return {
-          ...state,
-          communityContributionEnabled: action.payload,
-          pricing,
         };
       }
 
@@ -241,7 +218,6 @@ function createReservationReducer(
           hydrated.roomSelections,
           hydrated.transportMode,
           getRoundtripConfig(hydrated.selectedTierId, tiersContent),
-          hydrated.communityContributionEnabled,
         );
         return hydrated;
       }

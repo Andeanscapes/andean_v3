@@ -8,7 +8,6 @@ import { useMercadoPagoLink } from '@/hooks/experiences/useMercadoPagoLink';
 import {
   useReservationValidation,
   useReservationPricing,
-  useReservationCommunityContribution,
 } from '@/hooks/experiences/useReservationContext';
 import { reservationSchema } from '@/utils/validationSchemas';
 import type { ExperienceConfig } from '@/lib/schemas';
@@ -27,7 +26,6 @@ export function ConfirmationAction({
   const t = useTranslations('experiences.ui');
   const { isValid, state, setTermsAccepted } = useReservationValidation();
   const { depositAmount } = useReservationPricing();
-  const { communityContributionEnabled, setCommunityContribution } = useReservationCommunityContribution();
   const { createLink, loading, error } = useMercadoPagoLink(config.id);
   const [validationError, setValidationError] = useState<string | null>(null);
   const { currentLocale } = useLanguageContext();
@@ -64,29 +62,6 @@ export function ConfirmationAction({
     /* In-scroll on mobile; static in desktop sidebar. MobileStickyDock handles payment on mobile. */
     <div>
       <Card className={`w-full rounded-2xl !p-2 lg:!p-3 text-base-content shadow-2xl backdrop-blur-2xl ${isDark ? 'border border-white/15 bg-slate-900/95' : 'border border-neutral-200 bg-white/98'}`}>
-
-        {/* Community Contribution toggle */}
-        <label className={`flex cursor-pointer items-start gap-3 rounded-xl p-2 lg:p-2.5 mb-2 transition-colors ${
-          communityContributionEnabled
-            ? (isDark ? 'bg-emerald-900/20 border border-emerald-500/30' : 'bg-emerald-50 border border-emerald-200')
-            : (isDark ? 'border border-white/8 bg-white/3' : 'border border-neutral-100 bg-neutral-50/60')
-        }`}>
-          <input
-            type="checkbox"
-            checked={communityContributionEnabled}
-            onChange={(e) => setCommunityContribution(e.target.checked)}
-            className="checkbox checkbox-sm checkbox-primary mt-0.5 shrink-0"
-            aria-label={t('communityContributionLabel')}
-          />
-          <div className="min-w-0">
-            <p className="text-xs font-semibold text-base-content leading-snug">
-              🌱 {t('communityContributionLabel')}
-            </p>
-            <p className={`text-[11px] mt-0.5 leading-relaxed ${communityContributionEnabled ? (isDark ? 'text-emerald-400' : 'text-[#006B40]') : (isDark ? 'text-base-content/60' : 'text-base-content/75')}`}>
-              {communityContributionEnabled ? t('communityContributionImpact') : t('communityContributionDescription')}
-            </p>
-          </div>
-        </label>
 
         {/* Términos */}
         <label className="label cursor-pointer mb-1 text-base-content">

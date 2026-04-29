@@ -165,21 +165,6 @@ export function useReservationPricing() {
     depositPercent: number;
     depositAmount: number;
     roundtripTransferCost: number;
-    communityContributionAmount: number;
-  };
-}
-
-export function useReservationCommunityContribution() {
-  return useContextSelector(ExperienceReservationContext, (ctx) => {
-    const safe = requireContext(ctx);
-    return {
-      communityContributionEnabled: safe.state.communityContributionEnabled,
-      setCommunityContribution: (enabled: boolean) =>
-        safe.dispatch({ type: 'SET_COMMUNITY_CONTRIBUTION', payload: enabled }),
-    };
-  }) as {
-    communityContributionEnabled: boolean;
-    setCommunityContribution: (enabled: boolean) => void;
   };
 }
 
