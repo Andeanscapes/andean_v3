@@ -1,25 +1,17 @@
 'use client';
 
 import { memo } from 'react';
-import { CheckCircle2, XCircle, Clock, Car, Flame, Mountain, Sunset, MapPin } from 'lucide-react';
+import { CheckCircle2, XCircle, Clock, MapPin } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import BackgroundImageWithFallback from '@/components/media/BackgroundImageWithFallback';
+import { EXPERIENCE_ICON_MAP } from '@/utils/experienceIconMap';
 
 interface InclusionsProps {
   className?: string;
   experienceData: ExperienceData;
 }
-
-// Map icon names to lucide components
-const iconMap: Record<string, React.ReactNode> = {
-  clock: <Clock className="h-5 w-5" />,
-  hourglass: <Flame className="h-5 w-5" />,
-  car: <Car className="h-5 w-5" />,
-  activity: <Mountain className="h-5 w-5" />,
-  sunset: <Sunset className="h-5 w-5" />,
-};
 
 function InclusionsComponent({ className = '', experienceData }: InclusionsProps) {
   const inclusionsContent = experienceData.inclusionsContent;
@@ -60,7 +52,7 @@ function InclusionsComponent({ className = '', experienceData }: InclusionsProps
                 {inclusionsContent.logistics.map((item) => (
                   <div key={item.id} className="flex items-start gap-3">
                     <div className="mt-0.5 flex-shrink-0 text-emerald-400">
-                      {iconMap[item.icon] || <Clock className="h-5 w-5" />}
+                      {EXPERIENCE_ICON_MAP[item.icon] || <Clock className="h-5 w-5" />}
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-white/70">{item.label}</p>

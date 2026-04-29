@@ -66,6 +66,7 @@ const MOCK_MESSAGES = {
       changeTierWarning: 'Cambiar de alojamiento reiniciará tu selección de habitaciones',
       whatIsIncluded: '¿Qué incluye?',
       viewFullDetails: 'Ver detalles completos',
+      tripLogistics: 'Logística del viaje',
       selectedTierLabel: 'Seleccionado',
       contactDataTitle: 'Datos para confirmar tu cupo',
         selectedRoomsLabel: 'Habitaciones seleccionadas',
@@ -238,6 +239,20 @@ const MOCK_EXPERIENCE_DATA: ExperienceData = {
   roomModes: MOCK_TRANSLATED_ROOM_MODES,
   availableDates: MOCK_AVAILABLE_DATES,
   whatsappLink: 'https://wa.me/573001234567',
+  inclusionsContent: {
+    sectionTitle: 'Qué incluye',
+    includedLabel: 'Incluido',
+    notIncludedLabel: 'No incluido',
+    logistics: [
+      { id: 'duration', icon: 'clock', label: 'Duración', value: '2 días / 1 noche' },
+      { id: 'transport', icon: 'car', label: 'Transporte', value: 'Carro Particular (No 4x4)' },
+    ],
+    included: [
+      { id: 'inc-1', title: 'Guía especializado' },
+      { id: 'inc-2', title: 'Equipo de seguridad' },
+    ],
+    notIncluded: [],
+  },
   itineraryContent: {
     sectionTitle: 'Itinerario Interactivo',
     days: [

@@ -41,9 +41,8 @@ export const ExperienceDetailContext =
 // ---- Reducer ----
 
 function createInitialState(experienceData: ExperienceData): ExperienceDetailState {
-  const defaultTier =
-    experienceData.accommodationTiers?.find((t) => t.isHostChoice) ??
-    experienceData.accommodationTiers?.[0];
+  const tiers = experienceData.accommodationTiersContent?.tiers ?? experienceData.accommodationTiers;
+  const defaultTier = tiers?.find((t) => t.isHostChoice) ?? tiers?.[0];
 
   const defaultTransport = (experienceData.transportOptions?.[0]?.value ?? null) as TransportMode | null;
 

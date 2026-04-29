@@ -1,53 +1,45 @@
-import type { ExperiencesListData } from '../schemas';
-import type { ExperienceData } from '../schemas';
+import type { ExperienceData, ExperiencesListData } from '../schemas';
+import { ExperiencesListConfigSchema } from '../schemas';
 import { EXPERIENCES_LIST_CONFIG } from '../data-mocks/experiencesList.mock';
+import { EXPERIENCE_DATA_REGISTRY } from '../data-mocks/experiences.registry';
 import { getTranslations } from 'next-intl/server';
-import { getExperienceDataByIdSSR } from './experiences-catalog.service';
 
 /**
  * Fetch and translate experiences list for SSR.
  * Pattern: Fetch -> Validate -> Translate -> Return
  *
- * @param locale - Locale for translations (e.g., 'en', 'es', 'fr')
+ * PRODUCTION: The list API endpoint will return `fromPrice` per card as a
+ * denormalized field (computed server-side). When that lands, remove
+ * EXPERIENCE_DATA_REGISTRY and computeFromPrice — replace the mock block
+ * below with a single fetch call and the price will come pre-computed.
  */
 export async function getExperiencesListSSR(locale: string): Promise<ExperiencesListData> {
   const t = await getTranslations({ locale });
 
-  // 1. Fetch raw config from API
-  // PRODUCTION: Uncomment the fetch below
-  // const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.andeanscapes.com';
+  // 1. Fetch raw config
+  // PRODUCTION: Replace mock block with:
   // const response = await fetch(`${API_BASE_URL}/api/v1/experiences`, {
-  //   headers: { 'Content-Type': 'application/json' },
   //   next: { revalidate: 3600, tags: ['experiences-list'] },
   // });
-  // const data: unknown = await response.json();
-  // const result = ExperiencesListConfigSchema.safeParse(data);
-  // if (!result.success) {
-  //   console.error('[ExperiencesList] Validation failed:', result.error.format());
-  //   throw new Error('Invalid API response structure');
-  // }
-  // const rawConfig = result.data;
+  // const raw: unknown = await response.json();
+  const raw: unknown = EXPERIENCES_LIST_CONFIG;
 
-  // DEVELOPMENT: Use fallback data
-  const rawConfig = EXPERIENCES_LIST_CONFIG;
+  // 2. Validate — always enforced
+  const result = ExperiencesListConfigSchema.safeParse(raw);
+  if (!result.success) {
+    console.error('[ExperiencesList] Validation failed:', result.error.format());
+    throw new Error('[ExperiencesList] Invalid list config structure');
+  }
+  const rawConfig = result.data;
 
-  // 2. Translate and resolve prices
-  const experiencePriceCache = new Map<string, number>();
-
+  // 3. Translate cards — prices resolved synchronously from shared registry
   const cards = await Promise.all(
     rawConfig.cards.map(async (card) => {
       let price = card.price;
 
-      // Dynamic price resolution if needed
       if (price === undefined && card.experienceId) {
-        const cached = experiencePriceCache.get(card.experienceId);
-        if (cached) {
-          price = cached;
-        } else {
-          const expData = await getExperienceDataByIdSSR(card.experienceId, locale);
-          price = computeFromPrice(expData);
-          experiencePriceCache.set(card.experienceId, price);
-        }
+        const rawData = EXPERIENCE_DATA_REGISTRY[card.experienceId];
+        price = rawData ? computeFromPrice(rawData) : 0;
       }
 
       return {
@@ -65,7 +57,7 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
     })
   );
 
-  // 3. Return fully translated data
+  // 4. Return fully translated data
   return {
     metaTitle: t(rawConfig.metaTitleKey),
     metaDescription: t(rawConfig.metaDescriptionKey),
@@ -91,42 +83,33 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
   };
 }
 
-/**
- * Compute the all-in "From" price per person for the list card.
- * Formula: experiencePrice + cheapestTier(roomPerPerson + services) × nights
- * Falls back to experiencePricePerPerson if no tiers exist.
- */
+// ── Pricing helper ───────────────────────────────────────────────────────────
+// Computes the "From" price per person for a list card.
+// Formula: experiencePrice + cheapestTier(roomPerPerson + optionalServices) × nights
+// PRODUCTION: Delete this function when the list API returns fromPrice directly.
+
 function computeFromPrice(expData: ExperienceData): number {
   const { experiencePricePerPerson, numberOfNights } = expData.config;
   const tiers = expData.accommodationTiers;
 
-  if (!tiers || tiers.length === 0) {
-    return experiencePricePerPerson;
-  }
+  if (!tiers || tiers.length === 0) return experiencePricePerPerson;
 
-  const nights = numberOfNights;
   let cheapestTierCost = Infinity;
 
   for (const tier of tiers) {
-    // Find cheapest room per person in this tier
     let cheapestRoomPerPerson = Infinity;
     for (const room of tier.rooms) {
       const perPerson = room.pricePerNight / room.capacity;
-      if (perPerson < cheapestRoomPerPerson) {
-        cheapestRoomPerPerson = perPerson;
-      }
+      if (perPerson < cheapestRoomPerPerson) cheapestRoomPerPerson = perPerson;
     }
 
-    // Sum all service costs per person per night
     const servicesPerPerson = (tier.services ?? []).reduce(
       (sum, svc) => sum + svc.pricePerPersonPerNight,
-      0
+      0,
     );
 
-    const tierTotal = (cheapestRoomPerPerson + servicesPerPerson) * nights;
-    if (tierTotal < cheapestTierCost) {
-      cheapestTierCost = tierTotal;
-    }
+    const tierTotal = (cheapestRoomPerPerson + servicesPerPerson) * numberOfNights;
+    if (tierTotal < cheapestTierCost) cheapestTierCost = tierTotal;
   }
 
   return experiencePricePerPerson + (cheapestTierCost === Infinity ? 0 : cheapestTierCost);
