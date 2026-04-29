@@ -201,7 +201,6 @@ export const ReservationPricingSchema = z.object({
   depositPercent: z.number(),
   depositAmount: z.number(),
   roundtripTransferCost: z.number(),
-  communityContributionAmount: z.number(),
 });
 
 // Experience hero badge icon
@@ -402,8 +401,6 @@ export const ReservationStateSchema = z.object({
   // Cleared to false as soon as the user manually changes any room selection.
   isRoomSuggested: z.boolean(),
 
-  // Community contribution toggle (adds fixed COP amount to total)
-  communityContributionEnabled: z.boolean(),
 });
 
 // Complete experience data
@@ -478,7 +475,6 @@ export type ReservationAction =
       payload: { field: 'name' | 'phone' | 'email'; value: string };
     }
   | { type: 'SET_TERMS'; payload: boolean }
-  | { type: 'SET_COMMUNITY_CONTRIBUTION'; payload: boolean }
   | { type: 'HYDRATE'; payload: Partial<ReservationState> }
   | { type: 'RESET' };
 

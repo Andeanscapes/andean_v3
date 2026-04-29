@@ -45,7 +45,7 @@ export function MobileStickyDock({ config }: MobileStickyDockProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Micro-animation when deposit amount changes (e.g. community toggle)
+  // Micro-animation when deposit amount changes after booking selections update.
   useEffect(() => {
     if (prevDepositRef.current !== depositAmount) {
       setPriceAnimated(true);

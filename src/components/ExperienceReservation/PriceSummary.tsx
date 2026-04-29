@@ -6,7 +6,6 @@ import {
   useReservationPricing,
   useReservationTier,
   useReservationAccommodationTiers,
-  useReservationCommunityContribution,
 } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
@@ -16,10 +15,9 @@ interface PriceSummaryProps {
 }
 
 export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
-  const { total, depositAmount, roundtripTransferCost, communityContributionAmount } = useReservationPricing();
+  const { total, depositAmount, roundtripTransferCost } = useReservationPricing();
   const { selectedTierId } = useReservationTier();
   const tiersContent = useReservationAccommodationTiers();
-  const { communityContributionEnabled } = useReservationCommunityContribution();
   const t = useTranslations('experiences.ui');
   const { currentLocale } = useLanguageContext();
   const { theme } = useThemeContext();
@@ -68,16 +66,6 @@ export function PriceSummary({ depositPercent = 15 }: PriceSummaryProps) {
             </span>
             <span className="font-medium">
               {formatPrice(roundtripTransferCost)}
-            </span>
-          </div>
-        )}
-        {communityContributionEnabled && communityContributionAmount > 0 && (
-          <div className={`flex justify-between items-center text-sm py-1.5 ${isDark ? 'text-emerald-400/80' : 'text-emerald-700'}`}>
-            <span className="flex items-center gap-1.5">
-              🌱 {t('communityContributionImpact')}
-            </span>
-            <span className="font-medium">
-              {formatPrice(communityContributionAmount)}
             </span>
           </div>
         )}

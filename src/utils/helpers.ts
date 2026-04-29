@@ -84,9 +84,6 @@ export function computePeopleCount(
   }, 0);
 }
 
-/** Fixed COP amount added to total when community contribution is enabled (~$5 USD). */
-export const COMMUNITY_CONTRIBUTION_COP = 20_000;
-
 export function calculatePricing(
   experiencePricePerPerson: number,
   depositPercent: number,
@@ -94,7 +91,6 @@ export function calculatePricing(
   roomSelections: RoomSelection[],
   transportMode?: TransportMode | null,
   roundtripTransferConfig?: RoundtripTransferConfig | null,
-  communityContributionEnabled?: boolean,
 ) {
   const roomTotal = roomSelections.reduce((sum, selection) => {
     const mode = roomModes.find((room) => room.value === selection.roomMode);
@@ -115,8 +111,7 @@ export function calculatePricing(
     roundtripTransferCost = vehicleCount * roundtripTransferConfig.pricePerVehicle;
   }
 
-  const communityContributionAmount = communityContributionEnabled ? COMMUNITY_CONTRIBUTION_COP : 0;
-  const total = roomTotal + roundtripTransferCost + communityContributionAmount;
+  const total = roomTotal + roundtripTransferCost;
   const depositAmount = Math.round(total * (depositPercent / 100));
 
   return {
@@ -125,7 +120,6 @@ export function calculatePricing(
     depositPercent,
     depositAmount,
     roundtripTransferCost,
-    communityContributionAmount,
   };
 }
 
