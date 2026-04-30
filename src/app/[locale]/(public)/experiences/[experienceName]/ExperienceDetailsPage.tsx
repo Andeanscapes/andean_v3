@@ -27,6 +27,7 @@ export default function ExperienceDetailsPage({
         title={heroContent?.title ?? config.title}
         subtitle={heroContent?.subtitle ?? config.subtitle}
         widget={<ExpericeWidget experienceData={experienceData} />}
+        backgroundImageUrl={heroContent?.backgroundImageUrl}
       />
       <ValuePropositions experienceData={experienceData} />
       <Inclusions experienceData={experienceData} />

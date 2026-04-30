@@ -25,7 +25,6 @@ export function toLandingFlagshipContent(
     subtitle: t(flagship.subtitleKey),
     description: t(flagship.descriptionKey),
     backgroundImage: flagship.backgroundImage,
-    mobileBackgroundImage: flagship.mobileBackgroundImage,
     valueChips: flagship.valueChips.map((chip) => ({
       ...chip,
       label: t(chip.labelKey),
@@ -216,7 +215,6 @@ export function toLandingHeroBrandContent(
     subtitle: t(heroBrand.subtitleKey),
     description: t(heroBrand.descriptionKey),
     backgroundImage: heroBrand.backgroundImage,
-    mobileBackgroundImage: heroBrand.mobileBackgroundImage,
     primaryCtaLabel: t(heroBrand.primaryCtaLabelKey),
     primaryCtaHref: heroBrand.primaryCtaHref,
     secondaryCtaLabel: t(heroBrand.secondaryCtaLabelKey),

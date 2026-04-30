@@ -8,6 +8,7 @@ import {Link} from '@/i18n/navigation';
 
 import HeroData from '@/constant/Hero'
 import {useTranslations} from 'next-intl';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -56,7 +57,10 @@ const Hero = () => {
             >
                 {HeroData?.slides?.map((slide) => (
                     <SwiperSlide className={styles.heroSlide} key={slide.id}>
-                        <img src={slide.imgUrl} alt={t(`slides.${slide.id}.title`)} className={styles.zoomImage} />
+                        <picture>
+                          <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(slide.imgUrl).mobile} />
+                          <img src={slide.imgUrl} alt={t(`slides.${slide.id}.title`)} className={styles.zoomImage} />
+                        </picture>
                         <div className="container">
                             <div className="max-w-[850px] mx-auto text-center text-white relative lg:py-4 py-16">
                                 <div className="w-full h-full flex items-center justify-center mb-3">

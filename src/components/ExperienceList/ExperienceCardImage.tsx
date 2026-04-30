@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { ImageIcon } from 'lucide-react';
 import { memo, useState } from 'react';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 type ExperienceCardImageProps = {
   src: string;
@@ -34,9 +35,7 @@ function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
     ? `${normalizedCdnBaseUrl}${src}`
     : src;
   
-  // Derive mobile image path from desktop path
-  // e.g., 'emerald-mining-card.webp' → 'emerald-mining-card-mobile.webp'
-  const mobileSrc = resolvedSrc.replace(/\.webp$/, '-mobile.webp');
+  const mobileSrc = getResponsiveImageSrc(resolvedSrc).mobile;
 
   return (
     <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">

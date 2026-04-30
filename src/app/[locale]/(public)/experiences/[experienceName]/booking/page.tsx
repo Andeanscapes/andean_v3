@@ -15,6 +15,7 @@ import {
   toAbsoluteUrl,
 } from '../seo';
 import { parseBookingSearchParams } from '@/utils/helpers';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 // searchParams requires dynamic rendering — opt out of static prerendering
 export const dynamic = 'force-dynamic';
@@ -104,7 +105,7 @@ export default async function BookingPage({
   const initialSelections = parseBookingSearchParams(rawSearchParams);
   const heroImageUrl =
     experienceData.heroContent?.backgroundImageUrl ?? '/assets/images/hero/h10.webp';
-  const heroImageUrlMobile = heroImageUrl.replace(/\.webp$/, '-mobile.webp');
+  const heroImageUrlMobile = getResponsiveImageSrc(heroImageUrl).mobile;
 
   // If a tier is pre-selected via URL params, preload its thumbnail so the
   // browser fetches it alongside the hero — avoids an LCP image discovered

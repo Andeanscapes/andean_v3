@@ -9,7 +9,6 @@ export const LANDING_MOCK: LandingDataMock = {
     subtitleKey: 'Landing.hero.subtitle',
     descriptionKey: 'Landing.hero.description',
     backgroundImage: '/assets/images/hero/h10.webp',
-    mobileBackgroundImage: '/assets/images/hero/h10.webp',
     valueChips: [
       { id: 'vc-1', iconName: 'Users', labelKey: 'Landing.hero.chips.smallGroups' },
       { id: 'vc-2', iconName: 'HardHat', labelKey: 'Landing.hero.chips.localGuides' },
@@ -50,7 +49,6 @@ export const LANDING_MOCK: LandingDataMock = {
     subtitleKey: 'Landing.brand.hero.subtitle',
     descriptionKey: 'Landing.brand.hero.description',
     backgroundImage: '/assets/images/hero/h10.webp',
-    mobileBackgroundImage: '/assets/images/hero/h10-mobile.webp',
     primaryCtaLabelKey: 'Landing.brand.hero.primaryCta',
     primaryCtaHref: '/experiences',
     secondaryCtaLabelKey: 'Landing.brand.hero.secondaryCta',
