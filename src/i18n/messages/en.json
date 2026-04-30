@@ -297,6 +297,72 @@
         "bus": "Public bus",
         "roundtrip": "Round-trip transfer"
       }
+    },
+    "tiers": {
+      "sectionTitle": "Choose your stay",
+      "items": {
+        "day": {
+          "label": "Day Experience",
+          "description": "A full day inside the mine — no overnight stay required.",
+          "tag": "Most flexible",
+          "cta": "Book day experience"
+        },
+        "night": {
+          "label": "1-Night Adventure",
+          "description": "Two days, one night — the full emerald country immersion.",
+          "tag": "Best seller",
+          "cta": "Book overnight"
+        },
+        "private": {
+          "label": "Private Group",
+          "description": "Exclusive access for your group — fully customized dates and itinerary.",
+          "tag": "Custom",
+          "cta": "Request private group"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Why this is different",
+      "items": {
+        "mining": {
+          "title": "Real emerald mining",
+          "description": "Work a vein alongside the families who have mined Chivor for generations.",
+          "badge": "Flagship"
+        },
+        "access": {
+          "title": "Access you can't buy elsewhere",
+          "description": "The hacienda, the mine entrance, the host family dinner — available because of trust, not tourism."
+        },
+        "culture": {
+          "title": "Boyacá, unfiltered",
+          "description": "Mountain landscapes, local food, and stories that don't make it into guidebooks."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "What's included",
+      "includedLabel": "Included",
+      "notIncludedLabel": "Not included",
+      "logistics": {
+        "start": "Start time",
+        "duration": "Duration",
+        "transport": "Transport",
+        "difficulty": "Difficulty"
+      },
+      "included": {
+        "guide": "Certified bilingual guide",
+        "equipment": "All safety equipment",
+        "meals": "Meals (breakfast, lunch, dinner)",
+        "insurance": "Travel insurance",
+        "mineAccess": "Mine access",
+        "workshop": "Emerald sorting workshop",
+        "smallGroups": "Small group (max 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Airport transfer",
+        "personalDrinks": "Personal drinks",
+        "souvenirs": "Souvenir gems"
+      }
     }
   },
   "Header": {

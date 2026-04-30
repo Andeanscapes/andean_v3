@@ -50,8 +50,7 @@ export function toLandingFlagshipContent(
       arrivalLabel: t('Landing.filters.arrivalLabel'),
       ctaLabel: t('Landing.filters.ctaLabel', { percent: flagship.pricing.depositPercent }),
       depositNoteLabel: t('Landing.filters.depositNoteLabel', {
-        amount: flagship.pricing.fromAmount * flagship.pricing.depositPercent / 100,
-        currency: flagship.pricing.currency,
+        percent: flagship.pricing.depositPercent,
       }),
       trustSecureLabel: t('Landing.filters.trustSecure'),
       trustCancellationLabel: t('Landing.filters.trustCancellation'),

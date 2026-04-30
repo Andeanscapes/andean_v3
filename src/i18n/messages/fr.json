@@ -297,6 +297,72 @@
         "bus": "Bus public",
         "roundtrip": "Transfert aller-retour"
       }
+    },
+    "tiers": {
+      "sectionTitle": "Choisissez votre séjour",
+      "items": {
+        "day": {
+          "label": "Expérience à la journée",
+          "description": "Une journée complète dans la mine — sans nuit sur place.",
+          "tag": "Plus flexible",
+          "cta": "Réserver la journée"
+        },
+        "night": {
+          "label": "Aventure 1 nuit",
+          "description": "Deux jours, une nuit — l'immersion complète dans le pays des émeraudes.",
+          "tag": "Best-seller",
+          "cta": "Réserver avec nuit"
+        },
+        "private": {
+          "label": "Groupe privé",
+          "description": "Accès exclusif pour votre groupe — dates et itinéraire entièrement personnalisés.",
+          "tag": "Sur mesure",
+          "cta": "Demander un groupe privé"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Pourquoi cette expérience est différente",
+      "items": {
+        "mining": {
+          "title": "Vraie extraction d'émeraudes",
+          "description": "Travaillez un filon aux côtés des familles qui exploitent Chivor depuis des générations.",
+          "badge": "Phare"
+        },
+        "access": {
+          "title": "Un accès introuvable ailleurs",
+          "description": "L'hacienda, l'entrée de la mine, le dîner avec la famille d'accueil — possible grâce à la confiance, pas au tourisme."
+        },
+        "culture": {
+          "title": "Boyacá sans filtre",
+          "description": "Paysages de montagne, cuisine locale et récits qui ne figurent dans aucun guide de voyage."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "Ce qui est inclus",
+      "includedLabel": "Inclus",
+      "notIncludedLabel": "Non inclus",
+      "logistics": {
+        "start": "Heure de départ",
+        "duration": "Durée",
+        "transport": "Transport",
+        "difficulty": "Difficulté"
+      },
+      "included": {
+        "guide": "Guide bilingue certifié",
+        "equipment": "Tout l'équipement de sécurité",
+        "meals": "Repas (petit-déjeuner, déjeuner, dîner)",
+        "insurance": "Assurance voyage",
+        "mineAccess": "Accès à la mine",
+        "workshop": "Atelier de tri des émeraudes",
+        "smallGroups": "Petit groupe (max 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Transfert aéroport",
+        "personalDrinks": "Boissons personnelles",
+        "souvenirs": "Pierres souvenirs"
+      }
     }
   },
   "Header": {

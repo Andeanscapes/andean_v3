@@ -297,6 +297,72 @@
         "bus": "Bus público",
         "roundtrip": "Traslado de ida y vuelta"
       }
+    },
+    "tiers": {
+      "sectionTitle": "Elige tu estancia",
+      "items": {
+        "day": {
+          "label": "Experiencia de un día",
+          "description": "Un día completo dentro de la mina — sin pernocta.",
+          "tag": "Más flexible",
+          "cta": "Reservar experiencia de día"
+        },
+        "night": {
+          "label": "Aventura de 1 noche",
+          "description": "Dos días, una noche — la inmersión completa en el país esmeraldero.",
+          "tag": "Más vendida",
+          "cta": "Reservar con pernocta"
+        },
+        "private": {
+          "label": "Grupo privado",
+          "description": "Acceso exclusivo para tu grupo — fechas e itinerario totalmente personalizados.",
+          "tag": "A medida",
+          "cta": "Solicitar grupo privado"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Por qué esta experiencia es diferente",
+      "items": {
+        "mining": {
+          "title": "Minería de esmeraldas real",
+          "description": "Trabaja una veta junto a las familias que han minado Chivor por generaciones.",
+          "badge": "Insignia"
+        },
+        "access": {
+          "title": "Acceso que no consigues en otro lugar",
+          "description": "La hacienda, la entrada a la mina, la cena con la familia anfitriona — posible gracias a la confianza, no al turismo."
+        },
+        "culture": {
+          "title": "Boyacá sin filtros",
+          "description": "Paisajes de montaña, comida local e historias que no aparecen en las guías de viaje."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "Qué incluye",
+      "includedLabel": "Incluido",
+      "notIncludedLabel": "No incluido",
+      "logistics": {
+        "start": "Hora de inicio",
+        "duration": "Duración",
+        "transport": "Transporte",
+        "difficulty": "Dificultad"
+      },
+      "included": {
+        "guide": "Guía bilingüe certificado",
+        "equipment": "Todo el equipo de seguridad",
+        "meals": "Comidas (desayuno, almuerzo, cena)",
+        "insurance": "Seguro de viaje",
+        "mineAccess": "Acceso a la mina",
+        "workshop": "Taller de clasificación de esmeraldas",
+        "smallGroups": "Grupo pequeño (máx. 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Traslado al aeropuerto",
+        "personalDrinks": "Bebidas personales",
+        "souvenirs": "Gemas de recuerdo"
+      }
     }
   },
   "Header": {
