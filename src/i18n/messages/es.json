@@ -3,6 +3,368 @@
     "metaTitle": "Inicio | Andean Scapes HZ",
     "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
   },
+  "Landing": {
+    "brand": {
+      "hero": {
+        "eyebrow": "Boyacá, Colombia — Anfitriones reales, lugares reales",
+        "title": "Colombia a través de los ojos de quienes la viven",
+        "subtitle": "Grupos pequeños. Anfitriones locales. Puertas que no se abren para todos.",
+        "description": "Experiencias de naturaleza, cultura y vida rural en Boyacá — con las familias y guías que lo llaman hogar.",
+        "primaryCta": "Ver todas las experiencias",
+        "secondaryCta": "Planea tu viaje por WhatsApp",
+        "chips": {
+          "smallGroups": "Máx. 10 viajeros",
+          "hostedByLocals": "Anfitriones locales",
+          "flexiblePlanning": "Fechas flexibles",
+          "securePayments": "Pago online seguro",
+          "englishSupport": "Inglés y español"
+        },
+        "search": {
+          "destinationLabel": "Dónde",
+          "experienceTypeLabel": "Tipo",
+          "durationLabel": "Duración",
+          "submit": "Buscar experiencias",
+          "destinations": {
+            "chivor": "Chivor, Boyacá",
+            "all": "Todos los destinos"
+          },
+          "experienceTypes": {
+            "all": "Todos los tipos",
+            "nature": "Naturaleza",
+            "culture": "Cultura",
+            "adventure": "Aventura"
+          },
+          "durations": {
+            "all": "Cualquier duración",
+            "oneDay": "1 día",
+            "twoDayOneNight": "2 días / 1 noche",
+            "threeDayTwoNight": "3 días / 2 noches"
+          }
+        }
+      },
+      "categories": {
+        "title": "Elige tu tipo de Boyacá",
+        "cta": "Explorar",
+        "items": {
+          "emerald": {
+            "title": "Esmeraldas y Minería",
+            "description": "Entra a minas activas junto a las familias que han vivido el oficio esmeraldero por generaciones."
+          },
+          "nature": {
+            "title": "Naturaleza y Reservas",
+            "description": "Páramos, bosques de niebla y cascadas escondidas — rutas que la mayoría de viajeros nunca encuentran."
+          },
+          "rural": {
+            "title": "Vida Rural y Café",
+            "description": "Despierta en una finca activa, comparte una comida con la familia anfitriona, aprende los oficios que heredaron."
+          },
+          "horseback": {
+            "title": "Cabalgatas y Senderismo",
+            "description": "Caminos andinos a pie o a caballo — como siempre ha viajado la gente de aquí."
+          }
+        }
+      },
+      "featured": {
+        "title": "Experiencias que valen el viaje",
+        "viewAll": "Ver todas las experiencias",
+        "fromLabel": "Desde",
+        "viewDetails": "Ver detalles",
+        "badges": {
+          "featured": "Destacada",
+          "new": "Nuevo"
+        },
+        "items": {
+          "emerald": {
+            "title": "Aventura de Minería de Esmeraldas",
+            "description": "Dos días en Chivor — entra a la mina, trabaja una veta y aprende el oficio de los propios mineros.",
+            "duration": "2 días / 1 noche",
+            "location": "Chivor, Boyacá"
+          },
+          "pottery": {
+            "title": "Experiencia Alfarera Ancestral",
+            "description": "Siéntate con maestros alfareros en Ráquira y moldea arcilla con técnicas transmitidas por 500 años.",
+            "duration": "1 día",
+            "location": "Ráquira, Boyacá"
+          }
+        }
+      },
+      "whyUs": {
+        "title": "Qué hace diferente a Andean Scapes",
+        "lead": "No somos una operadora turística. Somos una red de anfitriones locales que comparten lo que realmente conocen.",
+        "items": {
+          "localHosts": {
+            "title": "Anfitriones que lo viven",
+            "description": "Viajas con las familias y guías que han construido su vida en estos lugares — no con un representante de empresa."
+          },
+          "smallGroups": {
+            "title": "Grupos de máximo 10",
+            "description": "Lo suficientemente pequeño para que tu anfitrión recuerde tu nombre. Lo suficientemente grande para compartir el momento."
+          },
+          "culturalAccess": {
+            "title": "Acceso que no consigues en otro lugar",
+            "description": "Parte de lo que te mostramos — la mina, la cocina de la hacienda, la finca familiar — solo es posible gracias a años de confianza."
+          },
+          "secureBooking": {
+            "title": "Reserva simple y segura",
+            "description": "Asegura tu lugar con un 15% de anticipo. El resto lo pagas el día de la experiencia. Soporte por WhatsApp en todo momento."
+          }
+        }
+      },
+      "howItWorks": {
+        "title": "De la idea a la experiencia en 4 pasos",
+        "steps": {
+          "explore": {
+            "title": "Explora",
+            "description": "Filtra por destino, tipo y duración para encontrar lo que encaja con tu viaje."
+          },
+          "choose": {
+            "title": "Elige tus fechas",
+            "description": "Selecciona una fecha disponible y dinos cuántas personas van."
+          },
+          "pay": {
+            "title": "Reserva con el 15%",
+            "description": "Asegura tu lugar con un anticipo pequeño. Confirmamos por WhatsApp en menos de una hora."
+          },
+          "travel": {
+            "title": "Llega",
+            "description": "Tu anfitrión te recibe en el punto de partida. El resto ya está resuelto."
+          }
+        }
+      },
+      "travelerSegments": {
+        "title": "Quiénes vienen con nosotros",
+        "cta": "Encuentra tu experiencia",
+        "segments": {
+          "couples": {
+            "label": "Parejas",
+            "recommendation": "Anfitriones privados, paisajes tranquilos y estancias que te dan espacio para desconectarte de verdad."
+          },
+          "families": {
+            "label": "Familias",
+            "recommendation": "Visitas a fincas, caminatas suaves y actividades prácticas pensadas para niños curiosos y padres tranquilos."
+          },
+          "nomads": {
+            "label": "Nómadas digitales",
+            "recommendation": "Estancias de varios días con wifi confiable, ritmo local y una comunidad que no es un coworking."
+          },
+          "private": {
+            "label": "Grupos privados",
+            "recommendation": "Itinerarios completos construidos alrededor de tu grupo — amigos, equipos o viajes de fechas especiales."
+          },
+          "adventure": {
+            "label": "Aventureros",
+            "recommendation": "Rutas off-road, senderos a caballo y caminatas que te recompensan con vistas difíciles de describir."
+          },
+          "culture": {
+            "label": "Amantes de la cultura",
+            "recommendation": "Talleres con mineros, alfareros, tejedores y campesinos — aprender haciendo, no mirando."
+          }
+        }
+      },
+      "trustStats": {
+        "rating": "Calificación promedio",
+        "travelers": "Viajeros recibidos",
+        "recommend": "Lo recomendarían",
+        "local": "Empresa local",
+        "safe": "Verificado y seguro",
+        "srTitle": "Estadísticas de confianza"
+      },
+      "location": {
+        "title": "Dónde operamos",
+        "mapAlt": "Mapa que muestra Bogotá y Chivor, Boyacá, Colombia",
+        "cta": "Planea tu ruta",
+        "bullets": {
+          "region": "Boyacá, Colombia — 3 horas al este de Bogotá",
+          "driving": "~3 horas en coche desde el centro de Bogotá",
+          "transport": "Coordinación de transporte incluida o disponible bajo pedido",
+          "customizable": "Itinerarios construidos según tus fechas y grupo",
+          "languages": "Todas las experiencias en inglés y español",
+          "plans": "Planes de día, noche y varios días disponibles"
+        }
+      },
+      "safety": {
+        "title": "Cómo garantizamos tu seguridad",
+        "lead": "Cada anfitrión, ruta y método de pago es verificado antes de formar parte de la red.",
+        "items": {
+          "guides": "Guías locales certificados y verificados",
+          "meetingPoints": "Puntos de encuentro fijos y verificados",
+          "payments": "Pagos con cifrado extremo a extremo",
+          "deposit": "15% de anticipo — el resto se paga el día de la experiencia",
+          "whatsapp": "Soporte por WhatsApp durante todo tu viaje",
+          "flexible": "Reprogramación gratuita hasta 48 horas antes"
+        }
+      },
+      "globalCtas": {
+        "explore": "Ver todas las experiencias",
+        "whatsapp": "Escríbenos por WhatsApp",
+        "mobileFromLabel": "Desde"
+      }
+    },
+    "reviews": {
+      "sectionTitle": "Lo que dicen los viajeros",
+      "subtitle": "Sin editar. De personas que estuvieron allí.",
+      "eyebrow": "Reseñas de viajeros",
+      "outOf5Aria": "de 5",
+      "countSuffix": "reseñas",
+      "items": {
+        "sarah": {
+          "comment": "Trabajamos una veta real junto a la familia minera. Eso no se puede fingir — ni encontrar en ningún otro lugar."
+        },
+        "lucas": {
+          "comment": "Los anfitriones hicieron el viaje. Conocían la historia detrás de cada lugar. Boyacá a través de sus ojos es otra cosa."
+        },
+        "emily": {
+          "comment": "El grupo pequeño hizo que el guía hablara con nosotros, no para nosotros. Me fui sintiéndome parte de algo real."
+        }
+      },
+      "trustPanel": {
+        "title": "Por qué los viajeros vuelven",
+        "bullets": {
+          "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
+          "reviews": "4.9★ entre más de 500 viajeros verificados",
+          "payment": "Reserva con el 15% — el resto lo pagas al llegar",
+          "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
+        }
+      }
+    },
+    "faqs": {
+      "sectionTitle": "Preguntas frecuentes",
+      "items": {
+        "safe": {
+          "question": "¿Es seguro Boyacá para viajeros internacionales?",
+          "answer": "Sí. Boyacá es consistentemente uno de los departamentos más seguros de Colombia. Cada anfitrión y ruta de nuestra red es verificado, y compartimos indicaciones de seguridad antes de cada viaje."
+        },
+        "experience": {
+          "question": "¿Necesito experiencia al aire libre o buena condición física?",
+          "answer": "No. Las experiencias están clasificadas por dificultad y diseñadas para distintos niveles. Tu anfitrión te explicará exactamente qué esperar antes de que llegues."
+        },
+        "bogota": {
+          "question": "¿Cómo llego de Bogotá a Chivor?",
+          "answer": "Chivor está a unas 3 horas de Bogotá por carretera. Podemos coordinar el transporte, o compartimos una guía detallada para ir en tu propio vehículo — se recomienda 4x4 en el tramo final."
+        },
+        "bring": {
+          "question": "¿Qué necesito llevar?",
+          "answer": "Ropa por capas, zapatos resistentes y una chaqueta impermeable ligera. Todo el equipo técnico está incluido. Tu anfitrión te envía una lista completa después de reservar."
+        },
+        "deposit": {
+          "question": "¿Cómo funciona el anticipo?",
+          "answer": "Un anticipo del 15% asegura tus fechas. El saldo se paga al llegar — en efectivo o por transferencia. Sin cargos ocultos, sin sorpresas de última hora."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Boyacá te espera. Tus fechas están disponibles.",
+      "subtitle": "Reserva tu lugar con el 15% hoy. Tu anfitrión confirma en menos de una hora.",
+      "primaryCta": "Reserva tu experiencia",
+      "secondaryCta": "Pregúntanos por WhatsApp primero",
+      "bookAria": "Reserva tu experiencia con Andean Scapes",
+      "badges": {
+        "deposit": "15% de anticipo para confirmar",
+        "secure": "Pago cifrado",
+        "cancellation": "Cancelación gratuita 48h antes",
+        "verified": "Anfitriones verificados"
+      }
+    },
+    "hero": {
+      "badge": "Aventura de Minería de Esmeraldas",
+      "title": "Dentro de las minas de esmeraldas de Chivor",
+      "subtitle": "Dos días con las familias mineras que han trabajado estas vetas por generaciones.",
+      "description": "Acceso a la mina, todas las comidas, alojamiento local, guía bilingüe certificado y equipo completo — incluido.",
+      "chips": {
+        "smallGroups": "Máx. 10 viajeros",
+        "localGuides": "Guía local certificado",
+        "mealsIncluded": "Todas las comidas incluidas",
+        "securePayment": "Pago seguro"
+      }
+    },
+    "filters": {
+      "fromLabel": "Desde",
+      "perPersonLabel": "/ persona",
+      "reviewsCountLabel": "{count} reseñas",
+      "selectDateLabel": "Elige una fecha",
+      "peopleLabel": "Viajeros",
+      "arrivalLabel": "Cómo llegas",
+      "ctaLabel": "Reservar ahora",
+      "depositNoteLabel": "{percent}% de anticipo para confirmar",
+      "trustSecure": "Pago cifrado",
+      "trustCancellation": "Cancelación gratuita",
+      "trustVerified": "Anfitrión verificado",
+      "whatsappCta": "¿Preguntas? WhatsApp",
+      "fallbackDate": "Fechas flexibles",
+      "transport": {
+        "carNo4x4": "Tengo coche (sin 4x4)",
+        "have4x4": "Tengo 4x4",
+        "bus": "Bus público",
+        "roundtrip": "Traslado de ida y vuelta"
+      }
+    },
+    "tiers": {
+      "sectionTitle": "Elige tu estancia",
+      "items": {
+        "day": {
+          "label": "Experiencia de un día",
+          "description": "Un día completo dentro de la mina — sin pernocta.",
+          "tag": "Más flexible",
+          "cta": "Reservar experiencia de día"
+        },
+        "night": {
+          "label": "Aventura de 1 noche",
+          "description": "Dos días, una noche — la inmersión completa en el país esmeraldero.",
+          "tag": "Más vendida",
+          "cta": "Reservar con pernocta"
+        },
+        "private": {
+          "label": "Grupo privado",
+          "description": "Acceso exclusivo para tu grupo — fechas e itinerario totalmente personalizados.",
+          "tag": "A medida",
+          "cta": "Solicitar grupo privado"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Por qué esta experiencia es diferente",
+      "items": {
+        "mining": {
+          "title": "Minería de esmeraldas real",
+          "description": "Trabaja una veta junto a las familias que han minado Chivor por generaciones.",
+          "badge": "Insignia"
+        },
+        "access": {
+          "title": "Acceso que no consigues en otro lugar",
+          "description": "La hacienda, la entrada a la mina, la cena con la familia anfitriona — posible gracias a la confianza, no al turismo."
+        },
+        "culture": {
+          "title": "Boyacá sin filtros",
+          "description": "Paisajes de montaña, comida local e historias que no aparecen en las guías de viaje."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "Qué incluye",
+      "includedLabel": "Incluido",
+      "notIncludedLabel": "No incluido",
+      "logistics": {
+        "start": "Hora de inicio",
+        "duration": "Duración",
+        "transport": "Transporte",
+        "difficulty": "Dificultad"
+      },
+      "included": {
+        "guide": "Guía bilingüe certificado",
+        "equipment": "Todo el equipo de seguridad",
+        "meals": "Comidas (desayuno, almuerzo, cena)",
+        "insurance": "Seguro de viaje",
+        "mineAccess": "Acceso a la mina",
+        "workshop": "Taller de clasificación de esmeraldas",
+        "smallGroups": "Grupo pequeño (máx. 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Traslado al aeropuerto",
+        "personalDrinks": "Bebidas personales",
+        "souvenirs": "Gemas de recuerdo"
+      }
+    }
+  },
   "Header": {
     "bookNow": "RESERVA AHORA",
     "experiences": "EXPERIENCIAS"
