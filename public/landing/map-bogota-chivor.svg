@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 600 400"
+  role="img"
+  aria-labelledby="map-title map-desc"
+  preserveAspectRatio="xMidYMid meet"
+>
+  <title id="map-title">Route from Bogotá to Chivor, Boyacá</title>
+  <desc id="map-desc">Schematic illustration of the route between Bogotá and the emerald-mining town of Chivor in the Boyacá highlands.</desc>
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f5f1ea" />
+
+  <!-- Mountain ridges -->
+  <path d="M0 280 L60 220 L120 260 L180 200 L240 250 L300 200 L360 240 L420 190 L480 230 L540 200 L600 240 L600 400 L0 400 Z" fill="#cfd8c5" opacity="0.6" />
+  <path d="M0 320 L80 280 L160 310 L240 270 L320 300 L400 260 L480 290 L560 260 L600 280 L600 400 L0 400 Z" fill="#a8b89a" opacity="0.7" />
+
+  <!-- River / valley accent -->
+  <path d="M120 360 Q220 320 320 350 T540 330" fill="none" stroke="#7ea3b6" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Route line: Bogotá → Chivor -->
+  <path
+    d="M150 280 C 230 200, 330 180, 450 150"
+    fill="none"
+    stroke="#1f6f4a"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-dasharray="2 10"
+  />
+
+  <!-- Bogotá marker -->
+  <g transform="translate(150 280)">
+    <circle r="14" fill="#1f6f4a" />
+    <circle r="6" fill="#ffffff" />
+    <text y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1f2a23">Bogotá</text>
+  </g>
+
+  <!-- Chivor marker -->
+  <g transform="translate(450 150)">
+    <circle r="14" fill="#c89b1d" />
+    <circle r="6" fill="#ffffff" />
+    <text y="-22" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1f2a23">Chivor</text>
+    <text y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#1f2a23" opacity="0.7">Boyacá highlands</text>
+  </g>
+</svg>
