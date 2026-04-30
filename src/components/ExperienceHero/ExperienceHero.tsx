@@ -2,17 +2,20 @@ import { memo, type ReactNode } from 'react';
 import { Check } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface ExperienceHeroProps {
   title: string;
   subtitle: string;
   widget: ReactNode;
+  backgroundImageUrl?: string;
 }
 
 function ExperienceHeroComponent({
   title,
   subtitle,
   widget,
+  backgroundImageUrl,
 }: ExperienceHeroProps) {
   const t = useTranslations('experiences.ui.experienceDetails');
   const valueStack = [
@@ -21,19 +24,23 @@ function ExperienceHeroComponent({
     t('valueStackAllMealsIncluded'),
     t('valueStackPremiumTransport'),
   ];
-  const heroBackgroundSrc = '/assets/images/hero/h10.webp';
+  const heroBackgroundSrc = backgroundImageUrl ?? '/assets/images/hero/h10.webp';
+  const heroMobileSrc = getResponsiveImageSrc(heroBackgroundSrc).mobile;
 
   return (
     <section className="relative w-full overflow-hidden">
-      <img
-        src={heroBackgroundSrc}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        decoding="async"
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <picture>
+        <source media="(max-width: 767px)" srcSet={heroMobileSrc} />
+        <img
+          src={heroBackgroundSrc}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div className="pointer-events-none absolute inset-0 bg-black/30" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
       <SectionContainer

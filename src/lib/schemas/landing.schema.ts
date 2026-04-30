@@ -34,7 +34,6 @@ export const LandingFlagshipMockSchema = z.object({
   subtitleKey: z.string(),
   descriptionKey: z.string(),
   backgroundImage: z.string(),
-  mobileBackgroundImage: z.string().optional(),
   valueChips: z.array(LandingValueChipMockSchema),
   pricing: z.object({
     fromAmount: z.number(),
@@ -114,7 +113,6 @@ export const LandingHeroBrandMockSchema = z.object({
   subtitleKey: z.string(),
   descriptionKey: z.string(),
   backgroundImage: z.string(),
-  mobileBackgroundImage: z.string().optional(),
   primaryCtaLabelKey: z.string(),
   primaryCtaHref: z.string(),
   secondaryCtaLabelKey: z.string(),
@@ -330,7 +328,6 @@ export const LandingFlagshipContentSchema = z.object({
   subtitle: z.string(),
   description: z.string(),
   backgroundImage: z.string(),
-  mobileBackgroundImage: z.string().optional(),
   valueChips: z.array(LandingValueChipSchema),
   pricing: z.object({
     fromAmount: z.number(),
@@ -401,7 +398,6 @@ export const LandingContentSchema = z.object({
     subtitle: z.string(),
     description: z.string(),
     backgroundImage: z.string(),
-    mobileBackgroundImage: z.string().optional(),
     primaryCtaLabel: z.string(),
     primaryCtaHref: z.string(),
     secondaryCtaLabel: z.string(),

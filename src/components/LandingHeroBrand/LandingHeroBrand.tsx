@@ -5,6 +5,7 @@ import type { LandingHeroBrandContent as HeroBrand } from '@/lib/schemas/landing
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import LandingHeroBrandContent from './LandingHeroBrandContent';
 import LandingHeroBrandSearch from './LandingHeroBrandSearch';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface Props {
   hero: HeroBrand;
@@ -28,9 +29,7 @@ function LandingHeroBrandComponent({ hero, className = '' }: Props) {
       className={`relative w-full overflow-hidden ${className}`.trim()}
     >
       <picture>
-        {hero.mobileBackgroundImage ? (
-          <source media="(max-width: 767px)" srcSet={hero.mobileBackgroundImage} />
-        ) : null}
+        <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(hero.backgroundImage).mobile} />
         <img
           src={hero.backgroundImage}
           alt=""

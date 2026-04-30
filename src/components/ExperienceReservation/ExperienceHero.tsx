@@ -9,6 +9,7 @@ import type {
 } from '@/lib/schemas';
 import { Button } from '@/components/ui/Button/Button';
 import { Badge } from '@/components/ui/Badge/Badge';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 type ExperienceHeroProps = {
   config?: ExperienceConfig;
@@ -130,7 +131,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
       <picture>
         <source
           media="(max-width: 767px)"
-          srcSet={resolvedContent.backgroundImageUrl.replace(/\.webp$/, '-mobile.webp')}
+          srcSet={getResponsiveImageSrc(resolvedContent.backgroundImageUrl).mobile}
         />
         <img
           src={resolvedContent.backgroundImageUrl}
