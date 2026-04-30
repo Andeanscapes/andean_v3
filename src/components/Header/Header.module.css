@@ -17,7 +17,7 @@
   }
 
 .headerStyle.sticky {
-  @apply shadow-[0_10px_28px_rgba(0,0,0,0.22)] backdrop-blur-md;
+  @apply shadow-[0_10px_28px_rgba(0,0,0,0.22)] backdrop-blur-lg border-b border-white/10;
 }
 
 .headerStyle.menuOpen {

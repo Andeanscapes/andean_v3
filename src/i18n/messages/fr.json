@@ -48,7 +48,8 @@
         "items": {
           "emerald": {
             "title": "Émeraudes & Mines",
-            "description": "Entrez dans des mines actives avec les familles qui vivent le métier d'émeraudier depuis des générations."
+            "description": "Entrez dans des mines actives avec les familles qui vivent le métier d'émeraudier depuis des générations.",
+            "exclusiveAccess": "Accessible uniquement via la credential numérique Andean Scapes"
           },
           "nature": {
             "title": "Nature & Réserves",
@@ -185,6 +186,7 @@
       "safety": {
         "title": "Comment nous garantissons votre sécurité",
         "lead": "Chaque hôte, itinéraire et moyen de paiement est vérifié avant de rejoindre le réseau.",
+        "protocolLink": "Voir notre Protocole de Sécurité & Logistique",
         "items": {
           "guides": "Guides locaux certifiés et vérifiés",
           "meetingPoints": "Points de rencontre fixes et vérifiés",
@@ -206,15 +208,19 @@
       "eyebrow": "Avis de voyageurs",
       "outOf5Aria": "sur 5",
       "countSuffix": "avis",
+      "verifiedGuest": "Invité vérifié",
       "items": {
         "sarah": {
-          "comment": "Nous avons travaillé un vrai filon aux côtés de la famille minière. Ça ne s'invente pas — et ça ne se trouve nulle part ailleurs."
+          "comment": "Nous avons travaillé un vrai filon aux côtés de la famille minière. Ça ne s'invente pas — et ça ne se trouve nulle part ailleurs.",
+          "verifiedExperience": "Aventure Minière des Émeraudes"
         },
         "lucas": {
-          "comment": "Les hôtes ont fait tout le voyage. Ils connaissaient l'histoire derrière chaque endroit. Boyacá à travers leurs yeux, c'est autre chose."
+          "comment": "Les hôtes ont fait tout le voyage. Ils connaissaient l'histoire derrière chaque endroit. Boyacá à travers leurs yeux, c'est autre chose.",
+          "verifiedExperience": "Aventure Minière des Émeraudes"
         },
         "emily": {
-          "comment": "Le petit groupe a fait que le guide nous parlait, pas à nous. Je suis repartie avec le sentiment d'avoir été invitée dans quelque chose de vrai."
+          "comment": "Le petit groupe a fait que le guide nous parlait, pas à nous. Je suis repartie avec le sentiment d'avoir été invitée dans quelque chose de vrai.",
+          "verifiedExperience": "Expérience de Poterie Ancestrale"
         }
       },
       "trustPanel": {

@@ -3,15 +3,15 @@
 import { memo } from 'react';
 import Image from 'next/image';
 import { Star, BadgeCheck, HeadphonesIcon, Lock, ShieldCheck } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
-import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 
 const TRUST_ICON_MAP: Record<string, React.ReactNode> = {
-  BadgeCheck: <BadgeCheck size={18} className="text-[#00F08F]" aria-hidden="true" />,
-  HeadphonesIcon: <HeadphonesIcon size={18} className="text-[#00F08F]" aria-hidden="true" />,
-  Lock: <Lock size={18} className="text-[#00F08F]" aria-hidden="true" />,
-  ShieldCheck: <ShieldCheck size={18} className="text-[#00F08F]" aria-hidden="true" />,
+  BadgeCheck: <BadgeCheck size={18} className="text-primary" aria-hidden="true" />,
+  HeadphonesIcon: <HeadphonesIcon size={18} className="text-primary" aria-hidden="true" />,
+  Lock: <Lock size={18} className="text-primary" aria-hidden="true" />,
+  ShieldCheck: <ShieldCheck size={18} className="text-primary" aria-hidden="true" />,
 };
 
 interface ReviewsProps {
@@ -22,10 +22,11 @@ interface ReviewsProps {
 function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
   const { reviews } = landingData;
   const { aggregateRating, trustPanel } = reviews;
+  const t = useTranslations('Landing.reviews');
 
   return (
     <SectionContainer
-      sectionClassName={`px-4 py-16 md:px-6 md:py-20 lg:px-10 ${className}`.trim()}
+      sectionClassName={`bg-base-100 px-4 py-16 md:px-6 md:py-20 lg:px-10 ${className}`.trim()}
     >
       {/* Header */}
       <div className="mb-8 md:mb-10">
@@ -44,7 +45,7 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
                 size={18}
                 fill={i < Math.round(aggregateRating.ratingValue) ? 'currentColor' : 'none'}
                 stroke="currentColor"
-                className="text-[#00F08F]"
+                className="text-primary"
               />
             ))}
           </div>
@@ -58,10 +59,9 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
         {/* Review cards */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           {reviews.items.map((review) => (
-            <GlassCard
+            <div
               key={review.id}
-              hoverEffect
-              className="flex flex-col gap-3 rounded-2xl border-white/10 bg-base-100/40 p-5 backdrop-blur-md md:p-6"
+              className="flex flex-col gap-3 rounded-2xl border border-base-200 bg-base-100 p-5 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-lg md:p-6"
             >
               {/* Stars */}
               <div className="flex items-center gap-0.5" aria-label={`${review.rating} ${reviews.outOf5Aria}`}>
@@ -71,7 +71,7 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
                     size={13}
                     fill={i < review.rating ? 'currentColor' : 'none'}
                     stroke="currentColor"
-                    className="text-[#00F08F]"
+                    className="text-primary"
                   />
                 ))}
               </div>
@@ -93,37 +93,52 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
                   />
                 ) : (
                   <span
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-400"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
                     aria-hidden="true"
                   >
                     {review.name.charAt(0)}
                   </span>
                 )}
                 <div>
-                  <p className="text-sm font-semibold text-base-content">{review.name}</p>
-                  <p className="text-xs text-base-content/55">
-                    {review.countryFlag} {review.country}
-                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <p className="text-sm font-semibold text-base-content">{review.name}</p>
+                    {review.isVerified ? (
+                      <BadgeCheck
+                        size={14}
+                        className="text-primary flex-shrink-0"
+                        aria-label={t('verifiedGuest')}
+                      />
+                    ) : null}
+                  </div>
+                  {review.isVerified && review.verifiedExperience ? (
+                    <p className="text-[11px] font-medium text-base-content/60">
+                      {t('verifiedGuest')} &bull; {review.verifiedExperience}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-base-content/55">
+                      {review.countryFlag} {review.country}
+                    </p>
+                  )}
                 </div>
               </div>
-            </GlassCard>
+            </div>
           ))}
         </div>
 
         {/* Trust panel */}
-        <GlassCard className="h-fit rounded-2xl border-white/10 bg-base-100/40 p-6 backdrop-blur-md lg:sticky lg:top-24">
+        <div className="h-fit rounded-2xl border border-base-200 bg-base-100 p-6 shadow-sm lg:sticky lg:top-24">
           <h3 className="mb-4 text-base font-bold text-base-content">{trustPanel.title}</h3>
           <ul className="space-y-3">
             {trustPanel.bullets.map((bullet) => (
               <li key={bullet.id} className="flex items-start gap-3">
-                <span className="mt-0.5 flex-shrink-0">
-                  {TRUST_ICON_MAP[bullet.iconName] ?? <BadgeCheck size={18} className="text-[#00F08F]" aria-hidden="true" />}
+                <span className="mt-0.5 inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  {TRUST_ICON_MAP[bullet.iconName] ?? <BadgeCheck size={18} className="text-primary" aria-hidden="true" />}
                 </span>
                 <span className="text-sm text-base-content/80">{bullet.text}</span>
               </li>
             ))}
           </ul>
-        </GlassCard>
+        </div>
       </div>
     </SectionContainer>
   );
@@ -132,3 +147,4 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
 ReviewsComponent.displayName = 'Reviews';
 
 export default memo(ReviewsComponent);
+

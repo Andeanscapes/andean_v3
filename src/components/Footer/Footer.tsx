@@ -39,9 +39,9 @@ const Footer = () => {
     ];
 
     const allyLinks = [
-        { label: t('allyHacienda'), href: '/experiences/emerald-mining-adventure#accommodation' },
-        { label: t('allyGlamping'), href: '/experiences/emerald-mining-adventure#accommodation' },
-        { label: t('allyExperiences'), href: '/experiences' },
+        { label: t('allyHacienda'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
+        { label: t('allyGlamping'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
+        { label: t('allyExperiences'), href: '/experiences', isPartner: false },
     ];
 
     const legalLinks = [
@@ -159,8 +159,13 @@ const Footer = () => {
                             <ul className="mt-3 space-y-2.5">
                                 {allyLinks.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
+                                        <Link href={link.href} className="inline-flex min-h-11 items-center gap-2 text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
                                             {link.label}
+                                            {link.isPartner ? (
+                                                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                                                    Partner
+                                                </span>
+                                            ) : null}
                                         </Link>
                                     </li>
                                 ))}

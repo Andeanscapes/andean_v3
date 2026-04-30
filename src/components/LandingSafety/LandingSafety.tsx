@@ -1,7 +1,9 @@
 import { memo } from 'react';
+import Link from 'next/link';
 import type { LandingSafetyContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { getLandingIcon } from '@/utils/landingIconMap';
+import { ExternalLink } from 'lucide-react';
 
 interface Props {
   safety: LandingSafetyContent;
@@ -11,11 +13,13 @@ interface Props {
 /**
  * Brand "safety & guarantees" section.
  * Compact icon-row card with a lead paragraph + a flat list of reassurance items.
+ * Optional "View Safety & Logistics Protocol" link reinforces system-provider positioning.
  */
 function LandingSafetyComponent({ safety, className = '' }: Props) {
   if (safety.items.length === 0) return null;
 
   return (
+    <div id="safety-full">
     <SectionContainer
       as="section"
       sectionClassName={`bg-base-200/40 py-16 md:py-20 ${className}`.trim()}
@@ -55,10 +59,24 @@ function LandingSafetyComponent({ safety, className = '' }: Props) {
           );
         })}
       </ul>
+
+      {safety.protocolLinkLabel && safety.protocolHref ? (
+        <div className="mx-auto mt-8 max-w-5xl text-center">
+          <Link
+            href={safety.protocolHref}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-base-content/60 underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            {safety.protocolLinkLabel}
+          </Link>
+        </div>
+      ) : null}
     </SectionContainer>
+    </div>
   );
 }
 
 LandingSafetyComponent.displayName = 'LandingSafety';
 
 export default memo(LandingSafetyComponent);
+

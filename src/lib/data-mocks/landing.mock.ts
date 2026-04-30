@@ -99,6 +99,7 @@ export const LANDING_MOCK: LandingDataMock = {
         imageUrl: '/assets/images/packages/p1-1.webp',
         href: '/experiences?type=culture',
         ctaLabelKey: 'Landing.brand.categories.cta',
+        exclusiveAccessKey: 'Landing.brand.categories.items.emerald.exclusiveAccess',
       },
       {
         id: 'nature',
@@ -147,6 +148,7 @@ export const LANDING_MOCK: LandingDataMock = {
         locationKey: 'Landing.brand.featured.items.emerald.location',
         fromAmount: 470000,
         currency: 'COP',
+        nextAvailability: { dateISO: '2026-05-12', spotsLeft: 2 },
       },
       {
         id: 'ancestral-pottery-experience',
@@ -160,6 +162,7 @@ export const LANDING_MOCK: LandingDataMock = {
         locationKey: 'Landing.brand.featured.items.pottery.location',
         fromAmount: 320000,
         currency: 'COP',
+        nextAvailability: { dateISO: '2026-05-19', spotsLeft: 5 },
       },
     ],
   },
@@ -316,6 +319,8 @@ export const LANDING_MOCK: LandingDataMock = {
       { id: 'whatsapp', iconName: 'MessageCircle', titleKey: 'Landing.brand.safety.items.whatsapp' },
       { id: 'flexible', iconName: 'CalendarCheck', titleKey: 'Landing.brand.safety.items.flexible' },
     ],
+    protocolLinkLabelKey: 'Landing.brand.safety.protocolLink',
+    protocolHref: '#safety-full',
   },
 
   globalCtas: {
@@ -441,6 +446,8 @@ export const LANDING_MOCK: LandingDataMock = {
         rating: 5,
         commentKey: 'Landing.reviews.items.sarah.comment',
         avatarUrl: '/assets/images/hero/h7.webp',
+        isVerified: true,
+        verifiedExperienceKey: 'Landing.reviews.items.sarah.verifiedExperience',
       },
       {
         id: 'r-2',
@@ -450,6 +457,8 @@ export const LANDING_MOCK: LandingDataMock = {
         rating: 5,
         commentKey: 'Landing.reviews.items.lucas.comment',
         avatarUrl: '/assets/images/hero/h8.webp',
+        isVerified: true,
+        verifiedExperienceKey: 'Landing.reviews.items.lucas.verifiedExperience',
       },
       {
         id: 'r-3',
@@ -459,6 +468,8 @@ export const LANDING_MOCK: LandingDataMock = {
         rating: 5,
         commentKey: 'Landing.reviews.items.emily.comment',
         avatarUrl: '/assets/images/hero/h10.webp',
+        isVerified: true,
+        verifiedExperienceKey: 'Landing.reviews.items.emily.verifiedExperience',
       },
     ],
     trustPanel: {

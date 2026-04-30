@@ -26,7 +26,7 @@ export default function LandingHeroBrandContent({ hero }: Props) {
 
       <h1
         id="landing-hero-brand-title"
-        className="text-balance text-3xl font-extrabold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:text-5xl lg:text-6xl"
+        className="text-balance text-3xl font-extrabold leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] sm:text-4xl md:text-5xl lg:text-6xl"
       >
         {hero.title}
       </h1>

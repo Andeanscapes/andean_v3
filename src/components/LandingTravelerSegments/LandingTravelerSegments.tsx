@@ -58,10 +58,11 @@ function LandingTravelerSegmentsComponent({ travelerSegments, className = '' }: 
       </div>
 
       <div
+        key={active.id}
         role="region"
         aria-live="polite"
         aria-labelledby="landing-traveler-title"
-        className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-white/20 bg-white/10 p-6 text-center shadow-sm backdrop-blur-md md:mt-8 md:p-8"
+        className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-white/20 bg-white/10 p-6 text-center shadow-sm backdrop-blur-md md:mt-8 md:p-8 animate-[fadeUp_280ms_ease-out] motion-reduce:animate-none"
       >
         <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Icon className="h-6 w-6" aria-hidden="true" />

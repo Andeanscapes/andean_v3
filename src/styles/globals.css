@@ -744,6 +744,17 @@ Customiz Third-Party Plugins
   }
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Range Slider */
 .range-slider .ui-slider{
   @apply rounded-none h-[6px] bg-primary-1/20;

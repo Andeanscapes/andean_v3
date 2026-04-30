@@ -149,6 +149,8 @@ export function toLandingReviewsContent(
       rating: item.rating,
       comment: t(item.commentKey),
       avatarUrl: item.avatarUrl,
+      isVerified: item.isVerified,
+      verifiedExperience: item.verifiedExperienceKey ? t(item.verifiedExperienceKey) : undefined,
     })),
     trustPanel: {
       title: t(reviews.trustPanel.titleKey),
@@ -262,6 +264,7 @@ export function toLandingCategoriesContent(
       imageUrl: item.imageUrl,
       href: item.href,
       ctaLabel: t(item.ctaLabelKey),
+      exclusiveAccess: item.exclusiveAccessKey ? t(item.exclusiveAccessKey) : undefined,
     })),
   };
 }
@@ -293,6 +296,7 @@ export function toLandingFeaturedExperiencesContent(
       currency: item.currency,
       fromLabel,
       viewDetailsLabel,
+      nextAvailability: item.nextAvailability,
     })),
   };
 }
@@ -402,6 +406,10 @@ export function toLandingSafetyContent(
       iconName: item.iconName,
       title: t(item.titleKey),
     })),
+    protocolLinkLabel: raw.safety.protocolLinkLabelKey
+      ? t(raw.safety.protocolLinkLabelKey)
+      : undefined,
+    protocolHref: raw.safety.protocolHref,
   };
 }
 

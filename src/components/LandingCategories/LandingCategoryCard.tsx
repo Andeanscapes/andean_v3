@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { LandingCategoryContent } from '@/lib/schemas/landing.schema';
 import { getLandingIcon } from '@/utils/landingIconMap';
 import { ArrowRight } from 'lucide-react';
+import { EMERALD_SHIMMER_BLUR_DATA_URL } from '@/utils/shimmer';
 
 interface Props {
   category: LandingCategoryContent;
@@ -29,6 +30,8 @@ export default function LandingCategoryCard({ category }: Props) {
           fill
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          placeholder="blur"
+          blurDataURL={EMERALD_SHIMMER_BLUR_DATA_URL}
         />
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
@@ -46,6 +49,11 @@ export default function LandingCategoryCard({ category }: Props) {
         <p className="text-pretty text-sm text-base-content/75">
           {category.description}
         </p>
+        {category.exclusiveAccess ? (
+          <p className="text-[11px] italic text-emerald-600 dark:text-emerald-400">
+            {category.exclusiveAccess}
+          </p>
+        ) : null}
         <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
           {category.ctaLabel}
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -54,3 +62,4 @@ export default function LandingCategoryCard({ category }: Props) {
     </Link>
   );
 }
+
