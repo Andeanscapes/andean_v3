@@ -4,16 +4,23 @@ import Image from 'next/image';
 import type { LandingLocationBrandContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { getLandingIcon } from '@/utils/landingIconMap';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Radio } from 'lucide-react';
 
 interface Props {
   locationBrand: LandingLocationBrandContent;
   className?: string;
 }
 
+/** Pixel coords in the 600×400 SVG viewBox converted to percentages */
+const LIVE_NODES = [
+  { id: 'bogota', label: 'Bogotá', xPct: '25%', yPct: '70%' },
+  { id: 'chivor', label: 'Chivor', xPct: '75%', yPct: '37.5%' },
+] as const;
+
 /**
  * Brand "where we operate" section.
  * Two-column layout (md+): static map illustration on the left, bullet list + CTA on the right.
+ * SVG pulse overlays mark the live network nodes (Bogotá + Chivor).
  */
 function LandingLocationComponent({ locationBrand, className = '' }: Props) {
   return (
@@ -32,7 +39,11 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
       </header>
 
       <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
-        <div className="relative overflow-hidden rounded-2xl border border-base-200 bg-base-200/30 shadow-sm" style={{ minHeight: '240px' }}>
+        {/* Map with pulse overlays */}
+        <div
+          className="relative overflow-hidden rounded-2xl border border-base-200 bg-base-200/30 shadow-sm"
+          style={{ minHeight: '240px' }}
+        >
           <Image
             src={locationBrand.mapImage}
             alt={locationBrand.mapImageAlt}
@@ -40,6 +51,27 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain"
           />
+
+          {/* Live network pulse nodes */}
+          {LIVE_NODES.map((node) => (
+            <span
+              key={node.id}
+              className="pointer-events-none absolute"
+              style={{ left: node.xPct, top: node.yPct, transform: 'translate(-50%, -50%)' }}
+              aria-hidden="true"
+            >
+              {/* Ping ring — disabled for prefers-reduced-motion */}
+              <span className="absolute inset-0 h-5 w-5 animate-ping rounded-full bg-emerald-400/50 motion-reduce:hidden" />
+              {/* Solid core */}
+              <span className="relative block h-5 w-5 animate-pulse rounded-full border-2 border-white/80 bg-emerald-400 shadow-[0_0_10px_rgba(0,255,157,0.7)] motion-reduce:animate-none" />
+            </span>
+          ))}
+
+          {/* "Live network" badge */}
+          <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-400 backdrop-blur-sm shadow-[0_0_10px_rgba(0,255,157,0.15)]">
+            <Radio className="h-3 w-3" aria-hidden="true" />
+            Live network
+          </div>
         </div>
 
         <div className="flex flex-col gap-6">
@@ -73,3 +105,4 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
 LandingLocationComponent.displayName = 'LandingLocation';
 
 export default memo(LandingLocationComponent);
+

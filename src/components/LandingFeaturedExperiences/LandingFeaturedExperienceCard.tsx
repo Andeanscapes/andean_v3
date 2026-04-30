@@ -3,8 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
+import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
+import { EMERALD_SHIMMER_BLUR_DATA_URL } from '@/utils/shimmer';
 
 interface Props {
   experience: LandingFeaturedExperienceContent;
@@ -25,6 +27,16 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
     maximumFractionDigits: 0,
   }).format(experience.fromAmount);
 
+  const availabilityLabel = experience.nextAvailability
+    ? (() => {
+        const date = new Intl.DateTimeFormat(locale, { month: 'long', day: 'numeric' }).format(
+          new Date(experience.nextAvailability.dateISO),
+        );
+        const { spotsLeft } = experience.nextAvailability;
+        return `Next availability: ${date} — Only ${spotsLeft} ${spotsLeft === 1 ? 'spot' : 'spots'} left`;
+      })()
+    : null;
+
   return (
     <Link
       href={experience.href}
@@ -38,6 +50,8 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           fill
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          placeholder="blur"
+          blurDataURL={EMERALD_SHIMMER_BLUR_DATA_URL}
         />
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
         {experience.badge ? (
@@ -66,6 +80,17 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           </span>
         </div>
 
+        {availabilityLabel ? (
+          <div
+            role="status"
+            aria-live="polite"
+            className="mt-1 inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2.5 py-1.5 text-[11px] font-semibold leading-tight text-emerald-600 dark:text-emerald-400"
+          >
+            <Clock3 className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
+            {availabilityLabel}
+          </div>
+        ) : null}
+
         <div className="mt-auto flex items-end justify-between gap-3 pt-3">
           <div className="flex flex-col">
             <span className="text-xs text-base-content/60">{experience.fromLabel}</span>
@@ -82,3 +107,4 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
     </Link>
   );
 }
+

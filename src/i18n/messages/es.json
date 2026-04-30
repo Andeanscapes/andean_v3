@@ -48,7 +48,8 @@
         "items": {
           "emerald": {
             "title": "Esmeraldas y Minería",
-            "description": "Entra a minas activas junto a las familias que han vivido el oficio esmeraldero por generaciones."
+            "description": "Entra a minas activas junto a las familias que han vivido el oficio esmeraldero por generaciones.",
+            "exclusiveAccess": "Solo con la credencial digital de Andean Scapes"
           },
           "nature": {
             "title": "Naturaleza y Reservas",
@@ -185,6 +186,7 @@
       "safety": {
         "title": "Cómo garantizamos tu seguridad",
         "lead": "Cada anfitrión, ruta y método de pago es verificado antes de formar parte de la red.",
+        "protocolLink": "Ver nuestro Protocolo de Seguridad y Logística",
         "items": {
           "guides": "Guías locales certificados y verificados",
           "meetingPoints": "Puntos de encuentro fijos y verificados",
@@ -206,15 +208,19 @@
       "eyebrow": "Reseñas de viajeros",
       "outOf5Aria": "de 5",
       "countSuffix": "reseñas",
+      "verifiedGuest": "Huésped verificado",
       "items": {
         "sarah": {
-          "comment": "Trabajamos una veta real junto a la familia minera. Eso no se puede fingir — ni encontrar en ningún otro lugar."
+          "comment": "Trabajamos una veta real junto a la familia minera. Eso no se puede fingir — ni encontrar en ningún otro lugar.",
+          "verifiedExperience": "Aventura de Minería de Esmeraldas"
         },
         "lucas": {
-          "comment": "Los anfitriones hicieron el viaje. Conocían la historia detrás de cada lugar. Boyacá a través de sus ojos es otra cosa."
+          "comment": "Los anfitriones hicieron el viaje. Conocían la historia detrás de cada lugar. Boyacá a través de sus ojos es otra cosa.",
+          "verifiedExperience": "Aventura de Minería de Esmeraldas"
         },
         "emily": {
-          "comment": "El grupo pequeño hizo que el guía hablara con nosotros, no para nosotros. Me fui sintiéndome parte de algo real."
+          "comment": "El grupo pequeño hizo que el guía hablara con nosotros, no para nosotros. Me fui sintiéndome parte de algo real.",
+          "verifiedExperience": "Experiencia de Alfarería Ancestral"
         }
       },
       "trustPanel": {

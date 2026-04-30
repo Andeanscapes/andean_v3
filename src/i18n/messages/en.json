@@ -48,7 +48,8 @@
         "items": {
           "emerald": {
             "title": "Emerald & Mining",
-            "description": "Enter working mines alongside the families who have lived the emerald trade for generations."
+            "description": "Enter working mines alongside the families who have lived the emerald trade for generations.",
+            "exclusiveAccess": "Only via the Andean Scapes digital credential"
           },
           "nature": {
             "title": "Nature & Reserves",
@@ -185,6 +186,7 @@
       "safety": {
         "title": "How we keep things safe",
         "lead": "Every host, route and payment method is vetted before it becomes part of the network.",
+        "protocolLink": "View our Safety & Logistics Protocol",
         "items": {
           "guides": "Certified and vetted local guides",
           "meetingPoints": "Fixed, verified meeting points",
@@ -206,17 +208,21 @@
       "eyebrow": "Traveler reviews",
       "outOf5Aria": "out of 5",
       "countSuffix": "reviews",
-      "items": {
-        "sarah": {
-          "comment": "We worked a real vein alongside the mining family. That's not something you can fake — or find anywhere else."
+      "verifiedGuest": "Verified Guest",
+        "items": {
+          "sarah": {
+            "comment": "We worked a real vein alongside the mining family. That's not something you can fake — or find anywhere else.",
+            "verifiedExperience": "Emerald Mining Adventure"
+          },
+          "lucas": {
+            "comment": "The hosts made the whole trip. They knew every story behind every place. Boyacá through their eyes is something else.",
+            "verifiedExperience": "Emerald Mining Adventure"
+          },
+          "emily": {
+            "comment": "Small group meant the guide actually talked to us, not at us. Left feeling like we'd been trusted with something real.",
+            "verifiedExperience": "Ancestral Pottery Experience"
+          }
         },
-        "lucas": {
-          "comment": "The hosts made the whole trip. They knew every story behind every place. Boyacá through their eyes is something else."
-        },
-        "emily": {
-          "comment": "Small group meant the guide actually talked to us, not at us. Left feeling like we'd been trusted with something real."
-        }
-      },
       "trustPanel": {
         "title": "Why travelers come back",
         "bullets": {

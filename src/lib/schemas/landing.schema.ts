@@ -90,6 +90,8 @@ export const LandingReviewMockSchema = z.object({
   rating: z.number().min(1).max(5),
   commentKey: z.string(),
   avatarUrl: z.string().optional(),
+  isVerified: z.boolean().optional(),
+  verifiedExperienceKey: z.string().optional(),
 });
 
 export const LandingFaqMockSchema = z.object({
@@ -138,6 +140,7 @@ export const LandingCategoryMockSchema = z.object({
   imageUrl: z.string(),
   href: z.string(),
   ctaLabelKey: z.string(),
+  exclusiveAccessKey: z.string().optional(),
 });
 
 export const LandingFeaturedExperienceRefMockSchema = z.object({
@@ -152,6 +155,10 @@ export const LandingFeaturedExperienceRefMockSchema = z.object({
   locationKey: z.string(),
   fromAmount: z.number(),
   currency: z.string(),
+  nextAvailability: z.object({
+    dateISO: z.string(),
+    spotsLeft: z.number(),
+  }).optional(),
 });
 
 export const LandingWhyUsItemMockSchema = z.object({
@@ -208,6 +215,8 @@ export const LandingSafetyMockSchema = z.object({
   sectionTitleKey: z.string(),
   leadKey: z.string(),
   items: z.array(LandingSafetyItemMockSchema),
+  protocolLinkLabelKey: z.string().optional(),
+  protocolHref: z.string().optional(),
 });
 
 export const LandingGlobalCtasMockSchema = z.object({
@@ -373,6 +382,8 @@ export const LandingReviewContentSchema = z.object({
   rating: z.number(),
   comment: z.string(),
   avatarUrl: z.string().optional(),
+  isVerified: z.boolean().optional(),
+  verifiedExperience: z.string().optional(),
 });
 
 export const LandingFaqContentSchema = z.object({
@@ -417,6 +428,7 @@ export const LandingContentSchema = z.object({
       imageUrl: z.string(),
       href: z.string(),
       ctaLabel: z.string(),
+      exclusiveAccess: z.string().optional(),
     })),
   }),
   featuredExperiences: z.object({
@@ -437,6 +449,10 @@ export const LandingContentSchema = z.object({
       currency: z.string(),
       fromLabel: z.string(),
       viewDetailsLabel: z.string(),
+      nextAvailability: z.object({
+        dateISO: z.string(),
+        spotsLeft: z.number(),
+      }).optional(),
     })),
   }),
   whyUs: z.object({
@@ -497,6 +513,8 @@ export const LandingContentSchema = z.object({
       iconName: z.string(),
       title: z.string(),
     })),
+    protocolLinkLabel: z.string().optional(),
+    protocolHref: z.string().optional(),
   }),
   globalCtas: z.object({
     exploreHref: z.string(),
