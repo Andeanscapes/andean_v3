@@ -15,6 +15,7 @@ Before coding:
   - relevant `.md` files in repo AND IDE (personalized instructions)
   - `/docs` (architecture decisions, future plans, constraints)
 - Check `package.json` for available commands (lint, test, build, typecheck).
+- Check @Codebase and undertand patterns and architecture
 
 ## 2. Pattern alignment
 Output max 3 bullets:

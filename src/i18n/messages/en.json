@@ -902,10 +902,13 @@
         "guide": "Expert mining guide",
         "equipment": "Safety equipment",
         "meals": "Meals (breakfast, lunch, dinner)",
-        "insurance": "Travel insurance"
+        "insurance": "Travel insurance",
+        "mineAccess": "Exclusive mine access",
+        "workshop": "Gem classification workshop",
+        "smallGroups": "Small groups (max 10 people)"
       },
       "notIncluded": {
-        "accommodation": "Airport transport",
+        "airportTransfer": "Airport transport",
         "drinks": "Personal drinks",
         "souvenirs": "Souvenir gems"
       },
