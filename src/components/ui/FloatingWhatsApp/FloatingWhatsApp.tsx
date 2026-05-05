@@ -33,7 +33,7 @@ function FloatingWhatsAppComponent({ href, ariaLabel, showAfter = 400, className
       aria-label={ariaLabel}
       data-testid="floating-whatsapp"
       data-event="floating_whatsapp_click"
-      className={`fixed bottom-20 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 md:bottom-6 md:h-14 md:w-14 ${
+      className={`fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 md:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] md:h-14 md:w-14 ${
         visible ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
       } ${className}`.trim()}
     >
