@@ -50,7 +50,7 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
   const featuredBookingUrl = `${landingData.featuredExperiences.items[0]?.href ?? '/experiences/emerald-mining-adventure'}${BOOKING_ANCHOR}`;
 
   return (
-    <main className="min-h-screen bg-base-100 text-base-content">
+    <div className="min-h-screen">
       <LandingHeroBrand
         hero={landingData.heroBrand}
         featuredExperience={flagship}
@@ -77,7 +77,7 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
         href={landingData.globalCtas.whatsappHref}
         ariaLabel={landingData.globalCtas.whatsappLabel}
       />
-    </main>
+    </div>
   );
 }
 

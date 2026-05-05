@@ -27,7 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <LayoutProvider variant={variant} isSticky={isSticky}>
             <Header hideBookingCta={isExperiencesPage} />
-            <main className={mainPaddingClass} data-theme={theme}>
+            <main className={`${mainPaddingClass} bg-base-100 text-base-content`} data-theme={theme}>
                 {children}
             </main>
             <Footer />

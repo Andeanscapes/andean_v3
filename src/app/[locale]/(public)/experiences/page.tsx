@@ -35,7 +35,7 @@ export default async function ExperiencesPage({
     <>
       <ExperienceHero content={listData.hero} />
 
-      <section id="experiences-cards" className="container mx-auto max-w-7xl px-4 pb-8 pt-4 md:py-12 lg:px-6">
+      <section id="experiences-cards" className="bg-base-200/40 py-16 md:py-20"><div className="container mx-auto max-w-7xl px-4 pb-8 pt-0 md:py-12 lg:px-6">
         <div className="mx-auto w-full lg:max-w-6xl xl:max-w-7xl">
           <div className="mb-3 flex flex-col items-start gap-1 md:mb-6 md:flex-row md:items-center md:justify-between md:gap-3 lg:mb-7 lg:max-w-4xl lg:flex-col lg:items-start lg:justify-start lg:gap-2">
             <h2 className="text-xl font-bold leading-tight md:text-3xl">{listData.sectionTitle}</h2>
@@ -56,7 +56,7 @@ export default async function ExperiencesPage({
           ))}
           </div>
         </div>
-      </section>
+      </div></section>
     </>
   );
 }
