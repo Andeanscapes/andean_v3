@@ -902,10 +902,13 @@
         "guide": "Guide expert en minería",
         "equipment": "Équipement de sécurité",
         "meals": "Repas (petit-déjeuner, déjeuner, dîner)",
-        "insurance": "Assurance voyage"
+        "insurance": "Assurance voyage",
+        "mineAccess": "Accès exclusif à la mine",
+        "workshop": "Atelier de classification de pierres",
+        "smallGroups": "Petits groupes (max 10 personnes)"
       },
       "notIncluded": {
-        "accommodation": "Transport aéroport",
+        "airportTransfer": "Transport aéroport",
         "drinks": "Boissons personnelles",
         "souvenirs": "Pierres souvenir"
       },

@@ -42,9 +42,12 @@ export const EMERALD_MINING_DATA: ExperienceData = {
       { id: 'equipment', title: 'experiences.emeraldMining.included.equipment' },
       { id: 'meals', title: 'experiences.emeraldMining.included.meals' },
       { id: 'insurance', title: 'experiences.emeraldMining.included.insurance' },
+      { id: 'mineAccess', title: 'experiences.emeraldMining.included.mineAccess' },
+      { id: 'workshop', title: 'experiences.emeraldMining.included.workshop' },
+      { id: 'smallGroups', title: 'experiences.emeraldMining.included.smallGroups' },
     ],
     notIncluded: [
-      { id: 'accommodation', title: 'experiences.emeraldMining.notIncluded.accommodation' },
+      { id: 'airportTransfer', title: 'experiences.emeraldMining.notIncluded.airportTransfer' },
       { id: 'drinks', title: 'experiences.emeraldMining.notIncluded.drinks' },
       { id: 'souvenirs', title: 'experiences.emeraldMining.notIncluded.souvenirs' },
     ],

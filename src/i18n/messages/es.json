@@ -845,10 +845,6 @@
         "roundtripTransferDescription": "Servicio de vehículo privado, máx. 4 personas por vehículo"
       },
       "roomMode": {
-        "private": "Habitación Privada",
-        "couple": "Habitación de Pareja",
-        "familyRoom": "Habitación Familiar (3)",
-        "familyCabin": "Cabaña Familiar (6)",
         "standard": "Habitación Estándar",
         "family": "Habitación Familiar",
         "cabin": "Cabaña",
@@ -906,10 +902,13 @@
         "guide": "Guía experto en minería",
         "equipment": "Equipo de seguridad",
         "meals": "Comidas (desayuno, almuerzo, cena)",
-        "insurance": "Seguro de viaje"
+        "insurance": "Seguro de viaje",
+        "mineAccess": "Acceso exclusivo a la mina",
+        "workshop": "Taller de clasificación de gemas",
+        "smallGroups": "Grupos pequeños (máx. 10 personas)"
       },
       "notIncluded": {
-        "accommodation": "Transporte de aeropuerto",
+        "airportTransfer": "Transporte de aeropuerto",
         "drinks": "Bebidas personales",
         "souvenirs": "Gemas de recuerdo"
       },
