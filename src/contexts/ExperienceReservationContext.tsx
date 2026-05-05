@@ -38,7 +38,7 @@ function createInitialState(
   // Synchronously apply URL-param selections so the first render already has
   // the correct tier/date/transport — this moves LCP image discovery to the
   // initial render instead of after the HYDRATE useEffect fires.
-  const tierId = initialSelections?.tier ?? null;
+  const tierId = getValidTierId(initialSelections?.tier ?? null, tiersContent ?? null);
   const transportMode = (initialSelections?.transport ?? null) as ReservationState['transportMode'];
   const dateId = initialSelections?.date ?? null;
 
@@ -76,6 +76,28 @@ function createInitialState(
     isHydrated: false,
     isRoomSuggested: roomSelections.length > 0,
   };
+}
+
+function getValidTierId(
+  tierId: string | null | undefined,
+  tiersContent: AccommodationTiersContent | null,
+): string | null {
+  if (!tierId || !tiersContent) return null;
+  return tiersContent.tiers.some((tier) => tier.id === tierId) ? tierId : null;
+}
+
+function filterRoomSelectionsForTier(
+  selections: RoomSelection[],
+  roomModes: RoomModeOption[],
+  tierId: string | null,
+): RoomSelection[] {
+  const validRoomModes = new Set(
+    roomModes
+      .filter((mode) => !tierId || !mode.tier_id || mode.tier_id === tierId)
+      .map((mode) => mode.value),
+  );
+
+  return selections.filter((selection) => validRoomModes.has(selection.roomMode));
 }
 
 function getRoundtripConfig(
@@ -198,14 +220,17 @@ function createReservationReducer(
         const payload = action.payload as Partial<ReservationState> & {
           roomMode?: RoomSelection['roomMode'];
         };
-        const roomSelections = Array.isArray(payload.roomSelections)
+        const validTierId = getValidTierId(payload.selectedTierId ?? state.selectedTierId, tiersContent);
+        const rawRoomSelections = Array.isArray(payload.roomSelections)
           ? payload.roomSelections
           : payload.roomMode
             ? [{ roomMode: payload.roomMode, quantity: 1 }]
             : state.roomSelections;
+        const roomSelections = filterRoomSelectionsForTier(rawRoomSelections, roomModes, validTierId);
         const hydrated: ReservationState = {
           ...state,
           ...payload,
+          selectedTierId: validTierId,
           roomSelections,
           peopleCount: computePeopleCount(roomSelections, roomModes),
           isHydrated: true,

@@ -1,7 +1,7 @@
 {
   "Home": {
     "metaTitle": "Inicio | Andean Scapes HZ",
-    "metaDescription": "Vive la aventura en la naturaleza y un espacio de co-living en el corazón de los Andes."
+    "metaDescription": "Reserva la Aventura de Minería de Esmeraldas con estadía en Hacienda El Recuerdo, Chivor, Boyacá."
   },
   "Landing": {
     "brand": {
@@ -349,7 +349,14 @@
     },
     "tiers": {
       "sectionTitle": "Elige tu estancia",
+      "bestSellerLabel": "Elección del anfitrión",
       "items": {
+        "heritage": {
+          "label": "Hacienda El Recuerdo",
+          "description": "La estancia actual de Andean Scapes: una noche en una hacienda colonial con habitaciones privadas, comida casera y atención local.",
+          "tag": "Primera experiencia actual",
+          "cta": "Reservar estadía en la hacienda"
+        },
         "day": {
           "label": "Experiencia de un día",
           "description": "Un día completo dentro de la mina — sin pernocta.",
@@ -388,16 +395,21 @@
         }
       }
     },
-    "inclusions": {
-      "sectionTitle": "Qué incluye",
-      "includedLabel": "Incluido",
-      "notIncludedLabel": "No incluido",
-      "logistics": {
-        "start": "Hora de inicio",
-        "duration": "Duración",
-        "transport": "Transporte",
-        "difficulty": "Dificultad"
-      },
+      "inclusions": {
+        "sectionTitle": "Qué incluye",
+        "includedLabel": "Incluido",
+        "notIncludedLabel": "No incluido",
+        "logistics": {
+          "start": "Hora de inicio",
+          "duration": "Duración",
+          "transport": "Transporte",
+          "difficulty": "Dificultad"
+        },
+        "logisticsValues": {
+          "duration": "2 días / 1 noche",
+          "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+          "difficulty": "Moderada"
+        },
       "included": {
         "guide": "Guía bilingüe certificado",
         "equipment": "Todo el equipo de seguridad",
@@ -526,7 +538,7 @@
   },
   "BookingCtas": {
     "title": "¿Listo para tu aventura? ⛏️💎",
-    "subtitle": "Aventura minera en Chivor + estancia rural. Planes 2D/1N y 3D/2N.",
+    "subtitle": "Aventura minera en Chivor + estadía en Hacienda El Recuerdo. Plan 2D/1N.",
     "airbnbCta": "Ver disponibilidad en Airbnb",
     "airbnbSupport": "Pago seguro + reviews",
     "reviewsLabel": "reviews",
@@ -534,14 +546,15 @@
     "whatsappHelpText": "¿Dudas o quieres cotizar antes de reservar?",
     "whatsappCta": "Hablar por WhatsApp",
     "stickyWhatsappText": "¿Dudas? WhatsApp",
-    "whatsappSupport": "Te ayudamos a elegir 2D/1N o 3D/2N · Respuesta rápida",
-    "bookingScopeNote": "La reserva en Airbnb incluye solo habitación en Hacienda El Recuerdo. El tour minero se cotiza aparte."
+    "whatsappSupport": "Te ayudamos a confirmar fechas, habitaciones y transporte · Respuesta rápida",
+    "bookingScopeNote": "La reserva en Airbnb incluye solo habitación en Hacienda El Recuerdo. El tour minero se cotiza aparte.",
+    "whatsappMiningQuote": "¡Hola! Quiero reservar la Aventura de Minería de Esmeraldas con estadía en Hacienda El Recuerdo, Chivor. ¿Me ayudas con disponibilidad?"
   },
   "EmeraldMiningAdventure": {
     "metaTitle": "Reserva tu Aventura Esmeralera | Andean Scapes",
-    "metaDescription": "Descubre las minas de esmeralda de Colombia. Aventura 2D/1N o 3D/2N en Chivor - Boyacá con comidas, taller y transporte incluido.",
+    "metaDescription": "Descubre las minas de esmeralda de Colombia con estadía 2D/1N en Hacienda El Recuerdo, Chivor - Boyacá, comidas, taller y coordinación de transporte incluidos.",
     "title": "Aventura Esmeralera",
-    "subtitle": "2D/1N o 3D/2N en las minas de esmeralda de Chivor - Boyacá",
+    "subtitle": "Experiencia esmeraldera 2D/1N con estadía en Hacienda El Recuerdo, Chivor, Boyacá",
     "selectDate": "Selecciona tu fecha",
     "selectPeople": "¿Cuántas personas?",
     "peopleCountLabel": "Cantidad de personas",
@@ -814,11 +827,11 @@
       "title": "Aventura de Minería de Esmeraldas",
       "subtitle": "Experiencia todo incluido en Chivor (Boyacá), Colombia 🇨🇴",
       "description": "Descubre las profundidades de la mina de esmeraldas más famosa de Colombia",
-      "includesFullDetails": "Incluye guía especializado bilingüe, todo el equipo de seguridad necesario, transporte desde Bogotá, seguro de accidentes y refrigerio.",
+      "includesFullDetails": "Incluye guía especializado bilingüe, equipo de seguridad, coordinación de transporte local desde Hacienda El Recuerdo, seguro de accidentes, comidas y taller de esmeraldas.",
       "includes": {
         "guide": "Guía especializado",
         "equipment": "Equipo de seguridad",
-        "transport": "Transporte ida y vuelta",
+        "transport": "Coordinación de transporte local",
         "insurance": "Seguro de accidentes"
       },
       "transport": {
@@ -883,6 +896,11 @@
         "transport": "Transporte",
         "difficulty": "Dificultad",
         "end": "Hora de finalización"
+      },
+      "logisticsValues": {
+        "duration": "2 días / 1 noche",
+        "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+        "difficulty": "Moderada"
       },
       "included": {
         "guide": "Guía experto en minería",

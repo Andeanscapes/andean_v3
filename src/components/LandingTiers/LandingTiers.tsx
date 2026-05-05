@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { useTranslations } from 'next-intl';
 import { Star, ArrowRight } from 'lucide-react';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
@@ -13,6 +14,7 @@ interface LandingTiersProps {
 }
 
 function LandingTiersComponent({ landingData, className = '' }: LandingTiersProps) {
+  const t = useTranslations();
   const { tiers } = landingData;
 
   return (
@@ -42,7 +44,7 @@ function LandingTiersComponent({ landingData, className = '' }: LandingTiersProp
               />
               {tier.isBestSeller ? (
                 <span className="absolute left-3 top-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)]">
-                  BEST SELLER
+                  {t('Landing.tiers.bestSellerLabel')}
                 </span>
               ) : null}
             </div>
@@ -62,13 +64,13 @@ function LandingTiersComponent({ landingData, className = '' }: LandingTiersProp
 
               {/* Price */}
               <p className="text-lg font-extrabold text-base-content">
-                <span className="mr-1 text-xs font-normal text-base-content/60">From</span>
+                <span className="mr-1 text-xs font-normal text-base-content/60">{t('Landing.filters.fromLabel')}</span>
                 {new Intl.NumberFormat('es-CO', {
                   style: 'currency',
                   currency: 'COP',
                   maximumFractionDigits: 0,
                 }).format(tier.fromAmount)}
-                <span className="ml-1 text-xs font-normal text-base-content/60">/ person</span>
+                <span className="ml-1 text-xs font-normal text-base-content/60">{t('Landing.filters.perPersonLabel')}</span>
               </p>
 
               {/* CTA */}

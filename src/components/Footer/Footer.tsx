@@ -40,7 +40,6 @@ const Footer = () => {
 
     const allyLinks = [
         { label: t('allyHacienda'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
-        { label: t('allyGlamping'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
         { label: t('allyExperiences'), href: '/experiences', isPartner: false },
     ];
 

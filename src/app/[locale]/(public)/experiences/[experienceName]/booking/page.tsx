@@ -35,9 +35,10 @@ export async function generateMetadata({
   const experience = await getExperienceByNameSSR(experienceName);
 
   if (!experience) {
+    const t = await getTranslations({ locale, namespace: 'Home' });
     return {
-      title: 'Andean Scapes',
-      description: 'Reserva experiencias eco-turisticas en los Andes colombianos',
+      title: t('metaTitle'),
+      description: t('metaDescription'),
     };
   }
 
@@ -50,8 +51,8 @@ export async function generateMetadata({
     experienceData.heroContent?.backgroundImageUrl ??
       '/assets/images/hero/h10.webp'
   );
-  const title = t('metaTitle') || 'Andean Scapes';
-  const description = t('metaDescription') || 'Book your experience at Andean Scapes';
+  const title = t('metaTitle');
+  const description = t('metaDescription');
 
   return {
     title,

@@ -13,13 +13,14 @@ Before coding:
   - `.github/copilot-instructions.md`
   - `.opencode/skills/andean-reviewer/SKILL.md`
   - relevant `.md` files in repo AND IDE (personalized instructions)
+  - `/docs` (architecture decisions, future plans, constraints)
 - Check `package.json` for available commands (lint, test, build, typecheck).
 
 ## 2. Pattern alignment
 Output max 3 bullets:
 - current pattern
 - where change fits
-- critical risks/constraints
+- critical risks/constraints (including future plan alignment)
 
 ## 3. Plan (mandatory before coding)
 Output max 5 bullets:
@@ -35,6 +36,7 @@ Output max 5 bullets:
 - prefer existing patterns over new abstractions
 - do NOT touch unrelated code
 - apply changes only in targeted locations (avoid global side effects)
+- ensure compatibility with `/docs` future architecture
 
 ## 5. Validation
 Output only:
@@ -50,6 +52,7 @@ Rules:
 - no `any`
 - preserve service pattern, i18n, architecture
 - avoid regressions (especially edge cases)
+- align with `/docs` future plans (no blocking or conflicting changes)
 - apply accessibility best practices (ARIA, labels, keyboard, focus states)
 - ensure performance optimization (lazy loading, code splitting, minimal JS)
 - follow Lighthouse best practices (performance, accessibility, SEO)

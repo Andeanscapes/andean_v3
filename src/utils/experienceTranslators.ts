@@ -22,6 +22,10 @@ import type {
 // next-intl server `t` signature
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
+function translateMaybeKey(value: string, t: Translator): string {
+  return value.includes('.') ? t(value) : value;
+}
+
 // ── Hero ────────────────────────────────────────────────────────────────────
 
 export function toHeroContent(
@@ -121,7 +125,11 @@ export function toInclusionsContent(
     sectionTitle: t('experiences.ui.experienceDetails.tripLogisticsTitle'),
     includedLabel: t('experiences.ui.experienceDetails.includedLabel'),
     notIncludedLabel: t('experiences.ui.experienceDetails.notIncludedLabel'),
-    logistics: config.logistics.map((item) => ({ ...item, label: t(item.label) })),
+    logistics: config.logistics.map((item) => ({
+      ...item,
+      label: t(item.label),
+      value: item.value ? translateMaybeKey(item.value, t) : undefined,
+    })),
     included: config.included.map((item) => ({ ...item, title: t(item.title) })),
     notIncluded: config.notIncluded.map((item) => ({ ...item, title: t(item.title) })),
     location: config.location,

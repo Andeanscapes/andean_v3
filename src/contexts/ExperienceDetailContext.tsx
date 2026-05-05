@@ -40,6 +40,12 @@ export const ExperienceDetailContext =
 
 // ---- Reducer ----
 
+function getDefaultTierId(experienceData: ExperienceData): string | null {
+  const tiers = experienceData.accommodationTiersContent?.tiers ?? experienceData.accommodationTiers;
+  const defaultTier = tiers?.find((t) => t.isHostChoice) ?? tiers?.[0];
+  return defaultTier?.id ?? null;
+}
+
 function createInitialState(experienceData: ExperienceData): ExperienceDetailState {
   const tiers = experienceData.accommodationTiersContent?.tiers ?? experienceData.accommodationTiers;
   const defaultTier = tiers?.find((t) => t.isHostChoice) ?? tiers?.[0];
@@ -54,6 +60,15 @@ function createInitialState(experienceData: ExperienceData): ExperienceDetailSta
     roundtripTransferRequested: false,
     isHydrated: false,
   };
+}
+
+function getValidTierId(
+  tierId: string | null | undefined,
+  experienceData: ExperienceData,
+): string | null {
+  const tiers = experienceData.accommodationTiersContent?.tiers ?? experienceData.accommodationTiers;
+  if (!tierId || !tiers) return null;
+  return tiers.some((tier) => tier.id === tierId) ? tierId : null;
 }
 
 function detailReducer(
@@ -107,11 +122,18 @@ export function ExperienceDetailProvider({
   useEffect(() => {
     const saved = storage.loadFromStorage();
     if (saved) {
-      dispatch({ type: 'HYDRATE', payload: saved });
+      const validTierId = getValidTierId(saved.selectedTierId, experienceData);
+      dispatch({
+        type: 'HYDRATE',
+        payload: {
+          ...saved,
+          selectedTierId: validTierId ?? getDefaultTierId(experienceData),
+        },
+      });
     } else {
       dispatch({ type: 'HYDRATE', payload: {} });
     }
-  }, [storage]);
+  }, [experienceData, storage]);
 
   // Persist to localStorage after hydration
   useEffect(() => {
