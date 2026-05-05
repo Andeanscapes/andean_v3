@@ -21,4 +21,5 @@
 ---
 
 > Full architecture, design-system, security, and i18n rules live in `.github/copilot-instructions.md`.
-> That file is the single source of truth for this repo. These rules are additive.
+> That file is the single source of truth for this repo. A mirror for non-Copilot agents lives at `docs/AI-INSTRUCTIONS.md`.
+> These rules are additive.

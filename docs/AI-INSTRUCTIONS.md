@@ -1,14 +1,15 @@
-# Andean Scapes — Canonical AI Instructions
+# Andean Scapes — AI Agent Instructions
 
 ## Purpose
-This is the single authoritative instruction file for AI behavior in this repository.
-Use it for:
-- GitHub Copilot code generation
-- Copilot Chat in VS Code / Cursor / Windsurf
-- OpenCode, Cline, and other AI coding agents
-- AI-assisted PR and code review
+This is the canonical AI instruction file for all AI coding agents working in this repository.
+Supported agents include:
+- GitHub Copilot (Chat + code generation)
+- OpenCode
+- Cline
+- Cursor / Windsurf
+- Any other AI-assisted coding tool
 
-A mirror copy lives at `docs/AI-INSTRUCTIONS.md` for agents that prefer a docs-level file.
+This file mirrors `.github/copilot-instructions.md` (the authoritative source). When either file changes, update the other to keep both in sync.
 
 If guidance elsewhere conflicts with this file, this file wins.
 
@@ -326,8 +327,8 @@ For media and interactive UI, prefer assertions around:
 2. Implement the smallest safe change.
 3. Verify architecture, type safety, i18n, and security implications.
 4. Run the smallest relevant checks when code changes warrant it:
-  - `npm run lint`
-  - `npm test`
+   - `npm run lint`
+   - `npm test`
 5. Report what changed, where, and any residual risks.
 
 ---
