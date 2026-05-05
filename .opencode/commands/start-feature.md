@@ -50,4 +50,8 @@ Rules:
 - no `any`
 - preserve service pattern, i18n, architecture
 - avoid regressions (especially edge cases)
+- apply accessibility best practices (ARIA, labels, keyboard, focus states)
+- ensure performance optimization (lazy loading, code splitting, minimal JS)
+- follow Lighthouse best practices (performance, accessibility, SEO)
+- ensure SEO fundamentals (semantic HTML, metadata, alt text, structure)
 - stop when task is complete
