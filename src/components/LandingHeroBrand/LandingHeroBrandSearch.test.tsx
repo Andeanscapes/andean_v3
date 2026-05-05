@@ -18,13 +18,13 @@ describe('LandingHeroBrandSearch', () => {
   afterEach(() => cleanup());
 
   it('renders three labeled select fields and a submit button', () => {
-    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search} />);
+    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search!} />);
 
-    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search.destinationLabel)).toBeInTheDocument();
-    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search.experienceTypeLabel)).toBeInTheDocument();
-    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search.durationLabel)).toBeInTheDocument();
+    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search!.destinationLabel)).toBeInTheDocument();
+    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search!.experienceTypeLabel)).toBeInTheDocument();
+    expect(screen.getByLabelText(HERO_BRAND_FIXTURE.search!.durationLabel)).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search.submitLabel }),
+      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search!.submitLabel }),
     ).toBeInTheDocument();
   });
 
@@ -32,8 +32,8 @@ describe('LandingHeroBrandSearch', () => {
     const user = userEvent.setup();
     // Override fixture so all defaults are "all"
     const search = {
-      ...HERO_BRAND_FIXTURE.search,
-      destinations: [{ value: 'all', label: 'All' }, ...HERO_BRAND_FIXTURE.search.destinations],
+      ...HERO_BRAND_FIXTURE.search!,
+      destinations: [{ value: 'all', label: 'All' }, ...HERO_BRAND_FIXTURE.search!.destinations],
     };
     render(<LandingHeroBrandSearch search={search} />);
 
@@ -46,24 +46,24 @@ describe('LandingHeroBrandSearch', () => {
   it('builds query string from non-"all" defaults', async () => {
     const user = userEvent.setup();
     // First option of each select is non-"all" in fixture (destination=chivor-boyaca, type=all, duration=all)
-    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search} />);
+    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search!} />);
 
     await user.click(
-      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search.submitLabel }),
+      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search!.submitLabel }),
     );
 
     expect(pushMock).toHaveBeenCalledTimes(1);
     const url = pushMock.mock.calls[0][0] as string;
-    expect(url).toContain(HERO_BRAND_FIXTURE.search.submitHref);
+    expect(url).toContain(HERO_BRAND_FIXTURE.search!.submitHref);
     expect(url).toContain('destination=chivor-boyaca');
     expect(url).not.toContain('type=');
     expect(url).not.toContain('duration=');
   });
 
   it('exposes the form with an aria-label matching submit label', () => {
-    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search} />);
+    render(<LandingHeroBrandSearch search={HERO_BRAND_FIXTURE.search!} />);
     expect(
-      screen.getByRole('form', { name: HERO_BRAND_FIXTURE.search.submitLabel }),
+      screen.getByRole('form', { name: HERO_BRAND_FIXTURE.search!.submitLabel }),
     ).toBeInTheDocument();
   });
 });

@@ -8,6 +8,7 @@ import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 
 interface LandingMobileStickyProps {
   landingData: LandingContent;
+  bookingHref?: string;
   /**
    * When provided, renders the brand-mode bar (Explore + WhatsApp + "from" price).
    * When omitted, falls back to the legacy single-experience bar (flagship/finalCta).
@@ -15,7 +16,7 @@ interface LandingMobileStickyProps {
   brandCtas?: LandingGlobalCtasContent;
 }
 
-function LandingMobileStickyComponent({ landingData, brandCtas }: LandingMobileStickyProps) {
+function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: LandingMobileStickyProps) {
   const locale = useLocale();
   const { flagship, finalCta } = landingData;
   const [visible, setVisible] = useState(false);
@@ -48,15 +49,15 @@ function LandingMobileStickyComponent({ landingData, brandCtas }: LandingMobileS
     return (
       <div
         role="region"
-        aria-label={brandCtas.exploreLabel}
-        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-base-200 bg-base-100/95 px-4 py-3 backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        aria-label={brandCtas.mobileBookNowLabel}
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/90 px-4 py-3 shadow-[0_-14px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p className="text-[10px] font-medium uppercase tracking-widest text-base-content/60">
+            <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
               {brandCtas.mobileFromLabel}
             </p>
-            <p className="text-lg font-extrabold leading-tight text-base-content">
+            <p className="text-lg font-extrabold leading-tight text-white">
               {formattedBrandPrice}
             </p>
           </div>
@@ -66,12 +67,12 @@ function LandingMobileStickyComponent({ landingData, brandCtas }: LandingMobileS
               target="_blank"
               rel="noopener noreferrer"
               aria-label={brandCtas.whatsappLabel}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
             </a>
-            <PrimaryCtaButton href={brandCtas.exploreHref} variant="gradient" size="md" className="gap-1.5 px-5">
-              {brandCtas.exploreLabel}
+            <PrimaryCtaButton href={bookingHref ?? brandCtas.exploreHref} variant="gradient" size="md" className="gap-1.5 px-5">
+              {brandCtas.mobileBookNowLabel}
               <ArrowRight size={16} className="flex-shrink-0" aria-hidden="true" />
             </PrimaryCtaButton>
           </div>

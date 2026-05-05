@@ -118,6 +118,18 @@ export const LandingHeroBrandMockSchema = z.object({
   secondaryCtaLabelKey: z.string(),
   secondaryCtaHref: z.string(),
   trustChips: z.array(LandingValueChipMockSchema),
+  bookingCard: z.object({
+    reserveLabelKey: z.string(),
+    askFirstLabelKey: z.string(),
+    trustDepositKey: z.string(),
+    trustSecureKey: z.string(),
+    trustSupportKey: z.string(),
+    trustVettedKey: z.string(),
+    nextAvailabilityLabelKey: z.string(),
+    onlyLabelKey: z.string(),
+    spotLabelKey: z.string(),
+    spotsLeftLabelKey: z.string(),
+  }),
   search: z.object({
     destinations: z.array(z.object({ value: z.string(), labelKey: z.string() })),
     experienceTypes: z.array(z.object({ value: z.string(), labelKey: z.string() })),
@@ -403,6 +415,18 @@ export const LandingContentSchema = z.object({
     secondaryCtaLabel: z.string(),
     secondaryCtaHref: z.string(),
     trustChips: z.array(LandingValueChipSchema),
+    bookingCard: z.object({
+      reserveLabel: z.string(),
+      askFirstLabel: z.string(),
+      trustDeposit: z.string(),
+      trustSecure: z.string(),
+      trustSupport: z.string(),
+      trustVetted: z.string(),
+      nextAvailabilityLabel: z.string(),
+      onlyLabel: z.string(),
+      spotLabel: z.string(),
+      spotsLeftLabel: z.string(),
+    }),
     search: z.object({
       destinations: z.array(z.object({ value: z.string(), label: z.string() })),
       experienceTypes: z.array(z.object({ value: z.string(), label: z.string() })),
@@ -412,7 +436,7 @@ export const LandingContentSchema = z.object({
       durationLabel: z.string(),
       submitLabel: z.string(),
       submitHref: z.string(),
-    }),
+    }).optional(),
   }),
   categories: z.object({
     sectionTitle: z.string(),
@@ -520,6 +544,7 @@ export const LandingContentSchema = z.object({
     exploreLabel: z.string(),
     whatsappLabel: z.string(),
     mobileFromLabel: z.string(),
+    mobileBookNowLabel: z.string(),
   }),
   // Legacy translated sections (still used by retained components)
   valueProps: z.object({

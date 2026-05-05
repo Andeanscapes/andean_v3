@@ -84,16 +84,18 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
               {/* Author */}
               <div className="flex items-center gap-2.5 pt-1">
                 {review.avatarUrl ? (
-                  <Image
-                    src={review.avatarUrl}
-                    alt={review.name}
-                    width={36}
-                    height={36}
-                    className="rounded-full object-cover"
-                  />
+                  <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full">
+                    <Image
+                      src={review.avatarUrl}
+                      alt={review.name}
+                      width={48}
+                      height={48}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 ) : (
                   <span
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+                    className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
                     aria-hidden="true"
                   >
                     {review.name.charAt(0)}

@@ -33,26 +33,46 @@ const FloatingWhatsApp = dynamic(() => import('@/components/ui/FloatingWhatsApp'
   ssr: false,
 });
 
+const BOOKING_ANCHOR = '#booking';
+
 interface LandingPageProps {
   landingData: LandingContent;
 }
 
 function LandingPageComponent({ landingData }: LandingPageProps) {
+  const flagship = landingData.flagship;
+
+  const featuredStrings = {
+    duration: landingData.featuredExperiences.items[0]?.duration ?? '',
+    location: landingData.featuredExperiences.items[0]?.location ?? '',
+    ...landingData.heroBrand.bookingCard,
+  };
+  const featuredBookingUrl = `${landingData.featuredExperiences.items[0]?.href ?? '/experiences/emerald-mining-adventure'}${BOOKING_ANCHOR}`;
+
   return (
     <main className="min-h-screen bg-base-100 text-base-content">
-      <LandingHeroBrand hero={landingData.heroBrand} />
-      <LandingCategories categories={landingData.categories} />
+      <LandingHeroBrand
+        hero={landingData.heroBrand}
+        featuredExperience={flagship}
+        featuredBookingUrl={featuredBookingUrl}
+        featuredStrings={featuredStrings}
+      />
       <LandingFeaturedExperiences featured={landingData.featuredExperiences} />
+      <LandingCategories categories={landingData.categories} />
       <LandingWhyUs whyUs={landingData.whyUs} />
+      <LandingSafety safety={landingData.safety} />
+      <Reviews landingData={landingData} />
       <LandingHowItWorks howItWorks={landingData.howItWorks} />
+      <LandingFaqs landingData={landingData} />
       <LandingTravelerSegments travelerSegments={landingData.travelerSegments} />
       <LandingTrustStats trustStats={landingData.trustStats} />
       <LandingLocation locationBrand={landingData.locationBrand} />
-      <LandingSafety safety={landingData.safety} />
-      <Reviews landingData={landingData} />
-      <LandingFaqs landingData={landingData} />
       <FinalCtaBanner landingData={landingData} />
-      <LandingMobileSticky landingData={landingData} brandCtas={landingData.globalCtas} />
+      <LandingMobileSticky
+        landingData={landingData}
+        bookingHref={featuredBookingUrl}
+        brandCtas={landingData.globalCtas}
+      />
       <FloatingWhatsApp
         href={landingData.globalCtas.whatsappHref}
         ariaLabel={landingData.globalCtas.whatsappLabel}

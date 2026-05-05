@@ -14,14 +14,14 @@ export default function LandingHeroBrandTrustChips({ trustChips, className = '' 
   return (
     <ul
       role="list"
-      className={`flex flex-wrap gap-2 ${className}`.trim()}
+      className={`no-scrollbar -mx-4 flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain px-4 pb-1 md:mx-0 md:flex-wrap md:overflow-visible md:px-0 md:pb-0 ${className}`.trim()}
     >
       {trustChips.map((chip) => {
         const Icon = getLandingIcon(chip.iconName);
         return (
           <li
             key={chip.id}
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm md:text-sm"
+            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm md:text-sm"
           >
             {Icon ? <Icon className="h-3.5 w-3.5 md:h-4 md:w-4" aria-hidden="true" /> : null}
             <span>{chip.label}</span>

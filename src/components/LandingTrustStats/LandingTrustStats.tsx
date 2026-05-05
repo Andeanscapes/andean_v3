@@ -17,7 +17,7 @@ function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-primary text-primary-content py-12 md:py-16 ${className}`.trim()}
+      sectionClassName={`bg-primary text-primary-content py-8 md:py-10 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
       <h2 id="landing-truststats-title" className="sr-only">

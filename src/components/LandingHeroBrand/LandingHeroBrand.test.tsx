@@ -1,4 +1,5 @@
 import { cleanup, render, screen } from '@testing-library/react';
+import type React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import LandingHeroBrand from './LandingHeroBrand';
@@ -6,6 +7,12 @@ import { HERO_BRAND_FIXTURE } from './__fixtures__/heroBrandFixture';
 
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: vi.fn(), replace: vi.fn(), back: vi.fn(), forward: vi.fn(), refresh: vi.fn(), prefetch: vi.fn() }),
+}));
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
 }));
 
 describe('LandingHeroBrand', () => {
@@ -27,7 +34,7 @@ describe('LandingHeroBrand', () => {
     expect(screen.getByText(HERO_BRAND_FIXTURE.description)).toBeInTheDocument();
     // search submit
     expect(
-      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search.submitLabel }),
+      screen.getByRole('button', { name: HERO_BRAND_FIXTURE.search!.submitLabel }),
     ).toBeInTheDocument();
   });
 

@@ -129,6 +129,24 @@
     radial-gradient(ellipse at bottom right, rgba(0, 168, 107, 0.05) 0%, transparent 40%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes booking-anchor-glow {
+  0% { box-shadow: 0 0 0 rgba(0, 240, 143, 0); }
+  35% { box-shadow: 0 0 52px rgba(0, 240, 143, 0.42); }
+  100% { box-shadow: 0 0 0 rgba(0, 240, 143, 0); }
+}
+
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.85); }

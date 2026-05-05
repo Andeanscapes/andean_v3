@@ -40,9 +40,10 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
   return (
     <Link
       href={experience.href}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      data-event="experience_view_details"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
-      <div className="relative h-48 w-full overflow-hidden md:h-52">
+      <div className="relative h-48 w-full overflow-hidden bg-gradient-to-r from-emerald-950/10 via-emerald-500/10 to-emerald-950/10 md:h-52">
         <Image
           src={experience.image}
           alt=""
@@ -107,4 +108,3 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
     </Link>
   );
 }
-

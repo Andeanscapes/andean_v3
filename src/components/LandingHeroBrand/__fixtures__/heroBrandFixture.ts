@@ -21,6 +21,18 @@ export const HERO_BRAND_FIXTURE: LandingHeroBrandContent = {
     { id: 'tc-3', iconName: 'CalendarCheck', label: 'Flexible planning' },
     { id: 'tc-4', iconName: 'ShieldCheck', label: 'Secure payments' },
   ],
+  bookingCard: {
+    reserveLabel: 'Reserve your date',
+    askFirstLabel: 'Ask questions first',
+    trustDeposit: '15% deposit',
+    trustSecure: 'Secure payment',
+    trustSupport: 'English & Spanish',
+    trustVetted: 'Vetted hosts',
+    nextAvailabilityLabel: 'Next availability',
+    onlyLabel: 'Only',
+    spotLabel: 'spot',
+    spotsLeftLabel: 'spots left',
+  },
   search: {
     destinationLabel: 'Destination',
     experienceTypeLabel: 'Experience type',
