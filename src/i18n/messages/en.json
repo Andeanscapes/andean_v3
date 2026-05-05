@@ -7,11 +7,11 @@
     "brand": {
       "hero": {
         "eyebrow": "Boyacá, Colombia — Real hosts, real places",
-        "title": "Colombia Through the Eyes of Those Who Live It",
-        "subtitle": "Small groups. Local hosts. Doors that don't open for everyone.",
+        "title": "Experience Boyacá With the People Who Live It",
+        "subtitle": "Small-group rural experiences in Colombia — emerald mines, pottery towns, mountain trails and family‑run stays, hosted by locals who call this place home.",
         "description": "Nature, culture and rural experiences in Boyacá — with the families and guides who call it home.",
-        "primaryCta": "See all experiences",
-        "secondaryCta": "Plan your trip on WhatsApp",
+        "primaryCta": "Find your experience",
+        "secondaryCta": "Ask on WhatsApp",
         "chips": {
           "smallGroups": "Max 10 travelers",
           "hostedByLocals": "Hosted by locals",
@@ -40,6 +40,20 @@
             "twoDayOneNight": "2 days / 1 night",
             "threeDayTwoNight": "3 days / 2 nights"
           }
+        },
+        "bookingCard": {
+          "reserveLabel": "Reserve your date",
+          "askFirstLabel": "Ask questions first",
+          "nextAvailability": "Next availability",
+          "only": "Only",
+          "spot": "spot left",
+          "spotsLeft": "spots left",
+          "trust": {
+            "deposit": "15% deposit",
+            "secure": "Secure payment",
+            "support": "English & Spanish",
+            "vetted": "Vetted hosts"
+          }
         }
       },
       "categories": {
@@ -47,20 +61,20 @@
         "cta": "Explore",
         "items": {
           "emerald": {
-            "title": "Emerald & Mining",
+            "title": "Enter a Real Emerald Mine",
             "description": "Enter working mines alongside the families who have lived the emerald trade for generations.",
             "exclusiveAccess": "Only via the Andean Scapes digital credential"
           },
           "nature": {
-            "title": "Nature & Reserves",
+            "title": "Walk Hidden Andean Routes",
             "description": "Páramos, cloud forests and hidden waterfalls — routes that most travelers never find."
           },
           "rural": {
-            "title": "Rural & Coffee",
+            "title": "Stay With Rural Hosts",
             "description": "Wake up on a working farm, share a meal with the host family, learn the trades they inherited."
           },
           "horseback": {
-            "title": "Horseback & Hiking",
+            "title": "Ride Old Mountain Trails",
             "description": "Andean trails on foot or horseback — the way people here have traveled for centuries."
           }
         }
@@ -90,7 +104,7 @@
         }
       },
       "whyUs": {
-        "title": "What makes Andean Scapes different",
+        "title": "Not a tour. A local invitation.",
         "lead": "Not a tour operator. A network of local hosts who share what they actually know.",
         "items": {
           "localHosts": {
@@ -196,11 +210,12 @@
           "flexible": "Free rescheduling up to 48 hours before"
         }
       },
-      "globalCtas": {
-        "explore": "See all experiences",
-        "whatsapp": "WhatsApp us",
-        "mobileFromLabel": "From"
-      }
+        "globalCtas": {
+          "explore": "See all experiences",
+          "whatsapp": "WhatsApp us",
+          "mobileFromLabel": "From",
+          "mobileBookNow": "Book now"
+        }
     },
     "reviews": {
       "sectionTitle": "What travelers say",
@@ -236,31 +251,59 @@
     "faqs": {
       "sectionTitle": "Common questions",
       "items": {
-        "safe": {
-          "question": "Is Boyacá safe for international travelers?",
-          "answer": "Yes. Boyacá is consistently rated one of Colombia's safest departments. Every host and route in our network is vetted, and we share safety briefings before every trip."
+        "whatIsAndeanScapes": {
+          "question": "What is Andean Scapes?",
+          "answer": "Andean Scapes curates authentic experiences in the Colombian Andes, connecting travelers with nature, local culture, rural stays, traditional food and meaningful local hosts."
         },
-        "experience": {
-          "question": "Do I need outdoor experience or fitness?",
-          "answer": "No. Experiences are graded by difficulty and designed for a wide range of fitness levels. Your host will tell you exactly what to expect before you arrive."
+        "privateOrShared": {
+          "question": "Are the experiences private or shared?",
+          "answer": "Most experiences are designed for small groups and can be private depending on availability, destination and selected package."
         },
-        "bogota": {
-          "question": "How do I get from Bogotá to Chivor?",
-          "answer": "Chivor is roughly 3 hours from Bogotá by road. We can coordinate transport, or share a detailed self-drive guide — 4x4 recommended for the final stretch."
+        "spanish": {
+          "question": "Do I need to speak Spanish?",
+          "answer": "Not always. Some experiences include bilingual support, and the team can help coordinate communication depending on the selected experience."
+        },
+        "afterReserve": {
+          "question": "What happens after I reserve?",
+          "answer": "After reserving, the team confirms availability and shares the detailed itinerary, meeting point, preparation notes and any required coordination before the trip."
+        },
+        "questionsFirst": {
+          "question": "Can I ask questions before paying?",
+          "answer": "Yes. Travelers can contact Andean Scapes before booking to confirm details, dates, transportation options, group size or special needs."
+        },
+        "transportHelp": {
+          "question": "Can you help with transport?",
+          "answer": "Transportation options may be available depending on the destination and package. Some experiences include transport, while others offer it as an add-on."
+        },
+        "meals": {
+          "question": "Are meals included?",
+          "answer": "Many experiences include traditional Colombian meals, but inclusions depend on the selected package. Each experience page clearly shows what is included."
+        },
+        "families": {
+          "question": "Are the experiences suitable for families?",
+          "answer": "Some experiences are family-friendly, while others may require more walking, rural access or outdoor activity. The team can recommend the best option for your group."
         },
         "bring": {
-          "question": "What do I need to bring?",
-          "answer": "Layered clothes, sturdy shoes and a light rain jacket. All technical equipment is provided. Your host sends a full packing list after you book."
+          "question": "What should I bring?",
+          "answer": "Recommended items usually include comfortable clothes, walking shoes, a light jacket, sunscreen, water and personal essentials. Specific recommendations are shared before each experience."
         },
-        "deposit": {
-          "question": "How does the deposit work?",
-          "answer": "A 15% deposit secures your dates. The balance is paid on arrival — in cash or by transfer. No hidden fees, no last-minute surprises."
+        "payment": {
+          "question": "How does the deposit or payment work?",
+          "answer": "Some experiences may require a deposit to confirm the reservation, with the remaining balance paid according to the package conditions."
+        },
+        "customized": {
+          "question": "Can experiences be customized?",
+          "answer": "In many cases, yes. The team can help adjust timing, transportation, lodging, meals or activities depending on availability and the type of experience."
+        },
+        "localOrInternational": {
+          "question": "Is Andean Scapes only for international travelers?",
+          "answer": "No. Andean Scapes welcomes both Colombian and international travelers looking for authentic, local and well-organized experiences."
         }
       }
     },
     "finalCta": {
-      "title": "Boyacá is waiting. Your dates are open.",
-      "subtitle": "Reserve your spot with 15% today. Your host confirms within the hour.",
+      "title": "Your Boyacá experience starts with one date.",
+      "subtitle": "Reserve with 15% today. Your local host confirms details by WhatsApp.",
       "primaryCta": "Reserve your experience",
       "secondaryCta": "Ask us on WhatsApp first",
       "bookAria": "Reserve your Andean Scapes experience",

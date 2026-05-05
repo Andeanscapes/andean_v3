@@ -8,7 +8,7 @@ import { Select } from '@/components/ui/Select/Select';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 
 interface Props {
-  search: LandingHeroBrandContent['search'];
+  search: NonNullable<LandingHeroBrandContent['search']>;
   className?: string;
 }
 

@@ -224,25 +224,39 @@ export function toLandingHeroBrandContent(
       iconName: chip.iconName,
       label: t(chip.labelKey),
     })),
-    search: {
-      destinationLabel: t(heroBrand.search.destinationLabelKey),
-      experienceTypeLabel: t(heroBrand.search.experienceTypeLabelKey),
-      durationLabel: t(heroBrand.search.durationLabelKey),
-      submitLabel: t(heroBrand.search.submitLabelKey),
-      submitHref: heroBrand.search.submitHref,
-      destinations: heroBrand.search.destinations.map((d) => ({
-        value: d.value,
-        label: t(d.labelKey),
-      })),
-      experienceTypes: heroBrand.search.experienceTypes.map((e) => ({
-        value: e.value,
-        label: t(e.labelKey),
-      })),
-      durations: heroBrand.search.durations.map((d) => ({
-        value: d.value,
-        label: t(d.labelKey),
-      })),
+    bookingCard: {
+      reserveLabel: t(heroBrand.bookingCard.reserveLabelKey),
+      askFirstLabel: t(heroBrand.bookingCard.askFirstLabelKey),
+      trustDeposit: t(heroBrand.bookingCard.trustDepositKey),
+      trustSecure: t(heroBrand.bookingCard.trustSecureKey),
+      trustSupport: t(heroBrand.bookingCard.trustSupportKey),
+      trustVetted: t(heroBrand.bookingCard.trustVettedKey),
+      nextAvailabilityLabel: t(heroBrand.bookingCard.nextAvailabilityLabelKey),
+      onlyLabel: t(heroBrand.bookingCard.onlyLabelKey),
+      spotLabel: t(heroBrand.bookingCard.spotLabelKey),
+      spotsLeftLabel: t(heroBrand.bookingCard.spotsLeftLabelKey),
     },
+    search: heroBrand.search
+      ? {
+          destinationLabel: t(heroBrand.search.destinationLabelKey),
+          experienceTypeLabel: t(heroBrand.search.experienceTypeLabelKey),
+          durationLabel: t(heroBrand.search.durationLabelKey),
+          submitLabel: t(heroBrand.search.submitLabelKey),
+          submitHref: heroBrand.search.submitHref,
+          destinations: heroBrand.search.destinations.map((d) => ({
+            value: d.value,
+            label: t(d.labelKey),
+          })),
+          experienceTypes: heroBrand.search.experienceTypes.map((e) => ({
+            value: e.value,
+            label: t(e.labelKey),
+          })),
+          durations: heroBrand.search.durations.map((d) => ({
+            value: d.value,
+            label: t(d.labelKey),
+          })),
+        }
+      : undefined,
   };
 }
 
@@ -425,5 +439,6 @@ export function toLandingGlobalCtasContent(
     exploreLabel: t('Landing.brand.globalCtas.explore'),
     whatsappLabel: t('Landing.brand.globalCtas.whatsapp'),
     mobileFromLabel: t('Landing.brand.globalCtas.mobileFromLabel'),
+    mobileBookNowLabel: t('Landing.brand.globalCtas.mobileBookNow'),
   };
 }

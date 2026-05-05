@@ -32,7 +32,7 @@ export function Button({
     lg: 'btn-lg',
   };
 
-  const baseClasses = 'btn';
+  const baseClasses = 'btn transition-transform active:scale-95';
   const variantClass = variantMap[variant];
   const sizeClass = sizeMap[size];
   const widthClass = fullWidth ? 'w-full' : '';

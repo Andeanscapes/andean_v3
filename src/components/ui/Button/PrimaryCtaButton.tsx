@@ -26,9 +26,9 @@ type PrimaryCtaButtonProps = AnchorProps | NativeButtonProps;
 
 function getBaseClass(variant: CtaVariant): string {
   if (variant === 'gradient') {
-    return 'btn border-0 bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-900 font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.30)] transition-all duration-200 hover:from-emerald-300 hover:to-emerald-400 hover:brightness-105 active:scale-[0.98] active:brightness-95';
+    return 'btn border-0 bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-900 font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.30)] transition-all duration-200 hover:from-emerald-300 hover:to-emerald-400 hover:brightness-105 active:scale-95 active:brightness-95';
   }
-  return 'btn border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95';
+  return 'btn border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-95 active:brightness-95';
 }
 
 export function PrimaryCtaButton(props: PrimaryCtaButtonProps) {

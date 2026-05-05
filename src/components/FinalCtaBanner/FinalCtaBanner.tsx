@@ -65,6 +65,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
               variant="gradient"
               size="lg"
               className="w-full gap-2 shadow-[0_0_24px_rgba(0,240,143,0.35)] sm:w-auto"
+              data-event="final_cta_reserve"
             >
               {finalCta.primaryCtaLabel}
               <ArrowRight size={18} className="flex-shrink-0" aria-hidden="true" />
@@ -74,6 +75,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-lg btn-outline w-full border-white/30 bg-white/8 text-white hover:bg-white/15 sm:w-auto"
+              data-event="final_cta_whatsapp_click"
             >
               <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />
               {finalCta.secondaryCtaLabel}

@@ -26,7 +26,7 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-base-100 py-16 md:py-20 ${className}`.trim()}
+      sectionClassName={`bg-base-100 py-10 md:py-14 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
       <header className="mx-auto mb-8 max-w-3xl text-center md:mb-12">
