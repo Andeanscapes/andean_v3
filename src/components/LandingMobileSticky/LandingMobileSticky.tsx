@@ -50,7 +50,7 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
       <div
         role="region"
         aria-label={brandCtas.mobileBookNowLabel}
-        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/90 px-4 py-3 shadow-[0_-14px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/90 px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] shadow-[0_-14px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex items-center justify-between gap-3">
           <div>
@@ -91,7 +91,7 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
     <div
       role="region"
       aria-label="Book now"
-      className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/95 px-4 py-3 backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+      className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/95 px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
     >
       <div className="flex items-center justify-between gap-3">
         <div>
