@@ -31,7 +31,7 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
       {/* Header */}
       <div className="mb-8 md:mb-10">
         <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-emerald-400/90">{reviews.eyebrow}</p>
-        <h2 className="text-3xl font-bold tracking-tight leading-tight text-base-content md:text-4xl">
+        <h2 id="landing-reviews" className="text-3xl font-bold tracking-tight leading-tight text-base-content md:text-4xl">
           {reviews.sectionTitle}
         </h2>
         <p className="mt-2 text-base text-base-content/65">{reviews.subtitle}</p>

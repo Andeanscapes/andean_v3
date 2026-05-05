@@ -955,5 +955,27 @@
     "terms": "Conditions",
     "privacy": "Confidentialité",
     "allRightsReserved": "Tous droits réservés."
+  },
+  "MobileMenu": {
+    "brandLine": "Séjours et expériences authentiques dans les Andes colombiennes",
+    "exploreExperiences": "Explorer les Expériences",
+    "planOnWhatsApp": "Planifiez votre Voyage sur WhatsApp",
+    "sectionQuickExplore": "Explorer Rapidement",
+    "sectionNavigate": "Naviguer",
+    "trustMicroCopy": "Petits groupes · Hôtes locaux · Planning flexible · Support WhatsApp",
+    "dialogLabel": "Navigation mobile",
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu",
+    "chips": {
+      "emerald": "Émeraude",
+      "nature": "Nature",
+      "rural": "Rural et Lodge",
+      "horseback": "Équitation"
+    },
+    "nav": {
+      "howItWorks": "Comment ça Marche",
+      "reviews": "Avis",
+      "faq": "FAQ"
+    }
   }
 }

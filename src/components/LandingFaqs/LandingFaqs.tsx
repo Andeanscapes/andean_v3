@@ -39,7 +39,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-emerald-400/90">
             {faqs.sectionTitle}
           </p>
-          <h2 className="text-xl font-bold leading-tight text-white md:text-3xl">
+          <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
             {flagship.title}
           </h2>
         </div>
