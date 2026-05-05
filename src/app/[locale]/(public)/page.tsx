@@ -74,7 +74,7 @@ export default async function Page({
     '@type': 'Organization',
     name: 'Andean Scapes',
     url: SITE_URL,
-    logo: `${SITE_URL}/assets/images/logo/logo.svg`,
+    logo: `${SITE_URL}/assets/images/logo.png`,
     sameAs: [
       'https://www.instagram.com/andeanscapes',
       'https://www.facebook.com/andeanscapes',
