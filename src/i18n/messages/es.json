@@ -959,5 +959,27 @@
     "terms": "Términos",
     "privacy": "Privacidad",
     "allRightsReserved": "Todos los derechos reservados."
+  },
+  "MobileMenu": {
+    "brandLine": "Estancias y experiencias auténticas en los Andes colombianos",
+    "exploreExperiences": "Explorar Experiencias",
+    "planOnWhatsApp": "Planifica tu Viaje por WhatsApp",
+    "sectionQuickExplore": "Explorar Rápido",
+    "sectionNavigate": "Navegar",
+    "trustMicroCopy": "Grupos pequeños · Anfitriones locales · Planificación flexible · Soporte por WhatsApp",
+    "dialogLabel": "Navegación móvil",
+    "closeMenu": "Cerrar menú",
+    "openMenu": "Abrir menú",
+    "chips": {
+      "emerald": "Esmeralda",
+      "nature": "Naturaleza",
+      "rural": "Rural y Alojamiento",
+      "horseback": "Cabalgata"
+    },
+    "nav": {
+      "howItWorks": "Cómo Funciona",
+      "reviews": "Reseñas",
+      "faq": "Preguntas Frecuentes"
+    }
   }
 }

@@ -34,6 +34,13 @@ export const BOOKING_LINKS = {
   whatsappMiningAdventure: `https://wa.me/${CONTACT_INFO.phone}?text=${WHATSAPP_MESSAGE.miningAdventureQuoteEncoded}`,
 } as const;
 
+export const MOBILE_MENU_CHIPS = [
+  { id: 'emerald', i18nKey: 'chips.emerald', href: '/experiences' },
+  { id: 'nature', i18nKey: 'chips.nature', href: '/experiences' },
+  { id: 'rural', i18nKey: 'chips.rural', href: '/experiences' },
+  { id: 'horseback', i18nKey: 'chips.horseback', href: '/experiences' },
+] as const;
+
 export const SITE_INFO = {
   name: "Andean Scapes",
   url: "https://www.andeanscapes.com",

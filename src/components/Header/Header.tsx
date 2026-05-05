@@ -10,7 +10,7 @@ import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
-import {BOOKING_LINKS, SITE_INFO} from "@/constant/SiteConfig";
+import {BOOKING_LINKS, MOBILE_MENU_CHIPS, SITE_INFO, SOCIAL_LINKS} from "@/constant/SiteConfig";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -24,6 +24,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const t = useTranslations('Header');
+    const tm = useTranslations('MobileMenu');
 
     const isDarkThemeVariant =
         variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
@@ -150,12 +151,12 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                 <button
                     type="button"
                     onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                    aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-label={isMobileMenuOpen ? tm('closeMenu') : tm('openMenu')}
                     aria-expanded={isMobileMenuOpen}
                     aria-controls="mobile-header-menu"
                     className={`relative inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors duration-200 ${navTextColorClass} hover:text-primary-1`}
                 >
-                    <span className="sr-only">{isMobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
+                    <span className="sr-only">{isMobileMenuOpen ? tm('closeMenu') : tm('openMenu')}</span>
                     <span
                         className={`absolute h-[2px] w-5 bg-current transition-transform duration-200 ${
                             isMobileMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-[6px]'
@@ -189,59 +190,129 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     <aside
                         id="mobile-header-menu"
                         data-theme={theme}
-                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] p-5 shadow-xl backdrop-blur-md transition-transform duration-300 ease-out ${
+                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] shadow-xl backdrop-blur-md transition-transform duration-300 ease-out overflow-y-auto ${
                             theme === 'dark'
                                 ? 'border-l border-white/10 bg-slate-950/96'
                                 : 'border-l border-black/10 bg-white/96'
                         } ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                         role="dialog"
                         aria-modal="true"
-                        aria-label="Mobile navigation"
+                        aria-label={tm('dialogLabel')}
                     >
-                        <div className={`flex items-center justify-between pb-4 ${theme === 'dark' ? 'border-b border-white/10' : 'border-b border-black/10'}`}>
-                            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="shrink-0 max-w-[42px]">
-                                <Image
-                                    alt='logo'
-                                    width={150}
-                                    height={150}
-                                    sizes="42px"
-                                    className="h-[42px] w-[42px] object-contain"
-                                    src={logoSrc}
-                                />
-                            </Link>
+                        <div className={`flex items-start justify-between p-5 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                            <div className="flex items-start gap-3 min-w-0">
+                                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="shrink-0">
+                                    <Image
+                                        alt='logo'
+                                        width={150}
+                                        height={150}
+                                        sizes="40px"
+                                        className="h-10 w-10 object-contain"
+                                        src={logoSrc}
+                                    />
+                                </Link>
+                                <p className={`text-[11px] leading-tight font-medium max-w-[160px] ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
+                                    {tm('brandLine')}
+                                </p>
+                            </div>
                             <button
                                 type="button"
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                aria-label="Close menu"
-                                className={`inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors duration-200 ${mobileMenuTextColorClass} hover:text-primary-1`}
+                                aria-label={tm('closeMenu')}
+                                className={`shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors duration-200 ${mobileMenuTextColorClass} hover:text-primary-1`}
                             >
                                 <X className="h-5 w-5" aria-hidden="true" />
                             </button>
                         </div>
 
-                        <nav className="mt-5 flex flex-col gap-3" aria-label="Mobile main navigation">
-                            <Link
-                                href="/experiences"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className={`text-sm font-semibold uppercase tracking-wide ${mobileMenuTextColorClass} ${navInteractiveClass}`}
-                            >
-                                {t('experiences')}
-                            </Link>
+                        {!hideBookingCta && (
+                            <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                                <div className="flex flex-col gap-2.5">
+                                    <Link
+                                        href="/experiences"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="btn btn-md w-full border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
+                                    >
+                                        {tm('exploreExperiences')}
+                                    </Link>
+                                    <a
+                                        href={SOCIAL_LINKS.whatsapp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className={`btn btn-md btn-outline w-full ${theme === 'dark' ? 'border-white/20 text-slate-300 hover:border-white/35 hover:bg-white/5' : 'border-black/15 text-slate-700 hover:border-black/25 hover:bg-black/3'}`}
+                                    >
+                                        {tm('planOnWhatsApp')}
+                                    </a>
+                                </div>
+                            </div>
+                        )}
 
-                            {!hideBookingCta && (
+                        <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-2.5">
+                                {tm('sectionNavigate')}
+                            </p>
+                            <nav className="flex flex-col gap-0.5" aria-label={tm('sectionNavigate')}>
                                 <Link
-                                    href={BOOKING_LINKS.airbnb}
-                                    className="btn btn-sm w-full border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="/experiences"
                                     onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
                                 >
-                                    {t('bookNow')}
+                                    {t('experiences')}
                                 </Link>
-                            )}
-                        </nav>
+                                <Link
+                                    href="/#landing-howitworks-title"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
+                                >
+                                    {tm('nav.howItWorks')}
+                                </Link>
+                                <Link
+                                    href="/#landing-reviews"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
+                                >
+                                    {tm('nav.reviews')}
+                                </Link>
+                                <Link
+                                    href="/#landing-faqs"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
+                                >
+                                    {tm('nav.faq')}
+                                </Link>
+                            </nav>
+                        </div>
 
-                        <div className={`mt-5 flex items-center gap-3 pt-4 ${theme === 'dark' ? 'border-t border-white/10' : 'border-t border-black/10'}`}>
+                        <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-2.5">
+                                {tm('sectionQuickExplore')}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {MOBILE_MENU_CHIPS.map((chip) => (
+                                    <Link
+                                        key={chip.id}
+                                        href={chip.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className={`btn btn-sm rounded-full transition-all duration-200 ${
+                                            theme === 'dark'
+                                                ? 'border-white/15 bg-white/5 text-slate-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary'
+                                                : 'border-black/10 bg-black/3 text-slate-600 hover:border-primary/40 hover:bg-primary/5 hover:text-primary'
+                                        }`}
+                                    >
+                                        {tm(chip.i18nKey as Parameters<typeof tm>[0])}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className={`px-5 pt-3 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                            <p className={`text-[11px] leading-relaxed ${theme === 'dark' ? 'text-slate-500/80' : 'text-slate-500'}`}>
+                                {tm('trustMicroCopy')}
+                            </p>
+                        </div>
+
+                        <div className="px-5 pt-4 pb-6 flex items-center justify-between">
                             <ThemeToggle colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
                             <LanguageSelector colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
                         </div>
