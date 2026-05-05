@@ -8,21 +8,22 @@ Before coding:
 
 ## 1. Context discovery
 - Analyze only relevant codebase areas.
-- Identify relevant services, components, patterns, tests.
+- Identify services, components, patterns, tests.
 - Review:
   - `.github/copilot-instructions.md`
   - `.opencode/skills/andean-reviewer/SKILL.md`
-  - relevant `.md` files only
+  - relevant `.md` files in repo AND IDE (personalized instructions)
+- Check `package.json` for available commands (lint, test, build, typecheck).
 
 ## 2. Pattern alignment
 Output max 3 bullets:
 - current pattern
-- where this change fits
+- where change fits
 - critical risks/constraints
 
-## 3. Plan mandatory before coding
-Output max 5 bullets covering:
-- implementation steps
+## 3. Plan (mandatory before coding)
+Output max 5 bullets:
+- steps
 - affected files
 - data flow changes
 - i18n impact
@@ -30,23 +31,23 @@ Output max 5 bullets covering:
 
 ## 4. Implementation
 - minimal safe diff
-- no unrelated refactors
+- reuse existing helpers/utils/components
 - prefer existing patterns over new abstractions
+- do NOT touch unrelated code
+- apply changes only in targeted locations (avoid global side effects)
 
 ## 5. Validation
 Output only:
-- commands to run
+- commands to run (from package.json)
 - manual checks
-- remaining risks, if any
+- edge risks (only if critical)
 
 Rules:
-- compact output
-- no long explanations
-- no repeated architecture summaries
-- no fake mock data
+- compact output only
+- no assumptions, verify before acting
+- no fake/mock data
 - no hardcoded user-facing copy
 - no `any`
-- preserve service pattern
-- preserve i18n
-- preserve architecture
-- stop once task is complete
+- preserve service pattern, i18n, architecture
+- avoid regressions (especially edge cases)
+- stop when task is complete

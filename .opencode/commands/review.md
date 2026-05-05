@@ -1,37 +1,46 @@
 ---
-description: Review current changes against Andean Scapes architecture rules
+description: Review current changes against Andean Scapes architecture rules (strict + compact)
 ---
 
 Use the `andean-reviewer` skill.
 
-Review the current git changes as a strict senior code reviewer.
+Review current git changes as a strict senior reviewer. Be concise and critical.
 
 Check against:
 - `.github/copilot-instructions.md`
 - `.opencode/skills/andean-reviewer/SKILL.md`
+- relevant `.md` files in repo AND IDE (personalized rules)
+- `package.json` (validate available commands: lint, test, build, typecheck)
 
 Focus on:
 - service-layer pattern: fetch → validate → translate → return
-- Next.js App Router boundaries
-- provider topology
-- next-intl i18n for en/es/fr
-- wrapper-first UI system
-- no fake mock data outside approved registries
-- no hardcoded user-facing copy
-- no `any`
-- security risks
-- minimal safe diff
+- Next.js App Router boundaries (server/client separation)
+- provider topology and scope
+- next-intl i18n (en/es/fr sync, no hardcoded copy)
+- wrapper-first UI system (reuse existing primitives)
+- no fake/mock data outside approved registries
+- no invented APIs, fields, or routes
+- strict TypeScript (no `any`)
+- security (validation, XSS, unsafe URLs, secrets)
+- minimal safe diff (no unrelated refactors)
+- reuse helpers/utils; avoid duplications
+- changes limited to targeted areas (no global side effects)
+- regression risk (edge cases, shared components, cross-feature impact)
 - Cloudflare/D1/Lambda future compatibility
 
-Output:
+Output (compact):
 
 ## Summary
-## Blocking Issues
-## Improvements
-## Suggested Tests
-## Final Decision
+- what changed + score (1–10)
 
-Final decision must be one of:
-- APPROVE
-- REQUEST CHANGES
-- REJECT
+## Blocking Issues
+- only critical violations
+
+## Improvements
+- optional, high-impact only
+
+## Suggested Tests
+- targeted commands (from package.json) + key cases
+
+## Final Decision
+- APPROVE | REQUEST CHANGES | REJECT
