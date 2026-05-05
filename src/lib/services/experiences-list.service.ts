@@ -1,5 +1,5 @@
 import type { ExperienceData, ExperiencesListData } from '../schemas';
-import { ExperiencesListConfigSchema } from '../schemas';
+import { ExperiencesListConfigSchema, ExperiencesListDataSchema } from '../schemas';
 import { EXPERIENCES_LIST_CONFIG } from '../data-mocks/experiencesList.mock';
 import { EXPERIENCE_DATA_REGISTRY } from '../data-mocks/experiences.registry';
 import { getTranslations } from 'next-intl/server';
@@ -58,7 +58,7 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
   );
 
   // 4. Return fully translated data
-  return {
+  const translated: ExperiencesListData = {
     metaTitle: t(rawConfig.metaTitleKey),
     metaDescription: t(rawConfig.metaDescriptionKey),
     sectionTitle: t(rawConfig.sectionTitleKey),
@@ -81,6 +81,14 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
     },
     cards,
   };
+
+  const translatedResult = ExperiencesListDataSchema.safeParse(translated);
+  if (!translatedResult.success) {
+    console.error('[ExperiencesList] Translated data validation failed:', translatedResult.error.format());
+    throw new Error('[ExperiencesList] Invalid translated list data');
+  }
+
+  return translatedResult.data;
 }
 
 // ── Pricing helper ───────────────────────────────────────────────────────────

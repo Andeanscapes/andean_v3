@@ -1,7 +1,7 @@
 {
   "Home": {
     "metaTitle": "Home | Andean Scapes",
-    "metaDescription": "Experience the ultimate nature adventure and co-living space in the heart of the Andes."
+    "metaDescription": "Book the Emerald Mining Adventure with a Hacienda El Recuerdo stay in Chivor, Boyacá."
   },
   "Landing": {
     "brand": {
@@ -349,7 +349,14 @@
     },
     "tiers": {
       "sectionTitle": "Choose your stay",
+      "bestSellerLabel": "Host choice",
       "items": {
+        "heritage": {
+          "label": "Hacienda El Recuerdo",
+          "description": "The current Andean Scapes stay: one night in a colonial hacienda with private rooms, home-cooked meals and local host care.",
+          "tag": "Current first experience",
+          "cta": "Book Hacienda stay"
+        },
         "day": {
           "label": "Day Experience",
           "description": "A full day inside the mine — no overnight stay required.",
@@ -388,16 +395,21 @@
         }
       }
     },
-    "inclusions": {
-      "sectionTitle": "What's included",
-      "includedLabel": "Included",
-      "notIncludedLabel": "Not included",
-      "logistics": {
-        "start": "Start time",
-        "duration": "Duration",
-        "transport": "Transport",
-        "difficulty": "Difficulty"
-      },
+      "inclusions": {
+        "sectionTitle": "What's included",
+        "includedLabel": "Included",
+        "notIncludedLabel": "Not included",
+        "logistics": {
+          "start": "Start time",
+          "duration": "Duration",
+          "transport": "Transport",
+          "difficulty": "Difficulty"
+        },
+        "logisticsValues": {
+          "duration": "2 days / 1 night",
+          "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+          "difficulty": "Moderate"
+        },
       "included": {
         "guide": "Certified bilingual guide",
         "equipment": "All safety equipment",
@@ -526,7 +538,7 @@
   },
   "BookingCtas": {
     "title": "Ready for your adventure? ⛏️💎",
-    "subtitle": "Mining adventure in Chivor + rural stay. 2D/1N and 3D/2N plans.",
+    "subtitle": "Mining adventure in Chivor + Hacienda El Recuerdo stay. 2D/1N plan.",
     "airbnbCta": "Check availability on Airbnb",
     "airbnbSupport": "Secure payment + reviews",
     "reviewsLabel": "reviews",
@@ -534,14 +546,15 @@
     "whatsappHelpText": "Questions or want a quote before booking?",
     "whatsappCta": "Chat on WhatsApp",
     "stickyWhatsappText": "Questions? WhatsApp",
-    "whatsappSupport": "We help you choose 2D/1N or 3D/2N · Fast response",
-    "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately."
+    "whatsappSupport": "We help you confirm dates, rooms and transport · Fast response",
+    "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately.",
+    "whatsappMiningQuote": "Hello! I'm interested in the Emerald Mining Adventure at Hacienda El Recuerdo in Chivor. Can you help me with availability?"
   },
   "EmeraldMiningAdventure": {
     "metaTitle": "Book Your Emerald Mining Adventure | Andean Scapes",
-    "metaDescription": "Discover Colombia's emerald mines. 2D/1N or 3D/2N adventure in Chivor - Boyacá with meals, workshop and transport included.",
+    "metaDescription": "Discover Colombia's emerald mines with a 2D/1N Hacienda El Recuerdo stay in Chivor - Boyacá, meals, workshop and transport coordination included.",
     "title": "Emerald Mining Adventure",
-    "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
+    "subtitle": "2D/1N emerald mining experience with Hacienda El Recuerdo stay in Chivor, Boyacá",
     "selectDate": "Select your date",
     "selectPeople": "How many people?",
     "peopleCountLabel": "Number of people",
@@ -814,11 +827,11 @@
       "title": "Emerald Mining Adventure",
       "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
       "description": "Discover the depths of Colombia's most famous emerald mine",
-      "includesFullDetails": "Includes bilingual specialized guide, all necessary safety equipment, round-trip transportation from Bogotá, accident insurance, and refreshments.",
+      "includesFullDetails": "Includes bilingual specialized guide, safety equipment, local transport coordination from Hacienda El Recuerdo, accident insurance, meals and emerald workshop.",
       "includes": {
         "guide": "Specialized guide",
         "equipment": "Safety equipment",
-        "transport": "Round-trip transportation",
+        "transport": "Local transport coordination",
         "insurance": "Accident insurance"
       },
       "transport": {
@@ -879,6 +892,11 @@
         "transport": "Transportation",
         "difficulty": "Difficulty",
         "end": "End time"
+      },
+      "logisticsValues": {
+        "duration": "2 days / 1 night",
+        "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+        "difficulty": "Moderate"
       },
       "included": {
         "guide": "Expert mining guide",

@@ -127,7 +127,7 @@ function TierPickerComponent() {
                   {tier.isHostChoice && (
                     <span className="inline-flex items-center gap-1 rounded-sm bg-[#00F08F] px-1.5 py-0.5 text-[8px] font-bold tracking-widest text-black">
                       <Hotel className="h-2.5 w-2.5" />
-                      HOST
+                      {t('experienceDetails.hostChoiceLabel')}
                     </span>
                   )}
                 </div>

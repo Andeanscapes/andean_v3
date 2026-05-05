@@ -1,7 +1,7 @@
 {
   "Home": {
     "metaTitle": "Accueil | Andean Scapes",
-    "metaDescription": "Expérimenter le meilleur aventure naturelle et l'espace de vie collectif au cœur des Andes."
+    "metaDescription": "Réservez l'Aventure Minière d'Émeraude avec séjour à Hacienda El Recuerdo, Chivor, Boyacá."
   },
   "Landing": {
     "brand": {
@@ -349,7 +349,14 @@
     },
     "tiers": {
       "sectionTitle": "Choisissez votre séjour",
+      "bestSellerLabel": "Choix de l'hôte",
       "items": {
+        "heritage": {
+          "label": "Hacienda El Recuerdo",
+          "description": "Le séjour actuel d'Andean Scapes : une nuit dans une hacienda coloniale avec chambres privées, repas maison et accueil local.",
+          "tag": "Première expérience actuelle",
+          "cta": "Réserver le séjour à l'hacienda"
+        },
         "day": {
           "label": "Expérience à la journée",
           "description": "Une journée complète dans la mine — sans nuit sur place.",
@@ -388,16 +395,21 @@
         }
       }
     },
-    "inclusions": {
-      "sectionTitle": "Ce qui est inclus",
-      "includedLabel": "Inclus",
-      "notIncludedLabel": "Non inclus",
-      "logistics": {
-        "start": "Heure de départ",
-        "duration": "Durée",
-        "transport": "Transport",
-        "difficulty": "Difficulté"
-      },
+      "inclusions": {
+        "sectionTitle": "Ce qui est inclus",
+        "includedLabel": "Inclus",
+        "notIncludedLabel": "Non inclus",
+        "logistics": {
+          "start": "Heure de départ",
+          "duration": "Durée",
+          "transport": "Transport",
+          "difficulty": "Difficulté"
+        },
+        "logisticsValues": {
+          "duration": "2 jours / 1 nuit",
+          "transport": "Coordination 4x4 locale depuis Hacienda El Recuerdo",
+          "difficulty": "Modérée"
+        },
       "included": {
         "guide": "Guide bilingue certifié",
         "equipment": "Tout l'équipement de sécurité",
@@ -526,7 +538,7 @@
   },
   "BookingCtas": {
     "title": "Prêt pour votre aventure ? ⛏️💎",
-    "subtitle": "Aventure minière à Chivor + séjour rural. Forfaits 2D/1N et 3D/2N.",
+    "subtitle": "Aventure minière à Chivor + séjour à Hacienda El Recuerdo. Formule 2J/1N.",
     "airbnbCta": "Voir les disponibilités sur Airbnb",
     "airbnbSupport": "Paiement sécurisé + avis",
     "reviewsLabel": "avis",
@@ -534,14 +546,15 @@
     "whatsappHelpText": "Des questions ou besoin d'un devis avant de réserver ?",
     "whatsappCta": "Parler sur WhatsApp",
     "stickyWhatsappText": "Questions ? WhatsApp",
-    "whatsappSupport": "Nous vous aidons à choisir 2D/1N ou 3D/2N · Réponse rapide",
-    "bookingScopeNote": "La réservation Airbnb couvre uniquement la chambre à Hacienda El Recuerdo. Le tour de mine est facturé séparément."
+    "whatsappSupport": "Nous vous aidons à confirmer dates, chambres et transport · Réponse rapide",
+    "bookingScopeNote": "La réservation Airbnb couvre uniquement la chambre à Hacienda El Recuerdo. Le tour de mine est facturé séparément.",
+    "whatsappMiningQuote": "Bonjour ! Je souhaite réserver l'Aventure Minière d'Émeraude avec séjour à Hacienda El Recuerdo, Chivor. Pouvez-vous m'aider avec la disponibilité ?"
   },
   "EmeraldMiningAdventure": {
     "metaTitle": "Réservez votre Aventure Minière d'Émeraude | Andean Scapes",
-    "metaDescription": "Découvrez les mines d'émeraude de Colombie. Aventure 2D/1N ou 3D/2N à Chivor - Boyacá avec repas, atelier et transport inclus.",
+    "metaDescription": "Découvrez les mines d'émeraude de Colombie avec un séjour 2J/1N à Hacienda El Recuerdo, Chivor - Boyacá, repas, atelier et coordination du transport inclus.",
     "title": "Aventure Minière d'Émeraude",
-    "subtitle": "2D/1N ou 3D/2N dans les mines d'émeraude de Chivor - Boyacá",
+    "subtitle": "Expérience minière d'émeraude 2J/1N avec séjour à Hacienda El Recuerdo, Chivor, Boyacá",
     "selectDate": "Sélectionnez votre date",
     "selectPeople": "Combien de personnes ?",
     "peopleCountLabel": "Nombre de personnes",
@@ -814,11 +827,11 @@
       "title": "Aventure Minière d'Émeraude",
       "subtitle": "Expérience tout compris à Chivor (Boyacá), Colombie 🇨🇴",
       "description": "Découvrez les profondeurs de la mine d'émeraude la plus célèbre de Colombie",
-      "includesFullDetails": "Comprend un guide spécialisé bilingue, tout l'équipement de sécurité nécessaire, le transport aller-retour depuis Bogotá, l'assurance accident et les rafraîchissements.",
+      "includesFullDetails": "Comprend un guide spécialisé bilingue, l'équipement de sécurité, la coordination du transport local depuis Hacienda El Recuerdo, l'assurance accident, les repas et l'atelier d'émeraudes.",
       "includes": {
         "guide": "Guide spécialisé",
         "equipment": "Équipement de sécurité",
-        "transport": "Transport aller-retour",
+        "transport": "Coordination du transport local",
         "insurance": "Assurance accident"
       },
       "transport": {
@@ -879,6 +892,11 @@
         "transport": "Transport",
         "difficulty": "Difficulté",
         "end": "Heure de fin"
+      },
+      "logisticsValues": {
+        "duration": "2 jours / 1 nuit",
+        "transport": "Coordination 4x4 locale depuis Hacienda El Recuerdo",
+        "difficulty": "Modérée"
       },
       "included": {
         "guide": "Guide expert en minería",

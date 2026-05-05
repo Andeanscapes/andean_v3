@@ -10,6 +10,10 @@ import type { LandingDataMock, LandingContent } from '@/lib/schemas/landing.sche
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
+function translateMaybeKey(value: string, t: Translator): string {
+  return value.includes('.') ? t(value) : value;
+}
+
 // ── Flagship / Hero ──────────────────────────────────────────────────────────
 
 export function toLandingFlagshipContent(
@@ -92,6 +96,7 @@ export function toLandingInclusionsContent(
     logistics: inclusions.logistics.map((item) => ({
       ...item,
       label: t(item.labelKey),
+      value: item.value ? translateMaybeKey(item.value, t) : undefined,
     })),
     included: inclusions.included.map((item) => ({
       id: item.id,

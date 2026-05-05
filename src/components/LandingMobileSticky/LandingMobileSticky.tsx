@@ -88,22 +88,22 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
   }).format(flagship.pricing.fromAmount);
 
   return (
-    <div
-      role="region"
-      aria-label="Book now"
+      <div
+        role="region"
+        aria-label={finalCta.bookAria}
       className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/95 px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
     >
       <div className="flex items-center justify-between gap-3">
         <div>
           <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
-            From
+            {flagship.labels.fromLabel}
           </p>
           <p className="text-lg font-extrabold leading-tight text-white">
             {formattedPrice}
-            <span className="ml-1 text-[10px] font-normal text-white/55">/ person</span>
+            <span className="ml-1 text-[10px] font-normal text-white/55">{flagship.labels.perPersonLabel}</span>
           </p>
           <p className="text-[10px] font-medium text-emerald-400">
-            {flagship.pricing.depositPercent}% deposit only
+            {flagship.labels.depositNoteLabel}
           </p>
         </div>
         <PrimaryCtaButton

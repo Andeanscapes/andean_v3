@@ -49,7 +49,7 @@ export async function getBookingDataSSR(
   // 3. Translate — each projector handles one content section
   const translatedConfig = toTranslatedConfig(rawData, t);
 
-  return {
+  const translated: ExperienceData = {
     ...rawData,
     config: translatedConfig,
     transportOptions: rawData.transportOptions.map((option) => ({
@@ -66,6 +66,14 @@ export async function getBookingDataSSR(
     accommodationTiersContent: toAccommodationTiersContent(rawData, t),
     hostContent: toHostContent(rawData, t),
   };
+
+  const translatedResult = ExperienceDataSchema.safeParse(translated);
+  if (!translatedResult.success) {
+    console.error(`[BookingService] Translated data validation failed for "${experienceId}":`, translatedResult.error.format());
+    throw new Error(`[BookingService] Invalid translated data for experience: ${experienceId}`);
+  }
+
+  return translatedResult.data;
 }
 
 // ── Fallback registry ────────────────────────────────────────────────────────

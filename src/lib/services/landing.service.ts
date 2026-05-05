@@ -12,7 +12,7 @@
  */
 
 import { getTranslations } from 'next-intl/server';
-import { LandingDataMockSchema } from '../schemas/landing.schema';
+import { LandingContentSchema, LandingDataMockSchema } from '../schemas/landing.schema';
 import type { LandingContent } from '../schemas/landing.schema';
 import { LANDING_DATA_REGISTRY } from '../data-mocks/landing.registry';
 import {
@@ -50,7 +50,7 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
   const rawData = result.data;
 
   // 3. Translate — each projector handles one content section
-  return {
+  const translated: LandingContent = {
     flagship: toLandingFlagshipContent(rawData, t),
     heroBrand: toLandingHeroBrandContent(rawData, t),
     categories: toLandingCategoriesContent(rawData, t),
@@ -69,4 +69,12 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
     faqs: toLandingFaqsContent(rawData, t),
     finalCta: toLandingFinalCtaContent(rawData, t),
   };
+
+  const translatedResult = LandingContentSchema.safeParse(translated);
+  if (!translatedResult.success) {
+    console.error('[LandingService] Translated content validation failed:', translatedResult.error.format());
+    throw new Error('[LandingService] Invalid translated landing content.');
+  }
+
+  return translatedResult.data;
 }

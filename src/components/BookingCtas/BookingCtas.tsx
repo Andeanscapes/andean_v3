@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { MessageCircle } from 'lucide-react';
-import { BOOKING_LINKS } from '@/constant/SiteConfig';
+import { BOOKING_LINKS, CONTACT_INFO } from '@/constant/SiteConfig';
 
 type BookingCtasProps = {
   title?: string;
@@ -32,6 +32,7 @@ export default function BookingCtas({
   const resolvedTitle = title ?? t('title');
   const resolvedSubtitle = subtitle ?? t('subtitle');
   const airbnbCtaLabel = t('airbnbCta');
+  const whatsappMiningUrl = `https://wa.me/${CONTACT_INFO.phone}?text=${encodeURIComponent(t('whatsappMiningQuote'))}`;
 
   useEffect(() => {
     setIsMounted(true);
@@ -66,7 +67,7 @@ export default function BookingCtas({
           {airbnbCtaLabel}
         </Link>
         <Link
-          href={BOOKING_LINKS.whatsappMiningAdventure}
+          href={whatsappMiningUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleStickyWhatsAppClick}
@@ -114,7 +115,7 @@ export default function BookingCtas({
               <p className="text-sm font-medium text-base-content/90">{t('whatsappHelpText')}</p>
               <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <Link
-                  href={BOOKING_LINKS.whatsappMiningAdventure}
+                  href={whatsappMiningUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleWhatsAppClick}

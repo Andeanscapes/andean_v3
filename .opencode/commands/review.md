@@ -10,6 +10,7 @@ Check against:
 - `.github/copilot-instructions.md`
 - `.opencode/skills/andean-reviewer/SKILL.md`
 - relevant `.md` files in repo AND IDE (personalized rules)
+- `/docs` (architecture decisions, future plans, constraints)
 - `package.json` (validate commands: lint, test, build, typecheck)
 
 Focus on:
@@ -30,6 +31,7 @@ Focus on:
 - accessibility (ARIA, labels, keyboard, focus states)
 - SEO (semantic HTML, metadata, alt text, structure)
 - Lighthouse impact (performance, accessibility, SEO)
+- alignment with `/docs` future architecture (no conflicting patterns)
 - Cloudflare/D1/Lambda future compatibility
 
 Output (compact):
@@ -38,7 +40,7 @@ Output (compact):
 - what changed + score (1–10)
 
 ## Blocking Issues
-- only critical violations
+- only critical violations (include future-architecture conflicts)
 
 ## Improvements
 - optional, high-impact only
