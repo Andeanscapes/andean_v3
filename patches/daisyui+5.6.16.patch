@@ -1,0 +1,18 @@
+diff --git a/node_modules/daisyui/base/properties.css b/node_modules/daisyui/base/properties.css
+index 14169c2..c503676 100644
+--- a/node_modules/daisyui/base/properties.css
++++ b/node_modules/daisyui/base/properties.css
+@@ -1 +1 @@
+-/*! 🌼 daisyUI 5.6.16 - MIT License */ @layer base{@property --radialprogress{syntax:"<percentage>";inherits:true;initial-value:0%}@property --aura-angle{syntax:"<angle>";inherits:false;initial-value:0deg}}
+\ No newline at end of file
++/*! 🌼 daisyUI 5.6.16 - MIT License */ @layer base{}
+\ No newline at end of file
+diff --git a/node_modules/daisyui/base/properties/object.js b/node_modules/daisyui/base/properties/object.js
+index 4464c4a..7c645e4 100644
+--- a/node_modules/daisyui/base/properties/object.js
++++ b/node_modules/daisyui/base/properties/object.js
+@@ -1 +1 @@
+-export default {"@property --radialprogress":{"syntax":"\"<percentage>\"","inherits":"true","initial-value":"0%"},"@property --aura-angle":{"syntax":"\"<angle>\"","inherits":"false","initial-value":"0deg"}};
+\ No newline at end of file
++export default {};
+\ No newline at end of file
