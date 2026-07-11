@@ -151,7 +151,7 @@ export const LANDING_MOCK: LandingDataMock = {
         experienceSlug: 'emerald-mining-adventure',
         titleKey: 'Landing.brand.featured.items.emerald.title',
         descriptionKey: 'Landing.brand.featured.items.emerald.description',
-        image: '/images/experiences/emerald-mining/card.webp',
+        image: '/assets/images/details/emerald-mining-card.webp',
         href: '/experiences/emerald-mining-adventure',
         badgeKey: 'Landing.brand.featured.badges.featured',
         durationKey: 'Landing.brand.featured.items.emerald.duration',
