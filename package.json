@@ -29,10 +29,9 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.2",
-    "@types/react-select": "^5.0.1",
-    "daisyui": "^5.6.16",
+    "daisyui": "5.6.16",
     "lucide-react": "^0.577.0",
-    "next": "16.2.10",
+    "next": "16.3.2",
     "next-intl": "^4.13.2",
     "rc-slider": "^10.5.0",
     "react": "^19.2.7",
@@ -45,12 +44,13 @@
     "react-select": "^5.8.0",
     "swiper": "^14.0.5",
     "use-context-selector": "^1.4.1",
-    "yet-another-react-lightbox": "^3.15.6"
+    "yet-another-react-lightbox": "^3.15.6",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^9.39.5",
-    "@opennextjs/cloudflare": "1.20.1",
+    "@opennextjs/cloudflare": "1.20.2",
     "@storybook/addon-docs": "8.6.18",
     "@storybook/addon-links": "8.6.18",
     "@storybook/react": "8.6.18",
@@ -65,20 +65,19 @@
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "5.1.4",
     "dotenv-cli": "^8.0.0",
     "esbuild": "0.25.4",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.2.10",
     "jsdom": "^26.1.0",
     "patch-package": "^8.0.1",
-    "postcss": "^8.5.16",
+    "postcss": "8.5.26",
     "storybook": "8.6.18",
     "tailwindcss": "^4.3.2",
     "typescript": "^5",
-    "vite": "5.4.21",
+    "vite": "6.4.3",
     "vitest": "^3.2.7",
-    "wrangler": "4.86.0"
+    "wrangler": "4.125.0"
   },
   "browserslist": "> 1%"
 }

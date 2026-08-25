@@ -7,6 +7,7 @@ import {
   getExperienceDataSSR,
   getExperiencePathListSSR,
 } from '@/lib/services/experiences-catalog.service';
+import { safeJsonLd } from '@/utils/jsonLd';
 import {
   buildExperienceAlternates,
   buildExperiencePath,
@@ -124,7 +125,7 @@ export default async function ExperiencePage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(productStructuredData) }}
       />
       <ExperienceDetailsPage experienceData={experienceData} />
     </>

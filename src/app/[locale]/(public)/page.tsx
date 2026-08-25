@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { locales } from '@/i18n/routing';
 import { getLandingDataSSR } from '@/lib/services/landing.service';
+import { safeJsonLd } from '@/utils/jsonLd';
 import LandingPage from './LandingPage';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.andean-scapes.com';
@@ -97,11 +98,11 @@ export default async function Page({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(itemListLd) }}
       />
       <LandingPage landingData={landingData} />
     </>
