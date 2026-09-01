@@ -10,15 +10,33 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
+/**
+ * Keep in sync with `src/utils/mediaUrl.ts`: that module rewrites feed media
+ * paths to absolute URLs on this origin, so `next/image` must be allowed to
+ * optimize it. Deriving the pattern from the same variable means overriding
+ * `NEXT_PUBLIC_CDN_BASE_URL` cannot produce an unconfigured-host runtime error.
+ */
+const CDN_BASE_URL =
+  process.env.NEXT_PUBLIC_CDN_BASE_URL?.trim() || 'https://cdn.andeanscapes.com';
+
+let cdnOrigin;
+try {
+  cdnOrigin = new URL(CDN_BASE_URL);
+} catch {
+  throw new Error(
+    `NEXT_PUBLIC_CDN_BASE_URL is not a valid absolute URL: "${CDN_BASE_URL}"`,
+  );
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // 1. ADDED: Image Optimization configuration for R2
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.andeanscapes.com',
-        port: '',
+        protocol: cdnOrigin.protocol.replace(':', ''),
+        hostname: cdnOrigin.hostname,
+        port: cdnOrigin.port,
         pathname: '/**',
       },
       {

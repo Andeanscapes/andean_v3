@@ -47,10 +47,8 @@ export async function generateMetadata({
   const localizedPath = buildExperiencePath(locale, experienceName, '/booking');
   const canonicalUrl = `${SEO_SITE_URL}${localizedPath}`;
   const alternates = buildExperienceAlternates(experienceName, '/booking');
-  const imageUrl = toAbsoluteUrl(
-    experienceData.heroContent?.backgroundImageUrl ??
-      '/assets/images/hero/h10.webp'
-  );
+  const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
+  const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
   const title = t('metaTitle');
   const description = t('metaDescription');
 
@@ -67,20 +65,15 @@ export async function generateMetadata({
       url: canonicalUrl,
       type: 'website',
       locale,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: imageUrl
+        ? [{ url: imageUrl, width: 1200, height: 630, alt: title }]
+        : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [imageUrl],
+      images: imageUrl ? [imageUrl] : undefined,
     },
   };
 }
@@ -104,9 +97,10 @@ export default async function BookingPage({
   const experienceData = await getExperienceDataSSR(experienceName, locale);
   const rawSearchParams = await searchParams;
   const initialSelections = parseBookingSearchParams(rawSearchParams);
-  const heroImageUrl =
-    experienceData.heroContent?.backgroundImageUrl ?? '/assets/images/hero/h10.webp';
-  const heroImageUrlMobile = getResponsiveImageSrc(heroImageUrl).mobile;
+  const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
+  const heroImageUrlMobile = heroImageUrl
+    ? getResponsiveImageSrc(heroImageUrl).mobile
+    : undefined;
 
   // If a tier is pre-selected via URL params, preload its thumbnail so the
   // browser fetches it alongside the hero — avoids an LCP image discovered
@@ -121,8 +115,12 @@ export default async function BookingPage({
   return (
     <>
       {/* Responsive hero preloads — browser picks the matching media query */}
-      <link rel="preload" as="image" href={heroImageUrlMobile} media="(max-width: 767px)" fetchPriority="high" />
-      <link rel="preload" as="image" href={heroImageUrl} media="(min-width: 768px)" fetchPriority="high" />
+      {heroImageUrlMobile ? (
+        <link rel="preload" as="image" href={heroImageUrlMobile} media="(max-width: 767px)" fetchPriority="high" />
+      ) : null}
+      {heroImageUrl ? (
+        <link rel="preload" as="image" href={heroImageUrl} media="(min-width: 768px)" fetchPriority="high" />
+      ) : null}
       {tierThumbnailUrl && (
         <link rel="preload" as="image" href={tierThumbnailUrl} fetchPriority="high" />
       )}

@@ -44,10 +44,8 @@ export async function generateMetadata({
   const localizedPath = buildExperiencePath(locale, experienceName);
   const canonicalUrl = `${SEO_SITE_URL}${localizedPath}`;
   const alternates = buildExperienceAlternates(experienceName);
-  const imageUrl = toAbsoluteUrl(
-    experienceData.heroContent?.backgroundImageUrl ??
-      '/assets/images/hero/h10.webp'
-  );
+  const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
+  const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
   const title = t('metaTitle');
   const description = t('metaDescription');
 
@@ -64,20 +62,15 @@ export async function generateMetadata({
       url: canonicalUrl,
       type: 'website',
       locale,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: imageUrl
+        ? [{ url: imageUrl, width: 1200, height: 630, alt: title }]
+        : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [imageUrl],
+      images: imageUrl ? [imageUrl] : undefined,
     },
   };
 }
@@ -97,17 +90,15 @@ export default async function ExperiencePage({
 
   const experienceData = await getExperienceDataSSR(experienceName, locale);
   const pageUrl = `${SEO_SITE_URL}${buildExperiencePath(locale, experienceName)}`;
-  const imageUrl = toAbsoluteUrl(
-    experienceData.heroContent?.backgroundImageUrl ??
-      '/assets/images/hero/h10.webp'
-  );
+  const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
+  const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
 
   const productStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: experienceData.config.title,
     description: experienceData.config.description,
-    image: [imageUrl],
+    ...(imageUrl ? { image: [imageUrl] } : {}),
     brand: {
       '@type': 'Brand',
       name: 'Andean Scapes',

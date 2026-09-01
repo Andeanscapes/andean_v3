@@ -10,7 +10,7 @@ export const HERO_BRAND_FIXTURE: LandingHeroBrandContent = {
   subtitle: 'Hosted by locals. Built for travelers.',
   description:
     'Curated nature, culture and rural experiences in Boyacá and beyond — small groups, real hosts, secure booking.',
-  backgroundImage: '/assets/images/hero/h10.webp',
+  backgroundImage: '/images/brand/landing-hero.webp',
   primaryCtaLabel: 'Explore experiences',
   primaryCtaHref: '/experiences',
   secondaryCtaLabel: 'Plan with us on WhatsApp',

@@ -24,23 +24,25 @@ function ExperienceHeroComponent({
     t('valueStackAllMealsIncluded'),
     t('valueStackPremiumTransport'),
   ];
-  const heroBackgroundSrc = backgroundImageUrl ?? '/assets/images/hero/h10.webp';
-  const heroMobileSrc = getResponsiveImageSrc(heroBackgroundSrc).mobile;
-
   return (
     <section className="relative w-full overflow-hidden">
-      <picture>
-        <source media="(max-width: 767px)" srcSet={heroMobileSrc} />
-        <img
-          src={heroBackgroundSrc}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </picture>
+      {backgroundImageUrl ? (
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet={getResponsiveImageSrc(backgroundImageUrl).mobile}
+          />
+          <img
+            src={backgroundImageUrl}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+      ) : null}
       <div className="pointer-events-none absolute inset-0 bg-black/30" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
       <SectionContainer

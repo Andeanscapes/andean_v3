@@ -33,8 +33,10 @@ const TIME_24H = /^([01]\d|2[0-3]):[0-5]\d$/;
 
 export const CountryCodeSchema = z.string().regex(COUNTRY_CODE, 'Expected an uppercase ISO-3166-1 alpha-2 code');
 export const Time24hSchema = z.string().regex(TIME_24H, 'Expected 24-hour HH:mm');
-/** Feed media are app-relative paths; an absolute URL would bypass the CDN. */
-export const MediaPathSchema = z.string().regex(/^\/[^\s]*$/, 'Expected an app-relative path starting with "/"');
+/** Feed media are app-relative paths; absolute and protocol-relative URLs are rejected. */
+export const MediaPathSchema = z
+  .string()
+  .regex(/^\/(?!\/)[^\s\\]*$/, 'Expected a safe app-relative path with a single leading "/"');
 
 // ── Domain codes ─────────────────────────────────────────────────────────────
 

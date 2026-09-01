@@ -121,6 +121,51 @@ describe('getLandingDataSSR', () => {
     );
   });
 
+  it('resolves feed-owned brand media through the CDN', async () => {
+    const payload = feedPayload();
+    payload.media = {
+      hero: '/images/brand/hero.webp',
+      finalCta: '/images/brand/final-cta.webp',
+      categories: {
+        emeraldMining: '/images/brand/emerald.webp',
+        nature: '/images/brand/nature.webp',
+        rural: '/images/brand/rural.webp',
+        horseback: '/images/brand/horseback.webp',
+      },
+    };
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+
+    const content = await getLandingDataSSR('en');
+
+    expect(content.heroBrand.backgroundImage).toBe(
+      'https://cdn.andeanscapes.com/images/brand/hero.webp',
+    );
+    expect(content.finalCta.backgroundImage).toBe(
+      'https://cdn.andeanscapes.com/images/brand/final-cta.webp',
+    );
+    expect(content.categories.items.map((item) => item.imageUrl)).toEqual([
+      'https://cdn.andeanscapes.com/images/brand/emerald.webp',
+      'https://cdn.andeanscapes.com/images/brand/nature.webp',
+      'https://cdn.andeanscapes.com/images/brand/rural.webp',
+      'https://cdn.andeanscapes.com/images/brand/horseback.webp',
+    ]);
+  });
+
+  // The structure fallbacks are `/assets/...`; rewriting them would 404.
+  it('leaves source-controlled fallback media on the app origin', async () => {
+    const payload = feedPayload();
+    delete payload.media;
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+
+    const content = await getLandingDataSSR('en');
+
+    expect(content.heroBrand.backgroundImage).toMatch(/^\/assets\//);
+    expect(content.finalCta.backgroundImage).toMatch(/^\/assets\//);
+    expect(content.categories.items.every((item) => item.imageUrl.startsWith('/assets/'))).toBe(
+      true,
+    );
+  });
+
   it('never reaches out to the WhatsApp bot feed', async () => {
     const mockFetch = vi.fn().mockResolvedValue(okResponse(feedPayload()));
     vi.stubGlobal('fetch', mockFetch);

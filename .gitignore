@@ -52,6 +52,22 @@ yarn-error.log*
 /fixtures/*
 !/fixtures/README.md
 
+# Staging for a manual R2 feed publish, generated from `fixtures/` by
+# `npm run feed:stage-cdn-media`. Real business data — never committed, and never
+# a source-controlled fallback registry.
+#
+#   next/      the payloads to upload
+#   rollback/  the payloads as published today, kept only to undo the upload
+#
+# `fixtures/` cannot serve as the rollback copy: `pretest` overwrites it from
+# whatever is live, so after a publish it holds the new payload, not the old one.
+/feed-migration/
+
+# `wrangler r2 object get <bucket>/services/<file>` writes the payload to a local
+# path mirroring the key, creating ./services/. Ignored so that artifact cannot
+# be committed by accident; use `--pipe` or curl to read a feed object instead.
+/services/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -61,3 +77,8 @@ next-env.d.ts
 .env*.local
 # Storybook build output. Publish from CI; never commit the built bundle.
 storybook-static/
+
+# Local staging tree for a manual R2 media upload. Contains real business media.
+# The tooling that produced it is kept outside this repo; the ignore stays so a
+# local staging directory can never be committed.
+cdn-upload/

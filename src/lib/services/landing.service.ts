@@ -18,6 +18,7 @@ import type { LandingContent, LandingFeed } from '../schemas/landing.schema';
 import { LandingFeedV2Schema } from '../schemas/feed/v2';
 import { filterCurrentAvailableDates } from '@/utils/availability';
 import { adaptLandingFeedV2 } from '@/utils/landingFeedAdapter';
+import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
 import { fetchRemoteJson } from '../remote-data';
 import { LANDING_FEED_PATH } from '@/utils/feedPaths';
 import {
@@ -52,7 +53,8 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
 
   // 2. Resolve domain codes → i18n keys and merge the frontend-owned structure.
   //    The feed carries a fixed departure list, so expired dates are dropped.
-  const rawData = withCurrentDates(adaptLandingFeedV2(remote.data));
+  //    CDN-relative media paths are resolved to absolute URLs here.
+  const rawData = resolveMediaUrlsDeep(withCurrentDates(adaptLandingFeedV2(remote.data)));
 
   // 3. Translate — each projector handles one content section
   const translated: LandingContent = {

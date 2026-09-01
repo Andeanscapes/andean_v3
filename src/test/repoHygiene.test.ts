@@ -41,7 +41,9 @@ describe('repository hygiene', () => {
   const tracked = trackedFiles();
 
   it('never tracks a downloaded feed payload', () => {
-    const feedPayloads = tracked.filter((file) => /^fixtures\/.*\.json$/.test(file));
+    const feedPayloads = tracked.filter((file) =>
+      /^(fixtures|feed-migration|services)\/.*\.json$/.test(file),
+    );
     expect(feedPayloads).toEqual([]);
   });
 
@@ -50,6 +52,9 @@ describe('repository hygiene', () => {
       'fixtures/landing.json',
       'fixtures/experiences-list.json',
       'fixtures/experience-emerald-mining.json',
+      'feed-migration/next/landing.json',
+      'feed-migration/rollback/landing.json',
+      'services/landing.json',
     ]) {
       expect(isIgnored(file), `${file} must be gitignored`).toBe(true);
     }
@@ -136,6 +141,47 @@ describe('repository hygiene', () => {
       'wrangler.toml must set REMOTE_DATA_BASE_URL for the default and dev environments',
     ).toBe(2);
     expect(new Set(fromWrangler)).toEqual(new Set([fromScripts]));
+  });
+
+  /**
+   * Same reasoning as the assertion above, extended to the CDN *origin*.
+   *
+   * The feed base URL carries a `/services` path, while media resolution and the
+   * `next/image` allowlist need the bare origin — so these cannot share one
+   * literal. They are still the same host, and a mismatch fails in a way nothing
+   * else catches: `mediaUrl` would emit URLs on one origin while
+   * `images.remotePatterns` allowed another, and `next/image` would reject every
+   * feed image at runtime with no build-time warning.
+   *
+   * `next.config.js` is CommonJS and `mediaUrl.ts` ships to the Worker, so
+   * neither can import the CLI constant. Pinning them here is the cheap
+   * alternative.
+   */
+  it('keeps every hardcoded CDN origin identical', () => {
+    const read = (relativePath: string) =>
+      readFileSync(path.join(REPO_ROOT, relativePath), 'utf8');
+
+    const feedBaseUrl = read('scripts/lib/feed.ts').match(
+      /DEFAULT_FEED_BASE_URL\s*=\s*'([^']+)'/,
+    )?.[1];
+    expect(feedBaseUrl, 'scripts/lib/feed.ts must declare DEFAULT_FEED_BASE_URL').toBeTruthy();
+
+    const expectedOrigin = new URL(feedBaseUrl as string).origin;
+
+    // Each entry is the single fallback literal in that file.
+    const copies: { file: string; pattern: RegExp }[] = [
+      { file: 'next.config.js', pattern: /NEXT_PUBLIC_CDN_BASE_URL\?\.trim\(\)\s*\|\|\s*'([^']+)'/ },
+      { file: 'src/utils/mediaUrl.ts', pattern: /CDN_BASE_URL_DEFAULT\s*=\s*'([^']+)'/ },
+    ];
+
+    for (const { file, pattern } of copies) {
+      const found = read(file).match(pattern)?.[1];
+      expect(found, `${file} must declare a CDN origin matching ${pattern}`).toBeTruthy();
+      expect(
+        new URL(found as string).origin,
+        `${file} must use the same CDN origin as DEFAULT_FEED_BASE_URL`,
+      ).toBe(expectedOrigin);
+    }
   });
 
   it('never tracks a private key or certificate', () => {

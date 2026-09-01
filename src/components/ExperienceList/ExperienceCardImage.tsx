@@ -1,86 +1,56 @@
-'use client';
-
-import Image from 'next/image';
+import { memo } from 'react';
 import { ImageIcon } from 'lucide-react';
-import { memo, useState } from 'react';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 type ExperienceCardImageProps = {
   src: string;
   alt: string;
-  sizes: string;
+  sizes?: string;
 };
 
-const shimmerBlurDataUrl = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9" preserveAspectRatio="none">
-    <rect width="16" height="9" fill="#1f2937" />
-    <rect width="16" height="9" fill="url(#g)" opacity="0.4" />
-    <defs>
-      <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
-        <stop stop-color="#1f2937" offset="0%" />
-        <stop stop-color="#374151" offset="50%" />
-        <stop stop-color="#1f2937" offset="100%" />
-      </linearGradient>
-    </defs>
-  </svg>`
-)}`;
-
+/**
+ * Card image for the experiences list.
+ *
+ * Deliberately **not** `next/image`. On the deployed Worker `/_next/image` is a
+ * pass-through — verified with `npm run preview`, which returns the untouched
+ * 716x955 original for every width from `w=64` to `w=3840`. Routing through it
+ * therefore buys no resizing, costs a subrequest, and silently served mobile
+ * clients the full-size file.
+ *
+ * `<picture>` with a pre-generated `-mobile` variant is what the hero components
+ * already do, and it is the only mechanism that actually reduces mobile bytes
+ * here. See `docs/V2_REMOTE_RESOURCES_MIGRATION.md` — every `<picture>`-rendered
+ * media path requires an uploaded `-mobile` sibling.
+ *
+ * There is no `onLoad`-gated reveal: an earlier version faded the image in from a
+ * React `load` handler, which loses the race whenever the browser finishes
+ * loading before hydration and left the card showing an empty placeholder over a
+ * fully loaded image.
+ */
 function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Blank counts as unset: an unset CI variable inlines as '', and `??` would
-  // keep it and emit relative `/images/...` URLs that 404 on the Worker.
-  const cdnBaseUrl =
-    process.env.NEXT_PUBLIC_CDN_BASE_URL?.trim() || 'https://cdn.andeanscapes.com';
-  const normalizedCdnBaseUrl = cdnBaseUrl.replace(/\/$/, '');
-  const resolvedSrc = src.startsWith('/images/')
-    ? `${normalizedCdnBaseUrl}${src}`
-    : src;
-  
-  const mobileSrc = getResponsiveImageSrc(resolvedSrc).mobile;
+  const { mobile } = getResponsiveImageSrc(src);
 
   return (
     <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">
       <div
         aria-hidden="true"
-        className={`absolute inset-0 bg-gradient-to-br from-base-200 via-base-300 to-base-200 transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0' : 'animate-pulse opacity-100'
-        }`}
-      />
-      <div
-        aria-hidden="true"
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0' : 'opacity-100'
-        }`}
+        className="absolute inset-0 flex items-center justify-center text-base-content/35"
       >
-        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-base-content/10 bg-base-100/70 text-base-content/50 shadow-sm backdrop-blur-sm">
-          <ImageIcon className="h-6 w-6" />
-        </div>
+        <ImageIcon className="h-8 w-8" />
       </div>
-      <div
-        aria-hidden="true"
-        className={`absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/20 to-transparent transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0' : 'opacity-100'
-        }`}
-      />
-
       <picture>
-        <source media="(max-width: 767px)" srcSet={mobileSrc} type="image/webp" />
-        <source media="(min-width: 768px)" srcSet={resolvedSrc} type="image/webp" />
-        <Image
-          src={resolvedSrc}
+        <source media="(max-width: 767px)" srcSet={mobile} />
+        <img
+          src={src}
           alt={alt}
-          fill
+          // Empty alt marks the image decorative, which is only correct when the
+          // caller renders the same text adjacently — hide it from the
+          // accessibility tree so it is skipped, not announced as an image.
+          aria-hidden={alt === '' ? 'true' : undefined}
           sizes={sizes}
           loading="lazy"
           decoding="async"
-          quality={75}
-          placeholder="blur"
-          blurDataURL={shimmerBlurDataUrl}
-          onLoad={() => setIsLoaded(true)}
-          className={`object-cover transition-all duration-500 ${
-            isLoaded ? 'scale-100 opacity-100' : 'scale-[1.03] opacity-0'
-          }`}
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </picture>
     </div>

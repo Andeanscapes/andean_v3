@@ -97,10 +97,17 @@ describe('ExperienceCard', () => {
     expect(link).toHaveAttribute('href', '/experiences/emerald-mining-adventure');
   });
 
-  it('renders image fallback skeleton while loading', () => {
+  // The loading state is `next/image`'s blur placeholder, not a skeleton overlay:
+  // the old overlay was tied to an `onLoad` reveal that could never fire, which
+  // left the card showing an empty placeholder over a fully loaded image.
+  it('renders the card image from the feed, decoratively', () => {
     const { container } = render(<ExperienceCard {...defaultProps} />);
-    const skeleton = container.querySelector('[aria-hidden="true"]');
-    expect(skeleton).toBeInTheDocument();
-    expect(skeleton).toHaveClass('animate-pulse');
+    const image = container.querySelector('img');
+
+    expect(image).toHaveAttribute('src', expect.stringContaining('emerald-mining-card.webp'));
+    expect(image?.className).not.toContain('opacity-0');
+    // The title is the adjacent <h3>; announcing it twice is worse than once.
+    expect(image).toHaveAttribute('alt', '');
+    expect(screen.getByRole('heading', { name: mockCard.title })).toBeInTheDocument();
   });
 });

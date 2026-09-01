@@ -28,12 +28,14 @@ function ValuePropositionsComponent({ className = '', experienceData }: ValuePro
               key={item.id}
               className="group relative aspect-[4/3] overflow-hidden rounded-2xl border-white/10 backdrop-blur-md transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:border-[#00F08F]/50 hover:bg-slate-900/60"
             >
-              <BackgroundImageWithFallback
-                src={item.imageUrl}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-                fallbackClassName="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900/80 via-slate-800/65 to-slate-900/70"
-              />
+              {item.imageUrl ? (
+                <BackgroundImageWithFallback
+                  src={item.imageUrl}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  fallbackClassName="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900/80 via-slate-800/65 to-slate-900/70"
+                />
+              ) : null}
               <div
                 aria-hidden="true"
                 className={

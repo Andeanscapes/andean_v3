@@ -25,6 +25,42 @@ describe('adaptLandingFeedV2', () => {
     expect(raw.reviews.aggregateRating.reviewCount).toBe(LANDING_FIXTURE.reviewSummary.count);
   });
 
+  it('uses feed media when published', () => {
+    const payload = feed();
+    payload.media = {
+      hero: '/images/brand/hero.webp',
+      finalCta: '/images/brand/final-cta.webp',
+      categories: {
+        emeraldMining: '/images/brand/category-emerald.webp',
+        nature: '/images/brand/category-nature.webp',
+        rural: '/images/brand/category-rural.webp',
+        horseback: '/images/brand/category-horseback.webp',
+      },
+    };
+
+    const raw = adaptLandingFeedV2(payload);
+
+    expect(raw.heroBrand.backgroundImage).toBe(payload.media.hero);
+    expect(raw.categories.items.map((item) => item.imageUrl)).toEqual([
+      payload.media.categories.emeraldMining,
+      payload.media.categories.nature,
+      payload.media.categories.rural,
+      payload.media.categories.horseback,
+    ]);
+    expect(raw.finalCta.backgroundImage).toBe(payload.media.finalCta);
+  });
+
+  it('keeps legacy media during the staged rollout', () => {
+    const payload = feed();
+    delete payload.media;
+
+    const raw = adaptLandingFeedV2(payload);
+
+    expect(raw.heroBrand.backgroundImage).toMatch(/^\/assets\//);
+    expect(raw.categories.items.every((item) => item.imageUrl.startsWith('/assets/'))).toBe(true);
+    expect(raw.finalCta.backgroundImage).toMatch(/^\/assets\//);
+  });
+
   it('throws when a review has no comment mapping', () => {
     const payload = feed();
     payload.reviews[0].id = 'ghostReviewer';

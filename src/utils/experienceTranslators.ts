@@ -44,7 +44,10 @@ export function toHeroContent(
     helperText: t('experiences.common.security'),
     hideCta: false,
     ctaTargetId: 'available-dates',
-    backgroundImageUrl: config.images?.heroBackground ?? '/assets/images/hero/h10.webp',
+    // Absent, never `''`: an empty string is a truthy-looking value that would
+    // reach `<img src="">` and the SEO/OG image builders as if it were a URL.
+    backgroundImageUrl: config.images?.heroBackground,
+    video: config.video,
     badges: [
       { label: t('experiences.ui.limitedSpots'), icon: 'limited' },
       { label: `${t('experiences.ui.depositLabel')} ${depositPercent}%`, icon: 'deposit' },
@@ -94,20 +97,20 @@ export function toValuePropositionsContent(
         id: 'tile-1',
         title: t('experiences.ui.experienceDetails.tile1Title'),
         description: t('experiences.ui.experienceDetails.tile1Desc'),
-        imageUrl: config.images?.valuePropositionTile1 ?? '/assets/images/hero/h10.webp',
+        imageUrl: config.images?.valuePropositionTile1,
         badge: t('experiences.ui.verifiedGuideBadge'),
       },
       {
         id: 'tile-2',
         title: t('experiences.ui.experienceDetails.tile2Title'),
         description: t('experiences.ui.experienceDetails.tile2Desc'),
-        imageUrl: config.images?.valuePropositionTile2 ?? '/assets/images/hero/h7.webp',
+        imageUrl: config.images?.valuePropositionTile2,
       },
       {
         id: 'tile-3',
         title: t('experiences.ui.experienceDetails.tile3Title'),
         description: t('experiences.ui.experienceDetails.tile3Desc'),
-        imageUrl: config.images?.valuePropositionTile3 ?? '/assets/images/hero/h8.webp',
+        imageUrl: config.images?.valuePropositionTile3,
       },
     ],
   };

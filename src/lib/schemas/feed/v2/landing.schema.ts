@@ -59,6 +59,27 @@ export const LandingFeedV2Schema = z
     featuredReviewIds: z.array(z.string().min(1)),
     reviews: z.array(ReviewSchema),
     /**
+     * Brand-level media: hero background, final CTA background and the four
+     * category tiles. CDN-relative `/images/...` paths resolved to absolute
+     * URLs by `resolveMediaUrlsDeep` in `landing.service`. Optional only for the
+     * staged strict-schema rollout; tighten after the published feed carries it.
+     */
+    media: z
+      .object({
+        hero: MediaPathSchema,
+        finalCta: MediaPathSchema,
+        categories: z
+          .object({
+            emeraldMining: MediaPathSchema,
+            nature: MediaPathSchema,
+            rural: MediaPathSchema,
+            horseback: MediaPathSchema,
+          })
+          .strict(),
+      })
+      .strict()
+      .optional(),
+    /**
      * Aggregate over ALL reviews, not just the featured subset — the trust panel
      * advertises the total, so it cannot be derived from `reviews` alone.
      */

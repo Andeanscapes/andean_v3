@@ -212,12 +212,12 @@
           "flexible": "Free rescheduling up to 48 hours before"
         }
       },
-        "globalCtas": {
-          "explore": "See all experiences",
-          "whatsapp": "WhatsApp us",
-          "mobileFromLabel": "From",
-          "mobileBookNow": "Book now"
-        }
+      "globalCtas": {
+        "explore": "See all experiences",
+        "whatsapp": "WhatsApp us",
+        "mobileFromLabel": "From",
+        "mobileBookNow": "Book now"
+      }
     },
     "reviews": {
       "sectionTitle": "What travelers say",
@@ -231,32 +231,32 @@
         "colombia": "Colombia",
         "spain": "Spain"
       },
-         "items": {
-           "carlosTulio": {
-             "comment": "The property is beautiful and the rooms comfortable, there is so much to do here. I wanted to stay longer."
-           },
-           "anamaria": {
-             "comment": "Our stay at Hacienda El Recuerdo was wonderful. A very welcoming and peaceful place. You can truly connect with nature. Yesid and Marlen are very attentive and kind people who made us feel at home. Heinner is an excellent host. It was an excellent experience. The only thing to consider is how you get to the property, since it sits in the middle of the mountains. Overall, it is an unforgettable experience for those of us who love adventure and nature. We hope to return!"
-           },
-           "odessa": {
-             "comment": "I cannot say enough good things about this stay. Heinner was of great help even before we arrived, offering to guide us to the property from the city or arrange transport. His family lives here and they are all so kind and welcoming that we felt like we were visiting friends right away. Heinner is deeply involved in the local community and organised a tour so we could visit the local emerald mines! It was an incredible experience! We enjoyed walking the property, watching birds and even milking cows. All our meals were homemade by Heinner's mother and they were perfect. The wifi was fast and reliable and they have a great coworking space with desks."
-           },
-           "sandraPatricia": {
-             "comment": "Our stay at Hacienda El Recuerdo was very pleasant. Our hosts Marlen, Yesid, Heinner, Kyra and Luna were very attentive, always looking after whatever we needed. The room was very comfortable and we slept wonderfully. The food was delicious and prepared with great love. We felt at home. Staying at El Recuerdo is a great option — it is not only about resting, but about getting to know the surroundings, doing ecotourism activities, meeting the locals, our roots, and appreciating the wonders of our country. We recommend it and we will return!"
-           },
-           "camilo": {
-             "comment": "Excellent experience, a very peaceful place with plenty of space for activities within the property. An exceptional connection with nature. Highly recommended."
-           }
-         },
-       "trustPanel": {
-         "title": "Why travelers come back",
-         "bullets": {
-           "local": "Locally owned — all revenue stays within Boyacá communities",
-           "reviews": "5.0★ from 5 verified travelers",
-           "payment": "Reserve with 15% — pay the rest on arrival",
-           "support": "WhatsApp support from booking to the day you leave"
-         }
-       }
+      "items": {
+        "carlosTulio": {
+          "comment": "The property is beautiful and the rooms comfortable, there is so much to do here. I wanted to stay longer."
+        },
+        "anamaria": {
+          "comment": "Our stay at Hacienda El Recuerdo was wonderful. A very welcoming and peaceful place. You can truly connect with nature. Yesid and Marlen are very attentive and kind people who made us feel at home. Heinner is an excellent host. It was an excellent experience. The only thing to consider is how you get to the property, since it sits in the middle of the mountains. Overall, it is an unforgettable experience for those of us who love adventure and nature. We hope to return!"
+        },
+        "odessa": {
+          "comment": "I cannot say enough good things about this stay. Heinner was of great help even before we arrived, offering to guide us to the property from the city or arrange transport. His family lives here and they are all so kind and welcoming that we felt like we were visiting friends right away. Heinner is deeply involved in the local community and organised a tour so we could visit the local emerald mines! It was an incredible experience! We enjoyed walking the property, watching birds and even milking cows. All our meals were homemade by Heinner's mother and they were perfect. The wifi was fast and reliable and they have a great coworking space with desks."
+        },
+        "sandraPatricia": {
+          "comment": "Our stay at Hacienda El Recuerdo was very pleasant. Our hosts Marlen, Yesid, Heinner, Kyra and Luna were very attentive, always looking after whatever we needed. The room was very comfortable and we slept wonderfully. The food was delicious and prepared with great love. We felt at home. Staying at El Recuerdo is a great option — it is not only about resting, but about getting to know the surroundings, doing ecotourism activities, meeting the locals, our roots, and appreciating the wonders of our country. We recommend it and we will return!"
+        },
+        "camilo": {
+          "comment": "Excellent experience, a very peaceful place with plenty of space for activities within the property. An exceptional connection with nature. Highly recommended."
+        }
+      },
+      "trustPanel": {
+        "title": "Why travelers come back",
+        "bullets": {
+          "local": "Locally owned — all revenue stays within Boyacá communities",
+          "reviews": "5.0★ from 5 verified travelers",
+          "payment": "Reserve with 15% — pay the rest on arrival",
+          "support": "WhatsApp support from booking to the day you leave"
+        }
+      }
     },
     "faqs": {
       "sectionTitle": "Common questions",
@@ -405,21 +405,21 @@
         }
       }
     },
-      "inclusions": {
-        "sectionTitle": "What's included",
-        "includedLabel": "Included",
-        "notIncludedLabel": "Not included",
-        "logistics": {
-          "start": "Start time",
-          "duration": "Duration",
-          "transport": "Transport",
-          "difficulty": "Difficulty"
-        },
-        "logisticsValues": {
-          "duration": "2 days / 1 night",
-          "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
-          "difficulty": "Moderate"
-        },
+    "inclusions": {
+      "sectionTitle": "What's included",
+      "includedLabel": "Included",
+      "notIncludedLabel": "Not included",
+      "logistics": {
+        "start": "Start time",
+        "duration": "Duration",
+        "transport": "Transport",
+        "difficulty": "Difficulty"
+      },
+      "logisticsValues": {
+        "duration": "2 days / 1 night",
+        "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+        "difficulty": "Moderate"
+      },
       "included": {
         "guide": "Certified bilingual guide",
         "equipment": "All safety equipment",
@@ -484,82 +484,8 @@
       }
     }
   },
-  "HeroTwo": {
-    "cta": "BOOK NOW",
-    "slides": {
-      "0": {
-        "title": "Your Digital Nomad Retreat",
-        "subtitle": "Code amidst the clouds, immerse yourself in the vibrant traditions of Colombian mountains, and find inspiration in nature at Andean Scapes—the ultimate retreat and co-living experience for digital nomads."
-      },
-      "1": {
-        "title": "Wake Up to Stunning Mountain Views",
-        "subtitle": "Start your day with breathtaking mountain vistas. Discover tranquility and inspiration in every sunrise."
-      },
-      "2": {
-        "title": "Live and Work in Harmony",
-        "subtitle": "Enjoy modern comforts in a historic setting at Hacienda El Recuerdo (Chivor - Boyacá). Ideal for digital nomads seeking a unique co-living experience."
-      },
-      "3": {
-        "title": "Discover Hidden Treasures",
-        "subtitle": "Venture into the heart of Colombia's emerald mines. Unearth nature's finest gems and create unforgettable memories"
-      },
-      "4": {
-        "title": "Work Amidst Nature",
-        "subtitle": "Find your productivity sweet spot in our serene outdoor workspaces. Enjoy stunning views while you work."
-      },
-      "5": {
-        "title": "Reconnect with Nature",
-        "subtitle": "Engage in hands-on farm and beekeeping activities. Experience the joy and simplicity of rural life."
-      },
-      "6": {
-        "title": "Adventure Awaits",
-        "subtitle": "Embark on thrilling activities like hiking and horseback riding. Explore the adventurous side of the Andes."
-      },
-      "7": {
-        "title": "Immerse in Local Life",
-        "subtitle": "Dive into the rich local culture with vibrant community events and traditions. Experience authentic Colombian hospitality."
-      },
-      "8": {
-        "title": "Rest in Comfort and Style",
-        "subtitle": "Unwind in our beautifully designed private rooms. Enjoy the perfect blend of comfort, style, and tranquility."
-      },
-      "9": {
-        "title": "Explore Charming Nearby Towns",
-        "subtitle": "Discover the beauty and charm of nearby Colombian towns like Macanal (Boyacá). Immerse yourself in local culture, architecture, and traditions for an authentic experience."
-      },
-      "10": {
-        "title": "Connect with Farm Life",
-        "subtitle": "Get hands-on with farm life by milking cows with local farmers at Hacienda El Recuerdo. Learn traditional methods and enjoy a unique rural experience."
-      },
-      "11": {
-        "title": "Unearth the Treasures of the Andes",
-        "subtitle": "Delve deep into the heart of the Andes and explore the historic emerald mines. Experience the thrill of discovery while learning about the mining traditions and the geological wonders of Colombia."
-      }
-    },
-    "availabilityCta": "Check availability",
-    "scrollCue": "Book in 1 minute"
-  },
-  "VideoBanner": {
-    "title": "Discover the Miner’s Journey",
-    "description": "Experience a day in the life of an emerald miner. Watch our exclusive video to uncover the adventure and heritage of Colombia's emerald industry.",
-    "close": "Close",
-    "closeAria": "Close video",
-    "videoTitle": "YouTube video player",
-    "playAria": "Play video",
-    "playAlt": "Play video"
-  },
   "BookingCtas": {
-    "title": "Ready for your adventure? ⛏️💎",
-    "subtitle": "Mining adventure in Chivor + Hacienda El Recuerdo stay. 2D/1N plan.",
-    "airbnbCta": "Check availability on Airbnb",
-    "airbnbSupport": "Secure payment + reviews",
-    "reviewsLabel": "reviews",
-    "trustPolicy": "Secure payment · Cancellation per Airbnb policy",
-    "whatsappHelpText": "Questions or want a quote before booking?",
     "whatsappCta": "Chat on WhatsApp",
-    "stickyWhatsappText": "Questions? WhatsApp",
-    "whatsappSupport": "We help you confirm dates, rooms and transport · Fast response",
-    "bookingScopeNote": "Airbnb booking covers room-only at Hacienda El Recuerdo. The mine tour is priced separately.",
     "whatsappMiningQuote": "Hello! I'm interested in the Emerald Mining Adventure at Hacienda El Recuerdo in Chivor. Can you help me with availability?"
   },
   "EmeraldMiningAdventure": {

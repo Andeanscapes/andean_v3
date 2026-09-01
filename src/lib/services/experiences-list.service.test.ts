@@ -78,6 +78,58 @@ describe('getExperiencesListSSR', () => {
     expect(data.cards[0].href).toBe(`/experiences/${feed.experiences[0].slug}`);
   });
 
+  it('resolves feed-owned hero video through the CDN', async () => {
+    const feed = listFeed();
+    feed.media = {
+      video: {
+        desktop: '/videos/experiences/list/hero.webm',
+        mobile: '/videos/experiences/list/hero-mobile.webm',
+      },
+    };
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.hero.video).toEqual({
+      desktop: 'https://cdn.andeanscapes.com/videos/experiences/list/hero.webm',
+      mobile: 'https://cdn.andeanscapes.com/videos/experiences/list/hero-mobile.webm',
+    });
+  });
+
+  it('resolves the feed-owned hero background through the CDN', async () => {
+    const feed = listFeed();
+    feed.media = { hero: '/images/experiences/list/hero.webp' };
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.hero.backgroundImageUrl).toBe(
+      'https://cdn.andeanscapes.com/images/experiences/list/hero.webp',
+    );
+  });
+
+  it('omits the hero video while the feed field is rolling out', async () => {
+    const feed = listFeed();
+    delete feed.media;
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.hero.video).toBeUndefined();
+  });
+
+  // Regression: dropping the hardcoded default left the hero with no background
+  // at all, because the published feed carries no `media` block yet.
+  it('always renders a hero background, even with no feed media', async () => {
+    const feed = listFeed();
+    delete feed.media;
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.hero.backgroundImageUrl).toBe('/assets/images/hero/h10.webp');
+  });
+
   it('resolves every user-facing string through a mapping, never from the payload', async () => {
     stubFeed(listFeed());
 

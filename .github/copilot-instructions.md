@@ -197,7 +197,7 @@ All site data comes from a remote JSON feed at `REMOTE_DATA_BASE_URL`. **There a
 | File | Drives |
 |---|---|
 | `landing.json` | landing page |
-| `experiences-list.json` | `/experiences` cards **and** route/SEO metadata |
+| `experiences-list.json` | `/experiences` cards, list-hero media, **and** route/SEO metadata |
 | `experience-<kebab-id>.json` | experience detail + booking pages |
 
 Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticated, not a credential).
@@ -224,6 +224,7 @@ Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticat
 - Keep pages thin. Pages orchestrate, they do not embed business logic.
 - Services resolve translation keys into UI-ready data.
 - Feed payloads carry stable domain **codes**, never translation paths or localized strings. The frontend resolves codes through typed mapping tables; see `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
+- Feed media paths have one leading slash. CDN business media uses `/images/...` and `/videos/...`; absolute and protocol-relative URLs are invalid.
 - **V2 (accepted target):** feed payloads carry **stable domain codes only** — no translation paths, no `*Key` properties, no namespace selection. The frontend maps codes to keys through typed tables in `src/i18n/mappings/*`. Never pass a feed value to `t()`, and never build a key by concatenating one.
 - **V2 one resource per page.** Each page fetches exactly one feed resource: landing reads `landing.json`, `/experiences` reads `experiences-list.json`, detail/booking read `experience-<kebab-id>.json`. No page fans out across resources to render.
 - **V2 bounded read-model projections.** Because of the rule above, `experiences-list.json` and `landing.json` each carry a *bounded* copy of the experience-owned values they render (slug, status, media, price, currency, duration, location; landing also availability and review facts). The experience resource stays the canonical owner. Booking inventory — rooms, capacity, transport pricing, add-ons, itinerary, deposit — is **never** projected. Every duplicated field is equality-asserted against the owner in `src/test/feed-v2/contract.test.ts`; add an assertion there before adding a projected field.

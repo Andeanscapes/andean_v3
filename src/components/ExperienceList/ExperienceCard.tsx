@@ -20,7 +20,10 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
       <div className="relative">
         <ExperienceCardImage
           src={card.image}
-          alt={card.title}
+          // Decorative: the title is rendered as the <h3> immediately below, so
+          // a descriptive alt would make screen readers announce it twice.
+          // Matches LandingFeaturedExperienceCard.
+          alt=""
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {card.tag ? (
