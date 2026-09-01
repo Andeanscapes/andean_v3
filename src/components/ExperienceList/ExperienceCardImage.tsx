@@ -28,8 +28,10 @@ const shimmerBlurDataUrl = `data:image/svg+xml;charset=UTF-8,${encodeURIComponen
 function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Blank counts as unset: an unset CI variable inlines as '', and `??` would
+  // keep it and emit relative `/images/...` URLs that 404 on the Worker.
   const cdnBaseUrl =
-    process.env.NEXT_PUBLIC_CDN_BASE_URL ?? 'https://cdn.andeanscapes.com';
+    process.env.NEXT_PUBLIC_CDN_BASE_URL?.trim() || 'https://cdn.andeanscapes.com';
   const normalizedCdnBaseUrl = cdnBaseUrl.replace(/\/$/, '');
   const resolvedSrc = src.startsWith('/images/')
     ? `${normalizedCdnBaseUrl}${src}`

@@ -82,6 +82,7 @@
       "featured": {
         "title": "Experiencias que valen el viaje",
         "viewAll": "Ver todas las experiencias",
+        "nextAvailability": "Próxima salida: {date} — Solo {count, plural, one {# cupo} other {# cupos}} disponibles",
         "fromLabel": "Desde",
         "viewDetails": "Ver detalles",
         "badges": {
@@ -187,6 +188,7 @@
       "location": {
         "title": "Dónde operamos",
         "mapAlt": "Mapa que muestra Bogotá y Chivor, Boyacá, Colombia",
+        "liveNetwork": "Red en vivo",
         "cta": "Planea tu ruta",
         "bullets": {
           "region": "Boyacá, Colombia — 3 horas al este de Bogotá",
@@ -219,34 +221,42 @@
     },
     "reviews": {
       "sectionTitle": "Lo que dicen los viajeros",
-      "subtitle": "Sin editar. De personas que estuvieron allí.",
+      "subtitle": "Reseñas de huéspedes verificados en Airbnb.",
       "eyebrow": "Reseñas de viajeros",
       "outOf5Aria": "de 5",
       "countSuffix": "reseñas",
       "verifiedGuest": "Huésped verificado",
-      "items": {
-        "sarah": {
-          "comment": "Trabajamos una veta real junto a la familia minera. Eso no se puede fingir — ni encontrar en ningún otro lugar.",
-          "verifiedExperience": "Aventura de Minería de Esmeraldas"
-        },
-        "lucas": {
-          "comment": "Los anfitriones hicieron el viaje. Conocían la historia detrás de cada lugar. Boyacá a través de sus ojos es otra cosa.",
-          "verifiedExperience": "Aventura de Minería de Esmeraldas"
-        },
-        "emily": {
-          "comment": "El grupo pequeño hizo que el guía hablara con nosotros, no para nosotros. Me fui sintiéndome parte de algo real.",
-          "verifiedExperience": "Experiencia de Alfarería Ancestral"
-        }
+      "verifiedStay": "Hacienda El Recuerdo · Airbnb",
+      "countries": {
+        "colombia": "Colombia",
+        "spain": "España"
       },
-      "trustPanel": {
-        "title": "Por qué los viajeros vuelven",
-        "bullets": {
-          "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
-          "reviews": "4.9★ entre más de 500 viajeros verificados",
-          "payment": "Reserva con el 15% — el resto lo pagas al llegar",
-          "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
-        }
-      }
+       "items": {
+         "carlosTulio": {
+           "comment": "La finca es muy bella y las habitaciones cómodas, en el lugar hay mucho que hacer. Quería quedarme más tiempo."
+         },
+         "anamaria": {
+           "comment": "La estadía en la Hacienda el Recuerdo fue maravillosa. Un lugar muy acogedor y tranquilo. Realmente se puede conectar con la naturaleza. El señor Yesid y la señora Marlen, son unas personas muy atentas y amables, nos hicieron sentir en casa. Heinner es un excelente anfitrión. Fue una excelente experiencia. Lo único para tener en cuenta es el medio de transporte en el que se llegue a la finca, ya que queda en medio de las montañas. En general, es una experiencia inolvidable para quienes nos encanta la aventura y la naturaleza. ¡Esperamos regresar!"
+         },
+         "odessa": {
+           "comment": "No puedo decir suficientes cosas buenas sobre esta estadía. Heinner fue de gran ayuda incluso antes de que llegáramos, ofreciéndonos a guiarnos hasta la finca desde la ciudad u organizar el transporte. Su familia vive aquí y todos son tan amables y acogedores que sentimos que estábamos visitando a nuestros amigos de inmediato. ¡Heinner está muy involucrado en la comunidad local y organizó un recorrido para que visitáramos las minas esmeralda locales! ¡Fue una experiencia increíble! Disfrutamos caminando por la propiedad, observando aves e incluso ordeñando vacas. Todas nuestras comidas fueron caseras por la madre de Heinner y fueron perfectas. El wifi era rápido y confiable y tienen un gran espacio de coworking con escritorios."
+         },
+         "sandraPatricia": {
+           "comment": "Nuestra estadía fue muy placentera en la hacienda el recuerdo, nuestros anfitriones Marlen, Yesid, Heinner, Kyra y Luna muy atentos, siempre pendientes de lo que necesitábamos. La habitación muy confortable, dormimos delicioso. La alimentación deliciosa y preparada con mucho amor. Nos sentimos como en casa. Alojarse en el recuerdo es una gran opción, no solo se trata de descansar, si no de conocer el entorno y realizar actividades de ecoturismo, conocer a los locales, nuestras raices y apreciar las maravillas de nuestro país. ¡Lo recomendamos y regresaremos!"
+         },
+         "camilo": {
+           "comment": "Excelente experiencia, un lugar muy tranquilo con mucho espacio para hacer actividades dentro de las instalaciones. Una conexión con la naturaleza excepcional. Recomendadísimo."
+         }
+       },
+       "trustPanel": {
+         "title": "Por qué los viajeros vuelven",
+         "bullets": {
+           "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
+           "reviews": "5.0★ de 5 viajeros verificados",
+           "payment": "Reserva con el 15% — el resto lo pagas al llegar",
+           "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
+         }
+       }
     },
     "faqs": {
       "sectionTitle": "Preguntas frecuentes",
@@ -457,7 +467,9 @@
     "cardMeta": {
       "duration2d1n": "2D / 1N",
       "startsInChivor": "Inicio en Chivor",
-      "smallGroup": "Grupo pequeño"
+      "smallGroup": "Grupo pequeño",
+      "durationDaysNights": "{days}D / {nights}N",
+      "startsIn": "Inicio en {locality}"
     },
     "smallGroups": "Grupos pequeños",
     "localGuides": "Guías locales expertos",
@@ -588,7 +600,7 @@
       "deposit": "Reserva con",
       "balance": "Saldo a pagar el día del tour",
       "security": "Pago 100% seguro con Mercado Pago",
-      "ctaPrimary": "Paga 15% de depósito",
+      "ctaPrimary": "Paga {percent}% de depósito",
       "ctaSecondary": "¿Dudas? WhatsApp"
     },
     "ui": {
@@ -665,6 +677,20 @@
       "allInclusiveLineItem": "Tour todo incluido con comidas y alojamiento para {count, plural, one {# persona} other {# personas}}",
       "roomSelectionTitle": "Elige habitaciones",
       "closeModal": "Cerrar",
+      "decrease": "Disminuir",
+      "increase": "Aumentar",
+      "meetingPoint": "Punto de encuentro",
+      "validation": {
+        "selectDate": "Selecciona una fecha disponible",
+        "peopleMin": "Mínimo {min, plural, one {# persona} other {# personas}}",
+        "peopleMax": "Máximo {max, plural, one {# persona} other {# personas}}",
+        "roomRequired": "Selecciona al menos un tipo de habitación",
+        "transportRequired": "Selecciona tu modo de transporte",
+        "termsRequired": "Debes aceptar los términos y condiciones",
+        "contactName": "Nombre requerido (mínimo 2 caracteres)",
+        "contactPhone": "Celular inválido (mínimo 7 dígitos)",
+        "contactEmail": "Email inválido"
+      },
       "unitsAvailable": "{count} disponibles",
       "coupleNote": "💑 Pareja simplifica la decisión a 2 personas en habitación compartida.",
       "selectTierTitle": "Elige tu alojamiento",
@@ -724,6 +750,9 @@
         "valueStackPremiumTransport": "Transporte 4x4 Premium",
         "accommodationTitle": "Tu Estadía",
         "selectYourStayTitle": "Opciones de Estadía",
+        "addonsTitle": "Adicionales opcionales",
+        "addonsPerPerson": "por persona",
+        "addonsTeamConfirmation": "El equipo confirma disponibilidad y valor final",
         "hostChoiceLabel": "Elección del Anfitrión",
         "selectedLabel": "Seleccionado",
         "tierBadgeHeritage": "Heritage / Tradicional",
@@ -934,6 +963,16 @@
         "stop6ShortDesc": "Ceremonia de certificado y despedida",
         "stop6Desc": "Reflexiona sobre el viaje y recibe tu certificado de participación"
       },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Apicultura y ganadería",
+          "description": "Actividades guiadas de apicultura y ganadería en la Hacienda El Recuerdo. Disponible en el plan 2D/1N."
+        },
+        "horsebackRiding": {
+          "label": "Cabalgata guiada",
+          "description": "Cabalgata guiada por los caminos rurales de la zona. Se cotiza aparte del total del plan."
+        }
+      },
       "host": {
         "bio": "Anfitrión local especializado en rutas de minería de esmeraldas y experiencias culturales andinas.",
         "idealFor1": "Buscadores de Aventura",
@@ -981,6 +1020,7 @@
     "brandLine": "Estancias y experiencias auténticas en los Andes colombianos",
     "exploreExperiences": "Explorar Experiencias",
     "planOnWhatsApp": "Planifica tu Viaje por WhatsApp",
+    "whatsappMessage": "¡Hola! Me gustaría recibir ayuda para planificar un viaje con Andean Scapes.",
     "sectionQuickExplore": "Explorar Rápido",
     "sectionNavigate": "Navegar",
     "trustMicroCopy": "Grupos pequeños · Anfitriones locales · Planificación flexible · Soporte por WhatsApp",
@@ -998,5 +1038,12 @@
       "reviews": "Reseñas",
       "faq": "Preguntas Frecuentes"
     }
+  },
+  "Error": {
+    "title": "Algo salió mal",
+    "description": "No pudimos cargar esta página en este momento. Suele ser temporal — inténtalo de nuevo en unos instantes.",
+    "retry": "Intentar de nuevo",
+    "backHome": "Volver al inicio",
+    "reference": "Referencia"
   }
 }

@@ -23,11 +23,13 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
           alt={card.title}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute left-3 top-3">
-          <Badge variant="secondary" size="sm" className="bg-base-100/90 px-2 py-0.5 text-[11px] md:px-2.5 md:py-1 md:text-xs">
-            {card.tag}
-          </Badge>
-        </div>
+        {card.tag ? (
+          <div className="absolute left-3 top-3">
+            <Badge variant="secondary" size="sm" className="bg-base-100/90 px-2 py-0.5 text-[11px] md:px-2.5 md:py-1 md:text-xs">
+              {card.tag}
+            </Badge>
+          </div>
+        ) : null}
       </div>
 
       <div className="mt-2 flex flex-1 flex-col md:mt-3">

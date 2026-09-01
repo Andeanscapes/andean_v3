@@ -1,4 +1,5 @@
 import { locales, type Locale } from '@/i18n/routing';
+import { experiencePath } from '@/utils/experienceRoutes';
 
 const SITE_URL = 'https://andeanscapes.com';
 
@@ -8,7 +9,7 @@ function resolveLocalePath(locale: string, path: string) {
 }
 
 export function buildExperiencePath(locale: string, experienceName: string, suffix = '') {
-  const basePath = `/experiences/${experienceName}${suffix}`;
+  const basePath = experiencePath(experienceName, suffix);
   return resolveLocalePath(locale, basePath);
 }
 

@@ -75,6 +75,9 @@ export const LANDING_ICON_MAP: Record<string, LucideIcon> = {
  * Type-safe accessor with safe fallback to HelpCircle when the name is unknown.
  * Always returns a valid JSX-renderable icon component.
  */
+/** Valid icon names, so callers can validate without a lookup attempt. */
+export const LANDING_ICON_NAMES: ReadonlySet<string> = new Set(Object.keys(LANDING_ICON_MAP));
+
 export function getLandingIcon(name: string): LucideIcon {
   return LANDING_ICON_MAP[name] ?? HelpCircle;
 }

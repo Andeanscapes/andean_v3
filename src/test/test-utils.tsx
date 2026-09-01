@@ -1,132 +1,23 @@
 import { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
+import esMessages from '@/i18n/messages/es.json';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
 import type { ExperienceConfig, ExperienceData, RoomModeOption, AvailableDate } from '@/lib/schemas';
 
 /**
  * Mock messages for next-intl testing
  */
-const MOCK_MESSAGES = {
-  experiences: {
-    ui: {
-      availableDates: 'Fechas disponibles',
-      spotsAvailable: '{count, plural, one {# cupo} other {# cupos}}',
-      controlledDatesNote: 'Fechas controladas para logística.',
-      limitedSpots: 'Cupos limitados',
-      limitedSpotsShort: 'Cupos',
-      officialDates: 'Fechas oficiales',
-      depositLabel: 'Depósito',
-      heroCta: 'Ver fechas',
-      heroSummary: '2D/1N • Visita a la mina + taller de esmeraldas • Inicio en Chivor • Grupos pequeños',
-      totalLabel: 'Total',
-      payTodayLabel: 'Hoy pagas',
-      balanceNote: 'Saldo se paga el día del tour. Confirmación inmediata.',
-      termsCheckbox: 'Acepto términos y condiciones',
-      socialProofBookings: '12 viajeros reservaron esta semana',
-      mobileDockSummaryLabel: 'Tu reserva',
-      mobileDockEmptySummary: 'Elige fecha, personas y alojamiento',
-      mobileDockPeopleSummary: '{count, plural, one {# persona} other {# personas}}',
-      mobileDockViewDetails: 'Detalles',
-      mobileDockHideDetails: 'Ocultar',
-      mobileDockDate: 'Fecha',
-      mobileDockPeople: 'Personas',
-      mobileDockStay: 'Alojamiento',
-      mobileDockRoom: 'Habitación',
-      mobileDockTransport: 'Transporte',
-      mobileDockNotSelected: 'Sin seleccionar',
-      mobileDockMissingDate: 'Elige fecha',
-      mobileDockMissingRooms: 'Elige habitación',
-      mobileDockMissingTransport: 'Elige transporte',
-      mobileDockMissingContact: 'Completa tus datos',
-      mobileDockMissingTerms: 'Acepta términos',
-      termsToastMessage: 'Debes aceptar los términos y condiciones para continuar.',
-      mobileDockTrustLine: '12 reservaron recientemente · Pago seguro',
-      completeRequiredFields: 'Completa todos los campos requeridos para continuar',
-      processing: 'Procesando...',
-      paymentMethods: 'Tarjeta · PSE · Pago seguro',
-      validationError: 'Error en la validación',
-      scrollHint: 'Desliza para ver mas fechas',
-      selectedDateLabel: 'Seleccionada',
-      lowAvailability: 'Pocos cupos',
-      roomPickerTitle: 'Selección de habitaciones',
-      howManyPeople: '¿Cuántas personas?',
-      peopleLabel: 'Personas',
-      roomType: 'Tipo de habitación:',
-      guestsPerRoom: 'Huéspedes por habitación',
-      numberOfRooms: 'Cantidad de habitaciones',
-      guests: 'huéspedes',
-      privateBathroom: 'baño privado',
-      private: 'Privado',
-      couple: 'Pareja',
-      roomMixHint: 'Puedes combinar varios tipos de habitación',
-      coupleNote: '💑 Pareja simplifica la decisión a 2 personas en habitación compartida.',
-      selectTierTitle: 'Elige tu alojamiento',
-      tierPriceRange: 'Rango de precio',
-      changeTierWarning: 'Cambiar de alojamiento reiniciará tu selección de habitaciones',
-      whatIsIncluded: '¿Qué incluye?',
-      viewFullDetails: 'Ver detalles completos',
-      tripLogistics: 'Logística del viaje',
-      selectedTierLabel: 'Seleccionado',
-      contactDataTitle: 'Datos para confirmar tu cupo',
-        selectedRoomsLabel: 'Habitaciones seleccionadas',
-        clearSelection: 'Limpiar',
-        noRoomsSelected: 'Ninguna habitación seleccionada',
-        addRoom: 'Agregar habitación',
-        editRooms: 'Revisar / editar',
-        suggestedRoomsLabel: 'Sugerido para {count} personas ✨',
-        suggestedRoomsNote: 'Basado en tu grupo — ajusta si lo necesitas',
-        addRoundtripTransfer: 'Agregar transporte ida y vuelta {origin} ↔ {destination}',
-        roundtripTransferPerVehicle: 'por vehículo',
-        roundtripTransferVehicles: '{count, plural, one {# vehículo} other {# vehículos}}',
-        roundtripTransferLineItem: 'Ida y vuelta {origin} ↔ {destination}',
-        allInclusiveLineItem: 'Tour todo incluido con comidas y alojamiento para {count, plural, one {# persona} other {# personas}}',
-        transportTooltipCarNo4x4: 'Necesitarás transporte local 4x4 para llegar a la mina',
-        roomSelectionTitle: 'Elige habitaciones',
-        closeModal: 'Cerrar',
-      fullName: 'Nombre completo',
-      fullNamePlaceholder: 'Juan Pérez',
-          unitsAvailable: '{count} disponibles',
-      phone: 'Celular',
-      phonePlaceholder: '+57 300 123 4567',
-      email: 'Email',
-      emailPlaceholder: 'tu@email.com',
-      emailHelper: 'Opcional - para confirmación adicional',
-      startingPoint: 'Punto de inicio: Chivor (casco urbano)',
-      howToArrive: '¿Cómo llegas?',
-      roomMode: {
-        standard: 'Habitación Estándar',
-        family: 'Habitación Familiar',
-        cabin: 'Cabaña',
-      },
-      experienceDetails: {
-        itineraryTitle: 'Itinerario Interactivo',
-        viewGalleryLabel: 'Ver Galería',
-        activityGallerySubtitle: 'Fotos y momentos destacados',
-        closeGalleryLabel: 'Cerrar',
-      },
-    },
-    common: {
-      deposit: 'Reserva con',
-      balance: 'Saldo a pagar el día del tour',
-      security: 'Pago 100% seguro con Mercado Pago',
-      ctaPrimary: 'Paga 15% de depósito',
-      ctaSecondary: '¿Dudas? WhatsApp',
-    },
-    emeraldMining: {
-      transport: {
-        carNo4x4: 'Carro Particular (No 4x4)',
-        carNo4x4Description: 'Aplica costo adicional de transporte 4x4 local',
-        have4x4: 'Tengo 4x4',
-        have4x4Description: 'Sin costo adicional',
-        bus: 'Bus Público',
-        busDescription: 'Traslado local incluido desde terminal',
-        roundtripTransfer: 'Transporte privado ida y vuelta',
-        roundtripTransferDescription: 'Servicio de vehículo privado, máx. 4 personas por vehículo',
-      },
-    },
-  },
-};
+/**
+ * Real message bundle, not a mock subset.
+ *
+ * This was previously a hand-maintained excerpt, which drifted: a component
+ * reading a key the excerpt lacked failed with MISSING_MESSAGE, and assertions
+ * that read the real bundle disagreed with what was rendered. Using `es.json`
+ * directly means a test can never pass against copy that does not exist, and
+ * `render` below already pins the locale to `es`.
+ */
+const MOCK_MESSAGES = esMessages;
 
 /**
  * Mock translated experience data for testing
@@ -138,18 +29,11 @@ const MOCK_TRANSLATED_CONFIG: ExperienceConfig = {
   subtitle: 'Experiencia todo incluido en Chivor (Boyacá), Colombia 🇨🇴',
   description: 'Descubre las profundidades de la mina de esmeraldas más famosa de Colombia',
   experiencePricePerPerson: 430000,
+  currency: 'COP',
   numberOfNights: 1,
   depositPercent: 15,
   maxPeople: 10,
   minPeople: 1,
-  includesItems: [
-    'Guía especializado',
-    'Equipo de seguridad',
-    'Transporte ida y vuelta',
-    'Seguro de accidentes',
-  ],
-  includesFullDetails:
-    'Incluye guía especializado bilingüe, todo el equipo de seguridad necesario',
   microcopy: {
     deposit: 'Reserva con',
     balance: 'Saldo a pagar el día del tour',

@@ -9,9 +9,11 @@ import {
   useReservationTier,
   useReservationRooms,
   useReservationAccommodationTiers,
+  useReservationCurrency,
 } from '@/hooks/experiences/useReservationContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { formatMoney } from '@/utils/formatCurrency';
 import type { TransportMode, TransportOption } from '@/lib/schemas';
 
 interface TransportOptionsProps {
@@ -28,30 +30,18 @@ export function TransportOptions({
   const { selectedTierId } = useReservationTier();
   const { peopleCount } = useReservationRooms();
   const tiersContent = useReservationAccommodationTiers();
+  const currency = useReservationCurrency();
   const { theme } = useThemeContext();
   const { currentLocale } = useLanguageContext();
   const isDark = theme === 'dark';
   const [tooltipOpen, setTooltipOpen] = useState(false);
-
-  const localeMap: Record<string, string> = {
-    en: 'en-US',
-    es: 'es-CO',
-    fr: 'fr-FR',
-  };
 
   const roundtripConfig = useMemo(() => {
     if (!selectedTierId || !tiersContent) return null;
     return tiersContent.tiers.find((tier) => tier.id === selectedTierId)?.roundtripTransfer ?? null;
   }, [selectedTierId, tiersContent]);
 
-  const formatPrice = (price: number) => {
-    const locale = localeMap[currentLocale] ?? 'es-CO';
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'COP',
-      maximumFractionDigits: 0,
-    }).format(price);
-  };
+  const formatPrice = (price: number) => formatMoney(price, currentLocale, currency);
 
   const cardClass = `transition-all duration-300 ${isDark
     ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-2xl'

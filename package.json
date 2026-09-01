@@ -16,7 +16,11 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "fixtures:fetch": "vite-node -c vitest.config.ts scripts/fetch-fixtures.ts",
+    "pretest": "npm run fixtures:fetch",
     "test": "vitest run",
+    "pretest:watch": "npm run fixtures:fetch",
     "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -25,6 +29,7 @@
     "deploy:dev": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare deploy --env dev",
     "upload": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare upload",
     "cf-typegen": "dotenv -e .env.wrangler -- wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "verify:feed": "vite-node -c vitest.config.ts scripts/verify-feed.ts",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -76,6 +81,7 @@
     "tailwindcss": "^4.3.2",
     "typescript": "^5",
     "vite": "6.4.3",
+    "vite-node": "^3.2.4",
     "vitest": "^3.2.7",
     "wrangler": "4.125.0"
   },

@@ -17,10 +17,12 @@ export const Default: Story = {
   args: {
     value: 1,
     onChange: () => {},
+    decreaseLabel: 'Disminuir',
+    increaseLabel: 'Aumentar',
   },
   render: () => {
     const [value, setValue] = useState(1);
-    return <Stepper value={value} onChange={setValue} />;
+    return <Stepper value={value} onChange={setValue} decreaseLabel="Disminuir" increaseLabel="Aumentar" />;
   },
 };
 
@@ -31,6 +33,8 @@ export const WithLimits: Story = {
     min: 1,
     max: 4,
     label: '¿Cuántas personas?',
+    decreaseLabel: 'Disminuir',
+    increaseLabel: 'Aumentar',
   },
   render: () => {
     const [value, setValue] = useState(2);
@@ -38,6 +42,8 @@ export const WithLimits: Story = {
       <Stepper
         value={value}
         onChange={setValue}
+        decreaseLabel="Disminuir"
+        increaseLabel="Aumentar"
         min={1}
         max={4}
         label="¿Cuántas personas?"
@@ -50,12 +56,14 @@ export const Large: Story = {
   args: {
     value: 1,
     onChange: () => {},
+    decreaseLabel: 'Disminuir',
+    increaseLabel: 'Aumentar',
     size: 'lg',
   },
   render: () => {
     const [value, setValue] = useState(1);
     return (
-      <Stepper value={value} onChange={setValue} size="lg" />
+      <Stepper value={value} onChange={setValue} size="lg" decreaseLabel="Decrease" increaseLabel="Increase" />
     );
   },
 };

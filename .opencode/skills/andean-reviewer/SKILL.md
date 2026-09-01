@@ -31,8 +31,10 @@ Enforce:
 - Use `next-intl`
 - Use `@/i18n/navigation` for localized app links
 - Preserve service pattern: fetch → validate → translate → return
-- Do not access mock data outside approved registries
-- Do not invent fake mock data
+- Do not reintroduce local data mocks or registries — the remote feed is the only data source
+- Do not invent fake data; tests read local copies of the live feed from the gitignored `fixtures/`
+- Do not commit feed payloads — they are real business data (`npm run fixtures:fetch` downloads them)
+- Do not let tests reach the live feed; stub `fetch`
 - Use existing UI wrappers before raw markup
 - Preserve server/client boundaries
 - Validate untrusted input with Zod
@@ -47,7 +49,9 @@ Validate:
 - provider topology
 - server/client boundaries
 - service-layer responsibilities
-- landing mock → schema → translator → service → component flow
+- landing feed → schema → translator → service → component flow
+- services throw when the feed is unavailable (no silent fallback)
+- an error boundary exists for any newly reachable throw path
 - experience data service flow
 - future compatibility with Cloudflare Workers, D1, and Lambda payments
 
@@ -58,6 +62,9 @@ Reject:
 - new CMS proposals
 - Stripe logic inside Workers
 - raw `wrangler deploy` commands
+- new local data registries or mock files
+- hand-built feed paths (use `experienceFeedFile` / `experienceFeedPath`)
+- tests that hit the network
 
 ## Output format
 

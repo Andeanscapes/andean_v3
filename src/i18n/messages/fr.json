@@ -82,6 +82,7 @@
       "featured": {
         "title": "Des expériences qui valent le déplacement",
         "viewAll": "Voir toutes les expériences",
+        "nextAvailability": "Prochaine disponibilité : {date} — Plus que {count, plural, one {# place} other {# places}}",
         "fromLabel": "À partir de",
         "viewDetails": "Voir les détails",
         "badges": {
@@ -187,6 +188,7 @@
       "location": {
         "title": "Où nous opérons",
         "mapAlt": "Carte montrant Bogotá et Chivor, Boyacá, Colombie",
+        "liveNetwork": "Réseau en direct",
         "cta": "Planifiez votre itinéraire",
         "bullets": {
           "region": "Boyacá, Colombie — 3 heures à l'est de Bogotá",
@@ -219,34 +221,42 @@
     },
     "reviews": {
       "sectionTitle": "Ce que disent les voyageurs",
-      "subtitle": "Non édité. De personnes qui y étaient.",
+      "subtitle": "Avis de voyageurs vérifiés sur Airbnb, traduits de l'espagnol.",
       "eyebrow": "Avis de voyageurs",
       "outOf5Aria": "sur 5",
       "countSuffix": "avis",
       "verifiedGuest": "Invité vérifié",
-      "items": {
-        "sarah": {
-          "comment": "Nous avons travaillé un vrai filon aux côtés de la famille minière. Ça ne s'invente pas — et ça ne se trouve nulle part ailleurs.",
-          "verifiedExperience": "Aventure Minière des Émeraudes"
-        },
-        "lucas": {
-          "comment": "Les hôtes ont fait tout le voyage. Ils connaissaient l'histoire derrière chaque endroit. Boyacá à travers leurs yeux, c'est autre chose.",
-          "verifiedExperience": "Aventure Minière des Émeraudes"
-        },
-        "emily": {
-          "comment": "Le petit groupe a fait que le guide nous parlait, pas à nous. Je suis repartie avec le sentiment d'avoir été invitée dans quelque chose de vrai.",
-          "verifiedExperience": "Expérience de Poterie Ancestrale"
-        }
+      "verifiedStay": "Hacienda El Recuerdo · Airbnb",
+      "countries": {
+        "colombia": "Colombie",
+        "spain": "Espagne"
       },
-      "trustPanel": {
-        "title": "Pourquoi les voyageurs reviennent",
-        "bullets": {
-          "local": "Entreprise locale — tous les revenus restent dans les communautés de Boyacá",
-          "reviews": "4,9★ auprès de plus de 500 voyageurs vérifiés",
-          "payment": "Réservez avec 15% — payez le reste à l'arrivée",
-          "support": "Support WhatsApp de la réservation jusqu'au jour de votre départ"
-        }
-      }
+       "items": {
+         "carlosTulio": {
+           "comment": "La propriété est très belle et les chambres confortables, il y a beaucoup à faire sur place. J'aurais voulu rester plus longtemps."
+         },
+         "anamaria": {
+           "comment": "Notre séjour à la Hacienda El Recuerdo a été merveilleux. Un endroit très accueillant et tranquille. On peut vraiment se connecter avec la nature. Monsieur Yesid et Madame Marlen sont des personnes très attentionnées et bienveillantes, elles nous ont fait sentir chez nous. Heinner est un excellent hôte. C'était une excellente expérience. La seule chose à prendre en compte est le moyen de transport pour arriver à la propriété, car elle se trouve au milieu des montagnes. Dans l'ensemble, c'est une expérience inoubliable pour ceux qui aiment l'aventure et la nature. Nous espérons revenir !"
+         },
+         "odessa": {
+           "comment": "Je ne peux pas dire assez de bonnes choses sur ce séjour. Heinner a été d'une grande aide même avant notre arrivée, nous proposant de nous guider jusqu'à la propriété depuis la ville ou d'organiser le transport. Sa famille vit ici et ils sont tous si bienveillants et accueillants que nous avions immédiatement l'impression de rendre visite à des amis. Heinner est très impliqué dans la communauté locale et a organisé une visite des mines d'émeraude locales ! Ce fut une expérience incroyable ! Nous avons apprécié les promenades sur la propriété, l'observation des oiseaux et même la traite des vaches. Tous nos repas étaient faits maison par la mère de Heinner et ils étaient parfaits. Le wifi était rapide et fiable et ils disposent d'un grand espace de coworking avec des bureaux."
+         },
+         "sandraPatricia": {
+           "comment": "Notre séjour à la Hacienda El Recuerdo a été très agréable, nos hôtes Marlen, Yesid, Heinner, Kyra et Luna étaient très attentionnés, toujours à l'écoute de nos besoins. La chambre était très confortable et nous avons très bien dormi. La nourriture était délicieuse et préparée avec beaucoup d'amour. Nous nous sommes sentis comme à la maison. Séjourner à El Recuerdo est une excellente option : il ne s'agit pas seulement de se reposer, mais de découvrir les environs, de pratiquer des activités d'écotourisme, de rencontrer les habitants, nos racines, et d'apprécier les merveilles de notre pays. Nous le recommandons et nous reviendrons !"
+         },
+         "camilo": {
+           "comment": "Excellente expérience, un endroit très tranquille avec beaucoup d'espace pour faire des activités sur place. Une connexion exceptionnelle avec la nature. Très recommandé."
+         }
+       },
+       "trustPanel": {
+         "title": "Pourquoi les voyageurs reviennent",
+         "bullets": {
+           "local": "Entreprise locale — tous les revenus restent dans les communautés de Boyacá",
+           "reviews": "5,0★ de 5 voyageurs vérifiés",
+           "payment": "Réservez avec 15% — payez le reste à l'arrivée",
+           "support": "Support WhatsApp de la réservation jusqu'au jour de votre départ"
+         }
+       }
     },
     "faqs": {
       "sectionTitle": "Questions fréquentes",
@@ -457,7 +467,9 @@
     "cardMeta": {
       "duration2d1n": "2J / 1N",
       "startsInChivor": "Départ de Chivor",
-      "smallGroup": "Petit groupe"
+      "smallGroup": "Petit groupe",
+      "durationDaysNights": "{days}J / {nights}N",
+      "startsIn": "Départ de {locality}"
     },
     "smallGroups": "Petits groupes",
     "localGuides": "Guides locaux experts",
@@ -588,7 +600,7 @@
       "deposit": "Réserver avec",
       "balance": "Solde à payer le jour du tour",
       "security": "Paiement 100% sécurisé avec Mercado Pago",
-      "ctaPrimary": "Payer 15% d'acompte",
+      "ctaPrimary": "Payer {percent}% d'acompte",
       "ctaSecondary": "Des questions ? WhatsApp"
     },
     "ui": {
@@ -673,6 +685,20 @@
       "allInclusiveLineItem": "Séjour tout compris avec repas et hébergement pour {count, plural, one {# personne} other {# personnes}}",
       "roomSelectionTitle": "Choisir les chambres",
       "closeModal": "Fermer",
+      "decrease": "Diminuer",
+      "increase": "Augmenter",
+      "meetingPoint": "Point de rencontre",
+      "validation": {
+        "selectDate": "Sélectionnez une date disponible",
+        "peopleMin": "Minimum {min, plural, one {# personne} other {# personnes}}",
+        "peopleMax": "Maximum {max, plural, one {# personne} other {# personnes}}",
+        "roomRequired": "Sélectionnez au moins un type de chambre",
+        "transportRequired": "Sélectionnez votre mode de transport",
+        "termsRequired": "Vous devez accepter les conditions générales",
+        "contactName": "Nom requis (minimum 2 caractères)",
+        "contactPhone": "Numéro de téléphone invalide (minimum 7 chiffres)",
+        "contactEmail": "E-mail invalide"
+      },
       "unitsAvailable": "{count} disponibles",
       "contactDataTitle": "Informations de contact pour confirmer votre place",
       "fullName": "Nom complet",
@@ -724,6 +750,9 @@
         "valueStackPremiumTransport": "Transport 4x4 Premium",
         "accommodationTitle": "Votre Séjour",
         "selectYourStayTitle": "Options de Séjour",
+        "addonsTitle": "Suppléments optionnels",
+        "addonsPerPerson": "par personne",
+        "addonsTeamConfirmation": "L'équipe confirme la disponibilité et le prix final",
         "hostChoiceLabel": "Choix de l'Hôte",
         "selectedLabel": "Sélectionné",
         "tierBadgeHeritage": "Heritage / Traditionnel",
@@ -934,6 +963,16 @@
         "stop6ShortDesc": "Cérémonie de certificat et au revoir",
         "stop6Desc": "Réfléchissez sur le voyage et recevez votre certificat de participation"
       },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Apiculture et élevage",
+          "description": "Activités guidées d'apiculture et d'élevage à la Hacienda El Recuerdo. Disponible avec le forfait 2J/1N."
+        },
+        "horsebackRiding": {
+          "label": "Randonnée équestre guidée",
+          "description": "Randonnée guidée sur les chemins ruraux de la région. Facturée séparément du total du forfait."
+        }
+      },
       "host": {
         "bio": "Hôte local spécialisé dans les circuits miniers d'émeraudes et les expériences culturelles andines.",
         "idealFor1": "Chercheurs d'Aventure",
@@ -981,6 +1020,7 @@
     "brandLine": "Séjours et expériences authentiques dans les Andes colombiennes",
     "exploreExperiences": "Explorer les Expériences",
     "planOnWhatsApp": "Planifiez votre Voyage sur WhatsApp",
+    "whatsappMessage": "Bonjour ! J'aimerais de l'aide pour planifier un voyage avec Andean Scapes.",
     "sectionQuickExplore": "Explorer Rapidement",
     "sectionNavigate": "Naviguer",
     "trustMicroCopy": "Petits groupes · Hôtes locaux · Planning flexible · Support WhatsApp",
@@ -998,5 +1038,12 @@
       "reviews": "Avis",
       "faq": "FAQ"
     }
+  },
+  "Error": {
+    "title": "Une erreur est survenue",
+    "description": "Nous n'avons pas pu charger cette page pour le moment. C'est généralement temporaire — veuillez réessayer dans un instant.",
+    "retry": "Réessayer",
+    "backHome": "Retour à l'accueil",
+    "reference": "Référence"
   }
 }

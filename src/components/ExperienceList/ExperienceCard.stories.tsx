@@ -8,11 +8,11 @@ const sampleCard: ExperienceListCard = {
   description: 'Discover the world of Colombian emeralds in an authentic mining experience deep in the mountains of Boyacá.',
   image: '/assets/images/details/emerald-mining-card.webp',
   price: 750000,
+  currency: 'COP',
   priceQualifier: 'per person',
   metadata: ['2D/1N', 'Small groups', 'Chivor'],
   href: '/experiences/emerald-mining-adventure',
   tag: 'Most Popular',
-  trust: '⭐ 4.9',
 };
 
 const meta = {

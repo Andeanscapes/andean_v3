@@ -6,18 +6,14 @@
  * and returns a translated, UI-ready content slice.
  */
 
-import type { LandingDataMock, LandingContent } from '@/lib/schemas/landing.schema';
+import type { LandingFeed, LandingContent } from '@/lib/schemas/landing.schema';
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
-
-function translateMaybeKey(value: string, t: Translator): string {
-  return value.includes('.') ? t(value) : value;
-}
 
 // ── Flagship / Hero ──────────────────────────────────────────────────────────
 
 export function toLandingFlagshipContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['flagship'] {
   const { flagship } = raw;
@@ -35,7 +31,7 @@ export function toLandingFlagshipContent(
     })),
     pricing: flagship.pricing,
     availableDates: flagship.availableDates,
-    transportOptions: flagship.transportOptions.map((opt) => ({
+    transportOptions: flagship.transportOptions?.map((opt) => ({
       value: opt.value,
       label: t(opt.labelKey),
     })),
@@ -51,10 +47,13 @@ export function toLandingFlagshipContent(
       selectDateLabel: t('Landing.filters.selectDateLabel'),
       peopleLabel: t('Landing.filters.peopleLabel'),
       arrivalLabel: t('Landing.filters.arrivalLabel'),
-      ctaLabel: t('Landing.filters.ctaLabel', { percent: flagship.pricing.depositPercent }),
-      depositNoteLabel: t('Landing.filters.depositNoteLabel', {
-        percent: flagship.pricing.depositPercent,
-      }),
+      ctaLabel: t('Landing.filters.ctaLabel'),
+      // Suppressed rather than defaulted: "0% deposit to confirm" would be a
+      // wrong commercial term, and the projection may omit the percentage.
+      depositNoteLabel:
+        flagship.pricing.depositPercent === undefined
+          ? ''
+          : t('Landing.filters.depositNoteLabel', { percent: flagship.pricing.depositPercent }),
       trustSecureLabel: t('Landing.filters.trustSecure'),
       trustCancellationLabel: t('Landing.filters.trustCancellation'),
       trustVerifiedLabel: t('Landing.filters.trustVerified'),
@@ -66,76 +65,14 @@ export function toLandingFlagshipContent(
 
 // ── Value Propositions ───────────────────────────────────────────────────────
 
-export function toLandingValuePropsContent(
-  raw: LandingDataMock,
-  t: Translator,
-): LandingContent['valueProps'] {
-  return {
-    title: t(raw.valueProps.titleKey),
-    items: raw.valueProps.items.map((item) => ({
-      id: item.id,
-      title: t(item.titleKey),
-      description: t(item.descriptionKey),
-      imageUrl: item.imageUrl,
-      badge: item.badgeKey ? t(item.badgeKey) : undefined,
-    })),
-  };
-}
-
 // ── Inclusions ───────────────────────────────────────────────────────────────
 
-export function toLandingInclusionsContent(
-  raw: LandingDataMock,
-  t: Translator,
-): LandingContent['inclusions'] {
-  const { inclusions } = raw;
-  return {
-    sectionTitle: t(inclusions.sectionTitleKey),
-    includedLabel: t(inclusions.includedLabelKey),
-    notIncludedLabel: t(inclusions.notIncludedLabelKey),
-    logistics: inclusions.logistics.map((item) => ({
-      ...item,
-      label: t(item.labelKey),
-      value: item.value ? translateMaybeKey(item.value, t) : undefined,
-    })),
-    included: inclusions.included.map((item) => ({
-      id: item.id,
-      title: t(item.titleKey),
-    })),
-    notIncluded: inclusions.notIncluded.map((item) => ({
-      id: item.id,
-      title: t(item.titleKey),
-    })),
-    location: inclusions.location,
-  };
-}
-
 // ── Tiers ────────────────────────────────────────────────────────────────────
-
-export function toLandingTiersContent(
-  raw: LandingDataMock,
-  t: Translator,
-): LandingContent['tiers'] {
-  return {
-    sectionTitle: t(raw.tiers.sectionTitleKey),
-    items: raw.tiers.items.map((item) => ({
-      id: item.id,
-      label: t(item.labelKey),
-      description: t(item.descriptionKey),
-      tag: t(item.tagKey),
-      isBestSeller: item.isBestSeller,
-      images: item.images,
-      fromAmount: item.fromAmount,
-      href: item.href,
-      ctaLabel: t(item.ctaLabelKey),
-    })),
-  };
-}
 
 // ── Reviews ──────────────────────────────────────────────────────────────────
 
 export function toLandingReviewsContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['reviews'] {
   const { reviews } = raw;
@@ -148,7 +85,7 @@ export function toLandingReviewsContent(
     items: reviews.items.map((item) => ({
       id: item.id,
       name: item.name,
-      country: item.country,
+      country: item.countryKey ? t(item.countryKey) : undefined,
       countryFlag: item.countryFlag,
       rating: item.rating,
       comment: t(item.commentKey),
@@ -171,7 +108,7 @@ export function toLandingReviewsContent(
 // ── FAQs ─────────────────────────────────────────────────────────────────────
 
 export function toLandingFaqsContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['faqs'] {
   return {
@@ -187,7 +124,7 @@ export function toLandingFaqsContent(
 // ── Final CTA ─────────────────────────────────────────────────────────────────
 
 export function toLandingFinalCtaContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['finalCta'] {
   const { finalCta } = raw;
@@ -210,7 +147,7 @@ export function toLandingFinalCtaContent(
 // ── Brand-level Hero ─────────────────────────────────────────────────────────
 
 export function toLandingHeroBrandContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['heroBrand'] {
   const { heroBrand } = raw;
@@ -268,7 +205,7 @@ export function toLandingHeroBrandContent(
 // ── Categories ───────────────────────────────────────────────────────────────
 
 export function toLandingCategoriesContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['categories'] {
   return {
@@ -289,7 +226,7 @@ export function toLandingCategoriesContent(
 // ── Featured Experiences (inline data, no catalog dep) ──────────────────────
 
 export function toLandingFeaturedExperiencesContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['featuredExperiences'] {
   const fromLabel = t('Landing.brand.featured.fromLabel');
@@ -307,8 +244,8 @@ export function toLandingFeaturedExperiencesContent(
       image: item.image,
       href: item.href,
       badge: item.badgeKey ? t(item.badgeKey) : undefined,
-      duration: t(item.durationKey),
-      location: t(item.locationKey),
+      duration: t(item.durationKey, item.durationValues),
+      location: t(item.locationKey, item.locationValues),
       fromAmount: item.fromAmount,
       currency: item.currency,
       fromLabel,
@@ -321,7 +258,7 @@ export function toLandingFeaturedExperiencesContent(
 // ── Why Us ───────────────────────────────────────────────────────────────────
 
 export function toLandingWhyUsContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['whyUs'] {
   return {
@@ -339,7 +276,7 @@ export function toLandingWhyUsContent(
 // ── How It Works ─────────────────────────────────────────────────────────────
 
 export function toLandingHowItWorksContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['howItWorks'] {
   return {
@@ -356,7 +293,7 @@ export function toLandingHowItWorksContent(
 // ── Traveler Segments ────────────────────────────────────────────────────────
 
 export function toLandingTravelerSegmentsContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['travelerSegments'] {
   return {
@@ -375,7 +312,7 @@ export function toLandingTravelerSegmentsContent(
 // ── Trust Stats ──────────────────────────────────────────────────────────────
 
 export function toLandingTrustStatsContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['trustStats'] {
   return {
@@ -391,7 +328,7 @@ export function toLandingTrustStatsContent(
 // ── Location (brand) ─────────────────────────────────────────────────────────
 
 export function toLandingLocationBrandContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['locationBrand'] {
   const { locationBrand } = raw;
@@ -412,7 +349,7 @@ export function toLandingLocationBrandContent(
 // ── Safety ───────────────────────────────────────────────────────────────────
 
 export function toLandingSafetyContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['safety'] {
   return {
@@ -433,7 +370,7 @@ export function toLandingSafetyContent(
 // ── Global CTAs ──────────────────────────────────────────────────────────────
 
 export function toLandingGlobalCtasContent(
-  raw: LandingDataMock,
+  raw: LandingFeed,
   t: Translator,
 ): LandingContent['globalCtas'] {
   return {

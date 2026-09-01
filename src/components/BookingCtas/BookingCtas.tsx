@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { MessageCircle } from 'lucide-react';
-import { BOOKING_LINKS, CONTACT_INFO } from '@/constant/SiteConfig';
+import { BOOKING_LINKS } from '@/constant/SiteConfig';
+import { whatsappUrl } from '@/utils/whatsapp';
 
 type BookingCtasProps = {
   title?: string;
@@ -32,7 +33,7 @@ export default function BookingCtas({
   const resolvedTitle = title ?? t('title');
   const resolvedSubtitle = subtitle ?? t('subtitle');
   const airbnbCtaLabel = t('airbnbCta');
-  const whatsappMiningUrl = `https://wa.me/${CONTACT_INFO.phone}?text=${encodeURIComponent(t('whatsappMiningQuote'))}`;
+  const whatsappMiningUrl = whatsappUrl(t('whatsappMiningQuote'));
 
   useEffect(() => {
     setIsMounted(true);

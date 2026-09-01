@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { formatDayMonth } from '@/utils/dateFormatters';
 import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
@@ -21,6 +22,7 @@ interface Props {
  */
 export default function LandingFeaturedExperienceCard({ experience }: Props) {
   const locale = useLocale();
+  const t = useTranslations();
   const formattedAmount = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: experience.currency,
@@ -28,13 +30,10 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
   }).format(experience.fromAmount);
 
   const availabilityLabel = experience.nextAvailability
-    ? (() => {
-        const date = new Intl.DateTimeFormat(locale, { month: 'long', day: 'numeric' }).format(
-          new Date(experience.nextAvailability.dateISO),
-        );
-        const { spotsLeft } = experience.nextAvailability;
-        return `Next availability: ${date} — Only ${spotsLeft} ${spotsLeft === 1 ? 'spot' : 'spots'} left`;
-      })()
+    ? t('Landing.brand.featured.nextAvailability', {
+        date: formatDayMonth(experience.nextAvailability.dateISO, locale),
+        count: experience.nextAvailability.spotsLeft,
+      })
     : null;
 
   return (

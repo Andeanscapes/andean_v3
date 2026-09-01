@@ -11,6 +11,27 @@ routes = [
 
 assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
+# Public configuration, not a credential: this is an unauthenticated CDN URL
+# serving the same marketing content the site already renders. Safe to commit.
+#
+# Supplies the *runtime* value only. The *build-time* value comes from the
+# GitHub Actions variables REMOTE_DATA_BASE_URL_PROD / REMOTE_DATA_BASE_URL_DEV
+# during deploy, so the two must be kept in sync.
+#
+# Unset is NOT a supported state. There is no local fallback data: the mocks and
+# registries were deleted when the feed became the single source of truth, so
+# `remote-data.ts` returns a null payload and every service throws. Unsetting this
+# takes the landing page, the catalog and every experience page to the error
+# boundary. The deploy workflows fail fast on an empty value for that reason.
+[vars]
+REMOTE_DATA_BASE_URL = "https://cdn.andeanscapes.com/services"
+#
+# NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER is deliberately NOT declared here. It is
+# inlined into the client bundle by `next build`, so a runtime var would be dead
+# configuration that silently disagrees with what the browser actually ships.
+# Supply it to the build instead: the NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER CI
+# variable, or `.env.local` for a local build. See `.env.example`.
+
 [[services]]
 binding = "WORKER_SELF_REFERENCE"
 service = "andean-v3"
@@ -18,6 +39,8 @@ service = "andean-v3"
 [env.dev]
 name = "andean-v3-dev"
 routes = []
+# Points at the same feed as prod: there is currently no separate dev feed.
+vars = { REMOTE_DATA_BASE_URL = "https://cdn.andeanscapes.com/services" }
 
 [[env.dev.services]]
 binding = "WORKER_SELF_REFERENCE"

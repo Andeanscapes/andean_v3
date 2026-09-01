@@ -23,7 +23,8 @@ If guidance elsewhere conflicts with this file, this file wins.
 - `next-intl` for i18n
 - `use-context-selector` for shared client state
 - Zod-based validation helpers in `src/lib/validation.ts`
-- Landing page architecture with dual-layer schemas (raw mock → translated content)
+- Remote JSON feed as the single data source (`REMOTE_DATA_BASE_URL`), no local mocks
+- Landing page architecture with dual-layer schemas (raw feed → translated content)
 - Cloudflare Pages deployment through `@opennextjs/cloudflare`
 - Vitest + Testing Library for tests
 - Storybook 8 for UI development
@@ -188,23 +189,59 @@ Avoid:
 
 ---
 
-## Experience Data Architecture
-- Route and catalog lookup belong in `src/lib/services/experiences-catalog.service.ts`.
-- Experience-list assembly belongs in `src/lib/services/experiences-list.service.ts`.
-- Booking data resolution belongs in `src/lib/services/book.service.ts`.
-- Mock and configuration data belong in `src/lib/data-mocks/*`.
+## Remote Data Layer
 
-Rules:
+All site data comes from a remote JSON feed at `REMOTE_DATA_BASE_URL`. **There are no local mocks.** The feed is the single source of truth.
+
+### Feed contract
+| File | Drives |
+|---|---|
+| `landing.json` | landing page |
+| `experiences-list.json` | `/experiences` cards **and** route/SEO metadata |
+| `experience-<kebab-id>.json` | experience detail + booking pages |
+
+Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticated, not a credential).
+
+### Read path
+`src/lib/remote-data.ts` exposes `fetchRemoteJson(path, schema, options)`:
+- Returns `{ data, source: 'remote' }` or `{ data: null, source: 'local', reason }`. **Never throws.**
+- Aborts after `DEFAULT_TIMEOUT_MS` (5s). Every SSR path awaits it, so it must stay bounded.
+- Logs one line per read: `[RemoteData] <source> <path> <ms> [reason="..."]`. Inspect with `npx wrangler tail | grep RemoteData`.
+- Callers pass `{ revalidate: 3600, tags: [...] }` per the cache-via-tags rule.
+
+**Services must throw when `remote.data` is null.** There is no fallback: an unavailable or schema-invalid feed fails the render rather than silently serving stale content.
+
+### Service ownership
+- Route and catalog lookup — `experiences-catalog.service.ts`
+- Experience-list assembly — `experiences-list.service.ts`
+- Booking/detail data — `book.service.ts`
+- Landing composition — `landing.service.ts`
+
+`fetchExperiencesListConfig()` (exported from `experiences-list.service.ts`) is the shared, locale-agnostic fetch of `experiences-list.json`. The catalog service derives routes from it — **there is no catalog endpoint.**
+
+### Rules
 - Keep services responsible for fetching, validating, translating, and shaping data for UI consumption.
-- Keep pages thin. Pages should orchestrate, not embed business logic.
-- Preserve the current pattern where services resolve translation keys into UI-ready data.
-- Do not hardcode translated copy in component logic when translation keys already exist in data config.
+- Keep pages thin. Pages orchestrate, they do not embed business logic.
+- Services resolve translation keys into UI-ready data.
+- Feed payloads carry stable domain **codes**, never translation paths or localized strings. The frontend resolves codes through typed mapping tables; see `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
+- **V2 (accepted target):** feed payloads carry **stable domain codes only** — no translation paths, no `*Key` properties, no namespace selection. The frontend maps codes to keys through typed tables in `src/i18n/mappings/*`. Never pass a feed value to `t()`, and never build a key by concatenating one.
+- **V2 one resource per page.** Each page fetches exactly one feed resource: landing reads `landing.json`, `/experiences` reads `experiences-list.json`, detail/booking read `experience-<kebab-id>.json`. No page fans out across resources to render.
+- **V2 bounded read-model projections.** Because of the rule above, `experiences-list.json` and `landing.json` each carry a *bounded* copy of the experience-owned values they render (slug, status, media, price, currency, duration, location; landing also availability and review facts). The experience resource stays the canonical owner. Booking inventory — rooms, capacity, transport pricing, add-ons, itinerary, deposit — is **never** projected. Every duplicated field is equality-asserted against the owner in `src/test/feed-v2/contract.test.ts`; add an assertion there before adding a projected field.
+- Feed paths are locale-agnostic. Never add `?locale=` — it fragments CDN caching.
+- Experience feed filenames come from `experienceFeedFile()` in `src/utils/feedPaths.ts`. Internal ids stay camelCase (they key localStorage via `reservationStorage.ts`); filenames are kebab-case. Never hand-build either path.
+- `REMOTE_DATA_BASE_URL` is public configuration, but env files are not committed. Developers copy `.env.example` to `.env.local`; CI supplies `REMOTE_DATA_BASE_URL_PROD` / `_DEV` as repository Variables; deployed runtime uses `wrangler.toml [vars]`. Keep the CI variables in sync with `wrangler.toml`.
+- **An empty value is not the same as unset.** An unset GitHub Actions variable resolves to `''`, and the build dies with `Failed to collect page data`. All three workflows therefore check the feed URL and required `NEXT_PUBLIC_*` build variables before anything expensive. Keep those checks.
+- The CLI scripts (`fixtures:fetch`, `verify:feed`) run under `vite-node`, which does **not** load `.env` files. They read the shell only, so a `.env.local` override applies to `npm run dev` but not to `npm test` — pass it inline: `REMOTE_DATA_BASE_URL=… npm test`.
+- Do not commit `.env.development`, `.env.production`, `.env.local`, `.dev.vars`, or `.env.wrangler`. Use `.env.example` for safe variable names and documented public defaults. A fresh clone must copy it to `.env.local` before `npm run dev`.
+- Never reintroduce a local data registry. Tests read the gitignored `fixtures/` copies of the live feed (see Testing Guidance).
 
 When adding a new experience:
-1. Add or update the catalog and any list/mock configuration.
-2. Ensure the service layer can resolve the experience by route segment and internal id.
-3. Add the route entry under the existing locale-aware experience structure.
-4. Keep all locale messages synchronized.
+1. Publish `experience-<kebab-id>.json` to the feed.
+2. Add a projection card to `experiences-list.json` with the experience `id`, `slug`, status, and card fields.
+3. Keep all three locale message files synchronized for the new keys.
+4. Redeploy so `sitemap.xml` and `generateStaticParams` pick up the slug.
+
+The experience must also be present in `ExperienceIdSchema` and `src/i18n/mappings/*`. See `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
 
 ---
 
@@ -213,12 +250,11 @@ When adding a new experience:
 The landing page follows the same `fetch → validate → translate → return` pattern but with a dual-layer Zod schema.
 
 ### Data Flow
-1. `LANDING_DATA_REGISTRY` (`src/lib/data-mocks/landing.registry.ts`) is the single mock entry point.
-2. `landing.mock.ts` holds raw data with i18n keys (not translated strings).
-3. `LandingDataMockSchema` validates the raw shape.
-4. `landing.service.ts` validates then delegates to pure translator functions in `src/utils/landingTranslators.ts`.
-5. Translators project raw `FooKey` strings into translated `FooContent` via `t()`.
-6. `LandingContentSchema` validates the final UI-ready shape before it reaches the page.
+1. `landing.json` is fetched from the remote feed — raw data with i18n keys, not translated strings.
+2. `LandingFeedSchema` validates the raw feed shape.
+3. `landing.service.ts` throws if the feed is unavailable, then delegates to pure translator functions in `src/utils/landingTranslators.ts`.
+4. Translators project raw `FooKey` strings into translated `FooContent` via `t()`.
+5. `LandingContentSchema` validates the final UI-ready shape before it reaches the page.
 
 ### Component Map
 | Section | Component | Data Source |
@@ -233,9 +269,6 @@ The landing page follows the same `fetch → validate → translate → return` 
 | Trust stats | `LandingTrustStats/` | `trustStats` |
 | Location | `LandingLocation/` | `locationBrand` |
 | Safety | `LandingSafety/` | `safety` |
-| Value props | `LandingValueProps/` | `valueProps` |
-| Inclusions | `LandingInclusions/` | `inclusions` |
-| Tiers | `LandingTiers/` | `tiers` |
 | Reviews | `Reviews/` | `reviews` |
 | FAQs | `LandingFaqs/` | `faqs` |
 | Final CTA | `FinalCtaBanner/` | `finalCta` |
@@ -245,11 +278,11 @@ The landing page follows the same `fetch → validate → translate → return` 
 Some components (ValuePropositions, Inclusions, Itinerary, AccommodationTiers, ExperienceHero) are shared between the experience detail page and the landing page via the `ExperienceReservation` feature folder. The landing service projects dedicated translated content for these; the same components render either context.
 
 ### Rules
-- Keep `LandingDataMock` key-based — zero hardcoded strings in mock data.
+- Keep `LandingFeed` key-based — zero hardcoded strings in the feed payload.
 - `landingTranslators.ts` is pure: accepts raw data + `t()`, returns projected content. No I/O.
 - Landing section components are thin: receive translated content, render it. No logic.
-- `LANDING_DATA_REGISTRY` is the single mock entry point. Phase 2 replaces its fetch with a real API call.
-- When adding a landing section: add mock schema → add translated schema → add translator → add service composition → add component.
+- `landing.json` in the remote feed is the single entry point. Phase 2 replaces the static file with a real API response; the service shape does not change.
+- When adding a landing section: add raw schema → add translated schema → add translator → add service composition → add component → publish the new fields to `landing.json`.
 
 ---
 
@@ -309,9 +342,18 @@ Any copy change is incomplete unless all three locale files are updated.
 - Use Vitest + Testing Library patterns already present in the repo.
 - Prefer targeted tests over broad rewrites.
 - For provider-dependent UI, use the wrapper strategy in `src/test/test-utils.tsx`.
-- Keep tests deterministic and independent from live network calls.
+- **Keep tests deterministic and independent from live network calls.** Non-negotiable: never point a test at the real feed. The one sanctioned network access is the `pretest` hook, which downloads the feed into `fixtures/` *before* Vitest starts — that is not a precedent for fetching inside a test.
 - Update tests when behavior changes.
 - For reusable primitives, add or update Storybook stories when the primitive already has stories.
+
+### Feed-dependent tests
+Data now comes from the network, so service tests stub `fetch` and serve fixtures:
+- The feed payloads are **real business data and are never committed**. They live in the gitignored `fixtures/` directory at the repo root, downloaded by `scripts/fetch-fixtures.ts`.
+- `npm run fixtures:fetch` refreshes them, and runs automatically via the `pretest` hook — so `npm test` always checks against what is published. Offline it keeps the copy on disk and warns.
+- `src/test/fixtures/index.ts` reads those files with `fs`, parses each through the schema the app validates on read, and exports typed payloads plus `cloneFixture()` — always clone before mutating so tests cannot leak into each other.
+- Never commit a feed payload, and never re-add a `*.fixture.json` file to `src/`.
+- Clock-dependent behaviour (availability filtering) must freeze time: `vi.useFakeTimers({ toFake: ['Date'] })`. Fake **only** `Date` so the fetch abort timer still works.
+- Assert the fallback path too: services throw when the feed is unavailable, and that is the behaviour under test.
 
 For media and interactive UI, prefer assertions around:
 - Accessibility semantics
@@ -368,6 +410,9 @@ For media and interactive UI, prefer assertions around:
 - Dev: `npm run dev`
 - Lint: `npm run lint`
 - Lint fix: `npm run lint:fix`
+- Typecheck: `npm run typecheck`
+- Verify live feed: `REMOTE_DATA_BASE_URL=<url> npm run verify:feed`
+- Refresh local feed copies: `npm run fixtures:fetch` (runs automatically via `pretest`)
 - Test: `npm test`
 - Storybook: `npm run storybook`
 - Build: `npm run build`
@@ -417,9 +462,16 @@ Keep it concise, current, and enforceable.
 This section informs AI of the planned architecture so suggestions today do not block tomorrow's migration. **Current code remains source of truth**; this is forward-looking context only.
 
 ### Status
-- **Today:** Mock-fed services (`EXPERIENCE_DATA_REGISTRY`, `EXPERIENCES_LIST_CONFIG`), translations in `src/i18n/messages/*.json`, no real API yet.
+- **Today:** Services fetch all data at runtime from a static JSON feed on R2/CDN (`REMOTE_DATA_BASE_URL`). Local mocks are **deleted** — the feed is the only source. Translations still ship in `src/i18n/messages/*.json` (bundled at build, not fetchable).
+- **Next:** Replace the static feed with a real Worker API at the same URL shape. Services need no change — only the base URL moves.
 - **Target:** Pattern 4 — backend owns all content + translations, frontend fetches at runtime. UI and API live in **separate repositories**.
 - **Timeline:** ~4-5 weeks to MVP (live paid bookings), ~7-8 weeks to marketing-team CMS.
+
+### Known gaps at this stage
+- **Feed is hand-edited.** A malformed payload fails the render (services throw) instead of degrading. `npm run verify:feed` is the write-side gate — it validates the live feed against the schemas and checks every key resolves in en/es/fr. It runs in CI, but nothing enforces it before an upload.
+- **i18n is not remote.** `src/i18n/request.ts` statically imports the message bundles, so copy changes still require a PR + deploy. Only structural data (prices, dates, images, ordering) is remotely editable.
+- **No cache invalidation.** Reads use `revalidate: 3600`, so a feed edit takes up to an hour to appear. `revalidateTag()` has no trigger endpoint yet.
+- **Sitemap is build-time.** A new experience published to the feed is reachable immediately (on-demand SSR) but absent from `sitemap.xml` until the next deploy.
 
 ### Repository Split (3 separate repos)
 
@@ -573,21 +625,21 @@ admin_users   (id, email, role)
 
 AI MUST respect these rules when suggesting code, even before the migration happens:
 
-1. **Preserve service seams.** `book.service.ts` and `experiences-list.service.ts` follow `fetch → validate → translate → return`. The "fetch" step is the single line that becomes a real `fetch()` in Phase 1. Never inline mock access into components or hooks.
+1. **Preserve service seams.** `book.service.ts`, `experiences-list.service.ts` and `landing.service.ts` follow `fetch → validate → translate → return`. The "fetch" step is already a real `fetch()` via `fetchRemoteJson`; moving to the Worker API only changes `REMOTE_DATA_BASE_URL`. Never inline data access into components or hooks.
 
 2. **Zod schemas are the API contract.** Schemas in `src/lib/schemas/` will move to `packages/shared/` in Phase 1. Keep them pure — no `next/server`, no React imports, no Next.js-specific types.
 
-3. **Key-based translations only.** Never embed localized strings in mock data or API responses. Always `i18nNamespace` + relative key references. Frontend `next-intl` remains the renderer. Do not propose returning pre-translated strings from the API (Pattern 2 — rejected).
+3. **Frontend owns translation lookup.** Never embed localized strings in feed payloads or API responses, and never let the payload name a translation key or namespace. The wire format carries stable domain codes (`"bus"`, `"heritage"`, `"stop3"`); the frontend resolves them through typed mappings in `src/i18n/mappings/*`. `t()` must only ever receive a source-controlled key — `t(remoteValue)` is a defect. Frontend `next-intl` remains the renderer. Do not propose returning pre-translated strings from the API (Pattern 2 — rejected). Legacy `*Key` payloads are accepted only inside the v1→v2 adapter and must not escape it. See `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
 
-4. **Mock registries are the seam.** Experience data flows through `EXPERIENCE_DATA_REGISTRY` (`src/lib/data-mocks/experiences.registry.ts`). Landing data flows through `LANDING_DATA_REGISTRY` (`src/lib/data-mocks/landing.registry.ts`). Each is the single fetch-replacement point for its domain. Do not create additional registries; extend existing ones with new entries or sections.
+4. **The remote feed is the seam.** All data flows through `fetchRemoteJson` (`src/lib/remote-data.ts`). There are **no local mocks and no data registries** — do not reintroduce either. Add data by publishing feed files, not by committing TypeScript payloads. `fixtures/` (gitignored, downloaded on demand) exists solely so tests stay offline without committing real data.
 
-5. **`computeFromPrice` is interim.** This helper in `experiences-list.service.ts` is deleted in Phase 2 when the API returns `fromPrice` denormalized. Do not build on top of it.
+5. **`fromPrice` is currently read from the list projection.** Keep its equality assertion against the experience owner in contract tests until the API owns projection generation.
 
 6. **Translators are pure functions.** `src/utils/experienceTranslators.ts` accepts raw data + `t()`, returns projected content. No I/O, no side effects, no runtime dependencies. They run unchanged after migration.
 
 7. **Context composition over storage bridging.** `ExperienceDetailProvider` wraps `ExperienceReservationProvider`. Never restore the deleted `useEffect` localStorage bridge. Cross-context state belongs in a shared parent provider.
 
-8. **Test-data convention.** Extend `src/test/test-utils.tsx` (`MOCK_EXPERIENCE_DATA`, `MOCK_MESSAGES`) for experience-test data. Landing pages use Storybook fixtures in `__fixtures__/` folders (e.g., `LandingCategories/__fixtures__/categoriesFixture.ts`). Keep domain-specific mock data close to its test consumer.
+8. **Test-data convention.** Service tests stub `fetch` and serve the local feed copies from `fixtures/` via `src/test/fixtures/index.ts`. Component tests extend `src/test/test-utils.tsx` (`MOCK_EXPERIENCE_DATA`, `MOCK_MESSAGES`). Landing components use Storybook fixtures in `__fixtures__/` folders (e.g., `LandingCategories/__fixtures__/categoriesFixture.ts`). Keep domain-specific test data close to its consumer, and never let a test reach the live feed.
 
 9. **Workers-compatible backend code.** Prefer Workers-compatible patterns: no Node-only APIs, no long-running processes, mindful of 10ms CPU limit on free tier. Drizzle is the chosen ORM — do not suggest Prisma.
 
@@ -622,36 +674,42 @@ AI MUST respect these rules when suggesting code, even before the migration happ
 - Tax/VAT handling at Stripe checkout
 - Booking cancellation/refund flow — MVP scope or post-launch
 
-### Current State → Phase 1 Migration Map
+### Current State → Next Steps Migration Map
 
-| Current artifact | Phase 1 action | Phase 2 action |
+Phase 1 (frontend reads a real HTTP feed) is **done**. Remaining work:
+
+| Current artifact | Next action | Phase 2 action |
 |---|---|---|
-| `EXPERIENCE_DATA_REGISTRY` | Copy to `apps/api/src/data/` (still mock) | Seed into D1, delete mock file |
-| `EXPERIENCES_LIST_CONFIG` | Extract to `apps/api/src/data/` | Replace with D1 query |
-| `LANDING_DATA_REGISTRY` | Copy to `apps/api/src/data/` (still mock) | Seed into D1, delete mock file |
-| `book.service.ts` fetch step | `getFallbackData()` → `fetch(workerUrl)` | No change (already real fetch) |
-| `experiences-list.service.ts` | Const access → `fetch(workerUrl)` | `computeFromPrice` deleted |
-| `landing.service.ts` | `LANDING_DATA_REGISTRY` → `fetch(workerUrl)` | No change |
+| Static feed on R2 (`/services/*.json`) | Serve the same paths from a Worker | Back with D1 queries |
+| `fetchRemoteJson` | No change — swap `REMOTE_DATA_BASE_URL` | No change |
+| `landing.json` / `experiences-list.json` / `experience-*.json` | Seed the API from these payloads | Replace with D1 rows |
+| `fromPrice` list projection | Keep | API generates the projection |
+| Single list fetch in list service | Keep | Keep |
 | Zod schemas | Stay in `src/lib/schemas/`; API repo owns its own | No change |
-| `src/i18n/messages/*.json` | Copy to API repo as seed source | Seed D1, keep as fallback |
-| Tests (170+ passing) | Update mocks for HTTP boundary | Add integration tests for Worker |
-
-Zero throwaway work. Every refactor in the current codebase directly enables Phase 1.
+| `src/i18n/messages/*.json` | Copy to API repo as seed source | Serve via `/api/v1/i18n/:locale`, keep static as cold-start fallback |
+| `fixtures/*.json` (gitignored) | Re-download with `npm run fixtures:fetch` | Add integration tests against the Worker |
+| Feed write path (manual upload) | Gated by `npm run verify:feed` in CI | Replaced by admin UI + `revalidateTag()` |
 
 ### Correct vs Incorrect Suggestions (Examples)
 
 ```
-✅ "Update Zod schema in src/lib/schemas/ for the new field, update mock, update translators"
+✅ "Update Zod schema in src/lib/schemas/ for the new field, update the translator, publish the feed field"
 ✅ "Fix booking flow bug within service layer, preserve fetch-validate-translate-return shape"
-✅ "Extend MOCK_EXPERIENCE_DATA in test-utils.tsx for new test coverage"
-✅ "Add new landing section: schema + mock entry + translator + service composition + component"
+✅ "Stub fetch and serve the fixtures/ payloads for a new service test"
+✅ "Add new landing section: raw schema + translated schema + translator + service composition + component"
 ✅ "Add a fixture in __fixtures__/ for new landing component Storybook stories"
+✅ "Run npm run fixtures:fetch to refresh the local feed copies after a contract change"
 
 ❌ "Add a service that bypasses Zod validation"
-❌ "Embed translated strings directly in experience or landing mock data"
-❌ "Create a third mock registry for this new feature"
+❌ "Embed translated strings directly in feed payloads"
+❌ "Add a `titleKey` / `metadataNamespace` field to a v2 payload"
+❌ "Call t() with a value that came from the network"
+❌ "Build a translation key by concatenating a remote id (`` t(`stops.${stop.id}`) ``)"
+❌ "Make one page fetch two feed resources to render"
+❌ "Copy booking inventory (rooms, capacity, add-ons, itinerary) into landing.json or experiences-list.json"
+❌ "Recreate a local mock registry as a fallback for the feed"
+❌ "Point a test at https://cdn.andeanscapes.com to get real data"
 ❌ "Use Payload/Sanity for content management"
-❌ "Move pricing formula into a multi-file pipeline before the API exists"
 ❌ "Add ?locale= parameter to the experience detail endpoint"
 ❌ "Use Prisma for D1 access"
 ```

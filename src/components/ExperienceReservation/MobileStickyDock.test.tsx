@@ -41,12 +41,11 @@ const config: ExperienceConfig = {
   subtitle: 'Chivor',
   description: 'Experiencia minera',
   experiencePricePerPerson: 350000,
+  currency: 'COP',
   numberOfNights: 1,
   depositPercent: 15,
   maxPeople: 10,
   minPeople: 1,
-  includesItems: [],
-  includesFullDetails: '',
   microcopy: {
     deposit: 'Reserva con',
     balance: 'Saldo al llegar',

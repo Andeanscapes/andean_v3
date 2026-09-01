@@ -10,7 +10,8 @@ import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
 import {useThemeContext} from "@/contexts/ThemeContext";
-import {BOOKING_LINKS, MOBILE_MENU_CHIPS, SITE_INFO, SOCIAL_LINKS} from "@/constant/SiteConfig";
+import {BOOKING_LINKS, MOBILE_MENU_CHIPS, SITE_INFO} from "@/constant/SiteConfig";
+import { whatsappUrl } from '@/utils/whatsapp';
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -236,7 +237,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                         {tm('exploreExperiences')}
                                     </Link>
                                     <a
-                                        href={SOCIAL_LINKS.whatsapp}
+                                        href={whatsappUrl(tm('whatsappMessage'))}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}

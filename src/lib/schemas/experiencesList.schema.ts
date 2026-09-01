@@ -3,6 +3,7 @@
  */
 
 import { z } from 'zod';
+import { CurrencyCodeSchema } from './currency.schema';
 import { ExperienceHeroContentSchema } from './experience.schema';
 
 // Experience hero badge
@@ -35,7 +36,12 @@ export const ExperienceCardConfigSchema = z.object({
   priceQualifierKey: z.string().optional(),
   metadataKeys: z.array(z.string()).max(3).optional(),
   price: z.number().optional(),
+  // `experienceId` + `metadataNamespace` together make a card a *routable*
+  // experience: they let the catalog derive slug -> id and the SEO namespace
+  // from this config, so no separate catalog feed is needed. A card missing
+  // either is treated as display-only and contributes no route.
   experienceId: z.string().optional(),
+  metadataNamespace: z.string().optional(),
 });
 
 // Experiences list config
@@ -57,11 +63,13 @@ export const ExperienceListCardSchema = z.object({
   description: z.string(),
   image: z.string(),
   price: z.number(),
+  /** ISO 4217 code from the card projection's `fromPrice`. Validated, not defaulted. */
+  currency: CurrencyCodeSchema,
   priceQualifier: z.string().optional(),
   metadata: z.array(z.string()).max(3),
   href: z.string(),
-  tag: z.string(),
-  trust: z.string(),
+  /** Absent when the feed publishes no `badgeCode` for this experience. */
+  tag: z.string().optional(),
 });
 
 // Experiences list data (translated version)

@@ -1,5 +1,18 @@
-import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import type React from 'react';
+
+// Uses the shared wrapper: this component reads translated copy, which needs the
+// next-intl provider.
+import { render } from '@/test/test-utils';
+
+// Same stub as the other localized-link tests: next-intl's client navigation
+// cannot resolve `next/navigation` under vitest.
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 import LandingLocation from './LandingLocation';
 import { LOCATION_FIXTURE } from './__fixtures__/locationFixture';

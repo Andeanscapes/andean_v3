@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Mail, MessageCircle, ShieldCheck, Star, ArrowUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from '@/constant/SiteConfig';
+import { whatsappUrl } from '@/utils/whatsapp';
 
 const Footer = () => {
     const t = useTranslations('Footer');
@@ -124,7 +125,7 @@ const Footer = () => {
                         <div className="mt-4">
                             {supportMode === 'whatsapp' ? (
                                 <a
-                                    href={SOCIAL_LINKS.whatsapp}
+                                    href={whatsappUrl(t('whatsappMessage'))}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn w-full border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"

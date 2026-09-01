@@ -2,7 +2,11 @@ import { render, screen } from '@/test/test-utils';
 import { describe, expect, it } from 'vitest';
 import { PriceSummary } from './PriceSummary';
 
-const defaultProps = { transportOptions: [], experienceTitle: 'Emerald Mining Adventure' };
+const defaultProps = {
+  depositPercent: 15,
+  transportOptions: [],
+  experienceTitle: 'Emerald Mining Adventure',
+};
 
 describe('PriceSummary', () => {
   it('renders total price', () => {

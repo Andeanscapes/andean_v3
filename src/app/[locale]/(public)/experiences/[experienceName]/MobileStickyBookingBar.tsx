@@ -13,7 +13,8 @@ import {
   useDetailRoundtripTransfer,
 } from '@/hooks/experiences/useExperienceDetailContext';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
-import { buildBookingUrl } from '@/utils/helpers';
+import { buildBookingUrl, calculatePricingForPeople } from '@/utils/helpers';
+import { formatMoney } from '@/utils/formatCurrency';
 
 interface MobileStickyBookingBarProps {
   experienceData: ExperienceData;
@@ -45,22 +46,17 @@ export default function MobileStickyBookingBar({
     [pathname, selectedTierId, selectedDateId, peopleCount, transportMode, roundtripTransferRequested],
   );
 
-  const basePrice = experienceData.config.experiencePricePerPerson;
-  const tierRoomPrice = selectedTierData
-    ? Math.min(...selectedTierData.rooms.map((r) => r.pricePerNight))
-    : 0;
+  const { total: displayPrice } = calculatePricingForPeople(
+    experienceData.config.experiencePricePerPerson,
+    experienceData.config.depositPercent,
+    experienceData.roomModes,
+    peopleCount,
+    selectedTierId,
+    roundtripTransferRequested ? 'roundtrip_transfer' : transportMode,
+    roundtripConfig,
+  );
 
-  let displayPrice = (basePrice + tierRoomPrice) * peopleCount;
-  if (roundtripTransferRequested && roundtripConfig) {
-    const vehicleCount = Math.ceil(Math.max(peopleCount, 1) / roundtripConfig.maxPeoplePerVehicle);
-    displayPrice += vehicleCount * roundtripConfig.pricePerVehicle;
-  }
-
-  const formattedPrice = new Intl.NumberFormat(locale, {
-    style: 'currency',
-    currency: 'COP',
-    maximumFractionDigits: 0,
-  }).format(displayPrice);
+  const formattedPrice = formatMoney(displayPrice, locale, experienceData.config.currency);
 
   const priceQualifier = peopleCount > 1
     ? t('experiences.ui.totalLabel')

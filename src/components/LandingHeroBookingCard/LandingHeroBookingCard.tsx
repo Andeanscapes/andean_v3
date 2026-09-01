@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { useLocale } from 'next-intl';
 import { ArrowRight, Clock3, MapPin, MessageCircle, ShieldCheck, BadgeCheck, CalendarCheck, Lock } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { formatDayMonth } from '@/utils/dateFormatters';
 import type { LandingFlagshipContent, LandingHeroBrandContent } from '@/lib/schemas/landing.schema';
 
 type BookingCardStrings = LandingHeroBrandContent['bookingCard'] & {
@@ -30,9 +31,7 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
   const nextAvail = flagship.availableDates.find((d) => d.isAvailable && d.spots > 0);
   const availabilityLabel = nextAvail
     ? (() => {
-        const date = new Intl.DateTimeFormat(locale, { month: 'long', day: 'numeric' }).format(
-          new Date(nextAvail.startDate),
-        );
+        const date = formatDayMonth(nextAvail.startDate, locale);
         const spotsLabel = nextAvail.spots === 1 ? strings.spotLabel : strings.spotsLeftLabel;
         return `${strings.nextAvailabilityLabel}: ${date} — ${strings.onlyLabel} ${nextAvail.spots} ${spotsLabel}`;
       })()

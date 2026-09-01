@@ -14,7 +14,7 @@ export const HERO_BRAND_FIXTURE: LandingHeroBrandContent = {
   primaryCtaLabel: 'Explore experiences',
   primaryCtaHref: '/experiences',
   secondaryCtaLabel: 'Plan with us on WhatsApp',
-  secondaryCtaHref: 'https://wa.me/573142730360',
+  secondaryCtaHref: 'https://wa.me/570000000000',
   trustChips: [
     { id: 'tc-1', iconName: 'Users', label: 'Small groups' },
     { id: 'tc-2', iconName: 'MapPin', label: 'Hosted by locals' },

@@ -8,6 +8,14 @@ export interface StepperProps {
   step?: number;
   disabled?: boolean;
   label?: string;
+  /**
+   * Accessible labels for the two buttons. Required, and props rather than
+   * `useTranslations`: this is a design-system primitive, so it stays free of app
+   * i18n. Defaults were removed because an English fallback silently shipped
+   * `aria-label="Increase"` to every locale.
+   */
+  decreaseLabel: string;
+  increaseLabel: string;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
 }
@@ -22,6 +30,8 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       step = 1,
       disabled = false,
       label,
+      decreaseLabel,
+      increaseLabel,
       size = 'md',
       className = '',
     },
@@ -61,7 +71,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             onClick={handleDecrement}
             disabled={disabled || value <= min}
             className={`btn ${sizeClasses[size]} focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100`}
-            aria-label="Decrease"
+            aria-label={decreaseLabel}
           >
             −
           </button>
@@ -82,7 +92,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             onClick={handleIncrement}
             disabled={disabled || value >= max}
             className={`btn ${sizeClasses[size]} focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100`}
-            aria-label="Increase"
+            aria-label={increaseLabel}
           >
             +
           </button>

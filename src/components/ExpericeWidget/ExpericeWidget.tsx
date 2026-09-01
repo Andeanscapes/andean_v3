@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
 import type { ExperienceData, TransportMode } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
-import { buildBookingUrl } from '@/utils/helpers';
+import { formatMoney } from '@/utils/formatCurrency';
+import { buildBookingUrl, calculatePricingForPeople } from '@/utils/helpers';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { Card } from '@/components/ui/Card/Card';
 import { Select } from '@/components/ui/Select/Select';
@@ -61,23 +62,18 @@ function ExpericeWidgetComponent({
   }, [availableDates, locale, widgetContent?.fallbackDateLabel]);
 
   const formattedPrice = useMemo(() => {
-    const basePrice = config.experiencePricePerPerson;
-    const tierRoomPrice = selectedTierData
-      ? Math.min(...selectedTierData.rooms.map((r) => r.pricePerNight))
-      : 0;
-    let combinedPrice = (basePrice + tierRoomPrice) * peopleCount;
+    const { total } = calculatePricingForPeople(
+      config.experiencePricePerPerson,
+      config.depositPercent,
+      experienceData.roomModes,
+      peopleCount,
+      selectedTierId,
+      transportMode,
+      roundtripConfig,
+    );
 
-    if (transportMode === 'roundtrip_transfer' && roundtripConfig) {
-      const vehicleCount = Math.ceil(Math.max(peopleCount, 1) / roundtripConfig.maxPeoplePerVehicle);
-      combinedPrice += vehicleCount * roundtripConfig.pricePerVehicle;
-    }
-
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'COP',
-      maximumFractionDigits: 0,
-    }).format(combinedPrice);
-  }, [config.experiencePricePerPerson, selectedTierData, peopleCount, locale, transportMode, roundtripConfig]);
+    return formatMoney(total, locale, config.currency);
+  }, [config, experienceData.roomModes, peopleCount, selectedTierId, locale, transportMode, roundtripConfig]);
 
   const isDarkTheme = theme === 'dark';
 

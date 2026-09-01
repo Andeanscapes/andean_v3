@@ -15,6 +15,7 @@ import type {
   ValuePropositionsContent,
   ExperienceInclusionsContent,
   AccommodationTiersContent,
+  ExperienceAddonsContent,
   HostContent,
   ItineraryContent,
 } from '@/lib/schemas';
@@ -133,6 +134,28 @@ export function toInclusionsContent(
     included: config.included.map((item) => ({ ...item, title: t(item.title) })),
     notIncluded: config.notIncluded.map((item) => ({ ...item, title: t(item.title) })),
     location: config.location,
+  };
+}
+
+// ── Optional extras ──────────────────────────────────────────────────────────
+
+export function toAddonsContent(
+  rawData: ExperienceData,
+  t: Translator,
+): ExperienceAddonsContent | undefined {
+  if (!rawData.addons?.length) return undefined;
+
+  return {
+    sectionTitle: t('experiences.ui.experienceDetails.addonsTitle'),
+    perPersonLabel: t('experiences.ui.experienceDetails.addonsPerPerson'),
+    teamConfirmationLabel: t('experiences.ui.experienceDetails.addonsTeamConfirmation'),
+    items: rawData.addons.map((addon) => ({
+      id: addon.id,
+      label: t(addon.label),
+      description: addon.description ? t(addon.description) : undefined,
+      pricePerPerson: addon.pricePerPerson,
+      requiresTeamConfirmation: addon.requiresTeamConfirmation,
+    })),
   };
 }
 
@@ -260,13 +283,13 @@ export function toTranslatedConfig(
     title: t(config.title),
     subtitle: t(config.subtitle),
     description: t(config.description),
-    includesItems: (config.includesItems ?? []).map((key) => t(key)),
-    includesFullDetails: config.includesFullDetails ? t(config.includesFullDetails) : '',
     microcopy: {
       deposit: t(config.microcopy.deposit),
       balance: t(config.microcopy.balance),
       security: t(config.microcopy.security),
-      ctaPrimary: t(config.microcopy.ctaPrimary),
+      // Takes the deposit percentage from the feed instead of baking it into the
+      // copy, so changing the commercial term is a feed change, not a retranslation.
+      ctaPrimary: t(config.microcopy.ctaPrimary, { percent: config.depositPercent }),
       ctaSecondary: t(config.microcopy.ctaSecondary),
     },
   };

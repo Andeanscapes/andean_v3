@@ -1,6 +1,7 @@
 'use client';
 
 import { memo } from 'react';
+import { useTranslations } from 'next-intl';
 import { CheckCircle2, XCircle, Clock, MapPin } from 'lucide-react';
 import type { ExperienceData } from '@/lib/schemas';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
@@ -14,6 +15,7 @@ interface InclusionsProps {
 }
 
 function InclusionsComponent({ className = '', experienceData }: InclusionsProps) {
+  const t = useTranslations();
   const inclusionsContent = experienceData.inclusionsContent;
   const bgImageUrl = experienceData.heroContent?.backgroundImageUrl;
 
@@ -106,7 +108,7 @@ function InclusionsComponent({ className = '', experienceData }: InclusionsProps
                 <div className="aspect-video lg:aspect-auto lg:h-full">
                 <iframe
                   src={mapSrc}
-                  title={location?.label ?? 'Meeting point'}
+                  title={location?.label ?? t('experiences.ui.meetingPoint')}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="h-full w-full"

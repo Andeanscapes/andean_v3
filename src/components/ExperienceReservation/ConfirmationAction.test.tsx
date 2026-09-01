@@ -4,8 +4,11 @@ import { describe, expect, it } from 'vitest';
 import { ConfirmationAction } from './ConfirmationAction';
 import { MOCK_TRANSLATED_CONFIG } from '@/test/test-utils';
 
+// Synthetic number on purpose: the real destination comes from
+// NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER, and a second plausible-looking business
+// number in the repo is what made the original misconfiguration hard to spot.
 const MOCK_WHATSAPP_LINK =
-  'https://wa.me/573142730360?text=Hola%2C%20quiero%20reservar';
+  'https://wa.me/570000000000?text=Hola%2C%20quiero%20reservar';
 
 describe('ConfirmationAction', () => {
   it('renders buttons', () => {
