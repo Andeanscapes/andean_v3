@@ -5,6 +5,22 @@ import { EXPERIENCE_EMERALD_MINING_FIXTURE, cloneFixture } from '@/test/fixtures
 import { adaptExperienceFeedV2 } from './experienceFeedAdapter';
 
 describe('adaptExperienceFeedV2', () => {
+  it('passes feed-owned hero video through to the UI config', () => {
+    const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+    feed.experience.media.video = {
+      desktop: '/videos/experiences/emerald-mining/hero.webm',
+      mobile: '/videos/experiences/emerald-mining/hero-mobile.webm',
+    };
+
+    const result = adaptExperienceFeedV2(
+      feed,
+      EXPERIENCE_I18N[feed.experience.id],
+      'https://wa.me/573142730360',
+    );
+
+    expect(result.config.video).toEqual(feed.experience.media.video);
+  });
+
   it('resolves logistics keys from the experience mapping', () => {
     const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
     const result = adaptExperienceFeedV2(

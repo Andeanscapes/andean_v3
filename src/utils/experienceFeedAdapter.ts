@@ -14,6 +14,8 @@
  *     invalidate in-flight reservations, so the adapter maps back.
  *  2. `media` → `config.images` — v2 groups images under `media` with a
  *     positional `highlights` array; v1 used named value-proposition slots.
+ *     `media.video` passes through to `config.video` (optional until the
+ *     published payload carries it).
  *
  * Output is only *key-resolved*, never translated: the `t` pass stays in
  * `experienceTranslators.ts`. Anything user-facing that this file emits must be
@@ -185,6 +187,7 @@ export function adaptExperienceFeedV2(
         valuePropositionTile2: highlights[1],
         valuePropositionTile3: highlights[2],
       },
+      video: experience.media.video,
       reviewsCount: feed.reviews.length,
       microcopy: { ...MICROCOPY },
       logistics: toLogistics(feed, mapping),

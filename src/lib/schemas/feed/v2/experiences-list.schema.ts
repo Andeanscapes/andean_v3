@@ -42,6 +42,27 @@ export const ExperiencesListEntryV2Schema = z
 export const ExperiencesListFeedV2Schema = z
   .object({
     schemaVersion: z.literal(2),
+    /**
+     * List-page hero media. Optional during the CDN-media rollout; tighten after
+     * the feed publishes it.
+     *
+     * `hero` is the background image, `video` the motion variant layered over it.
+     * Until both are published the page falls back to the source-controlled
+     * `FALLBACK_HERO_IMAGE` in `experiences-list.service.ts`.
+     */
+    media: z
+      .object({
+        hero: MediaPathSchema.optional(),
+        video: z
+          .object({
+            desktop: MediaPathSchema,
+            mobile: MediaPathSchema,
+          })
+          .strict()
+          .optional(),
+      })
+      .strict()
+      .optional(),
     /** Array order is the catalog order. */
     experiences: z.array(ExperiencesListEntryV2Schema),
   })

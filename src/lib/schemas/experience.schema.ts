@@ -39,6 +39,19 @@ export const ExperienceImagesSchema = z.object({
   valuePropositionTile3: z.string().optional(),
 });
 
+/**
+ * Hero video sources, already resolved to absolute CDN URLs by the service layer.
+ *
+ * `.min(1)` rather than a bare string: these values are interpolated straight
+ * into `<source src>`, and an empty string resolves to the current document —
+ * the same class of bug that `''` image fallbacks caused. Path shape is enforced
+ * at the feed boundary by `MediaPathSchema`; this is the post-resolution guard.
+ */
+export const ExperienceVideoSchema = z.object({
+  desktop: z.string().min(1),
+  mobile: z.string().min(1).optional(),
+});
+
 // Itinerary day stop (raw config — keys, not translated)
 export const ItineraryDayStopSchema = z.object({
   time: z.string(),
@@ -138,6 +151,7 @@ export const ExperienceConfigSchema = z.object({
   maxPeople: z.number(),
   minPeople: z.number(),
   images: ExperienceImagesSchema.optional(),
+  video: ExperienceVideoSchema.optional(),
   reviewsCount: z.number().optional(),
   microcopy: z.object({
     deposit: z.string(),
@@ -245,6 +259,7 @@ export const ExperienceHeroContentSchema = z.object({
   hideCta: z.boolean().optional(),
   ctaTargetId: z.string().optional(),
   backgroundImageUrl: z.string().optional(),
+  video: ExperienceVideoSchema.optional(),
   badges: z.array(ExperienceHeroBadgeItemSchema).optional(),
 });
 
@@ -274,7 +289,8 @@ export const ValuePropositionItemSchema = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string(),
-  imageUrl: z.string(),
+  /** Absent when the feed publishes no highlight for this slot — never `''`. */
+  imageUrl: z.string().min(1).optional(),
   badge: z.string().optional(),
 });
 

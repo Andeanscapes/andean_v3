@@ -2,9 +2,9 @@
  * Frontend-owned landing page structure.
  *
  * The v2 feed publishes business data only: which experiences exist, their
- * price/duration/location/availability, review facts and brand metrics. It
- * carries no section copy, no icons, no routes and no section ordering — those
- * are presentation, so they live here in source control.
+ * price/duration/location/availability, review facts, brand metrics and
+ * brand-level media. It carries no section copy, no icons, no routes and no
+ * section ordering — those are presentation, so they live here in source control.
  *
  * Every string in this file is an **i18n key path**, never copy. Icon names are
  * keys into `src/utils/landingIconMap.tsx`; changing one to a translated string
@@ -19,6 +19,7 @@ export const LANDING_STRUCTURE = {
     titleKey: 'Landing.brand.hero.title',
     subtitleKey: 'Landing.brand.hero.subtitle',
     descriptionKey: 'Landing.brand.hero.description',
+    // Remove after the published v2 feed carries `media`.
     backgroundImage: '/assets/images/hero/h0.webp',
     primaryCtaLabelKey: 'Landing.brand.hero.primaryCta',
     primaryCtaHref: '/experiences',
@@ -202,6 +203,7 @@ export const LANDING_STRUCTURE = {
   finalCta: {
     sectionTitleKey: 'Landing.finalCta.title',
     subtitleKey: 'Landing.finalCta.subtitle',
+    // Remove after the published v2 feed carries `media`.
     backgroundImage: '/assets/images/hero/h11.webp',
     primaryCtaLabelKey: 'Landing.finalCta.primaryCta',
     primaryCtaHref: '/experiences',

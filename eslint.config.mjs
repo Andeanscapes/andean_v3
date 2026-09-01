@@ -8,6 +8,10 @@ export default [
       'node_modules/**',
       '.next/**',
       '.open-next/**',
+      // Wrangler/Miniflare scratch bundles, written by `npm run preview` and
+      // `deploy`. Generated worker output, and linting it fails the build for
+      // anyone who previews before linting.
+      '.wrangler/**',
       '.vercel/**',
       'storybook-static/**',
       'coverage/**',
@@ -30,7 +34,12 @@ export default [
         module: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
-        global: 'readonly'
+        global: 'readonly',
+        // WHATWG globals available in every Node version this repo supports
+        // (Node 22). Declared so config files can use them without importing
+        // from `node:url` purely to satisfy `no-undef`.
+        URL: 'readonly',
+        URLSearchParams: 'readonly'
       }
     },
     rules: {

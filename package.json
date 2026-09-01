@@ -30,6 +30,7 @@
     "upload": "dotenv -e .env.wrangler -- opennextjs-cloudflare build && dotenv -e .env.wrangler -- opennextjs-cloudflare upload",
     "cf-typegen": "dotenv -e .env.wrangler -- wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "verify:feed": "vite-node -c vitest.config.ts scripts/verify-feed.ts",
+    "feed:stage-cdn-media": "vite-node -c vitest.config.ts scripts/stage-cdn-media-feed.ts",
     "postinstall": "patch-package"
   },
   "dependencies": {

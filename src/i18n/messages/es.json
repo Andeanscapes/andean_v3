@@ -212,12 +212,12 @@
           "flexible": "Reprogramación gratuita hasta 48 horas antes"
         }
       },
-        "globalCtas": {
-          "explore": "Ver todas las experiencias",
-          "whatsapp": "Escríbenos por WhatsApp",
-          "mobileFromLabel": "Desde",
-          "mobileBookNow": "Reservar"
-        }
+      "globalCtas": {
+        "explore": "Ver todas las experiencias",
+        "whatsapp": "Escríbenos por WhatsApp",
+        "mobileFromLabel": "Desde",
+        "mobileBookNow": "Reservar"
+      }
     },
     "reviews": {
       "sectionTitle": "Lo que dicen los viajeros",
@@ -231,32 +231,32 @@
         "colombia": "Colombia",
         "spain": "España"
       },
-       "items": {
-         "carlosTulio": {
-           "comment": "La finca es muy bella y las habitaciones cómodas, en el lugar hay mucho que hacer. Quería quedarme más tiempo."
-         },
-         "anamaria": {
-           "comment": "La estadía en la Hacienda el Recuerdo fue maravillosa. Un lugar muy acogedor y tranquilo. Realmente se puede conectar con la naturaleza. El señor Yesid y la señora Marlen, son unas personas muy atentas y amables, nos hicieron sentir en casa. Heinner es un excelente anfitrión. Fue una excelente experiencia. Lo único para tener en cuenta es el medio de transporte en el que se llegue a la finca, ya que queda en medio de las montañas. En general, es una experiencia inolvidable para quienes nos encanta la aventura y la naturaleza. ¡Esperamos regresar!"
-         },
-         "odessa": {
-           "comment": "No puedo decir suficientes cosas buenas sobre esta estadía. Heinner fue de gran ayuda incluso antes de que llegáramos, ofreciéndonos a guiarnos hasta la finca desde la ciudad u organizar el transporte. Su familia vive aquí y todos son tan amables y acogedores que sentimos que estábamos visitando a nuestros amigos de inmediato. ¡Heinner está muy involucrado en la comunidad local y organizó un recorrido para que visitáramos las minas esmeralda locales! ¡Fue una experiencia increíble! Disfrutamos caminando por la propiedad, observando aves e incluso ordeñando vacas. Todas nuestras comidas fueron caseras por la madre de Heinner y fueron perfectas. El wifi era rápido y confiable y tienen un gran espacio de coworking con escritorios."
-         },
-         "sandraPatricia": {
-           "comment": "Nuestra estadía fue muy placentera en la hacienda el recuerdo, nuestros anfitriones Marlen, Yesid, Heinner, Kyra y Luna muy atentos, siempre pendientes de lo que necesitábamos. La habitación muy confortable, dormimos delicioso. La alimentación deliciosa y preparada con mucho amor. Nos sentimos como en casa. Alojarse en el recuerdo es una gran opción, no solo se trata de descansar, si no de conocer el entorno y realizar actividades de ecoturismo, conocer a los locales, nuestras raices y apreciar las maravillas de nuestro país. ¡Lo recomendamos y regresaremos!"
-         },
-         "camilo": {
-           "comment": "Excelente experiencia, un lugar muy tranquilo con mucho espacio para hacer actividades dentro de las instalaciones. Una conexión con la naturaleza excepcional. Recomendadísimo."
-         }
-       },
-       "trustPanel": {
-         "title": "Por qué los viajeros vuelven",
-         "bullets": {
-           "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
-           "reviews": "5.0★ de 5 viajeros verificados",
-           "payment": "Reserva con el 15% — el resto lo pagas al llegar",
-           "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
-         }
-       }
+      "items": {
+        "carlosTulio": {
+          "comment": "La finca es muy bella y las habitaciones cómodas, en el lugar hay mucho que hacer. Quería quedarme más tiempo."
+        },
+        "anamaria": {
+          "comment": "La estadía en la Hacienda el Recuerdo fue maravillosa. Un lugar muy acogedor y tranquilo. Realmente se puede conectar con la naturaleza. El señor Yesid y la señora Marlen, son unas personas muy atentas y amables, nos hicieron sentir en casa. Heinner es un excelente anfitrión. Fue una excelente experiencia. Lo único para tener en cuenta es el medio de transporte en el que se llegue a la finca, ya que queda en medio de las montañas. En general, es una experiencia inolvidable para quienes nos encanta la aventura y la naturaleza. ¡Esperamos regresar!"
+        },
+        "odessa": {
+          "comment": "No puedo decir suficientes cosas buenas sobre esta estadía. Heinner fue de gran ayuda incluso antes de que llegáramos, ofreciéndonos a guiarnos hasta la finca desde la ciudad u organizar el transporte. Su familia vive aquí y todos son tan amables y acogedores que sentimos que estábamos visitando a nuestros amigos de inmediato. ¡Heinner está muy involucrado en la comunidad local y organizó un recorrido para que visitáramos las minas esmeralda locales! ¡Fue una experiencia increíble! Disfrutamos caminando por la propiedad, observando aves e incluso ordeñando vacas. Todas nuestras comidas fueron caseras por la madre de Heinner y fueron perfectas. El wifi era rápido y confiable y tienen un gran espacio de coworking con escritorios."
+        },
+        "sandraPatricia": {
+          "comment": "Nuestra estadía fue muy placentera en la hacienda el recuerdo, nuestros anfitriones Marlen, Yesid, Heinner, Kyra y Luna muy atentos, siempre pendientes de lo que necesitábamos. La habitación muy confortable, dormimos delicioso. La alimentación deliciosa y preparada con mucho amor. Nos sentimos como en casa. Alojarse en el recuerdo es una gran opción, no solo se trata de descansar, si no de conocer el entorno y realizar actividades de ecoturismo, conocer a los locales, nuestras raices y apreciar las maravillas de nuestro país. ¡Lo recomendamos y regresaremos!"
+        },
+        "camilo": {
+          "comment": "Excelente experiencia, un lugar muy tranquilo con mucho espacio para hacer actividades dentro de las instalaciones. Una conexión con la naturaleza excepcional. Recomendadísimo."
+        }
+      },
+      "trustPanel": {
+        "title": "Por qué los viajeros vuelven",
+        "bullets": {
+          "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
+          "reviews": "5.0★ de 5 viajeros verificados",
+          "payment": "Reserva con el 15% — el resto lo pagas al llegar",
+          "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
+        }
+      }
     },
     "faqs": {
       "sectionTitle": "Preguntas frecuentes",
@@ -405,21 +405,21 @@
         }
       }
     },
-      "inclusions": {
-        "sectionTitle": "Qué incluye",
-        "includedLabel": "Incluido",
-        "notIncludedLabel": "No incluido",
-        "logistics": {
-          "start": "Hora de inicio",
-          "duration": "Duración",
-          "transport": "Transporte",
-          "difficulty": "Dificultad"
-        },
-        "logisticsValues": {
-          "duration": "2 días / 1 noche",
-          "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
-          "difficulty": "Moderada"
-        },
+    "inclusions": {
+      "sectionTitle": "Qué incluye",
+      "includedLabel": "Incluido",
+      "notIncludedLabel": "No incluido",
+      "logistics": {
+        "start": "Hora de inicio",
+        "duration": "Duración",
+        "transport": "Transporte",
+        "difficulty": "Dificultad"
+      },
+      "logisticsValues": {
+        "duration": "2 días / 1 noche",
+        "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+        "difficulty": "Moderada"
+      },
       "included": {
         "guide": "Guía bilingüe certificado",
         "equipment": "Todo el equipo de seguridad",
@@ -484,82 +484,8 @@
       }
     }
   },
-  "HeroTwo": {
-    "cta": "RESERVA AHORA",
-    "slides": {
-      "0": {
-        "title": "Tu refugio para nómadas digitales",
-        "subtitle": "Programa entre las nubes, sumérgete en las vibrantes tradiciones de las montañas colombianas y encuentra inspiración en la naturaleza en Andean Scapes: el refugio y experiencia de co‑living definitiva para nómadas digitales."
-      },
-      "1": {
-        "title": "Despierta con vistas increíbles a la montaña",
-        "subtitle": "Comienza el día con panorámicas impresionantes. Descubre tranquilidad e inspiración en cada amanecer."
-      },
-      "2": {
-        "title": "Vive y trabaja en armonía",
-        "subtitle": "Disfruta comodidades modernas en un entorno histórico en Hacienda El Recuerdo (Chivor - Boyacá). Ideal para nómadas digitales que buscan una experiencia de co‑living única."
-      },
-      "3": {
-        "title": "Descubre tesoros escondidos",
-        "subtitle": "Aventúrate al corazón de las minas de esmeraldas de Colombia. Encuentra las joyas más finas de la naturaleza y crea recuerdos inolvidables."
-      },
-      "4": {
-        "title": "Trabaja en medio de la naturaleza",
-        "subtitle": "Encuentra tu punto ideal de productividad en nuestros espacios de trabajo al aire libre. Disfruta vistas espectaculares mientras trabajas."
-      },
-      "5": {
-        "title": "Reconéctate con la naturaleza",
-        "subtitle": "Participa en actividades de granja y apicultura. Vive la alegría y simplicidad de la vida rural."
-      },
-      "6": {
-        "title": "La aventura te espera",
-        "subtitle": "Embárcate en actividades emocionantes como senderismo y cabalgatas. Explora el lado aventurero de los Andes."
-      },
-      "7": {
-        "title": "Sumérgete en la vida local",
-        "subtitle": "Vive la rica cultura local con eventos comunitarios y tradiciones. Experimenta la auténtica hospitalidad colombiana."
-      },
-      "8": {
-        "title": "Descansa con comodidad y estilo",
-        "subtitle": "Relájate en nuestras habitaciones privadas bellamente diseñadas. Disfruta la mezcla perfecta de comodidad, estilo y tranquilidad."
-      },
-      "9": {
-        "title": "Explora pueblos cercanos con encanto",
-        "subtitle": "Descubre la belleza y el encanto de pueblos colombianos cercanos como Macanal (Boyacá). Sumérgete en la cultura, arquitectura y tradiciones para una experiencia auténtica."
-      },
-      "10": {
-        "title": "Conéctate con la vida de granja",
-        "subtitle": "Vive la vida de granja ordeñando vacas con campesinos locales en Hacienda El Recuerdo. Aprende métodos tradicionales y disfruta una experiencia rural única."
-      },
-      "11": {
-        "title": "Descubre los tesoros de los Andes",
-        "subtitle": "Adéntrate en el corazón de los Andes y explora las históricas minas de esmeraldas. Vive la emoción del descubrimiento mientras aprendes sobre las tradiciones mineras y las maravillas geológicas de Colombia."
-      }
-    },
-    "availabilityCta": "Ver disponibilidad",
-    "scrollCue": "Reserva en 1 minuto"
-  },
-  "VideoBanner": {
-    "title": "Descubre el viaje del minero",
-    "description": "Vive un día en la vida de un minero de esmeraldas. Mira nuestro video para descubrir la aventura y la herencia de la industria esmeraldífera de Colombia.",
-    "close": "Cerrar",
-    "closeAria": "Cerrar video",
-    "videoTitle": "Reproductor de YouTube",
-    "playAria": "Reproducir video",
-    "playAlt": "Reproducir video"
-  },
   "BookingCtas": {
-    "title": "¿Listo para tu aventura? ⛏️💎",
-    "subtitle": "Aventura minera en Chivor + estadía en Hacienda El Recuerdo. Plan 2D/1N.",
-    "airbnbCta": "Ver disponibilidad en Airbnb",
-    "airbnbSupport": "Pago seguro + reviews",
-    "reviewsLabel": "reviews",
-    "trustPolicy": "Pago seguro · Cancelación según Airbnb",
-    "whatsappHelpText": "¿Dudas o quieres cotizar antes de reservar?",
     "whatsappCta": "Hablar por WhatsApp",
-    "stickyWhatsappText": "¿Dudas? WhatsApp",
-    "whatsappSupport": "Te ayudamos a confirmar fechas, habitaciones y transporte · Respuesta rápida",
-    "bookingScopeNote": "La reserva en Airbnb incluye solo habitación en Hacienda El Recuerdo. El tour minero se cotiza aparte.",
     "whatsappMiningQuote": "¡Hola! Quiero reservar la Aventura de Minería de Esmeraldas con estadía en Hacienda El Recuerdo, Chivor. ¿Me ayudas con disponibilidad?"
   },
   "EmeraldMiningAdventure": {

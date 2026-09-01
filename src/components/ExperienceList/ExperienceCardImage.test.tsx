@@ -1,136 +1,94 @@
-/* eslint-disable no-undef */
-import type { ImgHTMLAttributes } from 'react';
-import { render, screen, waitFor } from '@/test/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+/**
+ * Regression tests for the card image on `/experiences`.
+ *
+ * Two bugs are guarded here, both of which shipped:
+ *
+ *  1. An `onLoad`-gated fade-in. Revealing the image from a React `load` handler
+ *     loses the race when the browser finishes loading before hydration, and the
+ *     image then stays at `opacity-0` for good — the card rendered an empty
+ *     placeholder over an asset that was 200 OK.
+ *  2. Routing through `next/image`. On the deployed Worker `/_next/image` is a
+ *     pass-through (verified via `npm run preview`: same bytes and same
+ *     716x955 dimensions for w=64 through w=3840), so mobile clients received
+ *     the full-size original instead of the ~7x smaller `-mobile` variant.
+ */
+
+import { render } from '@/test/test-utils';
+import { describe, expect, it } from 'vitest';
 import ExperienceCardImage from './ExperienceCardImage';
-
-type MockNextImageProps = ImgHTMLAttributes<HTMLImageElement> & {
-  fill?: boolean;
-  quality?: number;
-  placeholder?: string;
-  blurDataURL?: string;
-};
-
-vi.mock('next/image', () => ({
-  default: ({ fill: _fill, quality: _quality, placeholder: _placeholder, blurDataURL: _blurDataURL, ...props }: MockNextImageProps) => (
-    <img {...props} />
-  ),
-}));
 
 describe('ExperienceCardImage', () => {
   const mockProps = {
-    src: '/assets/images/details/emerald-mining-card.webp',
+    src: '/images/experiences/emerald-mining/card.webp',
     alt: 'Emerald Mining Adventure',
     sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   };
 
-  it('renders with loading skeleton initially', () => {
-    render(<ExperienceCardImage {...mockProps} />);
-    const container = screen.getByRole('img', { hidden: true }).closest('picture')?.parentElement;
-    expect(container).toHaveClass('bg-base-200');
-  });
-
-  it('renders loading icon in fallback state', () => {
-    render(<ExperienceCardImage {...mockProps} />);
-    // The ImageIcon should be present but with opacity-100 initially
-    const iconContainer = document.querySelector('.animate-pulse');
-    expect(iconContainer).toBeInTheDocument();
-  });
-
-  it('renders picture element with responsive sources', () => {
+  it('renders the image with the given src and alt', () => {
     const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const picture = container.querySelector('picture');
-    expect(picture).toBeInTheDocument();
-    
-    const sources = picture?.querySelectorAll('source');
-    expect(sources?.length).toBe(2);
+    const img = container.querySelector('img');
+
+    expect(img).toHaveAttribute('src', mockProps.src);
+    expect(img).toHaveAttribute('alt', mockProps.alt);
+    // A described image stays in the accessibility tree.
+    expect(img).not.toHaveAttribute('aria-hidden');
   });
 
-  it('uses correct media queries for mobile and desktop', () => {
+  it('serves a smaller -mobile variant below 768px', () => {
     const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const sources = container.querySelectorAll('source');
-    const sourceArray = Array.from(sources);
-    
-    const mobileSource = sourceArray.find((s) => s.getAttribute('media') === '(max-width: 767px)');
-    const desktopSource = sourceArray.find((s) => s.getAttribute('media') === '(min-width: 768px)');
-    
-    expect(mobileSource).toBeInTheDocument();
-    expect(desktopSource).toBeInTheDocument();
-  });
+    const source = container.querySelector('source');
 
-  it('derives mobile image path correctly', () => {
-    const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const sources = container.querySelectorAll('source');
-    const mobileSource = Array.from(sources).find(
-      (s) => s.getAttribute('media') === '(max-width: 767px)'
+    expect(source).toHaveAttribute('media', '(max-width: 767px)');
+    expect(source).toHaveAttribute(
+      'srcset',
+      '/images/experiences/emerald-mining/card-mobile.webp',
     );
-    
-    expect(mobileSource?.getAttribute('srcset')).toBe(
-      '/assets/images/details/emerald-mining-card-mobile.webp'
-    );
+    expect(source).not.toHaveAttribute('type');
   });
 
-  it('uses desktop image path for desktop viewport', () => {
+  it('keeps a decorative fallback behind failed images without hydration state', () => {
     const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const sources = container.querySelectorAll('source');
-    const desktopSource = Array.from(sources).find(
-      (s) => s.getAttribute('media') === '(min-width: 768px)'
-    );
-    
-    expect(desktopSource?.getAttribute('srcset')).toBe(mockProps.src);
+
+    expect(container.querySelector('[aria-hidden="true"] svg')).toBeInTheDocument();
+  });
+
+  // next/image would emit a /_next/image URL, which does nothing on the Worker.
+  it('does not route through the Next image optimizer', () => {
+    const { container } = render(<ExperienceCardImage {...mockProps} />);
+
+    expect(container.innerHTML).not.toContain('_next/image');
+  });
+
+  it('renders the image visible, without an opacity gate', () => {
+    const { container } = render(<ExperienceCardImage {...mockProps} />);
+
+    expect(container.querySelector('img')?.className).not.toContain('opacity-0');
+  });
+
+  // ExperienceCard passes alt="" because it renders the title adjacently; an
+  // unlabelled image left in the tree would be announced as "image".
+  it('hides the image from assistive tech when used decoratively', () => {
+    const { container } = render(<ExperienceCardImage {...mockProps} alt="" />);
+    const img = container.querySelector('img');
+
+    expect(img).toHaveAttribute('alt', '');
+    expect(img).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('sets correct image attributes for performance', () => {
     const { container } = render(<ExperienceCardImage {...mockProps} />);
     const img = container.querySelector('img');
-    
-    expect(img?.getAttribute('loading')).toBe('lazy');
-    expect(img?.getAttribute('decoding')).toBe('async');
-  });
 
-  it('applies fade transition when image loads', async () => {
-    const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const img = container.querySelector('img') as HTMLImageElement;
-    
-    expect(img?.className).toContain('opacity-0');
-    
-    // Simulate image load
-    img?.dispatchEvent(new Event('load'));
-    
-    await waitFor(() => {
-      expect(img?.className).toContain('opacity-100');
-    });
-  });
-
-  it('hides loading skeleton when image is loaded', async () => {
-    const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const img = container.querySelector('img') as HTMLImageElement;
-    const skeleton = container.querySelector('[aria-hidden="true"]');
-    
-    expect(skeleton?.className).toContain('opacity-100');
-    
-    img?.dispatchEvent(new Event('load'));
-    
-    await waitFor(() => {
-      expect(skeleton?.className).toContain('opacity-0');
-    });
+    expect(img).toHaveAttribute('loading', 'lazy');
+    expect(img).toHaveAttribute('decoding', 'async');
   });
 
   it('renders with correct container dimensions', () => {
     const { container } = render(<ExperienceCardImage {...mockProps} />);
     const wrapper = container.firstChild as HTMLElement;
-    
+
     expect(wrapper?.className).toContain('h-64');
     expect(wrapper?.className).toContain('w-full');
     expect(wrapper?.className).toContain('rounded-xl');
-  });
-
-  it('applies correct image optimization attributes', () => {
-    const { container } = render(<ExperienceCardImage {...mockProps} />);
-    const img = container.querySelector('img');
-    
-    expect(img?.getAttribute('loading')).toBe('lazy');
-    expect(img?.getAttribute('decoding')).toBe('async');
-    expect(img?.getAttribute('alt')).toBe(mockProps.alt);
   });
 });

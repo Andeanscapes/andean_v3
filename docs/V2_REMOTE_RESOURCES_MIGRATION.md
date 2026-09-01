@@ -63,8 +63,8 @@ deliberate denormalization, not an accident.
 | File | Publishes to | Owns / projects |
 |---|---|---|
 | `fixtures/experience-emerald-mining.json` | `<base>/experience-emerald-mining.json` | **Owner.** Pricing, deposit, capacity, inventory, transport, add-ons, availability, itinerary, host, reviews |
-| `fixtures/experiences-list.json` | `<base>/experiences-list.json` | Catalog order + card projection (slug, status, image, fromPrice, duration, locality, badge/highlight codes) |
-| `fixtures/landing.json` | `<base>/landing.json` | Flagship/featured selection + landing projection (media, fromPrice, duration, full location, availability), review facts, aggregate, brand metrics |
+| `fixtures/experiences-list.json` | `<base>/experiences-list.json` | Catalog order + card projection (slug, status, image, fromPrice, duration, locality, badge/highlight codes) + optional list-hero image and video during rollout |
+| `fixtures/landing.json` | `<base>/landing.json` | Flagship/featured selection + landing projection (media, fromPrice, duration, full location, availability), optional brand media during rollout, review facts, aggregate, brand metrics |
 
 ### What each projection deliberately excludes
 
@@ -87,16 +87,39 @@ state, and *may* carry `depositPercent` (see the rollout exception above).
    regex (`/^[A-Z]{3}$/`), **not** `.toUpperCase()` — that helper coerces
    `"cop"` into a successful parse and silently normalizes a broken feed.
 7. Times are 24-hour `HH:mm` plus an IANA `timeZone`. Dates are ISO 8601 UTC.
-8. Media are app-relative paths (`/assets/...`); an absolute URL is rejected so a
-   compromised feed cannot point the UI at third-party hosts.
-9. Identifier **values** persisted by the booking flow are frozen:
-   `car_no_4x4`, `have_4x4`, `bus`, `roundtrip_transfer`, `standard_single`,
-   `standard_couple`, `family_single`, `family_couple`, `family_3`,
-   `apiary_cattle`, `horseback_riding`, tier `heritage`, rooms `h_std` / `h_fam`,
-   and every existing `availableDates[].id`. They key `localStorage` and URL
-   state (`src/utils/reservationStorage.ts`, `src/utils/helpers.ts`).
-   Property *names* are camelCase; identifier *values* keep their existing form.
-10. Booking enums are **not redefined** in v2. `src/lib/schemas/feed/v2/common.schema.ts`
+8. Media use a single-leading-slash app-relative path. Absolute and
+   protocol-relative URLs are rejected so a compromised feed cannot point the UI
+   at third-party hosts. Legacy `/assets/...` remains accepted during rollout;
+   CDN-owned business media uses `/images/...` and `/videos/...`.
+   `src/utils/mediaUrl.ts` rewrites only those two prefixes to absolute CDN URLs
+   — anything else is served from the app origin.
+9. **Hero images need an uploaded `-mobile` sibling that the feed never names.**
+   `getResponsiveImageSrc` derives the mobile variant by inserting `-mobile`
+   before the extension, so publishing `/images/x/hero.webp` silently requires
+   `/images/x/hero-mobile.webp` to exist. Nothing validates this: the feed schema
+   only sees the desktop path, and a missing file is a 404 **on phones only**,
+   invisible on desktop and in every test.
+
+   This applies to every media path consumed by a raw `<img>` inside
+   `<picture>`: the experience hero, the list hero, the landing hero **and the
+   experience list card**. When adding one, upload both files and verify both
+   with a cache-busted request.
+
+   Do **not** assume `next/image` covers the responsive case. On the deployed
+   Worker `/_next/image` is a pass-through — `npm run preview` returns the
+   untouched original for every width from `w=64` to `w=3840`. Anything still
+   rendered through `next/image` (landing featured cards, category tiles, final
+   CTA) is therefore served at full size on mobile. Pre-generated `-mobile`
+   variants are currently the only mechanism that reduces mobile bytes; enabling
+   real optimization in `open-next.config.ts` is tracked as open work below.
+10. Identifier **values** persisted by the booking flow are frozen:
+    `car_no_4x4`, `have_4x4`, `bus`, `roundtrip_transfer`, `standard_single`,
+    `standard_couple`, `family_single`, `family_couple`, `family_3`,
+    `apiary_cattle`, `horseback_riding`, tier `heritage`, rooms `h_std` / `h_fam`,
+    and every existing `availableDates[].id`. They key `localStorage` and URL
+    state (`src/utils/reservationStorage.ts`, `src/utils/helpers.ts`).
+    Property *names* are camelCase; identifier *values* keep their existing form.
+11. Booking enums are **not redefined** in v2. `src/lib/schemas/feed/v2/common.schema.ts`
     re-exports `RoomModeSchema` / `RoomTypeSchema` / `TransportModeSchema` from
     `experience.schema.ts` so there is one definition of the values that key
     persisted reservations.
@@ -182,13 +205,25 @@ fix depends on a feed change.
 
 **Blocked on a CDN upload**
 
-1. **`landing.json` does not project `depositPercent`.**
+1. **CDN media is in a staged strict-schema rollout.** The reader accepts the
+   optional landing brand-media, list hero image/video and experience hero-video
+   fields. Landing keeps source-controlled `/assets/...` fallbacks until the
+   published feed carries its `media` block, and the list hero falls back to
+   `FALLBACK_HERO_IMAGE` in `experiences-list.service.ts`. Publish the feed fields
+   only after this reader is deployed; then remove the fallbacks and tighten the
+   fields to required.
+
+   A hero without a fallback renders as a blank section, not a visible error —
+   any field removed from the frontend must already be published, and both
+   fallback paths are covered by service tests.
+
+2. **`landing.json` does not project `depositPercent`.**
    `LandingExperienceV2Schema` marks it optional and the adapter passes
    `undefined` through, so the mobile sticky bar suppresses the deposit note
    rather than rendering "0%". Upload the field, then tighten the schema to
    required — `contract.test.ts` already equality-asserts it against the
    experience resource whenever it is present.
-2. **The deposit percentage is still hardcoded in 7 landing locale strings**
+3. **The deposit percentage is still hardcoded in 7 landing locale strings**
    (for example `Landing.finalCta.badges.deposit` = "15% deposit to confirm",
    `Landing.brand.howItWorks.steps.pay.title` = "Reserve with 15%"), in all three
    locales. They cannot be parameterized until (1) lands, because landing has no
@@ -229,20 +264,24 @@ Already done — v2 is live. Kept for reference and for the next contract change
 >
 > `fixtures/` is regenerable — `npm run fixtures:fetch` — so no backup is needed.
 
-Ordering for any future contract change:
+Ordering for a strict-schema contract change:
 
-1. Upload `experience-*.json` first — the owner must exist before projections
+1. Deploy a reader that accepts the new fields as optional while retaining the
+   previous behavior when absent. Old strict readers reject unknown properties,
+   so publishing first would cause an outage.
+2. Upload `experience-*.json` first — the owner must exist before projections
    reference it.
-2. Upload `experiences-list.json` — activates route discovery.
-3. Upload `landing.json`.
-4. Purge the CDN and Next/OpenNext tag caches. **Also clear `.next/cache` before
+3. Upload `experiences-list.json` — activates route discovery.
+4. Upload `landing.json`.
+5. Deploy the cleanup that makes the fields required and removes legacy fallback.
+6. Purge the CDN and Next/OpenNext tag caches. **Also clear `.next/cache` before
    building**: the persistent fetch cache holds responses for the
    `revalidate: 3600` window, and a warm cache will build the *old* contract
    against new code. This bit during this migration — the build failed on a v1
    payload while `verify:feed` read v2 from the same URL seconds earlier.
-5. Redeploy if any slug changed — `sitemap.xml` and `generateStaticParams` are
+7. Redeploy if any slug changed — `sitemap.xml` and `generateStaticParams` are
    build-time.
-6. Verify `/`, `/es`, `/fr`, list, detail, booking, a full price calculation, and
+8. Verify `/`, `/es`, `/fr`, list, detail, booking, a full price calculation, and
    reservation hydration from existing `localStorage`.
 
 ```bash

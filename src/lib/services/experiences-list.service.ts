@@ -2,11 +2,13 @@ import type { ExperienceListCard, ExperiencesListData } from '../schemas';
 import { ExperiencesListDataSchema } from '../schemas';
 import type { ExperiencesListEntryV2, ExperiencesListFeedV2 } from '../schemas/feed/v2';
 import { ExperiencesListFeedV2Schema } from '../schemas/feed/v2';
+import { cache } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { fetchRemoteJson } from '../remote-data';
 import { EXPERIENCES_LIST_FEED_PATH } from '@/utils/feedPaths';
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
 import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
+import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
 import { experiencePath } from '@/utils/experienceRoutes';
 
 /**
@@ -26,24 +28,45 @@ import { experiencePath } from '@/utils/experienceRoutes';
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
 /**
+ * Source-controlled hero background, used until the feed publishes `media.hero`.
+ *
+ * Mirrors the `/assets/...` fallbacks in `landing.structure.ts`: presentation
+ * lives in source control, business media comes from the feed. Remove once the
+ * published payload carries the field and the schema is tightened to required.
+ */
+const FALLBACK_HERO_IMAGE = '/assets/images/hero/h10.webp';
+
+/**
  * Fetch and validate the raw list feed.
  *
  * Locale-agnostic and shared: experiences-catalog.service derives route and SEO
  * metadata from the same payload, so there is a single experiences feed rather
  * than a separate catalog endpoint.
+ *
+ * Wrapped in React `cache` so it resolves **once per request**. A single page
+ * render reaches this through several entry points — `generateMetadata`, the
+ * page body, and the catalog service — and while Next's fetch cache already
+ * spares the network, every call still re-ran `response.json()` and a full Zod
+ * parse of the whole payload. That is CPU, which is the constrained resource on
+ * Workers.
+ *
+ * `cache` is inert outside a request scope, so tests still observe one fetch per
+ * call and can stub the feed per assertion.
  */
-export async function fetchExperiencesListConfig(): Promise<ExperiencesListFeedV2> {
-  const remote = await fetchRemoteJson(EXPERIENCES_LIST_FEED_PATH, ExperiencesListFeedV2Schema, {
-    revalidate: 3600,
-    tags: ['experiences-list'],
-  });
+export const fetchExperiencesListConfig = cache(
+  async (): Promise<ExperiencesListFeedV2> => {
+    const remote = await fetchRemoteJson(EXPERIENCES_LIST_FEED_PATH, ExperiencesListFeedV2Schema, {
+      revalidate: 3600,
+      tags: ['experiences-list'],
+    });
 
-  if (!remote.data) {
-    throw new Error(`[ExperiencesList] Experiences feed unavailable: ${remote.reason}`);
-  }
+    if (!remote.data) {
+      throw new Error(`[ExperiencesList] Experiences feed unavailable: ${remote.reason}`);
+    }
 
-  return remote.data;
-}
+    return remote.data;
+  },
+);
 
 /** Only published experiences are routable or listable. */
 export function isPublished(entry: ExperiencesListEntryV2): boolean {
@@ -94,7 +117,10 @@ function toCard(entry: ExperiencesListEntryV2, t: Translator): ExperienceListCar
  *
  * `ctaTargetId` matches the section id rendered by the experiences page.
  */
-function toHeroContent(t: Translator): ExperiencesListData['hero'] {
+function toHeroContent(
+  t: Translator,
+  media: ExperiencesListFeedV2['media'],
+): ExperiencesListData['hero'] {
   return {
     title: t('ExperiencesList.hero.title'),
     subtitle: t('ExperiencesList.hero.subtitle'),
@@ -104,6 +130,8 @@ function toHeroContent(t: Translator): ExperiencesListData['hero'] {
     helperText: t('ExperiencesList.hero.helperText'),
     hideCta: false,
     ctaTargetId: 'experiences-cards',
+    backgroundImageUrl: media?.hero ?? FALLBACK_HERO_IMAGE,
+    video: media?.video,
     badges: [
       { label: t('ExperiencesList.hero.badges.nature'), icon: 'none' },
       { label: t('ExperiencesList.hero.badges.culture'), icon: 'none' },
@@ -112,13 +140,27 @@ function toHeroContent(t: Translator): ExperiencesListData['hero'] {
   };
 }
 
-export async function getExperiencesListSSR(locale: string): Promise<ExperiencesListData> {
+/**
+ * Wrapped in React `cache`, keyed by `locale`. `generateMetadata` and the page
+ * body both call this, and the translate pass plus the media walk cost more than
+ * the feed read that `fetchExperiencesListConfig` already memoizes.
+ *
+ * `cache` is inert outside a request scope, so tests are unaffected.
+ */
+export const getExperiencesListSSR = cache(async (
+  locale: string,
+): Promise<ExperiencesListData> => {
   const [t, feed] = await Promise.all([
     getTranslations({ locale }),
     fetchExperiencesListConfig(),
   ]);
 
   const { page } = EXPERIENCES_LIST_I18N;
+
+  // Resolve CDN-relative media (card images, hero video) to absolute URLs on the
+  // feed, before translating — the same point in the pipeline as landing.service
+  // and book.service, and it keeps translated copy out of the media walk.
+  const resolvedFeed = resolveMediaUrlsDeep(feed);
 
   const translated: ExperiencesListData = {
     metaTitle: t(page.metaTitle),
@@ -127,8 +169,8 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
     sectionSubtitle: t(page.sectionSubtitle),
     fromLabel: t(page.fromLabel),
     viewDetails: t(page.viewDetails),
-    hero: toHeroContent(t),
-    cards: feed.experiences.filter(isPublished).map((entry) => toCard(entry, t)),
+    hero: toHeroContent(t, resolvedFeed.media),
+    cards: resolvedFeed.experiences.filter(isPublished).map((entry) => toCard(entry, t)),
   };
 
   const translatedResult = ExperiencesListDataSchema.safeParse(translated);
@@ -138,4 +180,4 @@ export async function getExperiencesListSSR(locale: string): Promise<Experiences
   }
 
   return translatedResult.data;
-}
+});

@@ -9,6 +9,10 @@
  *
  * Output is key-resolved, never translated — the `t` pass stays in the
  * translators. Anything user-facing emitted here must be a key, not copy.
+ *
+ * Brand-level media (hero background, category tiles, final CTA background)
+ * comes from the feed's `media` block, not the structure — the structure only
+ * carries layout, keys and routes.
  */
 
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
@@ -20,6 +24,25 @@ import { experiencePath } from '@/utils/experienceRoutes';
 import { whatsappUrl } from '@/utils/whatsapp';
 
 const S = LANDING_STRUCTURE;
+
+type LandingCategoryId = (typeof LANDING_STRUCTURE)['categories']['items'][number]['id'];
+
+/**
+ * Structure category id → feed `media.categories` key.
+ *
+ * Keyed on the structure's literal ids, so adding or renaming a category in
+ * `landing.structure.ts` without publishing its feed media is a compile error
+ * instead of a silent fall back to the source-controlled image.
+ */
+const CATEGORY_MEDIA_KEY: Record<
+  LandingCategoryId,
+  keyof NonNullable<LandingFeedV2['media']>['categories']
+> = {
+  emerald: 'emeraldMining',
+  nature: 'nature',
+  rural: 'rural',
+  horseback: 'horseback',
+};
 
 /**
  * The flagship experience card.
@@ -191,7 +214,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       titleKey: S.hero.titleKey,
       subtitleKey: S.hero.subtitleKey,
       descriptionKey: S.hero.descriptionKey,
-      backgroundImage: S.hero.backgroundImage,
+      backgroundImage: feed.media?.hero ?? S.hero.backgroundImage,
       primaryCtaLabelKey: S.hero.primaryCtaLabelKey,
       primaryCtaHref: S.hero.primaryCtaHref,
       secondaryCtaLabelKey: S.hero.secondaryCtaLabelKey,
@@ -210,7 +233,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
         iconName: item.iconName,
         titleKey: item.titleKey,
         descriptionKey: item.descriptionKey,
-        imageUrl: item.imageUrl,
+        imageUrl: feed.media?.categories[CATEGORY_MEDIA_KEY[item.id]] ?? item.imageUrl,
         href: item.href,
         ctaLabelKey: S.categories.ctaLabelKey,
         exclusiveAccessKey: 'exclusiveAccessKey' in item ? item.exclusiveAccessKey : undefined,
@@ -271,7 +294,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     finalCta: {
       sectionTitleKey: S.finalCta.sectionTitleKey,
       subtitleKey: S.finalCta.subtitleKey,
-      backgroundImage: S.finalCta.backgroundImage,
+      backgroundImage: feed.media?.finalCta ?? S.finalCta.backgroundImage,
       primaryCtaLabelKey: S.finalCta.primaryCtaLabelKey,
       primaryCtaHref: S.finalCta.primaryCtaHref,
       secondaryCtaLabelKey: S.finalCta.secondaryCtaLabelKey,

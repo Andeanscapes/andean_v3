@@ -87,6 +87,21 @@ const ExperienceCoreSchema = z
          * render, which is a feed authoring mistake worth surfacing.
          */
         highlights: z.array(MediaPathSchema).length(3),
+        /**
+         * Optional during rollout: the published payload does not carry this
+         * field yet, and this schema is `.strict()`, so requiring it would fail
+         * validation against the live feed and take the booking page down.
+         *
+         * Tighten to required once the experience resource publishes it. Until
+         * then the hero renders the background image instead of the video.
+         */
+        video: z
+          .object({
+            desktop: MediaPathSchema,
+            mobile: MediaPathSchema,
+          })
+          .strict()
+          .optional(),
       })
       .strict(),
     host: z

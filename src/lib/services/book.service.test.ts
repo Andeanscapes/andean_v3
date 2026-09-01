@@ -19,7 +19,7 @@ vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn(async () => (key: string) => key),
 }));
 
-import { fetchRawExperienceData } from './book.service';
+import { fetchRawExperienceData, getBookingDataSSR } from './book.service';
 import {
   EXPERIENCE_EMERALD_MINING_FIXTURE,
   cloneFixture,
@@ -152,5 +152,81 @@ describe('fetchRawExperienceData', () => {
     const requestedUrls = mockFetch.mock.calls.map(([url]) => String(url));
     expect(requestedUrls).toHaveLength(1);
     expect(requestedUrls[0]).not.toMatch(/whatsapp_bot|bot-dynamic/);
+  });
+});
+
+/**
+ * Media resolution had no coverage on this path at all, even though the
+ * experience resource owns the most media of the three feeds — hero, card,
+ * highlights, host avatar, tier images, itinerary stops and the hero video.
+ */
+describe('getBookingDataSSR media resolution', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(FROZEN_NOW);
+    process.env.REMOTE_DATA_BASE_URL = 'https://cdn.example.com/services';
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+    delete process.env.REMOTE_DATA_BASE_URL;
+  });
+
+  function stub(payload: unknown) {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+  }
+
+  it('resolves CDN-relative media to absolute URLs', async () => {
+    const feed = feedPayload();
+    feed.experience.media.hero = '/images/experiences/emerald-mining/hero.webp';
+    feed.experience.media.card = '/images/experiences/emerald-mining/card.webp';
+    stub(feed);
+
+    const data = await getBookingDataSSR('emeraldMining', 'en');
+
+    expect(data.heroContent?.backgroundImageUrl).toBe(
+      'https://cdn.andeanscapes.com/images/experiences/emerald-mining/hero.webp',
+    );
+  });
+
+  // The rollout fallbacks are `/assets/...`; rewriting them would 404.
+  it('leaves source-controlled /assets media on the app origin', async () => {
+    const feed = feedPayload();
+    feed.experience.media.hero = '/assets/images/hero/h10.webp';
+    stub(feed);
+
+    const data = await getBookingDataSSR('emeraldMining', 'en');
+
+    expect(data.heroContent?.backgroundImageUrl).toBe('/assets/images/hero/h10.webp');
+  });
+
+  it('passes the feed hero video through to heroContent, resolved to the CDN', async () => {
+    const feed = feedPayload();
+    feed.experience.media.video = {
+      desktop: '/videos/experiences/emerald-mining/hero.webm',
+      mobile: '/videos/experiences/emerald-mining/hero-mobile.webm',
+    };
+    stub(feed);
+
+    const data = await getBookingDataSSR('emeraldMining', 'en');
+
+    expect(data.heroContent?.video).toEqual({
+      desktop: 'https://cdn.andeanscapes.com/videos/experiences/emerald-mining/hero.webm',
+      mobile: 'https://cdn.andeanscapes.com/videos/experiences/emerald-mining/hero-mobile.webm',
+    });
+  });
+
+  // Regression: the hero used to fall back to a hardcoded `/assets/...` image,
+  // and an empty string reached `<img src>` and the OG image builders.
+  it('omits the hero video and never emits an empty image when the feed has none', async () => {
+    const feed = feedPayload();
+    delete feed.experience.media.video;
+    stub(feed);
+
+    const data = await getBookingDataSSR('emeraldMining', 'en');
+
+    expect(data.heroContent?.video).toBeUndefined();
+    expect(data.heroContent?.backgroundImageUrl).not.toBe('');
   });
 });

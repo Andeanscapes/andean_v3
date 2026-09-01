@@ -64,13 +64,6 @@ function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
 }
 
 function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHeroProps) {
-  // Blank counts as unset: an unset CI variable inlines as '', and `??` would
-  // keep it and emit a relative video URL that 404s on the Worker.
-  const videoCdnBaseUrl =
-    process.env.NEXT_PUBLIC_CDN_BASE_URL?.trim() || 'https://cdn.andeanscapes.com';
-  const normalizedVideoCdnBaseUrl = videoCdnBaseUrl.replace(/\/$/, '');
-  const VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero.webm`;
-  const MOBILE_VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero-mobile.webm`;
   const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
   const [isDesktopViewport, setIsDesktopViewport] = useState(false);
 
@@ -90,7 +83,9 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
   }, []);
 
   // Priority: heroContent (from service) > content (override) > build from config
-  const resolvedContent: Required<ExperienceHeroContent> = {
+  const resolvedContent: Required<
+    Omit<ExperienceHeroContent, 'video' | 'backgroundImageUrl'>
+  > = {
     title: heroContent?.title ?? content?.title ?? config?.title ?? '',
     subtitle: heroContent?.subtitle ?? content?.subtitle ?? config?.subtitle ?? '',
     summary: heroContent?.summary ?? content?.summary ?? '',
@@ -99,9 +94,20 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
     helperText: heroContent?.helperText ?? content?.helperText ?? '',
     hideCta: heroContent?.hideCta ?? content?.hideCta ?? false,
     ctaTargetId: heroContent?.ctaTargetId ?? content?.ctaTargetId ?? 'available-dates',
-    backgroundImageUrl: heroContent?.backgroundImageUrl ?? content?.backgroundImageUrl ?? '/assets/images/hero/h10.webp',
     badges: heroContent?.badges ?? content?.badges ?? [],
   };
+
+  // `backgroundImageUrl` and `video` stay optional (excluded from the required
+  // content above): absent in every source means the section renders neither,
+  // rather than emitting an empty `src` that resolves to the document URL.
+  //
+  // There is deliberately no hardcoded fallback for either. Media is feed-owned,
+  // and a source-controlled default is what previously made every experience —
+  // and the catalog hero, which is not an experience at all — render the same
+  // emerald-mining footage. Publish the feed's `media.video` before deploying so
+  // the value is present rather than substituted.
+  const backgroundImageUrl = heroContent?.backgroundImageUrl ?? content?.backgroundImageUrl;
+  const video = heroContent?.video ?? content?.video ?? config?.video;
 
   const handleCtaClick = () => {
     if (typeof window === 'undefined') {
@@ -130,25 +136,27 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
       {/* <picture> with responsive sources — proper LCP candidate,
           discoverable by preload scanner, benefits from fetchPriority.
           Mobile variant is ~70 % smaller than the desktop image. */}
-      <picture>
-        <source
-          media="(max-width: 767px)"
-          srcSet={getResponsiveImageSrc(resolvedContent.backgroundImageUrl).mobile}
-        />
-        <img
-          src={resolvedContent.backgroundImageUrl}
-          alt=""
-          aria-hidden="true"
-          width={1900}
-          height={900}
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </picture>
+      {backgroundImageUrl ? (
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet={getResponsiveImageSrc(backgroundImageUrl).mobile}
+          />
+          <img
+            src={backgroundImageUrl}
+            alt=""
+            aria-hidden="true"
+            width={1900}
+            height={900}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+      ) : null}
       {/* Video Background */}
-      {shouldRenderVideo ? (
+      {shouldRenderVideo && video ? (
         <video
           autoPlay
           muted
@@ -157,8 +165,8 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
           preload={isDesktopViewport ? 'metadata' : 'none'}
           className="absolute inset-0 w-full h-full object-cover bg-base-950"
         >
-          <source src={MOBILE_VIDEO_URL} type="video/webm" media="(max-width: 767px)" />
-          <source src={VIDEO_URL} type="video/webm" />
+          <source src={video.mobile ?? video.desktop} type="video/webm" media="(max-width: 767px)" />
+          <source src={video.desktop} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       ) : null}

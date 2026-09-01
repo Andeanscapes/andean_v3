@@ -102,8 +102,6 @@ const FRONTEND_NAMESPACES = [
   'Home',
   'BookingCtas',
   'EmeraldMiningAdventure',
-  'HeroTwo',
-  'VideoBanner',
   'Header',
   'Footer',
   'MobileMenu',
@@ -617,10 +615,10 @@ describeV2('v2 formats are machine-readable', () => {
     expect(experience.experience.pricing.currency).toMatch(/^[A-Z]{3}$/);
   });
 
-  it('media paths are absolute', () => {
+  it('media paths are app-relative', () => {
     const { hero, card, highlights } = experience.experience.media;
     for (const src of [hero, card, ...highlights]) {
-      expect(src.startsWith('/') || src.startsWith('https://'), src).toBe(true);
+      expect(src).toMatch(/^\/(?!\/)/);
     }
   });
 });
@@ -822,6 +820,58 @@ describeV2('v2 schemas fail closed', () => {
     const payload = clone(LIST) as { experiences: { card: { image: string } }[] };
     payload.experiences[0].card.image = 'https://evil.example.com/x.webp';
     expect(ExperiencesListFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  it('rejects a protocol-relative media URL that would bypass the CDN', () => {
+    const payload = clone(LIST) as { experiences: { card: { image: string } }[] };
+    payload.experiences[0].card.image = '//evil.example.com/x.webp';
+    expect(ExperiencesListFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  it('rejects a backslash-normalized media URL that would bypass the CDN', () => {
+    const payload = clone(LIST) as { experiences: { card: { image: string } }[] };
+    payload.experiences[0].card.image = '/\\evil.example.com/x.webp';
+    expect(ExperiencesListFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  // The rollout media fields are optional, so their path guard needs its own
+  // coverage: an unvalidated `media` block would reach `<img>`/`<source src>`.
+  it('rejects an off-CDN host in the optional list hero video', () => {
+    const payload = clone(LIST) as { media?: { video: { desktop: string; mobile: string } } };
+    payload.media = { video: { desktop: '//evil.example.com/x.webm', mobile: '/videos/m.webm' } };
+    expect(ExperiencesListFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  it('rejects an off-CDN host in the optional experience hero video', () => {
+    const payload = clone(EXPERIENCE) as {
+      experience: { media: { video?: { desktop: string; mobile: string } } };
+    };
+    payload.experience.media.video = {
+      desktop: 'https://evil.example.com/x.webm',
+      mobile: '/videos/m.webm',
+    };
+    expect(ExperienceFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  it('rejects an off-CDN host in the optional landing brand media', () => {
+    const payload = clone(LANDING) as {
+      media?: {
+        hero: string;
+        finalCta: string;
+        categories: Record<'emeraldMining' | 'nature' | 'rural' | 'horseback', string>;
+      };
+    };
+    payload.media = {
+      hero: '//evil.example.com/x.webp',
+      finalCta: '/images/brand/final-cta.webp',
+      categories: {
+        emeraldMining: '/images/brand/emerald.webp',
+        nature: '/images/brand/nature.webp',
+        rural: '/images/brand/rural.webp',
+        horseback: '/images/brand/horseback.webp',
+      },
+    };
+    expect(LandingFeedV2Schema.safeParse(payload).success).toBe(false);
   });
 
   it('rejects a room mode pointing at an undeclared tier', () => {

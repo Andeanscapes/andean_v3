@@ -14,6 +14,7 @@
  * Keeping both steps pure means this file only orchestrates.
  */
 
+import { cache } from 'react';
 import type { ExperienceData } from '../schemas';
 import { ExperienceDataSchema } from '../schemas';
 import type { ExperienceFeedV2 } from '../schemas/feed/v2';
@@ -22,6 +23,7 @@ import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
 import { filterCurrentAvailableDates } from '@/utils/availability';
 import { adaptExperienceFeedV2 } from '@/utils/experienceFeedAdapter';
 import { experienceFeedPath } from '@/utils/feedPaths';
+import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
 import { whatsappUrl } from '@/utils/whatsapp';
 import { getTranslations } from 'next-intl/server';
 import { fetchRemoteJson } from '../remote-data';
@@ -74,11 +76,21 @@ function buildWhatsappLink(t: Translator): string {
 
 /**
  * Fetch and translate experience data for the booking SSR page.
+ *
+ * Wrapped in React `cache`, keyed by `(experienceId, locale)`. Caching the feed
+ * read alone was not enough: the detail and booking pages each call this twice —
+ * once from `generateMetadata`, once from the page body — and the work *after*
+ * the fetch dominates. Every call ran the adapter, a full `resolveMediaUrlsDeep`
+ * walk over the payload, the whole translate pass and two Zod parses. That is
+ * CPU, which is the constrained resource on Workers.
+ *
+ * `cache` is inert outside a request scope, so tests still re-run the pipeline on
+ * every call and can stub a different feed per assertion.
  */
-export async function getBookingDataSSR(
+export const getBookingDataSSR = cache(async (
   experienceId: string,
   locale: string,
-): Promise<ExperienceData> {
+): Promise<ExperienceData> => {
   // 1. Fetch the v2 feed (throws if unavailable — no local fallback)
   const [t, feed] = await Promise.all([
     getTranslations({ locale }),
@@ -87,7 +99,9 @@ export async function getBookingDataSSR(
 
   // 2. Resolve codes → i18n keys, restoring the persisted field names
   const mapping = mappingFor(feed.experience.id);
-  const rawData = adaptExperienceFeedV2(feed, mapping, buildWhatsappLink(t));
+  const rawData = resolveMediaUrlsDeep(
+    adaptExperienceFeedV2(feed, mapping, buildWhatsappLink(t)),
+  );
 
   const rawResult = ExperienceDataSchema.safeParse(rawData);
   if (!rawResult.success) {
@@ -122,7 +136,7 @@ export async function getBookingDataSSR(
   }
 
   return translatedResult.data;
-}
+});
 
 // ── Fetch the raw v2 experience feed ─────────────────────────────────────────
 //
@@ -130,21 +144,35 @@ export async function getBookingDataSSR(
 // a matching entry to `experiences-list.json`, and add its i18n mapping to
 // `src/i18n/mappings/experience.ts`.
 
-export async function fetchRawExperienceData(experienceId: string): Promise<ExperienceFeedV2> {
-  const remote = await fetchRemoteJson(experienceFeedPath(experienceId), ExperienceFeedV2Schema, {
-    revalidate: 3600,
-    tags: [`experience-${experienceId}`],
-  });
+/**
+ * Wrapped in React `cache` so it resolves once per request, keyed by
+ * `experienceId`. The detail and booking pages each reach this twice — once from
+ * `generateMetadata`, once from the page body — and this is the largest payload
+ * in the feed, so re-running `response.json()` plus a full Zod parse was the
+ * most expensive of the duplicated reads.
+ *
+ * Memoizing also makes `filterCurrentAvailableDates` consistent within a
+ * request: both callers now see the same availability snapshot rather than
+ * re-evaluating the clock. `cache` is inert outside a request scope, so tests
+ * with faked timers still re-evaluate on every call.
+ */
+export const fetchRawExperienceData = cache(
+  async (experienceId: string): Promise<ExperienceFeedV2> => {
+    const remote = await fetchRemoteJson(experienceFeedPath(experienceId), ExperienceFeedV2Schema, {
+      revalidate: 3600,
+      tags: [`experience-${experienceId}`],
+    });
 
-  if (!remote.data) {
-    throw new Error(
-      `[BookingService] Experience feed unavailable for "${experienceId}": ${remote.reason}`,
-    );
-  }
+    if (!remote.data) {
+      throw new Error(
+        `[BookingService] Experience feed unavailable for "${experienceId}": ${remote.reason}`,
+      );
+    }
 
-  // The feed carries a fixed departure list, so expired dates are dropped here.
-  return {
-    ...remote.data,
-    availableDates: filterCurrentAvailableDates(remote.data.availableDates),
-  };
-}
+    // The feed carries a fixed departure list, so expired dates are dropped here.
+    return {
+      ...remote.data,
+      availableDates: filterCurrentAvailableDates(remote.data.availableDates),
+    };
+  },
+);
