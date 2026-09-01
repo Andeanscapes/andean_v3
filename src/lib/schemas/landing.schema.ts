@@ -2,7 +2,7 @@
  * Zod schemas for landing page data validation.
  *
  * Two layers:
- *  - LandingDataMockSchema — raw storage shape (i18n keys, not yet translated)
+ *  - LandingFeedSchema — raw storage shape (i18n keys, not yet translated)
  *  - LandingContentSchema  — translated, UI-ready shape returned by landing.service
  */
 
@@ -38,12 +38,21 @@ export const LandingFlagshipMockSchema = z.object({
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
-    depositPercent: z.number(),
+    /**
+     * Optional: the published landing projection does not carry it yet. When
+     * absent the deposit note renders empty rather than advertising "0%".
+     */
+    depositPercent: z.number().optional(),
   }),
   availableDates: z.array(AvailableDateSchema),
-  transportOptions: z.array(z.object({ value: z.string(), labelKey: z.string() })),
-  maxPeople: z.number(),
-  minPeople: z.number(),
+  /**
+   * Booking inventory is not projected onto landing — it belongs to the
+   * experience resource — and no mounted landing component reads these. Optional
+   * so the adapter can omit them instead of emitting placeholder values.
+   */
+  transportOptions: z.array(z.object({ value: z.string(), labelKey: z.string() })).optional(),
+  maxPeople: z.number().optional(),
+  minPeople: z.number().optional(),
   whatsappLink: z.string(),
   reviewsCount: z.number(),
   reviewsRating: z.number(),
@@ -84,8 +93,10 @@ export const LandingTierItemMockSchema = z.object({
 export const LandingReviewMockSchema = z.object({
   id: z.string(),
   name: z.string(),
-  country: z.string(),
-  countryFlag: z.string(),
+  // Key-based: the country label is user-facing copy and must be translated.
+  // Omitted when the reviewer's country is unknown.
+  countryKey: z.string().optional(),
+  countryFlag: z.string().optional(),
   rating: z.number().min(1).max(5),
   commentKey: z.string(),
   avatarUrl: z.string().optional(),
@@ -130,6 +141,10 @@ export const LandingHeroBrandMockSchema = z.object({
     spotLabelKey: z.string(),
     spotsLeftLabelKey: z.string(),
   }),
+  /**
+   * Optional: no v2 feed source and no mounted consumer. `LandingHeroBrand`
+   * only renders the search widget when this is present.
+   */
   search: z.object({
     destinations: z.array(z.object({ value: z.string(), labelKey: z.string() })),
     experienceTypes: z.array(z.object({ value: z.string(), labelKey: z.string() })),
@@ -139,7 +154,7 @@ export const LandingHeroBrandMockSchema = z.object({
     durationLabelKey: z.string(),
     submitLabelKey: z.string(),
     submitHref: z.string(),
-  }),
+  }).optional(),
 });
 
 export const LandingCategoryMockSchema = z.object({
@@ -162,7 +177,14 @@ export const LandingFeaturedExperienceRefMockSchema = z.object({
   href: z.string(),
   badgeKey: z.string().optional(),
   durationKey: z.string(),
+  /**
+   * ICU arguments for `durationKey` / `locationKey`. v2 publishes structured
+   * duration and location, so the card composes the string at translation time
+   * instead of reading a pre-formatted literal out of the feed.
+   */
+  durationValues: z.object({ days: z.number(), nights: z.number() }),
   locationKey: z.string(),
+  locationValues: z.object({ locality: z.string() }),
   fromAmount: z.number(),
   currency: z.string(),
   nextAvailability: z.object({
@@ -236,7 +258,7 @@ export const LandingGlobalCtasMockSchema = z.object({
   currency: z.string(),
 });
 
-export const LandingDataMockSchema = z.object({
+export const LandingFeedSchema = z.object({
   flagship: LandingFlagshipMockSchema,
   // Brand-level sections (new structure)
   heroBrand: LandingHeroBrandMockSchema,
@@ -269,29 +291,6 @@ export const LandingDataMockSchema = z.object({
   locationBrand: LandingLocationBrandMockSchema,
   safety: LandingSafetyMockSchema,
   globalCtas: LandingGlobalCtasMockSchema,
-  // Legacy single-experience sections (kept for retro-compat with old components)
-  valueProps: z.object({
-    titleKey: z.string(),
-    items: z.array(LandingValuePropMockSchema),
-  }),
-  inclusions: z.object({
-    sectionTitleKey: z.string(),
-    includedLabelKey: z.string(),
-    notIncludedLabelKey: z.string(),
-    logistics: z.array(LandingLogisticItemMockSchema),
-    included: z.array(LandingInclusionItemMockSchema),
-    notIncluded: z.array(LandingInclusionItemMockSchema),
-    location: z.object({
-      lat: z.number(),
-      lng: z.number(),
-      label: z.string().optional(),
-      zoom: z.number().optional(),
-    }).optional(),
-  }),
-  tiers: z.object({
-    sectionTitleKey: z.string(),
-    items: z.array(LandingTierItemMockSchema),
-  }),
   reviews: z.object({
     sectionTitleKey: z.string(),
     subtitleKey: z.string(),
@@ -344,12 +343,12 @@ export const LandingFlagshipContentSchema = z.object({
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
-    depositPercent: z.number(),
+    depositPercent: z.number().optional(),
   }),
   availableDates: z.array(AvailableDateSchema),
-  transportOptions: z.array(z.object({ value: z.string(), label: z.string() })),
-  maxPeople: z.number(),
-  minPeople: z.number(),
+  transportOptions: z.array(z.object({ value: z.string(), label: z.string() })).optional(),
+  maxPeople: z.number().optional(),
+  minPeople: z.number().optional(),
   whatsappLink: z.string(),
   reviewsCount: z.number(),
   reviewsRating: z.number(),
@@ -386,8 +385,8 @@ export const LandingInclusionItemContentSchema = z.object({
 export const LandingReviewContentSchema = z.object({
   id: z.string(),
   name: z.string(),
-  country: z.string(),
-  countryFlag: z.string(),
+  country: z.string().optional(),
+  countryFlag: z.string().optional(),
   rating: z.number(),
   comment: z.string(),
   avatarUrl: z.string().optional(),
@@ -546,44 +545,6 @@ export const LandingContentSchema = z.object({
     mobileFromLabel: z.string(),
     mobileBookNowLabel: z.string(),
   }),
-  // Legacy translated sections (still used by retained components)
-  valueProps: z.object({
-    title: z.string(),
-    items: z.array(LandingValuePropContentSchema),
-  }),
-  inclusions: z.object({
-    sectionTitle: z.string(),
-    includedLabel: z.string(),
-    notIncludedLabel: z.string(),
-    logistics: z.array(z.object({
-      id: z.string(),
-      icon: z.string(),
-      label: z.string(),
-      value: z.string().optional(),
-    })),
-    included: z.array(LandingInclusionItemContentSchema),
-    notIncluded: z.array(LandingInclusionItemContentSchema),
-    location: z.object({
-      lat: z.number(),
-      lng: z.number(),
-      label: z.string().optional(),
-      zoom: z.number().optional(),
-    }).optional(),
-  }),
-  tiers: z.object({
-    sectionTitle: z.string(),
-    items: z.array(z.object({
-      id: z.string(),
-      label: z.string(),
-      description: z.string(),
-      tag: z.string(),
-      isBestSeller: z.boolean().optional(),
-      images: z.object({ main: z.string(), gallery: z.array(z.string()) }),
-      fromAmount: z.number(),
-      href: z.string(),
-      ctaLabel: z.string(),
-    })),
-  }),
   reviews: z.object({
     sectionTitle: z.string(),
     subtitle: z.string(),
@@ -626,7 +587,7 @@ export const LandingContentSchema = z.object({
 
 // ── Inferred TypeScript types ─────────────────────────────────────────────────
 
-export type LandingDataMock = z.infer<typeof LandingDataMockSchema>;
+export type LandingFeed = z.infer<typeof LandingFeedSchema>;
 export type LandingContent = z.infer<typeof LandingContentSchema>;
 export type LandingFlagshipContent = z.infer<typeof LandingFlagshipContentSchema>;
 export type LandingValuePropContent = z.infer<typeof LandingValuePropContentSchema>;

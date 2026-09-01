@@ -116,11 +116,12 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
                     <p className="text-[11px] font-medium text-base-content/60">
                       {t('verifiedGuest')} &bull; {review.verifiedExperience}
                     </p>
-                  ) : (
+                  ) : review.country ? (
                     <p className="text-xs text-base-content/55">
-                      {review.countryFlag} {review.country}
+                      {review.countryFlag ? `${review.countryFlag} ` : ''}
+                      {review.country}
                     </p>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

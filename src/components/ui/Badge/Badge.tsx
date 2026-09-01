@@ -41,29 +41,34 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
       lg: 'badge-lg',
     };
 
-    const baseClasses =
-      'badge cursor-pointer border border-base-300/60 text-base-content/90 transition focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100';
+    // A badge is only interactive when it has a handler and is not disabled.
+    // Static badges must not advertise a click affordance they do not have.
+    const isInteractive = Boolean(onClick) && !disabled;
+
+    const baseClasses = 'badge border border-base-300/60 text-base-content/90 transition';
+    const interactiveClasses = isInteractive
+      ? 'cursor-pointer focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100'
+      : '';
     const activeClass = selected ? 'ring-2 ring-primary/60 ring-offset-2 border-primary/60' : '';
     const disabledClass = disabled ? 'opacity-60 cursor-not-allowed' : '';
-
-    const handleClick = () => {
-      if (!disabled && onClick) {
-        onClick();
-      }
-    };
 
     return (
       <div
         ref={ref}
-        className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${activeClass} ${disabledClass} ${className}`}
-        onClick={handleClick}
-        role={onClick && !disabled ? 'button' : undefined}
-        tabIndex={onClick && !disabled ? 0 : -1}
-        onKeyPress={(e) => {
-          if (onClick && !disabled && (e.key === 'Enter' || e.key === ' ')) {
-            onClick();
-          }
-        }}
+        className={`${baseClasses} ${interactiveClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${activeClass} ${disabledClass} ${className}`}
+        onClick={isInteractive ? onClick : undefined}
+        role={isInteractive ? 'button' : undefined}
+        tabIndex={isInteractive ? 0 : undefined}
+        onKeyDown={
+          isInteractive
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onClick?.();
+                }
+              }
+            : undefined
+        }
         {...props}
       >
         {children}

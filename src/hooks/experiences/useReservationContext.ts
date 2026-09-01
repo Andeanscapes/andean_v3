@@ -1,6 +1,8 @@
 'use client';
 
 import { useContextSelector } from 'use-context-selector';
+import type { z } from 'zod';
+import type { CurrencyCodeSchema } from '@/lib/schemas/currency.schema';
 import { ExperienceReservationContext } from '@/contexts/ExperienceReservationContext';
 import type {
   TransportMode,
@@ -95,6 +97,20 @@ export function useReservationPeopleCount() {
     peopleCount: number;
     setPeopleCount: (count: number) => void;
   };
+}
+
+/**
+ * ISO 4217 code for every amount on this experience, from the feed.
+ *
+ * Exists so price-rendering components stop hardcoding `'COP'`: the contract
+ * publishes `pricing.currency`, and a second currency would otherwise render
+ * correct numbers with the wrong symbol.
+ */
+export function useReservationCurrency(): z.infer<typeof CurrencyCodeSchema> {
+  return useContextSelector(ExperienceReservationContext, (ctx) => {
+    const safe = requireContext(ctx);
+    return safe.currency;
+  });
 }
 
 export function useReservationRoomModes() {

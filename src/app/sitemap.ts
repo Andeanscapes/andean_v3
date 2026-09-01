@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getExperiencePathListSSR } from '@/lib/services/experiences-catalog.service';
+import { experiencePath } from '@/utils/experienceRoutes';
 
 const SITE_URL = 'https://andeanscapes.com';
 const LOCALES = ['en', 'es', 'fr'] as const;
@@ -25,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const experienceEntries = LOCALES.flatMap((locale) =>
     experienceNames.flatMap((experienceName) => {
-      const detailPath = `/experiences/${experienceName}`;
+      const detailPath = experiencePath(experienceName);
       const bookingPath = `${detailPath}/booking`;
 
       return [

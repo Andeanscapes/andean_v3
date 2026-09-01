@@ -291,6 +291,8 @@ function AccommodationSelectorComponent({
                     🛏️ {t('numberOfRooms')}
                   </label>
                   <Stepper
+                    decreaseLabel={t('decrease')}
+                    increaseLabel={t('increase')}
                     value={selectedCount}
                     onChange={(value) => updateSelection(currentOccupancy, value)}
                     min={0}

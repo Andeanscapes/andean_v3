@@ -96,7 +96,8 @@ export function calculatePricing(
     const mode = roomModes.find((room) => room.value === selection.roomMode);
     const multiplier = mode?.price_multiplier ?? 1;
     const peoplePerRoom = mode?.fixed_people ?? 1;
-    return sum + experiencePricePerPerson * peoplePerRoom * multiplier * selection.quantity;
+    // Rounded per line: derived multipliers can be repeating decimals.
+    return sum + Math.round(experiencePricePerPerson * peoplePerRoom * multiplier) * selection.quantity;
   }, 0);
 
   let roundtripTransferCost = 0;
@@ -121,6 +122,26 @@ export function calculatePricing(
     depositAmount,
     roundtripTransferCost,
   };
+}
+
+export function calculatePricingForPeople(
+  experiencePricePerPerson: number,
+  depositPercent: number,
+  roomModes: RoomModeOption[],
+  peopleCount: number,
+  tierId: string | null,
+  transportMode?: TransportMode | null,
+  roundtripTransferConfig?: RoundtripTransferConfig | null,
+) {
+  const roomSelections = suggestRoomSelections(peopleCount, roomModes, tierId);
+  return calculatePricing(
+    experiencePricePerPerson,
+    depositPercent,
+    roomModes,
+    roomSelections,
+    transportMode,
+    roundtripTransferConfig,
+  );
 }
 
 /**

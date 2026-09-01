@@ -8,15 +8,32 @@ on:
 jobs:
   deploy_prod:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22.23.1'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
+      - name: Check build variables are configured
+        run: |
+          for name in REMOTE_DATA_BASE_URL NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is empty. Set the corresponding repository Variable under Settings > Secrets and variables > Actions > Variables."
+              exit 1
+            fi
+          done
+        env:
+          REMOTE_DATA_BASE_URL: ${{ vars.REMOTE_DATA_BASE_URL_PROD }}
+          NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER: ${{ vars.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER }}
+      # No standalone `npm run build`: `npm run deploy` runs `next build` inside
+      # `opennextjs-cloudflare build` with REMOTE_DATA_BASE_URL present. A build
+      # without it fails, since services have no local fallback.
       - run: npm run deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          REMOTE_DATA_BASE_URL: ${{ vars.REMOTE_DATA_BASE_URL_PROD }}
+          NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER: ${{ vars.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER }}

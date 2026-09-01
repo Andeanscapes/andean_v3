@@ -19,7 +19,7 @@ Focus on:
 - provider topology and scope
 - next-intl i18n (en/es/fr sync, no hardcoded copy)
 - wrapper-first UI system (reuse primitives)
-- no fake/mock data outside approved registries
+- no fake/mock data; no local data registries (feed is the only source)
 - no invented APIs, fields, or routes
 - strict TypeScript (no `any`)
 - security (validation, XSS, unsafe URLs, secrets)

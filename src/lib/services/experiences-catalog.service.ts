@@ -1,17 +1,44 @@
 import type { ExperienceData } from '../schemas';
+import { EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/experience';
 import { getBookingDataSSR } from './book.service';
-import {
-  EXPERIENCES_CATALOG_MOCK,
-  type ExperienceCatalogItem,
-} from '../data-mocks/experiencesCatalog.mock';
+import { fetchExperiencesListConfig, isPublished } from './experiences-list.service';
+
+/**
+ * One routable experience: the URL segment, the internal id its data file is
+ * keyed by, and the i18n namespace used for page metadata.
+ */
+export interface ExperienceCatalogItem {
+  experienceId: string;
+  experienceName: string;
+  metadataNamespace: string;
+}
 
 /**
  * Return all available experiences for route generation and lookup.
- * Pattern: Fetch -> Validate -> Return
+ *
+ * Derived from the experiences list feed rather than a dedicated catalog
+ * endpoint — the list already carries the id and slug, so a second endpoint
+ * would be duplicated truth. Matches the target API contract, which has no
+ * catalog endpoint.
+ *
+ * Only `published` experiences get a route: a draft or archived entry must not
+ * be prerendered or listed in the sitemap.
+ *
+ * The SEO namespace is frontend-owned (`EXPERIENCE_METADATA_NAMESPACE`) — the v2
+ * feed carries domain codes only, never i18n namespaces.
+ *
+ * Pattern: Fetch -> Validate -> Return. Throws if the feed is unavailable, so a
+ * broken feed fails route generation loudly instead of publishing a partial
+ * sitemap.
  */
 export async function getExperiencesCatalogSSR(): Promise<readonly ExperienceCatalogItem[]> {
-  // PRODUCTION: Replace this with API fetch + schema validation.
-  return EXPERIENCES_CATALOG_MOCK;
+  const feed = await fetchExperiencesListConfig();
+
+  return feed.experiences.filter(isPublished).map((entry) => ({
+    experienceId: entry.id,
+    experienceName: entry.slug,
+    metadataNamespace: EXPERIENCE_METADATA_NAMESPACE[entry.id],
+  }));
 }
 
 /**

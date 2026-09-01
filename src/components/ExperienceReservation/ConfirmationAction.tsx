@@ -11,7 +11,7 @@ import {
   useReservationValidation,
   useReservationPricing,
 } from '@/hooks/experiences/useReservationContext';
-import { reservationSchema } from '@/utils/validationSchemas';
+import { buildReservationSchema, resolveReservationError } from '@/utils/validationSchemas';
 import type { ExperienceConfig } from '@/lib/schemas';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
@@ -53,8 +53,10 @@ export function ConfirmationAction({
       return;
     }
 
+    const bounds = { minPeople: config.minPeople, maxPeople: config.maxPeople };
+
     try {
-      reservationSchema.parse({
+      buildReservationSchema(bounds).parse({
         selectedDateId: state.selectedDateId,
         peopleCount: state.peopleCount,
         roomSelections: state.roomSelections,
@@ -65,9 +67,7 @@ export function ConfirmationAction({
 
       await createLink(state);
     } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : t('validationError');
-      setValidationError(errorMessage);
+      setValidationError(resolveReservationError(err, t, bounds));
     }
   };
 

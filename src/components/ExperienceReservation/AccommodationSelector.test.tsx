@@ -1,7 +1,15 @@
 import { render, screen, waitFor, within } from '@/test/test-utils';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
+import esMessages from '@/i18n/messages/es.json';
 import { AccommodationSelector } from './AccommodationSelector';
+
+/**
+ * The Stepper labels are localized, and `render` mounts with `es`. Reading them
+ * from the bundle keeps these queries correct if the copy changes and proves the
+ * labels are actually translated rather than hardcoded English.
+ */
+const INCREASE = esMessages.experiences.ui.increase;
 
 describe('AccommodationSelector', () => {
   it('renders title', () => {
@@ -46,7 +54,7 @@ describe('AccommodationSelector', () => {
     await user.click(threeGuestsBtn);
     
     // Increase room count by 1
-    const increaseBtn = within(familyGroup).getByRole('button', { name: 'Increase' });
+    const increaseBtn = within(familyGroup).getByRole('button', { name: INCREASE });
     await user.click(increaseBtn);
 
     // Now we have 1 family_3 (3 people) = 3 people total
@@ -73,7 +81,7 @@ describe('AccommodationSelector', () => {
       await user.click(oneGuestBtn);
 
       // Try to add 4 rooms (but max is 3 units)
-      const increaseBtn = within(standardGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const increaseBtn = within(standardGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(increaseBtn);
       await user.click(increaseBtn);
       await user.click(increaseBtn);
@@ -105,7 +113,7 @@ describe('AccommodationSelector', () => {
       await user.click(twoGuestBtn);
 
       // Try to add 3 rooms (3 * 2 = 6 people, exceeds 4 max)
-      const increaseBtn = within(standardGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const increaseBtn = within(standardGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(increaseBtn);
       await user.click(increaseBtn);
       await user.click(increaseBtn); // Try 3rd room
@@ -130,7 +138,7 @@ describe('AccommodationSelector', () => {
       const twoGuestBtn = within(standardGroup).getByRole('button', { name: '2' });
       await user.click(twoGuestBtn);
 
-      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(standardIncreaseBtn);
 
       // Add 1 Family 3-person room (3 people)
@@ -139,7 +147,7 @@ describe('AccommodationSelector', () => {
       const threeGuestBtn = within(familyGroup).getByRole('button', { name: '3' });
       await user.click(threeGuestBtn);
 
-      const familyIncreaseBtn = within(familyGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const familyIncreaseBtn = within(familyGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(familyIncreaseBtn);
 
       // Total should be 5 people (2 + 3)
@@ -169,7 +177,7 @@ describe('AccommodationSelector', () => {
       await user.click(oneGuestBtn);
 
       // Try to add 2 rooms (but max is 1 unit for Family)
-      const increaseBtn = within(familyGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const increaseBtn = within(familyGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(increaseBtn);
       await user.click(increaseBtn); // Try 2nd click
 
@@ -193,7 +201,7 @@ describe('AccommodationSelector', () => {
       const twoGuestBtn = within(standardGroup).getByRole('button', { name: '2' });
       await user.click(twoGuestBtn);
 
-      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(standardIncreaseBtn);
       await user.click(standardIncreaseBtn);
 
@@ -228,7 +236,7 @@ describe('AccommodationSelector', () => {
       const twoGuestBtn = within(standardGroup).getByRole('button', { name: '2' });
       await user.click(twoGuestBtn);
 
-      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const standardIncreaseBtn = within(standardGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(standardIncreaseBtn);
       await user.click(standardIncreaseBtn);
 
@@ -267,7 +275,7 @@ describe('AccommodationSelector', () => {
       await user.click(sixGuestBtn);
 
       // Add 1 cabin
-      const increaseBtn = within(cabinGroup).getAllByRole('button', { name: 'Increase' })[0];
+      const increaseBtn = within(cabinGroup).getAllByRole('button', { name: INCREASE })[0];
       await user.click(increaseBtn);
 
       // Try to add 2nd (should be blocked - only 1 unit available)

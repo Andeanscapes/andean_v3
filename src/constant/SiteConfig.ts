@@ -3,8 +3,40 @@
  * Contains all social media links, contact information, and other site-wide constants
  */
 
+/**
+ * Public business phone, digits only (E.164 without `+`).
+ *
+ * Single source of truth in the app. The value comes from the build environment
+ * (`.env.local` locally, the `NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER` CI variable in
+ * CI; see `.env.example`) and `NEXT_PUBLIC_` inlines it into the client bundle,
+ * because the WhatsApp CTAs render in Client Components. Public configuration,
+ * not a credential — the same number is visible in every rendered link.
+ *
+ * No hardcoded fallback on purpose. A default here is what let the configured
+ * and the rendered number disagree silently; an empty value now produces a
+ * visibly broken link instead of a plausible wrong one.
+ */
+const WHATSAPP_PHONE_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER ?? '';
+
+/**
+ * Digits → display form, so the dialable value and the rendered one cannot drift.
+ *
+ * Assumes the Colombian shape (country code `57` + 10 digits), which is the only
+ * one this business uses. Anything else falls back to `+<digits>` rather than
+ * inventing grouping for a format it does not know.
+ */
+function formatPhoneDisplay(digits: string): string {
+  if (!digits) return '';
+  if (!digits.startsWith('57') || digits.length !== 12) return `+${digits}`;
+
+  const national = digits.slice(2);
+  return `+57 ${national.slice(0, 3)}-${national.slice(3)}`;
+}
+
 export const SOCIAL_LINKS = {
-  whatsapp: "https://api.whatsapp.com/send/?phone=573124815443&text=Hello%21+I%27m+interested+in+your+services+for+Andean+Scapes&type=phone_number&app_absent=0",
+  // `whatsapp` is intentionally absent: a WhatsApp link needs a *localized*
+  // prefill message, so call sites build it with `whatsappUrl(t(...))` from
+  // `@/utils/whatsapp`. A constant here could only carry hardcoded copy.
   instagram: "https://www.instagram.com/andean_scapes/",
   facebook: "/",
   twitter: "/",
@@ -13,15 +45,10 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const CONTACT_INFO = {
-  phone: "573124815443",
-  phoneDisplay: "+57 312-4815443",
+  phone: WHATSAPP_PHONE_NUMBER,
+  phoneDisplay: formatPhoneDisplay(WHATSAPP_PHONE_NUMBER),
   email: "info@andeanscapes.com",
   address: "Colombia",
-} as const;
-
-export const WHATSAPP_MESSAGE = {
-  default: "Hello! I'm interested in your services for Andean Scapes",
-  encoded: "Hello%21+I%27m+interested+in+your+services+for+Andean+Scapes",
 } as const;
 
 export const BOOKING_LINKS = {

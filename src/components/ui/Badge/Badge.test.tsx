@@ -58,4 +58,51 @@ describe('Badge', () => {
 
     expect(handleClick).not.toHaveBeenCalled();
   });
+
+  describe('interactive affordance', () => {
+    it('is not focusable and shows no pointer cursor without onClick', () => {
+      const { container } = render(<Badge>Static</Badge>);
+      const badge = container.firstChild as HTMLElement;
+
+      expect(badge).not.toHaveClass('cursor-pointer');
+      expect(badge).not.toHaveAttribute('role');
+      expect(badge).not.toHaveAttribute('tabindex');
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('is a focusable button with a pointer cursor when given onClick', () => {
+      const { container } = render(<Badge onClick={vi.fn()}>Action</Badge>);
+      const badge = container.firstChild as HTMLElement;
+
+      expect(badge).toHaveClass('cursor-pointer');
+      expect(badge).toHaveAttribute('role', 'button');
+      expect(badge).toHaveAttribute('tabindex', '0');
+    });
+
+    it('drops the interactive affordance when disabled', () => {
+      const { container } = render(
+        <Badge disabled onClick={vi.fn()}>Disabled</Badge>
+      );
+      const badge = container.firstChild as HTMLElement;
+
+      expect(badge).not.toHaveClass('cursor-pointer');
+      expect(badge).toHaveClass('cursor-not-allowed');
+      expect(badge).not.toHaveAttribute('role');
+    });
+
+    it('activates via Enter and Space when interactive', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      render(<Badge onClick={handleClick}>Action</Badge>);
+
+      const badge = screen.getByRole('button');
+      badge.focus();
+
+      await user.keyboard('{Enter}');
+      expect(handleClick).toHaveBeenCalledTimes(1);
+
+      await user.keyboard(' ');
+      expect(handleClick).toHaveBeenCalledTimes(2);
+    });
+  });
 });

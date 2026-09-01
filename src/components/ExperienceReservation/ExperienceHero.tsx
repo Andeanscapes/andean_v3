@@ -64,8 +64,10 @@ function HeroBadgeIcon({ icon }: { icon: ExperienceHeroBadgeIcon }) {
 }
 
 function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHeroProps) {
+  // Blank counts as unset: an unset CI variable inlines as '', and `??` would
+  // keep it and emit a relative video URL that 404s on the Worker.
   const videoCdnBaseUrl =
-    process.env.NEXT_PUBLIC_CDN_BASE_URL ?? 'https://cdn.andeanscapes.com';
+    process.env.NEXT_PUBLIC_CDN_BASE_URL?.trim() || 'https://cdn.andeanscapes.com';
   const normalizedVideoCdnBaseUrl = videoCdnBaseUrl.replace(/\/$/, '');
   const VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero.webm`;
   const MOBILE_VIDEO_URL = `${normalizedVideoCdnBaseUrl}/videos/experiences/emerald-mining/hero-mobile.webm`;

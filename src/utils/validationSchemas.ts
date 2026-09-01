@@ -1,67 +1,109 @@
 /**
- * Form validation schemas for experiences
+ * Form validation schemas for experiences.
+ *
+ * Messages are **i18n keys**, not copy. Zod messages must be plain strings, so
+ * the schema cannot call `t` and stay pure — instead every message is a key under
+ * `experiences.ui.validation.*`, and `resolveReservationError` translates it at
+ * the point of display. Before this, the messages were Spanish literals shown to
+ * en/fr users too.
  */
 
 import { z } from 'zod';
+import { RoomModeSchema, TransportModeSchema } from '@/lib/schemas/experience.schema';
 
-export const reservationSchema = z.object({
-  selectedDateId: z
-    .string()
-    .min(1, 'Selecciona una fecha disponible'),
+/** Keys under the `experiences.ui` namespace the booking components already use. */
+const KEY = {
+  selectDate: 'validation.selectDate',
+  peopleMin: 'validation.peopleMin',
+  peopleMax: 'validation.peopleMax',
+  roomRequired: 'validation.roomRequired',
+  transportRequired: 'validation.transportRequired',
+  termsRequired: 'validation.termsRequired',
+  contactName: 'validation.contactName',
+  contactPhone: 'validation.contactPhone',
+  contactEmail: 'validation.contactEmail',
+} as const;
 
-  peopleCount: z
-    .number()
-    .min(1, 'Mínimo 1 persona')
-    .max(10, 'Máximo 10 personas'),
+/**
+ * Party-size bounds. The feed owns these (`experience.capacity`), so the schema
+ * is built per experience rather than hardcoding a limit that silently
+ * contradicts the published capacity.
+ */
+export interface ReservationBounds {
+  minPeople: number;
+  maxPeople: number;
+}
 
-  roomSelections: z
-    .array(
-      z.object({
-        roomMode: z.enum([
-          'standard_single',
-          'standard_couple',
-          'family_single',
-          'family_couple',
-          'family_3',
-          'cabin_single',
-          'cabin_couple',
-          'cabin_6',
-        ]),
-        quantity: z.number().min(1).max(10),
-      })
-    )
-    .min(1, 'Selecciona al menos un tipo de habitación'),
+/** Fallback bounds for field-level checks with no experience in scope. */
+const DEFAULT_BOUNDS: ReservationBounds = { minPeople: 1, maxPeople: 10 };
 
-  transportMode: z.enum(['car_no_4x4', 'have_4x4', 'bus']).refine(
-    (val) => !!val,
-    { message: 'Selecciona tu modo de transporte' }
-  ),
+export function buildReservationSchema(bounds: ReservationBounds = DEFAULT_BOUNDS) {
+  const { minPeople, maxPeople } = bounds;
 
-  contact: z.object({
-    name: z
-      .string()
-      .min(2, 'Nombre requerido (mínimo 2 caracteres)'),
-    phone: z
-      .string()
-      .regex(
-        /^\+?[\d\s\-()]{7,}$/,
-        'Celular inválido (mínimo 7 dígitos)'
-      ),
-    email: z
-      .string()
-      .email('Email inválido')
-      .optional()
-      .or(z.literal('')),
-  }),
+  return z.object({
+    selectedDateId: z.string().min(1, KEY.selectDate),
 
-  termsAccepted: z
-    .boolean()
-    .refine((val) => val === true, {
-      message: 'Debes aceptar los términos y condiciones',
+    peopleCount: z.number().min(minPeople, KEY.peopleMin).max(maxPeople, KEY.peopleMax),
+
+    roomSelections: z
+      .array(
+        z.object({
+          // Reuses the feed enum so a new room mode cannot be bookable in the UI
+          // but rejected here.
+          roomMode: RoomModeSchema,
+          quantity: z.number().min(1).max(maxPeople),
+        })
+      )
+      .min(1, KEY.roomRequired),
+
+    // Options come from the feed enum — this previously re-listed three modes by
+    // hand and omitted `roundtrip_transfer`, so transfer bookings passed every UI
+    // step and then failed final validation.
+    transportMode: z.enum(TransportModeSchema.options, { message: KEY.transportRequired }),
+
+    contact: contactSchema,
+
+    termsAccepted: z.boolean().refine((val) => val === true, {
+      message: KEY.termsRequired,
     }),
+  });
+}
+
+const contactSchema = z.object({
+  name: z.string().min(2, KEY.contactName),
+  phone: z.string().regex(/^\+?[\d\s\-()]{7,}$/, KEY.contactPhone),
+  email: z.string().email(KEY.contactEmail).optional().or(z.literal('')),
 });
 
-export type ReservationFormData = z.infer<typeof reservationSchema>;
+/**
+ * Turn a failed `parse` into a displayable message.
+ *
+ * `ZodError.message` is a JSON dump of every issue, so the booking UI previously
+ * rendered a raw JSON array into the error banner. This takes the first issue's
+ * key and translates it with the bounds the schema was built from.
+ *
+ * @param t Scoped to `experiences.ui` — the namespace both booking components use.
+ */
+export function resolveReservationError(
+  error: unknown,
+  t: (key: string, values?: Record<string, string | number>) => string,
+  bounds: ReservationBounds,
+): string {
+  if (error instanceof z.ZodError) {
+    const key = error.issues[0]?.message;
+    if (key) return t(key, { min: bounds.minPeople, max: bounds.maxPeople });
+  }
+  return t('validationError');
+}
+
+/**
+ * Default-bounded schema, kept for field-level validation where no experience is
+ * in scope. Submission paths must use `buildReservationSchema(config)` so the
+ * limit matches the published capacity.
+ */
+export const reservationSchema = buildReservationSchema();
+
+export type ReservationFormData = z.infer<ReturnType<typeof buildReservationSchema>>;
 
 export function validateReservationField(
   field: keyof ReservationFormData,

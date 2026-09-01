@@ -6,7 +6,7 @@ import { Stepper } from './Stepper';
 describe('Stepper', () => {
   it('renders stepper with initial value', () => {
     const handleChange = vi.fn();
-    render(<Stepper value={5} onChange={handleChange} />);
+    render(<Stepper value={5} onChange={handleChange} decreaseLabel="Decrease" increaseLabel="Increase" />);
     const input = screen.getByRole('spinbutton') as HTMLInputElement;
     expect(input.value).toBe('5');
   });
@@ -15,7 +15,7 @@ describe('Stepper', () => {
     const user = userEvent.setup();
     const handleChange = vi.fn();
     render(
-      <Stepper value={2} onChange={handleChange} />
+      <Stepper value={2} onChange={handleChange} decreaseLabel="Decrease" increaseLabel="Increase" />
     );
 
     const buttons = screen.getAllByRole('button');
@@ -29,7 +29,7 @@ describe('Stepper', () => {
     const user = userEvent.setup();
     const handleChange = vi.fn();
     render(
-      <Stepper value={5} onChange={handleChange} />
+      <Stepper value={5} onChange={handleChange} decreaseLabel="Decrease" increaseLabel="Increase" />
     );
 
     const buttons = screen.getAllByRole('button');
@@ -42,7 +42,7 @@ describe('Stepper', () => {
   it('respects min value', async () => {
     const handleChange = vi.fn();
     render(
-      <Stepper value={1} onChange={handleChange} min={1} />
+      <Stepper value={1} onChange={handleChange} min={1} decreaseLabel="Decrease" increaseLabel="Increase" />
     );
 
     const buttons = screen.getAllByRole('button');
@@ -54,7 +54,7 @@ describe('Stepper', () => {
   it('respects max value', async () => {
     const handleChange = vi.fn();
     render(
-      <Stepper value={4} onChange={handleChange} max={4} />
+      <Stepper value={4} onChange={handleChange} max={4} decreaseLabel="Decrease" increaseLabel="Increase" />
     );
 
     const buttons = screen.getAllByRole('button');
@@ -66,7 +66,7 @@ describe('Stepper', () => {
   it('is disabled when disabled prop is true', () => {
     const handleChange = vi.fn();
     render(
-      <Stepper value={2} onChange={handleChange} disabled />
+      <Stepper value={2} onChange={handleChange} disabled decreaseLabel="Decrease" increaseLabel="Increase" />
     );
 
     const buttons = screen.getAllByRole('button');
@@ -76,7 +76,7 @@ describe('Stepper', () => {
   it('renders with label', () => {
     const handleChange = vi.fn();
     render(
-      <Stepper value={2} onChange={handleChange} label="People" />
+      <Stepper value={2} onChange={handleChange} label="People" decreaseLabel="Decrease" increaseLabel="Increase" />
     );
     expect(screen.getByText('People')).toBeInTheDocument();
   });

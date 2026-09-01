@@ -57,6 +57,32 @@ export function formatDateRange(
 }
 
 /**
+ * Formats a departure date as day + month, e.g. "26 septembre".
+ *
+ * Pinned to UTC for the same reason as `formatDateRange`: the feed publishes
+ * departures as UTC midnight (`2026-09-26T00:00:00.000Z`), so formatting in the
+ * runtime's local zone shifts the calendar date. That produced two defects at
+ * once — a hydration mismatch (the Node server and the browser disagreed by a
+ * day) and, in any zone behind UTC, a departure advertised one day early.
+ *
+ * @param startDate ISO 8601 UTC string, or a `YYYY-MM-DD` date-only string.
+ * @param locale    User's locale (`en` | `es` | `fr`).
+ */
+export function formatDayMonth(startDate: string, locale: string): string {
+  const date = new Date(startDate);
+
+  if (Number.isNaN(date.getTime())) {
+    return 'TBD';
+  }
+
+  return new Intl.DateTimeFormat(locale, {
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
+
+/**
  * Formats an AvailableDate for display
  * 
  * @param date - AvailableDate object

@@ -82,6 +82,7 @@
       "featured": {
         "title": "Experiences worth the trip",
         "viewAll": "Browse all experiences",
+        "nextAvailability": "Next availability: {date} — Only {count, plural, one {# spot} other {# spots}} left",
         "fromLabel": "From",
         "viewDetails": "View details",
         "badges": {
@@ -187,6 +188,7 @@
       "location": {
         "title": "Where we operate",
         "mapAlt": "Map showing Bogotá and Chivor, Boyacá, Colombia",
+        "liveNetwork": "Live network",
         "cta": "Plan your route",
         "bullets": {
           "region": "Boyacá, Colombia — 3 hours east of Bogotá",
@@ -219,34 +221,42 @@
     },
     "reviews": {
       "sectionTitle": "What travelers say",
-      "subtitle": "Unedited. From people who were there.",
+      "subtitle": "Reviews from verified Airbnb guests, translated from Spanish.",
       "eyebrow": "Traveler reviews",
       "outOf5Aria": "out of 5",
       "countSuffix": "reviews",
       "verifiedGuest": "Verified Guest",
-        "items": {
-          "sarah": {
-            "comment": "We worked a real vein alongside the mining family. That's not something you can fake — or find anywhere else.",
-            "verifiedExperience": "Emerald Mining Adventure"
-          },
-          "lucas": {
-            "comment": "The hosts made the whole trip. They knew every story behind every place. Boyacá through their eyes is something else.",
-            "verifiedExperience": "Emerald Mining Adventure"
-          },
-          "emily": {
-            "comment": "Small group meant the guide actually talked to us, not at us. Left feeling like we'd been trusted with something real.",
-            "verifiedExperience": "Ancestral Pottery Experience"
-          }
-        },
-      "trustPanel": {
-        "title": "Why travelers come back",
-        "bullets": {
-          "local": "Locally owned — all revenue stays within Boyacá communities",
-          "reviews": "4.9★ across 500+ verified travelers",
-          "payment": "Reserve with 15% — pay the rest on arrival",
-          "support": "WhatsApp support from booking to the day you leave"
-        }
-      }
+      "verifiedStay": "Hacienda El Recuerdo · Airbnb",
+      "countries": {
+        "colombia": "Colombia",
+        "spain": "Spain"
+      },
+         "items": {
+           "carlosTulio": {
+             "comment": "The property is beautiful and the rooms comfortable, there is so much to do here. I wanted to stay longer."
+           },
+           "anamaria": {
+             "comment": "Our stay at Hacienda El Recuerdo was wonderful. A very welcoming and peaceful place. You can truly connect with nature. Yesid and Marlen are very attentive and kind people who made us feel at home. Heinner is an excellent host. It was an excellent experience. The only thing to consider is how you get to the property, since it sits in the middle of the mountains. Overall, it is an unforgettable experience for those of us who love adventure and nature. We hope to return!"
+           },
+           "odessa": {
+             "comment": "I cannot say enough good things about this stay. Heinner was of great help even before we arrived, offering to guide us to the property from the city or arrange transport. His family lives here and they are all so kind and welcoming that we felt like we were visiting friends right away. Heinner is deeply involved in the local community and organised a tour so we could visit the local emerald mines! It was an incredible experience! We enjoyed walking the property, watching birds and even milking cows. All our meals were homemade by Heinner's mother and they were perfect. The wifi was fast and reliable and they have a great coworking space with desks."
+           },
+           "sandraPatricia": {
+             "comment": "Our stay at Hacienda El Recuerdo was very pleasant. Our hosts Marlen, Yesid, Heinner, Kyra and Luna were very attentive, always looking after whatever we needed. The room was very comfortable and we slept wonderfully. The food was delicious and prepared with great love. We felt at home. Staying at El Recuerdo is a great option — it is not only about resting, but about getting to know the surroundings, doing ecotourism activities, meeting the locals, our roots, and appreciating the wonders of our country. We recommend it and we will return!"
+           },
+           "camilo": {
+             "comment": "Excellent experience, a very peaceful place with plenty of space for activities within the property. An exceptional connection with nature. Highly recommended."
+           }
+         },
+       "trustPanel": {
+         "title": "Why travelers come back",
+         "bullets": {
+           "local": "Locally owned — all revenue stays within Boyacá communities",
+           "reviews": "5.0★ from 5 verified travelers",
+           "payment": "Reserve with 15% — pay the rest on arrival",
+           "support": "WhatsApp support from booking to the day you leave"
+         }
+       }
     },
     "faqs": {
       "sectionTitle": "Common questions",
@@ -457,7 +467,9 @@
     "cardMeta": {
       "duration2d1n": "2D / 1N",
       "startsInChivor": "Starts in Chivor",
-      "smallGroup": "Small group"
+      "smallGroup": "Small group",
+      "durationDaysNights": "{days}D / {nights}N",
+      "startsIn": "Starts in {locality}"
     },
     "smallGroups": "Small groups",
     "localGuides": "Expert local guides",
@@ -588,7 +600,7 @@
       "deposit": "Reserve with",
       "balance": "Balance to pay on tour day",
       "security": "100% secure payment with Mercado Pago",
-      "ctaPrimary": "Pay 15% deposit",
+      "ctaPrimary": "Pay {percent}% deposit",
       "ctaSecondary": "Questions? WhatsApp us"
     },
     "ui": {
@@ -665,6 +677,20 @@
       "allInclusiveLineItem": "All-inclusive tour with meals and stay for {count, plural, one {# person} other {# people}}",
       "roomSelectionTitle": "Choose rooms",
       "closeModal": "Close",
+      "decrease": "Decrease",
+      "increase": "Increase",
+      "meetingPoint": "Meeting point",
+      "validation": {
+        "selectDate": "Select an available date",
+        "peopleMin": "Minimum {min, plural, one {# person} other {# people}}",
+        "peopleMax": "Maximum {max, plural, one {# person} other {# people}}",
+        "roomRequired": "Select at least one room type",
+        "transportRequired": "Select your transport option",
+        "termsRequired": "You must accept the terms and conditions",
+        "contactName": "Name required (minimum 2 characters)",
+        "contactPhone": "Invalid phone number (minimum 7 digits)",
+        "contactEmail": "Invalid email"
+      },
       "unitsAvailable": "{count} units",
       "coupleNote": "💑 Couple simplifies the decision to 2 people in a shared room.",
       "selectTierTitle": "Choose your accommodation",
@@ -724,6 +750,9 @@
         "valueStackPremiumTransport": "Premium 4x4 Transport",
         "accommodationTitle": "Your Stay",
         "selectYourStayTitle": "Stay Options",
+        "addonsTitle": "Optional Extras",
+        "addonsPerPerson": "per person",
+        "addonsTeamConfirmation": "The team confirms availability and final price",
         "hostChoiceLabel": "Host's Choice",
         "selectedLabel": "Selected",
         "tierBadgeHeritage": "Heritage / Traditional",
@@ -934,6 +963,16 @@
         "stop6ShortDesc": "Certificate ceremony and farewell",
         "stop6Desc": "Reflect on the journey and receive your certificate of participation"
       },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Beekeeping & Livestock",
+          "description": "Guided beekeeping and livestock activities at Hacienda El Recuerdo. Available on the 2D/1N plan."
+        },
+        "horsebackRiding": {
+          "label": "Guided Horseback Ride",
+          "description": "A guided ride along the area's rural trails. Quoted separately from the plan total."
+        }
+      },
       "host": {
         "bio": "Local host specialized in emerald mining routes and Andean cultural experiences.",
         "idealFor1": "Adventure Seekers",
@@ -981,6 +1020,7 @@
     "brandLine": "Authentic stays & experiences in the Colombian Andes",
     "exploreExperiences": "Explore Experiences",
     "planOnWhatsApp": "Plan My Trip on WhatsApp",
+    "whatsappMessage": "Hello! I'd like help planning a trip with Andean Scapes.",
     "sectionQuickExplore": "Quick Explore",
     "sectionNavigate": "Navigate",
     "trustMicroCopy": "Small groups · Local hosts · Flexible planning · WhatsApp support",
@@ -998,5 +1038,12 @@
       "reviews": "Reviews",
       "faq": "FAQ"
     }
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "description": "We could not load this page right now. This is usually temporary — please try again in a moment.",
+    "retry": "Try again",
+    "backHome": "Back to home",
+    "reference": "Reference"
   }
 }

@@ -375,8 +375,9 @@ export function ExperienceReservationProvider({
       roomModes,
       accommodationTiersContent: accommodationTiersContent ?? null,
       availableDates,
+      currency: config.currency,
     }),
-    [state, dispatch, roomModes, accommodationTiersContent, availableDates]
+    [state, dispatch, roomModes, accommodationTiersContent, availableDates, config.currency]
   );
 
   return (

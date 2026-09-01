@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
 import {
   useReservationPricing,
+  useReservationCurrency,
   useReservationTier,
   useReservationAccommodationTiers,
   useReservationDate,
@@ -15,16 +16,18 @@ import {
 } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { useThemeContext } from '@/contexts/ThemeContext';
+import { formatMoney } from '@/utils/formatCurrency';
 import type { TransportOption } from '@/lib/schemas';
 
 interface PriceSummaryProps {
-  depositPercent?: number;
+  depositPercent: number;
   transportOptions: TransportOption[];
   experienceTitle: string;
 }
 
-export function PriceSummary({ depositPercent = 15, transportOptions, experienceTitle }: PriceSummaryProps) {
+export function PriceSummary({ depositPercent, transportOptions, experienceTitle }: PriceSummaryProps) {
   const { total, depositAmount, roundtripTransferCost } = useReservationPricing();
+  const currency = useReservationCurrency();
   const { selectedTierId } = useReservationTier();
   const tiersContent = useReservationAccommodationTiers();
   const { selectedDateLabel, selectedDateId } = useReservationDate();
@@ -67,20 +70,7 @@ export function PriceSummary({ depositPercent = 15, transportOptions, experience
     ? 'mb-4 border-2 border-[#00F08F]/20 bg-slate-900/50 backdrop-blur-2xl !p-4 lg:!p-6'
     : 'mb-4 border-2 border-emerald-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)] !p-4 lg:!p-6';
 
-  const localeMap: Record<string, string> = {
-    en: 'en-US',
-    es: 'es-CO',
-    fr: 'fr-FR',
-  };
-
-  const formatPrice = (price: number) => {
-    const locale = localeMap[currentLocale] ?? 'es-CO';
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'COP',
-      maximumFractionDigits: 0,
-    }).format(price);
-  };
+  const formatPrice = (price: number) => formatMoney(price, currentLocale, currency);
 
   const notSelected = t('mobileDockNotSelected');
   const dlTermClass = `text-xs ${isDark ? 'text-base-content/50' : 'text-neutral-500'}`;

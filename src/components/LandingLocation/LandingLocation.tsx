@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import type { LandingLocationBrandContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
@@ -23,6 +24,7 @@ const LIVE_NODES = [
  * SVG pulse overlays mark the live network nodes (Bogotá + Chivor).
  */
 function LandingLocationComponent({ locationBrand, className = '' }: Props) {
+  const t = useTranslations();
   return (
     <SectionContainer
       as="section"
@@ -67,10 +69,10 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
             </span>
           ))}
 
-          {/* "Live network" badge */}
+          {/* Live-network badge */}
           <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-400 backdrop-blur-sm shadow-[0_0_10px_rgba(0,255,157,0.15)]">
             <Radio className="h-3 w-3" aria-hidden="true" />
-            Live network
+            {t('Landing.brand.location.liveNetwork')}
           </div>
         </div>
 

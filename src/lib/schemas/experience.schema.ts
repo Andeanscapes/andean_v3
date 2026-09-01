@@ -3,6 +3,7 @@
  */
 
 import { z } from 'zod';
+import { CurrencyCodeSchema } from './currency.schema';
 
 // Room mode enum
 export const RoomModeSchema = z.enum([
@@ -72,6 +73,21 @@ export const TierServiceSchema = z.object({
   pricePerPersonPerNight: z.number(),
 });
 
+/**
+ * Optional paid extra, priced per person and quoted separately from the plan.
+ *
+ * Deliberately NOT part of the booking total: these require the team to confirm
+ * availability before they are sold, so they are surfaced as informational
+ * pricing only. Keep them out of `calculatePricing` and list projections.
+ */
+export const ExperienceAddonSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  description: z.string().optional(),
+  pricePerPerson: z.number(),
+  requiresTeamConfirmation: z.boolean().optional(),
+});
+
 // Accommodation tier images
 export const AccommodationTierImagesSchema = z.object({
   main: z.string(),
@@ -110,13 +126,18 @@ export const ExperienceConfigSchema = z.object({
   subtitle: z.string(),
   description: z.string(),
   experiencePricePerPerson: z.number(),
+  /**
+   * ISO 4217 code for every amount on this experience, from
+   * `experience.pricing.currency`. Required and validated: a default would let a
+   * missing currency render silently as COP, and a malformed one throws inside
+   * `Intl.NumberFormat` at render time instead of failing validation.
+   */
+  currency: CurrencyCodeSchema,
   numberOfNights: z.number(),
   depositPercent: z.number(),
   maxPeople: z.number(),
   minPeople: z.number(),
   images: ExperienceImagesSchema.optional(),
-  includesItems: z.array(z.string()).optional().default([]),
-  includesFullDetails: z.string().optional().default(''),
   reviewsCount: z.number().optional(),
   microcopy: z.object({
     deposit: z.string(),
@@ -328,6 +349,22 @@ export const TierServiceContentSchema = z.object({
   pricePerPersonPerNight: z.number(),
 });
 
+// Optional extras section (translated — UI-ready)
+export const ExperienceAddonContentSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  description: z.string().optional(),
+  pricePerPerson: z.number(),
+  requiresTeamConfirmation: z.boolean().optional(),
+});
+
+export const ExperienceAddonsContentSchema = z.object({
+  sectionTitle: z.string(),
+  perPersonLabel: z.string(),
+  teamConfirmationLabel: z.string(),
+  items: z.array(ExperienceAddonContentSchema),
+});
+
 // Accommodation tier (translated — UI-ready)
 export const AccommodationTierContentSchema = z.object({
   id: z.string(),
@@ -410,6 +447,7 @@ export const ExperienceDataSchema = z.object({
   transportOptions: z.array(TransportOptionSchema),
   roomModes: z.array(RoomModeOptionSchema),
   accommodationTiers: z.array(AccommodationTierSchema).optional(),
+  addons: z.array(ExperienceAddonSchema).optional(),
   availableDates: z.array(AvailableDateSchema),
   whatsappLink: z.string(),
   heroContent: ExperienceHeroContentSchema.optional(),
@@ -418,6 +456,7 @@ export const ExperienceDataSchema = z.object({
   inclusionsContent: ExperienceInclusionsContentSchema.optional(),
   itineraryContent: ItineraryContentSchema.optional(),
   accommodationTiersContent: AccommodationTiersContentSchema.optional(),
+  addonsContent: ExperienceAddonsContentSchema.optional(),
   hostContent: HostContentSchema.optional(),
 });
 
@@ -448,6 +487,9 @@ export type ItineraryDayStopContent = z.infer<typeof ItineraryDayStopContentSche
 export type ItineraryDayContent = z.infer<typeof ItineraryDayContentSchema>;
 export type AccommodationRoom = z.infer<typeof AccommodationRoomSchema>;
 export type TierService = z.infer<typeof TierServiceSchema>;
+export type ExperienceAddon = z.infer<typeof ExperienceAddonSchema>;
+export type ExperienceAddonContent = z.infer<typeof ExperienceAddonContentSchema>;
+export type ExperienceAddonsContent = z.infer<typeof ExperienceAddonsContentSchema>;
 export type RoundtripTransferConfig = z.infer<typeof RoundtripTransferConfigSchema>;
 export type AccommodationTierImages = z.infer<typeof AccommodationTierImagesSchema>;
 export type AccommodationTierQuickSpecs = z.infer<typeof AccommodationTierQuickSpecsSchema>;
@@ -486,4 +528,6 @@ export interface ReservationContextValue {
   roomModes: RoomModeOption[];
   accommodationTiersContent: AccommodationTiersContent | null;
   availableDates: AvailableDate[];
+  /** ISO 4217 code for every amount rendered inside the reservation flow. */
+  currency: string;
 }

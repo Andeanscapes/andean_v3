@@ -89,7 +89,7 @@ andean-scapes-api/
 │   ├── cache.ts         # Cache API + KV helpers
 │   └── index.ts         # Worker entry point (Hono router)
 ├── migrations/          # D1 SQL migration files
-├── seeds/               # Seed scripts (from current JSON mocks)
+├── seeds/               # Seed scripts (from the current feed JSON)
 ├── wrangler.toml        # D1, KV, R2 bindings
 └── package.json
 ```
@@ -188,6 +188,10 @@ admin_users   (id, email, role)
 - `GET /api/v1/i18n/:locale` serves flat JSON (same shape as current `messages/*.json`)
 - `src/i18n/request.ts` fetches bundle at runtime; static JSON kept as cold-start fallback
 - Component code unchanged: `t('experiences.tiers.heritage.title')` still works
+- **Feed/API payloads never name a key or namespace.** They carry stable domain
+  codes; the frontend maps codes → keys in `src/i18n/mappings/*`. The `experiences`
+  table therefore stores no translatable text and no key strings. Contract and
+  migration order: `docs/V2_REMOTE_RESOURCES_MIGRATION.md`
 - Locale fallback: missing `fr` key → falls back to `en` in Worker handler
 - Marketing edits in admin UI → Worker writes D1 → `revalidateTag()` → live within seconds
 
@@ -201,16 +205,76 @@ admin_users   (id, email, role)
 - Bootstrap `andean-scapes-api` repo (Hono + Wrangler + Drizzle)
 - Finalize payments provider + language decision
 
-### Phase 1 — API contract on Workers, mock-fed (1–2 weeks)
-- Worker serves current mocks over HTTP — same data, real HTTP boundary
-- Frontend swaps `getFallbackData()` → `fetch(workerUrl)` in services
-- Zero user-facing change; 140 tests stay green
+### Phase 1 — real HTTP data boundary ✅ DONE
+- Services fetch all data over HTTP via `fetchRemoteJson` (`src/lib/remote-data.ts`)
+- Feed served as static JSON from R2/CDN at `REMOTE_DATA_BASE_URL` (`https://cdn.andeanscapes.com/services`)
+- Local mocks and registries **deleted**; services throw when the feed is unavailable
+- Contract: `landing.json`, `experiences-list.json`, `experience-<kebab-id>.json`
+- No dedicated catalog endpoint — routes/SEO derive from `experiences-list.json`
+- Tests use local copies of the feed in the gitignored `fixtures/` (`npm run fixtures:fetch`)
+
+**Phase 1.5 — remaining before Phase 2:**
+- Replace the static feed with a Worker serving the same paths (frontend change = base URL only)
+- `revalidateTag()` trigger so edits appear faster than the 1h `revalidate`
+- **Decide whether the feed should be authenticated.** The payloads are not
+  committed and are downloaded into gitignored `fixtures/`, but the CDN is
+  unauthenticated and its public URL is documented in `wrangler.toml` and
+  `scripts/lib/feed.ts` — so anyone can download them. Either accept that they
+  are public marketing data, or put auth in front of the Worker in Phase 2 and
+  give the scripts a token. Git hygiene alone is not confidentiality.
+- ~~Migrate the wire format to the translation-free v2 contract~~ — **done.** v2 is
+  published and every service reads it; see `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
+  Seed the API from the v2 payloads, not the retired `*Key` ones.
+
+### Known pre-existing defects
+
+Surfaced while reviewing the v2 migration. All of these predate that work, so
+they were deliberately left out of it rather than bundled into an unrelated
+diff. Ordered by user impact.
+
+1. **Locale is dropped on the featured-experience card.**
+   `LandingFeaturedExperienceCard.tsx` imports `next/link` and passes an
+   internal `experience.href`, so an `/es` or `/fr` visitor lands on the default
+   locale. Fix: use `Link` from `@/i18n/navigation`, as the sibling
+   `ExperienceList/ExperienceCard.tsx` already does.
+2. **`Footer.tsx` has no `'use client'`** despite `useState`, `useEffect`,
+   `useTranslations` and `window`. It only compiles because
+   `app/[locale]/(public)/layout.tsx` is a Client Component — so converting that
+   layout to a Server Component (which is otherwise the right call) breaks the
+   build. Add the directive before touching the layout.
+3. **A feed outage in `generateMetadata` is not caught.** `error.tsx` covers
+   render throws, but metadata runs outside the render tree, so
+   `experiences/page.tsx` and `[experienceName]/page.tsx` return an unhandled
+   500 instead of the localized error page. There is also no `global-error.tsx`.
+4. **Untranslated visible copy:** the `Partner` badge in `Footer.tsx`, the
+   `<video>` fallback text in `ExperienceHero.tsx`, and `alt='logo'` in
+   `Header.tsx` (which should carry `SITE_INFO.name`, or be `alt=""` since the
+   wrapping link is already labelled).
+5. **Hardcoded stock imagery in `experienceTranslators.ts`** —
+   `/assets/images/hero/*.webp` defaults contradict "the feed is the only source
+   of data". The v2 schema now pins `media.highlights` to exactly 3 so the
+   value-proposition tiles can no longer reach these defaults, but the hero
+   default remains reachable.
+6. **`Stepper` primitive:** buttons lack `type="button"`, so both steppers submit
+   any enclosing `<form>`; the visible `<label>` has no `htmlFor`/`id` pairing,
+   so it is not the accessible name.
+7. **Primary booking CTA does a full page reload.** `PrimaryCtaButton` always
+   emits a raw `<a href>`, losing client-side navigation and prefetch on the
+   most important conversion path.
+8. **`getMessages()` ships the whole ~50 KB catalog** to the client from
+   `[locale]/layout.tsx`. Narrowing to the namespaces actually consumed is a
+   straightforward Lighthouse TBT win.
+
+Lower priority, same review: ~15 i18n keys are written inline in services and
+adapters instead of routing through `src/i18n/mappings/*`, and
+`landingFeedAdapter.ts` builds FAQ keys by template
+(`` `Landing.faqs.items.${id}.question` ``), which no static check can verify.
 
 ### Phase 2 — D1 + booking flow (2–3 weeks)
-- DB-backed catalog (seed from current JSON mocks)
+- DB-backed catalog (seed from the current feed JSON)
 - Stripe checkout end-to-end via payments service
 - Admin write API functional via Postman (no UI yet)
-- `computeFromPrice` deleted — API returns `fromPrice` denormalized
+- List projection already returns `fromPrice` denormalized
 
 ### Phase 3 — Admin UI (2–3 weeks)
 - `/admin/*` routes in Next.js, Cloudflare Access gated
@@ -229,7 +293,7 @@ admin_users   (id, email, role)
 
 - 2 experiences: Hacienda El Recuerdo + 1 emerald-mining experience
 - 3 locales: en / es / fr (seeded from current JSON files)
-- Public list + detail pages: swap data source mocks → Worker API
+- Public list + detail pages: repoint `REMOTE_DATA_BASE_URL` at the Worker API
 - Booking form: wire to `POST /api/v1/bookings/checkout`
 - Stripe test → live checkout flow
 
@@ -244,19 +308,22 @@ admin_users   (id, email, role)
 
 ---
 
-## Current State → Phase 1 Migration Map
+## Current State → Next Steps Migration Map
 
-| Current artifact | Phase 1 action | Phase 2 action |
+Phase 1 is done — the frontend already reads a real HTTP feed. Remaining:
+
+| Current artifact | Next action | Phase 2 action |
 |---|---|---|
-| `EXPERIENCE_DATA_REGISTRY` | Copy to `andean-scapes-api/src/data/` (still mock) | Seed into D1, delete mock |
-| `EXPERIENCES_LIST_CONFIG` | Extract to `andean-scapes-api/src/data/` | Replace with D1 query |
-| `book.service.ts` fetch step | `getFallbackData()` → `fetch(workerUrl)` | No change |
-| `experiences-list.service.ts` | Const access → `fetch(workerUrl)` | `computeFromPrice` deleted |
+| Static feed on R2 (`/services/*.json`) | Serve the same paths from the Worker | Back with D1 queries |
+| `fetchRemoteJson` | No change — swap `REMOTE_DATA_BASE_URL` | No change |
+| Feed payloads | Seed `andean-scapes-api/src/data/` from them | Replace with D1 rows |
+| `fromPrice` list projection | Keep | API generates the projection |
 | Zod schemas | Stay in `src/lib/schemas/`; API repo owns its own | No change |
-| `src/i18n/messages/*.json` | Copy to API repo as seed source | Seed D1, keep as fallback |
-| Tests (140 passing) | Update mocks for HTTP boundary | Add integration tests for Worker |
+| `src/i18n/messages/*.json` | Copy to API repo as seed source | Serve via `/api/v1/i18n/:locale`, keep static as fallback |
+| `fixtures/*.json` (gitignored) | Re-download with `npm run fixtures:fetch` | Add integration tests for Worker |
+| Manual feed upload | Add `verify:feed` schema gate | Replaced by admin UI + `revalidateTag()` |
 
-Zero throwaway work. Every current refactor directly enables Phase 1.
+The frontend service layer does not change again: only the base URL moves.
 
 ---
 

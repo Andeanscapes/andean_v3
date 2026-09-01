@@ -7,19 +7,21 @@
  * src/utils/landingTranslators.ts so this file stays focused on
  * data-access concerns: fetch, validate, compose, and return.
  *
- * PRODUCTION: Replace getFallbackData with:
- * const raw: unknown = await fetch(`${API_BASE_URL}/api/v1/landing`).then(r => r.json());
+ * The remote feed is the only source of data — there is no local fallback, so
+ * an unavailable or invalid feed fails the render rather than silently serving
+ * stale content.
  */
 
 import { getTranslations } from 'next-intl/server';
-import { LandingContentSchema, LandingDataMockSchema } from '../schemas/landing.schema';
-import type { LandingContent } from '../schemas/landing.schema';
-import { LANDING_DATA_REGISTRY } from '../data-mocks/landing.registry';
+import { LandingContentSchema } from '../schemas/landing.schema';
+import type { LandingContent, LandingFeed } from '../schemas/landing.schema';
+import { LandingFeedV2Schema } from '../schemas/feed/v2';
+import { filterCurrentAvailableDates } from '@/utils/availability';
+import { adaptLandingFeedV2 } from '@/utils/landingFeedAdapter';
+import { fetchRemoteJson } from '../remote-data';
+import { LANDING_FEED_PATH } from '@/utils/feedPaths';
 import {
   toLandingFlagshipContent,
-  toLandingValuePropsContent,
-  toLandingInclusionsContent,
-  toLandingTiersContent,
   toLandingReviewsContent,
   toLandingFaqsContent,
   toLandingFinalCtaContent,
@@ -38,16 +40,19 @@ import {
 export async function getLandingDataSSR(locale: string): Promise<LandingContent> {
   const t = await getTranslations({ locale });
 
-  // 1. Fetch raw data
-  const raw: unknown = LANDING_DATA_REGISTRY['default'];
+  // 1. Fetch and validate the v2 feed
+  const remote = await fetchRemoteJson(LANDING_FEED_PATH, LandingFeedV2Schema, {
+    revalidate: 3600,
+    tags: ['landing-data'],
+  });
 
-  // 2. Validate — schema drift surfaces immediately
-  const result = LandingDataMockSchema.safeParse(raw);
-  if (!result.success) {
-    console.error('[LandingService] Validation failed:', result.error.format());
-    throw new Error('[LandingService] Invalid landing data in registry.');
+  if (!remote.data) {
+    throw new Error(`[LandingService] Landing feed unavailable: ${remote.reason}`);
   }
-  const rawData = result.data;
+
+  // 2. Resolve domain codes → i18n keys and merge the frontend-owned structure.
+  //    The feed carries a fixed departure list, so expired dates are dropped.
+  const rawData = withCurrentDates(adaptLandingFeedV2(remote.data));
 
   // 3. Translate — each projector handles one content section
   const translated: LandingContent = {
@@ -62,9 +67,6 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
     locationBrand: toLandingLocationBrandContent(rawData, t),
     safety: toLandingSafetyContent(rawData, t),
     globalCtas: toLandingGlobalCtasContent(rawData, t),
-    valueProps: toLandingValuePropsContent(rawData, t),
-    inclusions: toLandingInclusionsContent(rawData, t),
-    tiers: toLandingTiersContent(rawData, t),
     reviews: toLandingReviewsContent(rawData, t),
     faqs: toLandingFaqsContent(rawData, t),
     finalCta: toLandingFinalCtaContent(rawData, t),
@@ -77,4 +79,29 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
   }
 
   return translatedResult.data;
+}
+
+/**
+ * Drop expired availability and re-derive the featured-experience
+ * "next availability" hint from the surviving dates.
+ */
+function withCurrentDates(data: LandingFeed): LandingFeed {
+  const dates = filterCurrentAvailableDates(data.flagship.availableDates);
+
+  return {
+    ...data,
+    flagship: { ...data.flagship, availableDates: dates },
+    featuredExperiences: {
+      ...data.featuredExperiences,
+      items: data.featuredExperiences.items.map((item) => ({
+        ...item,
+        nextAvailability: dates[0]
+          ? {
+              dateISO: dates[0].startDate.slice(0, 10),
+              spotsLeft: dates[0].spots,
+            }
+          : undefined,
+      })),
+    },
+  };
 }

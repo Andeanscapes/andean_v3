@@ -14,9 +14,10 @@ import {
   useReservationTier,
   useReservationTransport,
 } from '@/hooks/experiences/useReservationContext';
-import { reservationSchema } from '@/utils/validationSchemas';
+import { buildReservationSchema, resolveReservationError } from '@/utils/validationSchemas';
 import type { ExperienceConfig, TransportOption } from '@/lib/schemas';
 import { useLanguageContext } from '@/contexts/LanguageContext';
+import { formatMoney } from '@/utils/formatCurrency';
 
 interface MobileStickyDockProps {
   config: ExperienceConfig;
@@ -40,12 +41,6 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
   const [priceAnimated, setPriceAnimated] = useState(false);
   const prevDepositRef = useRef(depositAmount);
   const [validationError, setValidationError] = useState<string | null>(null);
-
-  const localeMap: Record<string, string> = {
-    en: 'en-US',
-    es: 'es-CO',
-    fr: 'fr-FR',
-  };
 
   // Scroll-activate: show dock after user scrolls past #available-dates
   useEffect(() => {
@@ -80,12 +75,7 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
     }
   }, [depositAmount]);
 
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat(localeMap[currentLocale] ?? 'es-CO', {
-      style: 'currency',
-      currency: 'COP',
-      maximumFractionDigits: 0,
-    }).format(price);
+  const formatPrice = (price: number) => formatMoney(price, currentLocale, config.currency);
 
   const selectedTier = useMemo(
     () => tiersContent?.tiers.find((tier) => tier.id === selectedTierId) ?? null,
@@ -130,8 +120,10 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
 
   const handlePayment = async () => {
     setValidationError(null);
+    const bounds = { minPeople: config.minPeople, maxPeople: config.maxPeople };
+
     try {
-      reservationSchema.parse({
+      buildReservationSchema(bounds).parse({
         selectedDateId: state.selectedDateId,
         peopleCount: state.peopleCount,
         roomSelections: state.roomSelections,
@@ -141,7 +133,7 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
       });
       await createLink(state);
     } catch (err) {
-      setValidationError(err instanceof Error ? err.message : t('validationError'));
+      setValidationError(resolveReservationError(err, t, bounds));
     }
   };
 

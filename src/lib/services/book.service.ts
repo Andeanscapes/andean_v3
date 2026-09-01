@@ -3,15 +3,28 @@
  *
  * Pattern: Fetch → Validate → Translate → Return
  *
- * The translation step is delegated to pure projector functions in
- * src/utils/experience.translators.ts so this file stays focused
- * on the data-access concerns: fetch, validate, compose, and return.
+ * The feed is v2: stable domain codes, no copy. Two pure steps sit between the
+ * payload and the UI:
+ *
+ *   1. `adaptExperienceFeedV2` resolves every domain code to an i18n **key**
+ *      and restores the field names the booking flow persists.
+ *   2. The projectors in `src/utils/experienceTranslators.ts` run `t` over that
+ *      shape to produce the UI-ready content sections.
+ *
+ * Keeping both steps pure means this file only orchestrates.
  */
 
 import type { ExperienceData } from '../schemas';
 import { ExperienceDataSchema } from '../schemas';
-import { EXPERIENCE_DATA_REGISTRY } from '../data-mocks/experiences.registry';
+import type { ExperienceFeedV2 } from '../schemas/feed/v2';
+import { ExperienceFeedV2Schema } from '../schemas/feed/v2';
+import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
+import { filterCurrentAvailableDates } from '@/utils/availability';
+import { adaptExperienceFeedV2 } from '@/utils/experienceFeedAdapter';
+import { experienceFeedPath } from '@/utils/feedPaths';
+import { whatsappUrl } from '@/utils/whatsapp';
 import { getTranslations } from 'next-intl/server';
+import { fetchRemoteJson } from '../remote-data';
 import {
   toTranslatedConfig,
   toHeroContent,
@@ -20,8 +33,44 @@ import {
   toInclusionsContent,
   toItineraryContent,
   toAccommodationTiersContent,
+  toAddonsContent,
   toHostContent,
 } from '@/utils/experienceTranslators';
+
+/** next-intl server `t` signature */
+type Translator = (key: string, values?: Record<string, string | number>) => string;
+
+type MappedExperienceId = keyof typeof EXPERIENCE_I18N;
+
+/**
+ * The feed's `experience.id` is a closed enum, so an unpublished experience
+ * fails schema validation upstream. This guard covers the remaining gap: an id
+ * that is valid in the feed but has no frontend mapping yet, which would
+ * otherwise surface as untranslated keys in the UI.
+ */
+function mappingFor(experienceId: string): (typeof EXPERIENCE_I18N)[MappedExperienceId] {
+  const mapping = EXPERIENCE_I18N[experienceId as MappedExperienceId];
+
+  if (!mapping) {
+    throw new Error(
+      `[BookingService] No i18n mapping for experience "${experienceId}". ` +
+        'Add it to src/i18n/mappings/experience.ts before publishing the feed entry.',
+    );
+  }
+
+  return mapping;
+}
+
+/**
+ * WhatsApp deep link with a localized prefill message.
+ *
+ * The v1 feed shipped this URL. v2 does not — a contact channel and a localized
+ * message are frontend concerns, so the number comes from `SiteConfig` and the
+ * copy from the `BookingCtas` namespace.
+ */
+function buildWhatsappLink(t: Translator): string {
+  return whatsappUrl(t('BookingCtas.whatsappMiningQuote'));
+}
 
 /**
  * Fetch and translate experience data for the booking SSR page.
@@ -30,41 +79,40 @@ export async function getBookingDataSSR(
   experienceId: string,
   locale: string,
 ): Promise<ExperienceData> {
-  const t = await getTranslations({ locale });
+  // 1. Fetch the v2 feed (throws if unavailable — no local fallback)
+  const [t, feed] = await Promise.all([
+    getTranslations({ locale }),
+    fetchRawExperienceData(experienceId),
+  ]);
 
-  // 1. Fetch raw data
-  // PRODUCTION: Replace getFallbackData with an API fetch:
-  // const response = await fetch(`${API_BASE_URL}/api/v1/experiences/${experienceId}`, { ... });
-  // const raw: unknown = await response.json();
-  const raw: unknown = getFallbackData(experienceId);
+  // 2. Resolve codes → i18n keys, restoring the persisted field names
+  const mapping = mappingFor(feed.experience.id);
+  const rawData = adaptExperienceFeedV2(feed, mapping, buildWhatsappLink(t));
 
-  // 2. Validate — always enforced so schema drift surfaces immediately
-  const result = ExperienceDataSchema.safeParse(raw);
-  if (!result.success) {
-    console.error(`[BookingService] Validation failed for "${experienceId}":`, result.error.format());
-    throw new Error(`[BookingService] Invalid data for experience: ${experienceId}`);
+  const rawResult = ExperienceDataSchema.safeParse(rawData);
+  if (!rawResult.success) {
+    console.error(`[BookingService] Adapter output invalid for "${experienceId}":`, rawResult.error.format());
+    throw new Error(`[BookingService] Invalid adapted data for experience: ${experienceId}`);
   }
-  const rawData = result.data;
 
   // 3. Translate — each projector handles one content section
-  const translatedConfig = toTranslatedConfig(rawData, t);
-
   const translated: ExperienceData = {
-    ...rawData,
-    config: translatedConfig,
-    transportOptions: rawData.transportOptions.map((option) => ({
+    ...rawResult.data,
+    config: toTranslatedConfig(rawResult.data, t),
+    transportOptions: rawResult.data.transportOptions.map((option) => ({
       ...option,
       label: t(option.label),
       description: option.description ? t(option.description) : undefined,
     })),
-    roomModes: rawData.roomModes.map((mode) => ({ ...mode, label: t(mode.label) })),
-    heroContent: toHeroContent(rawData, t, rawData.config.depositPercent),
-    widgetContent: toWidgetContent(t, rawData.config.reviewsCount ?? 528),
-    valuePropositionsContent: toValuePropositionsContent(rawData, t),
-    inclusionsContent: toInclusionsContent(rawData, t),
-    itineraryContent: toItineraryContent(rawData, t),
-    accommodationTiersContent: toAccommodationTiersContent(rawData, t),
-    hostContent: toHostContent(rawData, t),
+    roomModes: rawResult.data.roomModes.map((mode) => ({ ...mode, label: t(mode.label) })),
+    heroContent: toHeroContent(rawResult.data, t, rawResult.data.config.depositPercent),
+    widgetContent: toWidgetContent(t, rawResult.data.config.reviewsCount ?? 0),
+    valuePropositionsContent: toValuePropositionsContent(rawResult.data, t),
+    inclusionsContent: toInclusionsContent(rawResult.data, t),
+    itineraryContent: toItineraryContent(rawResult.data, t),
+    accommodationTiersContent: toAccommodationTiersContent(rawResult.data, t),
+    addonsContent: toAddonsContent(rawResult.data, t),
+    hostContent: toHostContent(rawResult.data, t),
   };
 
   const translatedResult = ExperienceDataSchema.safeParse(translated);
@@ -76,13 +124,27 @@ export async function getBookingDataSSR(
   return translatedResult.data;
 }
 
-// ── Fallback registry ────────────────────────────────────────────────────────
-// To add a new experience: add its mock to src/lib/data-mocks/experiences.registry.ts
+// ── Fetch the raw v2 experience feed ─────────────────────────────────────────
+//
+// To add a new experience: publish `experience-<kebab-id>.json` to the feed, add
+// a matching entry to `experiences-list.json`, and add its i18n mapping to
+// `src/i18n/mappings/experience.ts`.
 
-function getFallbackData(experienceId: string): ExperienceData {
-  const data = EXPERIENCE_DATA_REGISTRY[experienceId];
-  if (!data) {
-    throw new Error(`[BookingService] No fallback data for experience: "${experienceId}". Add it to EXPERIENCE_DATA_REGISTRY.`);
+export async function fetchRawExperienceData(experienceId: string): Promise<ExperienceFeedV2> {
+  const remote = await fetchRemoteJson(experienceFeedPath(experienceId), ExperienceFeedV2Schema, {
+    revalidate: 3600,
+    tags: [`experience-${experienceId}`],
+  });
+
+  if (!remote.data) {
+    throw new Error(
+      `[BookingService] Experience feed unavailable for "${experienceId}": ${remote.reason}`,
+    );
   }
-  return data;
+
+  // The feed carries a fixed departure list, so expired dates are dropped here.
+  return {
+    ...remote.data,
+    availableDates: filterCurrentAvailableDates(remote.data.availableDates),
+  };
 }

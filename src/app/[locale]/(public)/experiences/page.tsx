@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { ExperienceCard } from '@/components/ExperienceList/ExperienceCard';
 import { getExperiencesListSSR } from '@/lib/services/experiences-list.service';
+import { formatMoney } from '@/utils/formatCurrency';
 
 export async function generateMetadata({
   params,
@@ -25,12 +26,6 @@ export default async function ExperiencesPage({
   const { locale } = await params;
   const listData = await getExperiencesListSSR(locale);
 
-  const currencyFormatter = new Intl.NumberFormat(locale, {
-    style: 'currency',
-    currency: 'COP',
-    maximumFractionDigits: 0,
-  });
-
   return (
     <>
       <ExperienceHero content={listData.hero} />
@@ -51,7 +46,7 @@ export default async function ExperiencesPage({
               card={card}
               fromLabel={listData.fromLabel}
               viewDetailsLabel={listData.viewDetails}
-              formattedPrice={currencyFormatter.format(card.price)}
+              formattedPrice={formatMoney(card.price, locale, card.currency)}
             />
           ))}
           </div>

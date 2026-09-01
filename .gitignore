@@ -27,6 +27,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.development
+.env.production
+.dev.vars
+.dev.vars.*
 .env.wrangler
 .env.wrangler.*
 
@@ -36,6 +40,18 @@ yarn-error.log*
 # OpenNext build output
 .open-next
 
+# Wrangler / Miniflare local state (binary caches, never source)
+.wrangler/
+
+# Local copies of the remote feed. Real business data — never committed.
+# Populated by `npm run fixtures:fetch` (runs automatically before `npm test`).
+#
+# `/fixtures/*` rather than `/fixtures/`: a negation cannot re-include anything
+# inside a directory that is itself excluded, and README.md must stay tracked so
+# the directory is documented and present on a fresh clone.
+/fixtures/*
+!/fixtures/README.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -43,3 +59,5 @@ next-env.d.ts
 .env
 .env.local
 .env*.local
+# Storybook build output. Publish from CI; never commit the built bundle.
+storybook-static/
