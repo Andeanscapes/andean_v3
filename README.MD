@@ -2,7 +2,7 @@
 
 > Discover Colombia's hidden treasures through immersive eco-tourism experiences
 
-![Andean Scapes](./public/assets/images/logo.png)
+![Andean Scapes](./public/assets/images/logo.webp)
 
 ## Overview
 

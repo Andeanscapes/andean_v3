@@ -124,6 +124,7 @@ export const LandingHeroBrandMockSchema = z.object({
   subtitleKey: z.string(),
   descriptionKey: z.string(),
   backgroundImage: z.string(),
+  backgroundImageVariants: z.array(z.string()),
   primaryCtaLabelKey: z.string(),
   primaryCtaHref: z.string(),
   secondaryCtaLabelKey: z.string(),

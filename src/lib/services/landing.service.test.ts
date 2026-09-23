@@ -68,6 +68,7 @@ describe('getLandingDataSSR', () => {
 
   afterEach(() => {
     vi.useRealTimers();
+    vi.restoreAllMocks();
     vi.unstubAllGlobals();
     delete process.env.REMOTE_DATA_BASE_URL;
   });
@@ -149,6 +150,70 @@ describe('getLandingDataSSR', () => {
       'https://cdn.andeanscapes.com/images/brand/rural.webp',
       'https://cdn.andeanscapes.com/images/brand/horseback.webp',
     ]);
+  });
+
+  it('selects a resolved hero variant when the feed provides variants', async () => {
+    const payload = feedPayload();
+    payload.media = {
+      hero: '/images/brand/landing-hero.webp',
+      heroVariants: [
+        '/images/brand/landing-hero-01.webp',
+        '/images/brand/landing-hero-02.webp',
+      ],
+      finalCta: '/images/brand/final-cta.webp',
+      categories: {
+        emeraldMining: '/images/brand/emerald.webp',
+        nature: '/images/brand/nature.webp',
+        rural: '/images/brand/rural.webp',
+        horseback: '/images/brand/horseback.webp',
+      },
+    };
+    vi.spyOn(Math, 'random').mockReturnValue(0.99);
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+
+    const content = await getLandingDataSSR('en');
+
+    expect(content.heroBrand.backgroundImage).toBe(
+      'https://cdn.andeanscapes.com/images/brand/landing-hero-02.webp',
+    );
+  });
+
+  /**
+   * Runs against the real RNG: the pick must always land inside the published
+   * pool. An off-by-one in the index maths would surface as the `hero` fallback
+   * leaking through on a fraction of requests — invisible in a single-call test.
+   */
+  it('never falls back outside the variant pool across repeated renders', async () => {
+    const variants = [
+      '/images/brand/landing-hero-01.webp',
+      '/images/brand/landing-hero-02.webp',
+      '/images/brand/landing-hero-03.webp',
+    ];
+    const payload = feedPayload();
+    payload.media = {
+      hero: '/images/brand/landing-hero.webp',
+      heroVariants: variants,
+      finalCta: '/images/brand/final-cta.webp',
+      categories: {
+        emeraldMining: '/images/brand/emerald.webp',
+        nature: '/images/brand/nature.webp',
+        rural: '/images/brand/rural.webp',
+        horseback: '/images/brand/horseback.webp',
+      },
+    };
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+
+    const allowed = variants.map((path) => `https://cdn.andeanscapes.com${path}`);
+    const seen = new Set<string>();
+
+    for (let call = 0; call < 40; call += 1) {
+      const content = await getLandingDataSSR('en');
+      expect(allowed).toContain(content.heroBrand.backgroundImage);
+      seen.add(content.heroBrand.backgroundImage);
+    }
+
+    // Sanity check that the pick is actually varying rather than pinned.
+    expect(seen.size).toBeGreaterThan(1);
   });
 
   // The structure fallbacks are `/assets/...`; rewriting them would 404.

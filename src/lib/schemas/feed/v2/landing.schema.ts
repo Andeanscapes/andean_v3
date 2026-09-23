@@ -67,6 +67,17 @@ export const LandingFeedV2Schema = z
     media: z
       .object({
         hero: MediaPathSchema,
+        /**
+         * Pool the landing hero rotates through, one pick per request.
+         *
+         * `hero` stays the fallback used when this is absent and is **not**
+         * itself part of the rotation — publish it here too if it should keep
+         * appearing. Every entry needs its `-mobile` sibling published, which
+         * `npm run verify:feed` checks: `LandingHeroBrand` derives that path
+         * unconditionally and a browser will not fall back to `<img>` when a
+         * matched `<source>` 404s.
+         */
+        heroVariants: z.array(MediaPathSchema).nonempty().optional(),
         finalCta: MediaPathSchema,
         categories: z
           .object({

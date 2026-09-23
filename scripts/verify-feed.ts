@@ -29,6 +29,7 @@ import {
 import enMessages from '../src/i18n/messages/en.json';
 import esMessages from '../src/i18n/messages/es.json';
 import frMessages from '../src/i18n/messages/fr.json';
+import { findMissingResponsiveSiblings, landingResponsiveMediaKeys } from './lib/feed-media';
 import { fetchFeedJson, resolveExperienceIds, resolveFeedBaseUrl } from './lib/feed';
 
 const LOCALES: Record<string, unknown> = { en: enMessages, es: esMessages, fr: frMessages };
@@ -89,6 +90,33 @@ function collectKeys(value: unknown, acc: Set<string> = new Set()): Set<string> 
   return acc;
 }
 
+/**
+ * Report any `<picture>`-rendered image whose `-mobile` sibling is not published.
+ *
+ * The check itself lives in `lib/feed-media.ts` so it can be unit-tested with a
+ * stubbed `fetch`; this function only turns the result into gate output.
+ */
+async function checkResponsiveSiblings(file: string, keys: readonly string[]): Promise<void> {
+  const { checked, missing } = await findMissingResponsiveSiblings(keys);
+
+  for (const entry of missing) {
+    fail(
+      entry.reason === 'absent'
+        ? `${file}: "${entry.key}" has no published "-mobile" sibling at ${entry.mobileKey}`
+        : `${file}: cannot verify "${entry.mobileKey}": ${entry.reason}`,
+    );
+  }
+
+  // Only claim what passed: an earlier revision printed the full count even
+  // when some of those images had just been reported missing.
+  const verified = checked - missing.length;
+  if (verified > 0) {
+    console.log(
+      `  ✓ ${file}: ${verified}/${checked} responsive image(s) have a published -mobile sibling`,
+    );
+  }
+}
+
 /** Copy lives in local message bundles, so feed keys must resolve in all locales. */
 function checkKeys(file: string, payload: unknown): void {
   const keys = Array.from(collectKeys(payload));
@@ -125,6 +153,14 @@ async function main(): Promise<void> {
       checkKeys('landing.json', landing);
 
       const { reviews, reviewSummary, flagshipExperienceId, experiences } = landing;
+
+      // Every `<picture>` consumer on the landing page, not just the hero. The
+      // hero rotates through `heroVariants` one pick per request, so a single
+      // missing sibling there breaks mobile for a fraction of visits — the
+      // hardest failure mode to reproduce by hand — but the category tiles,
+      // final-CTA background, featured cards and footer gallery fail the same
+      // way, silently and on phones only.
+      await checkResponsiveSiblings('landing.json', landingResponsiveMediaKeys(landing));
 
       // The trust panel advertises the total, so the aggregate must cover at
       // least the reviews actually shipped.

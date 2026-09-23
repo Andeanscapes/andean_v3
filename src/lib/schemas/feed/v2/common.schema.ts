@@ -33,10 +33,24 @@ const TIME_24H = /^([01]\d|2[0-3]):[0-5]\d$/;
 
 export const CountryCodeSchema = z.string().regex(COUNTRY_CODE, 'Expected an uppercase ISO-3166-1 alpha-2 code');
 export const Time24hSchema = z.string().regex(TIME_24H, 'Expected 24-hour HH:mm');
-/** Feed media are app-relative paths; absolute and protocol-relative URLs are rejected. */
+/**
+ * Feed media are app-relative paths; absolute and protocol-relative URLs are rejected.
+ *
+ * `..` segments are rejected too. These paths are not only resolved to URLs —
+ * the `media:*` scripts join them onto `r2-cache/` to read and write files, so a
+ * traversing key in a tampered payload would escape that directory. A dot
+ * *inside* a segment (`hero..webp`) is still allowed; only a whole `..` segment
+ * is not.
+ */
 export const MediaPathSchema = z
   .string()
-  .regex(/^\/(?!\/)[^\s\\]*$/, 'Expected a safe app-relative path with a single leading "/"');
+  .regex(
+    // The `..` lookahead sits before `\/` is consumed, so it can still see the
+    // leading slash — anchored after it, `/../x` would read as a first segment
+    // with no separator in front of it and slip through.
+    /^(?!.*(?:^|\/)\.\.(?:\/|$))\/(?!\/)[^\s\\]*$/,
+    'Expected a safe app-relative path with a single leading "/" and no ".." segment',
+  );
 
 // ── Domain codes ─────────────────────────────────────────────────────────────
 

@@ -1,11 +1,18 @@
+'use client';
+
 import { Link } from '@/i18n/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Mail, MessageCircle, ShieldCheck, Star, ArrowUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from '@/constant/SiteConfig';
 import { whatsappUrl } from '@/utils/whatsapp';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
-const Footer = () => {
+interface FooterProps {
+    trustGallery: readonly string[];
+}
+
+const Footer = ({ trustGallery }: FooterProps) => {
     const t = useTranslations('Footer');
     const [supportMode, setSupportMode] = useState<'whatsapp' | 'email'>('whatsapp');
     const [showBackToTop, setShowBackToTop] = useState(false);
@@ -22,16 +29,6 @@ const Footer = () => {
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
-
-    const trustGallery = useMemo(
-        () => [
-            '/assets/images/hero/h7-thumb.webp',
-            '/assets/images/hero/h8-thumb.webp',
-            '/assets/images/hero/h10-thumb.webp',
-            '/assets/images/hero/h11-thumb.webp',
-        ],
-        []
-    );
 
     const territoryLinks = [
         { label: t('logistics'), href: '/experiences/emerald-mining-adventure#inclusions' },
@@ -80,16 +77,37 @@ const Footer = () => {
 
                         <div className="grid grid-cols-4 gap-4 sm:grid-cols-6">
                             {trustGallery.map((src, index) => (
-                                <div key={`${src}-${index}`} className="aspect-square overflow-hidden rounded-xl border border-white/8 bg-slate-900/55">
-                                    <img
-                                        src={src}
-                                        alt={t('ugcAlt', { index: index + 1 })}
-                                        width={150}
-                                        height={150}
-                                        className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
+                                <div key={`${src}-${index}`} className="relative aspect-square overflow-hidden rounded-xl border border-white/8 bg-slate-900/55">
+                                    {/*
+                                      The tile is ~67 CSS px on a 390px phone and
+                                      ~102 px at the 767px breakpoint, so the 300w
+                                      desktop file is roughly twice what any phone
+                                      needs. The 200w sibling is derived here and
+                                      never named by `FOOTER_TRUST_GALLERY`, so it
+                                      must stay published: a matched `<source>`
+                                      that 404s does not fall back to the `<img>`.
+
+                                      The tile is positioned so the image fills it
+                                      from the container, as `ExperienceCardImage`
+                                      does. Leaving `h-full` on the `<img>` would
+                                      resolve its percentage height through the
+                                      inline `<picture>` instead of the square.
+                                    */}
+                                    <picture>
+                                        <source
+                                            media="(max-width: 767px)"
+                                            srcSet={getResponsiveImageSrc(src).mobile}
+                                        />
+                                        <img
+                                            src={src}
+                                            alt={t('ugcAlt', { index: index + 1 })}
+                                            width={150}
+                                            height={150}
+                                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </picture>
                                 </div>
                             ))}
                         </div>

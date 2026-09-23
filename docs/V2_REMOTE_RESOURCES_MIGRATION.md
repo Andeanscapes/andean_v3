@@ -93,17 +93,21 @@ state, and *may* carry `depositPercent` (see the rollout exception above).
    CDN-owned business media uses `/images/...` and `/videos/...`.
    `src/utils/mediaUrl.ts` rewrites only those two prefixes to absolute CDN URLs
    — anything else is served from the app origin.
-9. **Hero images need an uploaded `-mobile` sibling that the feed never names.**
+9. **Responsive images need an uploaded `-mobile` sibling that the feed never names.**
    `getResponsiveImageSrc` derives the mobile variant by inserting `-mobile`
    before the extension, so publishing `/images/x/hero.webp` silently requires
-   `/images/x/hero-mobile.webp` to exist. Nothing validates this: the feed schema
-   only sees the desktop path, and a missing file is a 404 **on phones only**,
-   invisible on desktop and in every test.
+   `/images/x/hero-mobile.webp` to exist. The feed schema only sees the desktop
+   path, and a missing file is a 404 **on phones only**, invisible on desktop.
+
+   `npm run verify:feed` derives every landing-page `<picture>` path through
+   `landingResponsiveMediaKeys` and checks its sibling at the CDN origin. This
+   includes hero variants, featured cards, category tiles, the final CTA, and
+   the app-owned footer gallery.
 
    This applies to every media path consumed by a raw `<img>` inside
    `<picture>`: the experience hero, the list hero, the landing hero **and the
-   experience list card**. When adding one, upload both files and verify both
-   with a cache-busted request.
+   experience list card**. When adding one, upload both files. Add its path to
+   the appropriate verification set in the same change.
 
    Do **not** assume `next/image` covers the responsive case. On the deployed
    Worker `/_next/image` is a pass-through — `npm run preview` returns the
@@ -274,11 +278,20 @@ Ordering for a strict-schema contract change:
 3. Upload `experiences-list.json` — activates route discovery.
 4. Upload `landing.json`.
 5. Deploy the cleanup that makes the fields required and removes legacy fallback.
-6. Purge the CDN and Next/OpenNext tag caches. **Also clear `.next/cache` before
-   building**: the persistent fetch cache holds responses for the
-   `revalidate: 3600` window, and a warm cache will build the *old* contract
-   against new code. This bit during this migration — the build failed on a v1
-   payload while `verify:feed` read v2 from the same URL seconds earlier.
+6. Purge the CDN and Next/OpenNext tag caches. **Also clear the persistent fetch
+   cache before building**: it holds responses for the `revalidate: 3600` window,
+   and a warm cache will build the *old* contract against new code. This bit
+   during this migration — the build failed on a v1 payload while `verify:feed`
+   read v2 from the same URL seconds earlier.
+
+   Two separate locations, and clearing the wrong one looks like a no-op:
+
+       rm -rf .next/cache       # `next build`
+       rm -rf .next/dev/cache   # `next dev`
+
+   `next dev` does **not** read `.next/cache`. A dev server started against a
+   freshly published feed will keep serving the previous payload — with no
+   network request and no warning — until `.next/dev/cache` is removed.
 7. Redeploy if any slug changed — `sitemap.xml` and `generateStaticParams` are
    build-time.
 8. Verify `/`, `/es`, `/fr`, list, detail, booking, a full price calculation, and

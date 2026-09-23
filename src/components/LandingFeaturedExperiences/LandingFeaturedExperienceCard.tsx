@@ -1,13 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { formatDayMonth } from '@/utils/dateFormatters';
 import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
-import { EMERALD_SHIMMER_BLUR_DATA_URL } from '@/utils/shimmer';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface Props {
   experience: LandingFeaturedExperienceContent;
@@ -43,16 +42,30 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-r from-emerald-950/10 via-emerald-500/10 to-emerald-950/10 md:h-52">
-        <Image
-          src={experience.image}
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          placeholder="blur"
-          blurDataURL={EMERALD_SHIMMER_BLUR_DATA_URL}
-        />
+        {/*
+          Deliberately not `next/image`, for the reason documented on
+          `ExperienceList/ExperienceCardImage.tsx`: on the deployed Worker
+          `/_next/image` is a pass-through, so `sizes` bought no resizing and
+          phones downloaded the full-size card image. `<picture>` with the
+          pre-generated `-mobile` sibling is the only mechanism here that
+          actually reduces mobile bytes. The sibling is never named by the feed,
+          so `verify:feed` derives it from `experiences[].media.card` and fails
+          when it is not published — see `landingResponsiveMediaKeys`.
+        */}
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcSet={getResponsiveImageSrc(experience.image).mobile}
+          />
+          <img
+            src={experience.image}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </picture>
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
         {experience.badge ? (
           <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-primary-content shadow-sm">

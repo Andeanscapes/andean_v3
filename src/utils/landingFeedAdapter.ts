@@ -215,6 +215,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       subtitleKey: S.hero.subtitleKey,
       descriptionKey: S.hero.descriptionKey,
       backgroundImage: feed.media?.hero ?? S.hero.backgroundImage,
+      backgroundImageVariants: feed.media?.heroVariants ?? [],
       primaryCtaLabelKey: S.hero.primaryCtaLabelKey,
       primaryCtaHref: S.hero.primaryCtaHref,
       secondaryCtaLabelKey: S.hero.secondaryCtaLabelKey,

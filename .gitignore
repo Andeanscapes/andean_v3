@@ -82,3 +82,12 @@ storybook-static/
 # The tooling that produced it is kept outside this repo; the ignore stays so a
 # local staging directory can never be committed.
 cdn-upload/
+
+# Local copies of the CDN media objects the feed and the landing structure point
+# at. Real business media — never committed. Populated by `npm run media:pull`.
+#
+# `/r2-cache/*` rather than `/r2-cache/`: a negation cannot re-include anything
+# inside a directory that is itself excluded, and README.md must stay tracked so
+# the directory is documented and present on a fresh clone.
+/r2-cache/*
+!/r2-cache/README.md
