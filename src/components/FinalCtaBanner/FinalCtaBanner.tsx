@@ -1,12 +1,12 @@
 'use client';
 
 import { memo } from 'react';
-import Image from 'next/image';
 import { ArrowRight, MessageCircle, BadgeCheck, ShieldCheck, Undo2, Lock } from 'lucide-react';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 const BADGE_ICON_MAP: Record<string, React.ReactNode> = {
   BadgeCheck: <BadgeCheck size={16} aria-hidden="true" />,
@@ -16,7 +16,10 @@ const BADGE_ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 interface FinalCtaBannerProps {
-  landingData: LandingContent;
+  landingData: {
+    finalCta: LandingContent['finalCta'];
+    flagship: Pick<LandingContent['flagship'], 'badge' | 'whatsappLink'>;
+  };
   className?: string;
 }
 
@@ -28,15 +31,28 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
       aria-label={finalCta.bookAria}
       className={`relative overflow-hidden ${className}`.trim()}
     >
-      {/* Background */}
-      <Image
-        src={finalCta.backgroundImage}
-        alt=""
-        aria-hidden="true"
-        fill
-        sizes="100vw"
-        className="object-cover"
-      />
+      {/*
+        Background. Deliberately not `next/image` — see
+        `ExperienceList/ExperienceCardImage.tsx`: `/_next/image` is a
+        pass-through on the deployed Worker, so `sizes="100vw"` resized nothing
+        and phones downloaded the full 1600w file. The `-mobile` sibling is never
+        named by the feed and must be published before this renders, because a
+        matched `<source>` that 404s does not fall back to the `<img>`.
+      */}
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcSet={getResponsiveImageSrc(finalCta.backgroundImage).mobile}
+        />
+        <img
+          src={finalCta.backgroundImage}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div aria-hidden="true" className="absolute inset-0 bg-black/50" />
       <div
         aria-hidden="true"

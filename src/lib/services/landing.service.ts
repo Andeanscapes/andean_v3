@@ -12,6 +12,7 @@
  * stale content.
  */
 
+import { cache } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { LandingContentSchema } from '../schemas/landing.schema';
 import type { LandingContent, LandingFeed } from '../schemas/landing.schema';
@@ -19,6 +20,7 @@ import { LandingFeedV2Schema } from '../schemas/feed/v2';
 import { filterCurrentAvailableDates } from '@/utils/availability';
 import { adaptLandingFeedV2 } from '@/utils/landingFeedAdapter';
 import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
+import { pickHeroVariant } from '@/utils/heroVariant';
 import { fetchRemoteJson } from '../remote-data';
 import { LANDING_FEED_PATH } from '@/utils/feedPaths';
 import {
@@ -38,7 +40,16 @@ import {
   toLandingGlobalCtasContent,
 } from '@/utils/landingTranslators';
 
-export async function getLandingDataSSR(locale: string): Promise<LandingContent> {
+/**
+ * Wrapped in React `cache`, keyed by `locale`, for the same reason as
+ * `book.service` and `experiences-list.service` — plus one specific to this
+ * page: the hero variant is chosen with `Math.random` per call, so two calls in
+ * one request would render one image and preload another. Memoizing makes the
+ * pick stable for the request that renders it.
+ *
+ * `cache` is inert outside a request scope, so tests are unaffected.
+ */
+export const getLandingDataSSR = cache(async (locale: string): Promise<LandingContent> => {
   const t = await getTranslations({ locale });
 
   // 1. Fetch and validate the v2 feed
@@ -59,7 +70,13 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
   // 3. Translate — each projector handles one content section
   const translated: LandingContent = {
     flagship: toLandingFlagshipContent(rawData, t),
-    heroBrand: toLandingHeroBrandContent(rawData, t),
+    heroBrand: {
+      ...toLandingHeroBrandContent(rawData, t),
+      backgroundImage: pickHeroVariant(
+        rawData.heroBrand.backgroundImageVariants,
+        rawData.heroBrand.backgroundImage,
+      ),
+    },
     categories: toLandingCategoriesContent(rawData, t),
     featuredExperiences: toLandingFeaturedExperiencesContent(rawData, t),
     whyUs: toLandingWhyUsContent(rawData, t),
@@ -81,7 +98,7 @@ export async function getLandingDataSSR(locale: string): Promise<LandingContent>
   }
 
   return translatedResult.data;
-}
+});
 
 /**
  * Drop expired availability and re-derive the featured-experience

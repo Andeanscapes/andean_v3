@@ -66,6 +66,30 @@ export const MOBILE_MENU_CHIPS = [
 export const SITE_INFO = {
   name: "Andean Scapes",
   url: "https://www.andeanscapes.com",
-  logo: "/assets/images/logo.png",
-  logoWhite: "/assets/images/logo-white.png",
+  // WebP, converted losslessly from the original PNGs — pixel-identical once
+  // composited, and a third of the bytes. `logoWhite` matters most: `Header`
+  // swaps to it mid-scroll on the light theme, so it is fetched late and its
+  // size is visible as a flash.
+  logo: "/assets/images/logo.webp",
+  logoWhite: "/assets/images/logo-white.webp",
 } as const;
+
+/**
+ * Footer trust gallery — brand chrome, not business data.
+ *
+ * These are CDN-relative paths resolved by `resolveMediaUrl`, the same treatment
+ * feed media gets. They live here rather than in a feed resource because the
+ * footer renders in the layout on every public route, and no page may fetch a
+ * second feed resource to render (see the one-resource-per-page constraint in
+ * `docs/V2_REMOTE_RESOURCES_MIGRATION.md`).
+ *
+ * Swap the images by replacing the R2 objects at these keys — no deploy needed.
+ * `media:push` treats them as orphans because no feed references them, so pushes
+ * that touch only these keys need `--allow-orphan`.
+ */
+export const FOOTER_TRUST_GALLERY = [
+  "/images/brand/footer/ugc-1.webp",
+  "/images/brand/footer/ugc-2.webp",
+  "/images/brand/footer/ugc-3.webp",
+  "/images/brand/footer/ugc-4.webp",
+] as const;

@@ -17,7 +17,7 @@ const signup = () => {
             <div className="max-w-[550px] h-full flex justify-center items-center py-5 px-5 mx-auto">
                 <div className="mx-auto bg-white w-full px-base py-base">
                     <div className="text-center">
-                        <Link href="/"><img src="/assets/images/logo.png" alt="logo" className="mx-auto" /></Link>
+                        <Link href="/"><img src="/assets/images/logo.webp" alt="logo" className="mx-auto" /></Link>
                     </div>
                     <ul id="tabs-nav" className="login-tabs flex gap-4 pt-6">
                         <li className="basis-1/2">

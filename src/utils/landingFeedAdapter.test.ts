@@ -29,6 +29,7 @@ describe('adaptLandingFeedV2', () => {
     const payload = feed();
     payload.media = {
       hero: '/images/brand/hero.webp',
+      heroVariants: ['/images/brand/hero-01.webp', '/images/brand/hero-02.webp'],
       finalCta: '/images/brand/final-cta.webp',
       categories: {
         emeraldMining: '/images/brand/category-emerald.webp',
@@ -41,6 +42,7 @@ describe('adaptLandingFeedV2', () => {
     const raw = adaptLandingFeedV2(payload);
 
     expect(raw.heroBrand.backgroundImage).toBe(payload.media.hero);
+    expect(raw.heroBrand.backgroundImageVariants).toEqual(payload.media.heroVariants);
     expect(raw.categories.items.map((item) => item.imageUrl)).toEqual([
       payload.media.categories.emeraldMining,
       payload.media.categories.nature,
@@ -59,6 +61,7 @@ describe('adaptLandingFeedV2', () => {
     expect(raw.heroBrand.backgroundImage).toMatch(/^\/assets\//);
     expect(raw.categories.items.every((item) => item.imageUrl.startsWith('/assets/'))).toBe(true);
     expect(raw.finalCta.backgroundImage).toMatch(/^\/assets\//);
+    expect(raw.heroBrand.backgroundImageVariants).toEqual([]);
   });
 
   it('throws when a review has no comment mapping', () => {

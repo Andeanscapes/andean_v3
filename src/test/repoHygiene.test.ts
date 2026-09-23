@@ -64,6 +64,35 @@ describe('repository hygiene', () => {
     expect(tracked).toContain('fixtures/README.md');
   });
 
+  /**
+   * `r2-cache/` mirrors the published CDN media, which is the same class of
+   * asset as the feed: real business content that must not enter a public repo.
+   * `media:pull` fills it and `media:optimize` writes converted copies into it,
+   * so a broken ignore rule would be noticed only after `git add -A`.
+   */
+  it('never tracks cached CDN media', () => {
+    const media = tracked.filter((file) =>
+      /^r2-cache\/.*\.(webp|avif|webm|svg|jpe?g|png|gif|tiff?|heic|heif|mov|mp4|m4v|avi|mkv)$/i.test(
+        file,
+      ),
+    );
+    expect(media).toEqual([]);
+  });
+
+  it('keeps cached CDN media paths ignored', () => {
+    for (const file of [
+      'r2-cache/images/brand/landing-hero.webp',
+      'r2-cache/images/experiences/emerald-mining/hero.webp',
+      'r2-cache/videos/experiences/emerald-mining/hero.webm',
+    ]) {
+      expect(isIgnored(file), `${file} must be gitignored`).toBe(true);
+    }
+  });
+
+  it('documents the media cache without publishing its contents', () => {
+    expect(tracked).toContain('r2-cache/README.md');
+  });
+
   it('never tracks local state, OS cruft, or build output', () => {
     const forbidden = tracked.filter((file) =>
       /(^|\/)\.DS_Store$|\.sqlite(-shm|-wal)?$|^\.wrangler\/|^storybook-static\/|^\.next\/|^\.open-next\//.test(

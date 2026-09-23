@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import LandingFeaturedExperienceCard from './LandingFeaturedExperienceCard';
 import { FEATURED_FIXTURE } from './__fixtures__/featuredFixture';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 const FIRST = FEATURED_FIXTURE.items[0];
 
@@ -51,5 +52,35 @@ describe('LandingFeaturedExperienceCard', () => {
   it('links to experience.href', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
     expect(screen.getByRole('link')).toHaveAttribute('href', FIRST.href);
+  });
+
+  /**
+   * The card used `next/image`, which resizes nothing on the deployed Worker, so
+   * phones received the full-size desktop file. The `-mobile` sibling is the only
+   * thing that reduces those bytes, and it is derived here rather than published,
+   * so nothing else would catch its removal.
+   */
+  it('serves the -mobile sibling below the desktop breakpoint', () => {
+    const { container } = renderWithIntl(
+      <LandingFeaturedExperienceCard experience={FIRST} />,
+    );
+    const source = container.querySelector('picture > source');
+
+    expect(source).toHaveAttribute('media', '(max-width: 767px)');
+    expect(source).toHaveAttribute(
+      'srcset',
+      getResponsiveImageSrc(FIRST.image).mobile,
+    );
+    expect(container.querySelector('picture > img')).toHaveAttribute('src', FIRST.image);
+  });
+
+  it('lazy-loads the card image, which sits below the fold', () => {
+    const { container } = renderWithIntl(
+      <LandingFeaturedExperienceCard experience={FIRST} />,
+    );
+    const img = container.querySelector('picture > img');
+
+    expect(img).toHaveAttribute('loading', 'lazy');
+    expect(img).toHaveAttribute('decoding', 'async');
   });
 });

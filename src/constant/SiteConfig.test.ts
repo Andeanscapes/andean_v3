@@ -34,3 +34,39 @@ describe('CONTACT_INFO', () => {
     expect(CONTACT_INFO.phoneDisplay).toBe('');
   });
 });
+
+/**
+ * The footer tiles are served from the CDN, so the paths must stay in the
+ * `/images/` form `resolveMediaUrl` rewrites. A `/assets/...` path would pass
+ * through untouched and silently serve a repo-local file that no longer exists.
+ */
+describe('FOOTER_TRUST_GALLERY', () => {
+  beforeEach(() => {
+    vi.resetModules();
+  });
+
+  it('holds CDN-relative media paths', async () => {
+    const { FOOTER_TRUST_GALLERY } = await import('./SiteConfig');
+
+    expect(FOOTER_TRUST_GALLERY.length).toBeGreaterThan(0);
+    for (const path of FOOTER_TRUST_GALLERY) {
+      expect(path).toMatch(/^\/images\/brand\/footer\/[\w-]+\.webp$/);
+    }
+  });
+
+  it('resolves every path onto the CDN base', async () => {
+    vi.stubEnv('NEXT_PUBLIC_CDN_BASE_URL', 'https://cdn.example.com');
+    const { FOOTER_TRUST_GALLERY } = await import('./SiteConfig');
+    const { resolveMediaUrl } = await import('@/utils/mediaUrl');
+
+    for (const path of FOOTER_TRUST_GALLERY) {
+      expect(resolveMediaUrl(path)).toBe(`https://cdn.example.com${path}`);
+    }
+  });
+
+  it('has no duplicate tiles', async () => {
+    const { FOOTER_TRUST_GALLERY } = await import('./SiteConfig');
+
+    expect(new Set(FOOTER_TRUST_GALLERY).size).toBe(FOOTER_TRUST_GALLERY.length);
+  });
+});
