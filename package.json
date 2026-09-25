@@ -33,6 +33,7 @@
     "feed:stage-cdn-media": "vite-node -c vitest.config.ts scripts/stage-cdn-media-feed.ts",
     "feed:stage-hero-variants": "vite-node -c vitest.config.ts scripts/stage-hero-variants.ts",
     "feed:publish": "vite-node -c vitest.config.ts scripts/publish-feed.ts",
+    "feed:sync": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/sync-fixtures.ts",
     "media:pull": "vite-node -c vitest.config.ts scripts/pull-cdn-media.ts",
     "media:optimize": "vite-node -c vitest.config.ts scripts/optimize-media.ts",
     "media:push": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/push-cdn-media.ts",

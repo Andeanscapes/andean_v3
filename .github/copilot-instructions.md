@@ -414,6 +414,7 @@ For media and interactive UI, prefer assertions around:
 - Typecheck: `npm run typecheck`
 - Verify live feed: `REMOTE_DATA_BASE_URL=<url> npm run verify:feed`
 - Refresh local feed copies: `npm run fixtures:fetch` (runs automatically via `pretest`)
+- Publish local feed edits: edit `fixtures-local/` (gitignored; created by the first run), then `npm run feed:sync`. Uploads only locally edited files, refuses on conflict with a newer live copy, backs up to `fixtures-local/.previous/`
 - Test: `npm test`
 - Storybook: `npm run storybook`
 - Build: `npm run build`

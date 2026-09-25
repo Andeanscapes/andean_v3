@@ -42,7 +42,7 @@ describe('repository hygiene', () => {
 
   it('never tracks a downloaded feed payload', () => {
     const feedPayloads = tracked.filter((file) =>
-      /^(fixtures|feed-migration|services)\/.*\.json$/.test(file),
+      /^(fixtures|fixtures-local|feed-migration|services)\/.*\.json$/.test(file),
     );
     expect(feedPayloads).toEqual([]);
   });
@@ -52,6 +52,8 @@ describe('repository hygiene', () => {
       'fixtures/landing.json',
       'fixtures/experiences-list.json',
       'fixtures/experience-emerald-mining.json',
+      'fixtures-local/landing.json',
+      'fixtures-local/experiences-list.json',
       'feed-migration/next/landing.json',
       'feed-migration/rollback/landing.json',
       'services/landing.json',
