@@ -11,6 +11,8 @@
 import { describe, it, expect } from 'vitest';
 import { adaptLandingFeedV2 } from './landingFeedAdapter';
 import { LANDING_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { REVIEW_LINKS } from '@/constant/SiteConfig';
+import { whatsappUrl } from '@/utils/whatsapp';
 
 function feed() {
   return cloneFixture(LANDING_FIXTURE);
@@ -110,5 +112,25 @@ describe('adaptLandingFeedV2', () => {
     expect(values).toContain('97%');
     // No stat may be a constant the feed cannot move.
     expect(values).not.toContain('100%');
+  });
+
+  /** The hero CTA is labelled "Ask on WhatsApp" and opens in a new tab. */
+  it('points the hero secondary CTA at WhatsApp', () => {
+    const raw = adaptLandingFeedV2(feed());
+
+    expect(raw.heroBrand.secondaryCtaHref).toBe(whatsappUrl());
+    expect(raw.heroBrand.secondaryCtaHref).toBe(raw.globalCtas.whatsappHref);
+  });
+
+  it('resolves each review source to its public listing link', () => {
+    const payload = feed();
+    const raw = adaptLandingFeedV2(payload);
+    const sourceById = new Map(payload.reviews.map((review) => [review.id, review.source]));
+
+    expect(raw.reviews.items.length).toBeGreaterThan(0);
+    for (const item of raw.reviews.items) {
+      const source = sourceById.get(item.id);
+      expect(source && item.sourceUrl === REVIEW_LINKS[source]).toBe(true);
+    }
   });
 });

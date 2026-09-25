@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import Image from 'next/image';
-import { Star, BadgeCheck, HeadphonesIcon, Lock, ShieldCheck } from 'lucide-react';
+import { Star, BadgeCheck, HeadphonesIcon, Lock, ShieldCheck, ExternalLink } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
@@ -112,7 +112,18 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
                       />
                     ) : null}
                   </div>
-                  {review.isVerified && review.verifiedExperience ? (
+                  {review.isVerified && review.verifiedExperience && review.sourceUrl ? (
+                    <a
+                      href={review.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-sm text-[11px] font-medium text-base-content/60 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    >
+                      {t('verifiedGuest')} &bull; {review.verifiedExperience}
+                      <ExternalLink size={10} className="flex-shrink-0" aria-hidden="true" />
+                      <span className="sr-only">{t('opensInNewTab')}</span>
+                    </a>
+                  ) : review.isVerified && review.verifiedExperience ? (
                     <p className="text-[11px] font-medium text-base-content/60">
                       {t('verifiedGuest')} &bull; {review.verifiedExperience}
                     </p>

@@ -22,6 +22,7 @@ import type { LandingFeed } from '@/lib/schemas/landing.schema';
 import type { LandingExperienceV2, LandingFeedV2 } from '@/lib/schemas/feed/v2';
 import { experiencePath } from '@/utils/experienceRoutes';
 import { whatsappUrl } from '@/utils/whatsapp';
+import { REVIEW_LINKS } from '@/constant/SiteConfig';
 
 const S = LANDING_STRUCTURE;
 
@@ -150,6 +151,7 @@ function toReviews(feed: LandingFeedV2): LandingFeed['reviews'] {
         commentKey,
         isVerified: review.verified,
         verifiedExperienceKey: LANDING_I18N.reviewSource[review.source],
+        sourceUrl: REVIEW_LINKS[review.source],
       };
     });
 
@@ -219,7 +221,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       primaryCtaLabelKey: S.hero.primaryCtaLabelKey,
       primaryCtaHref: S.hero.primaryCtaHref,
       secondaryCtaLabelKey: S.hero.secondaryCtaLabelKey,
-      secondaryCtaHref: S.hero.secondaryCtaHref,
+      secondaryCtaHref: whatsappUrl(),
       trustChips: S.hero.trustChips.map((chip) => ({
         id: chip.id,
         iconName: chip.iconName,
@@ -276,6 +278,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       items: S.safety.items.map((item) => ({ ...item })),
       protocolLinkLabelKey: S.safety.protocolLinkLabelKey,
       protocolHref: S.safety.protocolHref,
+      protocolComingSoonKey: S.safety.protocolComingSoonKey,
     },
     globalCtas: {
       exploreHref: S.globalCtas.exploreHref,

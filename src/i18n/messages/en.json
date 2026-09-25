@@ -203,6 +203,7 @@
         "title": "How we keep things safe",
         "lead": "Every host, route and payment method is vetted before it becomes part of the network.",
         "protocolLink": "View our Safety & Logistics Protocol",
+        "protocolComingSoon": "Coming soon",
         "items": {
           "guides": "Certified and vetted local guides",
           "meetingPoints": "Fixed, verified meeting points",
@@ -226,6 +227,7 @@
       "outOf5Aria": "out of 5",
       "countSuffix": "reviews",
       "verifiedGuest": "Verified Guest",
+      "opensInNewTab": "(opens in a new tab)",
       "verifiedStay": "Hacienda El Recuerdo · Airbnb",
       "countries": {
         "colombia": "Colombia",
@@ -940,6 +942,7 @@
     "insurance": "Insurance",
     "terms": "Terms",
     "privacy": "Privacy",
+    "comingSoon": "Coming soon",
     "allRightsReserved": "All rights reserved."
   },
   "MobileMenu": {

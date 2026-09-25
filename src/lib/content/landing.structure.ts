@@ -24,8 +24,6 @@ export const LANDING_STRUCTURE = {
     primaryCtaLabelKey: 'Landing.brand.hero.primaryCta',
     primaryCtaHref: '/experiences',
     secondaryCtaLabelKey: 'Landing.brand.hero.secondaryCta',
-    // Matches the `id` rendered by `Reviews.tsx`; verified by landing.structure.test.ts.
-    secondaryCtaHref: '#landing-reviews',
     trustChips: [
       { id: 'smallGroups', iconName: 'Users', labelKey: 'Landing.brand.hero.chips.smallGroups' },
       { id: 'hostedByLocals', iconName: 'Heart', labelKey: 'Landing.brand.hero.chips.hostedByLocals' },
@@ -164,6 +162,7 @@ export const LANDING_STRUCTURE = {
     leadKey: 'Landing.brand.safety.lead',
     protocolLinkLabelKey: 'Landing.brand.safety.protocolLink',
     protocolHref: '#safety-full',
+    protocolComingSoonKey: 'Landing.brand.safety.protocolComingSoon',
     items: [
       { id: 'guides', iconName: 'BadgeCheck', titleKey: 'Landing.brand.safety.items.guides' },
       { id: 'meetingPoints', iconName: 'MapPin', titleKey: 'Landing.brand.safety.items.meetingPoints' },

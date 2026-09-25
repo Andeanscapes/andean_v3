@@ -9,7 +9,7 @@ commit the media itself.
     npm run media:push                # optimize, then upload what differs
     npm run media:push -- --dry-run   # print the plan, upload nothing
     npm run media:push -- --upscale   # allow undersized sources to fill slots
-    npm run media:sync                # upscale, optimize, upload, purge cache
+    npm run media:sync                # upscale, optimize, upload, prune originals, purge cache
     npm run media:sync:new            # same, for keys the feed does not reference yet
 
 Drop a source of **any size or shape** (`.jpg`, `.png`, `.heic`, `.mov`, `.mp4`)
@@ -28,12 +28,15 @@ Originals are **kept** by `media:push`. They are never uploaded — only deliver
 formats are — so they simply sit here. The default is to keep them because the
 upload cannot be undone: with the original gone, a bad crop is unrecoverable.
 
-Pass `--prune-sources` explicitly to remove originals after their converted
-outputs upload successfully. It is not enabled by `media:sync`: upload success
-does not prove that an automatic crop is visually correct, and R2 object
-versioning is not enabled. Anything that failed to upload keeps its source, as
-does any pair of originals that would produce the same delivery key. `--dry-run`
-lists what would be removed without touching it.
+`--prune-sources` removes originals after their converted outputs upload
+successfully. `media:sync` enables it, so the original is gone once its `.webp`
+is published: upload success does not prove that an automatic crop is visually
+correct, and R2 object versioning is not enabled. Use `media:push` to keep
+originals. An output whose original is still on disk is re-uploaded even when
+R2 already holds it, so every removal follows a confirmed upload. Anything that
+failed to upload keeps its source, as does any pair of originals that would
+produce the same delivery key. `--dry-run` lists what would be removed without
+touching it.
 
 Two different flags, deliberately: `--prune-sources` deletes after a confirmed
 publish, while the optimizer's `--consume-sources` deletes at conversion time,

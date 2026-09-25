@@ -102,6 +102,7 @@ export const LandingReviewMockSchema = z.object({
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperienceKey: z.string().optional(),
+  sourceUrl: z.string().url().optional(),
 });
 
 export const LandingFaqMockSchema = z.object({
@@ -250,6 +251,7 @@ export const LandingSafetyMockSchema = z.object({
   items: z.array(LandingSafetyItemMockSchema),
   protocolLinkLabelKey: z.string().optional(),
   protocolHref: z.string().optional(),
+  protocolComingSoonKey: z.string().optional(),
 });
 
 export const LandingGlobalCtasMockSchema = z.object({
@@ -393,6 +395,7 @@ export const LandingReviewContentSchema = z.object({
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperience: z.string().optional(),
+  sourceUrl: z.string().url().optional(),
 });
 
 export const LandingFaqContentSchema = z.object({
@@ -535,6 +538,7 @@ export const LandingContentSchema = z.object({
     })),
     protocolLinkLabel: z.string().optional(),
     protocolHref: z.string().optional(),
+    protocolComingSoon: z.string().optional(),
   }),
   globalCtas: z.object({
     exploreHref: z.string(),

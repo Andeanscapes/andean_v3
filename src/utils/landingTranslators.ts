@@ -92,6 +92,7 @@ export function toLandingReviewsContent(
       avatarUrl: item.avatarUrl,
       isVerified: item.isVerified,
       verifiedExperience: item.verifiedExperienceKey ? t(item.verifiedExperienceKey) : undefined,
+      sourceUrl: item.sourceUrl,
     })),
     trustPanel: {
       title: t(reviews.trustPanel.titleKey),
@@ -364,6 +365,9 @@ export function toLandingSafetyContent(
       ? t(raw.safety.protocolLinkLabelKey)
       : undefined,
     protocolHref: raw.safety.protocolHref,
+    protocolComingSoon: raw.safety.protocolComingSoonKey
+      ? t(raw.safety.protocolComingSoonKey)
+      : undefined,
   };
 }
 

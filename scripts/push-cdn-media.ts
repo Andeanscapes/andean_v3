@@ -9,8 +9,8 @@
  * Run it with:
  *   npm run media:push             # optimize, then upload what differs
  *   npm run media:push -- --dry-run # print the plan, upload nothing
- *   npm run media:sync             # the above, allowing undersized sources
- *   npm run media:sync -- --prune-sources # opt in to removing uploaded originals
+ *   npm run media:sync             # the above, allowing undersized sources and
+ *                                  # removing originals once their output uploads
  *
  * `media:optimize` runs first, invoked from here rather than chained in the npm
  * script so that flags reach it: `media:push -- --force` forwards `--force` to
@@ -366,9 +366,22 @@ async function main(): Promise<void> {
   // may delete the originals they came from.
   const published: string[] = [];
   let unreachable = 0;
+  // Outputs whose original is still on disk. With --prune-sources they are
+  // uploaded even when the diff calls them current: pruning trusts only this
+  // run's uploads, and a size match cannot prove the published bytes are these.
+  const withSource = pruneSources
+    ? new Set(collectUnder((key) => isImageSource(key) || isVideoSource(key)).map(toDeliveryKey))
+    : new Set<string>();
 
   for (const key of keys) {
     const localPath = path.join(CACHE_DIR, key);
+
+    if (withSource.has(key)) {
+      console.log(`  ~ ${key} (re-uploaded so its original can be removed)`);
+      pending.push(key);
+      continue;
+    }
+
     const verdict = await classify(key, statSync(localPath).size);
 
     if (verdict === 'current') {

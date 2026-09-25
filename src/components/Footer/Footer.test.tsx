@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { NextIntlClientProvider } from 'next-intl';
 
@@ -10,6 +10,7 @@ vi.mock('@/i18n/navigation', () => ({
 
 import Footer from './Footer';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { CONTACT_INFO, FOOTER_PHONE } from '@/constant/SiteConfig';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
@@ -129,5 +130,93 @@ describe('Footer trust gallery', () => {
   it('keeps the full-size tile as the fallback source', () => {
     renderFooter();
     expect(galleryImages().map((img) => img.getAttribute('src'))).toEqual(GALLERY);
+  });
+});
+
+/**
+ * Pre-launch: only the WhatsApp and email support actions are live. Every other
+ * footer link stays a real, focusable link but its click is swallowed.
+ */
+describe('Footer placeholder links', () => {
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+  });
+
+  const PLACEHOLDER_LABELS = [
+    'Logistics',
+    'Transportation',
+    'Stay Options',
+    'Hacienda El Recuerdo',
+    'All Experiences',
+    'Certifications',
+    'Insurance',
+    'Terms',
+    'Privacy',
+    'Instagram',
+  ];
+
+  it.each(PLACEHOLDER_LABELS)('blocks navigation for %s and announces it', (label) => {
+    renderFooter();
+    const link = screen.getByRole('link', { name: new RegExp(`^${label}`) });
+
+    expect(fireEvent.click(link)).toBe(false);
+    expect(screen.getByRole('status').textContent).toBe('Coming soon');
+  });
+
+  it('blocks the phone link', () => {
+    renderFooter();
+    const phone = screen.getByRole('link', { name: FOOTER_PHONE.phoneDisplay });
+
+    expect(phone.getAttribute('href')).toBe('tel:+573124815443');
+    expect(phone.textContent).toBe('+57 312-4815443');
+    expect(fireEvent.click(phone)).toBe(false);
+  });
+
+  it('hides the notice after the timeout', () => {
+    vi.useFakeTimers();
+    renderFooter();
+    fireEvent.click(screen.getByRole('link', { name: 'Terms' }));
+
+    act(() => {
+      vi.advanceTimersByTime(3000);
+    });
+    expect(screen.getByRole('status').textContent).toBe('');
+  });
+
+  /**
+   * Reads whether the footer swallowed the click, then cancels it at the
+   * document so jsdom does not attempt the real navigation.
+   */
+  function clickWasBlocked(link: HTMLElement) {
+    let blocked = false;
+    const probe = (event: MouseEvent) => {
+      blocked = event.defaultPrevented;
+      event.preventDefault();
+    };
+
+    document.addEventListener('click', probe);
+    fireEvent.click(link);
+    document.removeEventListener('click', probe);
+
+    return blocked;
+  }
+
+  it('keeps the WhatsApp action live', () => {
+    renderFooter();
+    const whatsapp = screen.getByRole('link', { name: 'Start WhatsApp Chat' });
+
+    expect(whatsapp.getAttribute('href')).toContain('wa.me');
+    expect(whatsapp.getAttribute('target')).toBe('_blank');
+    expect(clickWasBlocked(whatsapp)).toBe(false);
+  });
+
+  it('keeps the email action live', () => {
+    renderFooter();
+    fireEvent.click(screen.getByRole('button', { name: 'Email Support' }));
+    const email = screen.getByRole('link', { name: 'Send Email' });
+
+    expect(email.getAttribute('href')).toBe(`mailto:${CONTACT_INFO.email}`);
+    expect(clickWasBlocked(email)).toBe(false);
   });
 });

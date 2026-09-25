@@ -86,4 +86,24 @@ describe('toLandingReviewsContent', () => {
       expect(item.country).toMatch(/^Landing\.reviews\.countries\./);
     }
   });
+
+  it('passes sourceUrl from the adapter through unchanged', () => {
+    const content = toLandingReviewsContent(
+      mockWithReviewItems([
+        { ...REVIEW_BASE, sourceUrl: 'https://www.airbnb.com.co/experiences/6782419' },
+      ]),
+      echo,
+    );
+
+    expect(content.items[0].sourceUrl).toBe('https://www.airbnb.com.co/experiences/6782419');
+  });
+
+  it('leaves sourceUrl undefined when not set', () => {
+    const content = toLandingReviewsContent(
+      mockWithReviewItems([{ ...REVIEW_BASE }]),
+      echo,
+    );
+
+    expect(content.items[0].sourceUrl).toBeUndefined();
+  });
 });

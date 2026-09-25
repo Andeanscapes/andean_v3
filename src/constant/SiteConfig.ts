@@ -3,6 +3,8 @@
  * Contains all social media links, contact information, and other site-wide constants
  */
 
+import type { ReviewSourceCode } from '@/lib/schemas/feed/v2';
+
 /**
  * Public business phone, digits only (E.164 without `+`).
  *
@@ -51,10 +53,25 @@ export const CONTACT_INFO = {
   address: "Colombia",
 } as const;
 
+/**
+ * Phone shown in the footer bottom bar only. Deliberately separate from
+ * `CONTACT_INFO.phone`, which stays the WhatsApp number for every CTA.
+ */
+const FOOTER_PHONE_NUMBER = '573124815443';
+
+export const FOOTER_PHONE = {
+  phone: FOOTER_PHONE_NUMBER,
+  phoneDisplay: formatPhoneDisplay(FOOTER_PHONE_NUMBER),
+} as const;
+
 export const BOOKING_LINKS = {
   airbnb:
-    "https://es-l.airbnb.com/rooms/1323950663214484960?guests=1&adults=1&s=67&unique_share_id=d46f7320-cf46-44c7-93f2-35781c413e15",
+    "https://www.airbnb.com.co/rp/heinnerz?p=recommendations&product=experience&listing_id=6782419&s=67&unique_share_id=bc818263-c312-42e1-a495-74cf6d678b58",
 } as const;
+
+export const REVIEW_LINKS = {
+  airbnb: "https://www.airbnb.com.co/experiences/6782419",
+} as const satisfies Record<ReviewSourceCode, string>;
 
 export const MOBILE_MENU_CHIPS = [
   { id: 'emerald', i18nKey: 'chips.emerald', href: '/experiences' },

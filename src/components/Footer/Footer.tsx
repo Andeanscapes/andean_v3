@@ -1,10 +1,10 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { Mail, MessageCircle, ShieldCheck, Star, ArrowUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from '@/constant/SiteConfig';
+import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO, FOOTER_PHONE } from '@/constant/SiteConfig';
 import { whatsappUrl } from '@/utils/whatsapp';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
@@ -16,6 +16,8 @@ const Footer = ({ trustGallery }: FooterProps) => {
     const t = useTranslations('Footer');
     const [supportMode, setSupportMode] = useState<'whatsapp' | 'email'>('whatsapp');
     const [showBackToTop, setShowBackToTop] = useState(false);
+    const [showComingSoon, setShowComingSoon] = useState(false);
+    const comingSoonTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         const onScroll = () => {
@@ -29,6 +31,17 @@ const Footer = ({ trustGallery }: FooterProps) => {
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
+
+    useEffect(() => () => {
+        if (comingSoonTimer.current) clearTimeout(comingSoonTimer.current);
+    }, []);
+
+    const handleComingSoonClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        setShowComingSoon(true);
+        if (comingSoonTimer.current) clearTimeout(comingSoonTimer.current);
+        comingSoonTimer.current = setTimeout(() => setShowComingSoon(false), 3000);
+    };
 
     const territoryLinks = [
         { label: t('logistics'), href: '/experiences/emerald-mining-adventure#inclusions' },
@@ -164,7 +177,7 @@ const Footer = ({ trustGallery }: FooterProps) => {
                             <ul className="mt-3 space-y-2.5">
                                 {territoryLinks.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
+                                        <Link href={link.href} onClick={handleComingSoonClick} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
                                             {link.label}
                                         </Link>
                                     </li>
@@ -177,7 +190,7 @@ const Footer = ({ trustGallery }: FooterProps) => {
                             <ul className="mt-3 space-y-2.5">
                                 {allyLinks.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="inline-flex min-h-11 items-center gap-2 text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
+                                        <Link href={link.href} onClick={handleComingSoonClick} className="inline-flex min-h-11 items-center gap-2 text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
                                             {link.label}
                                             {link.isPartner ? (
                                                 <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
@@ -195,7 +208,7 @@ const Footer = ({ trustGallery }: FooterProps) => {
                             <ul className="mt-3 space-y-2.5">
                                 {legalLinks.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
+                                        <Link href={link.href} onClick={handleComingSoonClick} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
                                             {link.label}
                                         </Link>
                                     </li>
@@ -211,12 +224,12 @@ const Footer = ({ trustGallery }: FooterProps) => {
                     </p>
 
                     <div className="flex items-center gap-4">
-                        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
+                        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" onClick={handleComingSoonClick} className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
                             {t('instagram')}
                         </a>
                         <span className="text-slate-500">|</span>
-                        <a href={`tel:${CONTACT_INFO.phone}`} className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
-                            {CONTACT_INFO.phoneDisplay}
+                        <a href={`tel:+${FOOTER_PHONE.phone}`} onClick={handleComingSoonClick} className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
+                            {FOOTER_PHONE.phoneDisplay}
                         </a>
                     </div>
                 </div>
@@ -230,6 +243,14 @@ const Footer = ({ trustGallery }: FooterProps) => {
                     >
                         <ArrowUp className="h-5 w-5" />
                     </button>
+                </div>
+
+                <div role="status" aria-live="polite" className="pointer-events-none fixed bottom-5 left-1/2 z-50 -translate-x-1/2">
+                    {showComingSoon ? (
+                        <p className="rounded-lg border border-emerald-400/30 bg-slate-900/95 px-4 py-3 text-sm text-emerald-300 shadow-[0_0_20px_rgba(0,255,157,0.2)]">
+                            {t('comingSoon')}
+                        </p>
+                    ) : null}
                 </div>
             </div>
         </footer>

@@ -36,7 +36,7 @@
     "media:pull": "vite-node -c vitest.config.ts scripts/pull-cdn-media.ts",
     "media:optimize": "vite-node -c vitest.config.ts scripts/optimize-media.ts",
     "media:push": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/push-cdn-media.ts",
-    "media:sync": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/push-cdn-media.ts --upscale",
+    "media:sync": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/push-cdn-media.ts --upscale --prune-sources",
     "media:sync:new": "dotenv -e .env.wrangler -- vite-node -c vitest.config.ts scripts/push-cdn-media.ts --upscale --allow-orphan",
     "postinstall": "patch-package"
   },
