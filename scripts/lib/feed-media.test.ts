@@ -10,6 +10,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   collectMediaPaths,
   discoverHeroVariants,
+  experienceResponsiveMediaKeys,
   findMissingResponsiveSiblings,
   isHeroVariantKey,
   landingResponsiveMediaKeys,
@@ -81,6 +82,42 @@ describe('landingResponsiveMediaKeys', () => {
   /** The media block is optional during the staged rollout. */
   it('still returns the app-owned keys when the feed carries no media block', () => {
     expect(landingResponsiveMediaKeys({ experiences: [] })).toEqual([...FOOTER_TRUST_GALLERY]);
+  });
+});
+
+describe('experienceResponsiveMediaKeys', () => {
+  const FEED = {
+    experience: {
+      media: {
+        hero: '/images/x/hero.webp',
+        highlights: ['/images/x/gallery-1.webp', '/images/x/gallery-2.webp'],
+      },
+    },
+    accommodationTiers: [
+      {
+        media: { main: '/images/x/tier-main.webp', gallery: ['/images/x/tier-gallery.webp'] },
+        itinerary: [{ stops: [{ images: ['/images/x/stop-1.webp'] }] }],
+      },
+    ],
+  };
+
+  it('covers every media path the detail page renders through <picture>', () => {
+    expect(experienceResponsiveMediaKeys(FEED)).toEqual([
+      '/images/x/hero.webp',
+      '/images/x/gallery-1.webp',
+      '/images/x/gallery-2.webp',
+      '/images/x/tier-main.webp',
+      '/images/x/tier-gallery.webp',
+      '/images/x/stop-1.webp',
+    ]);
+  });
+
+  it('tolerates a tier without an itinerary', () => {
+    const keys = experienceResponsiveMediaKeys({
+      ...FEED,
+      accommodationTiers: [{ media: { main: '/images/x/m.webp', gallery: [] } }],
+    });
+    expect(keys).toContain('/images/x/m.webp');
   });
 });
 

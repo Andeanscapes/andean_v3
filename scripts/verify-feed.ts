@@ -29,7 +29,11 @@ import {
 import enMessages from '../src/i18n/messages/en.json';
 import esMessages from '../src/i18n/messages/es.json';
 import frMessages from '../src/i18n/messages/fr.json';
-import { findMissingResponsiveSiblings, landingResponsiveMediaKeys } from './lib/feed-media';
+import {
+  experienceResponsiveMediaKeys,
+  findMissingResponsiveSiblings,
+  landingResponsiveMediaKeys,
+} from './lib/feed-media';
 import { fetchFeedJson, resolveExperienceIds, resolveFeedBaseUrl } from './lib/feed';
 
 const LOCALES: Record<string, unknown> = { en: enMessages, es: esMessages, fr: frMessages };
@@ -231,6 +235,7 @@ async function main(): Promise<void> {
 
     console.log(`  ✓ ${file}: schema OK`);
     checkKeys(file, data);
+    await checkResponsiveSiblings(file, experienceResponsiveMediaKeys(data));
 
     const upcoming = data.availableDates.filter(
       (d) => d.isAvailable && d.spots > 0 && d.startDate.slice(0, 10) >= new Date().toISOString().slice(0, 10),

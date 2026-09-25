@@ -228,6 +228,39 @@ export function landingResponsiveMediaKeys(landing: {
   return keys;
 }
 
+/**
+ * Every media key an experience detail page renders through `<picture>`.
+ *
+ *   experience.media.hero        `ExperienceHero`, `Inclusions`, `Faqs`
+ *   experience.media.highlights  `ValuePropositions`
+ *   tier.media.main              `StayCard`, `GalleryModal`
+ *   tier.media.gallery           `GalleryModal`
+ *   stop.images                  `GalleryModal`
+ *
+ * `host.avatar` and `tier.media.thumbnail` are excluded: both render as a plain
+ * `<img>`, so no `-mobile` sibling is ever requested for them.
+ *
+ * Add to this list in the same change that adds a `<picture>` consumer.
+ */
+export function experienceResponsiveMediaKeys(feed: {
+  experience: { media: { hero: string; highlights: readonly string[] } };
+  accommodationTiers: readonly {
+    media: { main: string; gallery: readonly string[] };
+    itinerary?: readonly { stops: readonly { images: readonly string[] }[] }[];
+  }[];
+}): string[] {
+  const keys: string[] = [feed.experience.media.hero, ...feed.experience.media.highlights];
+
+  for (const tier of feed.accommodationTiers) {
+    keys.push(tier.media.main, ...tier.media.gallery);
+    for (const day of tier.itinerary ?? []) {
+      for (const stop of day.stops) keys.push(...stop.images);
+    }
+  }
+
+  return keys;
+}
+
 export interface MissingSibling {
   key: string;
   mobileKey: string;

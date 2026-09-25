@@ -5,6 +5,7 @@ import { Bath, Hotel, MapPin, Users, Wifi, WifiOff } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { AccommodationTierContent } from '@/lib/schemas';
 import { useThemeContext } from '@/contexts/ThemeContext';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { GalleryModal } from '@/components/ui/GalleryModal/GalleryModal';
 
@@ -45,13 +46,19 @@ export function StayCard({ tier, locationLabel, isSelected = false, onSelect }: 
         onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect?.(tier.id); } }}
       >
         <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
-          <img
-            src={tier.images.main}
-            alt={tier.tierLabel}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet={getResponsiveImageSrc(tier.images.main).mobile}
+            />
+            <img
+              src={tier.images.main}
+              alt={tier.tierLabel}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
 
           {tier.isHostChoice ? (
             <span className="absolute left-3 top-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:px-3 md:text-[10px]">
