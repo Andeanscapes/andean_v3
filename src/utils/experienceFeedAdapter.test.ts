@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
 import { ExperienceFeedV2Schema, type ExperienceFeedV2 } from '@/lib/schemas/feed/v2';
-import { EXPERIENCE_EMERALD_MINING_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { EXPERIENCE_FIXTURE, cloneFixture } from '@/test/fixtures';
 import { adaptExperienceFeedV2 } from './experienceFeedAdapter';
 
 describe('adaptExperienceFeedV2', () => {
   it('passes feed-owned hero video through to the UI config', () => {
-    const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
     feed.experience.media.video = {
       desktop: '/videos/experiences/emerald-mining/hero.webm',
       mobile: '/videos/experiences/emerald-mining/hero-mobile.webm',
@@ -22,7 +22,7 @@ describe('adaptExperienceFeedV2', () => {
   });
 
   it('resolves logistics keys from the experience mapping', () => {
-    const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
     const result = adaptExperienceFeedV2(
       feed,
       EXPERIENCE_I18N[feed.experience.id],
@@ -30,15 +30,15 @@ describe('adaptExperienceFeedV2', () => {
     );
 
     expect(result.config.logistics?.map((item) => item.label)).toEqual([
-      'experiences.emeraldMining.logistics.start',
-      'experiences.emeraldMining.logistics.duration',
-      'experiences.emeraldMining.logistics.transport',
-      'experiences.emeraldMining.logistics.difficulty',
+      'experiences.chivorEmeraldCore.logistics.start',
+      'experiences.chivorEmeraldCore.logistics.duration',
+      'experiences.chivorEmeraldCore.logistics.transport',
+      'experiences.chivorEmeraldCore.logistics.difficulty',
     ]);
   });
 
   it('fails with an actionable error when a tier mapping is missing', () => {
-    const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
     const malformed = {
       ...feed,
       accommodationTiers: feed.accommodationTiers.map((tier) => ({ ...tier, id: 'missing' })),
@@ -54,12 +54,91 @@ describe('adaptExperienceFeedV2', () => {
   });
 
   it('keeps malformed adapter input outside the typed feed contract', () => {
-    const feed = cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
     const malformed = {
       ...feed,
       accommodationTiers: feed.accommodationTiers.map((tier) => ({ ...tier, id: 'missing' })),
     } as unknown;
 
     expect(ExperienceFeedV2Schema.safeParse(malformed).success).toBe(false);
+  });
+
+  it('passes includedInPlan through to the UI addons', () => {
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
+    feed.addons = feed.addons.map((addon, index) =>
+      index === 0 ? { ...addon, pricePerPerson: 0, includedInPlan: true } : addon,
+    );
+
+    const result = adaptExperienceFeedV2(
+      feed,
+      EXPERIENCE_I18N[feed.experience.id],
+      'https://wa.me/573142730360',
+    );
+
+    expect(result.addons?.map((addon) => addon.includedInPlan)).toEqual(
+      feed.addons.map((addon) => addon.includedInPlan),
+    );
+    expect(result.addons?.[0]?.includedInPlan).toBe(true);
+  });
+});
+
+describe('adaptExperienceFeedV2 value points', () => {
+  it("passes the experience's own value points through, in order", () => {
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
+    const mapping = EXPERIENCE_I18N[feed.experience.id];
+
+    const result = adaptExperienceFeedV2(feed, mapping, 'https://wa.me/573142730360');
+
+    expect(result.config.valueStack).toEqual([...mapping.valueStack]);
+  });
+});
+
+describe('ExperienceFeedV2Schema package tags', () => {
+  function withPackageTags(packageTags: unknown): unknown {
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
+    return { ...feed, experience: { ...feed.experience, packageTags } };
+  }
+
+  it('accepts the all-inclusive tag', () => {
+    expect(ExperienceFeedV2Schema.safeParse(withPackageTags(['allInclusive'])).success).toBe(true);
+  });
+
+  it('rejects a duplicate tag', () => {
+    expect(
+      ExperienceFeedV2Schema.safeParse(withPackageTags(['allInclusive', 'allInclusive'])).success,
+    ).toBe(false);
+  });
+
+  // Exclusions are stated at the arrival selector and in "not included", never as a card badge.
+  it('rejects the retired transport-not-included badge', () => {
+    expect(ExperienceFeedV2Schema.safeParse(withPackageTags(['transportNotIncluded'])).success).toBe(false);
+  });
+});
+
+describe('ExperienceFeedV2Schema addons', () => {
+  function withFirstAddon(patch: { pricePerPerson: number; includedInPlan: boolean }): unknown {
+    const feed = cloneFixture(EXPERIENCE_FIXTURE);
+    return {
+      ...feed,
+      addons: feed.addons.map((addon, index) => (index === 0 ? { ...addon, ...patch } : addon)),
+    };
+  }
+
+  it('accepts an included addon priced at 0', () => {
+    expect(
+      ExperienceFeedV2Schema.safeParse(withFirstAddon({ pricePerPerson: 0, includedInPlan: true }))
+        .success,
+    ).toBe(true);
+  });
+
+  it('rejects an included addon with a price', () => {
+    const result = ExperienceFeedV2Schema.safeParse(
+      withFirstAddon({ pricePerPerson: 120000, includedInPlan: true }),
+    );
+
+    expect(result.success).toBe(false);
+    expect(result.success ? [] : result.error.issues.map((issue) => issue.path.join('.'))).toContain(
+      'addons.0.pricePerPerson',
+    );
   });
 });

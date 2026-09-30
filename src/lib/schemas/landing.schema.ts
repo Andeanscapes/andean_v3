@@ -7,6 +7,8 @@
  */
 
 import { z } from 'zod';
+import { PackageTagContentSchema } from './experience.schema';
+import { PackageTagCodeSchema } from './feed/v2/common.schema';
 
 // ── Shared atoms ─────────────────────────────────────────────────────────────
 
@@ -35,6 +37,7 @@ export const LandingFlagshipMockSchema = z.object({
   descriptionKey: z.string(),
   backgroundImage: z.string(),
   valueChips: z.array(LandingValueChipMockSchema),
+  packageTags: z.array(PackageTagCodeSchema),
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
@@ -189,6 +192,11 @@ export const LandingFeaturedExperienceRefMockSchema = z.object({
   locationValues: z.object({ locality: z.string() }),
   fromAmount: z.number(),
   currency: z.string(),
+  /** This experience's own departures; `nextAvailability` is derived from them. */
+  availableDates: z.array(AvailableDateSchema),
+  /** i18n keys for the card's highlight chips, resolved from feed codes. */
+  highlightKeys: z.array(z.string()),
+  packageTags: z.array(PackageTagCodeSchema),
   nextAvailability: z.object({
     dateISO: z.string(),
     spotsLeft: z.number(),
@@ -343,6 +351,7 @@ export const LandingFlagshipContentSchema = z.object({
   description: z.string(),
   backgroundImage: z.string(),
   valueChips: z.array(LandingValueChipSchema),
+  packageTags: z.array(PackageTagContentSchema),
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
@@ -472,6 +481,8 @@ export const LandingContentSchema = z.object({
       currency: z.string(),
       fromLabel: z.string(),
       viewDetailsLabel: z.string(),
+      highlights: z.array(z.string()),
+      packageTags: z.array(PackageTagContentSchema),
       nextAvailability: z.object({
         dateISO: z.string(),
         spotsLeft: z.number(),

@@ -3,7 +3,10 @@ import {
   AvailableDateSchema,
   DurationSchema,
   ExperienceIdSchema,
+  FEED_MAX_HIGHLIGHTS,
   FullLocationSchema,
+  HighlightCodeSchema,
+  PackageTagsSchema,
   MediaPathSchema,
   PricingSchema,
   PublicationStatusSchema,
@@ -42,6 +45,15 @@ export const LandingExperienceV2Schema = z
     duration: DurationSchema,
     location: FullLocationSchema,
     availableDates: z.array(AvailableDateSchema),
+    /**
+     * Projection of the list card's `highlightCodes`, so the landing cards can
+     * show what sets an experience apart (Prime's second mine, horseback)
+     * without fetching the list. Optional for the same rollout reason as
+     * `depositPercent`: the live payload does not carry it yet.
+     */
+    highlightCodes: z.array(HighlightCodeSchema).max(FEED_MAX_HIGHLIGHTS).optional(),
+    /** Projection of the experience's `packageTags`. */
+    packageTags: PackageTagsSchema,
   })
   .strict()
   .superRefine((experience, ctx) => {

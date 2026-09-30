@@ -27,7 +27,9 @@ describe('LandingFeaturedExperiences', () => {
 
   it('renders one list item per featured item', () => {
     renderWithIntl(<LandingFeaturedExperiences featured={FEATURED_FIXTURE} />);
-    expect(screen.getAllByRole('listitem')).toHaveLength(FEATURED_FIXTURE.items.length);
+    // The section's own list; each card nests a highlight list of its own.
+    const [section] = screen.getAllByRole('list');
+    expect(section.querySelectorAll(':scope > li')).toHaveLength(FEATURED_FIXTURE.items.length);
   });
 
   it('renders a "view all" link to viewAllHref', () => {

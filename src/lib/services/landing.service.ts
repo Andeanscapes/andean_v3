@@ -23,6 +23,7 @@ import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
 import { pickHeroVariant } from '@/utils/heroVariant';
 import { fetchRemoteJson } from '../remote-data';
 import { LANDING_FEED_PATH } from '@/utils/feedPaths';
+import { experiencePath } from '@/utils/experienceRoutes';
 import {
   toLandingFlagshipContent,
   toLandingReviewsContent,
@@ -101,26 +102,60 @@ export const getLandingDataSSR = cache(async (locale: string): Promise<LandingCo
 });
 
 /**
- * Drop expired availability and re-derive the featured-experience
- * "next availability" hint from the surviving dates.
+ * Locale-free path of the landing flagship experience, for site chrome (the
+ * footer) that deep-links into it. `@/i18n/navigation` adds the locale prefix.
+ *
+ * Same path, schema and cache options as `getLandingDataSSR`, so the fetch is
+ * shared rather than repeated. Throws like the rest of the service layer: the
+ * `[locale]` error boundary handles an unavailable feed.
+ */
+export const getFlagshipExperiencePathSSR = cache(async (): Promise<string> => {
+  const remote = await fetchRemoteJson(LANDING_FEED_PATH, LandingFeedV2Schema, {
+    revalidate: 3600,
+    tags: ['landing-data'],
+  });
+
+  if (!remote.data) {
+    throw new Error(`[LandingService] Landing feed unavailable: ${remote.reason}`);
+  }
+
+  const { flagshipExperienceId, experiences } = remote.data;
+  const flagship = experiences.find((entry) => entry.id === flagshipExperienceId);
+
+  if (!flagship) {
+    throw new Error(
+      `[LandingService] flagshipExperienceId "${flagshipExperienceId}" is not in experiences[].`,
+    );
+  }
+
+  return experiencePath(flagship.slug);
+});
+
+/**
+ * Drop expired availability and re-derive each featured card's
+ * "next availability" hint from that experience's own surviving dates.
  */
 function withCurrentDates(data: LandingFeed): LandingFeed {
-  const dates = filterCurrentAvailableDates(data.flagship.availableDates);
-
   return {
     ...data,
-    flagship: { ...data.flagship, availableDates: dates },
+    flagship: {
+      ...data.flagship,
+      availableDates: filterCurrentAvailableDates(data.flagship.availableDates),
+    },
     featuredExperiences: {
       ...data.featuredExperiences,
-      items: data.featuredExperiences.items.map((item) => ({
-        ...item,
-        nextAvailability: dates[0]
-          ? {
-              dateISO: dates[0].startDate.slice(0, 10),
-              spotsLeft: dates[0].spots,
-            }
-          : undefined,
-      })),
+      items: data.featuredExperiences.items.map((item) => {
+        const dates = filterCurrentAvailableDates(item.availableDates);
+        const next = dates[0];
+
+        return {
+          ...item,
+          availableDates: dates,
+          nextAvailability: next
+            ? { dateISO: next.startDate.slice(0, 10), spotsLeft: next.spots }
+            : undefined,
+        };
+      }),
     },
   };
 }

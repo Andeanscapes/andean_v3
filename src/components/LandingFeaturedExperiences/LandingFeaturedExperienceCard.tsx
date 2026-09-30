@@ -7,6 +7,8 @@ import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { Badge } from '@/components/ui/Badge/Badge';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
 
 interface Props {
   experience: LandingFeaturedExperienceContent;
@@ -82,6 +84,8 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           {experience.description}
         </p>
 
+        <PackageTagBadges tags={experience.packageTags} />
+
         <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-base-content/70 md:text-sm">
           <span className="inline-flex items-center gap-1">
             <Clock className="h-3.5 w-3.5" aria-hidden="true" />
@@ -92,6 +96,18 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
             <span>{experience.location}</span>
           </span>
         </div>
+
+        {experience.highlights.length > 0 ? (
+          <ul className="flex flex-wrap gap-1.5">
+            {experience.highlights.map((highlight) => (
+              <li key={highlight}>
+                <Badge variant="secondary" size="sm" className="whitespace-nowrap bg-base-200/70 text-[11px] md:text-xs">
+                  {highlight}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        ) : null}
 
         {availabilityLabel ? (
           <div

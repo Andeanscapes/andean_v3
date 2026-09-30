@@ -16,6 +16,7 @@
  */
 
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
+import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 import { LANDING_I18N, countryKeyFor } from '@/i18n/mappings/landing';
 import { LANDING_STRUCTURE } from '@/lib/content/landing.structure';
 import type { LandingFeed } from '@/lib/schemas/landing.schema';
@@ -66,6 +67,7 @@ function toFlagship(
     subtitleKey: mapping.subtitle,
     descriptionKey: mapping.description,
     backgroundImage: entry.media.hero,
+    packageTags: entry.packageTags ?? [],
     valueChips: S.hero.trustChips.map((chip) => ({
       id: chip.id,
       iconName: chip.iconName,
@@ -112,6 +114,12 @@ function toFeaturedExperiences(feed: LandingFeedV2): LandingFeed['featuredExperi
         locationValues: { locality: entry.location.locality },
         fromAmount: entry.fromPrice.amount,
         currency: entry.fromPrice.currency,
+        availableDates: entry.availableDates,
+        // Same codes, same copy as the list card, so the two never disagree.
+        highlightKeys: (entry.highlightCodes ?? []).map(
+          (code) => EXPERIENCES_LIST_I18N.highlights[code],
+        ),
+        packageTags: entry.packageTags ?? [],
       };
     });
 

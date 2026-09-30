@@ -64,7 +64,14 @@ export const SlugSchema = z
   .min(1)
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'must be lowercase kebab-case');
 
-export const ExperienceIdSchema = z.enum(['emeraldMining']);
+/**
+ * `emeraldMining` is transitional, for exactly one release. Production still
+ * serves the pre-split feed, and this code must read it: without the alias there
+ * is no safe order — the deployed code rejects the Chivor feed, and this code
+ * would reject the live one. Remove it, and its aliases in
+ * `src/i18n/mappings/experience.ts`, once the Chivor feed is republished.
+ */
+export const ExperienceIdSchema = z.enum(['chivorEmeraldCore', 'chivorEmeraldPrime', 'emeraldMining']);
 export type ExperienceId = z.infer<typeof ExperienceIdSchema>;
 
 export const PublicationStatusSchema = z.enum(['published', 'draft', 'archived']);
@@ -89,8 +96,45 @@ export type ItineraryCategoryCode = z.infer<typeof ItineraryCategoryCodeSchema>;
 export const BadgeCodeSchema = z.enum(['featured', 'coming-soon']);
 export type BadgeCode = z.infer<typeof BadgeCodeSchema>;
 
-export const HighlightCodeSchema = z.enum(['transportIncluded', 'smallGroups', 'localGuides']);
+export const HighlightCodeSchema = z.enum([
+  'transportIncluded',
+  'smallGroups',
+  'localGuides',
+  'twoMines',
+  'horsebackRiding',
+  'allMeals',
+  'haciendaStay',
+]);
 export type HighlightCode = z.infer<typeof HighlightCodeSchema>;
+
+/**
+ * Highlights one experience may publish. Six, because a higher tier must list
+ * everything the lower tier includes *plus* its own extras — Prime carries
+ * Core's four (guides, small groups, meals, hacienda stay) alongside its second
+ * mine and horseback riding. A tier that showed fewer shared items read as
+ * offering less.
+ */
+export const FEED_MAX_HIGHLIGHTS = 6;
+
+/**
+ * Package-level selling points, rendered as a highlighted badge rather than a
+ * neutral chip. Presentation (colour) is frontend-owned; the feed only states
+ * which apply.
+ *
+ * Deliberately positive only. A red "transport not included" badge sat beside
+ * "all-inclusive" and read as a contradiction at the moment of discovery;
+ * exclusions are stated where the guest decides — the "not included" list and
+ * the arrival selector — not on the card.
+ */
+export const PackageTagCodeSchema = z.enum(['allInclusive']);
+export type PackageTagCode = z.infer<typeof PackageTagCodeSchema>;
+
+/** Optional during rollout: the published payloads do not carry it yet. */
+export const PackageTagsSchema = z
+  .array(PackageTagCodeSchema)
+  .max(PackageTagCodeSchema.options.length)
+  .refine((codes) => new Set(codes).size === codes.length, { message: 'Duplicate package tag' })
+  .optional();
 
 export const IncludedCodeSchema = z.enum([
   'guide',
@@ -100,10 +144,11 @@ export const IncludedCodeSchema = z.enum([
   'mineAccess',
   'workshop',
   'smallGroups',
+  'healthInsurance',
 ]);
 export type IncludedCode = z.infer<typeof IncludedCodeSchema>;
 
-export const NotIncludedCodeSchema = z.enum(['airportTransfer', 'drinks', 'souvenirs']);
+export const NotIncludedCodeSchema = z.enum(['airportTransfer', 'drinks', 'souvenirs', 'transportToChivor']);
 export type NotIncludedCode = z.infer<typeof NotIncludedCodeSchema>;
 
 export const ReviewSourceCodeSchema = z.enum(['airbnb']);

@@ -11,7 +11,8 @@ const sampleCard: ExperienceListCard = {
   currency: 'COP',
   priceQualifier: 'per person',
   metadata: ['2D/1N', 'Small groups', 'Chivor'],
-  href: '/experiences/emerald-mining-adventure',
+  packageTags: [{ label: 'All-inclusive stay', variant: 'warning' }],
+  href: '/experiences/chivor-emerald-mine-tour',
   tag: 'Most Popular',
 };
 

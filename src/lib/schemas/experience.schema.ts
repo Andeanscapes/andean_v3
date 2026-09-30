@@ -4,6 +4,7 @@
 
 import { z } from 'zod';
 import { CurrencyCodeSchema } from './currency.schema';
+import { PackageTagCodeSchema } from './feed/v2/common.schema';
 
 // Room mode enum
 export const RoomModeSchema = z.enum([
@@ -99,6 +100,7 @@ export const ExperienceAddonSchema = z.object({
   description: z.string().optional(),
   pricePerPerson: z.number(),
   requiresTeamConfirmation: z.boolean().optional(),
+  includedInPlan: z.boolean().optional(),
 });
 
 // Accommodation tier images
@@ -152,6 +154,10 @@ export const ExperienceConfigSchema = z.object({
   minPeople: z.number(),
   images: ExperienceImagesSchema.optional(),
   video: ExperienceVideoSchema.optional(),
+  /** i18n keys for the hero value points, from the experience mapping. */
+  valueStack: z.array(z.string()).optional(),
+  /** Package badge codes from the feed; translated in `toHeroContent`. */
+  packageTags: z.array(PackageTagCodeSchema).optional(),
   reviewsCount: z.number().optional(),
   microcopy: z.object({
     deposit: z.string(),
@@ -249,6 +255,12 @@ export const ExperienceHeroBadgeItemSchema = z.object({
 });
 
 // Experience hero content
+/** A package badge, translated. `variant` maps onto the shared `Badge` colours. */
+export const PackageTagContentSchema = z.object({
+  label: z.string(),
+  variant: z.enum(['warning']),
+});
+
 export const ExperienceHeroContentSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
@@ -261,6 +273,8 @@ export const ExperienceHeroContentSchema = z.object({
   backgroundImageUrl: z.string().optional(),
   video: ExperienceVideoSchema.optional(),
   badges: z.array(ExperienceHeroBadgeItemSchema).optional(),
+  valueStack: z.array(z.string()).optional(),
+  packageTags: z.array(PackageTagContentSchema).optional(),
 });
 
 // Experience widget content (already translated in service layer)
@@ -270,6 +284,8 @@ export const ExperienceWidgetContentSchema = z.object({
   peopleLabel: z.string(),
   roomTypeLabel: z.string(),
   howToArriveLabel: z.string(),
+  /** Shown under the arrival selector: transport is an add-on, not part of the plan. */
+  transportNoteLabel: z.string(),
   checkDatesButtonLabel: z.string(),
   securityLine: z.string(),
   freeCancellationLine: z.string(),
@@ -372,12 +388,15 @@ export const ExperienceAddonContentSchema = z.object({
   description: z.string().optional(),
   pricePerPerson: z.number(),
   requiresTeamConfirmation: z.boolean().optional(),
+  includedInPlan: z.boolean().optional(),
 });
 
 export const ExperienceAddonsContentSchema = z.object({
   sectionTitle: z.string(),
   perPersonLabel: z.string(),
   teamConfirmationLabel: z.string(),
+  includedLabel: z.string(),
+  includedNoteLabel: z.string(),
   items: z.array(ExperienceAddonContentSchema),
 });
 
@@ -547,3 +566,4 @@ export interface ReservationContextValue {
   /** ISO 4217 code for every amount rendered inside the reservation flow. */
   currency: string;
 }
+export type PackageTagContent = z.infer<typeof PackageTagContentSchema>;

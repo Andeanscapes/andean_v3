@@ -49,7 +49,7 @@
           "spot": "cupo",
           "spotsLeft": "cupos",
           "trust": {
-            "deposit": "15% de anticipo",
+            "deposit": "25% de anticipo",
             "secure": "Pago seguro",
             "support": "Inglés y español",
             "vetted": "Anfitriones verificados"
@@ -122,7 +122,7 @@
           },
           "secureBooking": {
             "title": "Reserva simple y segura",
-            "description": "Asegura tu lugar con un 15% de anticipo. El resto lo pagas el día de la experiencia. Soporte por WhatsApp en todo momento."
+            "description": "Asegura tu lugar con un 25% de anticipo. El resto lo pagas el día de la experiencia. Soporte por WhatsApp en todo momento."
           }
         }
       },
@@ -138,7 +138,7 @@
             "description": "Selecciona una fecha disponible y dinos cuántas personas van."
           },
           "pay": {
-            "title": "Reserva con el 15%",
+            "title": "Reserva con el 25%",
             "description": "Asegura tu lugar con un anticipo pequeño. Confirmamos por WhatsApp en menos de una hora."
           },
           "travel": {
@@ -208,7 +208,7 @@
           "guides": "Guías locales certificados y verificados",
           "meetingPoints": "Puntos de encuentro fijos y verificados",
           "payments": "Pagos con cifrado extremo a extremo",
-          "deposit": "15% de anticipo — el resto se paga el día de la experiencia",
+          "deposit": "25% de anticipo — el resto se paga el día de la experiencia",
           "whatsapp": "Soporte por WhatsApp durante todo tu viaje",
           "flexible": "Reprogramación gratuita hasta 48 horas antes"
         }
@@ -255,7 +255,7 @@
         "bullets": {
           "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
           "reviews": "5.0★ de 5 viajeros verificados",
-          "payment": "Reserva con el 15% — el resto lo pagas al llegar",
+          "payment": "Reserva con el 25% — el resto lo pagas al llegar",
           "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
         }
       }
@@ -315,12 +315,12 @@
     },
     "finalCta": {
       "title": "Tu experiencia en Boyacá empieza con una fecha.",
-      "subtitle": "Reserva con el 15% hoy. Tu anfitrión local confirma los detalles por WhatsApp.",
+      "subtitle": "Reserva con el 25% hoy. Tu anfitrión local confirma los detalles por WhatsApp.",
       "primaryCta": "Reserva tu experiencia",
       "secondaryCta": "Pregúntanos por WhatsApp primero",
       "bookAria": "Reserva tu experiencia con Andean Scapes",
       "badges": {
-        "deposit": "15% de anticipo para confirmar",
+        "deposit": "25% de anticipo para confirmar",
         "secure": "Pago cifrado",
         "cancellation": "Cancelación gratuita 48h antes",
         "verified": "Anfitriones verificados"
@@ -475,6 +475,10 @@
     },
     "smallGroups": "Grupos pequeños",
     "localGuides": "Guías locales expertos",
+    "twoMines": "2 minas de esmeralda",
+    "horsebackRiding": "Cabalgata",
+    "allMeals": "Todas las comidas",
+    "haciendaStay": "Estadía en hacienda",
     "cards": {
       "culture": {
         "title": "Ruta cultural andina",
@@ -490,10 +494,10 @@
     "whatsappCta": "Hablar por WhatsApp",
     "whatsappMiningQuote": "¡Hola! Quiero reservar la Aventura de Minería de Esmeraldas con estadía en Hacienda El Recuerdo, Chivor. ¿Me ayudas con disponibilidad?"
   },
-  "EmeraldMiningAdventure": {
-    "metaTitle": "Reserva tu Aventura Esmeralera | Andean Scapes",
-    "metaDescription": "Descubre las minas de esmeralda de Colombia con estadía 2D/1N en Hacienda El Recuerdo, Chivor - Boyacá, comidas, taller y coordinación de transporte incluidos.",
-    "title": "Aventura Esmeralera",
+  "ChivorEmeraldCore": {
+    "metaTitle": "Chivor CORE: Mina de Esmeraldas + Hacienda | Andean Scapes",
+    "metaDescription": "Descubre las minas de esmeralda de Chivor con estadía 2D/1N en Hacienda El Recuerdo, comidas y taller de clasificación de gemas.",
+    "title": "Chivor: Tour de Minas de Esmeralda 2 Días CORE con Estadía en Hacienda",
     "subtitle": "Experiencia esmeraldera 2D/1N con estadía en Hacienda El Recuerdo, Chivor, Boyacá",
     "selectDate": "Selecciona tu fecha",
     "selectPeople": "¿Cuántas personas?",
@@ -518,7 +522,40 @@
     "includesDetails": "Ver detalles",
     "pricePerPerson": "Precio por persona",
     "totalPrice": "Precio total",
-    "depositPercent": "Depósito (15%)",
+    "depositPercent": "Depósito (25%)",
+    "paymentButton": "Continuar al pago",
+    "termsCheckbox": "Acepto los términos y condiciones",
+    "whatsappCta": "O consulta por WhatsApp"
+  },
+  "ChivorEmeraldPrime": {
+    "metaTitle": "Chivor PRIME: 2 Minas + Cabalgata | Andean Scapes",
+    "metaDescription": "Recorre dos minas de esmeralda de Chivor a caballo, con estadía 2D/1N en Hacienda El Recuerdo, comidas y taller de clasificación de gemas.",
+    "title": "Chivor: Tour de Esmeraldas 2 Días PRIME — 2 Minas, Cabalgata y Estadía en Hacienda",
+    "subtitle": "Experiencia esmeraldera 2D/1N con cabalgata y estadía en Hacienda El Recuerdo, Chivor, Boyacá",
+    "selectDate": "Selecciona tu fecha",
+    "selectPeople": "¿Cuántas personas?",
+    "peopleCountLabel": "Cantidad de personas",
+    "roomModeLabel": "Tipo de habitación",
+    "roomModePrivate": "Privado",
+    "roomModeCouple": "Pareja",
+    "transportLabel": "¿Cómo prefieres llegar?",
+    "transportNoOwnCar": "No tengo carro propio",
+    "transportHaveOwnCar": "Tengo carro 4x4 propio",
+    "transportBus": "Transporte en bus",
+    "contactLabel": "Información de contacto",
+    "nameLabel": "Nombre",
+    "phoneLabel": "Teléfono",
+    "emailLabel": "Correo (opcional)",
+    "includesTitle": "¿Qué incluye?",
+    "includesItem1": "1 noche con baño privado",
+    "includesItem2": "Comidas (desayuno, almuerzo, cena)",
+    "includesItem3": "Tour en mina con cabalgata",
+    "includesItem4": "Taller de clasificación de esmeraldas",
+    "includesItem5": "Transporte desde Hacienda El Recuerdo",
+    "includesDetails": "Ver detalles",
+    "pricePerPerson": "Precio por persona",
+    "totalPrice": "Precio total",
+    "depositPercent": "Depósito (25%)",
     "paymentButton": "Continuar al pago",
     "termsCheckbox": "Acepto los términos y condiciones",
     "whatsappCta": "O consulta por WhatsApp"
@@ -638,6 +675,7 @@
       "emailHelper": "Opcional - para confirmación adicional",
       "startingPoint": "Punto de inicio: Chivor (casco urbano)",
       "howToArrive": "¿Cómo llegas?",
+      "transportNote": "Elige cómo llegarás: el viaje a Chivor no hace parte del plan. ¿Prefieres no manejar? Agrega nuestro traslado ida y vuelta desde Bogotá.",
       "roomMode": {
         "standard": "Habitación Estándar",
         "family": "Habitación Familiar",
@@ -666,7 +704,7 @@
         "faq2Q": "¿Cuál es la mejor época para visitar?",
         "faq2A": "De diciembre a marzo ofrece el mejor clima en los Andes colombianos",
         "faq3Q": "¿Cómo organizo el transporte?",
-        "faq3A": "Proporcionamos transporte desde Chivor, o arreglamos desde Bogotá a solicitud",
+        "faq3A": "El transporte no está incluido. Puedes llegar en tu vehículo (se recomienda 4x4 para el último tramo), en bus, o agregar nuestro traslado ida y vuelta desde Bogotá al reservar.",
         "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
         "checkDatesBtn": "Ver Disponibilidad",
         "talkToHostBtn": "Hablar con Anfitrión",
@@ -675,12 +713,16 @@
         "valueStackPrivateMineAccess": "Acceso Privado a Mina",
         "valueStackLocalExpertGuides": "Guías Locales Expertos",
         "valueStackAllMealsIncluded": "Todas las Comidas Incluidas",
-        "valueStackPremiumTransport": "Transporte 4x4 Premium",
+        "valueStackHaciendaStay": "Estadía en Hacienda Incluida",
+        "valueStackTwoMines": "2 Minas de Esmeralda",
+        "valueStackHorsebackRiding": "Cabalgata",
         "accommodationTitle": "Tu Estadía",
         "selectYourStayTitle": "Opciones de Estadía",
         "addonsTitle": "Adicionales opcionales",
         "addonsPerPerson": "por persona",
         "addonsTeamConfirmation": "El equipo confirma disponibilidad y valor final",
+        "addonsIncludedLabel": "Incluido",
+        "addonsIncludedNote": "Incluido en tu plan. Participación opcional; no reembolsable si decides no participar.",
         "hostChoiceLabel": "Elección del Anfitrión",
         "selectedLabel": "Seleccionado",
         "tierBadgeHeritage": "Heritage / Tradicional",
@@ -701,6 +743,9 @@
         "perPersonPerNightLabel": "/persona/noche",
         "includedServicesLabel": "Servicios Incluidos",
         "roomCapacityLabel": "Hasta {count} huéspedes"
+      },
+      "packageTags": {
+        "allInclusive": "Estadía todo incluido"
       }
     },
     "tiers": {
@@ -777,13 +822,13 @@
         "idealFor2": "Parejas y Escapadas Románticas",
         "idealFor3": "Amantes de la Naturaleza y el Ecoturismo",
         "goodToKnow1": "Cúpula geodésica exterior — llevar ropa de abrigo",
-        "goodToKnow2": "Sin WiFi — experiencia de desconexción digital total"
+        "goodToKnow2": "Sin WiFi — experiencia de desconexión digital total"
       }
     },
-    "emeraldMining": {
-      "title": "Aventura de Minería de Esmeraldas",
+    "chivorEmeraldCore": {
+      "title": "Chivor: Tour de Minas de Esmeralda 2 Días CORE con Estadía en Hacienda",
       "subtitle": "Experiencia todo incluido en Chivor (Boyacá), Colombia 🇨🇴",
-      "description": "Descubre las profundidades de la mina de esmeraldas más famosa de Colombia",
+      "description": "Entra a una mina de esmeraldas activa en Chivor, aprende a clasificar gemas y pasa la noche en una hacienda tradicional.",
       "includesFullDetails": "Incluye guía especializado bilingüe, equipo de seguridad, coordinación de transporte local desde Hacienda El Recuerdo, seguro de accidentes, comidas y taller de esmeraldas.",
       "includes": {
         "guide": "Guía especializado",
@@ -862,34 +907,19 @@
         "insurance": "Seguro de viaje",
         "mineAccess": "Acceso exclusivo a la mina",
         "workshop": "Taller de clasificación de gemas",
-        "smallGroups": "Grupos pequeños (máx. 10 personas)"
+        "smallGroups": "Grupos pequeños (máx. 10 personas)",
+        "healthInsurance": "Seguro de salud"
       },
       "notIncluded": {
         "airportTransfer": "Transporte de aeropuerto",
         "drinks": "Bebidas personales",
-        "souvenirs": "Gemas de recuerdo"
+        "souvenirs": "Gemas de recuerdo",
+        "transportToChivor": "Transporte hasta Chivor (traslado ida y vuelta desde Bogotá disponible como adicional)"
       },
       "itinerary": {
-        "day1Title": "Día 1 — Expedición Minera",
-        "day2Title": "Día 2 — Descubrimiento y Despedida",
-        "stop1Title": "Ingresa a la Mina de Esmeraldas",
-        "stop1ShortDesc": "La mina de esmeraldas más histórica de Colombia",
-        "stop1Desc": "Comienza tu aventura minera en una de las minas de esmeraldas más históricas de Colombia",
-        "stop2Title": "Explora Mina Secundaria y Taller de Clasificación",
+        "stop2Title": "Taller de Clasificación de Esmeraldas",
         "stop2ShortDesc": "Aprende clasificación y tasación profesional de gemas",
-        "stop2Desc": "Visita un depósito adicional y aprende técnicas profesionales de clasificación",
-        "stop3Title": "Check-in en Tu Estadía",
-        "stop3ShortDesc": "Instálate en tu alojamiento seleccionado",
-        "stop3Desc": "Instálate en tu alojamiento seleccionado",
-        "stop4Title": "Desayuno Andino Tradicional",
-        "stop4ShortDesc": "Empieza el día con auténticos sabores andinos",
-        "stop4Desc": "Comienza el día dos con auténticos sabores locales",
-        "stop5Title": "Masterclass en Gemología",
-        "stop5ShortDesc": "Conocimiento experto sobre esmeraldas colombianas",
-        "stop5Desc": "Información experta sobre la calidad, origen e historia de las esmeraldas",
-        "stop6Title": "Clasificación Final y Despedida",
-        "stop6ShortDesc": "Ceremonia de certificado y despedida",
-        "stop6Desc": "Reflexiona sobre el viaje y recibe tu certificado de participación"
+        "stop2Desc": "Aprende técnicas profesionales de clasificación en el taller de la hacienda."
       },
       "addons": {
         "apiaryCattle": {
@@ -909,6 +939,151 @@
         "goodToKnow1": "Se requiere condición física básica",
         "goodToKnow2": "Se recomienda calzado cerrado",
         "goodToKnow3": "Ambiente de grupo pequeño"
+      }
+    },
+    "chivorEmeraldPrime": {
+      "title": "Chivor: Tour de Esmeraldas 2 Días PRIME — 2 Minas, Cabalgata y Estadía en Hacienda",
+      "subtitle": "Experiencia premium todo incluido en Chivor (Boyacá), Colombia 🇨🇴",
+      "description": "Recorre dos minas de esmeraldas, cabalga por los paisajes de Chivor y descansa en una hacienda tradicional.",
+      "includesFullDetails": "Incluye guía especializado bilingüe, equipo de seguridad, coordinación de transporte local desde Hacienda El Recuerdo, seguro de accidentes, comidas y taller de esmeraldas.",
+      "includes": {
+        "guide": "Guía especializado",
+        "equipment": "Equipo de seguridad",
+        "transport": "Coordinación de transporte local",
+        "insurance": "Seguro de accidentes"
+      },
+      "transport": {
+        "carNo4x4": "Carro Particular (No 4x4)",
+        "carNo4x4Description": "Aplica costo adicional de transporte 4x4 local",
+        "have4x4": "Tengo 4x4",
+        "have4x4Description": "Sin costo adicional",
+        "bus": "Bus Público",
+        "busDescription": "Traslado local incluido desde terminal",
+        "roundtripTransfer": "Transporte privado ida y vuelta",
+        "roundtripTransferDescription": "Servicio de vehículo privado, máx. 4 personas por vehículo"
+      },
+      "roomMode": {
+        "standard": "Habitación Estándar",
+        "family": "Habitación Familiar",
+        "cabin": "Cabaña",
+        "standardSingle": "Habitación Estándar (1)",
+        "standardCouple": "Habitación Estándar (2)",
+        "familySingle": "Habitación Familiar (1)",
+        "familyCouple": "Habitación Familiar (2)",
+        "familyThree": "Habitación Familiar (3)",
+        "cabinSingle": "Cabaña (1)",
+        "cabinCouple": "Cabaña (2)",
+        "cabinSix": "Cabaña (6)"
+      },
+      "experienceDetails": {
+        "selectDate": "Selecciona una fecha",
+        "overviewTitle": "Descripción de la Experiencia",
+        "valuePropositionsTitle": "La Diferencia de la Minería de Esmeraldas",
+        "tile1Title": "Minería Auténtica",
+        "tile1Desc": "Vive la minería de esmeraldas real con guías locales expertos en minas históricas",
+        "tile2Title": "Acceso Local Exclusivo",
+        "tile2Desc": "Acceso exclusivo a minas de esmeraldas en funcionamiento y talleres de clasificación",
+        "tile3Title": "Naturaleza y Cultura",
+        "tile3Desc": "Sumérgete en la cultura andina auténtica y los paisajes de montaña",
+        "tripLogisticsTitle": "Logística del Viaje e Inclusiones Detalladas",
+        "itineraryTitle": "Itinerario Interactivo",
+        "includedLabel": "Incluido",
+        "notIncludedLabel": "No Incluido",
+        "faqsTitle": "Preguntas Frecuentes",
+        "hostPreparationTitle": "Anfitrión y Preparación",
+        "idealFor": "Ideal para",
+        "goodToKnow": "Bueno a Saber",
+        "faq1Q": "¿Cuál es el nivel de dificultad?",
+        "faq1A": "Se requiere senderismo moderado y fitness básico para tours de minas",
+        "faq2Q": "¿Cuál es la mejor época para visitar?",
+        "faq2A": "De diciembre a marzo ofrece el mejor clima en los Andes colombianos",
+        "faq3Q": "¿Cómo organizo el transporte?",
+        "faq3A": "Proporcionamos transporte desde Chivor, o arreglamos desde Bogotá a solicitud",
+        "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
+        "checkDatesBtn": "Ver Disponibilidad",
+        "talkToHostBtn": "Hablar con Anfitrión",
+        "bookNowBtn": "Reservar Ahora"
+      },
+      "logistics": {
+        "start": "Hora de inicio",
+        "duration": "Duración",
+        "transport": "Transporte",
+        "difficulty": "Dificultad",
+        "end": "Hora de finalización"
+      },
+      "logisticsValues": {
+        "duration": "2 días / 1 noche",
+        "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+        "difficulty": "Moderada"
+      },
+      "included": {
+        "guide": "Guía experto en minería",
+        "equipment": "Equipo de seguridad",
+        "meals": "Comidas (desayuno, almuerzo, cena)",
+        "insurance": "Seguro de viaje",
+        "mineAccess": "Acceso a 2 minas de esmeralda",
+        "workshop": "Taller de clasificación de gemas",
+        "smallGroups": "Grupos pequeños (máx. 10 personas)",
+        "healthInsurance": "Seguro de salud"
+      },
+      "notIncluded": {
+        "airportTransfer": "Transporte de aeropuerto",
+        "drinks": "Bebidas personales",
+        "souvenirs": "Gemas de recuerdo",
+        "transportToChivor": "Transporte hasta Chivor (traslado ida y vuelta desde Bogotá disponible como adicional)"
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Apicultura y ganadería",
+          "description": "Actividades guiadas de apicultura y ganadería en la Hacienda El Recuerdo. Disponible en el plan 2D/1N."
+        },
+        "horsebackRiding": {
+          "label": "Cabalgata guiada",
+          "description": "Cabalgata guiada por los caminos rurales de la zona. Se cotiza aparte del total del plan."
+        }
+      },
+      "host": {
+        "bio": "Anfitrión local especializado en rutas de minería de esmeraldas y experiencias culturales andinas.",
+        "idealFor1": "Buscadores de Aventura",
+        "idealFor2": "Entusiastas de la Cultura",
+        "idealFor3": "Amantes de la Naturaleza",
+        "goodToKnow1": "Se requiere condición física básica",
+        "goodToKnow2": "Se recomienda calzado cerrado",
+        "goodToKnow3": "Ambiente de grupo pequeño"
+      },
+      "itinerary": {
+        "day1Title": "Día 1 — Dos Minas y Cabalgata",
+        "day2Title": "Día 2 — Mañana en la Hacienda",
+        "stop1Title": "Desayuno de bienvenida",
+        "stop1ShortDesc": "Un desayuno colombiano para empezar",
+        "stop1Desc": "Comienza tu aventura en Chivor con un desayuno colombiano tradicional antes de explorar las montañas de las esmeraldas.",
+        "stop2Title": "Historia de la esmeralda y charla sobre joyas",
+        "stop2ShortDesc": "Artesanos locales sobre la vida minera",
+        "stop2Desc": "Charla introductoria con artesanos locales sobre la historia de la esmeralda, la vida minera y la fabricación de joyas básicas.",
+        "stop3Title": "Mirador panorámico de las minas de Chivor",
+        "stop3ShortDesc": "Vistas del paisaje minero esmeraldero",
+        "stop3Desc": "Disfruta de las vistas panorámicas del paisaje minero de esmeraldas de Chivor. Contempla las montañas y la zona minera desde un punto de vista espectacular.",
+        "stop4Title": "Visita guiada a una mina de esmeralda real",
+        "stop4ShortDesc": "Casco, luces y charla de seguridad",
+        "stop4Desc": "Visita guiada al interior de una verdadera mina de esmeraldas con casco, luces y una clara charla de seguridad.",
+        "stop5Title": "Almuerzo tradicional de fiambre",
+        "stop5ShortDesc": "Fiambre colombiano en hoja de plátano",
+        "stop5Desc": "Disfruta de un almuerzo tradicional colombiano de fiambre en Hacienda El Recuerdo, servido en hoja de plátano después de la visita a la mina.",
+        "stop6Title": "Paseo a caballo hasta otra mina",
+        "stop6ShortDesc": "Cabalgata por las colinas de Mundo Nuevo",
+        "stop6Desc": "Paseo a caballo por las colinas esmeralderas de Mundo Nuevo para llegar a la entrada de la mina artesanal.",
+        "stop7Title": "Conoce a los mineros artesanales de Chivor",
+        "stop7ShortDesc": "Saberes ancestrales de generación en generación",
+        "stop7Desc": "Visita otra mina de esmeraldas y descubre cómo trabajan los mineros artesanales de Chivor, con conocimientos ancestrales y tradiciones transmitidas de generación en generación.",
+        "stop8Title": "Cena en Hacienda El Recuerdo",
+        "stop8ShortDesc": "Cena casera andina",
+        "stop8Desc": "Cena casera andina en la granja, con ingredientes locales y servicio familiar.",
+        "stop9Title": "Alojamiento de una noche en una hacienda privada",
+        "stop9ShortDesc": "Habitación privada con baño propio",
+        "stop9Desc": "Pasa una noche en Hacienda El Recuerdo en una cómoda habitación privada con baño propio, rodeado de las montañas de Chivor.",
+        "stop10Title": "Desayuno en la hacienda",
+        "stop10ShortDesc": "Una mañana tranquila en los Andes",
+        "stop10Desc": "Despierta rodeado de un tranquilo paisaje andino y disfruta de un desayuno colombiano tradicional en Hacienda El Recuerdo."
       }
     }
   },

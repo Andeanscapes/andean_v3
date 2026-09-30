@@ -27,6 +27,23 @@ describe('LandingFeaturedExperienceCard', () => {
     expect(screen.getByText(FIRST.location)).toBeInTheDocument();
   });
 
+  it('renders each highlight as a list item', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    const list = screen.getByText(FIRST.highlights[0]).closest('ul');
+    const items = Array.from(list?.querySelectorAll('li') ?? []);
+    expect(items.map((item) => item.textContent)).toEqual(FIRST.highlights);
+  });
+
+  it('renders no highlight list when there are none', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={{ ...FIRST, highlights: [], packageTags: [] }} />);
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+  });
+
+  it('renders the package badge highlighted', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    expect(screen.getByText('All-inclusive stay')).toHaveClass('badge-warning');
+  });
+
   it('renders the badge when provided', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
     expect(screen.getByText(FIRST.badge as string)).toBeInTheDocument();

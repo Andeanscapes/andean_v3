@@ -22,7 +22,7 @@ import { EXPERIENCE_I18N, EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/
 import {
   LANDING_FIXTURE,
   EXPERIENCES_LIST_FIXTURE,
-  EXPERIENCE_EMERALD_MINING_FIXTURE,
+  EXPERIENCE_FIXTURES,
 } from './index';
 
 const LOCALES = { en: enMessages, es: esMessages, fr: frMessages };
@@ -55,7 +55,7 @@ function collectKeys(value: unknown, acc: string[] = []): string[] {
 const FEEDS = {
   'landing.json': LANDING_FIXTURE,
   'experiences-list.json': EXPERIENCES_LIST_FIXTURE,
-  'experience-emerald-mining.json': EXPERIENCE_EMERALD_MINING_FIXTURE,
+  ...EXPERIENCE_FIXTURES,
 } as const;
 
 /**

@@ -49,7 +49,7 @@
           "spot": "spot left",
           "spotsLeft": "spots left",
           "trust": {
-            "deposit": "15% deposit",
+            "deposit": "25% deposit",
             "secure": "Secure payment",
             "support": "English & Spanish",
             "vetted": "Vetted hosts"
@@ -122,7 +122,7 @@
           },
           "secureBooking": {
             "title": "Simple, secure booking",
-            "description": "Reserve your spot with a 15% deposit. Pay the rest on the day. WhatsApp support the whole way."
+            "description": "Reserve your spot with a 25% deposit. Pay the rest on the day. WhatsApp support the whole way."
           }
         }
       },
@@ -138,7 +138,7 @@
             "description": "Choose an open date and tell us how many are coming."
           },
           "pay": {
-            "title": "Reserve with 15%",
+            "title": "Reserve with 25%",
             "description": "Secure your spot with a small deposit. We'll confirm by WhatsApp within the hour."
           },
           "travel": {
@@ -208,7 +208,7 @@
           "guides": "Certified and vetted local guides",
           "meetingPoints": "Fixed, verified meeting points",
           "payments": "End-to-end encrypted payments",
-          "deposit": "15% deposit — rest due on the day",
+          "deposit": "25% deposit — rest due on the day",
           "whatsapp": "WhatsApp support throughout your trip",
           "flexible": "Free rescheduling up to 48 hours before"
         }
@@ -255,7 +255,7 @@
         "bullets": {
           "local": "Locally owned — all revenue stays within Boyacá communities",
           "reviews": "5.0★ from 5 verified travelers",
-          "payment": "Reserve with 15% — pay the rest on arrival",
+          "payment": "Reserve with 25% — pay the rest on arrival",
           "support": "WhatsApp support from booking to the day you leave"
         }
       }
@@ -315,12 +315,12 @@
     },
     "finalCta": {
       "title": "Your Boyacá experience starts with one date.",
-      "subtitle": "Reserve with 15% today. Your local host confirms details by WhatsApp.",
+      "subtitle": "Reserve with 25% today. Your local host confirms details by WhatsApp.",
       "primaryCta": "Reserve your experience",
       "secondaryCta": "Ask us on WhatsApp first",
       "bookAria": "Reserve your Andean Scapes experience",
       "badges": {
-        "deposit": "15% deposit to confirm",
+        "deposit": "25% deposit to confirm",
         "secure": "Encrypted payment",
         "cancellation": "Free cancellation 48h before",
         "verified": "Vetted hosts"
@@ -475,6 +475,10 @@
     },
     "smallGroups": "Small groups",
     "localGuides": "Expert local guides",
+    "twoMines": "2 emerald mines",
+    "horsebackRiding": "Horseback riding",
+    "allMeals": "All meals",
+    "haciendaStay": "Hacienda stay",
     "cards": {
       "culture": {
         "title": "Andean Culture Route",
@@ -490,10 +494,10 @@
     "whatsappCta": "Chat on WhatsApp",
     "whatsappMiningQuote": "Hello! I'm interested in the Emerald Mining Adventure at Hacienda El Recuerdo in Chivor. Can you help me with availability?"
   },
-  "EmeraldMiningAdventure": {
-    "metaTitle": "Book Your Emerald Mining Adventure | Andean Scapes",
-    "metaDescription": "Discover Colombia's emerald mines with a 2D/1N Hacienda El Recuerdo stay in Chivor - Boyacá, meals, workshop and transport coordination included.",
-    "title": "Emerald Mining Adventure",
+  "ChivorEmeraldCore": {
+    "metaTitle": "Chivor CORE: Emerald Mine Tour + Hacienda | Andean Scapes",
+    "metaDescription": "Experience Colombia's Chivor emerald mines with a 2D/1N Hacienda El Recuerdo stay, meals and a gem-sorting workshop.",
+    "title": "Chivor: 2-Day Emerald Mine Tour CORE w/ Hacienda Stay",
     "subtitle": "2D/1N emerald mining experience with Hacienda El Recuerdo stay in Chivor, Boyacá",
     "selectDate": "Select your date",
     "selectPeople": "How many people?",
@@ -518,7 +522,40 @@
     "includesDetails": "See details",
     "pricePerPerson": "Price per person",
     "totalPrice": "Total price",
-    "depositPercent": "Deposit (15%)",
+    "depositPercent": "Deposit (25%)",
+    "paymentButton": "Continue to payment",
+    "termsCheckbox": "I accept the terms and conditions",
+    "whatsappCta": "Or inquire via WhatsApp"
+  },
+  "ChivorEmeraldPrime": {
+    "metaTitle": "Chivor PRIME: 2 Emerald Mines + Horseback | Andean Scapes",
+    "metaDescription": "Explore two Chivor emerald mines with horseback riding, a 2D/1N Hacienda El Recuerdo stay, meals and a gem-sorting workshop.",
+    "title": "Chivor: 2-Day Emerald Tour PRIME — 2 Mines, Horseback & Hacienda Stay",
+    "subtitle": "2D/1N emerald mining experience with horseback riding and Hacienda El Recuerdo stay in Chivor, Boyacá",
+    "selectDate": "Select your date",
+    "selectPeople": "How many people?",
+    "peopleCountLabel": "Number of people",
+    "roomModeLabel": "Room type",
+    "roomModePrivate": "Private",
+    "roomModeCouple": "Couple",
+    "transportLabel": "How would you prefer to arrive?",
+    "transportNoOwnCar": "I don't have my own car",
+    "transportHaveOwnCar": "I have my own 4x4",
+    "transportBus": "Bus transport",
+    "contactLabel": "Contact information",
+    "nameLabel": "Name",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email (optional)",
+    "includesTitle": "What's included?",
+    "includesItem1": "1 night with private bathroom",
+    "includesItem2": "Meals (breakfast, lunch, dinner)",
+    "includesItem3": "Mine tour with horseback riding",
+    "includesItem4": "Emerald sorting workshop",
+    "includesItem5": "Transport from Hacienda El Recuerdo",
+    "includesDetails": "See details",
+    "pricePerPerson": "Price per person",
+    "totalPrice": "Total price",
+    "depositPercent": "Deposit (25%)",
     "paymentButton": "Continue to payment",
     "termsCheckbox": "I accept the terms and conditions",
     "whatsappCta": "Or inquire via WhatsApp"
@@ -638,6 +675,7 @@
       "emailHelper": "Optional - for additional confirmation",
       "startingPoint": "Starting point: Chivor (urban area)",
       "howToArrive": "How will you arrive?",
+      "transportNote": "Choose how you'll arrive — travel to Chivor isn't part of the plan. Prefer not to drive? Add our round-trip transfer from Bogotá.",
       "roomMode": {
         "standard": "Standard Room",
         "family": "Family Room",
@@ -666,7 +704,7 @@
         "faq2Q": "What is the best season to visit?",
         "faq2A": "December to March offers the best weather in the Colombian Andes",
         "faq3Q": "How do I arrange transportation?",
-        "faq3A": "We provide transport from Chivor, or arrange from Bogotá upon request",
+        "faq3A": "Transport is not included. Drive yourself (a 4x4 is recommended for the final stretch), take the bus, or add our round-trip transfer from Bogotá when you book.",
         "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
         "checkDatesBtn": "Check Dates",
         "talkToHostBtn": "Talk to Host",
@@ -675,12 +713,16 @@
         "valueStackPrivateMineAccess": "Private Mine Access",
         "valueStackLocalExpertGuides": "Local Expert Guides",
         "valueStackAllMealsIncluded": "All Meals Included",
-        "valueStackPremiumTransport": "Premium 4x4 Transport",
+        "valueStackHaciendaStay": "Hacienda Stay Included",
+        "valueStackTwoMines": "2 Emerald Mines",
+        "valueStackHorsebackRiding": "Horseback Riding",
         "accommodationTitle": "Your Stay",
         "selectYourStayTitle": "Stay Options",
         "addonsTitle": "Optional Extras",
         "addonsPerPerson": "per person",
         "addonsTeamConfirmation": "The team confirms availability and final price",
+        "addonsIncludedLabel": "Included",
+        "addonsIncludedNote": "Included in your plan. Optional to join, not refundable if skipped.",
         "hostChoiceLabel": "Host's Choice",
         "selectedLabel": "Selected",
         "tierBadgeHeritage": "Heritage / Traditional",
@@ -701,6 +743,9 @@
         "perPersonPerNightLabel": "/person/night",
         "includedServicesLabel": "Included Services",
         "roomCapacityLabel": "Up to {count} guests"
+      },
+      "packageTags": {
+        "allInclusive": "All-inclusive stay"
       }
     },
     "tiers": {
@@ -780,10 +825,10 @@
         "goodToKnow2": "No WiFi — full digital detox experience"
       }
     },
-    "emeraldMining": {
-      "title": "Emerald Mining Adventure",
+    "chivorEmeraldCore": {
+      "title": "Chivor: 2-Day Emerald Mine Tour CORE w/ Hacienda Stay",
       "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
-      "description": "Discover the depths of Colombia's most famous emerald mine",
+      "description": "Go underground in a working Chivor emerald mine, learn gem sorting and overnight at a traditional hacienda.",
       "includesFullDetails": "Includes bilingual specialized guide, safety equipment, local transport coordination from Hacienda El Recuerdo, accident insurance, meals and emerald workshop.",
       "includes": {
         "guide": "Specialized guide",
@@ -862,34 +907,19 @@
         "insurance": "Travel insurance",
         "mineAccess": "Exclusive mine access",
         "workshop": "Gem classification workshop",
-        "smallGroups": "Small groups (max 10 people)"
+        "smallGroups": "Small groups (max 10 people)",
+        "healthInsurance": "Health insurance"
       },
       "notIncluded": {
         "airportTransfer": "Airport transport",
         "drinks": "Personal drinks",
-        "souvenirs": "Souvenir gems"
+        "souvenirs": "Souvenir gems",
+        "transportToChivor": "Transport to Chivor (round-trip transfer from Bogotá available as an add-on)"
       },
       "itinerary": {
-        "day1Title": "Day 1 — Mining Expedition",
-        "day2Title": "Day 2 — Discovery & Farewell",
-        "stop1Title": "Enter the Emerald Mine",
-        "stop1ShortDesc": "Colombia's most historic emerald mine awaits",
-        "stop1Desc": "Begin your mining adventure in one of Colombia's most historic emerald mines",
-        "stop2Title": "Explore Secondary Mine & Sorting Workshop",
+        "stop2Title": "Emerald Sorting Workshop",
         "stop2ShortDesc": "Learn professional gem grading and sorting",
-        "stop2Desc": "Visit an additional emerald deposit and learn professional grading techniques",
-        "stop3Title": "Check-in at Your Stay",
-        "stop3ShortDesc": "Settle into your selected accommodation",
-        "stop3Desc": "Settle into your selected accommodation tier",
-        "stop4Title": "Traditional Andean Breakfast",
-        "stop4ShortDesc": "Start day two with authentic Andean flavors",
-        "stop4Desc": "Start day two with authentic local flavors",
-        "stop5Title": "Gemology Masterclass",
-        "stop5ShortDesc": "Expert insights into emerald quality and origins",
-        "stop5Desc": "Expert insights into emerald quality, origins, and the industry",
-        "stop6Title": "Final Sorting & Farewell",
-        "stop6ShortDesc": "Certificate ceremony and farewell",
-        "stop6Desc": "Reflect on the journey and receive your certificate of participation"
+        "stop2Desc": "Learn professional grading and sorting techniques at the hacienda workshop."
       },
       "addons": {
         "apiaryCattle": {
@@ -909,6 +939,151 @@
         "goodToKnow1": "Basic Fitness Required",
         "goodToKnow2": "Closed Shoes Recommended",
         "goodToKnow3": "Small Group Setting"
+      }
+    },
+    "chivorEmeraldPrime": {
+      "title": "Chivor: 2-Day Emerald Tour PRIME — 2 Mines, Horseback & Hacienda Stay",
+      "subtitle": "All-inclusive premium experience in Chivor (Boyaca), Colombia 🇨🇴",
+      "description": "Explore two emerald mines, ride horseback through the Chivor countryside and unwind at a traditional hacienda.",
+      "includesFullDetails": "Includes bilingual specialized guide, safety equipment, local transport coordination from Hacienda El Recuerdo, accident insurance, meals and emerald workshop.",
+      "includes": {
+        "guide": "Specialized guide",
+        "equipment": "Safety equipment",
+        "transport": "Local transport coordination",
+        "insurance": "Accident insurance"
+      },
+      "transport": {
+        "carNo4x4": "Personal Car (Non-4x4)",
+        "carNo4x4Description": "Additional local 4x4 transport cost applies",
+        "have4x4": "I have 4x4",
+        "have4x4Description": "No additional cost",
+        "bus": "Public Bus",
+        "busDescription": "Local transfer included from terminal",
+        "roundtripTransfer": "Private round-trip transfer",
+        "roundtripTransferDescription": "Private vehicle service, max 4 people per vehicle"
+      },
+      "roomMode": {
+        "standardSingle": "Standard Room (1)",
+        "standardCouple": "Standard Room (2)",
+        "familySingle": "Family Room (1)",
+        "familyCouple": "Family Room (2)",
+        "familyThree": "Family Room (3)",
+        "cabinSingle": "Cabin (1)",
+        "cabinCouple": "Cabin (2)",
+        "cabinSix": "Cabin (6)",
+        "standard": "Standard Room",
+        "family": "Family Room",
+        "cabin": "Cabin"
+      },
+      "experienceDetails": {
+        "selectDate": "Select a date",
+        "overviewTitle": "Experience Overview",
+        "valuePropositionsTitle": "The Emerald Mining Difference",
+        "tile1Title": "Authentic Mining",
+        "tile1Desc": "Experience real emerald mining with expert local guides in historic mines",
+        "tile2Title": "Rare Local Access",
+        "tile2Desc": "Exclusive access to working emerald mines and sorting workshops",
+        "tile3Title": "Nature & Culture",
+        "tile3Desc": "Immerse yourself in authentic Andean culture and mountain landscapes",
+        "tripLogisticsTitle": "Trip Logistics & Detailed Inclusions",
+        "itineraryTitle": "Interactive Itinerary",
+        "includedLabel": "Included",
+        "notIncludedLabel": "Not Included",
+        "faqsTitle": "Frequently Asked Questions",
+        "hostPreparationTitle": "Host & Preparation",
+        "idealFor": "Ideal for",
+        "goodToKnow": "Good to Know",
+        "faq1Q": "What is the difficulty level?",
+        "faq1A": "Moderate hiking and basic fitness required for mine tours",
+        "faq2Q": "What is the best season to visit?",
+        "faq2A": "December to March offers the best weather in the Colombian Andes",
+        "faq3Q": "How do I arrange transportation?",
+        "faq3A": "We provide transport from Chivor, or arrange from Bogotá upon request",
+        "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
+        "checkDatesBtn": "Check Dates",
+        "talkToHostBtn": "Talk to Host",
+        "bookNowBtn": "Book Now"
+      },
+      "logistics": {
+        "start": "Start time",
+        "duration": "Duration",
+        "transport": "Transportation",
+        "difficulty": "Difficulty",
+        "end": "End time"
+      },
+      "logisticsValues": {
+        "duration": "2 days / 1 night",
+        "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+        "difficulty": "Moderate"
+      },
+      "included": {
+        "guide": "Expert mining guide",
+        "equipment": "Safety equipment",
+        "meals": "Meals (breakfast, lunch, dinner)",
+        "insurance": "Travel insurance",
+        "mineAccess": "Access to 2 emerald mines",
+        "workshop": "Gem classification workshop",
+        "smallGroups": "Small groups (max 10 people)",
+        "healthInsurance": "Health insurance"
+      },
+      "notIncluded": {
+        "airportTransfer": "Airport transport",
+        "drinks": "Personal drinks",
+        "souvenirs": "Souvenir gems",
+        "transportToChivor": "Transport to Chivor (round-trip transfer from Bogotá available as an add-on)"
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Beekeeping & Livestock",
+          "description": "Guided beekeeping and livestock activities at Hacienda El Recuerdo. Available on the 2D/1N plan."
+        },
+        "horsebackRiding": {
+          "label": "Guided Horseback Ride",
+          "description": "A guided ride along the area's rural trails. Quoted separately from the plan total."
+        }
+      },
+      "host": {
+        "bio": "Local host specialized in emerald mining routes and Andean cultural experiences.",
+        "idealFor1": "Adventure Seekers",
+        "idealFor2": "Culture Enthusiasts",
+        "idealFor3": "Nature Lovers",
+        "goodToKnow1": "Basic Fitness Required",
+        "goodToKnow2": "Closed Shoes Recommended",
+        "goodToKnow3": "Small Group Setting"
+      },
+      "itinerary": {
+        "day1Title": "Day 1 — Two Mines & Horseback",
+        "day2Title": "Day 2 — Morning at the Hacienda",
+        "stop1Title": "Welcome breakfast",
+        "stop1ShortDesc": "A Colombian breakfast to start the day",
+        "stop1Desc": "Start your Chivor adventure with a traditional Colombian breakfast before heading into the emerald mountains.",
+        "stop2Title": "Emerald history & jewelry talk",
+        "stop2ShortDesc": "Local artisans on mining life",
+        "stop2Desc": "An introductory talk with local artisans on emerald history, mining life and basic jewelry making.",
+        "stop3Title": "Chivor mines panoramic viewpoint",
+        "stop3ShortDesc": "Sweeping views of the emerald valley",
+        "stop3Desc": "Take in panoramic views of Chivor's emerald mining landscape — the mountains and the mining area from a spectacular vantage point.",
+        "stop4Title": "Guided visit to a real emerald mine",
+        "stop4ShortDesc": "Helmet, lights and a safety briefing",
+        "stop4Desc": "A guided visit inside a real emerald mine, with helmet, lights and a clear safety briefing.",
+        "stop5Title": "Traditional fiambre lunch",
+        "stop5ShortDesc": "Colombian fiambre on plantain leaf",
+        "stop5Desc": "Enjoy a traditional Colombian fiambre lunch at Hacienda El Recuerdo, served on plantain leaf after the mine visit.",
+        "stop6Title": "Horseback ride to a second mine",
+        "stop6ShortDesc": "Ride through the hills of Mundo Nuevo",
+        "stop6Desc": "Ride on horseback through the emerald hills of Mundo Nuevo to the entrance of an artisanal mine.",
+        "stop7Title": "Meet Chivor's artisanal miners",
+        "stop7ShortDesc": "Ancestral know-how, passed down generations",
+        "stop7Desc": "Visit a second emerald mine and discover how Chivor's artisanal miners work, using ancestral knowledge and traditions passed down through generations.",
+        "stop8Title": "Dinner at Hacienda El Recuerdo",
+        "stop8ShortDesc": "Home-cooked Andean dinner",
+        "stop8Desc": "A home-cooked Andean dinner at the farm, with local ingredients and family service.",
+        "stop9Title": "One night at a private hacienda",
+        "stop9ShortDesc": "Private room with its own bathroom",
+        "stop9Desc": "Spend the night at Hacienda El Recuerdo in a comfortable private room with its own bathroom, surrounded by the Chivor mountains.",
+        "stop10Title": "Breakfast at the hacienda",
+        "stop10ShortDesc": "A calm Andean morning",
+        "stop10Desc": "Wake up to a peaceful Andean landscape and enjoy a traditional Colombian breakfast at Hacienda El Recuerdo."
       }
     }
   },

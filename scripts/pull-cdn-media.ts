@@ -14,7 +14,7 @@
  * `/videos/...` string in `fixtures/` (what is published) and
  * `feed-migration/next/` (what is staged) is pulled, so publishing new media
  * needs no change here. Neither directory is refreshed by this script — run
- * `npm run fixtures:fetch` / `npm run feed:stage-cdn-media` if they are stale.
+ * `npm run fixtures:fetch` if they are stale.
  *
  * Behaviour on failure is deliberate:
  *   - a referenced object 404s      -> exit 1. The feed points at media that is
@@ -160,9 +160,7 @@ async function main(): Promise<void> {
   if (referenced.size === 0) {
     console.log(
       `[media:pull] ${fileCount} feed payload(s) reference no CDN media — nothing to mirror. ` +
-        'Media currently ships from public/assets. Run `npm run feed:stage-cdn-media` to ' +
-        'stage the CDN migration, or `npm run fixtures:fetch` if the published feed has ' +
-        'since gained a `media` block.',
+        'Run `npm run fixtures:fetch` if the published feed has since gained a `media` block.',
     );
     return;
   }

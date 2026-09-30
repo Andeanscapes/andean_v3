@@ -19,6 +19,8 @@ export const FEATURED_FIXTURE: LandingFeaturedExperiencesContent = {
       currency: 'COP',
       fromLabel: 'From',
       viewDetailsLabel: 'View details',
+      highlights: ['2 emerald mines', 'Horseback riding'],
+      packageTags: [{ label: 'All-inclusive stay', variant: 'warning' }],
     },
     {
       id: 'ancestral-pottery-experience',
@@ -34,6 +36,8 @@ export const FEATURED_FIXTURE: LandingFeaturedExperiencesContent = {
       currency: 'COP',
       fromLabel: 'From',
       viewDetailsLabel: 'View details',
+      highlights: [],
+      packageTags: [],
     },
   ],
 };

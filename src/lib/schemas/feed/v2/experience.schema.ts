@@ -12,6 +12,7 @@ import {
   ItineraryCategoryCodeSchema,
   MediaPathSchema,
   NotIncludedCodeSchema,
+  PackageTagsSchema,
   PublicationStatusSchema,
   SlugSchema,
   ReviewSchema,
@@ -113,6 +114,8 @@ const ExperienceCoreSchema = z
       .strict(),
     included: z.array(IncludedCodeSchema).nonempty(),
     notIncluded: z.array(NotIncludedCodeSchema),
+    /** Canonical owner of the package badges; list and landing project it. */
+    packageTags: PackageTagsSchema,
   })
   .strict();
 
@@ -207,6 +210,7 @@ export const ExperienceFeedV2Schema = z
           id: AddonCodeSchema,
           pricePerPerson: z.number().int().nonnegative(),
           requiresTeamConfirmation: z.boolean(),
+          includedInPlan: z.boolean().optional(),
         })
         .strict(),
     ),
@@ -283,6 +287,16 @@ export const ExperienceFeedV2Schema = z
           code: 'custom',
           message: `availableDates spots (${date.spots}) exceed capacity.maximum (${feed.experience.capacity.maximum})`,
           path: ['availableDates', index, 'spots'],
+        });
+      }
+    });
+
+    feed.addons.forEach((addon, index) => {
+      if (addon.includedInPlan && addon.pricePerPerson !== 0) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `addon with includedInPlan=true must have pricePerPerson=0`,
+          path: ['addons', index, 'pricePerPerson'],
         });
       }
     });

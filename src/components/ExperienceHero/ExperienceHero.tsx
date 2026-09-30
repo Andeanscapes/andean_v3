@@ -3,12 +3,17 @@ import { Check } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
+import type { PackageTagContent } from '@/lib/schemas/experience.schema';
 
 interface ExperienceHeroProps {
   title: string;
   subtitle: string;
   widget: ReactNode;
   backgroundImageUrl?: string;
+  /** Translated value points, owned by the experience (see `valueStack` in the mapping). */
+  valueStack: readonly string[];
+  packageTags: readonly PackageTagContent[];
 }
 
 function ExperienceHeroComponent({
@@ -16,14 +21,10 @@ function ExperienceHeroComponent({
   subtitle,
   widget,
   backgroundImageUrl,
+  valueStack,
+  packageTags,
 }: ExperienceHeroProps) {
   const t = useTranslations('experiences.ui.experienceDetails');
-  const valueStack = [
-    t('valueStackPrivateMineAccess'),
-    t('valueStackLocalExpertGuides'),
-    t('valueStackAllMealsIncluded'),
-    t('valueStackPremiumTransport'),
-  ];
   return (
     <section className="relative w-full overflow-hidden">
       {backgroundImageUrl ? (
@@ -61,6 +62,8 @@ function ExperienceHeroComponent({
               <p className="mb-5 mt-4 max-w-xl text-sm font-medium leading-relaxed text-white/85 line-clamp-3 md:mb-6 md:mt-6 md:text-base md:line-clamp-none">
                 {t('experienceSummary')}
               </p>
+
+              <PackageTagBadges tags={packageTags} className="mb-3 md:mb-4" />
 
               <div className="grid grid-cols-2 gap-2 md:gap-x-6 md:gap-y-3">
                 {valueStack.map((item) => (

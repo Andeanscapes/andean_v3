@@ -616,7 +616,7 @@ admin_users   (id, email, role)
 
 ### MVP Scope (First Live Sale)
 
-- 1 live experience: **emerald-mining-adventure** (Emerald Mining Adventure)
+- 2 experiences (feed ids `chivorEmeraldCore`, `chivorEmeraldPrime`): **chivor-emerald-mine-tour** (Core) and **chivor-emerald-mine-horseback-tour** (Prime, horseback included). The legacy `emeraldMining` id is accepted only until the Chivor feed is published.
 - 3 locales: en / es / fr (seeded from current JSON files)
 - Public landing, list, and detail pages functional
 - Booking form: wire to `POST /api/v1/bookings/checkout`

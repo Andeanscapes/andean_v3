@@ -43,12 +43,18 @@ function OptionalExtrasComponent({ className = '', experienceData }: OptionalExt
                 <h3 className="text-lg font-semibold text-base-content md:text-xl">
                   {addon.label}
                 </h3>
-                <p className="whitespace-nowrap text-right text-lg font-bold text-base-content md:text-xl">
-                  {formatMoney(addon.pricePerPerson, locale, experienceData.config.currency)}
-                  <span className="block text-xs font-normal text-base-content/60">
-                    {addonsContent.perPersonLabel}
-                  </span>
-                </p>
+                {addon.includedInPlan ? (
+                  <Badge variant="success" size="sm">
+                    {addonsContent.includedLabel}
+                  </Badge>
+                ) : (
+                  <p className="whitespace-nowrap text-right text-lg font-bold text-base-content md:text-xl">
+                    {formatMoney(addon.pricePerPerson, locale, experienceData.config.currency)}
+                    <span className="block text-xs font-normal text-base-content/60">
+                      {addonsContent.perPersonLabel}
+                    </span>
+                  </p>
+                )}
               </div>
 
               {addon.description ? (
@@ -57,7 +63,13 @@ function OptionalExtrasComponent({ className = '', experienceData }: OptionalExt
                 </p>
               ) : null}
 
-              {addon.requiresTeamConfirmation ? (
+              {addon.includedInPlan ? (
+                <p className="mt-3 text-xs leading-relaxed text-base-content/60">
+                  {addonsContent.includedNoteLabel}
+                </p>
+              ) : null}
+
+              {addon.requiresTeamConfirmation && !addon.includedInPlan ? (
                 <Badge className="mt-4" variant="info" size="sm">
                   {addonsContent.teamConfirmationLabel}
                 </Badge>

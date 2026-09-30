@@ -1,45 +1,22 @@
-'use client';
+import PublicLayoutShell from './PublicLayoutShell';
+import { getFlagshipExperiencePathSSR } from '@/lib/services/landing.service';
 
-import { useState, useEffect } from 'react';
-import { usePathname } from '@/i18n/navigation';
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import {LayoutProvider} from "@/contexts/LayoutContext";
-import { useThemeContext } from "@/contexts/ThemeContext";
-import { FOOTER_TRUST_GALLERY } from "@/constant/SiteConfig";
-import { resolveMediaUrl } from "@/utils/mediaUrl";
-
-// Resolved once at module scope: `resolveMediaUrl` only reads a build-inlined
-// env var, so the result is constant for the life of the bundle and does not
-// need to be recomputed — or memoized — per render.
-const FOOTER_TRUST_GALLERY_URLS = FOOTER_TRUST_GALLERY.map(resolveMediaUrl);
-
-const Layout = ({ children }: { children: React.ReactNode }) => {
-    const variant = "transparent-V2" as const;
-    const [isSticky, setIsSticky] = useState(false);
-    const { theme } = useThemeContext();
-    const pathname = usePathname();
-    
-    const isExperiencesPage = pathname?.includes('/experiences/');
-    const mainPaddingClass = isExperiencesPage ? 'pb-0' : 'pb-24 lg:pb-30';
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsSticky(window.pageYOffset > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+/**
+ * Server boundary for the public chrome: resolves feed-owned data the footer
+ * links to, then hands off to the client shell for scroll/theme state.
+ *
+ * Trade-off, accepted deliberately: every public page now depends on
+ * `landing.json`, because the flagship is a landing-feed concept. The fetch is
+ * shared with the landing page (same path + revalidate), so it costs no extra
+ * request there, and an unavailable feed throws into the `[locale]` error
+ * boundary like any other service failure.
+ */
+export default async function PublicLayout({ children }: { children: React.ReactNode }) {
+    const flagshipExperiencePath = await getFlagshipExperiencePathSSR();
 
     return (
-        <LayoutProvider variant={variant} isSticky={isSticky}>
-            <Header hideBookingCta={isExperiencesPage} />
-            <main className={`${mainPaddingClass} bg-base-100 text-base-content`} data-theme={theme}>
-                {children}
-            </main>
-            <Footer trustGallery={FOOTER_TRUST_GALLERY_URLS} />
-        </LayoutProvider>
+        <PublicLayoutShell flagshipExperiencePath={flagshipExperiencePath}>
+            {children}
+        </PublicLayoutShell>
     );
 }
-
-export default Layout;

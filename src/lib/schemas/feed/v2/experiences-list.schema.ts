@@ -4,7 +4,9 @@ import {
   CardLocationSchema,
   DurationSchema,
   ExperienceIdSchema,
+  FEED_MAX_HIGHLIGHTS,
   HighlightCodeSchema,
+  PackageTagsSchema,
   MediaPathSchema,
   PricingSchema,
   PublicationStatusSchema,
@@ -33,7 +35,8 @@ export const ExperiencesListEntryV2Schema = z
         duration: DurationSchema,
         location: CardLocationSchema,
         badgeCode: BadgeCodeSchema.optional(),
-        highlightCodes: z.array(HighlightCodeSchema).max(3).default([]),
+        highlightCodes: z.array(HighlightCodeSchema).max(FEED_MAX_HIGHLIGHTS).default([]),
+        packageTags: PackageTagsSchema,
       })
       .strict(),
   })

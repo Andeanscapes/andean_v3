@@ -11,12 +11,13 @@ import type {
   ExperienceId,
   IncludedCode,
   NotIncludedCode,
+  PackageTagCode,
   RoomMode,
   RoomType,
   TransportMode,
 } from '@/lib/schemas/feed/v2';
 
-interface ExperienceI18nMap {
+export interface ExperienceI18nMap {
   title: string;
   subtitle: string;
   description: string;
@@ -56,89 +57,241 @@ interface ExperienceI18nMap {
     }
   >;
   reviews: Record<string, string>;
+  /**
+   * Hero value points, in display order. Per experience because tiers differ:
+   * a higher tier lists everything the lower one does, then its extras.
+   */
+  valueStack: readonly string[];
 }
 
+const CHIVOR_EMERALD_CORE_I18N = {
+  title: 'experiences.chivorEmeraldCore.title',
+  subtitle: 'experiences.chivorEmeraldCore.subtitle',
+  description: 'experiences.chivorEmeraldCore.description',
+  transport: {
+    car_no_4x4: {
+      label: 'experiences.chivorEmeraldCore.transport.carNo4x4',
+      description: 'experiences.chivorEmeraldCore.transport.carNo4x4Description',
+    },
+    have_4x4: {
+      label: 'experiences.chivorEmeraldCore.transport.have4x4',
+      description: 'experiences.chivorEmeraldCore.transport.have4x4Description',
+    },
+    bus: {
+      label: 'experiences.chivorEmeraldCore.transport.bus',
+      description: 'experiences.chivorEmeraldCore.transport.busDescription',
+    },
+    roundtrip_transfer: {
+      label: 'experiences.chivorEmeraldCore.transport.roundtripTransfer',
+      description: 'experiences.chivorEmeraldCore.transport.roundtripTransferDescription',
+    },
+  },
+  roomMode: {
+    standard_single: 'experiences.chivorEmeraldCore.roomMode.standardSingle',
+    standard_couple: 'experiences.chivorEmeraldCore.roomMode.standardCouple',
+    family_single: 'experiences.chivorEmeraldCore.roomMode.familySingle',
+    family_couple: 'experiences.chivorEmeraldCore.roomMode.familyCouple',
+    family_3: 'experiences.chivorEmeraldCore.roomMode.familyThree',
+    cabin_single: 'experiences.chivorEmeraldCore.roomMode.cabinSingle',
+    cabin_couple: 'experiences.chivorEmeraldCore.roomMode.cabinCouple',
+    cabin_6: 'experiences.chivorEmeraldCore.roomMode.cabinSix',
+  },
+  difficulty: {
+    moderate: 'experiences.chivorEmeraldCore.logisticsValues.difficulty',
+  },
+  logistics: {
+    start: 'experiences.chivorEmeraldCore.logistics.start',
+    duration: 'experiences.chivorEmeraldCore.logistics.duration',
+    transport: 'experiences.chivorEmeraldCore.logistics.transport',
+    difficulty: 'experiences.chivorEmeraldCore.logistics.difficulty',
+    durationValue: 'experiences.chivorEmeraldCore.logisticsValues.duration',
+    transportValue: 'experiences.chivorEmeraldCore.logisticsValues.transport',
+  },
+  included: {
+    guide: 'experiences.chivorEmeraldCore.included.guide',
+    equipment: 'experiences.chivorEmeraldCore.included.equipment',
+    meals: 'experiences.chivorEmeraldCore.included.meals',
+    insurance: 'experiences.chivorEmeraldCore.included.insurance',
+    mineAccess: 'experiences.chivorEmeraldCore.included.mineAccess',
+    workshop: 'experiences.chivorEmeraldCore.included.workshop',
+    smallGroups: 'experiences.chivorEmeraldCore.included.smallGroups',
+    healthInsurance: 'experiences.chivorEmeraldCore.included.healthInsurance',
+  },
+  notIncluded: {
+    airportTransfer: 'experiences.chivorEmeraldCore.notIncluded.airportTransfer',
+    drinks: 'experiences.chivorEmeraldCore.notIncluded.drinks',
+    souvenirs: 'experiences.chivorEmeraldCore.notIncluded.souvenirs',
+    transportToChivor: 'experiences.chivorEmeraldCore.notIncluded.transportToChivor',
+  },
+  addons: {
+    apiary_cattle: {
+      label: 'experiences.chivorEmeraldCore.addons.apiaryCattle.label',
+      description: 'experiences.chivorEmeraldCore.addons.apiaryCattle.description',
+    },
+    horseback_riding: {
+      label: 'experiences.chivorEmeraldCore.addons.horsebackRiding.label',
+      description: 'experiences.chivorEmeraldCore.addons.horsebackRiding.description',
+    },
+  },
+  host: {
+    bio: 'experiences.chivorEmeraldCore.host.bio',
+    idealFor: [
+      'experiences.chivorEmeraldCore.host.idealFor1',
+      'experiences.chivorEmeraldCore.host.idealFor2',
+      'experiences.chivorEmeraldCore.host.idealFor3',
+    ],
+    goodToKnow: [
+      'experiences.chivorEmeraldCore.host.goodToKnow1',
+      'experiences.chivorEmeraldCore.host.goodToKnow2',
+      'experiences.chivorEmeraldCore.host.goodToKnow3',
+    ],
+  },
+  tiers: {
+    heritage: {
+      tag: 'experiences.ui.experienceDetails.tierBadgeHeritage',
+      name: 'experiences.tiers.heritage.name',
+      description: 'experiences.tiers.heritage.desc',
+      rooms: {
+        standard: 'experiences.tiers.heritage.rooms.standard',
+        family: 'experiences.tiers.heritage.rooms.family',
+      },
+      days: {
+        '1': 'experiences.tiers.heritage.itinerary.day1Title',
+        '2': 'experiences.tiers.heritage.itinerary.day2Title',
+      },
+      stops: {
+        stop1: {
+          title: 'experiences.tiers.heritage.itinerary.stop1Title',
+          shortDesc: 'experiences.tiers.heritage.itinerary.stop1ShortDesc',
+          description: 'experiences.tiers.heritage.itinerary.stop1Desc',
+        },
+        // Core visits one mine: its stop 2 is the workshop only. The second
+        // mine is a Prime benefit, so Prime keeps the shared heritage copy.
+        stop2: {
+          title: 'experiences.chivorEmeraldCore.itinerary.stop2Title',
+          shortDesc: 'experiences.chivorEmeraldCore.itinerary.stop2ShortDesc',
+          description: 'experiences.chivorEmeraldCore.itinerary.stop2Desc',
+        },
+        stop3: {
+          title: 'experiences.tiers.heritage.itinerary.stop3Title',
+          shortDesc: 'experiences.tiers.heritage.itinerary.stop3ShortDesc',
+          description: 'experiences.tiers.heritage.itinerary.stop3Desc',
+        },
+        stop4: {
+          title: 'experiences.tiers.heritage.itinerary.stop4Title',
+          shortDesc: 'experiences.tiers.heritage.itinerary.stop4ShortDesc',
+          description: 'experiences.tiers.heritage.itinerary.stop4Desc',
+        },
+        stop5: {
+          title: 'experiences.tiers.heritage.itinerary.stop5Title',
+          shortDesc: 'experiences.tiers.heritage.itinerary.stop5ShortDesc',
+          description: 'experiences.tiers.heritage.itinerary.stop5Desc',
+        },
+        stop6: {
+          title: 'experiences.tiers.heritage.itinerary.stop6Title',
+          shortDesc: 'experiences.tiers.heritage.itinerary.stop6ShortDesc',
+          description: 'experiences.tiers.heritage.itinerary.stop6Desc',
+        },
+      },
+    },
+  },
+  valueStack: [
+    'experiences.ui.experienceDetails.valueStackPrivateMineAccess',
+    'experiences.ui.experienceDetails.valueStackLocalExpertGuides',
+    'experiences.ui.experienceDetails.valueStackAllMealsIncluded',
+    'experiences.ui.experienceDetails.valueStackHaciendaStay',
+  ],
+  reviews: {
+    carlosTulio: 'Landing.reviews.items.carlosTulio.comment',
+    anamaria: 'Landing.reviews.items.anamaria.comment',
+    odessa: 'Landing.reviews.items.odessa.comment',
+    sandraPatricia: 'Landing.reviews.items.sandraPatricia.comment',
+    camilo: 'Landing.reviews.items.camilo.comment',
+  },
+} as const satisfies ExperienceI18nMap;
+
 export const EXPERIENCE_I18N = {
-  emeraldMining: {
-    title: 'experiences.emeraldMining.title',
-    subtitle: 'experiences.emeraldMining.subtitle',
-    description: 'experiences.emeraldMining.description',
+  chivorEmeraldCore: CHIVOR_EMERALD_CORE_I18N,
+  chivorEmeraldPrime: {
+    title: 'experiences.chivorEmeraldPrime.title',
+    subtitle: 'experiences.chivorEmeraldPrime.subtitle',
+    description: 'experiences.chivorEmeraldPrime.description',
     transport: {
       car_no_4x4: {
-        label: 'experiences.emeraldMining.transport.carNo4x4',
-        description: 'experiences.emeraldMining.transport.carNo4x4Description',
+        label: 'experiences.chivorEmeraldPrime.transport.carNo4x4',
+        description: 'experiences.chivorEmeraldPrime.transport.carNo4x4Description',
       },
       have_4x4: {
-        label: 'experiences.emeraldMining.transport.have4x4',
-        description: 'experiences.emeraldMining.transport.have4x4Description',
+        label: 'experiences.chivorEmeraldPrime.transport.have4x4',
+        description: 'experiences.chivorEmeraldPrime.transport.have4x4Description',
       },
       bus: {
-        label: 'experiences.emeraldMining.transport.bus',
-        description: 'experiences.emeraldMining.transport.busDescription',
+        label: 'experiences.chivorEmeraldPrime.transport.bus',
+        description: 'experiences.chivorEmeraldPrime.transport.busDescription',
       },
       roundtrip_transfer: {
-        label: 'experiences.emeraldMining.transport.roundtripTransfer',
-        description: 'experiences.emeraldMining.transport.roundtripTransferDescription',
+        label: 'experiences.chivorEmeraldPrime.transport.roundtripTransfer',
+        description: 'experiences.chivorEmeraldPrime.transport.roundtripTransferDescription',
       },
     },
-    // Must cover every RoomModeSchema value, not just the ones this experience
-    // currently sells — the feed may enable a cabin tier without a deploy.
     roomMode: {
-      standard_single: 'experiences.emeraldMining.roomMode.standardSingle',
-      standard_couple: 'experiences.emeraldMining.roomMode.standardCouple',
-      family_single: 'experiences.emeraldMining.roomMode.familySingle',
-      family_couple: 'experiences.emeraldMining.roomMode.familyCouple',
-      family_3: 'experiences.emeraldMining.roomMode.familyThree',
-      cabin_single: 'experiences.emeraldMining.roomMode.cabinSingle',
-      cabin_couple: 'experiences.emeraldMining.roomMode.cabinCouple',
-      cabin_6: 'experiences.emeraldMining.roomMode.cabinSix',
+      standard_single: 'experiences.chivorEmeraldPrime.roomMode.standardSingle',
+      standard_couple: 'experiences.chivorEmeraldPrime.roomMode.standardCouple',
+      family_single: 'experiences.chivorEmeraldPrime.roomMode.familySingle',
+      family_couple: 'experiences.chivorEmeraldPrime.roomMode.familyCouple',
+      family_3: 'experiences.chivorEmeraldPrime.roomMode.familyThree',
+      cabin_single: 'experiences.chivorEmeraldPrime.roomMode.cabinSingle',
+      cabin_couple: 'experiences.chivorEmeraldPrime.roomMode.cabinCouple',
+      cabin_6: 'experiences.chivorEmeraldPrime.roomMode.cabinSix',
     },
     difficulty: {
-      moderate: 'experiences.emeraldMining.logisticsValues.difficulty',
+      moderate: 'experiences.chivorEmeraldPrime.logisticsValues.difficulty',
     },
     logistics: {
-      start: 'experiences.emeraldMining.logistics.start',
-      duration: 'experiences.emeraldMining.logistics.duration',
-      transport: 'experiences.emeraldMining.logistics.transport',
-      difficulty: 'experiences.emeraldMining.logistics.difficulty',
-      durationValue: 'experiences.emeraldMining.logisticsValues.duration',
-      transportValue: 'experiences.emeraldMining.logisticsValues.transport',
+      start: 'experiences.chivorEmeraldPrime.logistics.start',
+      duration: 'experiences.chivorEmeraldPrime.logistics.duration',
+      transport: 'experiences.chivorEmeraldPrime.logistics.transport',
+      difficulty: 'experiences.chivorEmeraldPrime.logistics.difficulty',
+      durationValue: 'experiences.chivorEmeraldPrime.logisticsValues.duration',
+      transportValue: 'experiences.chivorEmeraldPrime.logisticsValues.transport',
     },
     included: {
-      guide: 'experiences.emeraldMining.included.guide',
-      equipment: 'experiences.emeraldMining.included.equipment',
-      meals: 'experiences.emeraldMining.included.meals',
-      insurance: 'experiences.emeraldMining.included.insurance',
-      mineAccess: 'experiences.emeraldMining.included.mineAccess',
-      workshop: 'experiences.emeraldMining.included.workshop',
-      smallGroups: 'experiences.emeraldMining.included.smallGroups',
+      guide: 'experiences.chivorEmeraldPrime.included.guide',
+      equipment: 'experiences.chivorEmeraldPrime.included.equipment',
+      meals: 'experiences.chivorEmeraldPrime.included.meals',
+      insurance: 'experiences.chivorEmeraldPrime.included.insurance',
+      mineAccess: 'experiences.chivorEmeraldPrime.included.mineAccess',
+      workshop: 'experiences.chivorEmeraldPrime.included.workshop',
+      smallGroups: 'experiences.chivorEmeraldPrime.included.smallGroups',
+      healthInsurance: 'experiences.chivorEmeraldPrime.included.healthInsurance',
     },
     notIncluded: {
-      airportTransfer: 'experiences.emeraldMining.notIncluded.airportTransfer',
-      drinks: 'experiences.emeraldMining.notIncluded.drinks',
-      souvenirs: 'experiences.emeraldMining.notIncluded.souvenirs',
+      airportTransfer: 'experiences.chivorEmeraldPrime.notIncluded.airportTransfer',
+      drinks: 'experiences.chivorEmeraldPrime.notIncluded.drinks',
+      souvenirs: 'experiences.chivorEmeraldPrime.notIncluded.souvenirs',
+      transportToChivor: 'experiences.chivorEmeraldPrime.notIncluded.transportToChivor',
     },
     addons: {
       apiary_cattle: {
-        label: 'experiences.emeraldMining.addons.apiaryCattle.label',
-        description: 'experiences.emeraldMining.addons.apiaryCattle.description',
+        label: 'experiences.chivorEmeraldPrime.addons.apiaryCattle.label',
+        description: 'experiences.chivorEmeraldPrime.addons.apiaryCattle.description',
       },
       horseback_riding: {
-        label: 'experiences.emeraldMining.addons.horsebackRiding.label',
-        description: 'experiences.emeraldMining.addons.horsebackRiding.description',
+        label: 'experiences.chivorEmeraldPrime.addons.horsebackRiding.label',
+        description: 'experiences.chivorEmeraldPrime.addons.horsebackRiding.description',
       },
     },
     host: {
-      bio: 'experiences.emeraldMining.host.bio',
+      bio: 'experiences.chivorEmeraldPrime.host.bio',
       idealFor: [
-        'experiences.emeraldMining.host.idealFor1',
-        'experiences.emeraldMining.host.idealFor2',
-        'experiences.emeraldMining.host.idealFor3',
+        'experiences.chivorEmeraldPrime.host.idealFor1',
+        'experiences.chivorEmeraldPrime.host.idealFor2',
+        'experiences.chivorEmeraldPrime.host.idealFor3',
       ],
       goodToKnow: [
-        'experiences.emeraldMining.host.goodToKnow1',
-        'experiences.emeraldMining.host.goodToKnow2',
-        'experiences.emeraldMining.host.goodToKnow3',
+        'experiences.chivorEmeraldPrime.host.goodToKnow1',
+        'experiences.chivorEmeraldPrime.host.goodToKnow2',
+        'experiences.chivorEmeraldPrime.host.goodToKnow3',
       ],
     },
     tiers: {
@@ -150,44 +303,73 @@ export const EXPERIENCE_I18N = {
           standard: 'experiences.tiers.heritage.rooms.standard',
           family: 'experiences.tiers.heritage.rooms.family',
         },
+        // Prime runs its own itinerary: two mines, horseback, one night — not the shared heritage copy.
         days: {
-          '1': 'experiences.tiers.heritage.itinerary.day1Title',
-          '2': 'experiences.tiers.heritage.itinerary.day2Title',
+          '1': 'experiences.chivorEmeraldPrime.itinerary.day1Title',
+          '2': 'experiences.chivorEmeraldPrime.itinerary.day2Title',
         },
         stops: {
           stop1: {
-            title: 'experiences.tiers.heritage.itinerary.stop1Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop1ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop1Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop1Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop1ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop1Desc',
           },
           stop2: {
-            title: 'experiences.tiers.heritage.itinerary.stop2Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop2ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop2Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop2Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop2ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop2Desc',
           },
           stop3: {
-            title: 'experiences.tiers.heritage.itinerary.stop3Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop3ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop3Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop3Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop3ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop3Desc',
           },
           stop4: {
-            title: 'experiences.tiers.heritage.itinerary.stop4Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop4ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop4Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop4Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop4ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop4Desc',
           },
           stop5: {
-            title: 'experiences.tiers.heritage.itinerary.stop5Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop5ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop5Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop5Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop5ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop5Desc',
           },
           stop6: {
-            title: 'experiences.tiers.heritage.itinerary.stop6Title',
-            shortDesc: 'experiences.tiers.heritage.itinerary.stop6ShortDesc',
-            description: 'experiences.tiers.heritage.itinerary.stop6Desc',
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop6Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop6ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop6Desc',
+          },
+          stop7: {
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop7Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop7ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop7Desc',
+          },
+          stop8: {
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop8Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop8ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop8Desc',
+          },
+          stop9: {
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop9Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop9ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop9Desc',
+          },
+          stop10: {
+            title: 'experiences.chivorEmeraldPrime.itinerary.stop10Title',
+            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop10ShortDesc',
+            description: 'experiences.chivorEmeraldPrime.itinerary.stop10Desc',
           },
         },
       },
     },
+    valueStack: [
+      'experiences.ui.experienceDetails.valueStackPrivateMineAccess',
+      'experiences.ui.experienceDetails.valueStackLocalExpertGuides',
+      'experiences.ui.experienceDetails.valueStackAllMealsIncluded',
+      'experiences.ui.experienceDetails.valueStackHaciendaStay',
+      'experiences.ui.experienceDetails.valueStackTwoMines',
+      'experiences.ui.experienceDetails.valueStackHorsebackRiding',
+    ],
     reviews: {
       carlosTulio: 'Landing.reviews.items.carlosTulio.comment',
       anamaria: 'Landing.reviews.items.anamaria.comment',
@@ -196,9 +378,9 @@ export const EXPERIENCE_I18N = {
       camilo: 'Landing.reviews.items.camilo.comment',
     },
   },
+  /** Transitional alias — see `ExperienceIdSchema`. Remove after the Chivor feed is live. */
+  emeraldMining: CHIVOR_EMERALD_CORE_I18N,
 } as const satisfies Record<ExperienceId, ExperienceI18nMap>;
-
-export type ExperienceI18nMaps = typeof EXPERIENCE_I18N;
 
 /**
  * Per-experience i18n namespace used for page metadata.
@@ -211,5 +393,17 @@ export type ExperienceI18nMaps = typeof EXPERIENCE_I18N;
  * The v1 feed carried this per card; v2 drops it, so the frontend owns it.
  */
 export const EXPERIENCE_METADATA_NAMESPACE = {
-  emeraldMining: 'EmeraldMiningAdventure',
+  chivorEmeraldCore: 'ChivorEmeraldCore',
+  chivorEmeraldPrime: 'ChivorEmeraldPrime',
+  /** Transitional alias — see `ExperienceIdSchema`. */
+  emeraldMining: 'ChivorEmeraldCore',
 } as const satisfies Record<ExperienceId, string>;
+
+/**
+ * Package badges. The feed says which apply; the frontend owns the copy and
+ * the colour, so the "all-inclusive" and "not included" signals look the same
+ * on every card and hero.
+ */
+export const PACKAGE_TAG_I18N = {
+  allInclusive: { label: 'experiences.ui.packageTags.allInclusive', variant: 'warning' },
+} as const satisfies Record<PackageTagCode, { label: string; variant: 'warning' }>;

@@ -19,6 +19,7 @@ import type {
   HostContent,
   ItineraryContent,
 } from '@/lib/schemas';
+import { toPackageTags } from '@/utils/packageTags';
 
 // next-intl server `t` signature
 type Translator = (key: string, values?: Record<string, string | number>) => string;
@@ -48,6 +49,8 @@ export function toHeroContent(
     // reach `<img src="">` and the SEO/OG image builders as if it were a URL.
     backgroundImageUrl: config.images?.heroBackground,
     video: config.video,
+    valueStack: config.valueStack?.map((key) => t(key)),
+    packageTags: toPackageTags(config.packageTags, t),
     badges: [
       { label: t('experiences.ui.limitedSpots'), icon: 'limited' },
       { label: `${t('experiences.ui.depositLabel')} ${depositPercent}%`, icon: 'deposit' },
@@ -67,6 +70,7 @@ export function toWidgetContent(
     peopleLabel: t('experiences.ui.peopleLabel'),
     roomTypeLabel: t('experiences.ui.roomType'),
     howToArriveLabel: t('experiences.ui.howToArrive'),
+    transportNoteLabel: t('experiences.ui.transportNote'),
     checkDatesButtonLabel: t('experiences.ui.experienceDetails.checkDatesBtn'),
     securityLine: t('experiences.common.security'),
     freeCancellationLine: t('experiences.ui.freeCancellation'),
@@ -152,12 +156,15 @@ export function toAddonsContent(
     sectionTitle: t('experiences.ui.experienceDetails.addonsTitle'),
     perPersonLabel: t('experiences.ui.experienceDetails.addonsPerPerson'),
     teamConfirmationLabel: t('experiences.ui.experienceDetails.addonsTeamConfirmation'),
+    includedLabel: t('experiences.ui.experienceDetails.addonsIncludedLabel'),
+    includedNoteLabel: t('experiences.ui.experienceDetails.addonsIncludedNote'),
     items: rawData.addons.map((addon) => ({
       id: addon.id,
       label: t(addon.label),
       description: addon.description ? t(addon.description) : undefined,
       pricePerPerson: addon.pricePerPerson,
       requiresTeamConfirmation: addon.requiresTeamConfirmation,
+      includedInPlan: addon.includedInPlan,
     })),
   };
 }

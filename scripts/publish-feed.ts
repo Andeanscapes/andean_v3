@@ -13,8 +13,9 @@
  *
  * **Dry run is the default on purpose.** These payloads are real business data —
  * prices, availability, review counts — and publishing overwrites the live copy
- * with no versioning behind it. `feed:stage-cdn-media` writes a `rollback/`
- * snapshot precisely so this is reversible; `--rollback` republishes it.
+ * with no versioning behind it. The staging scripts (`feed:stage-hero-variants`)
+ * write a `rollback/` snapshot precisely so this is reversible; `--rollback`
+ * republishes it.
  *
  * Every payload is validated against the same schema the app applies on read
  * before it is uploaded. A payload that fails is not published, and nothing else
@@ -38,6 +39,7 @@ import {
   LANDING_FEED_FILE,
   experienceFeedFile,
 } from '../src/utils/feedPaths';
+import { resolveExperienceIds } from './lib/feed';
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const STAGING_DIR = path.join(REPO_ROOT, 'feed-migration');
@@ -56,20 +58,53 @@ const rollback = process.argv.includes('--rollback');
 
 const SOURCE_DIR = path.join(STAGING_DIR, rollback ? 'rollback' : 'next');
 
-/**
- * The three payloads, each with the schema the app validates it against on read.
- * `experienceFeedFile` rather than a hand-built name, so this cannot drift from
- * the path the services request.
- */
-const PAYLOADS = [
-  { file: LANDING_FEED_FILE, schema: LandingFeedV2Schema as ZodType<unknown> },
-  { file: EXPERIENCES_LIST_FEED_FILE, schema: ExperiencesListFeedV2Schema as ZodType<unknown> },
-  { file: experienceFeedFile('emeraldMining'), schema: ExperienceFeedV2Schema as ZodType<unknown> },
-] as const;
+interface Payload {
+  file: string;
+  schema: ZodType<unknown>;
+}
 
 function fail(message: string): never {
   console.error(`[feed:publish] ${message}`);
   process.exit(1);
+}
+
+/**
+ * The payloads, each with the schema the app validates it against on read.
+ *
+ * Experience files are derived from the staged list rather than hardcoded, so
+ * the published set always matches the ids the list routes to. `experienceFeedFile`
+ * rather than a hand-built name, so this cannot drift from the path the services
+ * request.
+ */
+function resolvePayloads(): Payload[] {
+  const listLocation = path.join(SOURCE_DIR, EXPERIENCES_LIST_FEED_FILE);
+  if (!existsSync(listLocation)) {
+    fail(`${EXPERIENCES_LIST_FEED_FILE} is missing from ${path.relative(REPO_ROOT, SOURCE_DIR)}/`);
+  }
+
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(listLocation, 'utf8'));
+  } catch (error) {
+    fail(`${EXPERIENCES_LIST_FEED_FILE}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  const list = ExperiencesListFeedV2Schema.safeParse(raw);
+  if (!list.success) {
+    fail(
+      `${EXPERIENCES_LIST_FEED_FILE} does not satisfy the schema the app validates on read:\n` +
+        JSON.stringify(list.error.format(), null, 2),
+    );
+  }
+
+  return [
+    { file: LANDING_FEED_FILE, schema: LandingFeedV2Schema as ZodType<unknown> },
+    { file: EXPERIENCES_LIST_FEED_FILE, schema: ExperiencesListFeedV2Schema as ZodType<unknown> },
+    ...resolveExperienceIds(list.data.experiences).map((id) => ({
+      file: experienceFeedFile(id),
+      schema: ExperienceFeedV2Schema as ZodType<unknown>,
+    })),
+  ];
 }
 
 function upload(file: string): void {
@@ -105,7 +140,7 @@ function main(): void {
   if (!existsSync(SOURCE_DIR)) {
     fail(
       `${path.relative(REPO_ROOT, SOURCE_DIR)} does not exist. ` +
-        'Run `npm run feed:stage-cdn-media` first.',
+        'Stage payloads first (e.g. `npm run feed:stage-hero-variants`).',
     );
   }
 
@@ -113,6 +148,8 @@ function main(): void {
     `[feed:publish] ${path.relative(REPO_ROOT, SOURCE_DIR)}/ -> ${BUCKET}/${KEY_PREFIX}/` +
       `${rollback ? '  (ROLLBACK)' : ''}`,
   );
+
+  const PAYLOADS = resolvePayloads();
 
   // Validate everything before uploading anything, so a bad payload cannot
   // result in a half-published feed.

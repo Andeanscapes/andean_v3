@@ -84,7 +84,8 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
 
   // Priority: heroContent (from service) > content (override) > build from config
   const resolvedContent: Required<
-    Omit<ExperienceHeroContent, 'video' | 'backgroundImageUrl'>
+    // `valueStack` and `packageTags` belong to the experience detail hero; this one does not render them.
+    Omit<ExperienceHeroContent, 'video' | 'backgroundImageUrl' | 'valueStack' | 'packageTags'>
   > = {
     title: heroContent?.title ?? content?.title ?? config?.title ?? '',
     subtitle: heroContent?.subtitle ?? content?.subtitle ?? config?.subtitle ?? '',

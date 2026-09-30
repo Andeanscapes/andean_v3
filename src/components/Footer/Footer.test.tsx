@@ -27,6 +27,8 @@ const GALLERY = [
   'https://cdn.example.com/images/brand/footer/ugc-4.webp',
 ];
 
+const FLAGSHIP_PATH = '/experiences/chivor-emerald-mine-tour';
+
 function renderFooter(
   trustGallery: string[] = GALLERY,
   locale: 'en' | 'es' | 'fr' = 'en',
@@ -35,7 +37,7 @@ function renderFooter(
 
   return render(
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <Footer trustGallery={trustGallery} />
+      <Footer trustGallery={trustGallery} flagshipExperiencePath={FLAGSHIP_PATH} />
     </NextIntlClientProvider>,
   );
 }
@@ -201,6 +203,20 @@ describe('Footer placeholder links', () => {
 
     return blocked;
   }
+
+  it('deep-links experience sections into the flagship path it is given', () => {
+    renderFooter();
+
+    expect(screen.getByRole('link', { name: 'Logistics' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#inclusions`,
+    );
+    expect(screen.getByRole('link', { name: 'Transportation' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#booking`,
+    );
+    expect(screen.getByRole('link', { name: 'Stay Options' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#accommodation`,
+    );
+  });
 
   it('keeps the WhatsApp action live', () => {
     renderFooter();

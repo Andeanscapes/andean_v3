@@ -202,6 +202,7 @@ function ExpericeWidgetComponent({
             <Select
               id={`${widgetId}-transport`}
               aria-labelledby={`${widgetId}-transport`}
+              aria-describedby={`${widgetId}-transport-note`}
               options={transportOptions.map((t) => ({ value: t.value, label: t.label }))}
               value={transportMode ?? ''}
               onChange={(v) => { if (v) setTransportMode(v as TransportMode); }}
@@ -210,6 +211,9 @@ function ExpericeWidgetComponent({
               optionClassName={selectOptionClass}
               optionHoverClassName={selectOptionHoverClass}
             />
+            <p id={`${widgetId}-transport-note`} className={`text-xs leading-snug ${bodyTextClass}`}>
+              {widgetContent?.transportNoteLabel}
+            </p>
           </div>
 
           <PrimaryCtaButton href={bookingHref} size="lg" className="w-full py-3 md:py-4">

@@ -51,7 +51,7 @@ describe('repository hygiene', () => {
     for (const file of [
       'fixtures/landing.json',
       'fixtures/experiences-list.json',
-      'fixtures/experience-emerald-mining.json',
+      'fixtures/experience-chivor-emerald-core.json',
       'fixtures-local/landing.json',
       'fixtures-local/experiences-list.json',
       'feed-migration/next/landing.json',

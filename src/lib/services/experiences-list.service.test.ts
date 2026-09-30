@@ -19,6 +19,7 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { EXPERIENCES_LIST_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { FEED_MAX_HIGHLIGHTS, HighlightCodeSchema } from '@/lib/schemas/feed/v2';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn(async () => (key: string) => key),
@@ -62,8 +63,10 @@ describe('getExperiencesListSSR', () => {
 
     const data = await getExperiencesListSSR('en');
 
-    expect(data.cards).toHaveLength(1);
-    expect(data.cards[0].price).toBe(feed.experiences[0].card.fromPrice.amount);
+    expect(data.cards).toHaveLength(feed.experiences.length);
+    expect(data.cards.map((card) => card.price)).toEqual(
+      feed.experiences.map((entry) => entry.card.fromPrice.amount),
+    );
     // One request total: the list feed. No per-card fan-out.
     expect(mockFetch).toHaveBeenCalledTimes(1);
   });
@@ -159,23 +162,41 @@ describe('getExperiencesListSSR', () => {
 
   it('excludes experiences that are not published', async () => {
     const feed = listFeed();
-    feed.experiences[0].status = 'draft';
+    const [draft, ...published] = feed.experiences;
+    draft.status = 'draft';
     stubFeed(feed);
 
     const data = await getExperiencesListSSR('en');
 
-    expect(data.cards).toEqual([]);
+    expect(data.cards.map((card) => card.id)).toEqual(published.map((entry) => entry.slug));
   });
 
-  it('caps card metadata at three chips', async () => {
+  it('keeps every highlight after the two fixed chips', async () => {
     const feed = listFeed();
-    feed.experiences[0].card.highlightCodes = ['transportIncluded', 'smallGroups', 'localGuides'];
+    feed.experiences[0].card.highlightCodes = ['localGuides', 'smallGroups', 'twoMines', 'horsebackRiding'];
     stubFeed(feed);
 
     const data = await getExperiencesListSSR('en');
 
-    // duration + startsIn + 3 highlights = 5 candidates, truncated to 3.
-    expect(data.cards[0].metadata).toHaveLength(3);
+    // duration + startsIn + 4 highlights (the schema maximum), none dropped.
+    expect(data.cards[0].metadata).toEqual([
+      'ExperiencesList.cardMeta.durationDaysNights',
+      'ExperiencesList.cardMeta.startsIn',
+      'ExperiencesList.localGuides',
+      'ExperiencesList.smallGroups',
+      'ExperiencesList.twoMines',
+      'ExperiencesList.horsebackRiding',
+    ]);
+  });
+
+  it('rejects a feed with more highlights than the schema allows', async () => {
+    expect(HighlightCodeSchema.options.length).toBeGreaterThan(FEED_MAX_HIGHLIGHTS);
+    const feed = listFeed();
+    // Every highlight code — one more than FEED_MAX_HIGHLIGHTS allows.
+    feed.experiences[0].card.highlightCodes = [...HighlightCodeSchema.options];
+    stubFeed(feed);
+
+    await expect(getExperiencesListSSR('en')).rejects.toThrow(/Experiences feed unavailable/);
   });
 
   it('throws when the feed is unavailable instead of rendering an empty catalog', async () => {

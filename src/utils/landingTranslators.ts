@@ -7,6 +7,7 @@
  */
 
 import type { LandingFeed, LandingContent } from '@/lib/schemas/landing.schema';
+import { toPackageTags } from '@/utils/packageTags';
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
@@ -25,6 +26,7 @@ export function toLandingFlagshipContent(
     subtitle: t(flagship.subtitleKey),
     description: t(flagship.descriptionKey),
     backgroundImage: flagship.backgroundImage,
+    packageTags: toPackageTags(flagship.packageTags, t),
     valueChips: flagship.valueChips.map((chip) => ({
       ...chip,
       label: t(chip.labelKey),
@@ -251,6 +253,8 @@ export function toLandingFeaturedExperiencesContent(
       currency: item.currency,
       fromLabel,
       viewDetailsLabel,
+      highlights: item.highlightKeys.map((key) => t(key)),
+      packageTags: toPackageTags(item.packageTags, t),
       nextAvailability: item.nextAvailability,
     })),
   };

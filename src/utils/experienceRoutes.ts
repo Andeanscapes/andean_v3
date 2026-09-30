@@ -12,7 +12,7 @@
  * Kept dependency-free so build scripts can import it.
  */
 
-/** `emerald-mining-adventure` -> `/experiences/emerald-mining-adventure` */
+/** `chivor-emerald-mine-tour` -> `/experiences/chivor-emerald-mine-tour` */
 export function experiencePath(slug: string, suffix = ''): string {
   return `/experiences/${slug}${suffix}`;
 }

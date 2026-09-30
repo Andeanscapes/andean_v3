@@ -10,9 +10,11 @@ import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface FooterProps {
     trustGallery: readonly string[];
+    /** Locale-free path of the landing flagship, from the feed. */
+    flagshipExperiencePath: string;
 }
 
-const Footer = ({ trustGallery }: FooterProps) => {
+const Footer = ({ trustGallery, flagshipExperiencePath }: FooterProps) => {
     const t = useTranslations('Footer');
     const [supportMode, setSupportMode] = useState<'whatsapp' | 'email'>('whatsapp');
     const [showBackToTop, setShowBackToTop] = useState(false);
@@ -44,13 +46,13 @@ const Footer = ({ trustGallery }: FooterProps) => {
     };
 
     const territoryLinks = [
-        { label: t('logistics'), href: '/experiences/emerald-mining-adventure#inclusions' },
-        { label: t('transportation'), href: '/experiences/emerald-mining-adventure#booking' },
-        { label: t('staySelection'), href: '/experiences/emerald-mining-adventure#accommodation' },
+        { label: t('logistics'), href: `${flagshipExperiencePath}#inclusions` },
+        { label: t('transportation'), href: `${flagshipExperiencePath}#booking` },
+        { label: t('staySelection'), href: `${flagshipExperiencePath}#accommodation` },
     ];
 
     const allyLinks = [
-        { label: t('allyHacienda'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
+        { label: t('allyHacienda'), href: `${flagshipExperiencePath}#accommodation`, isPartner: true },
         { label: t('allyExperiences'), href: '/experiences', isPartner: false },
     ];
 

@@ -33,7 +33,7 @@
 
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { LandingFeedV2Schema } from '../src/lib/schemas/feed/v2';
+import { ExperiencesListFeedV2Schema, LandingFeedV2Schema } from '../src/lib/schemas/feed/v2';
 import type { LandingFeedV2 } from '../src/lib/schemas/feed/v2';
 import { resolveMediaUrl } from '../src/utils/mediaUrl';
 import {
@@ -42,6 +42,7 @@ import {
   experienceFeedFile,
 } from '../src/utils/feedPaths';
 import { readLength } from './lib/cdn';
+import { resolveExperienceIds } from './lib/feed';
 import {
   BRAND_MEDIA_PREFIX,
   discoverHeroVariants,
@@ -55,16 +56,35 @@ const STAGING_DIR = path.join(REPO_ROOT, 'feed-migration');
 const NEXT_DIR = path.join(STAGING_DIR, 'next');
 const ROLLBACK_DIR = path.join(STAGING_DIR, 'rollback');
 
-/** `publish-feed.ts` uploads all three, so all three have to be staged. */
-const PAYLOAD_FILES = [
-  LANDING_FEED_FILE,
-  EXPERIENCES_LIST_FEED_FILE,
-  experienceFeedFile('emeraldMining'),
-] as const;
-
 function fail(message: string): never {
   console.error(`[stage-hero-variants] ${message}`);
   process.exit(1);
+}
+
+/**
+ * `publish-feed.ts` uploads every payload the list routes to, so all of them
+ * have to be staged. Derived from the list, like `publish-feed.ts`, so the two
+ * cannot disagree on the file set.
+ */
+function resolvePayloadFiles(): string[] {
+  const listPath = path.join(FIXTURES_DIR, EXPERIENCES_LIST_FEED_FILE);
+  if (!existsSync(listPath)) {
+    fail(`${EXPERIENCES_LIST_FEED_FILE} is missing from fixtures/. Run \`npm run fixtures:fetch\` first.`);
+  }
+
+  const list = ExperiencesListFeedV2Schema.safeParse(JSON.parse(readFileSync(listPath, 'utf8')));
+  if (!list.success) {
+    fail(
+      `fixtures/${EXPERIENCES_LIST_FEED_FILE} does not satisfy its schema:\n` +
+        JSON.stringify(list.error.format(), null, 2),
+    );
+  }
+
+  return [
+    LANDING_FEED_FILE,
+    EXPERIENCES_LIST_FEED_FILE,
+    ...resolveExperienceIds(list.data.experiences).map(experienceFeedFile),
+  ];
 }
 
 function localBrandFilenames(): string[] {
@@ -182,6 +202,8 @@ async function main(): Promise<void> {
         JSON.stringify(validated.error.format(), null, 2),
     );
   }
+
+  const PAYLOAD_FILES = resolvePayloadFiles();
 
   mkdirSync(NEXT_DIR, { recursive: true });
   mkdirSync(ROLLBACK_DIR, { recursive: true });

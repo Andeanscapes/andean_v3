@@ -62,7 +62,7 @@ deliberate denormalization, not an accident.
 
 | File | Publishes to | Owns / projects |
 |---|---|---|
-| `fixtures/experience-emerald-mining.json` | `<base>/experience-emerald-mining.json` | **Owner.** Pricing, deposit, capacity, inventory, transport, add-ons, availability, itinerary, host, reviews |
+| `fixtures/experience-<id>.json` (one per id in `experiences-list.json`, e.g. `experience-chivor-emerald-core.json`) | `<base>/experience-<id>.json` | **Owner.** Pricing, deposit, capacity, inventory, transport, add-ons, availability, itinerary, host, reviews |
 | `fixtures/experiences-list.json` | `<base>/experiences-list.json` | Catalog order + card projection (slug, status, image, fromPrice, duration, locality, badge/highlight codes) + optional list-hero image and video during rollout |
 | `fixtures/landing.json` | `<base>/landing.json` | Flagship/featured selection + landing projection (media, fromPrice, duration, full location, availability), optional brand media during rollout, review facts, aggregate, brand metrics |
 

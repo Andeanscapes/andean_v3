@@ -4,7 +4,8 @@
 
 import { z } from 'zod';
 import { CurrencyCodeSchema } from './currency.schema';
-import { ExperienceHeroContentSchema } from './experience.schema';
+import { FEED_MAX_HIGHLIGHTS } from './feed/v2/common.schema';
+import { ExperienceHeroContentSchema, PackageTagContentSchema } from './experience.schema';
 
 // Experience hero badge
 export const ExperienceHeroBadgeSchema = z.object({
@@ -34,7 +35,6 @@ export const ExperienceCardConfigSchema = z.object({
   tagKey: z.string(),
   trustKey: z.string(),
   priceQualifierKey: z.string().optional(),
-  metadataKeys: z.array(z.string()).max(3).optional(),
   price: z.number().optional(),
   // `experienceId` + `metadataNamespace` together make a card a *routable*
   // experience: they let the catalog derive slug -> id and the SEO namespace
@@ -56,6 +56,13 @@ export const ExperiencesListConfigSchema = z.object({
   cards: z.array(ExperienceCardConfigSchema),
 });
 
+/**
+ * Card chips: duration + start + every feed highlight. Derived from the feed
+ * limit and shared by the schema and the service, so no limit can drift again
+ * (one did: a stale `max(3)` here rejected cards the service had built).
+ */
+export const EXPERIENCE_CARD_MAX_CHIPS = 2 + FEED_MAX_HIGHLIGHTS;
+
 // Experience list card (translated version)
 export const ExperienceListCardSchema = z.object({
   id: z.string(),
@@ -66,7 +73,8 @@ export const ExperienceListCardSchema = z.object({
   /** ISO 4217 code from the card projection's `fromPrice`. Validated, not defaulted. */
   currency: CurrencyCodeSchema,
   priceQualifier: z.string().optional(),
-  metadata: z.array(z.string()).max(3),
+  metadata: z.array(z.string()).max(EXPERIENCE_CARD_MAX_CHIPS),
+  packageTags: z.array(PackageTagContentSchema),
   href: z.string(),
   /** Absent when the feed publishes no `badgeCode` for this experience. */
   tag: z.string().optional(),

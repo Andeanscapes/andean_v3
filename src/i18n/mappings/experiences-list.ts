@@ -16,6 +16,10 @@ export const EXPERIENCES_LIST_I18N = {
     transportIncluded: 'ExperiencesList.transportIncluded',
     smallGroups: 'ExperiencesList.smallGroups',
     localGuides: 'ExperiencesList.localGuides',
+    twoMines: 'ExperiencesList.twoMines',
+    horsebackRiding: 'ExperiencesList.horsebackRiding',
+    allMeals: 'ExperiencesList.allMeals',
+    haciendaStay: 'ExperiencesList.haciendaStay',
   } as const satisfies Record<HighlightCode, string>,
   /**
    * Parameterized card metadata. The v1 feed shipped the literals

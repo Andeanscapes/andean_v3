@@ -22,6 +22,8 @@ const addonsContent: NonNullable<ExperienceData['addonsContent']> = {
   sectionTitle: 'Adicionales opcionales',
   perPersonLabel: 'por persona',
   teamConfirmationLabel: 'El equipo confirma disponibilidad y valor final',
+  includedLabel: 'Incluido',
+  includedNoteLabel: 'Incluido en tu plan. Opcional participar, no reembolsable si no participa.',
   items: [
     {
       id: 'apiary_cattle',
@@ -34,6 +36,20 @@ const addonsContent: NonNullable<ExperienceData['addonsContent']> = {
       id: 'horseback_riding',
       label: 'Cabalgata guiada',
       pricePerPerson: 120000,
+    },
+  ],
+};
+
+/** Prime shape: horseback is part of the plan, priced at 0 and flagged. */
+const includedAddonsContent: NonNullable<ExperienceData['addonsContent']> = {
+  ...addonsContent,
+  items: [
+    {
+      id: 'horseback_riding',
+      label: 'Cabalgata guiada',
+      pricePerPerson: 0,
+      requiresTeamConfirmation: true,
+      includedInPlan: true,
     },
   ],
 };
@@ -90,5 +106,17 @@ describe('OptionalExtras', () => {
     render(<OptionalExtras experienceData={buildData(addonsContent)} />);
 
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
+  });
+
+  it('shows an included addon as included instead of a price', () => {
+    render(<OptionalExtras experienceData={buildData(includedAddonsContent)} />);
+
+    expect(screen.getByText('Incluido')).toBeInTheDocument();
+    expect(screen.getByText(addonsContent.includedNoteLabel)).toBeInTheDocument();
+    expect(screen.queryByText('por persona')).not.toBeInTheDocument();
+    expect(screen.queryByText(/\$\s?0/)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('El equipo confirma disponibilidad y valor final'),
+    ).not.toBeInTheDocument();
   });
 });

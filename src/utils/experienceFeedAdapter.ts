@@ -24,9 +24,14 @@
 
 import type { ExperienceData } from '@/lib/schemas';
 import type { ExperienceFeedV2, ItineraryCategoryCode } from '@/lib/schemas/feed/v2';
-import type { ExperienceI18nMaps } from '@/i18n/mappings/experience';
+import type { ExperienceI18nMap } from '@/i18n/mappings/experience';
 
-type ExperienceMapping = ExperienceI18nMaps[keyof ExperienceI18nMaps];
+/**
+ * The structural contract every experience mapping satisfies. Not the union of
+ * the literal tables: two experiences with different copy keys produce distinct
+ * literal types that generic helpers cannot unify.
+ */
+type ExperienceMapping = ExperienceI18nMap;
 
 /**
  * Resolve a key that the mapping declares as optional.
@@ -174,6 +179,8 @@ export function adaptExperienceFeedV2(
       id: experience.id,
       title: mapping.title,
       subtitle: mapping.subtitle,
+      valueStack: [...mapping.valueStack],
+      packageTags: feed.experience.packageTags,
       description: mapping.description,
       experiencePricePerPerson: experience.pricing.basePerPerson,
       currency: experience.pricing.currency,
@@ -258,6 +265,7 @@ export function adaptExperienceFeedV2(
       description: mapping.addons[addon.id].description,
       pricePerPerson: addon.pricePerPerson,
       requiresTeamConfirmation: addon.requiresTeamConfirmation,
+      includedInPlan: addon.includedInPlan,
     })),
     availableDates: feed.availableDates.map((date) => ({
       id: date.id,

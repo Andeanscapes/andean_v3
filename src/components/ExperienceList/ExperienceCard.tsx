@@ -5,6 +5,7 @@ import {Link} from '@/i18n/navigation';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import ExperienceCardImage from './ExperienceCardImage';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
 import type { ExperienceListCard } from '@/lib/schemas';
 
 export interface ExperienceCardProps {
@@ -36,17 +37,19 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
       </div>
 
       <div className="mt-2 flex flex-1 flex-col md:mt-3">
-        <h3 className="text-base font-semibold leading-tight text-primary md:text-lg md:leading-relaxed lg:text-xl">
+        <h3 className="text-base font-semibold leading-snug text-primary md:text-lg">
           {card.title}
         </h3>
-        <p className="mt-1 line-clamp-2 max-w-[36ch] text-[13px] leading-[1.38] text-primary/80 md:mt-2 md:max-w-none md:line-clamp-3 md:text-sm md:leading-relaxed md:text-primary/90">
+        <p className="mt-1 line-clamp-2 max-w-[36ch] text-[13px] leading-[1.38] text-primary/80 md:mt-2 md:max-w-none md:line-clamp-3 md:text-sm md:leading-normal md:text-primary/90">
           {card.description}
         </p>
+
+        <PackageTagBadges tags={card.packageTags} className="mt-2" />
 
         <div className="mt-2 space-y-1.5 md:mt-auto md:space-y-2.5 md:pt-3">
           {card.metadata.length > 0 ? (
             <div className="flex flex-wrap gap-1 md:gap-1.5">
-              {card.metadata.slice(0, 3).map((item) => (
+              {card.metadata.map((item) => (
                 <Badge
                   key={`${card.id}-${item}`}
                   variant="secondary"

@@ -26,6 +26,7 @@ import {
   ExperiencesListFeedV2Schema,
   LandingFeedV2Schema,
 } from '@/lib/schemas/feed/v2';
+import { experienceFeedFile } from '@/utils/feedPaths';
 
 const FIXTURES_DIR = path.resolve(__dirname, '../../../fixtures');
 
@@ -98,8 +99,28 @@ export const EXPERIENCES_LIST_FIXTURE = lazyFixture(() =>
   loadFixture('experiences-list.json', ExperiencesListFeedV2Schema),
 );
 
-export const EXPERIENCE_EMERALD_MINING_FIXTURE = lazyFixture(() =>
-  loadFixture('experience-emerald-mining.json', ExperienceFeedV2Schema),
+/**
+ * Experience payloads are derived from the downloaded feed, never named by id.
+ *
+ * Which experiences exist is business data: the ids change when the catalog
+ * does (the Core/Prime split replaced `emeraldMining`). Hardcoding a filename
+ * made the suite pass only on machines holding a stale copy, and fail in CI the
+ * moment the live feed and the branch disagreed.
+ */
+
+/** The landing flagship — the experience most service tests exercise. */
+export const EXPERIENCE_FIXTURE = lazyFixture(() =>
+  loadFixture(experienceFeedFile(LANDING_FIXTURE.flagshipExperienceId), ExperienceFeedV2Schema),
+);
+
+/** Every experience the list publishes, keyed by feed filename. */
+export const EXPERIENCE_FIXTURES = lazyFixture(() =>
+  Object.fromEntries(
+    EXPERIENCES_LIST_FIXTURE.experiences.map((entry) => {
+      const file = experienceFeedFile(entry.id);
+      return [file, loadFixture(file, ExperienceFeedV2Schema)];
+    }),
+  ),
 );
 
 /** Deep copy so a test mutating a payload cannot leak into another test. */

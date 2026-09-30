@@ -11,6 +11,7 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { EXPERIENCES_LIST_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/experience';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn(async () => (key: string) => key),
@@ -51,13 +52,14 @@ describe('getExperiencesCatalogSSR', () => {
   });
 
   it('derives the catalog from the list feed', async () => {
-    stubFeed([entry()]);
+    const published = entry();
+    stubFeed([published]);
 
     expect(await getExperiencesCatalogSSR()).toEqual([
       {
-        experienceId: 'emeraldMining',
-        experienceName: 'emerald-mining-adventure',
-        metadataNamespace: 'EmeraldMiningAdventure',
+        experienceId: published.id,
+        experienceName: published.slug,
+        metadataNamespace: EXPERIENCE_METADATA_NAMESPACE[published.id],
       },
     ]);
   });
@@ -69,13 +71,15 @@ describe('getExperiencesCatalogSSR', () => {
   });
 
   it('keeps experienceId and experienceName distinct', async () => {
-    stubFeed([entry()]);
+    const published = entry();
+    stubFeed([published]);
 
     const [item] = await getExperiencesCatalogSSR();
 
     // The slug drives the URL; the id drives the data file name.
-    expect(item.experienceName).toBe('emerald-mining-adventure');
-    expect(item.experienceId).toBe('emeraldMining');
+    expect(item.experienceName).toBe(published.slug);
+    expect(item.experienceId).toBe(published.id);
+    expect(item.experienceName).not.toBe(item.experienceId);
   });
 
   it('excludes an experience that is not published', async () => {
@@ -85,10 +89,11 @@ describe('getExperiencesCatalogSSR', () => {
   });
 
   it('resolves an experience by its route segment', async () => {
-    stubFeed([entry()]);
+    const published = entry();
+    stubFeed([published]);
 
-    const found = await getExperienceByNameSSR('emerald-mining-adventure');
-    expect(found?.experienceId).toBe('emeraldMining');
+    const found = await getExperienceByNameSSR(published.slug);
+    expect(found?.experienceId).toBe(published.id);
 
     expect(await getExperienceByNameSSR('does-not-exist')).toBeNull();
   });
