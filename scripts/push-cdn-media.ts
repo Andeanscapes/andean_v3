@@ -39,12 +39,13 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readdirSync, rmSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
 import { FOOTER_TRUST_GALLERY } from '../src/constant/SiteConfig';
 import { resolveMediaUrl } from '../src/utils/mediaUrl';
 import { getResponsiveImageSrc, hasImageExtension } from '../src/utils/responsiveImage';
-import { purgeCache, readLength } from './lib/cdn';
+import { purgeCache, readLength, sameContent, type LocalFingerprint } from './lib/cdn';
 import {
   isHeroVariantKey,
   nearestKey,
@@ -144,6 +145,12 @@ function collectUnder(accept: (key: string) => boolean): string[] {
 
 type Verdict = 'new' | 'changed' | 'current' | 'unreachable';
 
+function fingerprint(key: string): LocalFingerprint {
+  const bytes = readFileSync(path.join(CACHE_DIR, key));
+  return { size: bytes.byteLength, md5: createHash('md5').update(bytes).digest('hex') };
+}
+
+
 /**
  * Compare one local file against what **R2** holds.
  *
@@ -151,7 +158,7 @@ type Verdict = 'new' | 'changed' | 'current' | 'unreachable';
  * would mean re-uploading on every run for as long as a stale cache entry lived,
  * since uploading to R2 does not invalidate it.
  */
-async function classify(key: string, localSize: number): Promise<Verdict> {
+async function classify(key: string, local: LocalFingerprint): Promise<Verdict> {
   if (forced) return 'changed';
 
   const published = await readLength(resolveMediaUrl(key), true);
@@ -159,7 +166,7 @@ async function classify(key: string, localSize: number): Promise<Verdict> {
   if (published.status === 'absent') return 'new';
   if (published.status === 'unavailable') return 'unreachable';
 
-  return published.length === localSize ? 'current' : 'changed';
+  return sameContent(published, local) ? 'current' : 'changed';
 }
 
 /**
@@ -175,10 +182,9 @@ async function findStaleAtEdge(keys: readonly string[]): Promise<string[]> {
   const stale: string[] = [];
 
   for (const key of keys) {
-    const localSize = statSync(path.join(CACHE_DIR, key)).size;
     const edge = await readLength(resolveMediaUrl(key), false);
 
-    if (edge.status === 'found' && edge.length !== localSize) stale.push(key);
+    if (edge.status === 'found' && !sameContent(edge, fingerprint(key))) stale.push(key);
   }
 
   return stale;
@@ -248,6 +254,7 @@ function upload(key: string, localPath: string): void {
  * `media:push -- --crop=top` silently apply the default crop with no error.
  */
 const OPTIMIZE_FLAGS = [
+  '--dry-run',
   '--force',
   '--upscale',
   '--offline',
@@ -374,15 +381,13 @@ async function main(): Promise<void> {
     : new Set<string>();
 
   for (const key of keys) {
-    const localPath = path.join(CACHE_DIR, key);
-
     if (withSource.has(key)) {
       console.log(`  ~ ${key} (re-uploaded so its original can be removed)`);
       pending.push(key);
       continue;
     }
 
-    const verdict = await classify(key, statSync(localPath).size);
+    const verdict = await classify(key, fingerprint(key));
 
     if (verdict === 'current') {
       published.push(key);
@@ -421,7 +426,9 @@ async function main(): Promise<void> {
         `${published.length} already up to date.\n` +
         '[media:push] Re-run without --dry-run to upload.',
     );
-    await reportEdgeStaleness(keys);
+    // Only keys R2 already holds: a pending key differs at the edge because it
+    // has not been uploaded yet, not because of caching.
+    await reportEdgeStaleness(published);
     pruneConvertedSources(pending);
     return;
   }
@@ -444,13 +451,22 @@ async function main(): Promise<void> {
 
   console.log(`[media:push] ${uploaded} uploaded, ${published.length} unchanged, ${failed} failed`);
 
-  await invalidate(succeeded);
-  await reportEdgeStaleness(keys);
-  // Only this run's uploads. `published` is decided by `classify`, which compares
-  // `content-length` alone: a replaced source whose output happens to match the
-  // old byte length is reported `current`, never uploaded, and pruning on that
-  // basis would delete the only full-resolution copy while the CDN still serves
-  // the previous bytes. R2 has no object versioning, so that is unrecoverable.
+  // Purge only what a visitor would still get the old bytes for. When the edge
+  // does not cache these objects it already serves the new ones, and attempting
+  // a purge anyway turned a clean upload into an "Authentication error" for a
+  // token that cannot purge — noise that read as a failed sync.
+  const staleUploads = await findStaleAtEdge(succeeded);
+  if (staleUploads.length > 0) {
+    await invalidate(staleUploads);
+  } else if (succeeded.length > 0) {
+    console.log(`[media:push] verified: the CDN serves the new version of all ${succeeded.length} upload(s)`);
+  }
+  await reportEdgeStaleness(published);
+  // Only this run's uploads. `classify` compares content hashes, but falls back
+  // to `content-length` for an ETag that is not an MD5, where a replaced source of
+  // the same byte length would read as `current`. Pruning on that basis would
+  // delete the only full-resolution copy while the CDN still serves the previous
+  // bytes, and R2 has no object versioning — so pruning trusts uploads only.
   pruneConvertedSources(succeeded);
   reportHeroFollowUp(succeeded);
 
@@ -467,9 +483,10 @@ async function main(): Promise<void> {
  * not in `publishedKeys` therefore stays on disk, which is exactly the file a
  * retry needs.
  *
- * Keys the diff merely reported as `current` are excluded on purpose: that
- * verdict comes from a `content-length` comparison, which cannot tell a matching
- * file from a different one of the same size.
+ * Keys the diff merely reported as `current` are excluded on purpose: when the
+ * ETag is not a content hash that verdict falls back to a `content-length`
+ * comparison, which cannot tell a matching file from a different one of the
+ * same size.
  *
  * Delivery formats are never touched: they *are* the published objects, and
  * `r2-cache/` is their local mirror.
@@ -541,8 +558,8 @@ async function reportEdgeStaleness(keys: readonly string[]): Promise<void> {
   if (stale.length === 0) return;
 
   console.warn(
-    `[media:push] ${stale.length} object(s) are correct in R2 but still cached at the edge — ` +
-      'visitors see the previous version:',
+    `[media:push] ${stale.length} object(s) are current in R2 but the CDN still serves an older ` +
+      'copy — visitors see the previous version until it expires or is purged:',
   );
   for (const key of stale) console.warn(`    ${resolveMediaUrl(key)}`);
 }

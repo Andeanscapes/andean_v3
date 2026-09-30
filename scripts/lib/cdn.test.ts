@@ -11,16 +11,18 @@
  */
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { downloadFromOrigin, readLength } from './cdn';
+import { downloadFromOrigin, readLength, sameContent } from './cdn';
 
 const URL_UNDER_TEST = 'https://cdn.andeanscapes.com/images/brand/landing-hero.webp';
 
-function rangeResponse(total: number): Response {
+function rangeResponse(total: number, etag?: string): Response {
   return new Response(new Uint8Array(1024), {
     status: 206,
-    headers: { 'content-range': `bytes 0-1023/${total}` },
+    headers: { 'content-range': `bytes 0-1023/${total}`, ...(etag ? { etag } : {}) },
   });
 }
+
+const MD5 = 'd3e45a6f2393a39a749b6a0c40f73604';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -155,5 +157,42 @@ describe('downloadFromOrigin', () => {
       ok: false,
       reason: 'socket hang up',
     });
+  });
+});
+
+describe('readLength content hash', () => {
+  it('exposes the MD5 an R2 ETag carries', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(rangeResponse(103766, `"${MD5}"`)));
+
+    await expect(readLength(URL_UNDER_TEST, true)).resolves.toEqual({
+      status: 'found',
+      length: 103766,
+      md5: MD5,
+    });
+  });
+
+  it('ignores a multipart ETag, which is not a content hash', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(rangeResponse(10, `"${MD5}-3"`)));
+
+    const result = await readLength(URL_UNDER_TEST, true);
+    expect(result.status === 'found' ? result.md5 : 'n/a').toBeUndefined();
+  });
+});
+
+describe('sameContent', () => {
+  const local = { size: 103766, md5: MD5 };
+
+  /** The incident: a replaced image of identical byte length read as "up to date". */
+  it('detects a replaced file that kept the same size', () => {
+    expect(sameContent({ length: 103766, md5: '0'.repeat(32) }, local)).toBe(false);
+  });
+
+  it('matches identical bytes', () => {
+    expect(sameContent({ length: 103766, md5: MD5 }, local)).toBe(true);
+  });
+
+  it('falls back to size only when the remote has no content hash', () => {
+    expect(sameContent({ length: 103766 }, local)).toBe(true);
+    expect(sameContent({ length: 1 }, local)).toBe(false);
   });
 });

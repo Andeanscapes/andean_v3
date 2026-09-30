@@ -203,6 +203,11 @@ type Change = { file: string; previous: Buffer | null };
 async function findChanges(payloads: readonly Payload[]): Promise<Change[]> {
   const changes: Change[] = [];
   const conflicts: string[] = [];
+  // Deferred until every file is classified. Refreshing in the loop meant a run
+  // that then hit a conflict had already overwritten local copies — the
+  // conflict aborted the upload but not the damage, and an unrelated edited file
+  // was silently replaced by the live version.
+  const refreshes: { file: string; live: Buffer; note: string | null }[] = [];
 
   for (const { file } of payloads) {
     const local = readFileSync(path.join(LOCAL_DIR, file));
@@ -219,15 +224,12 @@ async function findChanges(payloads: readonly Payload[]): Promise<Change[]> {
     const liveMoved = !sameBytes(live, effectiveBase);
 
     if (!edited && !liveMoved) {
-      if (base === null && live) writeSynced(file, live);
+      if (base === null && live) refreshes.push({ file, live, note: null });
       continue;
     }
 
     if (!edited) {
-      if (live) {
-        writeSynced(file, live);
-        console.log(`  ↓ ${file} (unedited, refreshed from live)`);
-      }
+      if (live) refreshes.push({ file, live, note: 'unedited, refreshed from live' });
       continue;
     }
 
@@ -241,6 +243,12 @@ async function findChanges(payloads: readonly Payload[]): Promise<Change[]> {
   }
 
   if (conflicts.length > 0) {
+    if (refreshes.length > 0) {
+      console.error(
+        `[feed:sync] left untouched: ${refreshes.map((entry) => entry.file).join(', ')} ` +
+          '(would have been refreshed from live).',
+      );
+    }
     fail(
       'these files were edited locally AND changed live since your last sync:\n' +
         conflicts.map((file) => `    ${file}`).join('\n') +
@@ -248,6 +256,11 @@ async function findChanges(payloads: readonly Payload[]): Promise<Change[]> {
         `${baseUrl}/<file>, re-apply your edits to it,\n` +
         '[feed:sync] and save it as both fixtures-local/<file> and fixtures-local/.base/<file>.',
     );
+  }
+
+  for (const { file, live, note } of refreshes) {
+    writeSynced(file, live);
+    if (note) console.log(`  ↓ ${file} (${note})`);
   }
 
   return changes;

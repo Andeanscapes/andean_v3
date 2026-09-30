@@ -110,19 +110,26 @@ unsure.
 
 The CDN keys HEAD and GET separately, so an object can be current in R2 while
 browsers keep receiving the previous bytes for the rest of its TTL (4 hours at
-the time of writing). Every size comparison here therefore goes to origin with a
+the time of writing). Every comparison here therefore goes to origin with a
 cache-busting parameter, and downloads do too, so a stale edge copy can never be
 written into this directory.
 
-After uploading, `media:push` purges the affected URLs. That needs
-`Zone · Cache Purge · Purge` on `CLOUDFLARE_API_TOKEN`; without it the upload
-still succeeds and the URLs to purge by hand are printed instead. Either way,
-any object that is correct in R2 but still stale at the edge is reported on
-every run — including runs with nothing to upload.
+Files are compared by **content**, not size: R2's ETag is the MD5 of the object,
+and it is checked against the MD5 of the local file. A replaced image that
+happens to encode to the same byte count is therefore still uploaded. (Size is
+only the fallback for an ETag that is not a content hash.)
+
+After uploading, `media:push` checks what the CDN actually serves. If visitors
+already get the new bytes — the usual case, since media objects are not
+edge-cached today — it says so and skips the purge. Only URLs still stale at the
+edge are purged, which needs `Zone · Cache Purge · Purge` on
+`CLOUDFLARE_API_TOKEN`; without it the upload still succeeds and the URLs to
+purge by hand are printed instead. Any object current in R2 but stale at the edge
+is reported on every run — including runs with nothing to upload.
 
 Set `CLOUDFLARE_ZONE_ID` to skip the zone lookup if the token cannot list zones.
 
-Flags: `--dry-run`, `--allow-orphan` and `--prune-sources` apply to the upload;
-`--force`, `--crop=`, `--offline` and `--consume-sources` are forwarded to the
-optimizer. `--confirm` and `--keep-sources` are accepted and ignored — they used
+Flags: `--allow-orphan` and `--prune-sources` apply to the upload; `--dry-run`
+applies to both (the optimizer then writes nothing either); `--force`, `--crop=`,
+`--offline` and `--consume-sources` are forwarded to the optimizer. `--confirm` and `--keep-sources` are accepted and ignored — they used
 to be required and are now the defaults.

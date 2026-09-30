@@ -10,6 +10,7 @@
  *   npm run media:optimize -- --crop=top     # crop from somewhere other than the centre
  *   npm run media:optimize -- --offline      # size from the role table, not the CDN
  *   npm run media:optimize -- --consume-sources # delete the original after converting
+ *   npm run media:optimize -- --dry-run      # report what would change, write nothing
  *
  * The ergonomic contract: drop an image of **any size or shape** at the key you
  * want it published under, and the filename decides the output. A `-mobile`
@@ -112,6 +113,11 @@ const VP9_CRF = 33;
 const HEADER_BYTES = 65_536;
 
 const force = process.argv.includes('--force');
+/**
+ * Measure and report, write nothing. `media:push -- --dry-run` forwards this,
+ * so a dry run of the publish flow can no longer rewrite the cache in place.
+ */
+const dryRun = process.argv.includes('--dry-run');
 const allowUpscale = process.argv.includes('--upscale');
 /**
  * Proceed when the published object cannot be read, sizing from the role table
@@ -449,6 +455,37 @@ async function encodeImage(
     };
   }
 
+  // A delivery file already at its exact geometry that cannot reach its budget
+  // even at the quality floor gains nothing worth another lossy pass. Without
+  // this, each run re-encoded it at the floor, shaved a few KB, and degraded it
+  // again — on every push, forever. Reported, not fixed: the cure is a lighter
+  // source or a revised budget in lib/media.ts.
+  if (
+    alreadyDelivery &&
+    !force &&
+    meta.width === target.width &&
+    frameHeight === target.height &&
+    buffer.byteLength > budget
+  ) {
+    return {
+      ok: true,
+      changed: false,
+      note:
+        `${Math.round(before / 1024)} KB — OVER the ${Math.round(budget / 1024)} KB budget even at ` +
+        `q${WEBP_QUALITY_FLOOR}; kept original to avoid another lossy pass. Supply a lighter source.`,
+    };
+  }
+
+  if (dryRun) {
+    return {
+      ok: true,
+      changed: true,
+      note:
+        `would write ${meta.width}x${frameHeight} -> ${target.width}x${target.height}, ` +
+        `${Math.round(before / 1024)} KB -> ${Math.round(buffer.byteLength / 1024)} KB (dry run)`,
+    };
+  }
+
   // Written as bytes, not re-encoded. Passing the buffer back through
   // `sharp().toFile()` would apply sharp's own default quality on the way out,
   // so the file on disk would not be the buffer the budget loop measured — and a
@@ -488,7 +525,7 @@ async function encodeImage(
  * re-encoded in place — and never acts unless the output actually exists.
  */
 function consumeSource(sourceKey: string, outputKey: string): boolean {
-  if (!consumeSources || sourceKey === outputKey) return false;
+  if (dryRun || !consumeSources || sourceKey === outputKey) return false;
   if (!existsSync(localPath(outputKey)) || !existsSync(localPath(sourceKey))) return false;
 
   rmSync(localPath(sourceKey));
@@ -559,6 +596,10 @@ function optimizeVideo(sourceKey: string, outputKey: string): Result {
       changed: false,
       note: `${Math.round(before / 1024)} KB — already a delivery format`,
     };
+  }
+
+  if (dryRun) {
+    return { ok: true, changed: true, note: `${Math.round(before / 1024)} KB — would re-encode (dry run)` };
   }
 
   const destination = inPlace ? `${localPath(outputKey)}.tmp.webm` : localPath(outputKey);
@@ -715,7 +756,10 @@ async function main(): Promise<void> {
     converted += 1;
   }
 
-  console.log(`[media:optimize] ${converted} written, ${unchanged} already optimal`);
+  console.log(
+    `[media:optimize] ${converted} ${dryRun ? 'would be written (dry run)' : 'written'}, ` +
+      `${unchanged} already optimal`,
+  );
 
   if (failures.length > 0) {
     console.error(

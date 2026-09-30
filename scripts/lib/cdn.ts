@@ -22,8 +22,21 @@
 
 const RANGE_BYTES = 1024;
 
+/** The MD5 an ETag carries, or undefined when it is not a plain content hash. */
+function md5FromEtag(etag: string | null): string | undefined {
+  const value = etag?.replace(/^W\//, '').replace(/"/g, '').trim().toLowerCase();
+  return value && /^[0-9a-f]{32}$/.test(value) ? value : undefined;
+}
+
 export type CdnRead =
-  | { status: 'found'; length: number }
+  /**
+   * `md5` is the object's content hash when the ETag carries one. R2 sets the
+   * ETag of a single-part upload to the MD5 of its bytes, which is how every
+   * object here is written (`wrangler r2 object put`). A multipart ETag
+   * (`<hash>-<parts>`) is not a content hash, so it is left undefined and callers
+   * fall back to comparing lengths.
+   */
+  | { status: 'found'; length: number; md5?: string }
   | { status: 'absent' }
   | { status: 'unavailable'; reason: string };
 
@@ -50,7 +63,7 @@ export async function readLength(url: string, bypassCache: boolean): Promise<Cdn
       if (!Number.isFinite(length)) {
         return { status: 'unavailable', reason: 'range response carried no total length' };
       }
-      return { status: 'found', length };
+      return { status: 'found', length, md5: md5FromEtag(response.headers.get('etag')) };
     }
 
     // 200 means the origin ignored the Range header and sent the whole body.
@@ -60,13 +73,35 @@ export async function readLength(url: string, bypassCache: boolean): Promise<Cdn
       if (!Number.isFinite(length)) {
         return { status: 'unavailable', reason: 'response carried no content-length' };
       }
-      return { status: 'found', length };
+      return { status: 'found', length, md5: md5FromEtag(response.headers.get('etag')) };
     }
 
     return { status: 'unavailable', reason: `HTTP ${response.status} ${response.statusText}` };
   } catch (error) {
     return { status: 'unavailable', reason: error instanceof Error ? error.message : String(error) };
   }
+}
+
+/** What a local file is compared on: its size, and its bytes' MD5 (hex). */
+export interface LocalFingerprint {
+  size: number;
+  md5: string;
+}
+
+/**
+ * True when a remote read holds exactly the local bytes.
+ *
+ * Content, not size, whenever the ETag carries an MD5. Comparing
+ * `content-length` alone reported a replaced image as "up to date" whenever the
+ * new file happened to encode to the same byte count, so the upload was skipped
+ * and the site kept the old picture. Size remains the fallback only for ETags
+ * that are not a content hash (multipart uploads).
+ */
+export function sameContent(
+  remote: { length: number; md5?: string },
+  local: LocalFingerprint,
+): boolean {
+  return remote.md5 ? remote.md5 === local.md5.toLowerCase() : remote.length === local.size;
 }
 
 /** Download the whole object, always from origin, so a stale edge copy cannot be written to disk. */
