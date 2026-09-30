@@ -365,4 +365,40 @@ describe('fetchRemoteJson', () => {
       expect(outcomes).toHaveLength(1);
     });
   });
+
+  describe('caching hints', () => {
+    const ok = () => ({ ok: true, json: async () => ({ id: 'a', value: 1 }) });
+
+    afterEach(() => {
+      vi.unstubAllEnvs();
+      delete process.env.REMOTE_DATA_BASE_URL;
+    });
+
+    it('bypasses the data cache in development so local feed edits show immediately', async () => {
+      vi.stubEnv('NODE_ENV', 'development');
+      process.env.REMOTE_DATA_BASE_URL = 'https://example.com/data';
+      const mockFetch = vi.fn().mockResolvedValue(ok());
+      vi.stubGlobal('fetch', mockFetch);
+
+      await fetchRemoteJson('/test.json', TestSchema, { revalidate: 3600, tags: ['t'] });
+
+      const init = mockFetch.mock.calls[0][1];
+      expect(init.cache).toBe('no-store');
+      expect(init.next).toBeUndefined();
+    });
+
+    it('forwards revalidate and tags outside development', async () => {
+      vi.stubEnv('NODE_ENV', 'production');
+      process.env.REMOTE_DATA_BASE_URL = 'https://example.com/data';
+      const mockFetch = vi.fn().mockResolvedValue(ok());
+      vi.stubGlobal('fetch', mockFetch);
+
+      await fetchRemoteJson('/test.json', TestSchema, { revalidate: 3600, tags: ['t'] });
+
+      const init = mockFetch.mock.calls[0][1];
+      expect(init.cache).toBeUndefined();
+      expect(init.next).toEqual({ revalidate: 3600, tags: ['t'] });
+    });
+  });
 });
+

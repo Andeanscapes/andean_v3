@@ -150,7 +150,16 @@ describe('locale bundles', () => {
         .filter((key) => !mapped.has(key)),
     );
 
-    expect(unused, 'unused itinerary keys — delete them or map them').toEqual([]);
+    // Stops shared by several experiences live once, under `experiences.itineraryStops`.
+    const shared = (LOCALES.en.experiences as { itineraryStops?: Record<string, Record<string, unknown>> })
+      .itineraryStops ?? {};
+    const unusedShared = Object.entries(shared).flatMap(([name, props]) =>
+      Object.keys(props)
+        .map((prop) => `experiences.itineraryStops.${name}.${prop}`)
+        .filter((key) => !mapped.has(key)),
+    );
+
+    expect([...unused, ...unusedShared], 'unused itinerary keys — delete them or map them').toEqual([]);
   });
 
   it('resolves every hero value point in en, es and fr', () => {

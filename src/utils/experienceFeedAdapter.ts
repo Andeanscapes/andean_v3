@@ -87,6 +87,9 @@ const CATEGORY_ICON = {
   dining: 'Coffee',
   education: 'BookOpen',
   farewell: 'Award',
+  viewpoint: 'Mountain',
+  // lucide ships no horse icon; a route reads as the ride between mines.
+  horseback: 'Route',
 } as const satisfies Record<ItineraryCategoryCode, string>;
 
 function toItineraryDays(

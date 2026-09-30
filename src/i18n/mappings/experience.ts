@@ -155,42 +155,56 @@ const CHIVOR_EMERALD_CORE_I18N = {
         standard: 'experiences.tiers.heritage.rooms.standard',
         family: 'experiences.tiers.heritage.rooms.family',
       },
+      // Core runs its own itinerary: one mine, one night — independent from Prime's copy.
       days: {
-        '1': 'experiences.tiers.heritage.itinerary.day1Title',
-        '2': 'experiences.tiers.heritage.itinerary.day2Title',
+        '1': 'experiences.chivorEmeraldCore.itinerary.day1Title',
+        '2': 'experiences.chivorEmeraldCore.itinerary.day2Title',
       },
       stops: {
         stop1: {
-          title: 'experiences.tiers.heritage.itinerary.stop1Title',
-          shortDesc: 'experiences.tiers.heritage.itinerary.stop1ShortDesc',
-          description: 'experiences.tiers.heritage.itinerary.stop1Desc',
+          title: 'experiences.itineraryStops.welcomeBreakfast.title',
+          shortDesc: 'experiences.itineraryStops.welcomeBreakfast.shortDesc',
+          description: 'experiences.itineraryStops.welcomeBreakfast.description',
         },
-        // Core visits one mine: its stop 2 is the workshop only. The second
-        // mine is a Prime benefit, so Prime keeps the shared heritage copy.
         stop2: {
-          title: 'experiences.chivorEmeraldCore.itinerary.stop2Title',
-          shortDesc: 'experiences.chivorEmeraldCore.itinerary.stop2ShortDesc',
-          description: 'experiences.chivorEmeraldCore.itinerary.stop2Desc',
+          title: 'experiences.itineraryStops.historyTalk.title',
+          shortDesc: 'experiences.itineraryStops.historyTalk.shortDesc',
+          description: 'experiences.itineraryStops.historyTalk.description',
         },
         stop3: {
-          title: 'experiences.tiers.heritage.itinerary.stop3Title',
-          shortDesc: 'experiences.tiers.heritage.itinerary.stop3ShortDesc',
-          description: 'experiences.tiers.heritage.itinerary.stop3Desc',
+          title: 'experiences.itineraryStops.minesViewpoint.title',
+          shortDesc: 'experiences.itineraryStops.minesViewpoint.shortDesc',
+          description: 'experiences.itineraryStops.minesViewpoint.description',
         },
         stop4: {
-          title: 'experiences.tiers.heritage.itinerary.stop4Title',
-          shortDesc: 'experiences.tiers.heritage.itinerary.stop4ShortDesc',
-          description: 'experiences.tiers.heritage.itinerary.stop4Desc',
+          title: 'experiences.chivorEmeraldCore.itinerary.stop4Title',
+          shortDesc: 'experiences.chivorEmeraldCore.itinerary.stop4ShortDesc',
+          description: 'experiences.chivorEmeraldCore.itinerary.stop4Desc',
         },
         stop5: {
-          title: 'experiences.tiers.heritage.itinerary.stop5Title',
-          shortDesc: 'experiences.tiers.heritage.itinerary.stop5ShortDesc',
-          description: 'experiences.tiers.heritage.itinerary.stop5Desc',
+          title: 'experiences.itineraryStops.mineVisit.title',
+          shortDesc: 'experiences.itineraryStops.mineVisit.shortDesc',
+          description: 'experiences.itineraryStops.mineVisit.description',
         },
         stop6: {
-          title: 'experiences.tiers.heritage.itinerary.stop6Title',
-          shortDesc: 'experiences.tiers.heritage.itinerary.stop6ShortDesc',
-          description: 'experiences.tiers.heritage.itinerary.stop6Desc',
+          title: 'experiences.itineraryStops.haciendaDinner.title',
+          shortDesc: 'experiences.itineraryStops.haciendaDinner.shortDesc',
+          description: 'experiences.itineraryStops.haciendaDinner.description',
+        },
+        stop7: {
+          title: 'experiences.chivorEmeraldCore.itinerary.stop7Title',
+          shortDesc: 'experiences.chivorEmeraldCore.itinerary.stop7ShortDesc',
+          description: 'experiences.chivorEmeraldCore.itinerary.stop7Desc',
+        },
+        stop8: {
+          title: 'experiences.itineraryStops.haciendaBreakfast.title',
+          shortDesc: 'experiences.itineraryStops.haciendaBreakfast.shortDesc',
+          description: 'experiences.itineraryStops.haciendaBreakfast.description',
+        },
+        stop9: {
+          title: 'experiences.itineraryStops.optionalMarket.title',
+          shortDesc: 'experiences.itineraryStops.optionalMarket.shortDesc',
+          description: 'experiences.itineraryStops.optionalMarket.description',
         },
       },
     },
@@ -209,6 +223,57 @@ const CHIVOR_EMERALD_CORE_I18N = {
     camilo: 'Landing.reviews.items.camilo.comment',
   },
 } as const satisfies ExperienceI18nMap;
+
+/**
+ * Itinerary for the transitional `emeraldMining` id only.
+ *
+ * The published pre-split feed still carries the old six stops (11:00, 13:00,
+ * 16:30 / 08:00, 10:00, 14:00). Mapping those onto Core's new itinerary copy
+ * would render "Welcome breakfast 11:00 … fiambre lunch 08:00" on production
+ * between the deploy and the feed sync, and for the feed cache's hour after it.
+ * Delete together with the alias and `experiences.tiers.heritage.itinerary`.
+ */
+const LEGACY_EMERALD_MINING_TIERS = {
+  heritage: {
+    ...CHIVOR_EMERALD_CORE_I18N.tiers.heritage,
+    days: {
+      '1': 'experiences.tiers.heritage.itinerary.day1Title',
+      '2': 'experiences.tiers.heritage.itinerary.day2Title',
+    },
+    stops: {
+      stop1: {
+        title: 'experiences.tiers.heritage.itinerary.stop1Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop1ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop1Desc',
+      },
+      stop2: {
+        title: 'experiences.tiers.heritage.itinerary.stop2Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop2ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop2Desc',
+      },
+      stop3: {
+        title: 'experiences.tiers.heritage.itinerary.stop3Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop3ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop3Desc',
+      },
+      stop4: {
+        title: 'experiences.tiers.heritage.itinerary.stop4Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop4ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop4Desc',
+      },
+      stop5: {
+        title: 'experiences.tiers.heritage.itinerary.stop5Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop5ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop5Desc',
+      },
+      stop6: {
+        title: 'experiences.tiers.heritage.itinerary.stop6Title',
+        shortDesc: 'experiences.tiers.heritage.itinerary.stop6ShortDesc',
+        description: 'experiences.tiers.heritage.itinerary.stop6Desc',
+      },
+    },
+  },
+} as const satisfies ExperienceI18nMap['tiers'];
 
 export const EXPERIENCE_I18N = {
   chivorEmeraldCore: CHIVOR_EMERALD_CORE_I18N,
@@ -310,24 +375,24 @@ export const EXPERIENCE_I18N = {
         },
         stops: {
           stop1: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop1Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop1ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop1Desc',
+            title: 'experiences.itineraryStops.welcomeBreakfast.title',
+            shortDesc: 'experiences.itineraryStops.welcomeBreakfast.shortDesc',
+            description: 'experiences.itineraryStops.welcomeBreakfast.description',
           },
           stop2: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop2Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop2ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop2Desc',
+            title: 'experiences.itineraryStops.historyTalk.title',
+            shortDesc: 'experiences.itineraryStops.historyTalk.shortDesc',
+            description: 'experiences.itineraryStops.historyTalk.description',
           },
           stop3: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop3Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop3ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop3Desc',
+            title: 'experiences.itineraryStops.minesViewpoint.title',
+            shortDesc: 'experiences.itineraryStops.minesViewpoint.shortDesc',
+            description: 'experiences.itineraryStops.minesViewpoint.description',
           },
           stop4: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop4Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop4ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop4Desc',
+            title: 'experiences.itineraryStops.mineVisit.title',
+            shortDesc: 'experiences.itineraryStops.mineVisit.shortDesc',
+            description: 'experiences.itineraryStops.mineVisit.description',
           },
           stop5: {
             title: 'experiences.chivorEmeraldPrime.itinerary.stop5Title',
@@ -345,9 +410,9 @@ export const EXPERIENCE_I18N = {
             description: 'experiences.chivorEmeraldPrime.itinerary.stop7Desc',
           },
           stop8: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop8Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop8ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop8Desc',
+            title: 'experiences.itineraryStops.haciendaDinner.title',
+            shortDesc: 'experiences.itineraryStops.haciendaDinner.shortDesc',
+            description: 'experiences.itineraryStops.haciendaDinner.description',
           },
           stop9: {
             title: 'experiences.chivorEmeraldPrime.itinerary.stop9Title',
@@ -355,9 +420,14 @@ export const EXPERIENCE_I18N = {
             description: 'experiences.chivorEmeraldPrime.itinerary.stop9Desc',
           },
           stop10: {
-            title: 'experiences.chivorEmeraldPrime.itinerary.stop10Title',
-            shortDesc: 'experiences.chivorEmeraldPrime.itinerary.stop10ShortDesc',
-            description: 'experiences.chivorEmeraldPrime.itinerary.stop10Desc',
+            title: 'experiences.itineraryStops.haciendaBreakfast.title',
+            shortDesc: 'experiences.itineraryStops.haciendaBreakfast.shortDesc',
+            description: 'experiences.itineraryStops.haciendaBreakfast.description',
+          },
+          stop11: {
+            title: 'experiences.itineraryStops.optionalMarket.title',
+            shortDesc: 'experiences.itineraryStops.optionalMarket.shortDesc',
+            description: 'experiences.itineraryStops.optionalMarket.description',
           },
         },
       },
@@ -379,7 +449,7 @@ export const EXPERIENCE_I18N = {
     },
   },
   /** Transitional alias — see `ExperienceIdSchema`. Remove after the Chivor feed is live. */
-  emeraldMining: CHIVOR_EMERALD_CORE_I18N,
+  emeraldMining: { ...CHIVOR_EMERALD_CORE_I18N, tiers: LEGACY_EMERALD_MINING_TIERS },
 } as const satisfies Record<ExperienceId, ExperienceI18nMap>;
 
 /**

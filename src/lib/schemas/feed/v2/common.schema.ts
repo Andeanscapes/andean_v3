@@ -90,6 +90,8 @@ export const ItineraryCategoryCodeSchema = z.enum([
   'dining',
   'education',
   'farewell',
+  'viewpoint',
+  'horseback',
 ]);
 export type ItineraryCategoryCode = z.infer<typeof ItineraryCategoryCodeSchema>;
 

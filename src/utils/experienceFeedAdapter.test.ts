@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
 import { ExperienceFeedV2Schema, type ExperienceFeedV2 } from '@/lib/schemas/feed/v2';
-import { EXPERIENCE_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { EXPERIENCE_FIXTURE, EXPERIENCE_FIXTURES, cloneFixture } from '@/test/fixtures';
+import enMessages from '@/i18n/messages/en.json';
+import esMessages from '@/i18n/messages/es.json';
+import frMessages from '@/i18n/messages/fr.json';
 import { adaptExperienceFeedV2 } from './experienceFeedAdapter';
 
 describe('adaptExperienceFeedV2', () => {
@@ -140,5 +143,48 @@ describe('ExperienceFeedV2Schema addons', () => {
     expect(result.success ? [] : result.error.issues.map((issue) => issue.path.join('.'))).toContain(
       'addons.0.pricePerPerson',
     );
+  });
+});
+
+/**
+ * Every published experience, not only the landing flagship: a stop id the
+ * mapping does not know throws in the adapter and takes that experience's whole
+ * detail page down, so each file must adapt and every stop must have copy.
+ */
+describe('every published experience adapts', () => {
+  const LOCALES = { en: enMessages, es: esMessages, fr: frMessages };
+  const resolve = (messages: unknown, key: string): unknown =>
+    key.split('.').reduce<unknown>(
+      (node, part) => (node && typeof node === 'object' ? (node as Record<string, unknown>)[part] : undefined),
+      messages,
+    );
+
+  it.each(Object.entries(EXPERIENCE_FIXTURES))('%s has copy for every itinerary stop', (_file, feed) => {
+    const result = adaptExperienceFeedV2(feed, EXPERIENCE_I18N[feed.experience.id], 'https://wa.me/573142730360');
+    const keys = (result.accommodationTiers ?? []).flatMap((tier) =>
+      (tier.itinerary ?? []).flatMap((day) =>
+        day.stops.flatMap((stop) => [stop.title, stop.shortDescription, stop.description]),
+      ),
+    );
+
+    expect(keys.length).toBeGreaterThan(0);
+    for (const [locale, messages] of Object.entries(LOCALES)) {
+      expect(keys.filter((key) => typeof resolve(messages, key ?? '') !== 'string'), locale).toEqual([]);
+    }
+  });
+});
+
+/**
+ * The transitional id is served by the pre-split feed, whose six stops keep the
+ * old schedule. Pointing them at Core's new copy mislabels every stop on
+ * production until the Chivor feed replaces it.
+ */
+describe('legacy emeraldMining alias', () => {
+  it('keeps the pre-split itinerary copy for the old stops', () => {
+    const stops = EXPERIENCE_I18N.emeraldMining.tiers.heritage.stops;
+
+    expect(Object.keys(stops)).toEqual(['stop1', 'stop2', 'stop3', 'stop4', 'stop5', 'stop6']);
+    expect(stops.stop1.title).toBe('experiences.tiers.heritage.itinerary.stop1Title');
+    expect(EXPERIENCE_I18N.chivorEmeraldCore.tiers.heritage.stops.stop1.title).not.toBe(stops.stop1.title);
   });
 });

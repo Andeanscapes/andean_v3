@@ -704,7 +704,7 @@
         "faq2Q": "What is the best season to visit?",
         "faq2A": "December to March offers the best weather in the Colombian Andes",
         "faq3Q": "How do I arrange transportation?",
-        "faq3A": "Transport is not included. Drive yourself (a 4x4 is recommended for the final stretch), take the bus, or add our round-trip transfer from Bogotá when you book.",
+        "faq3A": "Getting to Chivor isn't included — once you're there, local transport is: from Chivor to the mine(s), Hacienda El Recuerdo and back. To reach Chivor, drive yourself (a 4x4 is recommended for the final stretch), take the bus, or add our round-trip transfer from Bogotá when you book.",
         "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
         "checkDatesBtn": "Check Dates",
         "talkToHostBtn": "Talk to Host",
@@ -760,6 +760,12 @@
           "breakfast": "Traditional Breakfast",
           "dinner": "Homestyle Dinner"
         },
+        "tierNote": "A colonial hacienda stay immersed in emerald country tradition — private rooms, home-cooked meals, and personalized host care.",
+        "idealFor1": "Culture & History Enthusiasts",
+        "idealFor2": "Families & Small Groups",
+        "idealFor3": "Comfort-Oriented Travelers",
+        "goodToKnow1": "Private bathroom and warm water included",
+        "goodToKnow2": "Hacienda meals prepared by local host family",
         "itinerary": {
           "day1Title": "Day 1 — Mining Expedition",
           "day2Title": "Day 2 — Discovery & Farewell",
@@ -781,13 +787,7 @@
           "stop6Title": "Final Sorting & Farewell",
           "stop6ShortDesc": "Certificate ceremony and farewell",
           "stop6Desc": "Reflect on the journey and receive your certificate of participation at the hacienda."
-        },
-        "tierNote": "A colonial hacienda stay immersed in emerald country tradition — private rooms, home-cooked meals, and personalized host care.",
-        "idealFor1": "Culture & History Enthusiasts",
-        "idealFor2": "Families & Small Groups",
-        "idealFor3": "Comfort-Oriented Travelers",
-        "goodToKnow1": "Private bathroom and warm water included",
-        "goodToKnow2": "Hacienda meals prepared by local host family"
+        }
       },
       "adventure": {
         "name": "Glamping Adventure",
@@ -891,13 +891,13 @@
       "logistics": {
         "start": "Start time",
         "duration": "Duration",
-        "transport": "Transportation",
+        "transport": "Local transport",
         "difficulty": "Difficulty",
         "end": "End time"
       },
       "logisticsValues": {
         "duration": "2 days / 1 night",
-        "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+        "transport": "Included: from Chivor to the mine, Hacienda El Recuerdo and back to Chivor",
         "difficulty": "Moderate"
       },
       "included": {
@@ -917,9 +917,14 @@
         "transportToChivor": "Transport to Chivor (round-trip transfer from Bogotá available as an add-on)"
       },
       "itinerary": {
-        "stop2Title": "Emerald Sorting Workshop",
-        "stop2ShortDesc": "Learn professional gem grading and sorting",
-        "stop2Desc": "Learn professional grading and sorting techniques at the hacienda workshop."
+        "day1Title": "Day 1 — Emerald Mine & Hacienda",
+        "day2Title": "Day 2 — Hacienda Morning & Emerald Market",
+        "stop4Title": "Traditional fiambre lunch",
+        "stop4ShortDesc": "Colombian fiambre on plantain leaf",
+        "stop4Desc": "Enjoy a traditional Colombian fiambre lunch at Hacienda El Recuerdo, served on plantain leaf before heading into the mine.",
+        "stop7Title": "One night in a private hacienda room",
+        "stop7ShortDesc": "Private room with its own bathroom",
+        "stop7Desc": "Spend the night at Hacienda El Recuerdo in a comfortable private room with its own bathroom, surrounded by the Chivor mountains."
       },
       "addons": {
         "apiaryCattle": {
@@ -1007,13 +1012,13 @@
       "logistics": {
         "start": "Start time",
         "duration": "Duration",
-        "transport": "Transportation",
+        "transport": "Local transport",
         "difficulty": "Difficulty",
         "end": "End time"
       },
       "logisticsValues": {
         "duration": "2 days / 1 night",
-        "transport": "Local 4x4 coordination from Hacienda El Recuerdo",
+        "transport": "Included: from Chivor to both mines, Hacienda El Recuerdo and back to Chivor",
         "difficulty": "Moderate"
       },
       "included": {
@@ -1053,19 +1058,7 @@
       },
       "itinerary": {
         "day1Title": "Day 1 — Two Mines & Horseback",
-        "day2Title": "Day 2 — Morning at the Hacienda",
-        "stop1Title": "Welcome breakfast",
-        "stop1ShortDesc": "A Colombian breakfast to start the day",
-        "stop1Desc": "Start your Chivor adventure with a traditional Colombian breakfast before heading into the emerald mountains.",
-        "stop2Title": "Emerald history & jewelry talk",
-        "stop2ShortDesc": "Local artisans on mining life",
-        "stop2Desc": "An introductory talk with local artisans on emerald history, mining life and basic jewelry making.",
-        "stop3Title": "Chivor mines panoramic viewpoint",
-        "stop3ShortDesc": "Sweeping views of the emerald valley",
-        "stop3Desc": "Take in panoramic views of Chivor's emerald mining landscape — the mountains and the mining area from a spectacular vantage point.",
-        "stop4Title": "Guided visit to a real emerald mine",
-        "stop4ShortDesc": "Helmet, lights and a safety briefing",
-        "stop4Desc": "A guided visit inside a real emerald mine, with helmet, lights and a clear safety briefing.",
+        "day2Title": "Day 2 — Hacienda Morning & Emerald Market",
         "stop5Title": "Traditional fiambre lunch",
         "stop5ShortDesc": "Colombian fiambre on plantain leaf",
         "stop5Desc": "Enjoy a traditional Colombian fiambre lunch at Hacienda El Recuerdo, served on plantain leaf after the mine visit.",
@@ -1075,15 +1068,46 @@
         "stop7Title": "Meet Chivor's artisanal miners",
         "stop7ShortDesc": "Ancestral know-how, passed down generations",
         "stop7Desc": "Visit a second emerald mine and discover how Chivor's artisanal miners work, using ancestral knowledge and traditions passed down through generations.",
-        "stop8Title": "Dinner at Hacienda El Recuerdo",
-        "stop8ShortDesc": "Home-cooked Andean dinner",
-        "stop8Desc": "A home-cooked Andean dinner at the farm, with local ingredients and family service.",
         "stop9Title": "One night at a private hacienda",
         "stop9ShortDesc": "Private room with its own bathroom",
-        "stop9Desc": "Spend the night at Hacienda El Recuerdo in a comfortable private room with its own bathroom, surrounded by the Chivor mountains.",
-        "stop10Title": "Breakfast at the hacienda",
-        "stop10ShortDesc": "A calm Andean morning",
-        "stop10Desc": "Wake up to a peaceful Andean landscape and enjoy a traditional Colombian breakfast at Hacienda El Recuerdo."
+        "stop9Desc": "Spend the night at Hacienda El Recuerdo in a comfortable private room with its own bathroom, surrounded by the Chivor mountains."
+      }
+    },
+    "itineraryStops": {
+      "welcomeBreakfast": {
+        "title": "Welcome breakfast",
+        "shortDesc": "A Colombian breakfast to start the day",
+        "description": "Start your Chivor adventure with a traditional Colombian breakfast before heading into the emerald mountains."
+      },
+      "historyTalk": {
+        "title": "Emerald history & jewelry talk",
+        "shortDesc": "Local artisans on mining life",
+        "description": "An introductory talk with local artisans on emerald history, mining life and basic jewelry making."
+      },
+      "minesViewpoint": {
+        "title": "Chivor mines panoramic viewpoint",
+        "shortDesc": "Sweeping views of the emerald valley",
+        "description": "Take in panoramic views of Chivor's emerald mining landscape — the mountains and the mining area from a spectacular vantage point."
+      },
+      "mineVisit": {
+        "title": "Guided visit to a real emerald mine",
+        "shortDesc": "Helmet, lights and a safety briefing",
+        "description": "A guided visit inside a real emerald mine, with helmet, lights and a clear safety briefing."
+      },
+      "haciendaDinner": {
+        "title": "Dinner at Hacienda El Recuerdo",
+        "shortDesc": "Home-cooked Andean dinner",
+        "description": "A home-cooked Andean dinner at the farm, with local ingredients and family service."
+      },
+      "haciendaBreakfast": {
+        "title": "Breakfast at the hacienda",
+        "shortDesc": "A calm Andean morning",
+        "description": "Wake up to a peaceful Andean landscape and enjoy a traditional Colombian breakfast at Hacienda El Recuerdo."
+      },
+      "optionalMarket": {
+        "title": "(Optional) Meet local miners & the emerald market",
+        "shortDesc": "Where Chivor's emeralds are traded",
+        "description": "Optional: meet local miners and visit the emerald market, where stones from the region's mines are bought and sold."
       }
     }
   },

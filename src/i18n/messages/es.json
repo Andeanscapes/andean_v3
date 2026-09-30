@@ -704,7 +704,7 @@
         "faq2Q": "¿Cuál es la mejor época para visitar?",
         "faq2A": "De diciembre a marzo ofrece el mejor clima en los Andes colombianos",
         "faq3Q": "¿Cómo organizo el transporte?",
-        "faq3A": "El transporte no está incluido. Puedes llegar en tu vehículo (se recomienda 4x4 para el último tramo), en bus, o agregar nuestro traslado ida y vuelta desde Bogotá al reservar.",
+        "faq3A": "Llegar a Chivor no está incluido; una vez allí, el transporte local sí lo está: de Chivor a la(s) mina(s), a Hacienda El Recuerdo y de regreso. Para llegar a Chivor, ven en tu vehículo (se recomienda 4x4 para el último tramo), en bus, o agrega nuestro traslado ida y vuelta desde Bogotá al reservar.",
         "exploreHiddenHeart": "Explora el Corazón Oculto de los Andes",
         "checkDatesBtn": "Ver Disponibilidad",
         "talkToHostBtn": "Hablar con Anfitrión",
@@ -760,6 +760,12 @@
           "breakfast": "Desayuno Tradicional",
           "dinner": "Cena Casera"
         },
+        "tierNote": "Una hacienda colonial en pleno territorio esmeraldífero — habitaciones privadas, comidas caseras y atención personalizada del anfitrión.",
+        "idealFor1": "Entusiastas de la Cultura e Historia",
+        "idealFor2": "Familias y Grupos Pequeños",
+        "idealFor3": "Viajeros que Buscan Comodidad",
+        "goodToKnow1": "Baño privado y agua caliente incluidos",
+        "goodToKnow2": "Comidas preparadas por la familia anfitrióna local",
         "itinerary": {
           "day1Title": "Día 1 — Expedición Minera",
           "day2Title": "Día 2 — Descubrimiento y Despedida",
@@ -781,13 +787,7 @@
           "stop6Title": "Clasificación Final y Despedida",
           "stop6ShortDesc": "Ceremonia de certificado y despedida",
           "stop6Desc": "Reflexiona sobre el viaje y recibe tu certificado de participación en la hacienda."
-        },
-        "tierNote": "Una hacienda colonial en pleno territorio esmeraldífero — habitaciones privadas, comidas caseras y atención personalizada del anfitrión.",
-        "idealFor1": "Entusiastas de la Cultura e Historia",
-        "idealFor2": "Familias y Grupos Pequeños",
-        "idealFor3": "Viajeros que Buscan Comodidad",
-        "goodToKnow1": "Baño privado y agua caliente incluidos",
-        "goodToKnow2": "Comidas preparadas por la familia anfitrióna local"
+        }
       },
       "adventure": {
         "name": "Glamping Aventura",
@@ -891,13 +891,13 @@
       "logistics": {
         "start": "Hora de inicio",
         "duration": "Duración",
-        "transport": "Transporte",
+        "transport": "Transporte local",
         "difficulty": "Dificultad",
         "end": "Hora de finalización"
       },
       "logisticsValues": {
         "duration": "2 días / 1 noche",
-        "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+        "transport": "Incluido: de Chivor a la mina, a Hacienda El Recuerdo y regreso a Chivor",
         "difficulty": "Moderada"
       },
       "included": {
@@ -917,9 +917,14 @@
         "transportToChivor": "Transporte hasta Chivor (traslado ida y vuelta desde Bogotá disponible como adicional)"
       },
       "itinerary": {
-        "stop2Title": "Taller de Clasificación de Esmeraldas",
-        "stop2ShortDesc": "Aprende clasificación y tasación profesional de gemas",
-        "stop2Desc": "Aprende técnicas profesionales de clasificación en el taller de la hacienda."
+        "day1Title": "Día 1 — Mina de Esmeraldas y Hacienda",
+        "day2Title": "Día 2 — Mañana en la Hacienda y Mercado de Esmeraldas",
+        "stop4Title": "Almuerzo tradicional de fiambre",
+        "stop4ShortDesc": "Fiambre colombiano en hoja de plátano",
+        "stop4Desc": "Disfruta de un almuerzo tradicional colombiano de fiambre en Hacienda El Recuerdo, servido en hoja de plátano antes de entrar a la mina.",
+        "stop7Title": "Una noche en habitación privada en la hacienda",
+        "stop7ShortDesc": "Habitación privada con baño propio",
+        "stop7Desc": "Pasa una noche en Hacienda El Recuerdo en una cómoda habitación privada con baño propio, rodeado de las montañas de Chivor."
       },
       "addons": {
         "apiaryCattle": {
@@ -1007,13 +1012,13 @@
       "logistics": {
         "start": "Hora de inicio",
         "duration": "Duración",
-        "transport": "Transporte",
+        "transport": "Transporte local",
         "difficulty": "Dificultad",
         "end": "Hora de finalización"
       },
       "logisticsValues": {
         "duration": "2 días / 1 noche",
-        "transport": "Coordinación de 4x4 local desde Hacienda El Recuerdo",
+        "transport": "Incluido: de Chivor a las dos minas, a Hacienda El Recuerdo y regreso a Chivor",
         "difficulty": "Moderada"
       },
       "included": {
@@ -1053,19 +1058,7 @@
       },
       "itinerary": {
         "day1Title": "Día 1 — Dos Minas y Cabalgata",
-        "day2Title": "Día 2 — Mañana en la Hacienda",
-        "stop1Title": "Desayuno de bienvenida",
-        "stop1ShortDesc": "Un desayuno colombiano para empezar",
-        "stop1Desc": "Comienza tu aventura en Chivor con un desayuno colombiano tradicional antes de explorar las montañas de las esmeraldas.",
-        "stop2Title": "Historia de la esmeralda y charla sobre joyas",
-        "stop2ShortDesc": "Artesanos locales sobre la vida minera",
-        "stop2Desc": "Charla introductoria con artesanos locales sobre la historia de la esmeralda, la vida minera y la fabricación de joyas básicas.",
-        "stop3Title": "Mirador panorámico de las minas de Chivor",
-        "stop3ShortDesc": "Vistas del paisaje minero esmeraldero",
-        "stop3Desc": "Disfruta de las vistas panorámicas del paisaje minero de esmeraldas de Chivor. Contempla las montañas y la zona minera desde un punto de vista espectacular.",
-        "stop4Title": "Visita guiada a una mina de esmeralda real",
-        "stop4ShortDesc": "Casco, luces y charla de seguridad",
-        "stop4Desc": "Visita guiada al interior de una verdadera mina de esmeraldas con casco, luces y una clara charla de seguridad.",
+        "day2Title": "Día 2 — Mañana en la Hacienda y Mercado de Esmeraldas",
         "stop5Title": "Almuerzo tradicional de fiambre",
         "stop5ShortDesc": "Fiambre colombiano en hoja de plátano",
         "stop5Desc": "Disfruta de un almuerzo tradicional colombiano de fiambre en Hacienda El Recuerdo, servido en hoja de plátano después de la visita a la mina.",
@@ -1075,15 +1068,46 @@
         "stop7Title": "Conoce a los mineros artesanales de Chivor",
         "stop7ShortDesc": "Saberes ancestrales de generación en generación",
         "stop7Desc": "Visita otra mina de esmeraldas y descubre cómo trabajan los mineros artesanales de Chivor, con conocimientos ancestrales y tradiciones transmitidas de generación en generación.",
-        "stop8Title": "Cena en Hacienda El Recuerdo",
-        "stop8ShortDesc": "Cena casera andina",
-        "stop8Desc": "Cena casera andina en la granja, con ingredientes locales y servicio familiar.",
         "stop9Title": "Alojamiento de una noche en una hacienda privada",
         "stop9ShortDesc": "Habitación privada con baño propio",
-        "stop9Desc": "Pasa una noche en Hacienda El Recuerdo en una cómoda habitación privada con baño propio, rodeado de las montañas de Chivor.",
-        "stop10Title": "Desayuno en la hacienda",
-        "stop10ShortDesc": "Una mañana tranquila en los Andes",
-        "stop10Desc": "Despierta rodeado de un tranquilo paisaje andino y disfruta de un desayuno colombiano tradicional en Hacienda El Recuerdo."
+        "stop9Desc": "Pasa una noche en Hacienda El Recuerdo en una cómoda habitación privada con baño propio, rodeado de las montañas de Chivor."
+      }
+    },
+    "itineraryStops": {
+      "welcomeBreakfast": {
+        "title": "Desayuno de bienvenida",
+        "shortDesc": "Un desayuno colombiano para empezar",
+        "description": "Comienza tu aventura en Chivor con un desayuno colombiano tradicional antes de explorar las montañas de las esmeraldas."
+      },
+      "historyTalk": {
+        "title": "Historia de la esmeralda y charla sobre joyas",
+        "shortDesc": "Artesanos locales sobre la vida minera",
+        "description": "Charla introductoria con artesanos locales sobre la historia de la esmeralda, la vida minera y la fabricación de joyas básicas."
+      },
+      "minesViewpoint": {
+        "title": "Mirador panorámico de las minas de Chivor",
+        "shortDesc": "Vistas del paisaje minero esmeraldero",
+        "description": "Disfruta de las vistas panorámicas del paisaje minero de esmeraldas de Chivor. Contempla las montañas y la zona minera desde un punto de vista espectacular."
+      },
+      "mineVisit": {
+        "title": "Visita guiada a una mina de esmeralda real",
+        "shortDesc": "Casco, luces y charla de seguridad",
+        "description": "Visita guiada al interior de una verdadera mina de esmeraldas con casco, luces y una clara charla de seguridad."
+      },
+      "haciendaDinner": {
+        "title": "Cena en Hacienda El Recuerdo",
+        "shortDesc": "Cena casera andina",
+        "description": "Cena casera andina en la granja, con ingredientes locales y servicio familiar."
+      },
+      "haciendaBreakfast": {
+        "title": "Desayuno en la hacienda",
+        "shortDesc": "Una mañana tranquila en los Andes",
+        "description": "Despierta rodeado de un tranquilo paisaje andino y disfruta de un desayuno colombiano tradicional en Hacienda El Recuerdo."
+      },
+      "optionalMarket": {
+        "title": "(Opcional) Conoce mineros locales y el mercado de esmeraldas",
+        "shortDesc": "Donde se negocian las esmeraldas de Chivor",
+        "description": "Opcional: conoce a mineros locales y visita el mercado de esmeraldas, donde se compran y venden las piedras de las minas de la región."
       }
     }
   },
