@@ -30,6 +30,10 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Public HTML verification token: inline it for dynamically rendered Worker pages.
+  env: {
+    GOOGLE_SITE_VERIFICATION: process.env.GOOGLE_SITE_VERIFICATION || '',
+  },
   // 1. ADDED: Image Optimization configuration for R2
   images: {
     remotePatterns: [
@@ -37,12 +41,6 @@ const nextConfig = {
         protocol: cdnOrigin.protocol.replace(':', ''),
         hostname: cdnOrigin.hostname,
         port: cdnOrigin.port,
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        port: '',
         pathname: '/**',
       },
     ],
@@ -87,28 +85,33 @@ const nextConfig = {
   },
 
   async redirects() {
-    const removedRoutes = [
-      '/email-form', '/home-dark', '/home-parallax', '/about', '/blog-details',
-      '/blog-list', '/contact', '/destination-details', '/destinations',
-      '/gallary', '/guides', '/package-details', '/package-details-2',
-      '/package-list', '/package-sidebar'
+    const locales = ['en', 'es', 'fr'];
+    const legacyExperienceRoutes = [
+      {
+        source: '/experiences/emerald-mining-adventure',
+        destination: '/experiences/chivor-emerald-mine-tour'
+      },
+      {
+        source: '/experiences/emerald-mining-adventure/booking',
+        destination: '/experiences/chivor-emerald-mine-tour/booking'
+      }
     ];
 
-    const locales = ['en', 'es', 'fr'];
-
     return [
-      ...removedRoutes.map((source) => ({
-        source,
-        destination: '/',
-        permanent: false
-      })),
-      ...removedRoutes.flatMap((source) =>
-        locales.map((locale) => ({
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.andeanscapes.com' }],
+        destination: 'https://andeanscapes.com/:path*',
+        permanent: true
+      },
+      ...legacyExperienceRoutes.flatMap(({ source, destination }) => [
+        { source, destination, permanent: true },
+        ...locales.filter((locale) => locale !== 'en').map((locale) => ({
           source: `/${locale}${source}`,
-          destination: locale === 'en' ? '/' : `/${locale}`,
-          permanent: false
+          destination: `/${locale}${destination}`,
+          permanent: true
         }))
-      )
+      ])
     ];
   },
 };

@@ -2,7 +2,7 @@
 
 import { memo, useId, useMemo } from 'react';
 import { useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
 import { ArrowRight, MessageCircle, ShieldCheck, Star, Undo2 } from 'lucide-react';
 import type { ExperienceData, TransportMode } from '@/lib/schemas';
 import { formatDateRange } from '@/utils/dateFormatters';
@@ -133,22 +133,24 @@ function ExpericeWidgetComponent({
                 {peopleCount > 1 ? widgetContent?.totalLabel : widgetContent?.perPersonLabel}
               </span>
             </p>
-            <div className="mt-1 flex items-center">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star
-                    key={index}
-                    size={14}
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className={iconClass}
-                  />
-                ))}
+            {widgetContent?.reviewsCountLabel && (
+              <div className="mt-1 flex items-center">
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      size={14}
+                      fill="currentColor"
+                      stroke="currentColor"
+                      className={iconClass}
+                    />
+                  ))}
+                </div>
+                <span className={`ml-2 text-xs ${mutedTextClass}`}>
+                  {widgetContent.reviewsCountLabel}
+                </span>
               </div>
-              <span className={`ml-2 text-xs ${mutedTextClass}`}>
-                {widgetContent?.reviewsCountLabel}
-              </span>
-            </div>
+            )}
             <p className={`text-sm ${bodyTextClass}`}>{widgetContent?.onSelectedDatesLabel}</p>
           </div>
 
@@ -202,6 +204,7 @@ function ExpericeWidgetComponent({
             <Select
               id={`${widgetId}-transport`}
               aria-labelledby={`${widgetId}-transport`}
+              aria-describedby={`${widgetId}-transport-note`}
               options={transportOptions.map((t) => ({ value: t.value, label: t.label }))}
               value={transportMode ?? ''}
               onChange={(v) => { if (v) setTransportMode(v as TransportMode); }}
@@ -210,6 +213,9 @@ function ExpericeWidgetComponent({
               optionClassName={selectOptionClass}
               optionHoverClassName={selectOptionHoverClass}
             />
+            <p id={`${widgetId}-transport-note`} className={`text-xs leading-snug ${bodyTextClass}`}>
+              {widgetContent?.transportNoteLabel}
+            </p>
           </div>
 
           <PrimaryCtaButton href={bookingHref} size="lg" className="w-full py-3 md:py-4">

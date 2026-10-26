@@ -3,12 +3,20 @@ import { Check } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
+import { PlanBadge } from '@/components/ui/CardBadges/CardBadges';
+import type { PackageTagContent } from '@/lib/schemas/experience.schema';
+import type { PlanCode } from '@/lib/schemas/feed/v2';
 
 interface ExperienceHeroProps {
   title: string;
   subtitle: string;
   widget: ReactNode;
   backgroundImageUrl?: string;
+  /** Translated value points, owned by the experience (see `valueStack` in the mapping). */
+  valueStack: readonly string[];
+  packageTags: readonly PackageTagContent[];
+  planBadge?: { code: PlanCode; label: string };
 }
 
 function ExperienceHeroComponent({
@@ -16,14 +24,11 @@ function ExperienceHeroComponent({
   subtitle,
   widget,
   backgroundImageUrl,
+  valueStack,
+  packageTags,
+  planBadge,
 }: ExperienceHeroProps) {
   const t = useTranslations('experiences.ui.experienceDetails');
-  const valueStack = [
-    t('valueStackPrivateMineAccess'),
-    t('valueStackLocalExpertGuides'),
-    t('valueStackAllMealsIncluded'),
-    t('valueStackPremiumTransport'),
-  ];
   return (
     <section className="relative w-full overflow-hidden">
       {backgroundImageUrl ? (
@@ -52,6 +57,11 @@ function ExperienceHeroComponent({
       >
           <div className="lg:col-span-7 pt-0 md:pt-12 lg:pt-16">
             <div className="max-w-3xl">
+              {planBadge ? (
+                <div className="flex">
+                  <PlanBadge code={planBadge.code} label={planBadge.label} />
+                </div>
+              ) : null}
               <h1 className="mt-4 text-4xl font-bold leading-[0.96] text-white drop-shadow-md md:mt-0 md:text-5xl lg:text-6xl xl:text-7xl">
                 {title}
               </h1>
@@ -61,6 +71,8 @@ function ExperienceHeroComponent({
               <p className="mb-5 mt-4 max-w-xl text-sm font-medium leading-relaxed text-white/85 line-clamp-3 md:mb-6 md:mt-6 md:text-base md:line-clamp-none">
                 {t('experienceSummary')}
               </p>
+
+              <PackageTagBadges tags={packageTags} className="mb-3 md:mb-4" />
 
               <div className="grid grid-cols-2 gap-2 md:gap-x-6 md:gap-y-3">
                 {valueStack.map((item) => (

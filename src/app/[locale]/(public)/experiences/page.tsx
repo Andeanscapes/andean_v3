@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { SITE_INFO } from '@/constant/SiteConfig';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { ExperienceCard } from '@/components/ExperienceList/ExperienceCard';
 import { getExperiencesListSSR } from '@/lib/services/experiences-list.service';
 import { formatMoney } from '@/utils/formatCurrency';
+import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seoUrls';
 
 export async function generateMetadata({
   params,
@@ -11,10 +13,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const listData = await getExperiencesListSSR(locale);
+  const canonical = buildAbsoluteLocalizedUrl(locale, '/experiences');
+  const languages = buildLocalizedAlternates('/experiences');
 
   return {
     title: listData.metaTitle,
     description: listData.metaDescription,
+    alternates: { canonical, languages },
+    openGraph: {
+      siteName: SITE_INFO.name,
+      title: listData.metaTitle,
+      description: listData.metaDescription,
+      url: canonical,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: listData.metaTitle,
+      description: listData.metaDescription,
+    },
   };
 }
 

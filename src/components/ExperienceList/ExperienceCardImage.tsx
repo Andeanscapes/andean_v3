@@ -1,11 +1,19 @@
 import { memo } from 'react';
 import { ImageIcon } from 'lucide-react';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { CardImageCarousel } from '@/components/ui/CardImageCarousel/CardImageCarousel';
 
 type ExperienceCardImageProps = {
   src: string;
   alt: string;
   sizes?: string;
+  /**
+   * Optional carousel: `src` first, then the gallery. Two or more slides render
+   * `CardImageCarousel` inside the same frame and placeholder; `carouselTitle`
+   * names it for assistive tech.
+   */
+  images?: readonly string[];
+  carouselTitle?: string;
 };
 
 /**
@@ -27,8 +35,9 @@ type ExperienceCardImageProps = {
  * loading before hydration and left the card showing an empty placeholder over a
  * fully loaded image.
  */
-function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
+function ExperienceCardImage({ src, alt, sizes, images, carouselTitle }: ExperienceCardImageProps) {
   const { mobile } = getResponsiveImageSrc(src);
+  const hasCarousel = images !== undefined && images.length > 1 && carouselTitle !== undefined;
 
   return (
     <div className="relative h-64 w-full overflow-hidden rounded-xl bg-base-200">
@@ -38,21 +47,25 @@ function ExperienceCardImage({ src, alt, sizes }: ExperienceCardImageProps) {
       >
         <ImageIcon className="h-8 w-8" />
       </div>
-      <picture>
-        <source media="(max-width: 767px)" srcSet={mobile} />
-        <img
-          src={src}
-          alt={alt}
-          // Empty alt marks the image decorative, which is only correct when the
-          // caller renders the same text adjacently — hide it from the
-          // accessibility tree so it is skipped, not announced as an image.
-          aria-hidden={alt === '' ? 'true' : undefined}
-          sizes={sizes}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </picture>
+      {hasCarousel ? (
+        <CardImageCarousel images={images} title={carouselTitle} swipe />
+      ) : (
+        <picture>
+          <source media="(max-width: 767px)" srcSet={mobile} />
+          <img
+            src={src}
+            alt={alt}
+            // Empty alt marks the image decorative, which is only correct when the
+            // caller renders the same text adjacently — hide it from the
+            // accessibility tree so it is skipped, not announced as an image.
+            aria-hidden={alt === '' ? 'true' : undefined}
+            sizes={sizes}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+      )}
     </div>
   );
 }

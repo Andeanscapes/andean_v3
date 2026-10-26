@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 import { Modal } from '@/components/ui/Modal/Modal';
 
 interface GalleryModalProps {
@@ -26,22 +27,25 @@ export function GalleryModal({ isOpen, onClose, images, title, subtitle }: Galle
         <p className="mb-4 -mt-2 text-sm text-base-content/70">{subtitle}</p>
       ) : null}
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {images.map((image, index) => (
           <div
             key={`${image}-${index}`}
             className="aspect-[4/3] overflow-hidden rounded-xl border border-base-200/40"
           >
-            <img
-              src={image}
-              alt={`${title} ${index + 1}`}
-              className="h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(image).mobile} />
+              <img
+                src={image}
+                alt={`${title} ${index + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         ))}
-      </div>
+       </div>
     </Modal>
   );
 }

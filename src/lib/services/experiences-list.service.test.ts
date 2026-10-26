@@ -18,7 +18,9 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import type { MockInstance } from 'vitest';
 import { EXPERIENCES_LIST_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { FEED_MAX_HIGHLIGHTS, HighlightCodeSchema } from '@/lib/schemas/feed/v2';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn(async () => (key: string) => key),
@@ -42,7 +44,7 @@ function stubFeed(feed: unknown) {
 
 describe('getExperiencesListSSR', () => {
   let getExperiencesListSSR: typeof import('./experiences-list.service').getExperiencesListSSR;
-  let consoleError: ReturnType<typeof vi.spyOn>;
+  let consoleError: MockInstance<typeof console.error>;
 
   beforeEach(async () => {
     process.env.REMOTE_DATA_BASE_URL = 'https://cdn.example.com/services';
@@ -61,11 +63,56 @@ describe('getExperiencesListSSR', () => {
     const mockFetch = stubFeed(feed);
 
     const data = await getExperiencesListSSR('en');
+    const published = feed.experiences.filter((entry) => entry.status === 'published');
 
-    expect(data.cards).toHaveLength(1);
-    expect(data.cards[0].price).toBe(feed.experiences[0].card.fromPrice.amount);
+    expect(data.cards).toHaveLength(published.length);
+    expect(data.cards.map((card) => card.price)).toEqual(
+      published.map((entry) => entry.card.fromPrice.amount),
+    );
     // One request total: the list feed. No per-card fan-out.
     expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('builds plan and mine badges and the carousel from feed codes', async () => {
+    const feed = listFeed();
+    const [entry] = feed.experiences;
+    entry.planCode = 'prime';
+    entry.mineCode = 'chivor';
+    entry.card.gallery = ['/images/experiences/x/highlights/highlight-1.webp'];
+    stubFeed(feed);
+
+    const [card] = (await getExperiencesListSSR('en')).cards;
+
+    // The mine badge carries the place, so the card uses the place-less title.
+    expect(card.title).toMatch(/\.cardTitle$/);
+    expect(card.planBadge).toEqual({ code: 'prime', label: 'ExperiencesList.planBadges.prime' });
+    expect(card.mineBadge).toEqual({ code: 'chivor', label: 'ExperiencesList.mineBadges.chivor' });
+    // Card image first, so the carousel opens on the same photo as before.
+    expect(card.images).toHaveLength(2);
+    expect(card.images[0]).toBe(card.image);
+    // Resolved to the CDN like the card image, not left app-relative.
+    expect(card.images[1]).toBe(
+      `${new URL(card.image).origin}/images/experiences/x/highlights/highlight-1.webp`,
+    );
+  });
+
+  // The live feed does not carry the codes yet; the card must render as before.
+  it('renders without badges and with a single slide when the feed omits the codes', async () => {
+    const feed = listFeed();
+    for (const entry of feed.experiences) {
+      delete entry.planCode;
+      delete entry.mineCode;
+      delete entry.card.gallery;
+    }
+    stubFeed(feed);
+
+    const [card] = (await getExperiencesListSSR('en')).cards;
+
+    expect(card.planBadge).toBeUndefined();
+    expect(card.mineBadge).toBeUndefined();
+    // No mine badge: the card keeps the full title, so the place is never lost.
+    expect(card.title).toMatch(/\.title$/);
+    expect(card.images).toEqual([card.image]);
   });
 
   it('derives the card route from the feed slug', async () => {
@@ -159,23 +206,65 @@ describe('getExperiencesListSSR', () => {
 
   it('excludes experiences that are not published', async () => {
     const feed = listFeed();
-    feed.experiences[0].status = 'draft';
+    const publishedEntries = feed.experiences.filter((entry) => entry.status === 'published');
+    expect(publishedEntries.length).toBeGreaterThan(1);
+    const [draft, ...published] = publishedEntries;
+    draft.status = 'draft';
     stubFeed(feed);
 
     const data = await getExperiencesListSSR('en');
 
-    expect(data.cards).toEqual([]);
+    expect(data.cards.map((card) => card.id)).toEqual(published.map((entry) => entry.slug));
   });
 
-  it('caps card metadata at three chips', async () => {
+  it('keeps every highlight after the two fixed chips', async () => {
     const feed = listFeed();
-    feed.experiences[0].card.highlightCodes = ['transportIncluded', 'smallGroups', 'localGuides'];
+    feed.experiences[0].card.highlightCodes = ['localGuides', 'smallGroups', 'twoMines', 'horsebackRiding'];
     stubFeed(feed);
 
     const data = await getExperiencesListSSR('en');
 
-    // duration + startsIn + 3 highlights = 5 candidates, truncated to 3.
-    expect(data.cards[0].metadata).toHaveLength(3);
+    // duration + startsIn + 4 highlights (the schema maximum), none dropped.
+    expect(data.cards[0].metadata).toEqual([
+      'ExperiencesList.cardMeta.durationDaysNights',
+      'ExperiencesList.cardMeta.startsIn',
+      'ExperiencesList.localGuides',
+      'ExperiencesList.smallGroups',
+      'ExperiencesList.twoMines',
+      'ExperiencesList.horsebackRiding',
+    ]);
+  });
+
+  it('promotes privateTour to a photo badge instead of a chip', async () => {
+    const feed = listFeed();
+    feed.experiences[0].card.highlightCodes = ['localGuides', 'privateTour', 'twoMines'];
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.cards[0].privateBadge).toEqual({ label: 'ExperiencesList.privateTour' });
+    expect(data.cards[0].metadata).not.toContain('ExperiencesList.privateTour');
+    expect(data.cards[0].metadata).toContain('ExperiencesList.twoMines');
+  });
+
+  it('renders no private badge without the privateTour highlight', async () => {
+    const feed = listFeed();
+    feed.experiences[0].card.highlightCodes = ['localGuides', 'smallGroups'];
+    stubFeed(feed);
+
+    const data = await getExperiencesListSSR('en');
+
+    expect(data.cards[0].privateBadge).toBeUndefined();
+  });
+
+  it('rejects a feed with more highlights than the schema allows', async () => {
+    expect(HighlightCodeSchema.options.length).toBeGreaterThan(FEED_MAX_HIGHLIGHTS);
+    const feed = listFeed();
+    // Every highlight code — one more than FEED_MAX_HIGHLIGHTS allows.
+    feed.experiences[0].card.highlightCodes = [...HighlightCodeSchema.options];
+    stubFeed(feed);
+
+    await expect(getExperiencesListSSR('en')).rejects.toThrow(/Experiences feed unavailable/);
   });
 
   it('throws when the feed is unavailable instead of rendering an empty catalog', async () => {

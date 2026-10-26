@@ -85,6 +85,17 @@
   --color-status-success-shad: #E9FBF6;
   --color-status-warning: #FFC233;
   --color-status-warning-shad: #FFF9EB;
+  /* Plan tier badges sit on photos, so fill and text are fixed per tier, not per theme. */
+  --color-plan-prime: #F2C14E;
+  --color-plan-prime-content: #2A1E05;
+  --color-plan-core: #D6D9DE;
+  --color-plan-core-content: #1F2328;
+  --color-plan-basic: #8B5A2B;
+  --color-plan-basic-content: #FFF7EE;
+  /* Location badge: a light pill on photos, with a dark emerald pin (not the CTA green). */
+  --color-place: #FFFFFF;
+  --color-place-content: #0F1F18;
+  --color-place-accent: #047857;
   --color-status-danger: #F53D6B;
   --color-status-danger-shad: #FFE3EB;
   --color-stock-1: #DDDDDD;

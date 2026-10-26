@@ -25,7 +25,7 @@ const MOCK_TRANSPORT_OPTIONS = [
 describe('TransportOptions', () => {
   it('renders title', () => {
     render(<TransportOptions transportOptions={MOCK_TRANSPORT_OPTIONS} />);
-    expect(screen.getByText(/Punto de inicio/)).toBeInTheDocument();
+    expect(screen.getByText(/¿Dónde comienza/)).toBeInTheDocument();
   });
 
   it('renders all transport options from config', () => {

@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useState, type ReactNode } from 'react';
-import { Award, BookOpen, ChevronDown, Coffee, Gem, Hotel, Images, Mountain, Search, type LucideIcon } from 'lucide-react';
+import { Award, BookOpen, ChevronDown, Coffee, Gem, Hotel, Images, Mountain, Route, Search, type LucideIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { ExperienceData, ItineraryDayStopContent } from '@/lib/schemas';
 import { useThemeContext } from '@/contexts/ThemeContext';
@@ -17,6 +17,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Gem,
   Hotel,
   Mountain,
+  Route,
   Search,
 };
 

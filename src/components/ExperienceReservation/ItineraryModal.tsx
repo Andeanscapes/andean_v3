@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Award, BookOpen, ChevronDown, Coffee, Gem, Hotel, Images, Mountain, Search, type LucideIcon } from 'lucide-react';
+import { Award, BookOpen, ChevronDown, Coffee, Gem, Hotel, Images, Mountain, Route, Search, type LucideIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Modal } from '@/components/ui/Modal/Modal';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
@@ -11,7 +11,7 @@ import { useThemeContext } from '@/contexts/ThemeContext';
 import type { ExperienceData, ItineraryDayContent, ItineraryDayStopContent } from '@/lib/schemas';
 
 const ICON_MAP: Record<string, LucideIcon> = {
-  Award, BookOpen, Coffee, Gem, Hotel, Mountain, Search,
+  Award, BookOpen, Coffee, Gem, Hotel, Mountain, Route, Search,
 };
 
 interface StopCardProps {

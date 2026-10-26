@@ -7,14 +7,21 @@ import {
   getExperienceDataSSR,
   getExperiencePathListSSR,
 } from '@/lib/services/experiences-catalog.service';
+import { getExperienceFaqKeys, SITE_INFO } from '@/constant/SiteConfig';
 import { safeJsonLd } from '@/utils/jsonLd';
 import {
+  buildTouristTripLd,
+  buildBreadcrumbLd,
+  buildFaqLd,
+} from '@/utils/structuredData';
+import {
+  buildAbsoluteLocalizedUrl,
   buildExperienceAlternates,
   buildExperiencePath,
   sanitizeLocale,
   SEO_SITE_URL,
   toAbsoluteUrl,
-} from './seo';
+} from '@/utils/seoUrls';
 
 export async function generateStaticParams() {
   const experienceNames = await getExperiencePathListSSR();
@@ -57,6 +64,7 @@ export async function generateMetadata({
       languages: alternates,
     },
     openGraph: {
+      siteName: SITE_INFO.name,
       title,
       description,
       url: canonicalUrl,
@@ -93,30 +101,48 @@ export default async function ExperiencePage({
   const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
   const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
 
-  const productStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: experienceData.config.title,
-    description: experienceData.config.description,
-    ...(imageUrl ? { image: [imageUrl] } : {}),
-    brand: {
-      '@type': 'Brand',
-      name: 'Andean Scapes',
+  const t = await getTranslations({ locale });
+
+  const { config } = experienceData;
+  const tripStructuredData = buildTouristTripLd({
+    name: config.title,
+    description: config.description,
+    url: pageUrl,
+    imageUrl,
+    price: config.experiencePricePerPerson,
+    currency: config.currency,
+    provider: { name: SITE_INFO.name, url: SITE_INFO.url },
+    // The service already drops past/full departures (`filterCurrentAvailableDates`).
+    availableStartDates: experienceData.availableDates.map((date) => date.startDate),
+  });
+
+  const breadcrumbStructuredData = buildBreadcrumbLd([
+    { name: t('Seo.breadcrumbHome'), url: buildAbsoluteLocalizedUrl(locale, '/') },
+    {
+      name: t('Seo.breadcrumbExperiences'),
+      url: buildAbsoluteLocalizedUrl(locale, '/experiences'),
     },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: experienceData.config.currency,
-      price: experienceData.config.experiencePricePerPerson,
-      availability: 'https://schema.org/InStock',
-      url: pageUrl,
-    },
-  };
+    { name: experienceData.config.title, url: pageUrl },
+  ]);
+
+  // Same keys the rendered <Faqs> section uses, so markup matches visible content.
+  const faqStructuredData = buildFaqLd(
+    getExperienceFaqKeys(experienceData.config.id).map((faq) => ({ question: t(faq.question), answer: t(faq.answer) })),
+  );
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(productStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(tripStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqStructuredData) }}
       />
       <ExperienceDetailsPage experienceData={experienceData} />
     </>

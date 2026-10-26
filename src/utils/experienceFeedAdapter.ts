@@ -24,9 +24,14 @@
 
 import type { ExperienceData } from '@/lib/schemas';
 import type { ExperienceFeedV2, ItineraryCategoryCode } from '@/lib/schemas/feed/v2';
-import type { ExperienceI18nMaps } from '@/i18n/mappings/experience';
+import type { ExperienceI18nMap } from '@/i18n/mappings/experience';
 
-type ExperienceMapping = ExperienceI18nMaps[keyof ExperienceI18nMaps];
+/**
+ * The structural contract every experience mapping satisfies. Not the union of
+ * the literal tables: two experiences with different copy keys produce distinct
+ * literal types that generic helpers cannot unify.
+ */
+type ExperienceMapping = ExperienceI18nMap;
 
 /**
  * Resolve a key that the mapping declares as optional.
@@ -82,6 +87,9 @@ const CATEGORY_ICON = {
   dining: 'Coffee',
   education: 'BookOpen',
   farewell: 'Award',
+  viewpoint: 'Mountain',
+  // lucide ships no horse icon; a route reads as the ride between mines.
+  horseback: 'Route',
 } as const satisfies Record<ItineraryCategoryCode, string>;
 
 function toItineraryDays(
@@ -174,6 +182,9 @@ export function adaptExperienceFeedV2(
       id: experience.id,
       title: mapping.title,
       subtitle: mapping.subtitle,
+      valueStack: [...mapping.valueStack],
+      packageTags: feed.experience.packageTags,
+      planCode: experience.planCode,
       description: mapping.description,
       experiencePricePerPerson: experience.pricing.basePerPerson,
       currency: experience.pricing.currency,
@@ -197,7 +208,7 @@ export function adaptExperienceFeedV2(
       })),
       notIncluded: experience.notIncluded.map((code) => ({
         id: code,
-        title: mapping.notIncluded[code],
+        title: requireKey(mapping.notIncluded, code, 'exclusion'),
       })),
       location: {
         lat: experience.location.coordinates.latitude,
@@ -220,7 +231,7 @@ export function adaptExperienceFeedV2(
     // camelCase → snake_case: the booking flow persists these field names.
     roomModes: feed.roomModes.map((mode) => ({
       value: mode.value,
-      label: mapping.roomMode[mode.value],
+      label: requireKey(mapping.roomMode, mode.value, 'room mode'),
       price_multiplier: mode.priceMultiplier,
       fixed_people: mode.occupancy,
       room_type_id: mode.roomTypeId,
@@ -252,13 +263,18 @@ export function adaptExperienceFeedV2(
         itinerary: toItineraryDays(tier, mapping),
       };
     }),
-    addons: feed.addons.map((addon) => ({
-      id: addon.id,
-      label: mapping.addons[addon.id].label,
-      description: mapping.addons[addon.id].description,
-      pricePerPerson: addon.pricePerPerson,
-      requiresTeamConfirmation: addon.requiresTeamConfirmation,
-    })),
+    addons: feed.addons.map((addon) => {
+      const addonMapping = requireEntry(mapping.addons, addon.id, 'add-on');
+
+      return {
+        id: addon.id,
+        label: addonMapping.label,
+        description: addonMapping.description,
+        pricePerPerson: addon.pricePerPerson,
+        requiresTeamConfirmation: addon.requiresTeamConfirmation,
+        includedInPlan: addon.includedInPlan,
+      };
+    }),
     availableDates: feed.availableDates.map((date) => ({
       id: date.id,
       startDate: date.startDate,

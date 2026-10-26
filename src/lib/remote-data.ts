@@ -116,12 +116,20 @@ export async function fetchRemoteJson<T>(
     const response = await fetch(url, {
       method: 'GET',
       signal: controller.signal,
-      // Forward caching hints whenever either is supplied — `tags` alone is
-      // still meaningful for revalidateTag.
-      next:
-        options?.revalidate !== undefined || options?.tags !== undefined
-          ? { revalidate: options.revalidate, tags: options.tags }
-          : undefined,
+      // Development reads the feed fresh on every request. Next's data cache
+      // persists on disk across restarts, so with `revalidate: 3600` a local
+      // feed edit stayed invisible for up to an hour and looked like a bug in
+      // the edit. Deployed builds keep the caching hints unchanged.
+      ...(process.env.NODE_ENV === 'development'
+        ? { cache: 'no-store' as const }
+        : {
+            // Forward caching hints whenever either is supplied — `tags` alone
+            // is still meaningful for revalidateTag.
+            next:
+              options?.revalidate !== undefined || options?.tags !== undefined
+                ? { revalidate: options.revalidate, tags: options.tags }
+                : undefined,
+          }),
     });
 
     // 2. Non-OK response → fallback

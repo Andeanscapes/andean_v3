@@ -19,6 +19,9 @@ import type {
   HostContent,
   ItineraryContent,
 } from '@/lib/schemas';
+import type { Duration } from '@/lib/schemas/feed/v2';
+import { toPackageTags } from '@/utils/packageTags';
+import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 
 // next-intl server `t` signature
 type Translator = (key: string, values?: Record<string, string | number>) => string;
@@ -33,12 +36,15 @@ export function toHeroContent(
   rawData: ExperienceData,
   t: Translator,
   depositPercent: number,
+  duration: Duration,
 ): ExperienceHeroContent {
   const { config } = rawData;
   return {
     title: t(config.title),
     subtitle: t(config.subtitle),
-    summary: t('experiences.ui.heroSummary'),
+    summary: t('experiences.ui.heroSummary', {
+      duration: t(EXPERIENCES_LIST_I18N.cardMeta.duration, duration),
+    }),
     highlightText: `${t('experiences.ui.limitedSpots')} · ${t('experiences.ui.depositLabel')} ${depositPercent}%`,
     ctaLabel: t('experiences.ui.heroCta'),
     helperText: t('experiences.common.security'),
@@ -48,6 +54,12 @@ export function toHeroContent(
     // reach `<img src="">` and the SEO/OG image builders as if it were a URL.
     backgroundImageUrl: config.images?.heroBackground,
     video: config.video,
+    valueStack: config.valueStack?.map((key) => t(key)),
+    packageTags: toPackageTags(config.packageTags, t),
+    // Rollout-safe: absent `planCode` (the live feed today) yields no badge.
+    planBadge: config.planCode
+      ? { code: config.planCode, label: t(EXPERIENCES_LIST_I18N.planBadges[config.planCode]) }
+      : undefined,
     badges: [
       { label: t('experiences.ui.limitedSpots'), icon: 'limited' },
       { label: `${t('experiences.ui.depositLabel')} ${depositPercent}%`, icon: 'deposit' },
@@ -67,6 +79,7 @@ export function toWidgetContent(
     peopleLabel: t('experiences.ui.peopleLabel'),
     roomTypeLabel: t('experiences.ui.roomType'),
     howToArriveLabel: t('experiences.ui.howToArrive'),
+    transportNoteLabel: t('experiences.ui.transportNote'),
     checkDatesButtonLabel: t('experiences.ui.experienceDetails.checkDatesBtn'),
     securityLine: t('experiences.common.security'),
     freeCancellationLine: t('experiences.ui.freeCancellation'),
@@ -77,7 +90,9 @@ export function toWidgetContent(
     fromLabel: t('experiences.ui.fromLabel'),
     totalLabel: t('experiences.ui.totalLabel'),
     perPersonLabel: t('experiences.ui.perPersonLabel'),
-    reviewsCountLabel: t('experiences.ui.reviewsCountLabel', { count: reviewsCount }),
+    reviewsCountLabel: reviewsCount > 0
+      ? t('experiences.ui.reviewsCountLabel', { count: reviewsCount })
+      : undefined,
     bookingButtonLabel: t('experiences.ui.experienceDetails.bookNowBtn'),
     cardBackgroundGradient: 'rgba(10, 25, 47, 0.85)',
   };
@@ -152,12 +167,15 @@ export function toAddonsContent(
     sectionTitle: t('experiences.ui.experienceDetails.addonsTitle'),
     perPersonLabel: t('experiences.ui.experienceDetails.addonsPerPerson'),
     teamConfirmationLabel: t('experiences.ui.experienceDetails.addonsTeamConfirmation'),
+    includedLabel: t('experiences.ui.experienceDetails.addonsIncludedLabel'),
+    includedNoteLabel: t('experiences.ui.experienceDetails.addonsIncludedNote'),
     items: rawData.addons.map((addon) => ({
       id: addon.id,
       label: t(addon.label),
       description: addon.description ? t(addon.description) : undefined,
       pricePerPerson: addon.pricePerPerson,
       requiresTeamConfirmation: addon.requiresTeamConfirmation,
+      includedInPlan: addon.includedInPlan,
     })),
   };
 }

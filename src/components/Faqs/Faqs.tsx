@@ -9,6 +9,7 @@ import { SectionContainer } from '@/components/ui/SectionContainer/SectionContai
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import BackgroundImageWithFallback from '@/components/media/BackgroundImageWithFallback';
+import { getExperienceFaqKeys } from '@/constant/SiteConfig';
 
 interface FaqsProps {
   className?: string;
@@ -32,23 +33,11 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
     window.open(whatsappLink, '_blank', 'noopener,noreferrer');
   }, [whatsappLink]);
 
-  const faqItems = [
-    {
-      id: 'faq-1',
-      title: t('experiences.ui.experienceDetails.faq1Q'),
-      content: t('experiences.ui.experienceDetails.faq1A'),
-    },
-    {
-      id: 'faq-2',
-      title: t('experiences.ui.experienceDetails.faq2Q'),
-      content: t('experiences.ui.experienceDetails.faq2A'),
-    },
-    {
-      id: 'faq-3',
-      title: t('experiences.ui.experienceDetails.faq3Q'),
-      content: t('experiences.ui.experienceDetails.faq3A'),
-    },
-  ];
+  const faqItems = getExperienceFaqKeys(config.id).map((faq) => ({
+    id: faq.id,
+    title: t(faq.question),
+    content: t(faq.answer),
+  }));
 
   const shouldUseTwoColumns = faqItems.length > 6;
 

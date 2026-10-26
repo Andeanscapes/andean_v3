@@ -16,10 +16,14 @@ const mockCard: ExperienceListCard = {
   title: 'Emerald Mining Adventure',
   description: 'Discover the world of Colombian emeralds in an authentic mining experience.',
   image: '/assets/images/details/emerald-mining-card.webp',
+  images: ['/assets/images/details/emerald-mining-card.webp', '/images/experiences/chivor-emerald-prime/highlights/highlight-1.webp'],
+  planBadge: { code: 'prime', label: 'Prime' },
+  mineBadge: { code: 'chivor', label: 'Chivor' },
   price: 750000,
   currency: 'COP',
   priceQualifier: 'per person',
   metadata: ['2D/1N', 'Small groups', 'Chivor'],
+  packageTags: [{ label: 'All-inclusive stay', variant: 'warning' }],
   href: '/experiences/emerald-mining-adventure',
   tag: 'Most Popular',
 };
@@ -68,11 +72,22 @@ describe('ExperienceCard', () => {
     expect(screen.queryByText('per person')).not.toBeInTheDocument();
   });
 
-  it('renders metadata badges (max 3)', () => {
+  it('renders the package badge highlighted', () => {
+    render(<ExperienceCard {...defaultProps} />);
+    expect(screen.getByText('All-inclusive stay')).toHaveClass('badge-warning');
+  });
+
+  it('renders no package badge when there is none', () => {
+    render(<ExperienceCard {...defaultProps} card={{ ...mockCard, packageTags: [] }} />);
+    expect(screen.queryByText('All-inclusive stay')).not.toBeInTheDocument();
+  });
+
+  it('renders metadata badges', () => {
     render(<ExperienceCard {...defaultProps} />);
     expect(screen.getByText('2D/1N')).toBeInTheDocument();
     expect(screen.getByText('Small groups')).toBeInTheDocument();
-    expect(screen.getByText('Chivor')).toBeInTheDocument();
+    // Once as the metadata chip, once as the mine badge.
+    expect(screen.getAllByText('Chivor')).toHaveLength(2);
   });
 
   it('does not render metadata section when metadata is empty', () => {
@@ -81,13 +96,14 @@ describe('ExperienceCard', () => {
     expect(screen.queryByText('2D/1N')).not.toBeInTheDocument();
   });
 
-  it('renders at most 3 metadata badges', () => {
-    const cardExtraMeta = { ...mockCard, metadata: ['A', 'B', 'C', 'D'] };
+  // The service owns the cap; the card renders what it is given, so a
+  // differentiator such as "Horseback riding" is never silently dropped here.
+  it('renders every metadata badge the service provides', () => {
+    const cardExtraMeta = { ...mockCard, metadata: ['A', 'B', 'C', 'D', 'E'] };
     render(<ExperienceCard {...defaultProps} card={cardExtraMeta} />);
-    expect(screen.getByText('A')).toBeInTheDocument();
-    expect(screen.getByText('B')).toBeInTheDocument();
-    expect(screen.getByText('C')).toBeInTheDocument();
-    expect(screen.queryByText('D')).not.toBeInTheDocument();
+    for (const label of ['A', 'B', 'C', 'D', 'E']) {
+      expect(screen.getByText(label)).toBeInTheDocument();
+    }
   });
 
   it('renders view details link with correct href', () => {

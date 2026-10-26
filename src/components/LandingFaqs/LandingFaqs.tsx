@@ -14,7 +14,7 @@ interface LandingFaqsProps {
 }
 
 function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps) {
-  const { faqs, flagship, finalCta } = landingData;
+  const { faqs, finalCta, globalCtas } = landingData;
 
   const accordionItems = faqs.items.map((item) => ({
     id: item.id,
@@ -40,8 +40,11 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
             {faqs.sectionTitle}
           </p>
           <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
-            {flagship.title}
+            {faqs.title}
           </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/70 md:text-base">
+            {faqs.description}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
@@ -63,13 +66,13 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent" />
               <div className="relative">
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-400">
-                  {flagship.badge}
+                  {faqs.sectionTitle}
                 </p>
                 <h3 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
-                  {flagship.title}
+                  {faqs.enquiryTitle}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-white/72">
-                  {flagship.description}
+                  {faqs.enquiryDescription}
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3">
@@ -85,14 +88,14 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
                     </span>
                   </PrimaryCtaButton>
                   <a
-                    href={flagship.whatsappLink}
+                    href={globalCtas.whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 hover:brightness-110"
                   >
                     <span className="inline-flex items-center gap-2">
                       <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />
-                      {flagship.labels.whatsappCtaLabel}
+                      {globalCtas.whatsappLabel}
                     </span>
                   </a>
                 </div>

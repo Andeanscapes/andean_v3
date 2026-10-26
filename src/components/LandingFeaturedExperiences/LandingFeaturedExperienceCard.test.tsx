@@ -1,16 +1,23 @@
-import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { NextIntlClientProvider } from 'next-intl';
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 import LandingFeaturedExperienceCard from './LandingFeaturedExperienceCard';
 import { FEATURED_FIXTURE } from './__fixtures__/featuredFixture';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import enMessages from '@/i18n/messages/en.json';
 
 const FIRST = FEATURED_FIXTURE.items[0];
 
 function renderWithIntl(ui: React.ReactElement) {
   return render(
-    <NextIntlClientProvider locale="en" messages={{}}>
+    <NextIntlClientProvider locale="en" messages={enMessages}>
       {ui}
     </NextIntlClientProvider>,
   );
@@ -27,20 +34,79 @@ describe('LandingFeaturedExperienceCard', () => {
     expect(screen.getByText(FIRST.location)).toBeInTheDocument();
   });
 
-  it('renders the badge when provided', () => {
+  it('renders each highlight as a list item', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
-    expect(screen.getByText(FIRST.badge as string)).toBeInTheDocument();
+    const list = screen.getByText(FIRST.highlights[0]).closest('ul');
+    const items = Array.from(list?.querySelectorAll('li') ?? []);
+    expect(items.map((item) => item.textContent)).toEqual(FIRST.highlights);
   });
 
-  it('does not render the badge when omitted', () => {
-    const noBadge = { ...FIRST, badge: undefined };
-    renderWithIntl(<LandingFeaturedExperienceCard experience={noBadge} />);
-    expect(screen.queryByText('Featured')).not.toBeInTheDocument();
+  it('renders no highlight list when there are none', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={{ ...FIRST, highlights: [], packageTags: [] }} />);
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
-  it('formats price as currency and shows fromLabel + viewDetailsLabel', () => {
+  it('renders the package badge highlighted', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    expect(screen.getByText('All-inclusive stay')).toHaveClass('badge-warning');
+  });
+
+  it('renders the plan and mine badges over the image', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    expect(screen.getByText('Prime')).toBeInTheDocument();
+    expect(screen.getByText('Chivor')).toHaveClass('uppercase');
+  });
+
+  it('renders no plan or mine badge when the feed carries no codes', () => {
+    renderWithIntl(
+      <LandingFeaturedExperienceCard experience={{ ...FIRST, planBadge: undefined, mineBadge: undefined }} />,
+    );
+    expect(screen.queryByText('Prime')).not.toBeInTheDocument();
+    expect(screen.queryByText('Chivor')).not.toBeInTheDocument();
+  });
+
+  // The stretched title link sits above the photo, so the carousel never gets
+  // the pointer itself; hover must be read on the card.
+  it('drives carousel hover from the whole card', () => {
+    // jsdom ships no PointerEvent, so `pointerType` would be dropped.
+    vi.stubGlobal(
+      'PointerEvent',
+      class extends MouseEvent {
+        readonly pointerType: string;
+        constructor(type: string, init: { pointerType?: string } & ConstructorParameters<typeof MouseEvent>[1] = {}) {
+          super(type, init);
+          this.pointerType = init.pointerType ?? '';
+        }
+      },
+    );
+    const { container } = renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    const card = container.querySelector('article');
+    if (!card) throw new Error('card not rendered');
+    expect(card).toHaveClass('group/card');
+    expect(container.querySelectorAll('img')).toHaveLength(1);
+
+    fireEvent.pointerOver(card, { pointerType: 'mouse' });
+    // Card hover preloads the next photo, proving the carousel saw it.
+    expect(container.querySelectorAll('img')).toHaveLength(2);
+    vi.unstubAllGlobals();
+  });
+
+  // The carousel buttons must not sit inside the card link, or a click on an
+  // arrow would navigate to the experience instead of changing the photo.
+  it('keeps carousel controls outside the card link', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    const link = screen.getByRole('link', { name: FIRST.title });
+    expect(link).toHaveAttribute('href', FIRST.href);
+    for (const button of screen.getAllByRole('button')) {
+      expect(link.contains(button)).toBe(false);
+      expect(button.closest('a')).toBeNull();
+    }
+  });
+
+  it('formats price as currency and shows fromLabel + per-person + viewDetailsLabel', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
     expect(screen.getByText(FIRST.fromLabel)).toBeInTheDocument();
+    expect(screen.getByText(FIRST.perPersonLabel)).toBeInTheDocument();
     expect(screen.getByText(FIRST.viewDetailsLabel)).toBeInTheDocument();
     // 470000 COP → ICU format, e.g. "$ 470.000" or "COP 470.000"
     const priceMatch = screen.getByText(

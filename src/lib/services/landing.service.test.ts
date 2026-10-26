@@ -15,8 +15,9 @@ vi.mock('next-intl/server', () => ({
   getTranslations: vi.fn(async () => (key: string) => key),
 }));
 
-import { getLandingDataSSR } from './landing.service';
+import { getFlagshipExperiencePathSSR, getLandingDataSSR } from './landing.service';
 import { LANDING_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { ExperienceIdSchema } from '@/lib/schemas/feed/v2';
 
 // v2's AvailableDateSchema is strict and carries no `endDate`.
 const PAST_DATE = {
@@ -86,17 +87,49 @@ describe('getLandingDataSSR', () => {
   });
 
   it('re-derives nextAvailability from the surviving dates', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayloadWithExpiredDate())));
+    const payload = feedPayloadWithExpiredDate();
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
 
     const content = await getLandingDataSSR('en');
-    const firstDate = content.flagship.availableDates[0];
 
     for (const item of content.featuredExperiences.items) {
+      const owner = payload.experiences.find((entry) => entry.slug === item.experienceSlug);
+      const firstDate = owner?.availableDates.find((d) => d.startDate.slice(0, 10) >= FROZEN_TODAY);
+
       // Never the stale 2020 value the payload carried.
       expect(item.nextAvailability?.dateISO).not.toBe('2020-01-01');
-      expect(item.nextAvailability?.dateISO).toBe(firstDate.startDate.slice(0, 10));
-      expect(item.nextAvailability?.spotsLeft).toBe(firstDate.spots);
+      expect(item.nextAvailability?.dateISO).toBe(firstDate?.startDate.slice(0, 10));
+      expect(item.nextAvailability?.spotsLeft).toBe(firstDate?.spots);
     }
+  });
+
+  it('derives each featured card availability from its own experience', async () => {
+    const payload = feedPayload();
+    const flagship = payload.experiences.find((entry) => entry.id === payload.flagshipExperienceId);
+    if (!flagship) throw new Error('fixture has no flagship entry');
+
+    // The live feed may publish a single experience; add a second, schema-valid
+    // one so the assertion does not depend on how many the catalog has today.
+    let other = payload.experiences.find((entry) => entry.id !== payload.flagshipExperienceId);
+    if (!other) {
+      const spareId = ExperienceIdSchema.options.find(
+        (id) => !payload.experiences.some((entry) => entry.id === id),
+      );
+      if (!spareId) throw new Error('no spare experience id to build a second entry');
+      other = { ...cloneFixture(flagship), id: spareId, slug: `${flagship.slug}-second` };
+      payload.experiences.push(other);
+      payload.featuredExperienceIds.push(spareId);
+    }
+
+    // The non-flagship experience departs later and with fewer spots.
+    const ownDate = { id: 'own-2027', startDate: '2027-03-06T00:00:00.000Z', spots: 2, isAvailable: true };
+    other.availableDates = [ownDate];
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(payload)));
+
+    const content = await getLandingDataSSR('en');
+    const card = content.featuredExperiences.items.find((item) => item.experienceSlug === other.slug);
+
+    expect(card?.nextAvailability).toEqual({ dateISO: '2027-03-06', spotsLeft: 2 });
   });
 
   it('throws when the feed is unavailable', async () => {
@@ -240,5 +273,37 @@ describe('getLandingDataSSR', () => {
     const requestedUrls = mockFetch.mock.calls.map(([url]) => String(url));
     expect(requestedUrls).toHaveLength(1);
     expect(requestedUrls[0]).not.toMatch(/whatsapp_bot|bot-dynamic/);
+  });
+});
+
+describe('getFlagshipExperiencePathSSR', () => {
+  beforeEach(() => {
+    process.env.REMOTE_DATA_BASE_URL = 'https://cdn.example.com/services';
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    delete process.env.REMOTE_DATA_BASE_URL;
+  });
+
+  it('builds the path from the flagship slug, not the first experience', async () => {
+    const payload = feedPayload();
+    // Put the flagship last so a "first entry" shortcut would fail.
+    const flagship = payload.experiences.find((entry) => entry.id === payload.flagshipExperienceId);
+    const others = payload.experiences.filter((entry) => entry.id !== payload.flagshipExperienceId);
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(okResponse({ ...payload, experiences: [...others, flagship] })),
+    );
+
+    await expect(getFlagshipExperiencePathSSR()).resolves.toBe(
+      `/experiences/${flagship?.slug}`,
+    );
+  });
+
+  it('throws when the feed is unavailable', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }));
+
+    await expect(getFlagshipExperiencePathSSR()).rejects.toThrow(/Landing feed unavailable/);
   });
 });

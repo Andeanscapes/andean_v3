@@ -1,14 +1,14 @@
 import type { MetadataRoute } from 'next';
-
-const SITE_URL = 'https://andeanscapes.com';
+import { SITE_INFO } from '@/constant/SiteConfig';
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/api/'],
     },
-    sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    sitemap: `${SITE_INFO.url}/sitemap.xml`,
+    host: SITE_INFO.url,
   };
 }

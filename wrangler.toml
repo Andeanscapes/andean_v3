@@ -1,6 +1,7 @@
 # andean_v3/wrangler.toml
 name = "andean-v3"
-main = ".open-next/worker.js"
+# `worker.ts` wraps `.open-next/worker.js` with the edge HTML cache.
+main = "worker.ts"
 compatibility_date = "2024-12-31"
 compatibility_flags = ["nodejs_compat"]
 
@@ -10,6 +11,11 @@ routes = [
 ]
 
 assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+[[rules]]
+type = "Text"
+globs = ["**/BUILD_ID"]
+fallthrough = true
 
 # Public configuration, not a credential: this is an unauthenticated CDN URL
 # serving the same marketing content the site already renders. Safe to commit.

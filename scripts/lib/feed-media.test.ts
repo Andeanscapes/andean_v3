@@ -3,17 +3,24 @@
  *
  * These decide which keys `media:push` is willing to publish, so a wrong answer
  * either blocks legitimate media or lets a typo become a live object nothing
- * reads. Pure functions only — no network, no `fixtures/`.
+ * reads. No network or repository fixtures; filesystem cases use temp directories.
  */
 
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   collectMediaPaths,
   discoverHeroVariants,
+  experienceResponsiveMediaKeys,
   findMissingResponsiveSiblings,
+  findUnpublishedMedia,
   isHeroVariantKey,
   landingResponsiveMediaKeys,
+  listResponsiveMediaKeys,
   nearestKey,
+  readMediaFromDirectories,
   withResponsiveSiblings,
 } from './feed-media';
 import { FOOTER_TRUST_GALLERY } from '../../src/constant/SiteConfig';
@@ -24,6 +31,28 @@ import { FOOTER_TRUST_GALLERY } from '../../src/constant/SiteConfig';
  * is the only thing standing between a component change and a hero, tile or card
  * that 404s on phones and nowhere else.
  */
+describe('listResponsiveMediaKeys', () => {
+  it('covers the card image and carousel gallery of published entries only', () => {
+    const keys = listResponsiveMediaKeys({
+      experiences: [
+        {
+          status: 'published',
+          card: {
+            image: '/images/experiences/chivor-emerald-core/card.webp',
+            gallery: ['/images/experiences/chivor-emerald-core/highlights/highlight-1.webp'],
+          },
+        },
+        { status: 'draft', card: { image: '/images/experiences/coscuez-emerald-core/card.webp' } },
+      ],
+    });
+
+    expect(keys).toEqual([
+      '/images/experiences/chivor-emerald-core/card.webp',
+      '/images/experiences/chivor-emerald-core/highlights/highlight-1.webp',
+    ]);
+  });
+});
+
 describe('landingResponsiveMediaKeys', () => {
   const LANDING = {
     media: {
@@ -55,6 +84,16 @@ describe('landingResponsiveMediaKeys', () => {
   });
 
   /** App-owned and absent from the feed, but rendered on every route. */
+  it('includes the featured card carousel gallery', () => {
+    const gallery = ['/images/experiences/emerald-mining/highlights/highlight-1.webp'];
+    const keys = landingResponsiveMediaKeys({
+      ...LANDING,
+      experiences: [{ media: { card: LANDING.experiences[0].media.card, gallery } }],
+    });
+
+    expect(keys).toContain(gallery[0]);
+  });
+
   it('includes the footer gallery, which the feed never names', () => {
     const keys = landingResponsiveMediaKeys(LANDING);
     for (const key of FOOTER_TRUST_GALLERY) expect(keys).toContain(key);
@@ -81,6 +120,42 @@ describe('landingResponsiveMediaKeys', () => {
   /** The media block is optional during the staged rollout. */
   it('still returns the app-owned keys when the feed carries no media block', () => {
     expect(landingResponsiveMediaKeys({ experiences: [] })).toEqual([...FOOTER_TRUST_GALLERY]);
+  });
+});
+
+describe('experienceResponsiveMediaKeys', () => {
+  const FEED = {
+    experience: {
+      media: {
+        hero: '/images/x/hero.webp',
+        highlights: ['/images/x/gallery-1.webp', '/images/x/gallery-2.webp'],
+      },
+    },
+    accommodationTiers: [
+      {
+        media: { main: '/images/x/tier-main.webp', gallery: ['/images/x/tier-gallery.webp'] },
+        itinerary: [{ stops: [{ images: ['/images/x/stop-1.webp'] }] }],
+      },
+    ],
+  };
+
+  it('covers every media path the detail page renders through <picture>', () => {
+    expect(experienceResponsiveMediaKeys(FEED)).toEqual([
+      '/images/x/hero.webp',
+      '/images/x/gallery-1.webp',
+      '/images/x/gallery-2.webp',
+      '/images/x/tier-main.webp',
+      '/images/x/tier-gallery.webp',
+      '/images/x/stop-1.webp',
+    ]);
+  });
+
+  it('tolerates a tier without an itinerary', () => {
+    const keys = experienceResponsiveMediaKeys({
+      ...FEED,
+      accommodationTiers: [{ media: { main: '/images/x/m.webp', gallery: [] } }],
+    });
+    expect(keys).toContain('/images/x/m.webp');
   });
 });
 
@@ -124,6 +199,33 @@ describe('collectMediaPaths', () => {
     const found = new Set<string>();
     collectMediaPaths({ count: 5, ok: true, nothing: null }, found);
     expect(Array.from(found)).toEqual([]);
+  });
+});
+
+describe('readMediaFromDirectories', () => {
+  it('includes editable feed files and ignores nested backup snapshots', () => {
+    const directory = mkdtempSync(path.join(os.tmpdir(), 'feed-media-'));
+    const backups = path.join(directory, '.base');
+    mkdirSync(backups);
+    writeFileSync(
+      path.join(directory, 'experiences-list.json'),
+      JSON.stringify({ card: '/images/experiences/chivor-emerald-basic/card.webp' }),
+    );
+    writeFileSync(
+      path.join(backups, 'experiences-list.json'),
+      JSON.stringify({ card: '/images/experiences/old/card.webp' }),
+    );
+
+    try {
+      const result = readMediaFromDirectories([{ dir: directory, label: 'fixtures-local' }]);
+
+      expect(result.keys).toEqual(
+        new Set(['/images/experiences/chivor-emerald-basic/card.webp']),
+      );
+      expect(result.sources).toEqual(['fixtures-local']);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
   });
 });
 
@@ -289,6 +391,60 @@ describe('findMissingResponsiveSiblings', () => {
 
     await findMissingResponsiveSiblings(['/images/brand/landing-hero-01.webp']);
 
+    expect(String(mock.mock.calls[0][0])).toMatch(/__origin=\d+/);
+  });
+});
+
+describe('findUnpublishedMedia', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  function foundResponse() {
+    return new Response(null, {
+      status: 206,
+      headers: { 'content-range': 'bytes 0-1023/61390' },
+    });
+  }
+
+  it('reports nothing when every key is published', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(foundResponse()));
+
+    const report = await findUnpublishedMedia([
+      '/images/experiences/x/stays/heritage/main.webp',
+      '/videos/experiences/x/hero.webm',
+    ]);
+
+    expect(report).toEqual({ checked: 2, missing: [] });
+  });
+
+  it('reports a key the CDN does not hold', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(null, { status: 404 })));
+
+    const report = await findUnpublishedMedia(['/images/experiences/x/stays/heritage/main.webp']);
+
+    expect(report.missing).toEqual([
+      { key: '/images/experiences/x/stays/heritage/main.webp', reason: 'absent' },
+    ]);
+  });
+
+  /** An unreachable CDN must not be reported as published media. */
+  it('reports a read failure rather than passing it', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('ECONNRESET')));
+
+    const report = await findUnpublishedMedia(['/images/experiences/x/card.webp']);
+
+    expect(report.missing).toEqual([{ key: '/images/experiences/x/card.webp', reason: 'ECONNRESET' }]);
+  });
+
+  it('probes each key once, at origin', async () => {
+    const mock = vi.fn().mockResolvedValue(foundResponse());
+    vi.stubGlobal('fetch', mock);
+
+    const report = await findUnpublishedMedia(['/images/a.webp', '/images/a.webp']);
+
+    expect(report.checked).toBe(1);
+    expect(mock).toHaveBeenCalledTimes(1);
     expect(String(mock.mock.calls[0][0])).toMatch(/__origin=\d+/);
   });
 });

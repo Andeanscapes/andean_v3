@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "plugins": []
+  },
+  "include": ["worker.ts", "src/types/worker-build-id.d.ts"],
+  "exclude": ["node_modules", "fixtures"]
+}

@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
+import { experiencePath } from '@/utils/experienceRoutes';
 import LandingHeroBrand from '@/components/LandingHeroBrand';
 import LandingCategories from '@/components/LandingCategories';
 import LandingFeaturedExperiences from '@/components/LandingFeaturedExperiences';
@@ -42,12 +43,18 @@ interface LandingPageProps {
 function LandingPageComponent({ landingData }: LandingPageProps) {
   const flagship = landingData.flagship;
 
+  // The hero card renders the flagship, so its facts and link come from the
+  // flagship's featured entry — not whichever experience happens to be listed first.
+  const flagshipItem = landingData.featuredExperiences.items.find(
+    (item) => item.experienceSlug === flagship.experienceSlug,
+  );
+
   const featuredStrings = {
-    duration: landingData.featuredExperiences.items[0]?.duration ?? '',
-    location: landingData.featuredExperiences.items[0]?.location ?? '',
+    duration: flagshipItem?.duration ?? '',
+    location: flagshipItem?.location ?? '',
     ...landingData.heroBrand.bookingCard,
   };
-  const featuredBookingUrl = `${landingData.featuredExperiences.items[0]?.href ?? '/experiences/emerald-mining-adventure'}${BOOKING_ANCHOR}`;
+  const featuredBookingUrl = experiencePath(flagship.experienceSlug, BOOKING_ANCHOR);
 
   return (
     <div className="min-h-screen">

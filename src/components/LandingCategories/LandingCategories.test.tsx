@@ -1,5 +1,11 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 import LandingCategories from './LandingCategories';
 import { CATEGORIES_FIXTURE } from './__fixtures__/categoriesFixture';

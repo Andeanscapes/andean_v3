@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { LandingFeaturedExperiencesContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import LandingFeaturedExperienceCard from './LandingFeaturedExperienceCard';

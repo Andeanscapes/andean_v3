@@ -5,6 +5,8 @@ import {Link} from '@/i18n/navigation';
 import { Card } from '@/components/ui/Card/Card';
 import { Badge } from '@/components/ui/Badge/Badge';
 import ExperienceCardImage from './ExperienceCardImage';
+import { MineBadge, PlanBadge, PrivateBadge } from '@/components/ui/CardBadges/CardBadges';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
 import type { ExperienceListCard } from '@/lib/schemas';
 
 export interface ExperienceCardProps {
@@ -20,14 +22,25 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
       <div className="relative">
         <ExperienceCardImage
           src={card.image}
+          images={card.images}
+          carouselTitle={card.title}
           // Decorative: the title is rendered as the <h3> immediately below, so
           // a descriptive alt would make screen readers announce it twice.
           // Matches LandingFeaturedExperienceCard.
           alt=""
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        {card.mineBadge || card.planBadge || card.privateBadge ? (
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
+            <div className="flex flex-wrap items-start gap-1.5">
+              {card.mineBadge ? <MineBadge label={card.mineBadge.label} /> : null}
+              {card.privateBadge ? <PrivateBadge label={card.privateBadge.label} /> : null}
+            </div>
+            {card.planBadge ? <PlanBadge code={card.planBadge.code} label={card.planBadge.label} /> : null}
+          </div>
+        ) : null}
         {card.tag ? (
-          <div className="absolute left-3 top-3">
+          <div className="absolute bottom-3 left-3 z-10">
             <Badge variant="secondary" size="sm" className="bg-base-100/90 px-2 py-0.5 text-[11px] md:px-2.5 md:py-1 md:text-xs">
               {card.tag}
             </Badge>
@@ -36,17 +49,19 @@ function ExperienceCardComponent({ card, fromLabel, viewDetailsLabel, formattedP
       </div>
 
       <div className="mt-2 flex flex-1 flex-col md:mt-3">
-        <h3 className="text-base font-semibold leading-tight text-primary md:text-lg md:leading-relaxed lg:text-xl">
+        <h3 className="text-base font-semibold leading-snug text-base-content md:text-lg">
           {card.title}
         </h3>
-        <p className="mt-1 line-clamp-2 max-w-[36ch] text-[13px] leading-[1.38] text-primary/80 md:mt-2 md:max-w-none md:line-clamp-3 md:text-sm md:leading-relaxed md:text-primary/90">
+        <p className="mt-1 line-clamp-2 max-w-[36ch] text-[13px] leading-[1.38] text-base-content/75 md:mt-2 md:max-w-none md:line-clamp-3 md:text-sm md:leading-normal">
           {card.description}
         </p>
+
+        <PackageTagBadges tags={card.packageTags} className="mt-2" />
 
         <div className="mt-2 space-y-1.5 md:mt-auto md:space-y-2.5 md:pt-3">
           {card.metadata.length > 0 ? (
             <div className="flex flex-wrap gap-1 md:gap-1.5">
-              {card.metadata.slice(0, 3).map((item) => (
+              {card.metadata.map((item) => (
                 <Badge
                   key={`${card.id}-${item}`}
                   variant="secondary"

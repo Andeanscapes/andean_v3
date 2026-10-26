@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import { SITE_INFO } from "@/constant/SiteConfig";
 import {Link} from "@/i18n/navigation"
 
 
 export const metadata: Metadata = {
-    title: 'Signup | Arid - Travel & Tourism HTML/Tailwind CSS Template',
-    description: 'Welcome, Arid - Travel & Tourism HTML/Tailwind CSS Template',
-    keywords: ['tour', 'travel', 'booking', 'rental', 'nextJs', 'tailwind', 'trip', 'beach', 'holidy', 'cruise', 'vacation' ]
+    title: SITE_INFO.name,
+    robots: { index: false, follow: false },
   }
 
 const signup = () => {

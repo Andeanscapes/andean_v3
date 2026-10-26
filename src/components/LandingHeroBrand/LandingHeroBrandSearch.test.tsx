@@ -7,6 +7,12 @@ import { HERO_BRAND_FIXTURE } from './__fixtures__/heroBrandFixture';
 
 const pushMock = vi.fn();
 
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
+
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: pushMock, replace: vi.fn(), back: vi.fn(), forward: vi.fn(), refresh: vi.fn(), prefetch: vi.fn() }),
 }));

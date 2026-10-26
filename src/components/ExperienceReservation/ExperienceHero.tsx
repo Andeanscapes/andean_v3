@@ -84,7 +84,8 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
 
   // Priority: heroContent (from service) > content (override) > build from config
   const resolvedContent: Required<
-    Omit<ExperienceHeroContent, 'video' | 'backgroundImageUrl'>
+    // `valueStack` and `packageTags` belong to the experience detail hero; this one does not render them.
+    Omit<ExperienceHeroContent, 'video' | 'backgroundImageUrl' | 'valueStack' | 'packageTags' | 'planBadge'>
   > = {
     title: heroContent?.title ?? content?.title ?? config?.title ?? '',
     subtitle: heroContent?.subtitle ?? content?.subtitle ?? config?.subtitle ?? '',
@@ -131,7 +132,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
 
   return (
     <div
-      className="relative w-full h-[31vh] min-h-[230px] md:h-[50vh] md:min-h-0 overflow-hidden bg-base-950"
+      className="relative flex w-full min-h-[max(31vh,230px)] md:min-h-[50vh] overflow-hidden bg-base-950"
     >
       {/* <picture> with responsive sources — proper LCP candidate,
           discoverable by preload scanner, benefits from fetchPriority.
@@ -177,10 +178,10 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
       <div className="pointer-events-none absolute -bottom-24 -left-16 hidden h-48 w-48 rounded-full bg-emerald-400/25 blur-3xl md:block md:h-72 md:w-72" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center pt-8 backdrop-blur-sm md:pt-16 md:backdrop-blur-md">
+      <div className="relative z-10 flex w-full items-center justify-center pt-16 pb-8 backdrop-blur-sm md:pt-16 md:backdrop-blur-md">
         <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-4 py-2.5 md:px-8 md:py-8">
           <div className="text-center">
-            <h1 className="mb-1 text-[1.35rem] font-bold leading-tight text-white drop-shadow-lg md:mb-2 md:text-4xl lg:text-5xl">
+            <h1 className="mb-1 text-[1.35rem] font-bold leading-tight text-white drop-shadow-lg md:mb-2 md:text-3xl lg:text-4xl">
               {resolvedContent.title}
             </h1>
             <p className="mx-auto mb-1.5 max-w-[34ch] text-sm font-medium leading-snug text-slate-100/95 drop-shadow-md md:mb-2 md:max-w-none md:text-xl md:leading-normal">

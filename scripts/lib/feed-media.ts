@@ -28,6 +28,7 @@ const REPO_ROOT = path.resolve(__dirname, '../..');
 /** In precedence-free order; the result is a union. */
 const SOURCE_DIRS = [
   { dir: path.join(REPO_ROOT, 'fixtures'), label: 'fixtures' },
+  { dir: path.join(REPO_ROOT, 'fixtures-local'), label: 'fixtures-local' },
   { dir: path.join(REPO_ROOT, 'feed-migration/next'), label: 'feed-migration/next' },
 ] as const;
 
@@ -65,12 +66,14 @@ export interface ReferencedMedia {
   sources: string[];
 }
 
-export function readReferencedMedia(): ReferencedMedia {
+export function readMediaFromDirectories(
+  sourceDirs: readonly { dir: string; label: string }[],
+): ReferencedMedia {
   const keys = new Set<string>();
   const sources: string[] = [];
   let fileCount = 0;
 
-  for (const { dir, label } of SOURCE_DIRS) {
+  for (const { dir, label } of sourceDirs) {
     if (!existsSync(dir)) continue;
 
     const files = readdirSync(dir).filter((file) => file.endsWith('.json'));
@@ -85,6 +88,10 @@ export function readReferencedMedia(): ReferencedMedia {
   }
 
   return { keys, fileCount, sources };
+}
+
+export function readReferencedMedia(): ReferencedMedia {
+  return readMediaFromDirectories(SOURCE_DIRS);
 }
 
 /**
@@ -195,6 +202,7 @@ export function discoverHeroVariants(
  *   media.finalCta              `FinalCtaBanner`
  *   media.categories.*          `LandingCategoryCard`
  *   experiences[].media.card    `LandingFeaturedExperienceCard`
+ *   experiences[].media.gallery `CardImageCarousel`
  *   FOOTER_TRUST_GALLERY        `Footer`, app-owned and absent from the feed
  *
  * `experiences[].media.hero` is deliberately **excluded**: `LandingPage` does not
@@ -210,7 +218,7 @@ export function landingResponsiveMediaKeys(landing: {
     finalCta: string;
     categories: Readonly<Record<string, string>>;
   };
-  experiences: readonly { media: { card: string } }[];
+  experiences: readonly { media: { card: string; gallery?: readonly string[] } }[];
 }): string[] {
   const keys: string[] = [...FOOTER_TRUST_GALLERY];
 
@@ -223,7 +231,61 @@ export function landingResponsiveMediaKeys(landing: {
     );
   }
 
-  for (const experience of landing.experiences) keys.push(experience.media.card);
+  for (const experience of landing.experiences) {
+    keys.push(experience.media.card, ...(experience.media.gallery ?? []));
+  }
+
+  return keys;
+}
+
+/**
+ * Every media key `/experiences` renders through `<picture>`.
+ *
+ *   experiences[].card.image    `ExperienceCardImage`
+ *   experiences[].card.gallery  `CardImageCarousel` (via `ExperienceCardImage`)
+ *
+ * Only published entries: drafts are filtered out before render.
+ */
+export function listResponsiveMediaKeys(list: {
+  experiences: readonly {
+    status: string;
+    card: { image: string; gallery?: readonly string[] };
+  }[];
+}): string[] {
+  return list.experiences
+    .filter((entry) => entry.status === 'published')
+    .flatMap((entry) => [entry.card.image, ...(entry.card.gallery ?? [])]);
+}
+
+/**
+ * Every media key an experience detail page renders through `<picture>`.
+ *
+ *   experience.media.hero        `ExperienceHero`, `Inclusions`, `Faqs`
+ *   experience.media.highlights  `ValuePropositions`
+ *   tier.media.main              `StayCard`, `GalleryModal`
+ *   tier.media.gallery           `GalleryModal`
+ *   stop.images                  `GalleryModal`
+ *
+ * `host.avatar` and `tier.media.thumbnail` are excluded: both render as a plain
+ * `<img>`, so no `-mobile` sibling is ever requested for them.
+ *
+ * Add to this list in the same change that adds a `<picture>` consumer.
+ */
+export function experienceResponsiveMediaKeys(feed: {
+  experience: { media: { hero: string; highlights: readonly string[] } };
+  accommodationTiers: readonly {
+    media: { main: string; gallery: readonly string[] };
+    itinerary?: readonly { stops: readonly { images: readonly string[] }[] }[];
+  }[];
+}): string[] {
+  const keys: string[] = [feed.experience.media.hero, ...feed.experience.media.highlights];
+
+  for (const tier of feed.accommodationTiers) {
+    keys.push(tier.media.main, ...tier.media.gallery);
+    for (const day of tier.itinerary ?? []) {
+      for (const stop of day.stops) keys.push(...stop.images);
+    }
+  }
 
   return keys;
 }
@@ -291,6 +353,49 @@ export async function findMissingResponsiveSiblings(
   return {
     checked: distinct.length,
     missing: results.filter((entry): entry is MissingSibling => entry !== null),
+  };
+}
+
+export interface UnpublishedMedia {
+  key: string;
+  /** `absent` when the object is not in R2; otherwise why the check failed. */
+  reason: 'absent' | string;
+}
+
+export interface PublishedMediaReport {
+  /** Distinct keys that were actually probed. */
+  checked: number;
+  missing: UnpublishedMedia[];
+}
+
+/**
+ * Confirm every key a payload references is published, before that payload is.
+ *
+ * Publishing a feed that points at media not yet uploaded breaks every page that
+ * renders it, and nothing else catches it: the paths satisfy `MediaPathSchema`.
+ * Reads go to origin with a cache buster, for the same reason as
+ * `findMissingResponsiveSiblings`. An unreachable CDN is reported, never passed.
+ */
+export async function findUnpublishedMedia(
+  keys: readonly string[],
+): Promise<PublishedMediaReport> {
+  const distinct = Array.from(new Set(keys));
+
+  const results = await Promise.all(
+    distinct.map(async (key) => {
+      const result = await readLength(resolveMediaUrl(key), true);
+      if (result.status === 'found') return null;
+
+      return {
+        key,
+        reason: result.status === 'absent' ? 'absent' : result.reason,
+      } satisfies UnpublishedMedia;
+    }),
+  );
+
+  return {
+    checked: distinct.length,
+    missing: results.filter((entry): entry is UnpublishedMedia => entry !== null),
   };
 }
 

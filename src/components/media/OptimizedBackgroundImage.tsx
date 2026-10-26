@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useState } from 'react';
+import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 type OptimizedBackgroundImageProps = {
   src: string;
@@ -22,16 +23,19 @@ function OptimizedBackgroundImage({
   return (
     <>
       {!isLoaded ? <div aria-hidden="true" className={placeholderClassName} /> : null}
-      <img
-        src={src}
-        alt=""
-        aria-hidden="true"
-        loading={loading}
-        decoding="async"
-        fetchPriority={fetchPriority}
-        onLoad={() => setIsLoaded(true)}
-        className={`${className} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`.trim()}
-      />
+      <picture>
+        <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(src).mobile} />
+        <img
+          src={src}
+          alt=""
+          aria-hidden="true"
+          loading={loading}
+          decoding="async"
+          fetchPriority={fetchPriority}
+          onLoad={() => setIsLoaded(true)}
+          className={`${className} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`.trim()}
+        />
+      </picture>
     </>
   );
 }

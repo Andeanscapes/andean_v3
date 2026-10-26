@@ -116,7 +116,7 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
 
   const summaryText = summaryParts.length > 0
     ? summaryParts.join(' · ')
-    : t('mobileDockEmptySummary');
+    : t(config.numberOfNights === 0 ? 'mobileDockEmptySummaryDayTrip' : 'mobileDockEmptySummary');
 
   const handlePayment = async () => {
     setValidationError(null);
@@ -181,11 +181,15 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
                 {peopleCount > 0 ? t('mobileDockPeopleSummary', { count: peopleCount }) : t('mobileDockNotSelected')}
               </dd>
 
-              <dt className="text-white/50">{t('mobileDockStay')}</dt>
-              <dd className="truncate font-medium text-white">{selectedTier?.tierLabel ?? t('mobileDockNotSelected')}</dd>
+              {config.numberOfNights > 0 && (
+                <>
+                  <dt className="text-white/50">{t('mobileDockStay')}</dt>
+                  <dd className="truncate font-medium text-white">{selectedTier?.tierLabel ?? t('mobileDockNotSelected')}</dd>
 
-              <dt className="text-white/50">{t('mobileDockRoom')}</dt>
-              <dd className="font-medium text-white">{roomSummary ?? t('mobileDockNotSelected')}</dd>
+                  <dt className="text-white/50">{t('mobileDockRoom')}</dt>
+                  <dd className="font-medium text-white">{roomSummary ?? t('mobileDockNotSelected')}</dd>
+                </>
+              )}
 
               <dt className="text-white/50">{t('mobileDockTransport')}</dt>
               <dd className="font-medium text-white">{selectedTransport ?? t('mobileDockNotSelected')}</dd>

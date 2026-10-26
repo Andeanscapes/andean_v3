@@ -341,3 +341,7 @@ For questions or technical issues, refer to `.github/copilot-instructions.md` or
 ---
 
 **Built with ❤️ for eco-tourism in the Colombian Andes**
+
+## License
+
+All rights reserved. This source is published for transparency; no licence is granted to use, copy, modify or distribute it. Security issues: see [SECURITY.md](./SECURITY.md).

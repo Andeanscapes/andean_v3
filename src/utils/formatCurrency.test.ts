@@ -45,8 +45,10 @@ describe('currency validation on the UI shapes', () => {
       title: 'T',
       description: 'D',
       image: '/assets/images/hero/h10.webp',
+      images: ['/assets/images/hero/h10.webp'],
       price: 500000,
       metadata: [],
+      packageTags: [],
       href: '/experiences/emerald-mining-adventure',
     };
 

@@ -37,15 +37,34 @@ import {
   ExperienceFeedV2Schema,
   ExperiencesListFeedV2Schema,
   LandingFeedV2Schema,
+  ExperienceIdSchema,
+  type ExperienceId,
+  type HighlightCode,
 } from '@/lib/schemas/feed/v2';
-import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
+import { EXPERIENCES_LIST_FEED_FILE, LANDING_FEED_FILE, experienceFeedFile } from '@/utils/feedPaths';
+import { EXPERIENCE_I18N, EXPERIENCE_METADATA_NAMESPACE, type ExperienceI18nMap } from '@/i18n/mappings/experience';
 import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 import { LANDING_I18N } from '@/i18n/mappings/landing';
 
 const FEED_DIR = path.resolve(__dirname, '../../../fixtures');
 const LOCALES = { en: enMessages, es: esMessages, fr: frMessages };
 
-const V2_FILES = ['landing.json', 'experiences-list.json', 'experience-emerald-mining.json'] as const;
+/**
+ * Experience files are derived from the downloaded list, the same way
+ * `fetch-fixtures.ts` decides what to download, so the suite always checks the
+ * set that is actually published instead of a hardcoded one.
+ */
+function listedExperienceFiles(): string[] {
+  const listPath = path.join(FEED_DIR, EXPERIENCES_LIST_FEED_FILE);
+  if (!existsSync(listPath)) return [];
+  const raw = JSON.parse(readFileSync(listPath, 'utf8')) as { experiences?: { id?: unknown }[] };
+  return (raw.experiences ?? []).flatMap((entry) =>
+    typeof entry.id === 'string' ? [experienceFeedFile(entry.id)] : [],
+  );
+}
+
+const EXPERIENCE_FILES = listedExperienceFiles();
+const V2_FILES = [LANDING_FEED_FILE, EXPERIENCES_LIST_FEED_FILE, ...EXPERIENCE_FILES];
 
 const presentFiles = V2_FILES.filter((file) => existsSync(path.join(FEED_DIR, file)));
 
@@ -82,15 +101,32 @@ function readFeed(file: string): unknown {
   return JSON.parse(readFileSync(path.join(FEED_DIR, file), 'utf8')) as unknown;
 }
 
-const LANDING = readFeed('landing.json');
-const LIST = readFeed('experiences-list.json');
-const EXPERIENCE = readFeed('experience-emerald-mining.json');
+const LANDING = readFeed(LANDING_FEED_FILE);
+const LIST = readFeed(EXPERIENCES_LIST_FEED_FILE);
+const EXPERIENCES: Record<string, unknown> = Object.fromEntries(
+  EXPERIENCE_FILES.map((file) => [file, readFeed(file)]),
+);
 
-const ARTIFACTS = {
-  'landing.json': LANDING,
-  'experiences-list.json': LIST,
-  'experience-emerald-mining.json': EXPERIENCE,
-} as const;
+/**
+ * The per-experience assertions below run against the landing flagship, the
+ * experience the hero renders. Cross-artifact checks run against every file.
+ */
+const FLAGSHIP_ID = (LANDING as { flagshipExperienceId?: unknown }).flagshipExperienceId;
+const FLAGSHIP_FILE = typeof FLAGSHIP_ID === 'string' ? experienceFeedFile(FLAGSHIP_ID) : '';
+
+if (V2_AVAILABLE && !(FLAGSHIP_FILE in EXPERIENCES)) {
+  throw new Error(
+    `[feed-v2] landing.json flagshipExperienceId "${String(FLAGSHIP_ID)}" is not in experiences-list.json`,
+  );
+}
+
+const EXPERIENCE = V2_AVAILABLE ? EXPERIENCES[FLAGSHIP_FILE] : {};
+
+const ARTIFACTS: Record<string, unknown> = {
+  [LANDING_FEED_FILE]: LANDING,
+  [EXPERIENCES_LIST_FEED_FILE]: LIST,
+  ...EXPERIENCES,
+};
 
 // ── Contract-level guards ────────────────────────────────────────────────────
 
@@ -101,7 +137,7 @@ const FRONTEND_NAMESPACES = [
   'experiences',
   'Home',
   'BookingCtas',
-  'EmeraldMiningAdventure',
+  ...Object.values(EXPERIENCE_METADATA_NAMESPACE),
   'Header',
   'Footer',
   'MobileMenu',
@@ -154,8 +190,8 @@ function findTranslationPaths(payload: unknown): Finding[] {
 }
 
 describeV2('v2 feed contract', () => {
-  it('experience-emerald-mining.json parses with the production v2 schema', () => {
-    const result = ExperienceFeedV2Schema.safeParse(EXPERIENCE);
+  it.each(EXPERIENCE_FILES)('%s parses with the production v2 schema', (file) => {
+    const result = ExperienceFeedV2Schema.safeParse(EXPERIENCES[file]);
     if (!result.success) console.error(JSON.stringify(result.error.issues, null, 2));
     expect(result.success).toBe(true);
   });
@@ -213,16 +249,16 @@ describeV2('v2 feed contract', () => {
   });
 
   it.each(Object.keys(ARTIFACTS))('%s declares schemaVersion 2', (file) => {
-    const payload = ARTIFACTS[file as keyof typeof ARTIFACTS] as { schemaVersion?: unknown };
+    const payload = ARTIFACTS[file] as { schemaVersion?: unknown };
     expect(payload.schemaVersion).toBe(2);
   });
 
   it.each(Object.keys(ARTIFACTS))('%s has no *Key property', (file) => {
-    expect(findKeySuffixedProperties(ARTIFACTS[file as keyof typeof ARTIFACTS])).toEqual([]);
+    expect(findKeySuffixedProperties(ARTIFACTS[file])).toEqual([]);
   });
 
   it.each(Object.keys(ARTIFACTS))('%s carries no frontend translation path', (file) => {
-    expect(findTranslationPaths(ARTIFACTS[file as keyof typeof ARTIFACTS])).toEqual([]);
+    expect(findTranslationPaths(ARTIFACTS[file])).toEqual([]);
   });
 });
 
@@ -347,7 +383,12 @@ const experience = parseV2(ExperienceArtifactSchema, EXPERIENCE);
 // Imported from `src/i18n/mappings/*`, never redeclared: a local copy would let
 // the production tables drift while these tests stayed green.
 
-const EMERALD_I18N = EXPERIENCE_I18N.emeraldMining;
+// Parsed rather than cast, so an id with no mapping fails here instead of
+// resolving to `undefined`. The skip-mode stand-in is never asserted against.
+const FLAGSHIP_EXPERIENCE_ID: ExperienceId = V2_AVAILABLE
+  ? ExperienceIdSchema.parse(experience.experience.id)
+  : ExperienceIdSchema.options[0];
+const EMERALD_I18N = EXPERIENCE_I18N[FLAGSHIP_EXPERIENCE_ID];
 
 const INCLUDED_I18N: Record<string, string> = EMERALD_I18N.included;
 const NOT_INCLUDED_I18N: Record<string, string> = EMERALD_I18N.notIncluded;
@@ -465,13 +506,13 @@ describeV2('v2 domain codes resolve to copy in every locale', () => {
   it('itinerary stops resolve through the mapping table', () => {
     const stopKeys: string[] = [];
 
+    const tiers: ExperienceI18nMap['tiers'] = EMERALD_I18N.tiers;
     for (const tier of experience.accommodationTiers) {
-      const tierMap = EMERALD_I18N.tiers[tier.id as keyof typeof EMERALD_I18N.tiers];
+      const tierMap = tiers[tier.id];
       expect(tierMap, `tier "${tier.id}" has no i18n mapping`).toBeDefined();
-
       for (const day of tier.itinerary) {
         for (const stop of day.stops) {
-          const stopMap = tierMap.stops[stop.id as keyof typeof tierMap.stops];
+          const stopMap = tierMap.stops[stop.id];
           expect(stopMap, `stop "${stop.id}" has no i18n mapping`).toBeDefined();
           stopKeys.push(stopMap.title, stopMap.shortDesc, stopMap.description);
         }
@@ -487,10 +528,12 @@ describeV2('v2 domain codes resolve to copy in every locale', () => {
   it('itinerary days resolve through the mapping table', () => {
     const dayKeys: string[] = [];
 
+    const tiers: ExperienceI18nMap['tiers'] = EMERALD_I18N.tiers;
     for (const tier of experience.accommodationTiers) {
-      const tierMap = EMERALD_I18N.tiers[tier.id as keyof typeof EMERALD_I18N.tiers];
+      const tierMap = tiers[tier.id];
+      expect(tierMap, `tier "${tier.id}" has no i18n mapping`).toBeDefined();
       for (const day of tier.itinerary) {
-        const dayKey = tierMap.days[String(day.day) as keyof typeof tierMap.days];
+        const dayKey = tierMap.days[String(day.day)];
         expect(dayKey, `day "${day.day}" has no i18n mapping`).toBeDefined();
         dayKeys.push(dayKey);
       }
@@ -625,127 +668,211 @@ describeV2('v2 formats are machine-readable', () => {
 
 // ── Referential integrity across the three artifacts ─────────────────────────
 
-describeV2('v2 cross-artifact references', () => {
-  const parsedExperience = parseV2(ExperienceFeedV2Schema, EXPERIENCE);
-  const parsedList = parseV2(ExperiencesListFeedV2Schema, LIST);
-  const parsedLanding = parseV2(LandingFeedV2Schema, LANDING);
+for (const experienceFile of EXPERIENCE_FILES) {
+  describeV2(`v2 cross-artifact references: ${experienceFile}`, () => {
+    const isFlagship = experienceFile === FLAGSHIP_FILE;
+    const parsedExperience = parseV2(ExperienceFeedV2Schema, EXPERIENCES[experienceFile]);
+    const parsedList = parseV2(ExperiencesListFeedV2Schema, LIST);
+    const parsedLanding = parseV2(LandingFeedV2Schema, LANDING);
 
-  // Guarded rather than optional-chained: these fields are required by the
-  // schema, so `?.` here would permanently hide a genuinely missing one. The
-  // guard is only about `describe.skip` still executing this callback.
-  const listEntry = V2_AVAILABLE
-    ? parsedList.experiences.find((entry) => entry.id === parsedExperience.experience.id)
-    : undefined;
-  const landingEntry = V2_AVAILABLE
-    ? parsedLanding.experiences.find((entry) => entry.id === parsedExperience.experience.id)
-    : undefined;
+    // Guarded rather than optional-chained: these fields are required by the
+    // schema, so `?.` here would permanently hide a genuinely missing one. The
+    // guard is only about `describe.skip` still executing this callback.
+    const listEntry = V2_AVAILABLE
+      ? parsedList.experiences.find((entry) => entry.id === parsedExperience.experience.id)
+      : undefined;
+    const landingEntry = V2_AVAILABLE
+      ? parsedLanding.experiences.find((entry) => entry.id === parsedExperience.experience.id)
+      : undefined;
 
-  it('the experience appears in both projections', () => {
-    expect(listEntry, 'experience missing from experiences-list.json').toBeDefined();
-    expect(landingEntry, 'experience missing from landing.json').toBeDefined();
-    expect(parsedLanding.flagshipExperienceId).toBe(parsedExperience.experience.id);
-  });
+    it('the experience appears in both projections', () => {
+      expect(listEntry, 'experience missing from experiences-list.json').toBeDefined();
+      expect(landingEntry, 'experience missing from landing.json').toBeDefined();
+    });
 
-  // ── Denormalization drift guards ───────────────────────────────────────────
-  // list and landing intentionally duplicate a bounded subset of experience-owned
-  // values so each page can render from a single fetch. The experience resource
-  // is the canonical owner; these assertions are the only thing preventing a
-  // partial CDN upload from advertising one price and charging another.
+    // ── Denormalization drift guards ───────────────────────────────────────────
+    // list and landing intentionally duplicate a bounded subset of experience-owned
+    // values so each page can render from a single fetch. The experience resource
+    // is the canonical owner; these assertions are the only thing preventing a
+    // partial CDN upload from advertising one price and charging another.
 
-  it('slug is identical in all three artifacts', () => {
-    expect(listEntry?.slug).toBe(parsedExperience.experience.slug);
-    expect(landingEntry?.slug).toBe(parsedExperience.experience.slug);
-  });
+    it('slug is identical in all three artifacts', () => {
+      expect(listEntry?.slug).toBe(parsedExperience.experience.slug);
+      expect(landingEntry?.slug).toBe(parsedExperience.experience.slug);
+    });
 
-  it('status is identical in all three artifacts', () => {
-    expect(listEntry?.status).toBe(parsedExperience.experience.status);
-    expect(landingEntry?.status).toBe(parsedExperience.experience.status);
-  });
+    // The experience owns the package badges; both projections must copy them exactly.
+    it('package tags, when projected, match the experience', () => {
+      const owner = parsedExperience.experience.packageTags;
+      if (listEntry?.card.packageTags !== undefined) expect(listEntry.card.packageTags).toEqual(owner);
+      if (landingEntry?.packageTags !== undefined) expect(landingEntry.packageTags).toEqual(owner);
+    });
 
-  it('card media matches the experience-owned card image', () => {
-    expect(listEntry?.card.image).toBe(parsedExperience.experience.media.card);
-    expect(landingEntry?.media.card).toBe(parsedExperience.experience.media.card);
-    expect(landingEntry?.media.hero).toBe(parsedExperience.experience.media.hero);
-  });
+    // Plan and mine badges are owned by the experience; a projection may only repeat them.
+    it('plan and mine codes, when projected, match the experience', () => {
+      const owner = parsedExperience.experience;
+      expect(listEntry?.planCode).toBe(owner.planCode);
+      expect(listEntry?.mineCode).toBe(owner.mineCode);
+      expect(landingEntry?.planCode).toBe(owner.planCode);
+      expect(landingEntry?.mineCode).toBe(owner.mineCode);
+    });
 
-  it('currency is identical in all three artifacts', () => {
-    const canonical = parsedExperience.experience.pricing.currency;
-    expect(listEntry?.card.fromPrice.currency).toBe(canonical);
-    expect(landingEntry?.fromPrice.currency).toBe(canonical);
-  });
+    // The carousel gallery is the experience's highlight photos, so projections must repeat them.
+    it('carousel gallery, when projected, matches the experience highlights', () => {
+      const highlights = parsedExperience.experience.media.highlights;
+      if (listEntry?.card.gallery !== undefined) expect(listEntry.card.gallery).toEqual(highlights);
+      if (landingEntry?.media.gallery !== undefined) expect(landingEntry.media.gallery).toEqual(highlights);
+    });
 
-  it('projected fromPrice equals the price the booking flow charges', () => {
-    // Projection parity: fromPrice = basePerPerson + cheapest tier cost, and every
-    // heritage room is priced at 0 with no services, so the floor is basePerPerson.
-    const cheapestTierCost = Math.min(
-      ...parsedExperience.accommodationTiers.map((tier) => {
-        const cheapestRoomPerPerson = Math.min(
-          ...tier.rooms.map((room) => room.pricePerNight / room.capacity),
-        );
-        const servicesPerPerson = tier.services.reduce(
-          (sum, service) => sum + service.pricePerPersonPerNight,
-          0,
-        );
-        return (cheapestRoomPerPerson + servicesPerPerson) * parsedExperience.experience.duration.nights;
-      }),
-    );
-    const expected = parsedExperience.experience.pricing.basePerPerson + cheapestTierCost;
+    // Rollout-tolerant like `depositPercent`: asserted only once landing carries it.
+    it('landing highlights, when projected, match the list card', () => {
+      if (landingEntry?.highlightCodes === undefined) return;
+      expect(landingEntry.highlightCodes).toEqual(listEntry?.card.highlightCodes);
+    });
 
-    expect(listEntry?.card.fromPrice.amount).toBe(expected);
-    expect(landingEntry?.fromPrice.amount).toBe(expected);
-  });
+    it('status is identical in all three artifacts', () => {
+      expect(listEntry?.status).toBe(parsedExperience.experience.status);
+      expect(landingEntry?.status).toBe(parsedExperience.experience.status);
+    });
 
-  it('duration is identical in all three artifacts', () => {
-    expect(listEntry?.card.duration).toEqual(parsedExperience.experience.duration);
-    expect(landingEntry?.duration).toEqual(parsedExperience.experience.duration);
-  });
+    it('card media matches the experience-owned card image', () => {
+      expect(listEntry?.card.image).toBe(parsedExperience.experience.media.card);
+      expect(landingEntry?.media.card).toBe(parsedExperience.experience.media.card);
+      expect(landingEntry?.media.hero).toBe(parsedExperience.experience.media.hero);
+    });
 
-  it('location matches the experience-owned location', () => {
-    expect(listEntry?.card.location.locality).toBe(parsedExperience.experience.location.locality);
-    expect(listEntry?.card.location.countryCode).toBe(parsedExperience.experience.location.countryCode);
-    expect(landingEntry?.location.locality).toBe(parsedExperience.experience.location.locality);
-    expect(landingEntry?.location.region).toBe(parsedExperience.experience.location.region);
-    expect(landingEntry?.location.countryCode).toBe(parsedExperience.experience.location.countryCode);
-  });
+    it('currency is identical in all three artifacts', () => {
+      const canonical = parsedExperience.experience.pricing.currency;
+      expect(listEntry?.card.fromPrice.currency).toBe(canonical);
+      expect(landingEntry?.fromPrice.currency).toBe(canonical);
+    });
 
-  it('landing availability matches the experience departures exactly', () => {
-    expect(landingEntry?.availableDates).toEqual(parsedExperience.availableDates);
-  });
+    it('projected fromPrice equals the price the booking flow charges', () => {
+      // Projection parity: fromPrice = basePerPerson + cheapest tier cost, and every
+      // heritage room is priced at 0 with no services, so the floor is basePerPerson.
+      const cheapestTierCost = Math.min(
+        ...parsedExperience.accommodationTiers.map((tier) => {
+          const cheapestRoomPerPerson = Math.min(
+            ...tier.rooms.map((room) => room.pricePerNight / room.capacity),
+          );
+          const servicesPerPerson = tier.services.reduce(
+            (sum, service) => sum + service.pricePerPersonPerNight,
+            0,
+          );
+          return (cheapestRoomPerPerson + servicesPerPerson) * parsedExperience.experience.duration.nights;
+        }),
+      );
+      const expected = parsedExperience.experience.pricing.basePerPerson + cheapestTierCost;
 
-   it('landing reviews match the experience-owned review facts', () => {
-     const byId = new Map(parsedExperience.reviews.map((review) => [review.id, review]));
-     for (const review of parsedLanding.reviews) {
-       expect(byId.get(review.id), `review "${review.id}" is not owned by the experience`).toEqual(review);
-     }
-   });
+      expect(listEntry?.card.fromPrice.amount).toBe(expected);
+      expect(landingEntry?.fromPrice.amount).toBe(expected);
+    });
 
-  /**
-   * `depositPercent` is optional on the landing projection during rollout, so
-   * this asserts drift rather than presence: if the payload carries the field it
-   * must equal the owner. Absence is tolerated only until the published
-   * `landing.json` carries it — then make it required in both places.
-   */
-  it('landing depositPercent, when projected, matches the experience pricing', () => {
-    if (landingEntry?.depositPercent === undefined) return;
-    expect(landingEntry.depositPercent).toBe(parsedExperience.experience.pricing.depositPercent);
-  });
+    it('duration is identical in all three artifacts', () => {
+      expect(listEntry?.card.duration).toEqual(parsedExperience.experience.duration);
+      expect(landingEntry?.duration).toEqual(parsedExperience.experience.duration);
+    });
 
-   it('landing review aggregate matches the experience reviews', () => {
-    const ratings = parsedExperience.reviews.map((review) => review.rating);
-    const mean = ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length;
-    expect(parsedLanding.reviewSummary.count).toBe(parsedExperience.reviews.length);
-    expect(parsedLanding.reviewSummary.rating).toBeCloseTo(mean, 5);
-  });
+    it('location matches the experience-owned location', () => {
+      expect(listEntry?.card.location.locality).toBe(parsedExperience.experience.location.locality);
+      expect(listEntry?.card.location.countryCode).toBe(parsedExperience.experience.location.countryCode);
+      expect(landingEntry?.location.locality).toBe(parsedExperience.experience.location.locality);
+      expect(landingEntry?.location.region).toBe(parsedExperience.experience.location.region);
+      expect(landingEntry?.location.countryCode).toBe(parsedExperience.experience.location.countryCode);
+    });
 
-  it('list badge and highlight codes are mapped', () => {
-    for (const entry of parsedList.experiences) {
-      if (entry.card.badgeCode) {
-        expect(EXPERIENCES_LIST_I18N.badges[entry.card.badgeCode]).toBeDefined();
+    it('landing availability matches the experience departures exactly', () => {
+      expect(landingEntry?.availableDates).toEqual(parsedExperience.availableDates);
+    });
+
+     // Landing reviews and their aggregate are owned by the flagship.
+     it.runIf(isFlagship)('landing reviews match the experience-owned review facts', () => {
+       const byId = new Map(parsedExperience.reviews.map((review) => [review.id, review]));
+       for (const review of parsedLanding.reviews) {
+         expect(byId.get(review.id), `review "${review.id}" is not owned by the experience`).toEqual(review);
+       }
+     });
+
+    /**
+     * `depositPercent` is optional on the landing projection during rollout, so
+     * this asserts drift rather than presence: if the payload carries the field it
+     * must equal the owner. Absence is tolerated only until the published
+     * `landing.json` carries it — then make it required in both places.
+     */
+    it('landing depositPercent, when projected, matches the experience pricing', () => {
+      if (landingEntry?.depositPercent === undefined) return;
+      expect(landingEntry.depositPercent).toBe(parsedExperience.experience.pricing.depositPercent);
+    });
+
+     it.runIf(isFlagship)('landing review aggregate matches the experience reviews', () => {
+      const ratings = parsedExperience.reviews.map((review) => review.rating);
+      const mean = ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length;
+      expect(parsedLanding.reviewSummary.count).toBe(parsedExperience.reviews.length);
+      expect(parsedLanding.reviewSummary.rating).toBeCloseTo(mean, 5);
+    });
+
+    it('list badge and highlight codes are mapped', () => {
+      for (const entry of parsedList.experiences) {
+        if (entry.card.badgeCode) {
+          expect(EXPERIENCES_LIST_I18N.badges[entry.card.badgeCode]).toBeDefined();
+        }
+        for (const code of entry.card.highlightCodes) {
+          expect(EXPERIENCES_LIST_I18N.highlights[code]).toBeDefined();
+        }
       }
-      for (const code of entry.card.highlightCodes) {
-        expect(EXPERIENCES_LIST_I18N.highlights[code]).toBeDefined();
-      }
-    }
+    });
+  });
+}
+
+// ── Tier consistency ─────────────────────────────────────────────────────────
+
+/**
+ * Prime is Core plus extras. A Prime card that listed fewer of Core's
+ * highlights read as the lesser option, so every Core highlight must also
+ * appear on Prime — in the list and in the landing projection.
+ *
+ * A Core highlight is also satisfied by its declared Prime upgrade: a private
+ * tour supersedes small groups, so Prime lists `privateTour` instead.
+ */
+const PRIME_HIGHLIGHT_UPGRADES: Partial<Record<HighlightCode, HighlightCode>> = {
+  smallGroups: 'privateTour',
+};
+
+function coreHighlightsMissingFromPrime(
+  core: readonly HighlightCode[],
+  prime: readonly HighlightCode[],
+): HighlightCode[] {
+  return core.filter((code) => {
+    const upgrade = PRIME_HIGHLIGHT_UPGRADES[code];
+    return !prime.includes(code) && !(upgrade && prime.includes(upgrade));
+  });
+}
+
+describeV2('v2 tier highlights', () => {
+  const list = parseV2(ExperiencesListFeedV2Schema, LIST);
+  const landing = parseV2(LandingFeedV2Schema, LANDING);
+  const byId = <T extends { id: string }>(entries: readonly T[] | undefined, id: string) =>
+    entries?.find((entry) => entry.id === id);
+
+  const listCore = byId(list.experiences, 'chivorEmeraldCore')?.card.highlightCodes;
+  const listPrime = byId(list.experiences, 'chivorEmeraldPrime')?.card.highlightCodes;
+  const landingCore = byId(landing.experiences, 'chivorEmeraldCore')?.highlightCodes;
+  const landingPrime = byId(landing.experiences, 'chivorEmeraldPrime')?.highlightCodes;
+
+  it.runIf(Boolean(listCore && listPrime))('Prime lists every Core highlight on the list card', () => {
+    expect(coreHighlightsMissingFromPrime(listCore ?? [], listPrime ?? [])).toEqual([]);
+  });
+
+  it.runIf(Boolean(landingCore && landingPrime))('Prime lists every Core highlight on the landing card', () => {
+    expect(coreHighlightsMissingFromPrime(landingCore ?? [], landingPrime ?? [])).toEqual([]);
+  });
+
+  it('accepts a declared upgrade but still rejects a dropped Core highlight', () => {
+    expect(coreHighlightsMissingFromPrime(['smallGroups'], ['privateTour'])).toEqual([]);
+    expect(coreHighlightsMissingFromPrime(['smallGroups', 'allMeals'], ['localGuides'])).toEqual([
+      'smallGroups',
+      'allMeals',
+    ]);
   });
 });
 
@@ -810,6 +937,28 @@ describeV2('v2 schemas fail closed', () => {
     expect(LandingFeedV2Schema.safeParse(payload).success).toBe(false);
   });
 
+  it.each(['draft', 'archived'])('rejects a %s landing flagship', (status) => {
+    const payload = clone(LANDING) as {
+      flagshipExperienceId: string;
+      experiences: { id: string; status: string }[];
+    };
+    const flagship = payload.experiences.find((entry) => entry.id === payload.flagshipExperienceId);
+    if (flagship) flagship.status = status;
+    const result = LandingFeedV2Schema.safeParse(payload);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues.map((issue) => issue.path.join('.'))).toContain('flagshipExperienceId');
+  });
+
+  it('accepts a published flagship alongside a draft experience', () => {
+    const payload = clone(LANDING) as {
+      flagshipExperienceId: string;
+      experiences: { id: string; status: string }[];
+    };
+    const other = payload.experiences.find((entry) => entry.id !== payload.flagshipExperienceId);
+    if (other) other.status = 'draft';
+    expect(LandingFeedV2Schema.safeParse(payload).success).toBe(true);
+  });
+
   it('rejects a featured review id with no matching review', () => {
     const payload = clone(LANDING) as { featuredReviewIds: string[] };
     payload.featuredReviewIds = ['ghostReviewer'];
@@ -832,6 +981,18 @@ describeV2('v2 schemas fail closed', () => {
     const payload = clone(LIST) as { experiences: { card: { image: string } }[] };
     payload.experiences[0].card.image = '/\\evil.example.com/x.webp';
     expect(ExperiencesListFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
+  it('rejects an off-CDN host or a repeated path in the optional card galleries', () => {
+    const list = clone(LIST) as { experiences: { card: { gallery?: string[] } }[] };
+    list.experiences[0].card.gallery = ['//evil.example.com/x.webp'];
+    expect(ExperiencesListFeedV2Schema.safeParse(list).success).toBe(false);
+    list.experiences[0].card.gallery = ['/images/a.webp', '/images/a.webp'];
+    expect(ExperiencesListFeedV2Schema.safeParse(list).success).toBe(false);
+
+    const landing = clone(LANDING) as { experiences: { media: { gallery?: string[] } }[] };
+    landing.experiences[0].media.gallery = ['/images/a.webp', '/images/a.webp'];
+    expect(LandingFeedV2Schema.safeParse(landing).success).toBe(false);
   });
 
   // The rollout media fields are optional, so their path guard needs its own
@@ -895,4 +1056,25 @@ describeV2('v2 schemas fail closed', () => {
     payload.experience.schedule.startTime = '11:00 AM';
     expect(ExperienceFeedV2Schema.safeParse(payload).success).toBe(false);
   });
+});
+
+// Cards drop the place name because the mine badge shows it. Everywhere else the
+// title stands alone (detail hero, booking bar, JSON-LD name and breadcrumb), so
+// it must still name the place in every locale.
+describe('experience titles keep the place name outside cards', () => {
+  const PLACES = ['Chivor', 'Coscuez'];
+  const MESSAGES = { en: enMessages, es: esMessages, fr: frMessages } as const;
+
+  for (const [locale, messages] of Object.entries(MESSAGES)) {
+    it(`every full title names its place (${locale})`, () => {
+      const experiences = (messages as { experiences: Record<string, { title?: string; cardTitle?: string }> })
+        .experiences;
+      for (const [id, entry] of Object.entries(experiences)) {
+        if (entry.cardTitle === undefined) continue;
+        const place = PLACES.find((name) => id.toLowerCase().startsWith(name.toLowerCase()));
+        expect(place, `${id} has no known place prefix`).toBeDefined();
+        expect(entry.title, `${locale} experiences.${id}.title`).toContain(place);
+      }
+    });
+  }
 });

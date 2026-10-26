@@ -1,7 +1,15 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { NextIntlClientProvider } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
+
 import FinalCtaBanner from './FinalCtaBanner';
 
 const LANDING_DATA = {
@@ -24,11 +32,19 @@ const LANDING_DATA = {
   flagship: Pick<LandingContent['flagship'], 'badge' | 'whatsappLink'>;
 };
 
+function renderWithIntl(ui: React.ReactElement) {
+  return render(
+    <NextIntlClientProvider locale="en" messages={{}}>
+      {ui}
+    </NextIntlClientProvider>,
+  );
+}
+
 describe('FinalCtaBanner', () => {
   afterEach(() => cleanup());
 
   it('serves the mobile background below the desktop breakpoint', () => {
-    const { container } = render(<FinalCtaBanner landingData={LANDING_DATA} />);
+    const { container } = renderWithIntl(<FinalCtaBanner landingData={LANDING_DATA} />);
     const source = container.querySelector('picture > source');
 
     expect(source).toHaveAttribute('media', '(max-width: 767px)');
@@ -43,7 +59,7 @@ describe('FinalCtaBanner', () => {
   });
 
   it('lazy-loads a decorative background', () => {
-    const { container } = render(<FinalCtaBanner landingData={LANDING_DATA} />);
+    const { container } = renderWithIntl(<FinalCtaBanner landingData={LANDING_DATA} />);
     const image = container.querySelector('picture > img');
 
     expect(image).toHaveAttribute('alt', '');
@@ -53,7 +69,7 @@ describe('FinalCtaBanner', () => {
   });
 
   it('renders the translated CTA content and links', () => {
-    render(<FinalCtaBanner landingData={LANDING_DATA} />);
+    renderWithIntl(<FinalCtaBanner landingData={LANDING_DATA} />);
 
     expect(screen.getByRole('heading', { name: LANDING_DATA.finalCta.sectionTitle })).toBeVisible();
     expect(screen.getByRole('link', { name: /reserve/i })).toHaveAttribute(

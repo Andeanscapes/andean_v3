@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { SITE_INFO } from '@/constant/SiteConfig';
 import ExperienceReservationPage from '../ExperienceReservationPage';
 import {
   getExperienceByNameSSR,
@@ -8,12 +9,11 @@ import {
   getExperiencePathListSSR,
 } from '@/lib/services/experiences-catalog.service';
 import {
-  buildExperienceAlternates,
   buildExperiencePath,
   sanitizeLocale,
   SEO_SITE_URL,
   toAbsoluteUrl,
-} from '../seo';
+} from '@/utils/seoUrls';
 import { parseBookingSearchParams } from '@/utils/helpers';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
@@ -34,19 +34,22 @@ export async function generateMetadata({
   const locale = sanitizeLocale(localeParam);
   const experience = await getExperienceByNameSSR(experienceName);
 
+  // Booking is a transactional step, not a landing page: keep it out of the index.
+  const robots = { index: false, follow: true };
+
   if (!experience) {
     const t = await getTranslations({ locale, namespace: 'Home' });
     return {
       title: t('metaTitle'),
       description: t('metaDescription'),
+      robots,
     };
   }
 
   const t = await getTranslations({ locale, namespace: experience.metadataNamespace });
   const experienceData = await getExperienceDataSSR(experienceName, locale);
-  const localizedPath = buildExperiencePath(locale, experienceName, '/booking');
-  const canonicalUrl = `${SEO_SITE_URL}${localizedPath}`;
-  const alternates = buildExperienceAlternates(experienceName, '/booking');
+  // Canonical points at the indexable detail page; noindex pages get no hreflang.
+  const canonicalUrl = `${SEO_SITE_URL}${buildExperiencePath(locale, experienceName)}`;
   const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
   const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
   const title = t('metaTitle');
@@ -55,11 +58,12 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots,
     alternates: {
       canonical: canonicalUrl,
-      languages: alternates,
     },
     openGraph: {
+      siteName: SITE_INFO.name,
       title,
       description,
       url: canonicalUrl,

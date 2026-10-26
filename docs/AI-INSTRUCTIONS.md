@@ -29,7 +29,7 @@ If guidance elsewhere conflicts with this file, this file wins.
 - Landing page architecture with dual-layer schemas (raw feed → translated content)
 - Cloudflare Pages deployment through `@opennextjs/cloudflare`
 - Vitest + Testing Library for tests
-- Storybook 8 for UI development
+- Storybook 10 for UI development
 
 ---
 
@@ -213,7 +213,18 @@ Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticat
 
 **Services must throw when `remote.data` is null.** There is no fallback: an unavailable or schema-invalid feed fails the render rather than silently serving stale content.
 
+### Edge HTML cache
+`worker.ts` (the wrangler `main`) wraps `.open-next/worker.js` with `src/lib/edge-cache.ts`, which serves rendered pages from the Cloudflare Cache API. One Next render costs 60–90 ms of CPU, above the Workers Free limit (Error 1102); a HIT skips Next entirely.
+- Keyed by the generated Next `BUILD_ID`, full URL and RSC request headers in `Vary`. Caches only `GET` 200 HTML/RSC without `Set-Cookie`; bypasses `/api`, `/_next`, `/cdn-cgi`, `login`, `signup`, `Authorization` and deployment-routing requests (`x-deployment-id` or `dpl`). Header `x-edge-cache: HIT|MISS|BYPASS` on cache lookups; early bypasses pass through untouched.
+- TTL is `EDGE_CACHE_TTL_SECONDS` (10 min). This is only the HTML edge TTL: upstream Next data caching (`revalidate: 3600`) can delay feed updates further. The landing hero rotates when a new render populates the cache, not on every visit.
+- The cache is per data center; a MISS still pays the full render.
+- Purge-by-URL for public page URLs does not reach the internal `__edge_*` keys. *Purge Everything* clears the Cloudflare layer; immediate feed freshness also requires invalidating any upstream Next data cache.
+- No effect on `workers.dev` (dev env): the Cache API only works on a custom domain.
+- Page HTML must depend only on the URL. Do not add cookies, `localeDetection`, or per-user rendering to public pages without excluding them here. `localeCookie` stays `false` for the same reason.
+- `npm run build:worker` builds OpenNext then runs `typecheck:worker` against the generated entry. Preview, deploy and upload use this command. Cache read failures fall back to Next; cache write failures are logged without failing the page.
+
 ### Service ownership
+- Optional card projections `planCode`, `mineCode`, and `gallery` are experience-owned: badge codes match the owner and gallery images come from its `media.highlights`. Keep their equality checks in `src/test/feed-v2/contract.test.ts`; deploy optional readers before publishing fields. See `docs/V2_REMOTE_RESOURCES_MIGRATION.md`.
 - Route and catalog lookup — `experiences-catalog.service.ts`
 - Experience-list assembly — `experiences-list.service.ts`
 - Booking/detail data — `book.service.ts`
@@ -419,6 +430,8 @@ For media and interactive UI, prefer assertions around:
 - Typecheck: `npm run typecheck`
 - Verify live feed: `REMOTE_DATA_BASE_URL=<url> npm run verify:feed`
 - Refresh local feed copies: `npm run fixtures:fetch` (runs automatically via `pretest`)
+- Sync staged media and feed edits: edit `fixtures-local/` and place media in `r2-cache/`, then run `npm run media:sync`. It uploads referenced media, verifies exact origin bytes before removing each source, then syncs feed edits with conflict checks and backups. Use `npm run feed:sync` for feed-only edits.
+- `package.json` `overrides` pins `glob@^10.5.0` under `@node-minify/core` (GHSA-5j98-mcp5-4vw2, reached via `@opennextjs/aws`). Remove it once `@opennextjs/aws` ships a fixed `@node-minify/core`, then confirm `npm audit` stays clean.
 - Test: `npm test`
 - Storybook: `npm run storybook`
 - Build: `npm run build`
@@ -620,7 +633,7 @@ admin_users   (id, email, role)
 
 ### MVP Scope (First Live Sale)
 
-- 1 live experience: **emerald-mining-adventure** (Emerald Mining Adventure)
+- 2 experiences (feed ids `chivorEmeraldCore`, `chivorEmeraldPrime`): **chivor-emerald-mine-tour** (Core) and **chivor-emerald-mine-horseback-tour** (Prime, horseback included). The legacy `emeraldMining` id is accepted only until the Chivor feed is published.
 - 3 locales: en / es / fr (seeded from current JSON files)
 - Public landing, list, and detail pages functional
 - Booking form: wire to `POST /api/v1/bookings/checkout`

@@ -4,15 +4,17 @@ import { Link } from '@/i18n/navigation';
 import { useEffect, useState } from 'react';
 import { Mail, MessageCircle, ShieldCheck, Star, ArrowUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO } from '@/constant/SiteConfig';
+import { SOCIAL_LINKS, CONTACT_INFO, SITE_INFO, FOOTER_PHONE } from '@/constant/SiteConfig';
 import { whatsappUrl } from '@/utils/whatsapp';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface FooterProps {
     trustGallery: readonly string[];
+    /** Locale-free path of the landing flagship, from the feed. */
+    flagshipExperiencePath: string;
 }
 
-const Footer = ({ trustGallery }: FooterProps) => {
+const Footer = ({ trustGallery, flagshipExperiencePath }: FooterProps) => {
     const t = useTranslations('Footer');
     const [supportMode, setSupportMode] = useState<'whatsapp' | 'email'>('whatsapp');
     const [showBackToTop, setShowBackToTop] = useState(false);
@@ -31,21 +33,14 @@ const Footer = ({ trustGallery }: FooterProps) => {
     }, []);
 
     const territoryLinks = [
-        { label: t('logistics'), href: '/experiences/emerald-mining-adventure#inclusions' },
-        { label: t('transportation'), href: '/experiences/emerald-mining-adventure#booking' },
-        { label: t('staySelection'), href: '/experiences/emerald-mining-adventure#accommodation' },
+        { label: t('logistics'), href: `${flagshipExperiencePath}#inclusions` },
+        { label: t('transportation'), href: `${flagshipExperiencePath}#booking` },
+        { label: t('staySelection'), href: `${flagshipExperiencePath}#accommodation` },
     ];
 
     const allyLinks = [
-        { label: t('allyHacienda'), href: '/experiences/emerald-mining-adventure#accommodation', isPartner: true },
+        { label: t('allyHacienda'), href: `${flagshipExperiencePath}#accommodation`, isPartner: true },
         { label: t('allyExperiences'), href: '/experiences', isPartner: false },
-    ];
-
-    const legalLinks = [
-        { label: t('certifications'), href: '/#certifications' },
-        { label: t('insurance'), href: '/#insurance' },
-        { label: t('terms'), href: '/#terms' },
-        { label: t('privacy'), href: '/#privacy' },
     ];
 
     return (
@@ -158,9 +153,9 @@ const Footer = ({ trustGallery }: FooterProps) => {
                         </div>
                     </div>
 
-                    <div className="grid gap-3 sm:grid-cols-3 sm:divide-x sm:divide-white/10">
-                        <nav className="rounded-3xl border border-white/10 bg-slate-900/35 p-5 sm:rounded-r-none sm:border-r-0">
-                            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-100">{t('territoryEssentials')}</h3>
+                    <div className="grid gap-3 sm:grid-cols-2 sm:divide-x sm:divide-white/10">
+                        <nav aria-labelledby="footer-territory-heading" className="rounded-3xl border border-white/10 bg-slate-900/35 p-5 sm:rounded-r-none sm:border-r-0">
+                            <h3 id="footer-territory-heading" className="text-sm font-bold uppercase tracking-[0.18em] text-slate-100">{t('territoryEssentials')}</h3>
                             <ul className="mt-3 space-y-2.5">
                                 {territoryLinks.map((link) => (
                                     <li key={link.label}>
@@ -172,8 +167,8 @@ const Footer = ({ trustGallery }: FooterProps) => {
                             </ul>
                         </nav>
 
-                        <nav className="rounded-3xl border border-white/10 bg-slate-900/35 p-5 sm:rounded-none sm:border-x-0">
-                            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-100">{t('allyNetwork')}</h3>
+                        <nav aria-labelledby="footer-allies-heading" className="rounded-3xl border border-white/10 bg-slate-900/35 p-5 sm:rounded-l-none sm:border-l-0">
+                            <h3 id="footer-allies-heading" className="text-sm font-bold uppercase tracking-[0.18em] text-slate-100">{t('allyNetwork')}</h3>
                             <ul className="mt-3 space-y-2.5">
                                 {allyLinks.map((link) => (
                                     <li key={link.label}>
@@ -184,19 +179,6 @@ const Footer = ({ trustGallery }: FooterProps) => {
                                                     Partner
                                                 </span>
                                             ) : null}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-
-                        <nav className="rounded-3xl border border-white/10 bg-slate-900/35 p-5 sm:rounded-l-none sm:border-l-0">
-                            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-slate-100">{t('legalSafety')}</h3>
-                            <ul className="mt-3 space-y-2.5">
-                                {legalLinks.map((link) => (
-                                    <li key={link.label}>
-                                        <Link href={link.href} className="inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors hover:text-[#00FF9D]">
-                                            {link.label}
                                         </Link>
                                     </li>
                                 ))}
@@ -215,8 +197,8 @@ const Footer = ({ trustGallery }: FooterProps) => {
                             {t('instagram')}
                         </a>
                         <span className="text-slate-500">|</span>
-                        <a href={`tel:${CONTACT_INFO.phone}`} className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
-                            {CONTACT_INFO.phoneDisplay}
+                        <a href={`tel:+${FOOTER_PHONE.phone}`} className="inline-flex min-h-11 items-center text-slate-300 transition-colors hover:text-[#00FF9D]">
+                            {FOOTER_PHONE.phoneDisplay}
                         </a>
                     </div>
                 </div>
@@ -225,8 +207,10 @@ const Footer = ({ trustGallery }: FooterProps) => {
                     <button
                         type="button"
                         aria-label={t('backToTop')}
+                        aria-hidden={!showBackToTop}
+                        tabIndex={showBackToTop ? 0 : -1}
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className={`pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full border border-emerald-400/30 bg-slate-900/70 text-[#00FF9D] shadow-[0_0_18px_rgba(0,255,157,0.2)] transition-all duration-300 hover:scale-105 hover:bg-slate-900 ${showBackToTop ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'}`}
+                        className={`inline-flex h-12 w-12 items-center justify-center rounded-full border border-emerald-400/30 bg-slate-900/70 text-[#00FF9D] shadow-[0_0_18px_rgba(0,255,157,0.2)] transition-all duration-300 hover:scale-105 hover:bg-slate-900 ${showBackToTop ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
                     >
                         <ArrowUp className="h-5 w-5" />
                     </button>
