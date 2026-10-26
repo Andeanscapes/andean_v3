@@ -8,7 +8,8 @@
  *   1. every expected file exists and is valid JSON,
  *   2. each payload satisfies the same Zod schema the app validates on read,
  *   3. every translation key it references exists in en/es/fr,
- *   4. every routable card has the fields the catalog needs for a route.
+ *   4. every routable card has the fields the catalog needs for a route,
+ *   5. `status` agrees across the list, landing and experience files.
  *
  * Exits non-zero on the first category that fails, so it can gate a deploy.
  */
@@ -18,6 +19,8 @@ import {
   ExperienceFeedV2Schema,
   ExperiencesListFeedV2Schema,
   LandingFeedV2Schema,
+  type ExperienceFeedV2,
+  type LandingFeedV2,
 } from '../src/lib/schemas/feed/v2';
 import { EXPERIENCE_I18N, EXPERIENCE_METADATA_NAMESPACE } from '../src/i18n/mappings/experience';
 
@@ -29,8 +32,14 @@ import {
 import enMessages from '../src/i18n/messages/en.json';
 import esMessages from '../src/i18n/messages/es.json';
 import frMessages from '../src/i18n/messages/fr.json';
-import { findMissingResponsiveSiblings, landingResponsiveMediaKeys } from './lib/feed-media';
+import {
+  experienceResponsiveMediaKeys,
+  findMissingResponsiveSiblings,
+  landingResponsiveMediaKeys,
+  listResponsiveMediaKeys,
+} from './lib/feed-media';
 import { fetchFeedJson, resolveExperienceIds, resolveFeedBaseUrl } from './lib/feed';
+import { findStatusIssues } from './lib/feed-status';
 
 const LOCALES: Record<string, unknown> = { en: enMessages, es: esMessages, fr: frMessages };
 const KEY_PATTERN = /^(Landing|ExperiencesList|experiences)\.[A-Za-z0-9_.]+$/;
@@ -146,8 +155,9 @@ async function main(): Promise<void> {
 
   // 1. landing.json
   const landingRaw = await fetchJson(baseUrl, LANDING_FEED_FILE);
+  let landing: LandingFeedV2 | null = null;
   if (landingRaw) {
-    const landing = validate('landing.json', LandingFeedV2Schema, landingRaw);
+    landing = validate('landing.json', LandingFeedV2Schema, landingRaw);
     if (landing) {
       console.log('  ✓ landing.json: schema OK');
       checkKeys('landing.json', landing);
@@ -200,6 +210,7 @@ async function main(): Promise<void> {
   if (list) {
     console.log('  ✓ experiences-list.json: schema OK');
     checkKeys('experiences-list.json', list);
+    await checkResponsiveSiblings('experiences-list.json', listResponsiveMediaKeys(list));
 
     // v2 drops metadataNamespace from the payload — the frontend owns it. An
     // experience with no entry produces no usable SEO namespace at render time.
@@ -221,6 +232,8 @@ async function main(): Promise<void> {
     fail('experiences-list.json: no entry declares an id — no detail page can render');
   }
 
+  const experienceStatuses: ExperienceFeedV2['experience'][] = [];
+
   for (const experienceId of experienceIds) {
     const file = experienceFeedFile(experienceId);
     const raw = await fetchJson(baseUrl, file);
@@ -228,9 +241,11 @@ async function main(): Promise<void> {
 
     const data = validate(file, ExperienceFeedV2Schema, raw);
     if (!data) continue;
+    experienceStatuses.push(data.experience);
 
     console.log(`  ✓ ${file}: schema OK`);
     checkKeys(file, data);
+    await checkResponsiveSiblings(file, experienceResponsiveMediaKeys(data));
 
     const upcoming = data.availableDates.filter(
       (d) => d.isAvailable && d.spots > 0 && d.startDate.slice(0, 10) >= new Date().toISOString().slice(0, 10),
@@ -238,6 +253,17 @@ async function main(): Promise<void> {
     if (upcoming.length === 0) {
       fail(`${file}: no future availability — the experience will show zero departures`);
     }
+  }
+
+  // 4. visibility: `status` must agree across the three files
+  if (list) {
+    const statusIssues = findStatusIssues({
+      list: list.experiences,
+      landing: landing ?? undefined,
+      experiences: experienceStatuses,
+    });
+    statusIssues.forEach(fail);
+    if (statusIssues.length === 0) console.log('  ✓ status consistent across feeds');
   }
 
   console.log('');

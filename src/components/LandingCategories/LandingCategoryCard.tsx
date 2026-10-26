@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { LandingCategoryContent } from '@/lib/schemas/landing.schema';
 import { getLandingIcon } from '@/utils/landingIconMap';
 import { ArrowRight } from 'lucide-react';

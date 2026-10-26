@@ -1,5 +1,5 @@
 import type { ExperienceListCard, ExperiencesListData } from '../schemas';
-import { ExperiencesListDataSchema } from '../schemas';
+import { EXPERIENCE_CARD_MAX_CHIPS, ExperiencesListDataSchema } from '../schemas';
 import type { ExperiencesListEntryV2, ExperiencesListFeedV2 } from '../schemas/feed/v2';
 import { ExperiencesListFeedV2Schema } from '../schemas/feed/v2';
 import { cache } from 'react';
@@ -7,6 +7,8 @@ import { getTranslations } from 'next-intl/server';
 import { fetchRemoteJson } from '../remote-data';
 import { EXPERIENCES_LIST_FEED_PATH } from '@/utils/feedPaths';
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
+import { toPackageTags } from '@/utils/packageTags';
+import { splitCardHighlights } from '@/utils/cardHighlights';
 import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 import { resolveMediaUrlsDeep } from '@/utils/mediaUrl';
 import { experiencePath } from '@/utils/experienceRoutes';
@@ -86,8 +88,10 @@ function toCardMetadata(entry: ExperiencesListEntryV2, t: Translator): string[] 
       nights: duration.nights,
     }),
     t(EXPERIENCES_LIST_I18N.cardMeta.startsIn, { locality: location.locality }),
-    ...highlightCodes.map((code) => t(EXPERIENCES_LIST_I18N.highlights[code])),
-  ].slice(0, 3);
+    ...splitCardHighlights(highlightCodes).chipCodes.map((code) =>
+      t(EXPERIENCES_LIST_I18N.highlights[code]),
+    ),
+  ].slice(0, EXPERIENCE_CARD_MAX_CHIPS);
 }
 
 function toCard(entry: ExperiencesListEntryV2, t: Translator): ExperienceListCard {
@@ -99,13 +103,26 @@ function toCard(entry: ExperiencesListEntryV2, t: Translator): ExperienceListCar
 
   return {
     id: entry.slug,
-    title: t(mapping.title),
+    // The place-less card title needs the mine badge beside it; without the
+    // code (live feed during rollout) the card keeps the full title.
+    title: t(entry.mineCode ? mapping.cardTitle : mapping.title),
     description: t(mapping.description),
     image: card.image,
+    images: [card.image, ...(card.gallery ?? [])],
+    planBadge: entry.planCode
+      ? { code: entry.planCode, label: t(EXPERIENCES_LIST_I18N.planBadges[entry.planCode]) }
+      : undefined,
+    mineBadge: entry.mineCode
+      ? { code: entry.mineCode, label: t(EXPERIENCES_LIST_I18N.mineBadges[entry.mineCode]) }
+      : undefined,
+    privateBadge: splitCardHighlights(card.highlightCodes).isPrivateTour
+      ? { label: t(EXPERIENCES_LIST_I18N.privateBadge) }
+      : undefined,
     price: card.fromPrice.amount,
     currency: card.fromPrice.currency,
     priceQualifier: t(EXPERIENCES_LIST_I18N.page.priceQualifier),
     metadata: toCardMetadata(entry, t),
+    packageTags: toPackageTags(card.packageTags, t),
     href: experiencePath(entry.slug),
     tag: card.badgeCode ? t(EXPERIENCES_LIST_I18N.badges[card.badgeCode]) : undefined,
   };

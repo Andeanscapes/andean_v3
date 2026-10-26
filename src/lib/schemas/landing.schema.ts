@@ -7,6 +7,9 @@
  */
 
 import { z } from 'zod';
+import { PackageTagContentSchema } from './experience.schema';
+import { MineCodeSchema, PackageTagCodeSchema, PlanCodeSchema } from './feed/v2/common.schema';
+import { CardMineBadgeSchema, CardPlanBadgeSchema, CardPrivateBadgeSchema } from './experiencesList.schema';
 
 // ── Shared atoms ─────────────────────────────────────────────────────────────
 
@@ -35,6 +38,7 @@ export const LandingFlagshipMockSchema = z.object({
   descriptionKey: z.string(),
   backgroundImage: z.string(),
   valueChips: z.array(LandingValueChipMockSchema),
+  packageTags: z.array(PackageTagCodeSchema),
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
@@ -102,6 +106,7 @@ export const LandingReviewMockSchema = z.object({
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperienceKey: z.string().optional(),
+  sourceUrl: z.string().url().optional(),
 });
 
 export const LandingFaqMockSchema = z.object({
@@ -175,8 +180,11 @@ export const LandingFeaturedExperienceRefMockSchema = z.object({
   titleKey: z.string(),
   descriptionKey: z.string(),
   image: z.string(),
+  images: z.array(z.string()).min(1).max(4),
+  planBadge: z.object({ code: PlanCodeSchema, labelKey: z.string() }).optional(),
+  mineBadge: z.object({ code: MineCodeSchema, labelKey: z.string() }).optional(),
+  privateBadge: z.object({ labelKey: z.string() }).optional(),
   href: z.string(),
-  badgeKey: z.string().optional(),
   durationKey: z.string(),
   /**
    * ICU arguments for `durationKey` / `locationKey`. v2 publishes structured
@@ -188,6 +196,11 @@ export const LandingFeaturedExperienceRefMockSchema = z.object({
   locationValues: z.object({ locality: z.string() }),
   fromAmount: z.number(),
   currency: z.string(),
+  /** This experience's own departures; `nextAvailability` is derived from them. */
+  availableDates: z.array(AvailableDateSchema),
+  /** i18n keys for the card's highlight chips, resolved from feed codes. */
+  highlightKeys: z.array(z.string()),
+  packageTags: z.array(PackageTagCodeSchema),
   nextAvailability: z.object({
     dateISO: z.string(),
     spotsLeft: z.number(),
@@ -250,6 +263,7 @@ export const LandingSafetyMockSchema = z.object({
   items: z.array(LandingSafetyItemMockSchema),
   protocolLinkLabelKey: z.string().optional(),
   protocolHref: z.string().optional(),
+  protocolComingSoonKey: z.string().optional(),
 });
 
 export const LandingGlobalCtasMockSchema = z.object({
@@ -307,7 +321,11 @@ export const LandingFeedSchema = z.object({
   }),
   faqs: z.object({
     sectionTitleKey: z.string(),
+    titleKey: z.string(),
+    descriptionKey: z.string(),
     items: z.array(LandingFaqMockSchema),
+    enquiryTitleKey: z.string(),
+    enquiryDescriptionKey: z.string(),
   }),
   finalCta: z.object({
     sectionTitleKey: z.string(),
@@ -341,6 +359,7 @@ export const LandingFlagshipContentSchema = z.object({
   description: z.string(),
   backgroundImage: z.string(),
   valueChips: z.array(LandingValueChipSchema),
+  packageTags: z.array(PackageTagContentSchema),
   pricing: z.object({
     fromAmount: z.number(),
     currency: z.string(),
@@ -393,6 +412,7 @@ export const LandingReviewContentSchema = z.object({
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperience: z.string().optional(),
+  sourceUrl: z.string().url().optional(),
 });
 
 export const LandingFaqContentSchema = z.object({
@@ -461,14 +481,21 @@ export const LandingContentSchema = z.object({
       title: z.string(),
       description: z.string(),
       image: z.string(),
+      /** Carousel slides: the card image first, then the experience highlights. */
+      images: z.array(z.string()).min(1).max(4),
+      planBadge: CardPlanBadgeSchema.optional(),
+      mineBadge: CardMineBadgeSchema.optional(),
+      privateBadge: CardPrivateBadgeSchema.optional(),
       href: z.string(),
-      badge: z.string().optional(),
       duration: z.string(),
       location: z.string(),
       fromAmount: z.number(),
       currency: z.string(),
       fromLabel: z.string(),
+      perPersonLabel: z.string(),
       viewDetailsLabel: z.string(),
+      highlights: z.array(z.string()),
+      packageTags: z.array(PackageTagContentSchema),
       nextAvailability: z.object({
         dateISO: z.string(),
         spotsLeft: z.number(),
@@ -535,6 +562,7 @@ export const LandingContentSchema = z.object({
     })),
     protocolLinkLabel: z.string().optional(),
     protocolHref: z.string().optional(),
+    protocolComingSoon: z.string().optional(),
   }),
   globalCtas: z.object({
     exploreHref: z.string(),
@@ -568,7 +596,11 @@ export const LandingContentSchema = z.object({
   }),
   faqs: z.object({
     sectionTitle: z.string(),
+    title: z.string(),
+    description: z.string(),
     items: z.array(LandingFaqContentSchema),
+    enquiryTitle: z.string(),
+    enquiryDescription: z.string(),
   }),
   finalCta: z.object({
     sectionTitle: z.string(),

@@ -22,7 +22,7 @@ import { EXPERIENCE_I18N, EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/
 import {
   LANDING_FIXTURE,
   EXPERIENCES_LIST_FIXTURE,
-  EXPERIENCE_EMERALD_MINING_FIXTURE,
+  EXPERIENCE_FIXTURES,
 } from './index';
 
 const LOCALES = { en: enMessages, es: esMessages, fr: frMessages };
@@ -55,7 +55,7 @@ function collectKeys(value: unknown, acc: string[] = []): string[] {
 const FEEDS = {
   'landing.json': LANDING_FIXTURE,
   'experiences-list.json': EXPERIENCES_LIST_FIXTURE,
-  'experience-emerald-mining.json': EXPERIENCE_EMERALD_MINING_FIXTURE,
+  ...EXPERIENCE_FIXTURES,
 } as const;
 
 /**
@@ -153,6 +153,22 @@ describe('experiences-list routing contract', () => {
     for (const entry of EXPERIENCES_LIST_FIXTURE.experiences) {
       if (entry.status !== 'published') continue;
       expect(EXPERIENCE_I18N[entry.id], `experience "${entry.id}" has no i18n mapping`).toBeDefined();
+    }
+  });
+});
+
+/**
+ * Status equality across the three files is asserted in `feed-v2/contract.test.ts`.
+ * A hidden experience must also leave the featured list, or the landing silently
+ * drops a slot the editor expected to fill.
+ */
+describe('landing featured experiences are visible', () => {
+  it('every featured id is published in experiences-list', () => {
+    const listStatus = new Map(
+      EXPERIENCES_LIST_FIXTURE.experiences.map((entry) => [entry.id, entry.status]),
+    );
+    for (const id of LANDING_FIXTURE.featuredExperienceIds) {
+      expect(listStatus.get(id), `featured "${id}" is not published`).toBe('published');
     }
   });
 });

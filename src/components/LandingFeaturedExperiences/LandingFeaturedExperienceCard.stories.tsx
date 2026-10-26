@@ -17,7 +17,7 @@ export const Featured: Story = {
 };
 
 export const NoBadge: Story = {
-  args: { experience: { ...FEATURED_FIXTURE.items[0], badge: undefined } },
+  args: { experience: { ...FEATURED_FIXTURE.items[0], planBadge: undefined, mineBadge: undefined } },
 };
 
 export const Pottery: Story = {

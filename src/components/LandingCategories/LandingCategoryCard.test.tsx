@@ -1,5 +1,12 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { NextIntlClientProvider } from 'next-intl';
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 import LandingCategoryCard from './LandingCategoryCard';
 import { CATEGORIES_FIXTURE } from './__fixtures__/categoriesFixture';
@@ -7,23 +14,31 @@ import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 const FIRST = CATEGORIES_FIXTURE.items[0];
 
+function renderWithIntl(ui: React.ReactElement) {
+  return render(
+    <NextIntlClientProvider locale="en" messages={{}}>
+      {ui}
+    </NextIntlClientProvider>,
+  );
+}
+
 describe('LandingCategoryCard', () => {
   afterEach(() => cleanup());
 
   it('renders title, description and CTA label', () => {
-    render(<LandingCategoryCard category={FIRST} />);
+    renderWithIntl(<LandingCategoryCard category={FIRST} />);
     expect(screen.getByRole('heading', { level: 3, name: FIRST.title })).toBeInTheDocument();
     expect(screen.getByText(FIRST.description)).toBeInTheDocument();
     expect(screen.getByText(FIRST.ctaLabel)).toBeInTheDocument();
   });
 
   it('renders an internal link to category.href', () => {
-    render(<LandingCategoryCard category={FIRST} />);
+    renderWithIntl(<LandingCategoryCard category={FIRST} />);
     expect(screen.getByRole('link')).toHaveAttribute('href', FIRST.href);
   });
 
   it('renders the image with empty alt (decorative)', () => {
-    const { container } = render(<LandingCategoryCard category={FIRST} />);
+    const { container } = renderWithIntl(<LandingCategoryCard category={FIRST} />);
     const img = container.querySelector('img');
     expect(img).not.toBeNull();
     expect(img?.getAttribute('alt')).toBe('');
@@ -35,7 +50,7 @@ describe('LandingCategoryCard', () => {
    * here rather than published, so nothing else would catch its removal.
    */
   it('serves the -mobile sibling below the desktop breakpoint', () => {
-    const { container } = render(<LandingCategoryCard category={FIRST} />);
+    const { container } = renderWithIntl(<LandingCategoryCard category={FIRST} />);
     const source = container.querySelector('picture > source');
 
     expect(source).toHaveAttribute('media', '(max-width: 767px)');
@@ -44,7 +59,7 @@ describe('LandingCategoryCard', () => {
   });
 
   it('lazy-loads the tile, which sits below the fold', () => {
-    const { container } = render(<LandingCategoryCard category={FIRST} />);
+    const { container } = renderWithIntl(<LandingCategoryCard category={FIRST} />);
     const img = container.querySelector('picture > img');
 
     expect(img).toHaveAttribute('loading', 'lazy');
@@ -52,7 +67,7 @@ describe('LandingCategoryCard', () => {
   });
 
   it('falls back gracefully when iconName is unknown', () => {
-    render(
+    renderWithIntl(
       <LandingCategoryCard
         category={{ ...FIRST, iconName: 'NotAnIcon' }}
       />,

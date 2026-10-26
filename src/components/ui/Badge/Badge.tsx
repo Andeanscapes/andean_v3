@@ -4,7 +4,7 @@ import React from 'react';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'plan-prime' | 'plan-core' | 'plan-basic' | 'place';
   size?: 'sm' | 'md' | 'lg';
   onClick?: () => void;
   selected?: boolean;
@@ -33,6 +33,11 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
       warning: 'badge-warning',
       error: 'badge-error',
       info: 'badge-info',
+      // Plan tiers sit on photos, so fill and text are fixed per tier, not per theme.
+      'plan-prime': 'border-transparent bg-plan-prime text-plan-prime-content',
+      'plan-core': 'border-transparent bg-plan-core text-plan-core-content',
+      'plan-basic': 'border-transparent bg-plan-basic text-plan-basic-content',
+      place: 'border-transparent bg-place text-place-content',
     };
 
     const sizeClasses = {
@@ -45,7 +50,11 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     // Static badges must not advertise a click affordance they do not have.
     const isInteractive = Boolean(onClick) && !disabled;
 
-    const baseClasses = 'badge border border-base-300/60 text-base-content/90 transition';
+    // Photo-overlay variants own their border and text colour; the neutral defaults would fight them.
+    const ownsColours = variant.startsWith('plan-') || variant === 'place';
+    const baseClasses = ownsColours
+      ? 'badge border transition'
+      : 'badge border border-base-300/60 text-base-content/90 transition';
     const interactiveClasses = isInteractive
       ? 'cursor-pointer focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100'
       : '';

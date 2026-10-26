@@ -23,9 +23,10 @@ interface PriceSummaryProps {
   depositPercent: number;
   transportOptions: TransportOption[];
   experienceTitle: string;
+  isDayTrip?: boolean;
 }
 
-export function PriceSummary({ depositPercent, transportOptions, experienceTitle }: PriceSummaryProps) {
+export function PriceSummary({ depositPercent, transportOptions, experienceTitle, isDayTrip = false }: PriceSummaryProps) {
   const { total, depositAmount, roundtripTransferCost } = useReservationPricing();
   const currency = useReservationCurrency();
   const { selectedTierId } = useReservationTier();
@@ -86,7 +87,7 @@ export function PriceSummary({ depositPercent, transportOptions, experienceTitle
           </p>
         </div>
 
-        {selectedTier && (
+        {selectedTier && !isDayTrip && (
           <div className={`flex items-center gap-2 mb-2 pb-2 border-b ${isDark ? 'border-white/10' : 'border-neutral-200'}`}>
             <div className="h-8 w-8 shrink-0 overflow-hidden rounded-md">
               {/* Above-fold LCP candidate — eager load with high fetch priority */}
@@ -108,11 +109,15 @@ export function PriceSummary({ depositPercent, transportOptions, experienceTitle
             {peopleCount > 0 ? t('mobileDockPeopleSummary', { count: peopleCount }) : notSelected}
           </dd>
 
-          <dt className={dlTermClass}>{t('mobileDockStay')}</dt>
-          <dd className={dlDefClass}>{selectedTier?.tierLabel ?? notSelected}</dd>
+          {!isDayTrip && (
+            <>
+              <dt className={dlTermClass}>{t('mobileDockStay')}</dt>
+              <dd className={dlDefClass}>{selectedTier?.tierLabel ?? notSelected}</dd>
 
-          <dt className={dlTermClass}>{t('mobileDockRoom')}</dt>
-          <dd className={dlDefClass}>{roomSummary ?? notSelected}</dd>
+              <dt className={dlTermClass}>{t('mobileDockRoom')}</dt>
+              <dd className={dlDefClass}>{roomSummary ?? notSelected}</dd>
+            </>
+          )}
 
           <dt className={dlTermClass}>{t('mobileDockTransport')}</dt>
           <dd className={dlDefClass}>{selectedTransport ?? notSelected}</dd>
@@ -134,7 +139,7 @@ export function PriceSummary({ depositPercent, transportOptions, experienceTitle
           <div className={`grid grid-cols-[1fr_auto] items-start gap-x-3 text-sm py-1.5 ${isDark ? 'text-base-content/70' : 'text-neutral-600'}`}>
             <span className="flex items-start gap-1.5">
               <House size={14} className={`mt-0.5 shrink-0 ${isDark ? 'text-primary' : 'text-emerald-600'}`} />
-              {t('allInclusiveLineItem', { count: peopleCount })}
+              {t(isDayTrip ? 'dayTripLineItem' : 'allInclusiveLineItem', { count: peopleCount })}
             </span>
             <span className="font-medium text-right tabular-nums">
               {formatPrice(allInclusiveCost)}

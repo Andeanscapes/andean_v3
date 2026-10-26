@@ -25,6 +25,18 @@ describe('PriceSummary', () => {
     expect(prices.length).toBeGreaterThan(0);
   });
 
+  it('lists stay and room rows for overnight experiences', () => {
+    render(<PriceSummary {...defaultProps} />);
+    expect(screen.getByText('Alojamiento')).toBeInTheDocument();
+    expect(screen.getByText('Habitación')).toBeInTheDocument();
+  });
+
+  it('omits stay and room rows for day trips', () => {
+    render(<PriceSummary {...defaultProps} isDayTrip />);
+    expect(screen.queryByText('Alojamiento')).not.toBeInTheDocument();
+    expect(screen.queryByText('Habitación')).not.toBeInTheDocument();
+  });
+
   it('renders informational text', () => {
     render(<PriceSummary {...defaultProps} />);
     // With empty reservation state, the missing-step warning replaces the balance note.

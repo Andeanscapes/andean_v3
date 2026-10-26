@@ -7,6 +7,7 @@
  */
 
 import type { LandingFeed, LandingContent } from '@/lib/schemas/landing.schema';
+import { toPackageTags } from '@/utils/packageTags';
 
 type Translator = (key: string, values?: Record<string, string | number>) => string;
 
@@ -25,6 +26,7 @@ export function toLandingFlagshipContent(
     subtitle: t(flagship.subtitleKey),
     description: t(flagship.descriptionKey),
     backgroundImage: flagship.backgroundImage,
+    packageTags: toPackageTags(flagship.packageTags, t),
     valueChips: flagship.valueChips.map((chip) => ({
       ...chip,
       label: t(chip.labelKey),
@@ -92,6 +94,7 @@ export function toLandingReviewsContent(
       avatarUrl: item.avatarUrl,
       isVerified: item.isVerified,
       verifiedExperience: item.verifiedExperienceKey ? t(item.verifiedExperienceKey) : undefined,
+      sourceUrl: item.sourceUrl,
     })),
     trustPanel: {
       title: t(reviews.trustPanel.titleKey),
@@ -113,6 +116,10 @@ export function toLandingFaqsContent(
 ): LandingContent['faqs'] {
   return {
     sectionTitle: t(raw.faqs.sectionTitleKey),
+    title: t(raw.faqs.titleKey),
+    description: t(raw.faqs.descriptionKey),
+    enquiryTitle: t(raw.faqs.enquiryTitleKey),
+    enquiryDescription: t(raw.faqs.enquiryDescriptionKey),
     items: raw.faqs.items.map((item) => ({
       id: item.id,
       question: t(item.questionKey),
@@ -230,6 +237,7 @@ export function toLandingFeaturedExperiencesContent(
   t: Translator,
 ): LandingContent['featuredExperiences'] {
   const fromLabel = t('Landing.brand.featured.fromLabel');
+  const perPersonLabel = t('Landing.brand.featured.perPersonLabel');
   const viewDetailsLabel = t('Landing.brand.featured.viewDetails');
 
   return {
@@ -242,14 +250,20 @@ export function toLandingFeaturedExperiencesContent(
       title: t(item.titleKey),
       description: t(item.descriptionKey),
       image: item.image,
+      images: item.images,
+      planBadge: item.planBadge ? { code: item.planBadge.code, label: t(item.planBadge.labelKey) } : undefined,
+      mineBadge: item.mineBadge ? { code: item.mineBadge.code, label: t(item.mineBadge.labelKey) } : undefined,
+      privateBadge: item.privateBadge ? { label: t(item.privateBadge.labelKey) } : undefined,
       href: item.href,
-      badge: item.badgeKey ? t(item.badgeKey) : undefined,
       duration: t(item.durationKey, item.durationValues),
       location: t(item.locationKey, item.locationValues),
       fromAmount: item.fromAmount,
       currency: item.currency,
       fromLabel,
+      perPersonLabel,
       viewDetailsLabel,
+      highlights: item.highlightKeys.map((key) => t(key)),
+      packageTags: toPackageTags(item.packageTags, t),
       nextAvailability: item.nextAvailability,
     })),
   };
@@ -364,6 +378,9 @@ export function toLandingSafetyContent(
       ? t(raw.safety.protocolLinkLabelKey)
       : undefined,
     protocolHref: raw.safety.protocolHref,
+    protocolComingSoon: raw.safety.protocolComingSoonKey
+      ? t(raw.safety.protocolComingSoonKey)
+      : undefined,
   };
 }
 

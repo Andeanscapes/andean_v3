@@ -102,6 +102,15 @@ describe('inferRole', () => {
   it('recognizes avatars and thumbnails as icons', () => {
     expect(inferRole('/images/experiences/x/host-avatar.webp')).toBe('icon');
     expect(inferRole('/images/experiences/x/tier-standard-thumb.webp')).toBe('icon');
+    expect(inferRole('/images/experiences/x/stays/heritage/thumb.webp')).toBe('icon');
+    expect(inferRole('/images/experiences/x/hosts/heinnerAlexandra/avatar.webp')).toBe('icon');
+  });
+
+  it('sizes stay, highlight and itinerary media as tiles', () => {
+    expect(inferRole('/images/experiences/x/stays/heritage/main.webp')).toBe('tile');
+    expect(inferRole('/images/experiences/x/stays/heritage/gallery-1-mobile.webp')).toBe('tileMobile');
+    expect(inferRole('/images/experiences/x/highlights/highlight-1.webp')).toBe('tile');
+    expect(inferRole('/images/experiences/x/itinerary/stop1-1.webp')).toBe('tile');
   });
 
   /**

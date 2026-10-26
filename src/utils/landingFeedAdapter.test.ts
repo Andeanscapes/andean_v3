@@ -11,6 +11,8 @@
 import { describe, it, expect } from 'vitest';
 import { adaptLandingFeedV2 } from './landingFeedAdapter';
 import { LANDING_FIXTURE, cloneFixture } from '@/test/fixtures';
+import { REVIEW_LINKS } from '@/constant/SiteConfig';
+import { whatsappUrl } from '@/utils/whatsapp';
 
 function feed() {
   return cloneFixture(LANDING_FIXTURE);
@@ -50,6 +52,26 @@ describe('adaptLandingFeedV2', () => {
       payload.media.categories.horseback,
     ]);
     expect(raw.finalCta.backgroundImage).toBe(payload.media.finalCta);
+  });
+
+  it('maps plan and mine codes to badge keys and puts the card image first', () => {
+    const payload = feed();
+    const featuredId = payload.featuredExperienceIds[0];
+    const entry = payload.experiences.find((experience) => experience.id === featuredId);
+    if (!entry) throw new Error('fixture has no featured experience');
+    entry.status = 'published';
+    entry.planCode = 'core';
+    entry.mineCode = 'coscuez';
+    entry.media.gallery = ['/images/experiences/x/highlights/highlight-1.webp'];
+
+    const item = adaptLandingFeedV2(payload).featuredExperiences.items.find(
+      (candidate) => candidate.id === featuredId,
+    );
+
+    expect(item?.titleKey).toBe(`experiences.${featuredId}.cardTitle`);
+    expect(item?.planBadge).toEqual({ code: 'core', labelKey: 'ExperiencesList.planBadges.core' });
+    expect(item?.mineBadge).toEqual({ code: 'coscuez', labelKey: 'ExperiencesList.mineBadges.coscuez' });
+    expect(item?.images).toEqual([entry.media.card, '/images/experiences/x/highlights/highlight-1.webp']);
   });
 
   it('keeps legacy media during the staged rollout', () => {
@@ -110,5 +132,25 @@ describe('adaptLandingFeedV2', () => {
     expect(values).toContain('97%');
     // No stat may be a constant the feed cannot move.
     expect(values).not.toContain('100%');
+  });
+
+  /** The hero CTA is labelled "Ask on WhatsApp" and opens in a new tab. */
+  it('points the hero secondary CTA at WhatsApp', () => {
+    const raw = adaptLandingFeedV2(feed());
+
+    expect(raw.heroBrand.secondaryCtaHref).toBe(whatsappUrl());
+    expect(raw.heroBrand.secondaryCtaHref).toBe(raw.globalCtas.whatsappHref);
+  });
+
+  it('resolves each review source to its public listing link', () => {
+    const payload = feed();
+    const raw = adaptLandingFeedV2(payload);
+    const sourceById = new Map(payload.reviews.map((review) => [review.id, review.source]));
+
+    expect(raw.reviews.items.length).toBeGreaterThan(0);
+    for (const item of raw.reviews.items) {
+      const source = sourceById.get(item.id);
+      expect(source && item.sourceUrl === REVIEW_LINKS[source]).toBe(true);
+    }
   });
 });

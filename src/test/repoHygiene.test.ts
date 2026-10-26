@@ -42,7 +42,7 @@ describe('repository hygiene', () => {
 
   it('never tracks a downloaded feed payload', () => {
     const feedPayloads = tracked.filter((file) =>
-      /^(fixtures|feed-migration|services)\/.*\.json$/.test(file),
+      /^(fixtures|fixtures-local|feed-migration|services)\/.*\.json$/.test(file),
     );
     expect(feedPayloads).toEqual([]);
   });
@@ -51,7 +51,9 @@ describe('repository hygiene', () => {
     for (const file of [
       'fixtures/landing.json',
       'fixtures/experiences-list.json',
-      'fixtures/experience-emerald-mining.json',
+      'fixtures/experience-chivor-emerald-core.json',
+      'fixtures-local/landing.json',
+      'fixtures-local/experiences-list.json',
       'feed-migration/next/landing.json',
       'feed-migration/rollback/landing.json',
       'services/landing.json',
@@ -114,6 +116,8 @@ describe('repository hygiene', () => {
       .filter((key): key is string => Boolean(key));
 
     expect(keys.sort()).toEqual([
+      // Public by design: rendered as a <meta> tag on every page.
+      'GOOGLE_SITE_VERIFICATION',
       'NEXT_PUBLIC_CDN_BASE_URL',
       'NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER',
       'REMOTE_DATA_BASE_URL',

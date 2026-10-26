@@ -50,10 +50,21 @@ export default function ExperienceDetailsPage({
           </div>
         )}
         backgroundImageUrl={heroContent?.backgroundImageUrl}
+        valueStack={heroContent?.valueStack ?? []}
+        packageTags={heroContent?.packageTags ?? []}
+        planBadge={heroContent?.planBadge}
       />
       <ValuePropositions experienceData={experienceData} />
-      <Inclusions experienceData={experienceData} />
-      <AccommodationTiers experienceData={experienceData} />
+      {/* Deep-link targets for the footer (`#inclusions`, `#accommodation`). */}
+      <div id="inclusions" className="scroll-mt-24">
+        <Inclusions experienceData={experienceData} />
+      </div>
+      {/* Day trips have no overnight stay; their single tier only buckets guests for pricing. */}
+      {config.numberOfNights > 0 && (
+        <div id="accommodation" className="scroll-mt-24">
+          <AccommodationTiers experienceData={experienceData} />
+        </div>
+      )}
       <OptionalExtras experienceData={experienceData} />
       <Itinerary experienceData={experienceData} sidebar={<Host experienceData={experienceData} />} />
       <Faqs experienceData={experienceData} />

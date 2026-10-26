@@ -141,6 +141,7 @@ export function TransportOptions({
         label={t('howToArrive')}
         orientation="vertical"
       />
+      <p className="mt-3 text-xs leading-snug text-base-content/60">{t('transportNote')}</p>
     </Card>
   );
 }

@@ -106,9 +106,10 @@ const TARGET = {
   hero: { width: 1600, height: 751 },
   heroMobile: { width: 824, height: 391 },
   tile: { width: 1200, height: 569 },
-  // Derived, not measured: no `-mobile` tile is published. Kept at the `tile`
-  // aspect ratio so a future one crops the same way.
-  tileMobile: { width: 400, height: 190 },
+  // Derived, not measured. Kept at the `tile` aspect ratio so it crops the same
+  // way. 800w because detail-page tiles and gallery frames render full-width
+  // below `md` (~390 CSS px at 2x); 400w was visibly soft there.
+  tileMobile: { width: 800, height: 379 },
   portrait: { width: 716, height: 955 },
   portraitMobile: { width: 370, height: 494 },
   icon: { width: 150, height: 150 },
@@ -146,7 +147,7 @@ const BYTE_BUDGET: Readonly<Record<MediaRole, number>> = {
   hero: 230 * 1024,
   heroMobile: 70 * 1024,
   tile: 150 * 1024,
-  tileMobile: 30 * 1024,
+  tileMobile: 70 * 1024,
   portrait: 90 * 1024,
   portraitMobile: 35 * 1024,
   icon: 15 * 1024,

@@ -7,11 +7,15 @@ const sampleCard: ExperienceListCard = {
   title: 'Emerald Mining Adventure',
   description: 'Discover the world of Colombian emeralds in an authentic mining experience deep in the mountains of Boyacá.',
   image: '/assets/images/details/emerald-mining-card.webp',
+  images: ['/assets/images/details/emerald-mining-card.webp', '/images/experiences/chivor-emerald-prime/highlights/highlight-1.webp'],
+  planBadge: { code: 'prime', label: 'Prime' },
+  mineBadge: { code: 'chivor', label: 'Chivor' },
   price: 750000,
   currency: 'COP',
   priceQualifier: 'per person',
   metadata: ['2D/1N', 'Small groups', 'Chivor'],
-  href: '/experiences/emerald-mining-adventure',
+  packageTags: [{ label: 'All-inclusive stay', variant: 'warning' }],
+  href: '/experiences/chivor-emerald-mine-tour',
   tag: 'Most Popular',
 };
 

@@ -21,7 +21,7 @@ vi.mock('next-intl/server', () => ({
 
 import { fetchRawExperienceData, getBookingDataSSR } from './book.service';
 import {
-  EXPERIENCE_EMERALD_MINING_FIXTURE,
+  EXPERIENCE_FIXTURE,
   cloneFixture,
 } from '@/test/fixtures';
 
@@ -35,7 +35,7 @@ const PAST_DATE = {
 };
 
 function feedPayload() {
-  return cloneFixture(EXPERIENCE_EMERALD_MINING_FIXTURE);
+  return cloneFixture(EXPERIENCE_FIXTURE);
 }
 
 function feedPayloadWithExpiredDate() {
@@ -71,7 +71,7 @@ describe('fetchRawExperienceData', () => {
   it('drops expired dates from the feed payload', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayloadWithExpiredDate())));
 
-    const data = await fetchRawExperienceData('emeraldMining');
+    const data = await fetchRawExperienceData('chivorEmeraldCore');
 
     expect(data.availableDates.some((d) => d.id === 'past-2020')).toBe(false);
     expect(data.availableDates.length).toBeGreaterThan(0);
@@ -83,7 +83,7 @@ describe('fetchRawExperienceData', () => {
     vi.setSystemTime(new Date('2099-01-01T00:00:00.000Z'));
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayload())));
 
-    const data = await fetchRawExperienceData('emeraldMining');
+    const data = await fetchRawExperienceData('chivorEmeraldCore');
 
     expect(data.availableDates).toEqual([]);
   });
@@ -92,17 +92,17 @@ describe('fetchRawExperienceData', () => {
     const mockFetch = vi.fn().mockResolvedValue(okResponse(feedPayload()));
     vi.stubGlobal('fetch', mockFetch);
 
-    await fetchRawExperienceData('emeraldMining');
+    await fetchRawExperienceData('chivorEmeraldCore');
 
     expect(String(mockFetch.mock.calls[0][0])).toBe(
-      'https://cdn.example.com/services/experience-emerald-mining.json',
+      'https://cdn.example.com/services/experience-chivor-emerald-core.json',
     );
   });
 
   it('throws when the feed is unavailable', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }));
 
-    await expect(fetchRawExperienceData('emeraldMining')).rejects.toThrow(
+    await expect(fetchRawExperienceData('chivorEmeraldCore')).rejects.toThrow(
       /Experience feed unavailable/,
     );
   });
@@ -110,7 +110,7 @@ describe('fetchRawExperienceData', () => {
   it('throws when the feed returns a payload that fails the schema', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse({ nope: true })));
 
-    await expect(fetchRawExperienceData('emeraldMining')).rejects.toThrow(
+    await expect(fetchRawExperienceData('chivorEmeraldCore')).rejects.toThrow(
       /Experience feed unavailable/,
     );
   });
@@ -121,14 +121,14 @@ describe('fetchRawExperienceData', () => {
     const data = await fetchRawExperienceData('brandNewExperience');
 
     expect(data.experience.pricing.basePerPerson).toBe(
-      EXPERIENCE_EMERALD_MINING_FIXTURE.experience.pricing.basePerPerson,
+      EXPERIENCE_FIXTURE.experience.pricing.basePerPerson,
     );
   });
 
   it('exposes optional addons without letting them affect plan pricing', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayload())));
 
-    const data = await fetchRawExperienceData('emeraldMining');
+    const data = await fetchRawExperienceData('chivorEmeraldCore');
     const addonIds = data.addons.map((a) => a.id);
 
     expect(addonIds).toEqual(['apiary_cattle', 'horseback_riding']);
@@ -140,14 +140,16 @@ describe('fetchRawExperienceData', () => {
     }
 
     // Base rate stays the plan rate, not plan + extras.
-    expect(data.experience.pricing.basePerPerson).toBe(500000);
+    expect(data.experience.pricing.basePerPerson).toBe(
+      EXPERIENCE_FIXTURE.experience.pricing.basePerPerson,
+    );
   });
 
   it('never reaches out to the WhatsApp bot feed', async () => {
     const mockFetch = vi.fn().mockResolvedValue(okResponse(feedPayload()));
     vi.stubGlobal('fetch', mockFetch);
 
-    await fetchRawExperienceData('emeraldMining');
+    await fetchRawExperienceData('chivorEmeraldCore');
 
     const requestedUrls = mockFetch.mock.calls.map(([url]) => String(url));
     expect(requestedUrls).toHaveLength(1);
@@ -183,7 +185,7 @@ describe('getBookingDataSSR media resolution', () => {
     feed.experience.media.card = '/images/experiences/emerald-mining/card.webp';
     stub(feed);
 
-    const data = await getBookingDataSSR('emeraldMining', 'en');
+    const data = await getBookingDataSSR('chivorEmeraldCore', 'en');
 
     expect(data.heroContent?.backgroundImageUrl).toBe(
       'https://cdn.andeanscapes.com/images/experiences/emerald-mining/hero.webp',
@@ -196,7 +198,7 @@ describe('getBookingDataSSR media resolution', () => {
     feed.experience.media.hero = '/assets/images/hero/h10.webp';
     stub(feed);
 
-    const data = await getBookingDataSSR('emeraldMining', 'en');
+    const data = await getBookingDataSSR('chivorEmeraldCore', 'en');
 
     expect(data.heroContent?.backgroundImageUrl).toBe('/assets/images/hero/h10.webp');
   });
@@ -209,7 +211,7 @@ describe('getBookingDataSSR media resolution', () => {
     };
     stub(feed);
 
-    const data = await getBookingDataSSR('emeraldMining', 'en');
+    const data = await getBookingDataSSR('chivorEmeraldCore', 'en');
 
     expect(data.heroContent?.video).toEqual({
       desktop: 'https://cdn.andeanscapes.com/videos/experiences/emerald-mining/hero.webm',
@@ -224,7 +226,7 @@ describe('getBookingDataSSR media resolution', () => {
     delete feed.experience.media.video;
     stub(feed);
 
-    const data = await getBookingDataSSR('emeraldMining', 'en');
+    const data = await getBookingDataSSR('chivorEmeraldCore', 'en');
 
     expect(data.heroContent?.video).toBeUndefined();
     expect(data.heroContent?.backgroundImageUrl).not.toBe('');

@@ -5,17 +5,39 @@
  * These are frontend concerns; the feed carries only the codes.
  */
 
-import type { BadgeCode, HighlightCode } from '@/lib/schemas/feed/v2';
+import type { BadgeCode, HighlightCode, MineCode, PlanCode } from '@/lib/schemas/feed/v2';
 
 export const EXPERIENCES_LIST_I18N = {
   badges: {
     featured: 'ExperiencesList.featuredTag',
     'coming-soon': 'ExperiencesList.comingSoonTag',
   } as const satisfies Record<BadgeCode, string>,
+  /**
+   * Plan names are brand terms, identical in every locale ("Basic", not
+   * "Básico"/"Basique"). Keep the translated values in sync with that.
+   */
+  planBadges: {
+    basic: 'ExperiencesList.planBadges.basic',
+    core: 'ExperiencesList.planBadges.core',
+    prime: 'ExperiencesList.planBadges.prime',
+  } as const satisfies Record<PlanCode, string>,
+  mineBadges: {
+    chivor: 'ExperiencesList.mineBadges.chivor',
+    coscuez: 'ExperiencesList.mineBadges.coscuez',
+  } as const satisfies Record<MineCode, string>,
+  privateBadge: 'ExperiencesList.privateTour',
   highlights: {
     transportIncluded: 'ExperiencesList.transportIncluded',
     smallGroups: 'ExperiencesList.smallGroups',
+    privateTour: 'ExperiencesList.privateTour',
     localGuides: 'ExperiencesList.localGuides',
+    twoMines: 'ExperiencesList.twoMines',
+    horsebackRiding: 'ExperiencesList.horsebackRiding',
+    allMeals: 'ExperiencesList.allMeals',
+    haciendaStay: 'ExperiencesList.haciendaStay',
+    breakfastAndFiambre: 'ExperiencesList.breakfastAndFiambre',
+    ruralHotelStay: 'ExperiencesList.ruralHotelStay',
+    furaTena: 'ExperiencesList.furaTena',
   } as const satisfies Record<HighlightCode, string>,
   /**
    * Parameterized card metadata. The v1 feed shipped the literals

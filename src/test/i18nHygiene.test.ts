@@ -19,10 +19,13 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { createTranslator } from 'next-intl';
 
 import enMessages from '@/i18n/messages/en.json';
 import esMessages from '@/i18n/messages/es.json';
 import frMessages from '@/i18n/messages/fr.json';
+import { EXPERIENCE_I18N, EXPERIENCE_METADATA_NAMESPACE, PACKAGE_TAG_I18N } from '@/i18n/mappings/experience';
+import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 
 const SRC_ROOT = path.resolve(__dirname, '..');
 const LOCALES = { en: enMessages, es: esMessages, fr: frMessages } as const;
@@ -31,11 +34,18 @@ const LOCALES = { en: enMessages, es: esMessages, fr: frMessages } as const;
  * Namespaces with no `t('Namespace.…')` or `useTranslations('Namespace')` call
  * anywhere in source, kept deliberately.
  *
- * Both predate this branch. They are listed rather than deleted because removing
+ * These predate this branch. They are listed rather than deleted because removing
  * copy for a feature someone may still intend to ship is a product decision, not
  * a cleanup — and an explicit list makes the debt visible instead of implied.
  */
-const KNOWN_UNUSED_NAMESPACES = ['EmeraldMiningAdventure', 'Home'];
+const KNOWN_UNUSED_NAMESPACES: readonly string[] = [];
+
+/**
+ * Experience page metadata resolves its namespace at runtime from
+ * `EXPERIENCE_METADATA_NAMESPACE`, so no literal call names it. Those namespaces
+ * are live; treating them as referenced keeps the allowlist for genuinely dead copy.
+ */
+const MAPPED_NAMESPACES: ReadonlySet<string> = new Set(Object.values(EXPERIENCE_METADATA_NAMESPACE));
 
 function sourceFiles(dir: string, acc: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
@@ -58,6 +68,7 @@ const SOURCE_BLOB = sourceFiles(SRC_ROOT)
   .join('\n');
 
 function isNamespaceReferenced(namespace: string): boolean {
+  if (MAPPED_NAMESPACES.has(namespace)) return true;
   // Matches `useTranslations('Ns')`, `getTranslations('Ns')` and `t('Ns.key')`.
   return new RegExp(`(useTranslations|getTranslations)\\(['"\`]${namespace}['"\`]`).test(
     SOURCE_BLOB,
@@ -119,5 +130,91 @@ describe('locale bundles', () => {
         `"${namespace}" now has a consumer — remove it from KNOWN_UNUSED_NAMESPACES`,
       ).toBe(false);
     }
+  });
+
+  /**
+   * Per-experience itinerary copy is reached only through `EXPERIENCE_I18N`, so
+   * the namespace-level scan above cannot see a key that no mapping points at.
+   * Both experiences once shipped a full unused itinerary to every client.
+   */
+  it('ships no per-experience itinerary copy the mapping does not use', () => {
+    const mapped = new Set<string>();
+    const collect = (node: unknown): void => {
+      if (typeof node === 'string') mapped.add(node);
+      else if (node && typeof node === 'object') Object.values(node).forEach(collect);
+    };
+    collect(EXPERIENCE_I18N);
+
+    const experiences = LOCALES.en.experiences as Record<string, { itinerary?: Record<string, unknown> }>;
+    const unused = Object.keys(EXPERIENCE_I18N).flatMap((id) =>
+      Object.keys(experiences[id]?.itinerary ?? {})
+        .map((key) => `experiences.${id}.itinerary.${key}`)
+        .filter((key) => !mapped.has(key)),
+    );
+
+    // Stops shared by several experiences live once, under `experiences.itineraryStops`.
+    const shared = (LOCALES.en.experiences as { itineraryStops?: Record<string, Record<string, unknown>> })
+      .itineraryStops ?? {};
+    const unusedShared = Object.entries(shared).flatMap(([name, props]) =>
+      Object.keys(props)
+        .map((prop) => `experiences.itineraryStops.${name}.${prop}`)
+        .filter((key) => !mapped.has(key)),
+    );
+
+    expect([...unused, ...unusedShared], 'unused itinerary keys — delete them or map them').toEqual([]);
+  });
+
+  it('resolves every hero value point in en, es and fr', () => {
+    const resolve = (messages: unknown, key: string): unknown =>
+      key.split('.').reduce<unknown>(
+        (node, part) => (node && typeof node === 'object' ? (node as Record<string, unknown>)[part] : undefined),
+        messages,
+      );
+
+    for (const [id, mapping] of Object.entries(EXPERIENCE_I18N)) {
+      for (const [locale, messages] of Object.entries(LOCALES)) {
+        const missing = mapping.valueStack.filter((key) => typeof resolve(messages, key) !== 'string');
+        expect(missing, `${id} value points missing in ${locale}`).toEqual([]);
+      }
+    }
+  });
+
+  it('renders card duration as a day count for day trips and D/N otherwise', () => {
+    const expected = {
+      en: { dayTrip: '1 day', twoDayTrip: '2 days', overnight: '2D / 1N' },
+      es: { dayTrip: '1 día', twoDayTrip: '2 días', overnight: '2D / 1N' },
+      fr: { dayTrip: '1 jour', twoDayTrip: '2 jours', overnight: '2J / 1N' },
+    } as const;
+
+    for (const [locale, messages] of Object.entries(LOCALES)) {
+      // Locale bundles share en's shape (asserted above), so en's key types apply.
+      const t = createTranslator({ locale, messages: messages as typeof enMessages });
+      const key = 'ExperiencesList.cardMeta.durationDaysNights';
+      const copy = expected[locale as keyof typeof expected];
+
+      expect(t(key, { days: 1, nights: 0 })).toBe(copy.dayTrip);
+      expect(t(key, { days: 2, nights: 0 })).toBe(copy.twoDayTrip);
+      expect(t(key, { days: 2, nights: 1 })).toBe(copy.overnight);
+    }
+  });
+
+  it('resolves the day-trip highlight and package badge in en, es and fr', () => {
+    const keys = [EXPERIENCES_LIST_I18N.highlights.breakfastAndFiambre, PACKAGE_TAG_I18N.dayTrip.label];
+
+    for (const [locale, messages] of Object.entries(LOCALES)) {
+      const t = createTranslator({ locale, messages: messages as typeof enMessages });
+      for (const key of keys) {
+        expect(t.has(key), `${key} missing in ${locale}`).toBe(true);
+      }
+    }
+  });
+
+  /** Prime is Core plus extras; a shorter Prime list read as the lesser option. */
+  it('lists every Core value point on Prime, then its extras', () => {
+    const core = EXPERIENCE_I18N.chivorEmeraldCore.valueStack;
+    const prime = EXPERIENCE_I18N.chivorEmeraldPrime.valueStack;
+
+    expect(prime.slice(0, core.length)).toEqual([...core]);
+    expect(prime.length).toBeGreaterThan(core.length);
   });
 });

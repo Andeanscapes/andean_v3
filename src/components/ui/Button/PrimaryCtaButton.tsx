@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { Link } from '@/i18n/navigation';
 
 type CtaSize = 'md' | 'lg';
 type CtaVariant = 'solid' | 'gradient';
@@ -39,9 +40,9 @@ export function PrimaryCtaButton(props: PrimaryCtaButtonProps) {
     const composedClass = `${getBaseClass(variant)} ${sizeClass} ${widthClass} ${className}`.trim();
 
     return (
-      <a href={href} className={composedClass} {...anchorRest}>
+      <Link href={href} className={composedClass} {...anchorRest}>
         {children}
-      </a>
+      </Link>
     );
   }
 

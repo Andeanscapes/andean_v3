@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { NextIntlClientProvider } from 'next-intl';
 
@@ -10,6 +10,7 @@ vi.mock('@/i18n/navigation', () => ({
 
 import Footer from './Footer';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { CONTACT_INFO, FOOTER_PHONE } from '@/constant/SiteConfig';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
@@ -26,6 +27,8 @@ const GALLERY = [
   'https://cdn.example.com/images/brand/footer/ugc-4.webp',
 ];
 
+const FLAGSHIP_PATH = '/experiences/chivor-emerald-mine-tour';
+
 function renderFooter(
   trustGallery: string[] = GALLERY,
   locale: 'en' | 'es' | 'fr' = 'en',
@@ -34,7 +37,7 @@ function renderFooter(
 
   return render(
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <Footer trustGallery={trustGallery} />
+      <Footer trustGallery={trustGallery} flagshipExperiencePath={FLAGSHIP_PATH} />
     </NextIntlClientProvider>,
   );
 }
@@ -129,5 +132,80 @@ describe('Footer trust gallery', () => {
   it('keeps the full-size tile as the fallback source', () => {
     renderFooter();
     expect(galleryImages().map((img) => img.getAttribute('src'))).toEqual(GALLERY);
+  });
+});
+
+describe('Footer navigation links', () => {
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+  });
+
+  it('allows the phone link', () => {
+    renderFooter();
+    const phone = screen.getByRole('link', { name: FOOTER_PHONE.phoneDisplay });
+
+    expect(phone.getAttribute('href')).toBe('tel:+573124815443');
+    expect(phone.textContent).toBe('+57 312-4815443');
+    expect(clickWasBlocked(phone)).toBe(false);
+  });
+
+  /**
+   * Reads whether the footer swallowed the click, then cancels it at the
+   * document so jsdom does not attempt the real navigation.
+   */
+  function clickWasBlocked(link: HTMLElement) {
+    let blocked = false;
+    const probe = (event: MouseEvent) => {
+      blocked = event.defaultPrevented;
+      event.preventDefault();
+    };
+
+    document.addEventListener('click', probe);
+    fireEvent.click(link);
+    document.removeEventListener('click', probe);
+
+    return blocked;
+  }
+
+  it('deep-links experience sections into the flagship path it is given', () => {
+    renderFooter();
+
+    expect(screen.getByRole('link', { name: 'Logistics' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#inclusions`,
+    );
+    expect(screen.getByRole('link', { name: 'Transportation' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#booking`,
+    );
+    expect(screen.getByRole('link', { name: 'Stay Options' }).getAttribute('href')).toBe(
+      `${FLAGSHIP_PATH}#accommodation`,
+    );
+    for (const label of ['Logistics', 'Transportation', 'Stay Options']) {
+      expect(clickWasBlocked(screen.getByRole('link', { name: label }))).toBe(false);
+    }
+  });
+
+  it('allows the experiences link and Instagram link to navigate', () => {
+    renderFooter();
+    expect(clickWasBlocked(screen.getByRole('link', { name: 'All Experiences' }))).toBe(false);
+    expect(clickWasBlocked(screen.getByRole('link', { name: 'Instagram' }))).toBe(false);
+  });
+
+  it('keeps the WhatsApp action live', () => {
+    renderFooter();
+    const whatsapp = screen.getByRole('link', { name: 'Start WhatsApp Chat' });
+
+    expect(whatsapp.getAttribute('href')).toContain('wa.me');
+    expect(whatsapp.getAttribute('target')).toBe('_blank');
+    expect(clickWasBlocked(whatsapp)).toBe(false);
+  });
+
+  it('keeps the email action live', () => {
+    renderFooter();
+    fireEvent.click(screen.getByRole('button', { name: 'Email Support' }));
+    const email = screen.getByRole('link', { name: 'Send Email' });
+
+    expect(email.getAttribute('href')).toBe(`mailto:${CONTACT_INFO.email}`);
+    expect(clickWasBlocked(email)).toBe(false);
   });
 });

@@ -119,7 +119,7 @@ export const getBookingDataSSR = cache(async (
       description: option.description ? t(option.description) : undefined,
     })),
     roomModes: rawResult.data.roomModes.map((mode) => ({ ...mode, label: t(mode.label) })),
-    heroContent: toHeroContent(rawResult.data, t, rawResult.data.config.depositPercent),
+    heroContent: toHeroContent(rawResult.data, t, rawResult.data.config.depositPercent, feed.experience.duration),
     widgetContent: toWidgetContent(t, rawResult.data.config.reviewsCount ?? 0),
     valuePropositionsContent: toValuePropositionsContent(rawResult.data, t),
     inclusionsContent: toInclusionsContent(rawResult.data, t),

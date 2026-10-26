@@ -1,21 +1,24 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
-import { locales } from '@/i18n/routing';
-import { SITE_INFO } from '@/constant/SiteConfig';
+import { CONTACT_INFO, SITE_INFO, SOCIAL_LINKS } from '@/constant/SiteConfig';
 import { getLandingDataSSR } from '@/lib/services/landing.service';
 import { safeJsonLd } from '@/utils/jsonLd';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seoUrls';
+import { buildTravelAgencyLd, buildWebsiteLd } from '@/utils/structuredData';
 import LandingPage from './LandingPage';
 
-// The hero rotates per visit (`pickHeroVariant` in landing.service), so this
-// route must render on every request. `[locale]` has no `generateStaticParams`
+// The hero rotates per render (`pickHeroVariant` in landing.service), so this
+// route must render on every request. In production the edge HTML cache
+// (`src/lib/edge-cache.ts`) serves a render for its TTL, so visitors see the
+// hero rotate once per TTL per data center. `[locale]` has no `generateStaticParams`
 // today, so the route is already dynamic and this changes nothing yet — it is
 // here to state the requirement, and to keep it true if locale prerendering is
 // added later, which would otherwise freeze the rotation at build time.
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.andean-scapes.com';
+const SITE_URL = SITE_INFO.url;
 
 export async function generateMetadata({
   params,
@@ -31,16 +34,10 @@ export async function generateMetadata({
   // different image to crawlers than the one the page actually renders.
   const { heroBrand } = await getLandingDataSSR(locale);
 
-  const path = locale === 'en' ? '/' : `/${locale}`;
-  const canonical = `${SITE_URL}${path}`;
-
-  // Build hreflang alternates for every supported locale.
-  const languages = Object.fromEntries(
-    locales.map((l) => [l, `${SITE_URL}${l === 'en' ? '/' : `/${l}`}`]),
-  );
+  const canonical = buildAbsoluteLocalizedUrl(locale, '/');
+  const languages = buildLocalizedAlternates('/');
 
   return {
-    metadataBase: new URL(SITE_URL),
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: { canonical, languages },
@@ -59,22 +56,6 @@ export async function generateMetadata({
       description: t('metaDescription'),
       images: [heroBrand.backgroundImage],
     },
-    keywords: [
-      'Andean Scapes',
-      'tour',
-      'travel',
-      'booking',
-      'rental',
-      'trip',
-      'adventure',
-      'nature',
-      'emerald mines',
-      'co-living',
-      'vacation',
-      'Colombia',
-      'Boyaca',
-      'digital nomads',
-    ],
   };
 }
 
@@ -93,18 +74,15 @@ export default async function Page({
   const heroImageUrl = landingData.heroBrand.backgroundImage;
   const heroImageUrlMobile = getResponsiveImageSrc(heroImageUrl).mobile;
 
-  // Organization schema (brand-level, helps Google Knowledge Graph).
-  const organizationLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Andean Scapes',
+  const travelAgencyLd = buildTravelAgencyLd({
+    name: SITE_INFO.name,
     url: SITE_URL,
     logo: `${SITE_URL}${SITE_INFO.logo}`,
-    sameAs: [
-      'https://www.instagram.com/andeanscapes',
-      'https://www.facebook.com/andeanscapes',
-    ],
-  };
+    sameAs: [SOCIAL_LINKS.instagram],
+    email: CONTACT_INFO.email,
+  });
+
+  const websiteLd = buildWebsiteLd({ name: SITE_INFO.name, url: SITE_URL });
 
   // ItemList schema for landing categories (helps rich results).
   const itemListLd = {
@@ -114,7 +92,7 @@ export default async function Page({
       '@type': 'ListItem',
       position: index + 1,
       name: item.title,
-      url: `${SITE_URL}${item.href}`,
+      url: buildAbsoluteLocalizedUrl(locale, item.href),
     })),
   };
 
@@ -137,7 +115,11 @@ export default async function Page({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(travelAgencyLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(websiteLd) }}
       />
       <script
         type="application/ld+json"

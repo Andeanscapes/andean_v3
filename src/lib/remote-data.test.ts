@@ -4,6 +4,7 @@
 
 /* eslint-disable no-undef */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import type { MockInstance } from 'vitest';
 import { z } from 'zod';
 import { fetchRemoteJson } from './remote-data';
 
@@ -300,8 +301,8 @@ describe('fetchRemoteJson', () => {
   describe('observability', () => {
     // Silent fallback is the whole risk: without a log line there is no way to
     // tell a working upload from a wrong URL.
-    let log: ReturnType<typeof vi.spyOn>;
-    let warn: ReturnType<typeof vi.spyOn>;
+    let log: MockInstance<typeof console.log>;
+    let warn: MockInstance<typeof console.warn>;
 
     beforeEach(() => {
       log = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -363,6 +364,41 @@ describe('fetchRemoteJson', () => {
         /\[RemoteData\] (remote|local)/.test(String(c[0])),
       );
       expect(outcomes).toHaveLength(1);
+    });
+  });
+
+  describe('caching hints', () => {
+    const ok = () => ({ ok: true, json: async () => ({ id: 'a', value: 1 }) });
+
+    afterEach(() => {
+      vi.unstubAllEnvs();
+      delete process.env.REMOTE_DATA_BASE_URL;
+    });
+
+    it('bypasses the data cache in development so local feed edits show immediately', async () => {
+      vi.stubEnv('NODE_ENV', 'development');
+      process.env.REMOTE_DATA_BASE_URL = 'https://example.com/data';
+      const mockFetch = vi.fn().mockResolvedValue(ok());
+      vi.stubGlobal('fetch', mockFetch);
+
+      await fetchRemoteJson('/test.json', TestSchema, { revalidate: 3600, tags: ['t'] });
+
+      const init = mockFetch.mock.calls[0][1];
+      expect(init.cache).toBe('no-store');
+      expect(init.next).toBeUndefined();
+    });
+
+    it('forwards revalidate and tags outside development', async () => {
+      vi.stubEnv('NODE_ENV', 'production');
+      process.env.REMOTE_DATA_BASE_URL = 'https://example.com/data';
+      const mockFetch = vi.fn().mockResolvedValue(ok());
+      vi.stubGlobal('fetch', mockFetch);
+
+      await fetchRemoteJson('/test.json', TestSchema, { revalidate: 3600, tags: ['t'] });
+
+      const init = mockFetch.mock.calls[0][1];
+      expect(init.cache).toBeUndefined();
+      expect(init.next).toEqual({ revalidate: 3600, tags: ['t'] });
     });
   });
 });

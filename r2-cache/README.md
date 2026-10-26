@@ -9,8 +9,8 @@ commit the media itself.
     npm run media:push                # optimize, then upload what differs
     npm run media:push -- --dry-run   # print the plan, upload nothing
     npm run media:push -- --upscale   # allow undersized sources to fill slots
-    npm run media:sync                # upscale, optimize, upload, purge cache
-    npm run media:sync:new            # same, for keys the feed does not reference yet
+    npm run media:sync                # optimize, upload, prune sources, then sync fixtures-local feed edits
+    npm run media:sync:new            # upload unreferenced media only; feed publish stays separate
 
 Drop a source of **any size or shape** (`.jpg`, `.png`, `.heic`, `.mov`, `.mp4`)
 at the key you want it published under. The filename decides the output size, so
@@ -28,12 +28,22 @@ Originals are **kept** by `media:push`. They are never uploaded — only deliver
 formats are — so they simply sit here. The default is to keep them because the
 upload cannot be undone: with the original gone, a bad crop is unrecoverable.
 
-Pass `--prune-sources` explicitly to remove originals after their converted
-outputs upload successfully. It is not enabled by `media:sync`: upload success
-does not prove that an automatic crop is visually correct, and R2 object
-versioning is not enabled. Anything that failed to upload keeps its source, as
-does any pair of originals that would produce the same delivery key. `--dry-run`
-lists what would be removed without touching it.
+`--prune-sources` removes originals after their converted outputs upload
+successfully. `media:sync` enables it, so the original is gone once its `.webp`
+is published: upload success does not prove that an automatic crop is visually
+correct, and R2 object versioning is not enabled. Use `media:push` to keep
+originals. An output whose original is still on disk is re-uploaded even when
+R2 already holds it, so every removal follows a confirmed upload. Anything that
+failed to upload keeps its source, as does any pair of originals that would
+produce the same delivery key. `--dry-run` lists what would be removed without
+touching it.
+
+`media:sync` reads media paths from editable JSON files in `fixtures-local/` as
+well as the published feed. It uploads media first, verifies exact origin bytes,
+prunes only verified sources, then runs conflict-safe `feed:sync`.
+If feed sync finds a conflict, uploaded media remains in R2 and feed stays
+unchanged. `npm run media:sync -- --dry-run` previews media only; it uploads
+neither media nor feed.
 
 Two different flags, deliberately: `--prune-sources` deletes after a confirmed
 publish, while the optimizer's `--consume-sources` deletes at conversion time,
@@ -57,7 +67,8 @@ AVIF only, since the HEVC decoder HEIC needs is patent-encumbered. Install ffmpe
 (`brew install ffmpeg`) or export as JPEG. A file that cannot be decoded is
 reported and skipped — one bad source never aborts the run.
 
-Only keys something actually reads may be published: what the feed references,
+Only keys something actually reads may be published: what published or editable
+feed files reference,
 what `SiteConfig` declares (the footer tiles), and the `-mobile` sibling of each
 image. A mistyped filename is rejected with the intended key suggested, because
 cropping now succeeds for any shape and would otherwise publish a perfectly
@@ -66,22 +77,38 @@ valid object that nothing reads. Pass `--allow-orphan` — or use
 reference it. It is deliberately **not** part of `media:sync`: that guard is the
 only thing standing between a typo and a published object nothing ever reads.
 
+## Folder layout
+
+Everything an experience renders lives under that experience's folder:
+
+    images/experiences/<exp>/hero.webp | card.webp
+    images/experiences/<exp>/highlights/highlight-<n>.webp
+    images/experiences/<exp>/itinerary/<stopId>-<n>.webp
+    images/experiences/<exp>/hosts/<hostId>/avatar.webp
+    images/experiences/<exp>/stays/<stayId>/main.webp     # stayId = accommodation tier id
+    images/experiences/<exp>/stays/<stayId>/thumb.webp
+    images/experiences/<exp>/stays/<stayId>/gallery-<n>.webp
+
+Hosts and stays are scoped to their experience. A place shared by two
+experiences (for example Core and Prime) is stored once per experience on
+purpose, so each experience can change its photos independently.
+
+Every file takes a `-mobile` sibling where the app uses responsive images.
+Filenames decide the slot size (`thumb`/`avatar` -> icon, the rest -> tile).
+
 ## Adding a landing hero
 
 The hero pool is derived from filenames, so adding one is dropping files in:
 
     cp photo.jpg        r2-cache/images/brand/landing-hero-04.jpg
     cp photo-small.jpg  r2-cache/images/brand/landing-hero-04-mobile.jpg
-    npm run media:sync                # uploads; prints the steps below
+    npm run media:push -- --allow-orphan # uploads; prints the steps below
     npm run fixtures:fetch
     npm run feed:stage-hero-variants
     npm run feed:publish -- --confirm # review the diff first
 
-`media:sync` accepts the hero convention without `--allow-orphan`, so a new
-`landing-hero-<n>.webp` uploads like any other file — but **uploading is not
-publishing**. The site renders what the feed lists, so the image stays inert in
-R2 until the pool is republished. `media:sync` prints the remaining commands for
-exactly that reason.
+Hero pool changes use the explicit staging flow below. `media:sync` syncs
+`fixtures-local/`; it does not publish `feed-migration/next/`.
 
 Publishing is a separate command on purpose: it overwrites live business data
 and the bucket has no object versioning, so it must not happen as a side effect
@@ -107,19 +134,26 @@ unsure.
 
 The CDN keys HEAD and GET separately, so an object can be current in R2 while
 browsers keep receiving the previous bytes for the rest of its TTL (4 hours at
-the time of writing). Every size comparison here therefore goes to origin with a
+the time of writing). Every comparison here therefore goes to origin with a
 cache-busting parameter, and downloads do too, so a stale edge copy can never be
 written into this directory.
 
-After uploading, `media:push` purges the affected URLs. That needs
-`Zone · Cache Purge · Purge` on `CLOUDFLARE_API_TOKEN`; without it the upload
-still succeeds and the URLs to purge by hand are printed instead. Either way,
-any object that is correct in R2 but still stale at the edge is reported on
-every run — including runs with nothing to upload.
+Files are compared by **content**, not size: R2's ETag is the MD5 of the object,
+and it is checked against the MD5 of the local file. A replaced image that
+happens to encode to the same byte count is therefore still uploaded. (Size is
+only the fallback for an ETag that is not a content hash.)
+
+After uploading, `media:push` checks what the CDN actually serves. If visitors
+already get the new bytes — the usual case, since media objects are not
+edge-cached today — it says so and skips the purge. Only URLs still stale at the
+edge are purged, which needs `Zone · Cache Purge · Purge` on
+`CLOUDFLARE_API_TOKEN`; without it the upload still succeeds and the URLs to
+purge by hand are printed instead. Any object current in R2 but stale at the edge
+is reported on every run — including runs with nothing to upload.
 
 Set `CLOUDFLARE_ZONE_ID` to skip the zone lookup if the token cannot list zones.
 
-Flags: `--dry-run`, `--allow-orphan` and `--prune-sources` apply to the upload;
-`--force`, `--crop=`, `--offline` and `--consume-sources` are forwarded to the
-optimizer. `--confirm` and `--keep-sources` are accepted and ignored — they used
+Flags: `--allow-orphan` and `--prune-sources` apply to the upload; `--dry-run`
+applies to both (the optimizer then writes nothing either); `--force`, `--crop=`,
+`--offline` and `--consume-sources` are forwarded to the optimizer. `--confirm` and `--keep-sources` are accepted and ignored — they used
 to be required and are now the defaults.

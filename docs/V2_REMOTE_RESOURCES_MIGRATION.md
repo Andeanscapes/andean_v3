@@ -62,7 +62,7 @@ deliberate denormalization, not an accident.
 
 | File | Publishes to | Owns / projects |
 |---|---|---|
-| `fixtures/experience-emerald-mining.json` | `<base>/experience-emerald-mining.json` | **Owner.** Pricing, deposit, capacity, inventory, transport, add-ons, availability, itinerary, host, reviews |
+| `fixtures/experience-<id>.json` (one per id in `experiences-list.json`, e.g. `experience-chivor-emerald-core.json`) | `<base>/experience-<id>.json` | **Owner.** Pricing, deposit, capacity, inventory, transport, add-ons, availability, itinerary, host, reviews |
 | `fixtures/experiences-list.json` | `<base>/experiences-list.json` | Catalog order + card projection (slug, status, image, fromPrice, duration, locality, badge/highlight codes) + optional list-hero image and video during rollout |
 | `fixtures/landing.json` | `<base>/landing.json` | Flagship/featured selection + landing projection (media, fromPrice, duration, full location, availability), optional brand media during rollout, review facts, aggregate, brand metrics |
 
@@ -257,6 +257,26 @@ fix depends on a feed change.
   currently pure, so it is deliberately left for its own change.
 
 ## Publishing
+
+### Optional plan, mine and card-gallery rollout
+
+- The experience resource owns optional `experience.planCode` (`basic`, `core`, `prime`)
+  and `experience.mineCode` (`chivor`, `coscuez`). List and landing entries may
+  project the same codes at entry level; labels and badge styles remain frontend-owned.
+- List `card.gallery` and landing `media.gallery` are optional projections of the
+  owner's `experience.media.highlights`, in the same order (at most three images).
+  The primary card image stays first; the gallery supplies subsequent carousel images.
+  These fields add no booking inventory and require no extra per-page fetch.
+- `src/test/feed-v2/contract.test.ts` checks owner/projection agreement whenever
+  these optional fields are present. `verify:feed` also checks gallery `-mobile`
+  siblings; upload both desktop and mobile files before referencing them.
+- Deploy readers accepting these fields as optional **before** publishing them:
+  existing strict readers reject unknown fields. Publish experience owners first,
+  then list projections, then landing projections. Validate the published feed,
+  refresh fixtures, run contract tests, and invalidate data/HTML caches as below.
+- Absent fields retain the full destination-bearing card title and static card
+  image, with no mine/plan badges. Keep that behavior until the rollout is complete;
+  do not make fields required while any published resource omits them.
 
 Already done — v2 is live. Kept for reference and for the next contract change.
 

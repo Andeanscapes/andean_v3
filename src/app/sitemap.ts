@@ -1,50 +1,30 @@
 import type { MetadataRoute } from 'next';
+import { locales } from '@/i18n/routing';
 import { getExperiencePathListSSR } from '@/lib/services/experiences-catalog.service';
 import { experiencePath } from '@/utils/experienceRoutes';
+import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seoUrls';
 
-const SITE_URL = 'https://andeanscapes.com';
-const LOCALES = ['en', 'es', 'fr'] as const;
+/** Same URL set in every locale, so each entry lists all alternates (hreflang). */
+function buildEntry(path: string, priority: number): MetadataRoute.Sitemap {
+  const languages = buildLocalizedAlternates(path);
 
-function withLocale(locale: (typeof LOCALES)[number], path: string) {
-  return locale === 'en' ? `${SITE_URL}${path}` : `${SITE_URL}/${locale}${path}`;
+  return locales.map((locale) => ({
+    url: buildAbsoluteLocalizedUrl(locale, path),
+    changeFrequency: 'weekly',
+    priority,
+    alternates: { languages },
+  }));
 }
 
+// Booking pages are noindex (see their metadata) and are intentionally absent here.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const experienceNames = await getExperiencePathListSSR();
 
-  const staticPaths = ['/', '/experiences'];
-
-  const staticEntries = LOCALES.flatMap((locale) =>
-    staticPaths.map((path) => ({
-      url: withLocale(locale, path),
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: path === '/' ? 1 : 0.9,
-    }))
-  );
-
-  const experienceEntries = LOCALES.flatMap((locale) =>
-    experienceNames.flatMap((experienceName) => {
-      const detailPath = experiencePath(experienceName);
-      const bookingPath = `${detailPath}/booking`;
-
-      return [
-        {
-          url: withLocale(locale, detailPath),
-          lastModified: now,
-          changeFrequency: 'weekly' as const,
-          priority: 0.9,
-        },
-        {
-          url: withLocale(locale, bookingPath),
-          lastModified: now,
-          changeFrequency: 'weekly' as const,
-          priority: 0.8,
-        },
-      ];
-    })
-  );
-
-  return [...staticEntries, ...experienceEntries];
+  return [
+    ...buildEntry('/', 1),
+    ...buildEntry('/experiences', 0.9),
+    ...experienceNames.flatMap((experienceName) =>
+      buildEntry(experiencePath(experienceName), 0.9)
+    ),
+  ];
 }

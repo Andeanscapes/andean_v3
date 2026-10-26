@@ -26,6 +26,8 @@ export interface SelectProps {
   disabled?: boolean;
   'aria-label'?: string;
   'aria-labelledby'?: string;
+  /** Id of helper text describing the choice, announced after the label. */
+  'aria-describedby'?: string;
 }
 
 export function Select({
@@ -41,6 +43,7 @@ export function Select({
   disabled = false,
   'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
 }: SelectProps) {
   const generatedId = useId();
   const selectId = id ?? generatedId;
@@ -159,6 +162,7 @@ export function Select({
         aria-controls={listboxId}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
+        aria-describedby={ariaDescribedBy}
         aria-activedescendant={focusedIndex >= 0 ? `${listboxId}-option-${focusedIndex}` : undefined}
         disabled={disabled}
         onClick={() => (isOpen ? close() : open())}

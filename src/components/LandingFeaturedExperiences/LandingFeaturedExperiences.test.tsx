@@ -1,13 +1,20 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { NextIntlClientProvider } from 'next-intl';
+
+vi.mock('@/i18n/navigation', () => ({
+  Link: ({ children, href, ...props }: { children: React.ReactNode; href: string; [key: string]: unknown }) => (
+    <a href={href} {...props}>{children}</a>
+  ),
+}));
 
 import LandingFeaturedExperiences from './LandingFeaturedExperiences';
 import { FEATURED_FIXTURE } from './__fixtures__/featuredFixture';
+import enMessages from '@/i18n/messages/en.json';
 
 function renderWithIntl(ui: React.ReactElement) {
   return render(
-    <NextIntlClientProvider locale="en" messages={{}}>
+    <NextIntlClientProvider locale="en" messages={enMessages}>
       {ui}
     </NextIntlClientProvider>,
   );
@@ -27,7 +34,9 @@ describe('LandingFeaturedExperiences', () => {
 
   it('renders one list item per featured item', () => {
     renderWithIntl(<LandingFeaturedExperiences featured={FEATURED_FIXTURE} />);
-    expect(screen.getAllByRole('listitem')).toHaveLength(FEATURED_FIXTURE.items.length);
+    // The section's own list; each card nests a highlight list of its own.
+    const [section] = screen.getAllByRole('list');
+    expect(section.querySelectorAll(':scope > li')).toHaveLength(FEATURED_FIXTURE.items.length);
   });
 
   it('renders a "view all" link to viewAllHref', () => {

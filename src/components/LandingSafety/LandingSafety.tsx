@@ -1,4 +1,6 @@
-import { memo } from 'react';
+'use client';
+
+import { memo, useEffect, useRef, useState, type MouseEvent } from 'react';
 import Link from 'next/link';
 import type { LandingSafetyContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
@@ -16,7 +18,22 @@ interface Props {
  * Optional "View Safety & Logistics Protocol" link reinforces system-provider positioning.
  */
 function LandingSafetyComponent({ safety, className = '' }: Props) {
+  const [showComingSoon, setShowComingSoon] = useState(false);
+  const comingSoonTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (comingSoonTimer.current) clearTimeout(comingSoonTimer.current);
+  }, []);
+
   if (safety.items.length === 0) return null;
+
+  const handleProtocolClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!safety.protocolComingSoon) return;
+    event.preventDefault();
+    setShowComingSoon(true);
+    if (comingSoonTimer.current) clearTimeout(comingSoonTimer.current);
+    comingSoonTimer.current = setTimeout(() => setShowComingSoon(false), 3000);
+  };
 
   return (
     <div id="safety-full">
@@ -64,11 +81,15 @@ function LandingSafetyComponent({ safety, className = '' }: Props) {
         <div className="mx-auto mt-8 max-w-5xl text-center">
           <Link
             href={safety.protocolHref}
+            onClick={handleProtocolClick}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-base-content/60 underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
             {safety.protocolLinkLabel}
           </Link>
+          <div role="status" aria-live="polite" className="mt-2 min-h-5 text-sm text-primary">
+            {showComingSoon ? safety.protocolComingSoon : null}
+          </div>
         </div>
       ) : null}
     </SectionContainer>

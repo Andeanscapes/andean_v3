@@ -22,8 +22,10 @@ function InclusionsComponent({ className = '', experienceData }: InclusionsProps
   if (!inclusionsContent) return null;
 
   const { location } = inclusionsContent;
+  // `t=h`: satellite imagery with labels. Google Earth itself refuses framing
+  // (X-Frame-Options: SAMEORIGIN), so this is the closest keyless embed.
   const mapSrc = location
-    ? `https://maps.google.com/maps?q=${location.lat},${location.lng}&z=${location.zoom ?? 13}&output=embed`
+    ? `https://maps.google.com/maps?q=${location.lat},${location.lng}&z=${location.zoom ?? 13}&t=h&output=embed`
     : null;
 
   return (

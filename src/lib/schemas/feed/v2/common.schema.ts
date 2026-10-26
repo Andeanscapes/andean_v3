@@ -1,5 +1,10 @@
 import { z } from 'zod';
 import { CurrencyCodeSchema } from '../../currency.schema';
+import { MineCodeSchema, PlanCodeSchema } from '../../plan.schema';
+import { PackageTagCodeSchema } from '../../experience-codes.schema';
+
+export { ExperienceIdSchema, PackageTagCodeSchema } from '../../experience-codes.schema';
+export type { ExperienceId, PackageTagCode } from '../../experience-codes.schema';
 
 /**
  * V2 feed primitives shared by the list, landing and experience contracts.
@@ -64,9 +69,6 @@ export const SlugSchema = z
   .min(1)
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'must be lowercase kebab-case');
 
-export const ExperienceIdSchema = z.enum(['emeraldMining']);
-export type ExperienceId = z.infer<typeof ExperienceIdSchema>;
-
 export const PublicationStatusSchema = z.enum(['published', 'draft', 'archived']);
 export type PublicationStatus = z.infer<typeof PublicationStatusSchema>;
 
@@ -83,14 +85,57 @@ export const ItineraryCategoryCodeSchema = z.enum([
   'dining',
   'education',
   'farewell',
+  'viewpoint',
+  'horseback',
 ]);
 export type ItineraryCategoryCode = z.infer<typeof ItineraryCategoryCodeSchema>;
 
 export const BadgeCodeSchema = z.enum(['featured', 'coming-soon']);
 export type BadgeCode = z.infer<typeof BadgeCodeSchema>;
 
-export const HighlightCodeSchema = z.enum(['transportIncluded', 'smallGroups', 'localGuides']);
+export { MineCodeSchema, PlanCodeSchema };
+export type { MineCode, PlanCode } from '../../plan.schema';
+
+export const HighlightCodeSchema = z.enum([
+  'transportIncluded',
+  'smallGroups',
+  'privateTour',
+  'localGuides',
+  'twoMines',
+  'horsebackRiding',
+  'allMeals',
+  'haciendaStay',
+  'ruralHotelStay',
+  'furaTena',
+  'breakfastAndFiambre',
+]);
 export type HighlightCode = z.infer<typeof HighlightCodeSchema>;
+
+/**
+ * Highlights one experience may publish. Six, because a higher tier must list
+ * everything the lower tier includes *plus* its own extras — Prime carries
+ * Core's four (guides, small groups, meals, hacienda stay) alongside its second
+ * mine and horseback riding. A tier that showed fewer shared items read as
+ * offering less.
+ */
+export const FEED_MAX_HIGHLIGHTS = 6;
+
+/**
+ * Package-level selling points, rendered as a highlighted badge rather than a
+ * neutral chip. Presentation (colour) is frontend-owned; the feed only states
+ * which apply.
+ *
+ * Deliberately positive only. A red "transport not included" badge sat beside
+ * "all-inclusive" and read as a contradiction at the moment of discovery;
+ * exclusions are stated where the guest decides — the "not included" list and
+ * the arrival selector — not on the card.
+ */
+/** Optional during rollout: the published payloads do not carry it yet. */
+export const PackageTagsSchema = z
+  .array(PackageTagCodeSchema)
+  .max(PackageTagCodeSchema.options.length)
+  .refine((codes) => new Set(codes).size === codes.length, { message: 'Duplicate package tag' })
+  .optional();
 
 export const IncludedCodeSchema = z.enum([
   'guide',
@@ -100,16 +145,23 @@ export const IncludedCodeSchema = z.enum([
   'mineAccess',
   'workshop',
   'smallGroups',
+  'healthInsurance',
 ]);
 export type IncludedCode = z.infer<typeof IncludedCodeSchema>;
 
-export const NotIncludedCodeSchema = z.enum(['airportTransfer', 'drinks', 'souvenirs']);
+export const NotIncludedCodeSchema = z.enum([
+  'airportTransfer',
+  'drinks',
+  'souvenirs',
+  'transportToChivor',
+  'transportToBorbur',
+]);
 export type NotIncludedCode = z.infer<typeof NotIncludedCodeSchema>;
 
 export const ReviewSourceCodeSchema = z.enum(['airbnb']);
 export type ReviewSourceCode = z.infer<typeof ReviewSourceCodeSchema>;
 
-export const HostIdSchema = z.enum(['heinnerAlexandra']);
+export const HostIdSchema = z.enum(['heinnerAlexandra', 'verdian']);
 export type HostId = z.infer<typeof HostIdSchema>;
 
 // ── Shared value objects ─────────────────────────────────────────────────────

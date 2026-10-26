@@ -3,6 +3,8 @@
  * Contains all social media links, contact information, and other site-wide constants
  */
 
+import type { ExperienceId, ReviewSourceCode } from '@/lib/schemas/feed/v2';
+
 /**
  * Public business phone, digits only (E.164 without `+`).
  *
@@ -51,10 +53,59 @@ export const CONTACT_INFO = {
   address: "Colombia",
 } as const;
 
+/**
+ * Phone shown in the footer bottom bar only. Deliberately separate from
+ * `CONTACT_INFO.phone`, which stays the WhatsApp number for every CTA.
+ */
+const FOOTER_PHONE_NUMBER = '573124815443';
+
+export const FOOTER_PHONE = {
+  phone: FOOTER_PHONE_NUMBER,
+  phoneDisplay: formatPhoneDisplay(FOOTER_PHONE_NUMBER),
+} as const;
+
 export const BOOKING_LINKS = {
   airbnb:
-    "https://es-l.airbnb.com/rooms/1323950663214484960?guests=1&adults=1&s=67&unique_share_id=d46f7320-cf46-44c7-93f2-35781c413e15",
+    "https://www.airbnb.com.co/rp/heinnerz?p=recommendations&product=experience&listing_id=6782419&s=67&unique_share_id=bc818263-c312-42e1-a495-74cf6d678b58",
 } as const;
+
+export const REVIEW_LINKS = {
+  airbnb: "https://www.airbnb.com.co/experiences/6782419",
+} as const satisfies Record<ReviewSourceCode, string>;
+
+/**
+ * Experience FAQ i18n keys (question/answer pairs). Shared by the rendered
+ * `<Faqs>` section and the `FAQPage` JSON-LD so the markup always matches what
+ * the page shows.
+ */
+const COMMON_EXPERIENCE_FAQ_KEYS = [
+  { id: 'faq-1', question: 'experiences.ui.experienceDetails.faq1Q', answer: 'experiences.ui.experienceDetails.faq1A' },
+  { id: 'faq-2', question: 'experiences.ui.experienceDetails.faq2Q', answer: 'experiences.ui.experienceDetails.faq2A' },
+  { id: 'faq-3', question: 'experiences.ui.experienceDetails.faq3Q', answer: 'experiences.ui.experienceDetails.faq3A' },
+] as const;
+
+const COSCUEZ_FAQ_KEYS = [
+  COMMON_EXPERIENCE_FAQ_KEYS[0],
+  COMMON_EXPERIENCE_FAQ_KEYS[1],
+  {
+    id: 'faq-3',
+    question: 'experiences.ui.experienceDetails.coscuezTransportFaqQ',
+    answer: 'experiences.ui.experienceDetails.coscuezTransportFaqA',
+  },
+] as const;
+
+const EXPERIENCE_FAQ_KEYS = {
+  chivorEmeraldCore: COMMON_EXPERIENCE_FAQ_KEYS,
+  chivorEmeraldBasic: COMMON_EXPERIENCE_FAQ_KEYS,
+  chivorEmeraldPrime: COMMON_EXPERIENCE_FAQ_KEYS,
+  coscuezEmeraldCore: COSCUEZ_FAQ_KEYS,
+  coscuezEmeraldPrime: COSCUEZ_FAQ_KEYS,
+  emeraldMining: COMMON_EXPERIENCE_FAQ_KEYS,
+} as const satisfies Record<ExperienceId, readonly { id: string; question: string; answer: string }[]>;
+
+export function getExperienceFaqKeys(experienceId: ExperienceId) {
+  return EXPERIENCE_FAQ_KEYS[experienceId];
+}
 
 export const MOBILE_MENU_CHIPS = [
   { id: 'emerald', i18nKey: 'chips.emerald', href: '/experiences' },
@@ -65,7 +116,7 @@ export const MOBILE_MENU_CHIPS = [
 
 export const SITE_INFO = {
   name: "Andean Scapes",
-  url: "https://www.andeanscapes.com",
+  url: "https://andeanscapes.com",
   // WebP, converted losslessly from the original PNGs — pixel-identical once
   // composited, and a third of the bytes. `logoWhite` matters most: `Header`
   // swaps to it mid-scroll on the light theme, so it is fetched late and its

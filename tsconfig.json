@@ -32,6 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "vitest.config.mts",
     ".next/types/**/*.ts",
     "src/components/HomeDark",
     "src/constant/HomeDark/HeroTwoData.js",
@@ -41,6 +42,7 @@
   ],
   "exclude": [
     "node_modules",
-    "fixtures"
+    "fixtures",
+    "worker.ts"
   ]
 }

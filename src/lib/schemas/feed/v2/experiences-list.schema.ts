@@ -4,7 +4,11 @@ import {
   CardLocationSchema,
   DurationSchema,
   ExperienceIdSchema,
+  FEED_MAX_HIGHLIGHTS,
   HighlightCodeSchema,
+  MineCodeSchema,
+  PackageTagsSchema,
+  PlanCodeSchema,
   MediaPathSchema,
   PricingSchema,
   PublicationStatusSchema,
@@ -26,6 +30,8 @@ export const ExperiencesListEntryV2Schema = z
     id: ExperienceIdSchema,
     slug: SlugSchema,
     status: PublicationStatusSchema,
+    planCode: PlanCodeSchema.optional(),
+    mineCode: MineCodeSchema.optional(),
     card: z
       .object({
         image: MediaPathSchema,
@@ -33,7 +39,14 @@ export const ExperiencesListEntryV2Schema = z
         duration: DurationSchema,
         location: CardLocationSchema,
         badgeCode: BadgeCodeSchema.optional(),
-        highlightCodes: z.array(HighlightCodeSchema).max(3).default([]),
+        highlightCodes: z.array(HighlightCodeSchema).max(FEED_MAX_HIGHLIGHTS).default([]),
+        packageTags: PackageTagsSchema,
+        /** Carousel photos after the card image: the experience highlights. Optional during rollout. */
+        gallery: z
+          .array(MediaPathSchema)
+          .max(3)
+          .refine((paths) => new Set(paths).size === paths.length, { message: 'Duplicate gallery image' })
+          .optional(),
       })
       .strict(),
   })

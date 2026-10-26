@@ -16,6 +16,7 @@ const messages = {
       totalLabel: 'Total',
       mobileDockSummaryLabel: 'Tu reserva',
       mobileDockEmptySummary: 'Elige fecha, personas y alojamiento',
+      mobileDockEmptySummaryDayTrip: 'Elige fecha y personas',
       mobileDockPeopleSummary: '{count, plural, one {# persona} other {# personas}}',
       mobileDockViewDetails: 'Detalles',
       mobileDockHideDetails: 'Ocultar',
@@ -120,17 +121,17 @@ function SeedSelections() {
   return null;
 }
 
-function renderDock(seed = false) {
+function renderDock(seed = false, dockConfig: ExperienceConfig = config) {
   return render(
     <NextIntlClientProvider locale="es" messages={messages} timeZone="UTC">
       <ExperienceReservationProvider
-        config={config}
+        config={dockConfig}
         roomModes={roomModes}
         accommodationTiersContent={accommodationTiersContent}
         availableDates={availableDates}
       >
         {seed && <SeedSelections />}
-        <MobileStickyDock config={config} transportOptions={transportOptions} />
+        <MobileStickyDock config={dockConfig} transportOptions={transportOptions} />
       </ExperienceReservationProvider>
     </NextIntlClientProvider>
   );
@@ -162,5 +163,17 @@ describe('MobileStickyDock', () => {
     expect(screen.getByText('1 x Habitación Estándar (1)')).toBeInTheDocument();
     expect(screen.getByText('Carro Particular (No 4x4)')).toBeInTheDocument();
     expect(screen.getAllByText('Completa tus datos')).toHaveLength(2);
+  });
+
+  it('omits stay and room for day trips', async () => {
+    const user = userEvent.setup();
+    renderDock(false, { ...config, id: 'chivorEmeraldBasic', numberOfNights: 0 });
+
+    expect(screen.getByText('Elige fecha y personas')).toBeInTheDocument();
+    await user.click(screen.getByText('Tu reserva').closest('button') as HTMLButtonElement);
+
+    expect(screen.getByText('Fecha')).toBeInTheDocument();
+    expect(screen.queryByText('Alojamiento')).not.toBeInTheDocument();
+    expect(screen.queryByText('Habitación')).not.toBeInTheDocument();
   });
 });

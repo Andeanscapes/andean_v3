@@ -1,12 +1,16 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { formatDayMonth } from '@/utils/dateFormatters';
 import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { Badge } from '@/components/ui/Badge/Badge';
+import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
+import { CardImageCarousel } from '@/components/ui/CardImageCarousel/CardImageCarousel';
+import { MineBadge, PlanBadge, PrivateBadge } from '@/components/ui/CardBadges/CardBadges';
 
 interface Props {
   experience: LandingFeaturedExperienceContent;
@@ -14,14 +18,18 @@ interface Props {
 
 /**
  * Card for a single featured experience on the brand landing.
- * Pure presentational. Self-contained: no external context, no client hooks.
+ * Presentational. Self-contained: no external context; local hover state only.
  *
- * Format mirrors common travel-card layout: image (with optional badge),
- * title, short description, meta row (duration / location), price + CTA.
+ * The title is the only link, stretched over the whole card, so the photo
+ * carousel can hold its own buttons without nesting interactive elements.
+ * Format mirrors common travel-card layout: image with badges, title, short
+ * description, meta row (duration / location), price + CTA.
  */
 export default function LandingFeaturedExperienceCard({ experience }: Props) {
   const locale = useLocale();
   const t = useTranslations();
+  // The stretched title link covers the photo, so hover is read at card level.
+  const [hovered, setHovered] = useState(false);
   const formattedAmount = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: experience.currency,
@@ -36,51 +44,44 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
     : null;
 
   return (
-    <Link
-      href={experience.href}
-      data-event="experience_view_details"
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    <article
+      className="group group/card relative flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary"
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'mouse') setHovered(true);
+      }}
+      onPointerLeave={() => setHovered(false)}
     >
       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-r from-emerald-950/10 via-emerald-500/10 to-emerald-950/10 md:h-52">
-        {/*
-          Deliberately not `next/image`, for the reason documented on
-          `ExperienceList/ExperienceCardImage.tsx`: on the deployed Worker
-          `/_next/image` is a pass-through, so `sizes` bought no resizing and
-          phones downloaded the full-size card image. `<picture>` with the
-          pre-generated `-mobile` sibling is the only mechanism here that
-          actually reduces mobile bytes. The sibling is never named by the feed,
-          so `verify:feed` derives it from `experiences[].media.card` and fails
-          when it is not published — see `landingResponsiveMediaKeys`.
-        */}
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcSet={getResponsiveImageSrc(experience.image).mobile}
-          />
-          <img
-            src={experience.image}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </picture>
+        <CardImageCarousel images={experience.images} title={experience.title} hovered={hovered} />
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
-        {experience.badge ? (
-          <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-primary-content shadow-sm">
-            {experience.badge}
-          </span>
+        {experience.mineBadge || experience.planBadge || experience.privateBadge ? (
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
+            <div className="flex flex-wrap items-start gap-1.5">
+              {experience.mineBadge ? <MineBadge label={experience.mineBadge.label} /> : null}
+              {experience.privateBadge ? <PrivateBadge label={experience.privateBadge.label} /> : null}
+            </div>
+            {experience.planBadge ? (
+              <PlanBadge code={experience.planBadge.code} label={experience.planBadge.label} />
+            ) : null}
+          </div>
         ) : null}
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-4 md:p-5">
         <h3 className="text-base font-semibold text-base-content md:text-lg">
-          {experience.title}
+          <Link
+            href={experience.href}
+            data-event="experience_view_details"
+            className="after:absolute after:inset-0 focus-visible:outline-none hover:underline"
+          >
+            {experience.title}
+          </Link>
         </h3>
         <p className="text-pretty text-sm text-base-content/75">
           {experience.description}
         </p>
+
+        <PackageTagBadges tags={experience.packageTags} />
 
         <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-base-content/70 md:text-sm">
           <span className="inline-flex items-center gap-1">
@@ -92,6 +93,18 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
             <span>{experience.location}</span>
           </span>
         </div>
+
+        {experience.highlights.length > 0 ? (
+          <ul className="flex flex-wrap gap-1.5">
+            {experience.highlights.map((highlight) => (
+              <li key={highlight}>
+                <Badge variant="secondary" size="sm" className="whitespace-nowrap bg-base-200/70 text-[11px] md:text-xs">
+                  {highlight}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        ) : null}
 
         {availabilityLabel ? (
           <div
@@ -109,6 +122,9 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
             <span className="text-xs text-base-content/60">{experience.fromLabel}</span>
             <span className="text-base font-bold text-base-content md:text-lg">
               {formattedAmount}
+              <span className="ml-1 text-xs font-normal text-base-content/60">
+                {experience.perPersonLabel}
+              </span>
             </span>
           </div>
           <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
@@ -117,6 +133,6 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           </span>
         </div>
       </div>
-    </Link>
+    </article>
   );
 }

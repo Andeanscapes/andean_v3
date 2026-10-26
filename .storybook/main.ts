@@ -1,8 +1,8 @@
-import path from 'path'
 import { mergeConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/postcss'
 import type { StorybookConfig } from '@storybook/react-vite'
+import { fileURLToPath } from 'node:url'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.tsx'],
@@ -14,19 +14,13 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {}
   },
-  docs: {
-    autodocs: 'tag'
-  },
   staticDirs: ['../public'],
   viteFinal: async (config) => {
     return mergeConfig(config, {
       plugins: [react()],
-      esbuild: {
-        jsx: 'automatic'
-      },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '../src')
+          '@': fileURLToPath(new URL('../src', import.meta.url))
         }
       },
       css: {

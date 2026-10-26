@@ -16,12 +16,15 @@
  */
 
 import { EXPERIENCE_I18N } from '@/i18n/mappings/experience';
+import { EXPERIENCES_LIST_I18N } from '@/i18n/mappings/experiences-list';
 import { LANDING_I18N, countryKeyFor } from '@/i18n/mappings/landing';
 import { LANDING_STRUCTURE } from '@/lib/content/landing.structure';
 import type { LandingFeed } from '@/lib/schemas/landing.schema';
 import type { LandingExperienceV2, LandingFeedV2 } from '@/lib/schemas/feed/v2';
 import { experiencePath } from '@/utils/experienceRoutes';
+import { splitCardHighlights } from '@/utils/cardHighlights';
 import { whatsappUrl } from '@/utils/whatsapp';
+import { REVIEW_LINKS } from '@/constant/SiteConfig';
 
 const S = LANDING_STRUCTURE;
 
@@ -65,6 +68,7 @@ function toFlagship(
     subtitleKey: mapping.subtitle,
     descriptionKey: mapping.description,
     backgroundImage: entry.media.hero,
+    packageTags: entry.packageTags ?? [],
     valueChips: S.hero.trustChips.map((chip) => ({
       id: chip.id,
       iconName: chip.iconName,
@@ -98,11 +102,22 @@ function toFeaturedExperiences(feed: LandingFeedV2): LandingFeed['featuredExperi
       return {
         id: entry.id,
         experienceSlug: entry.slug,
-        titleKey: mapping.title,
+        // The place-less card title needs the mine badge beside it; without the
+        // code (live feed during rollout) the card keeps the full title.
+        titleKey: entry.mineCode ? mapping.cardTitle : mapping.title,
         descriptionKey: mapping.description,
         image: entry.media.card,
+        images: [entry.media.card, ...(entry.media.gallery ?? [])],
+        planBadge: entry.planCode
+          ? { code: entry.planCode, labelKey: EXPERIENCES_LIST_I18N.planBadges[entry.planCode] }
+          : undefined,
+        mineBadge: entry.mineCode
+          ? { code: entry.mineCode, labelKey: EXPERIENCES_LIST_I18N.mineBadges[entry.mineCode] }
+          : undefined,
+        privateBadge: splitCardHighlights(entry.highlightCodes).isPrivateTour
+          ? { labelKey: EXPERIENCES_LIST_I18N.privateBadge }
+          : undefined,
         href: experiencePath(entry.slug),
-        badgeKey: S.featured.badgeKey,
         // Structured in v2, so the card composes them from ICU keys rather than
         // reading a pre-formatted literal out of the feed.
         durationKey: 'ExperiencesList.cardMeta.durationDaysNights',
@@ -111,6 +126,12 @@ function toFeaturedExperiences(feed: LandingFeedV2): LandingFeed['featuredExperi
         locationValues: { locality: entry.location.locality },
         fromAmount: entry.fromPrice.amount,
         currency: entry.fromPrice.currency,
+        availableDates: entry.availableDates,
+        // Same codes, same copy as the list card, so the two never disagree.
+        highlightKeys: splitCardHighlights(entry.highlightCodes).chipCodes.map(
+          (code) => EXPERIENCES_LIST_I18N.highlights[code],
+        ),
+        packageTags: entry.packageTags ?? [],
       };
     });
 
@@ -150,6 +171,7 @@ function toReviews(feed: LandingFeedV2): LandingFeed['reviews'] {
         commentKey,
         isVerified: review.verified,
         verifiedExperienceKey: LANDING_I18N.reviewSource[review.source],
+        sourceUrl: REVIEW_LINKS[review.source],
       };
     });
 
@@ -219,7 +241,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       primaryCtaLabelKey: S.hero.primaryCtaLabelKey,
       primaryCtaHref: S.hero.primaryCtaHref,
       secondaryCtaLabelKey: S.hero.secondaryCtaLabelKey,
-      secondaryCtaHref: S.hero.secondaryCtaHref,
+      secondaryCtaHref: whatsappUrl(),
       trustChips: S.hero.trustChips.map((chip) => ({
         id: chip.id,
         iconName: chip.iconName,
@@ -276,6 +298,7 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       items: S.safety.items.map((item) => ({ ...item })),
       protocolLinkLabelKey: S.safety.protocolLinkLabelKey,
       protocolHref: S.safety.protocolHref,
+      protocolComingSoonKey: S.safety.protocolComingSoonKey,
     },
     globalCtas: {
       exploreHref: S.globalCtas.exploreHref,
@@ -286,6 +309,10 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     reviews: toReviews(feed),
     faqs: {
       sectionTitleKey: S.faqs.sectionTitleKey,
+      titleKey: S.faqs.titleKey,
+      descriptionKey: S.faqs.descriptionKey,
+      enquiryTitleKey: S.faqs.enquiryTitleKey,
+      enquiryDescriptionKey: S.faqs.enquiryDescriptionKey,
       items: S.faqs.itemIds.map((id) => ({
         id,
         questionKey: `Landing.faqs.items.${id}.question`,

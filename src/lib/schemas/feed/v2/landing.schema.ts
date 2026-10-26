@@ -3,8 +3,13 @@ import {
   AvailableDateSchema,
   DurationSchema,
   ExperienceIdSchema,
+  FEED_MAX_HIGHLIGHTS,
   FullLocationSchema,
+  HighlightCodeSchema,
+  PackageTagsSchema,
   MediaPathSchema,
+  MineCodeSchema,
+  PlanCodeSchema,
   PricingSchema,
   PublicationStatusSchema,
   SlugSchema,
@@ -23,10 +28,18 @@ export const LandingExperienceV2Schema = z
     id: ExperienceIdSchema,
     slug: SlugSchema,
     status: PublicationStatusSchema,
+    planCode: PlanCodeSchema.optional(),
+    mineCode: MineCodeSchema.optional(),
     media: z
       .object({
         hero: MediaPathSchema,
         card: MediaPathSchema,
+        /** Carousel photos after the card image: the experience highlights. Optional during rollout. */
+        gallery: z
+          .array(MediaPathSchema)
+          .max(3)
+          .refine((paths) => new Set(paths).size === paths.length, { message: 'Duplicate gallery image' })
+          .optional(),
       })
       .strict(),
     fromPrice: PricingSchema,
@@ -42,6 +55,15 @@ export const LandingExperienceV2Schema = z
     duration: DurationSchema,
     location: FullLocationSchema,
     availableDates: z.array(AvailableDateSchema),
+    /**
+     * Projection of the list card's `highlightCodes`, so the landing cards can
+     * show what sets an experience apart (Prime's second mine, horseback)
+     * without fetching the list. Optional for the same rollout reason as
+     * `depositPercent`: the live payload does not carry it yet.
+     */
+    highlightCodes: z.array(HighlightCodeSchema).max(FEED_MAX_HIGHLIGHTS).optional(),
+    /** Projection of the experience's `packageTags`. */
+    packageTags: PackageTagsSchema,
   })
   .strict()
   .superRefine((experience, ctx) => {
@@ -115,6 +137,17 @@ export const LandingFeedV2Schema = z
       ctx.addIssue({
         code: 'custom',
         message: `flagshipExperienceId "${feed.flagshipExperienceId}" is not present in experiences`,
+        path: ['flagshipExperienceId'],
+      });
+    }
+
+    const flagship = feed.experiences.find(
+      (experience) => experience.id === feed.flagshipExperienceId,
+    );
+    if (flagship && flagship.status !== 'published') {
+      ctx.addIssue({
+        code: 'custom',
+        message: `flagshipExperienceId "${feed.flagshipExperienceId}" must be published (status "${flagship.status}")`,
         path: ['flagshipExperienceId'],
       });
     }

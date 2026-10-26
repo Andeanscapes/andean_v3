@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
 import { ExperienceDetailProvider } from '@/contexts/ExperienceDetailContext';
@@ -56,6 +57,15 @@ export default function ExperienceReservationPage({
   const { config, transportOptions, roomModes, availableDates, whatsappLink, heroContent, accommodationTiersContent } = experienceData;
   const { theme } = useThemeContext();
   const isDark = theme === 'dark';
+  // Day trips have no overnight stay: their single tier only buckets guests for
+  // pricing, so it is preselected and the stay/room pickers are not shown.
+  const isDayTrip = config.numberOfNights === 0;
+  const dayTripTierId = accommodationTiersContent?.tiers[0]?.id ?? null;
+  // Memoized: the provider re-hydrates whenever this reference changes.
+  const reservationSelections = useMemo(
+    () => (isDayTrip ? { ...initialSelections, tier: initialSelections?.tier ?? dayTripTierId } : initialSelections),
+    [isDayTrip, initialSelections, dayTripTierId],
+  );
 
   return (
     <ExperienceDetailProvider experienceData={experienceData}>
@@ -64,7 +74,7 @@ export default function ExperienceReservationPage({
         roomModes={roomModes}
         accommodationTiersContent={accommodationTiersContent}
         availableDates={availableDates}
-        initialSelections={initialSelections}
+        initialSelections={reservationSelections}
       >
       {/* Full-width Hero */}
       <ExperienceHero config={config} heroContent={heroContent} />
@@ -79,24 +89,24 @@ export default function ExperienceReservationPage({
           <div className="lg:grid lg:grid-cols-[1fr_340px] lg:gap-8 lg:items-start">
 
             {/* ── Left column: reservation form steps ── */}
-            <main>
+            <div>
               <DateSelector availableDates={availableDates} />
               <PeopleSelector maxPeople={config.maxPeople} minPeople={config.minPeople} />
               <TransportOptions transportOptions={transportOptions} />
-              <TierPicker />
-              <AccommodationSelector maxPeople={config.maxPeople} minPeople={config.minPeople} />
+              {!isDayTrip && <TierPicker />}
+              {!isDayTrip && <AccommodationSelector maxPeople={config.maxPeople} minPeople={config.minPeople} />}
               <ContactFields />
               <IncludesAccordion experienceData={experienceData} />
               {/* Mobile-only: price summary + in-flow actions (above fixed dock) */}
               <div className="lg:hidden pb-28">
-                <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} />
+                <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} isDayTrip={isDayTrip} />
                 <ConfirmationAction config={config} whatsappLink={whatsappLink} />
               </div>
-            </main>
+            </div>
 
             {/* ── Right column: sticky sidebar (desktop only) ── */}
             <aside className="hidden lg:block lg:sticky lg:top-20 space-y-0 pb-6">
-              <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} />
+              <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} isDayTrip={isDayTrip} />
               <ConfirmationAction config={config} whatsappLink={whatsappLink} />
             </aside>
           </div>

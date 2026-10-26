@@ -11,7 +11,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { toLandingReviewsContent } from './landingTranslators';
+import { toLandingFaqsContent, toLandingReviewsContent } from './landingTranslators';
 import { adaptLandingFeedV2 } from './landingFeedAdapter';
 import { LANDING_FIXTURE } from '@/test/fixtures';
 import type { LandingFeed } from '@/lib/schemas/landing.schema';
@@ -85,5 +85,40 @@ describe('toLandingReviewsContent', () => {
     for (const item of withCountry) {
       expect(item.country).toMatch(/^Landing\.reviews\.countries\./);
     }
+  });
+
+  it('passes sourceUrl from the adapter through unchanged', () => {
+    const content = toLandingReviewsContent(
+      mockWithReviewItems([
+        { ...REVIEW_BASE, sourceUrl: 'https://www.airbnb.com.co/experiences/6782419' },
+      ]),
+      echo,
+    );
+
+    expect(content.items[0].sourceUrl).toBe('https://www.airbnb.com.co/experiences/6782419');
+  });
+
+  it('leaves sourceUrl undefined when not set', () => {
+    const content = toLandingReviewsContent(
+      mockWithReviewItems([{ ...REVIEW_BASE }]),
+      echo,
+    );
+
+    expect(content.items[0].sourceUrl).toBeUndefined();
+  });
+});
+
+describe('toLandingFaqsContent', () => {
+  it('translates the brand-level heading and broad destination/private-tour questions', () => {
+    const content = toLandingFaqsContent(ADAPTED, echo);
+
+    expect(content.title).toBe('Landing.faqs.title');
+    expect(content.description).toBe('Landing.faqs.description');
+    expect(content.items.map(({ id }) => id)).toEqual(
+      expect.arrayContaining(['emeraldRegions', 'privateTours', 'minerForADay']),
+    );
+    expect(content.items.find(({ id }) => id === 'emeraldRegions')?.answer).toBe(
+      'Landing.faqs.items.emeraldRegions.answer',
+    );
   });
 });

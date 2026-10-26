@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import type { LandingHeroBrandContent as HeroBrandContent } from '@/lib/schemas/landing.schema';
-import { Button } from '@/components/ui/Button/Button';
+import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import LandingHeroBrandTrustChips from './LandingHeroBrandTrustChips';
 
@@ -46,24 +45,20 @@ export default function LandingHeroBrandContent({ hero }: Props) {
       <LandingHeroBrandTrustChips trustChips={hero.trustChips} className="mt-1" />
 
       <div className="mt-1 flex flex-col gap-3 sm:flex-row md:mt-2 md:gap-4">
-        <Link href={hero.primaryCtaHref} className="inline-flex" data-event="hero_reserve_click">
-          <Button variant="primary" size="lg">
-            <span>{hero.primaryCtaLabel}</span>
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Button>
-        </Link>
+        <PrimaryCtaButton href={hero.primaryCtaHref} fullWidth={false} size="lg" data-event="hero_reserve_click">
+          <span>{hero.primaryCtaLabel}</span>
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </PrimaryCtaButton>
 
         <a
           href={hero.secondaryCtaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex"
+          className="btn btn-lg btn-outline inline-flex min-h-11 items-center justify-center gap-2 border-white/40 px-4 text-white hover:bg-white/10"
           data-event="hero_whatsapp_click"
         >
-          <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            <span>{hero.secondaryCtaLabel}</span>
-          </Button>
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          <span>{hero.secondaryCtaLabel}</span>
         </a>
       </div>
     </div>
