@@ -39,7 +39,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
 
   return (
     <SectionContainer
-      sectionClassName={`relative overflow-hidden bg-[#0A0A0A] px-4 pb-0 pt-16 md:px-6 md:pb-0 md:pt-20 lg:px-10 lg:pb-0 lg:pt-20 ${className}`.trim()}
+      sectionClassName={`relative overflow-hidden bg-[#0A0A0A] px-4 pb-16 pt-16 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-20 lg:pt-20 ${className}`.trim()}
     >
       <div aria-hidden="true" className="absolute inset-0 bg-[#0A0A0A]/96" />
       <div
@@ -78,14 +78,14 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
               <button
                 type="button"
                 onClick={() => setShowAll(true)}
-                className="btn btn-outline mt-4 w-full border-white/25 bg-white/5 text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-white/10 bg-transparent px-4 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-emerald-400/35 hover:text-white active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:rounded-3xl md:text-base"
               >
                 {t('showAll')}
               </button>
             ) : null}
           </div>
 
-          <div className="mb-8 h-fit lg:sticky lg:top-24">
+          <div className="h-fit lg:sticky lg:top-24">
             <GlassCard className="relative overflow-hidden rounded-3xl p-6 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-8">
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-slate-950/25 to-slate-950/85" />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent" />
