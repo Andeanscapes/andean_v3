@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 
 export interface AccordionItem {
   id: string;
@@ -18,6 +18,63 @@ export interface AccordionProps {
   contentInnerClassName?: string;
   activeItemClassName?: string;
   activeTitleClassName?: string;
+}
+
+interface AccordionItemViewProps {
+  item: AccordionItem;
+  isOpen: boolean;
+  onToggle: (id: string) => void;
+  itemClassName: string;
+  titleClassName: string;
+  contentClassName: string;
+  contentInnerClassName: string;
+  activeItemClassName: string;
+  activeTitleClassName: string;
+  useJoin: boolean;
+}
+
+function AccordionItemView({
+  item,
+  isOpen,
+  onToggle,
+  itemClassName,
+  titleClassName,
+  contentClassName,
+  contentInnerClassName,
+  activeItemClassName,
+  activeTitleClassName,
+  useJoin,
+}: AccordionItemViewProps) {
+  const baseId = useId();
+  const buttonId = `${baseId}-button`;
+  const panelId = `${baseId}-panel`;
+
+  return (
+    <div
+      className={`collapse collapse-arrow ${useJoin ? 'join-item' : ''} border border-base-300 ${itemClassName} ${isOpen ? `collapse-open ${activeItemClassName}` : 'collapse-close'}`.trim()}
+    >
+      <h3 className="m-0">
+        <button
+          type="button"
+          id={buttonId}
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={() => onToggle(item.id)}
+          className={`collapse-title w-full cursor-pointer text-left font-semibold text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${titleClassName} ${isOpen ? activeTitleClassName : ''}`.trim()}
+        >
+          {item.title}
+        </button>
+      </h3>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        className={`collapse-content ${contentClassName}`.trim()}
+      >
+        <div className={`pt-4 ${contentInnerClassName}`.trim()}>{item.content}</div>
+      </div>
+    </div>
+  );
 }
 
 export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
@@ -58,32 +115,21 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 
     return (
       <div ref={ref} className={rootClassName}>
-        {items.map((item, index) => {
-          const isOpen = openItems.has(item.id);
-          const toggleLabel = typeof item.title === 'string' ? item.title : `Toggle section ${index + 1}`;
-
-          return (
-          <div
+        {items.map((item) => (
+          <AccordionItemView
             key={item.id}
-            className={`collapse collapse-arrow join-item border border-base-300 ${itemClassName} ${isOpen ? activeItemClassName : ''}`.trim()}
-          >
-            <input
-              type="checkbox"
-              checked={isOpen}
-              onChange={() => toggleItem(item.id)}
-              aria-label={toggleLabel}
-              className="cursor-pointer"
-            />
-            <div
-              className={`collapse-title font-semibold text-lg ${titleClassName} ${isOpen ? activeTitleClassName : ''}`.trim()}
-            >
-              {item.title}
-            </div>
-            <div className={`collapse-content ${contentClassName}`.trim()}>
-              <div className={`pt-4 ${contentInnerClassName}`.trim()}>{item.content}</div>
-            </div>
-          </div>
-        );})}
+            item={item}
+            isOpen={openItems.has(item.id)}
+            onToggle={toggleItem}
+            itemClassName={itemClassName}
+            titleClassName={titleClassName}
+            contentClassName={contentClassName}
+            contentInnerClassName={contentInnerClassName}
+            activeItemClassName={activeItemClassName}
+            activeTitleClassName={activeTitleClassName}
+            useJoin={useJoin}
+          />
+        ))}
       </div>
     );
   }

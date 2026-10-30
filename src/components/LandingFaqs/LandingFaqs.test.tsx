@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { createTranslator, NextIntlClientProvider } from 'next-intl';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { locales, type Locale } from '@/i18n/routing';
@@ -23,6 +23,44 @@ import { getLandingDataSSR } from '@/lib/services/landing.service';
 import LandingFaqs from './LandingFaqs';
 
 const messages = { en, es, fr };
+
+describe('LandingFaqs progressive disclosure', () => {
+  beforeEach(() => {
+    vi.stubEnv('REMOTE_DATA_BASE_URL', 'https://cdn.andeanscapes.com/services');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => cloneFixture(LANDING_FIXTURE),
+    }));
+  });
+
+  afterEach(() => {
+    cleanup();
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
+  it('shows the first eight questions and reveals the rest on "Show all"', async () => {
+    const data = await getLandingDataSSR('en');
+    const total = data.faqs.items.length;
+    expect(total).toBeGreaterThan(8);
+
+    render(
+      <NextIntlClientProvider locale="en" messages={messages.en} timeZone="UTC">
+        <LandingFaqs landingData={data} />
+      </NextIntlClientProvider>,
+    );
+
+    expect(screen.getAllByRole('button').filter((b) => b.hasAttribute('aria-controls'))).toHaveLength(8);
+
+    const showAll = screen.getByRole('button', { name: messages.en.Landing.faqs.showAll });
+    expect(showAll).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.click(showAll);
+
+    expect(screen.getAllByRole('button').filter((b) => b.hasAttribute('aria-controls'))).toHaveLength(total);
+    expect(screen.queryByRole('button', { name: messages.en.Landing.faqs.showAll })).not.toBeInTheDocument();
+  });
+});
 
 describe('LandingFaqs', () => {
   beforeEach(() => {

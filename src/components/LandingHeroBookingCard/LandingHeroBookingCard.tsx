@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { useLocale } from 'next-intl';
-import { ArrowRight, Clock3, MapPin, MessageCircle, ShieldCheck, BadgeCheck, CalendarCheck, Lock } from 'lucide-react';
+import { ArrowRight, Clock3, MapPin, CalendarCheck } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { formatDayMonth } from '@/utils/dateFormatters';
 import type { LandingFlagshipContent, LandingHeroBrandContent } from '@/lib/schemas/landing.schema';
@@ -31,19 +31,8 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
 
   const nextAvail = flagship.availableDates.find((d) => d.isAvailable && d.spots > 0);
   const availabilityLabel = nextAvail
-    ? (() => {
-        const date = formatDayMonth(nextAvail.startDate, locale);
-        const spotsLabel = nextAvail.spots === 1 ? strings.spotLabel : strings.spotsLeftLabel;
-        return `${strings.nextAvailabilityLabel}: ${date} — ${strings.onlyLabel} ${nextAvail.spots} ${spotsLabel}`;
-      })()
+    ? `${strings.nextAvailabilityLabel}: ${formatDayMonth(nextAvail.startDate, locale)}`
     : null;
-
-  const trustBadges = [
-    { id: 'bk-1', icon: ShieldCheck, label: strings.trustDeposit },
-    { id: 'bk-2', icon: Lock, label: strings.trustSecure },
-    { id: 'bk-3', icon: CalendarCheck, label: strings.trustSupport },
-    { id: 'bk-4', icon: BadgeCheck, label: strings.trustVetted },
-  ];
 
   const cardClass =
     'card relative rounded-2xl border border-white/20 bg-slate-900/45 p-4 shadow-none backdrop-blur-md md:border-white/15 md:p-6 md:backdrop-blur-xl';
@@ -99,23 +88,14 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
           </div>
         ) : null}
 
-        {/* Trust badges */}
-        <div className="flex flex-wrap gap-1.5">
-          {trustBadges.map((badge) => (
-            <span
-              key={badge.id}
-              className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[10px] font-medium text-white/80"
-            >
-              <badge.icon className="h-3 w-3" aria-hidden="true" />
-              {badge.label}
-            </span>
-          ))}
-        </div>
-
         {/* CTAs */}
-        <div className="flex flex-col gap-2.5 pt-1 sm:flex-row">
-          <Link href={bookingUrl} className="inline-flex flex-1" data-event="hero_booking_card_click">
-            <span className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-content shadow-[0_0_20px_rgba(0,240,143,0.25)] transition-all duration-200 active:scale-95 hover:shadow-[0_0_28px_rgba(0,240,143,0.38)]">
+        <div className="flex flex-col gap-2 pt-1">
+          <Link
+            href={bookingUrl}
+            className="inline-flex w-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            data-event="hero_booking_card_click"
+          >
+            <span className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-content shadow-[0_0_20px_rgba(0,240,143,0.25)] transition-[transform,box-shadow] duration-200 active:scale-95 hover:shadow-[0_0_28px_rgba(0,240,143,0.38)]">
               {strings.reserveLabel}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -124,10 +104,9 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
             href={flagship.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/8 px-4 py-3 text-sm font-medium text-white transition-all duration-200 active:scale-95 hover:bg-white/12"
+            className="self-center text-sm font-medium text-white/80 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             data-event="hero_whatsapp_click"
           >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
             {strings.askFirstLabel}
           </a>
         </div>

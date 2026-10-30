@@ -64,7 +64,10 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
         featuredBookingUrl={featuredBookingUrl}
         featuredStrings={featuredStrings}
       />
-      <LandingFeaturedExperiences featured={landingData.featuredExperiences} />
+      <LandingFeaturedExperiences
+        featured={landingData.featuredExperiences}
+        excludeSlug={flagship.experienceSlug}
+      />
       <LandingCategories categories={landingData.categories} />
       <LandingWhyUs whyUs={landingData.whyUs} />
       <LandingSafety safety={landingData.safety} />

@@ -34,11 +34,35 @@ describe('LandingFeaturedExperienceCard', () => {
     expect(screen.getByText(FIRST.location)).toBeInTheDocument();
   });
 
-  it('renders each highlight as a list item', () => {
+  it('renders at most two highlights as list items', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
     const list = screen.getByText(FIRST.highlights[0]).closest('ul');
     const items = Array.from(list?.querySelectorAll('li') ?? []);
-    expect(items.map((item) => item.textContent)).toEqual(FIRST.highlights);
+    expect(items.map((item) => item.textContent)).toEqual(FIRST.highlights.slice(0, 2));
+  });
+
+  it('does not render the category pill (package tags)', () => {
+    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
+    expect(screen.queryByText('All-inclusive stay')).not.toBeInTheDocument();
+  });
+
+  it('shows the date only when spots are above the low-stock threshold', () => {
+    renderWithIntl(
+      <LandingFeaturedExperienceCard
+        experience={{ ...FIRST, nextAvailability: { dateISO: '2026-10-31', spotsLeft: 7 } }}
+      />,
+    );
+    expect(screen.getByRole('status')).toHaveTextContent(/^Next availability: /);
+    expect(screen.getByRole('status')).not.toHaveTextContent('spots left');
+  });
+
+  it('shows the remaining-spots count when three or fewer spots are left', () => {
+    renderWithIntl(
+      <LandingFeaturedExperienceCard
+        experience={{ ...FIRST, nextAvailability: { dateISO: '2026-10-31', spotsLeft: 3 } }}
+      />,
+    );
+    expect(screen.getByRole('status')).toHaveTextContent('Only 3 spots left');
   });
 
   it('renders no highlight list when there are none', () => {
@@ -46,15 +70,10 @@ describe('LandingFeaturedExperienceCard', () => {
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
-  it('renders the package badge highlighted', () => {
+  it('renders the mine badge over the image and no plan badge', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
-    expect(screen.getByText('All-inclusive stay')).toHaveClass('badge-warning');
-  });
-
-  it('renders the plan and mine badges over the image', () => {
-    renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
-    expect(screen.getByText('Prime')).toBeInTheDocument();
     expect(screen.getByText('Chivor')).toHaveClass('uppercase');
+    expect(screen.queryByText('Prime')).not.toBeInTheDocument();
   });
 
   it('renders no plan or mine badge when the feed carries no codes', () => {

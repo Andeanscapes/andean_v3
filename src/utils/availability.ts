@@ -8,6 +8,9 @@
 
 import type { AvailableDate } from '@/lib/schemas';
 
+/** Show the remaining-spots count only when a departure is nearly full. */
+export const LOW_SPOTS_THRESHOLD = 3;
+
 function dateInTimeZone(date: Date, timeZone: string): string {
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone,

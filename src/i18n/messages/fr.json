@@ -88,6 +88,7 @@
         "title": "Des expériences qui valent le déplacement",
         "viewAll": "Voir toutes les expériences",
         "nextAvailability": "Prochaine disponibilité : {date} — Plus que {count, plural, one {# place} other {# places}}",
+        "nextAvailabilityDate": "Prochaine disponibilité : {date}",
         "fromLabel": "À partir de",
         "perPersonLabel": "/ personne",
         "viewDetails": "Voir les détails",
@@ -267,6 +268,7 @@
       }
     },
     "faqs": {
+      "showAll": "Voir toutes les questions",
       "sectionTitle": "Circuits privés dans les Andes colombiennes",
       "title": "Tourisme de l’Émeraude en Colombie",
       "description": "Nous sommes spécialisés dans les circuits privés dans les Andes colombiennes, avec un intérêt particulier pour les régions de l’émeraude, le patrimoine minier et les communautés locales.",
@@ -467,6 +469,9 @@
   "Header": {
     "selectLanguage": "Choisir la langue : {language}",
     "bookNow": "RÉSERVER MAINTENANT",
+    "toggleTheme": "Changer de thème",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
     "experiences": "EXPÉRIENCES"
   },
   "ExperiencesList": {
@@ -1451,6 +1456,7 @@
     "transportation": "Transport",
     "staySelection": "Options de Séjour",
     "allyNetwork": "Notre Réseau d'Alliés Curés",
+    "partner": "Partenaire",
     "allyHacienda": "Hacienda El Recuerdo",
     "allyGlamping": "Glamping Aventura",
     "allyExperiences": "Toutes les Expériences",

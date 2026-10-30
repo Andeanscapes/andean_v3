@@ -4,11 +4,11 @@
   /* Header Component Styles */
 
   .headerStyle {
-    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full border-b border-white/10 bg-slate-950/94 duration-200 ease-in-out overflow-visible;
+    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full border-b border-white/10 bg-slate-950/72 duration-200 ease-in-out overflow-visible;
   }
 
   .headerStyle[data-theme="light"] {
-    @apply bg-white/95 border-b border-black/5;
+    @apply bg-white/80 border-b border-black/5;
   }
 
   .headerStyle > * {
@@ -26,19 +26,19 @@
 
 /* Theme-aware sticky backgrounds for transparent variants */
 .headerStyle.variantTwo.sticky[data-theme="dark"] {
-  @apply !bg-slate-950/94;
+  @apply !bg-slate-950/72;
 }
 
 .headerStyle.variantTwo.sticky[data-theme="light"] {
-  @apply !bg-white/95;
+  @apply !bg-white/80;
 }
 
 .headerStyle.variantThree.sticky[data-theme="dark"] {
-  @apply !bg-slate-950/94;
+  @apply !bg-slate-950/72;
 }
 
 .headerStyle.variantThree.sticky[data-theme="light"] {
-  @apply !bg-white/95;
+  @apply !bg-white/80;
 }
 
 .variantTwo {
@@ -77,7 +77,7 @@
 }
 
 .variantFour {
-  @apply !bg-slate-950/94;
+  @apply !bg-slate-950/72;
 }
 
 /* Navigation */

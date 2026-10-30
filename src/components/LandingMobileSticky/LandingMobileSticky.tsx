@@ -57,7 +57,7 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
             <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
               {brandCtas.mobileFromLabel}
             </p>
-            <p className="text-lg font-extrabold leading-tight text-white">
+            <p className="text-lg font-bold leading-tight text-white">
               {formattedBrandPrice}
             </p>
           </div>
@@ -98,7 +98,7 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
           <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
             {flagship.labels.fromLabel}
           </p>
-          <p className="text-lg font-extrabold leading-tight text-white">
+          <p className="text-lg font-bold leading-tight text-white">
             {formattedPrice}
             <span className="ml-1 text-[10px] font-normal text-white/55">{flagship.labels.perPersonLabel}</span>
           </p>

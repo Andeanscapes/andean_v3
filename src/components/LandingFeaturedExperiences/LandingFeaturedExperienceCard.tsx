@@ -8,9 +8,9 @@ import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge/Badge';
-import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
 import { CardImageCarousel } from '@/components/ui/CardImageCarousel/CardImageCarousel';
-import { MineBadge, PlanBadge, PrivateBadge } from '@/components/ui/CardBadges/CardBadges';
+import { MineBadge, PrivateBadge } from '@/components/ui/CardBadges/CardBadges';
+import { LOW_SPOTS_THRESHOLD } from '@/utils/availability';
 
 interface Props {
   experience: LandingFeaturedExperienceContent;
@@ -36,23 +36,26 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
     maximumFractionDigits: 0,
   }).format(experience.fromAmount);
 
-  const availabilityLabel = experience.nextAvailability
-    ? t('Landing.brand.featured.nextAvailability', {
-        date: formatDayMonth(experience.nextAvailability.dateISO, locale),
-        count: experience.nextAvailability.spotsLeft,
-      })
+  const nextAvailability = experience.nextAvailability;
+  const availabilityLabel = nextAvailability
+    ? (() => {
+        const date = formatDayMonth(nextAvailability.dateISO, locale);
+        return nextAvailability.spotsLeft <= LOW_SPOTS_THRESHOLD
+          ? t('Landing.brand.featured.nextAvailability', { date, count: nextAvailability.spotsLeft })
+          : t('Landing.brand.featured.nextAvailabilityDate', { date });
+      })()
     : null;
 
   return (
     <article
-      className="group group/card relative flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary"
+      className="group group/card relative flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-[transform,box-shadow] duration-200 active:scale-[0.98] hover:scale-[1.02] hover:shadow-lg has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary"
       onPointerEnter={(event) => {
         if (event.pointerType === 'mouse') setHovered(true);
       }}
       onPointerLeave={() => setHovered(false)}
     >
       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-r from-emerald-950/10 via-emerald-500/10 to-emerald-950/10 md:h-52">
-        <CardImageCarousel images={experience.images} title={experience.title} hovered={hovered} />
+        <CardImageCarousel images={experience.images} title={experience.title} hovered={hovered} swipe />
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
         {experience.mineBadge || experience.planBadge || experience.privateBadge ? (
           <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
@@ -60,9 +63,6 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
               {experience.mineBadge ? <MineBadge label={experience.mineBadge.label} /> : null}
               {experience.privateBadge ? <PrivateBadge label={experience.privateBadge.label} /> : null}
             </div>
-            {experience.planBadge ? (
-              <PlanBadge code={experience.planBadge.code} label={experience.planBadge.label} />
-            ) : null}
           </div>
         ) : null}
       </div>
@@ -81,8 +81,6 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           {experience.description}
         </p>
 
-        <PackageTagBadges tags={experience.packageTags} />
-
         <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-base-content/70 md:text-sm">
           <span className="inline-flex items-center gap-1">
             <Clock className="h-3.5 w-3.5" aria-hidden="true" />
@@ -96,7 +94,7 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
 
         {experience.highlights.length > 0 ? (
           <ul className="flex flex-wrap gap-1.5">
-            {experience.highlights.map((highlight) => (
+            {experience.highlights.slice(0, 2).map((highlight) => (
               <li key={highlight}>
                 <Badge variant="secondary" size="sm" className="whitespace-nowrap bg-base-200/70 text-[11px] md:text-xs">
                   {highlight}

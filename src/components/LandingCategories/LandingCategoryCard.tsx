@@ -19,7 +19,7 @@ export default function LandingCategoryCard({ category }: Props) {
   return (
     <Link
       href={category.href}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-[transform,box-shadow] duration-200 hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       <div className="relative h-40 w-full overflow-hidden bg-base-200 md:h-44">
         {/*

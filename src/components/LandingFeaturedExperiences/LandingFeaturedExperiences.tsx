@@ -7,6 +7,8 @@ import { ArrowRight } from 'lucide-react';
 
 interface Props {
   featured: LandingFeaturedExperiencesContent;
+  /** Experience already shown in the hero card; omitted here to avoid a duplicate. */
+  excludeSlug?: string;
   className?: string;
 }
 
@@ -14,8 +16,9 @@ interface Props {
  * "Featured experiences" grid section.
  * Uses inline-typed featured items (no catalog hydration).
  */
-function LandingFeaturedExperiencesComponent({ featured, className = '' }: Props) {
-  if (featured.items.length === 0) return null;
+function LandingFeaturedExperiencesComponent({ featured, excludeSlug, className = '' }: Props) {
+  const items = featured.items.filter((experience) => experience.experienceSlug !== excludeSlug);
+  if (items.length === 0) return null;
 
   return (
     <SectionContainer
@@ -44,7 +47,7 @@ function LandingFeaturedExperiencesComponent({ featured, className = '' }: Props
         aria-labelledby="landing-featured-title"
         className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 md:gap-6 lg:grid-cols-3"
       >
-        {featured.items.map((experience) => (
+        {items.map((experience) => (
           <li key={experience.id} className="w-[80%] shrink-0 snap-start sm:w-auto sm:shrink sm:h-full">
             <LandingFeaturedExperienceCard experience={experience} />
           </li>

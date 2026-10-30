@@ -1,7 +1,8 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
@@ -13,8 +14,12 @@ interface LandingFaqsProps {
   className?: string;
 }
 
+const INITIAL_FAQ_COUNT = 8;
+
 function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps) {
   const { faqs, finalCta, globalCtas } = landingData;
+  const t = useTranslations('Landing.faqs');
+  const [showAll, setShowAll] = useState(false);
 
   const accordionItems = faqs.items.map((item) => ({
     id: item.id,
@@ -22,7 +27,8 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
     content: item.answer,
   }));
 
-  const shouldUseTwoColumns = accordionItems.length > 6;
+  const visibleItems = showAll ? accordionItems : accordionItems.slice(0, INITIAL_FAQ_COUNT);
+  const hasHiddenItems = accordionItems.length > INITIAL_FAQ_COUNT;
 
   return (
     <SectionContainer
@@ -36,9 +42,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
 
       <div className="relative">
         <div className="mb-6 max-w-3xl md:mb-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-emerald-400/90">
-            {faqs.sectionTitle}
-          </p>
+          <p className="eyebrow mb-3">{faqs.sectionTitle}</p>
           <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
             {faqs.title}
           </h2>
@@ -48,27 +52,37 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
-          <Accordion
-            items={accordionItems}
-            defaultOpen={[accordionItems[0]?.id ?? '']}
-            useJoin={false}
-            className={`${shouldUseTwoColumns ? 'lg:columns-2 lg:gap-4' : ''} [&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base`}
-            itemClassName={`${shouldUseTwoColumns ? 'lg:break-inside-avoid lg:mb-4' : ''} border border-white/10 bg-slate-900/45 backdrop-blur-xl transition-colors duration-200 hover:border-emerald-400/35 active:border-emerald-500/50`}
-            titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-semibold leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-xl"
-            contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
-            activeItemClassName="border-emerald-500/50 border-l-4 border-l-emerald-500 bg-slate-900/60 shadow-[0_0_0_1px_rgba(16,185,129,0.18)]"
-            activeTitleClassName="text-emerald-400"
-          />
+          <div>
+            <Accordion
+              items={visibleItems}
+              defaultOpen={[accordionItems[0]?.id ?? '']}
+              useJoin={false}
+              className="[&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base"
+              itemClassName="border border-white/10 bg-slate-900/45 transition-colors duration-200 hover:border-emerald-400/35 active:border-emerald-500/50"
+              titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-medium leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-lg"
+              contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
+              activeItemClassName="border-emerald-500/50 border-l-4 border-l-emerald-500 bg-slate-900/60 shadow-[0_0_0_1px_rgba(16,185,129,0.18)]"
+              activeTitleClassName="text-emerald-400"
+            />
+
+            {hasHiddenItems && !showAll ? (
+              <button
+                type="button"
+                aria-expanded={showAll}
+                onClick={() => setShowAll(true)}
+                className="btn btn-outline mt-4 w-full border-white/25 bg-white/5 text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                {t('showAll')}
+              </button>
+            ) : null}
+          </div>
 
           <div className="mb-8 h-fit lg:sticky lg:top-24">
             <GlassCard className="relative overflow-hidden rounded-3xl p-6 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-8">
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-slate-950/25 to-slate-950/85" />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent" />
               <div className="relative">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-400">
-                  {faqs.sectionTitle}
-                </p>
-                <h3 className="mt-4 text-3xl font-bold leading-tight text-white md:text-4xl">
+                <h3 className="text-3xl font-bold leading-tight text-white md:text-4xl">
                   {faqs.enquiryTitle}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-white/72">
@@ -91,7 +105,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
                     href={globalCtas.whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 hover:brightness-110"
+                    className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     <span className="inline-flex items-center gap-2">
                       <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />

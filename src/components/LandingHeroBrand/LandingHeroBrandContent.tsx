@@ -25,7 +25,7 @@ export default function LandingHeroBrandContent({ hero }: Props) {
 
       <h1
         id="landing-hero-brand-title"
-        className="text-balance text-[clamp(2rem,9vw,3rem)] font-extrabold leading-[1.04] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:text-5xl md:leading-tight lg:text-6xl"
+        className="text-balance text-[clamp(2rem,9vw,3rem)] font-bold leading-[1.04] tracking-[-0.02em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:text-5xl md:leading-tight lg:text-6xl"
       >
         {hero.title}
       </h1>
@@ -54,7 +54,7 @@ export default function LandingHeroBrandContent({ hero }: Props) {
           href={hero.secondaryCtaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-lg btn-outline inline-flex min-h-11 items-center justify-center gap-2 border-white/40 px-4 text-white hover:bg-white/10"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-2 text-sm font-medium text-white/90 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           data-event="hero_whatsapp_click"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />

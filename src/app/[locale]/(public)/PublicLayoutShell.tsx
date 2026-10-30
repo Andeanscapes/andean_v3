@@ -6,13 +6,6 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import {LayoutProvider} from "@/contexts/LayoutContext";
 import { useThemeContext } from "@/contexts/ThemeContext";
-import { FOOTER_TRUST_GALLERY } from "@/constant/SiteConfig";
-import { resolveMediaUrl } from "@/utils/mediaUrl";
-
-// Resolved once at module scope: `resolveMediaUrl` only reads a build-inlined
-// env var, so the result is constant for the life of the bundle and does not
-// need to be recomputed — or memoized — per render.
-const FOOTER_TRUST_GALLERY_URLS = FOOTER_TRUST_GALLERY.map(resolveMediaUrl);
 
 interface PublicLayoutShellProps {
     children: React.ReactNode;
@@ -42,7 +35,7 @@ const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShe
             <main className={`${mainPaddingClass} bg-base-100 text-base-content`} data-theme={theme}>
                 {children}
             </main>
-            <Footer trustGallery={FOOTER_TRUST_GALLERY_URLS} flagshipExperiencePath={flagshipExperiencePath} />
+            <Footer flagshipExperiencePath={flagshipExperiencePath} />
         </LayoutProvider>
     );
 }

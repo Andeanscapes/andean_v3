@@ -88,6 +88,7 @@
         "title": "Experiences worth the trip",
         "viewAll": "Browse all experiences",
         "nextAvailability": "Next availability: {date} — Only {count, plural, one {# spot} other {# spots}} left",
+        "nextAvailabilityDate": "Next availability: {date}",
         "fromLabel": "From",
         "perPersonLabel": "/ person",
         "viewDetails": "View details",
@@ -267,6 +268,7 @@
       }
     },
     "faqs": {
+      "showAll": "Show all questions",
       "sectionTitle": "Private tours in Colombia’s Andes",
       "title": "Emerald Tourism in Colombia",
       "description": "We specialize in private tours in the Colombian Andes, with a special focus on emerald destinations, local mining heritage and community-led experiences.",
@@ -467,7 +469,10 @@
   "Header": {
     "selectLanguage": "Select language: {language}",
     "bookNow": "BOOK NOW",
-    "experiences": "EXPERIENCES"
+    "experiences": "EXPERIENCES",
+    "toggleTheme": "Toggle theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   },
   "ExperiencesList": {
     "metaTitle": "Emerald Mine Tours in Colombia | Chivor | Andean Scapes",
@@ -1451,6 +1456,7 @@
     "transportation": "Transportation",
     "staySelection": "Stay Options",
     "allyNetwork": "Our Curated Ally Network",
+    "partner": "Partner",
     "allyHacienda": "Hacienda El Recuerdo",
     "allyGlamping": "Glamping Aventura",
     "allyExperiences": "All Experiences",

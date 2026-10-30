@@ -18,44 +18,49 @@ describe('Accordion', () => {
   it('opens item when clicked', async () => {
     const user = userEvent.setup();
     render(<Accordion items={items} />);
-    
-    const checkboxes = screen.getAllByRole('checkbox');
-    await user.click(checkboxes[0]);
-    expect(checkboxes[0]).toBeChecked();
+
+    const buttons = screen.getAllByRole('button');
+    await user.click(buttons[0]);
+    expect(buttons[0]).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('opens items by default', () => {
     render(<Accordion items={items} defaultOpen={['item1']} />);
-    const checkboxes = screen.getAllByRole('checkbox') as HTMLInputElement[];
-    expect(checkboxes[0].checked).toBe(true);
-    expect(checkboxes[1].checked).toBe(false);
+    const buttons = screen.getAllByRole('button');
+    expect(buttons[0]).toHaveAttribute('aria-expanded', 'true');
+    expect(buttons[1]).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('links each button to its region', () => {
+    render(<Accordion items={items} />);
+    const button = screen.getAllByRole('button')[0];
+    const panel = screen.getByRole('region', { name: 'Title 1' });
+    expect(button).toHaveAttribute('aria-controls', panel.id);
   });
 
   it('closes other items when allowMultiple is false', async () => {
     const user = userEvent.setup();
     render(<Accordion items={items} allowMultiple={false} />);
-    
-    const checkboxes = screen.getAllByRole('checkbox');
-    
-    // Open first
-    await user.click(checkboxes[0]);
-    expect(checkboxes[0]).toBeChecked();
 
-    // Open second (should close first)
-    await user.click(checkboxes[1]);
-    expect(checkboxes[0]).not.toBeChecked();
-    expect(checkboxes[1]).toBeChecked();
+    const buttons = screen.getAllByRole('button');
+
+    await user.click(buttons[0]);
+    expect(buttons[0]).toHaveAttribute('aria-expanded', 'true');
+
+    await user.click(buttons[1]);
+    expect(buttons[0]).toHaveAttribute('aria-expanded', 'false');
+    expect(buttons[1]).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('allows multiple open items when allowMultiple is true', async () => {
     const user = userEvent.setup();
     render(<Accordion items={items} allowMultiple />);
-    
-    const checkboxes = screen.getAllByRole('checkbox');
-    
-    await user.click(checkboxes[0]);
-    await user.click(checkboxes[1]);
-    expect(checkboxes[0]).toBeChecked();
-    expect(checkboxes[1]).toBeChecked();
+
+    const buttons = screen.getAllByRole('button');
+
+    await user.click(buttons[0]);
+    await user.click(buttons[1]);
+    expect(buttons[0]).toHaveAttribute('aria-expanded', 'true');
+    expect(buttons[1]).toHaveAttribute('aria-expanded', 'true');
   });
 });

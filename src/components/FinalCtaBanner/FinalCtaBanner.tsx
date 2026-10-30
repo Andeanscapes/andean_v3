@@ -1,19 +1,12 @@
 'use client';
 
 import { memo } from 'react';
-import { ArrowRight, MessageCircle, BadgeCheck, ShieldCheck, Undo2, Lock } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
-
-const BADGE_ICON_MAP: Record<string, React.ReactNode> = {
-  BadgeCheck: <BadgeCheck size={16} aria-hidden="true" />,
-  ShieldCheck: <ShieldCheck size={16} aria-hidden="true" />,
-  Undo2: <Undo2 size={16} aria-hidden="true" />,
-  Lock: <Lock size={16} aria-hidden="true" />,
-};
 
 interface FinalCtaBannerProps {
   landingData: {
@@ -65,7 +58,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
         containerClassName="flex items-center justify-center px-4 py-20 md:px-6 md:py-28 lg:px-10 lg:py-36"
       >
         <GlassCard className="w-full max-w-2xl rounded-3xl border-white/15 bg-black/35 p-8 text-center backdrop-blur-xl md:p-12">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-emerald-400">
+          <p className="eyebrow mb-3">
             {flagship.badge}
           </p>
           <h2 className="text-3xl font-bold tracking-tight leading-tight text-white md:text-4xl lg:text-5xl">
@@ -96,19 +89,6 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
               <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />
               {finalCta.secondaryCtaLabel}
             </a>
-          </div>
-
-          {/* Trust badges */}
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {finalCta.trustBadges.map((badge) => (
-              <span
-                key={badge.id}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/85 backdrop-blur-sm"
-              >
-                {BADGE_ICON_MAP[badge.iconName] ?? <ShieldCheck size={16} aria-hidden="true" />}
-                {badge.label}
-              </span>
-            ))}
           </div>
         </GlassCard>
       </SectionContainer>
