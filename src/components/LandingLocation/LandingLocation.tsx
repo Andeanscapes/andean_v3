@@ -42,10 +42,8 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
 
       <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
         {/* Map with pulse overlays */}
-        <div
-          className="relative overflow-hidden rounded-2xl border border-base-200 bg-base-200/30 shadow-sm"
-          style={{ minHeight: '240px' }}
-        >
+        {/* Matches the map's 3:2 viewBox so the % positioned nodes land on the drawn markers. */}
+        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-base-200 bg-base-200/30 shadow-sm">
           <Image
             src={locationBrand.mapImage}
             alt={locationBrand.mapImageAlt}

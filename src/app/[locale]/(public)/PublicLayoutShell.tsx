@@ -19,7 +19,9 @@ const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShe
     const pathname = usePathname();
     
     const isExperiencesPage = pathname?.includes('/experiences/');
-    const mainPaddingClass = isExperiencesPage ? 'pb-0' : 'pb-24 lg:pb-30';
+    // Landing reserves space only for its mobile sticky bar (md:hidden); desktop flows straight into the footer.
+    const isLandingPage = pathname === '/';
+    const mainPaddingClass = isExperiencesPage ? 'pb-0' : isLandingPage ? 'pb-24 md:pb-0' : 'pb-24 lg:pb-30';
 
     useEffect(() => {
         const handleScroll = () => {

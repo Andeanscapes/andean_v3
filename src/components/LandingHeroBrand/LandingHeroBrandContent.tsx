@@ -31,7 +31,7 @@ export default function LandingHeroBrandContent({ hero }: Props) {
       </h1>
 
       {hero.subtitle ? (
-        <p className="overflow-hidden text-pretty text-sm font-medium leading-snug text-white/95 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] md:block md:text-lg md:leading-normal lg:text-xl">
+        <p className="overflow-hidden text-pretty text-sm font-medium leading-snug text-white/95 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] md:max-w-2xl md:text-md md:leading-normal lg:text-2md">
           {hero.subtitle}
         </p>
       ) : null}

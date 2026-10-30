@@ -25,7 +25,7 @@ function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
       </h2>
       <dl
         aria-labelledby="landing-truststats-title"
-        className="grid grid-cols-2 gap-6 text-center md:grid-cols-4"
+        className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-center md:gap-x-20"
       >
         {trustStats.items.map((item) => (
           <div key={item.id} className="flex flex-col items-center gap-1">
