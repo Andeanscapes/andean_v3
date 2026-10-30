@@ -13,7 +13,7 @@
       "hero": {
         "eyebrow": "Circuits privés dans les Andes colombiennes",
         "title": "Visites Privées de Mines d’Émeraudes en Colombie",
-        "subtitle": "Nous organisons des circuits privés dans les Andes, avec un intérêt particulier pour le tourisme de l’émeraude et l’histoire minière colombienne : Muzo, Coscuez, Chivor et Gachalá.",
+        "subtitle": "Circuits privés dans les Andes, centrés sur le tourisme de l’émeraude et l’histoire minière de Colombie, de Muzo et Coscuez à Chivor et Gachalá.",
         "description": "Découvrez les régions colombiennes de l’émeraude avec des circuits privés guidés localement. Destinations et activités pratiques varient selon l’itinéraire ; aucune trouvaille n’est garantie.",
         "primaryCta": "Trouvez votre expérience",
         "secondaryCta": "Demandez sur WhatsApp",
@@ -66,13 +66,13 @@
         "cta": "Explorer",
         "items": {
           "emerald": {
-            "title": "Tourisme de l’Émeraude en Colombie",
+            "title": "Tourisme de l’émeraude en Colombie",
             "description": "Découvrez le patrimoine minier et les communautés locales de Muzo, Coscuez, Chivor et Gachalá. La disponibilité des circuits varie selon la destination.",
             "exclusiveAccess": "Visites organisées avec des familles de mineurs et des guides locaux"
           },
           "nature": {
-            "title": "Parcourez les sentiers andins cachés",
-            "description": "Páramos, forêts de nuages et cascades cachées — des itinéraires que la plupart des voyageurs ne trouvent jamais."
+            "title": "Itinéraires andins cachés à pied",
+            "description": "Páramos, forêts de nuages et cascades cachées. Des itinéraires que la plupart des voyageurs ne trouvent jamais."
           },
           "rural": {
             "title": "Séjournez chez des hôtes ruraux",
@@ -80,14 +80,14 @@
           },
           "horseback": {
             "title": "Chevauchez les anciens sentiers de montagne",
-            "description": "Des chemins andins à pied ou à cheval — comme les gens d'ici voyagent depuis des siècles."
+            "description": "Des sentiers andins à pied ou à cheval, comme les gens d’ici voyagent depuis des siècles."
           }
         }
       },
       "featured": {
-        "title": "Des expériences qui valent le déplacement",
+        "title": "Circuits au départ de Chivor",
         "viewAll": "Voir toutes les expériences",
-        "nextAvailability": "Prochaine disponibilité : {date} — Plus que {count, plural, one {# place} other {# places}}",
+        "nextAvailability": "Prochaine disponibilité : {date}. Plus que {count, plural, one {# place} other {# places}}",
         "nextAvailabilityDate": "Prochaine disponibilité : {date}",
         "fromLabel": "À partir de",
         "perPersonLabel": "/ personne",
@@ -99,7 +99,7 @@
         "items": {
           "emerald": {
             "title": "Aventure Minière d'Émeraudes",
-            "description": "Deux jours à Chivor : visitez une mine en activité, essayez de chercher des émeraudes avec un guide et découvrez la vie minière locale.",
+            "description": "Deux jours à Chivor. Visitez une mine en activité, cherchez des émeraudes avec des guides locaux et découvrez la vie minière.",
             "duration": "2 jours / 1 nuit",
             "location": "Chivor, Boyacá"
           },
@@ -112,12 +112,12 @@
         }
       },
       "whyUs": {
-        "title": "Pas un circuit. Une invitation locale.",
-        "lead": "Pas un opérateur touristique. Un réseau d'hôtes locaux qui partagent ce qu'ils connaissent vraiment.",
+        "title": "Accueillis par les familles qui vivent ici",
+        "lead": "Nous sommes un réseau d’hôtes locaux, pas un opérateur touristique. Ils partagent ce qu’ils savent vraiment.",
         "items": {
           "localHosts": {
             "title": "Des hôtes qui le vivent",
-            "description": "Vous voyagez avec les familles et guides qui ont construit leur vie dans ces endroits — pas un représentant d'entreprise."
+            "description": "Vous voyagez avec les familles et guides qui ont construit leur vie dans ces lieux, pas avec un représentant d’entreprise."
           },
           "smallGroups": {
             "title": "Groupes limités à 10",
@@ -125,7 +125,7 @@
           },
           "culturalAccess": {
             "title": "Un accès introuvable ailleurs",
-            "description": "Certaines choses que nous vous montrons — la mine, la cuisine de l'hacienda, la ferme familiale — ne sont possibles que grâce à des années de confiance."
+            "description": "Certaines choses que nous vous montrons, comme la mine, la cuisine de l’hacienda ou la ferme familiale, n’existent que grâce à des années de confiance."
           },
           "secureBooking": {
             "title": "Réservation simple et sécurisée",
@@ -172,7 +172,7 @@
           },
           "private": {
             "label": "Groupes privés",
-            "recommendation": "Itinéraires complets construits autour de votre groupe — amis, équipes ou voyages commémoratifs."
+            "recommendation": "Itinéraires d’une journée ou plus, conçus pour votre groupe : amis, équipes ou voyages spéciaux."
           },
           "adventure": {
             "label": "Aventuriers",
@@ -180,7 +180,7 @@
           },
           "culture": {
             "label": "Amateurs de culture",
-            "recommendation": "Ateliers avec des mineurs, potiers, tisserands et paysans — apprendre en faisant, pas en regardant."
+            "recommendation": "Ateliers avec des mineurs, potiers, tisserands et paysans. On apprend en faisant."
           }
         }
       },
@@ -198,7 +198,7 @@
         "liveNetwork": "Réseau en direct",
         "cta": "Planifiez votre itinéraire",
         "bullets": {
-          "region": "Régions colombiennes de l’émeraude : Muzo, Coscuez, Chivor et Gachalá",
+          "region": "Région de l’émeraude : Muzo, Coscuez, Chivor et Gachalá",
           "driving": "Chivor et San Pablo de Borbur se trouvent à l’est de Bogotá",
           "transport": "Le transport local dépend du séjour ; les transferts depuis Bogotá sont facultatifs et indiqués sur chaque page",
           "customizable": "Itinéraires construits autour de vos dates et de votre groupe",
@@ -215,7 +215,7 @@
           "guides": "Guides locaux connaissant chaque itinéraire",
           "meetingPoints": "Points de rencontre fixes et vérifiés",
           "payments": "Paiements chiffrés de bout en bout",
-          "deposit": "25% d'acompte — le reste est dû le jour même",
+          "deposit": "25% d’acompte, le reste se paie le jour même",
           "whatsapp": "Support WhatsApp tout au long de votre voyage",
           "flexible": "Report gratuit jusqu'à 48 heures avant le départ"
         }
@@ -260,9 +260,9 @@
       "trustPanel": {
         "title": "Pourquoi les voyageurs reviennent",
         "bullets": {
-          "local": "Entreprise locale — tous les revenus restent dans les communautés de Boyacá",
+          "local": "Entreprise locale. Tous les revenus restent dans les communautés de Boyacá",
           "reviews": "5,0★ de 5 voyageurs vérifiés",
-          "payment": "Réservez avec 25% — payez le reste à l'arrivée",
+          "payment": "Réservez avec 25 %, payez le reste à l’arrivée",
           "support": "Support WhatsApp de la réservation jusqu'au jour de votre départ"
         }
       }
@@ -468,11 +468,11 @@
   },
   "Header": {
     "selectLanguage": "Choisir la langue : {language}",
-    "bookNow": "RÉSERVER MAINTENANT",
+    "bookNow": "Réserver",
     "toggleTheme": "Changer de thème",
     "lightMode": "Mode clair",
     "darkMode": "Mode sombre",
-    "experiences": "EXPÉRIENCES"
+    "experiences": "Expériences"
   },
   "ExperiencesList": {
     "metaTitle": "Visites de Mines d’Émeraudes en Colombie | Chivor | Andean Scapes",
@@ -702,7 +702,7 @@
       "roundtripTransferPerVehicle": "par véhicule",
       "roundtripTransferVehicles": "{count, plural, one {# véhicule} other {# véhicules}}",
       "roundtripTransferLineItem": "Aller-retour {origin} ↔ {destination}",
-        "allInclusiveLineItem": "Repas et nuitée compris pour {count, plural, one {# personne} other {# personnes}} ; consultez les détails du transport",
+      "allInclusiveLineItem": "Repas et nuitée compris pour {count, plural, one {# personne} other {# personnes}} ; consultez les détails du transport",
       "dayTripLineItem": "Excursion d'une journée pour {count, plural, one {# personne} other {# personnes}}",
       "roomSelectionTitle": "Choisir les chambres",
       "closeModal": "Fermer",

@@ -23,7 +23,7 @@ function LandingCategoriesComponent({ categories, className = '' }: Props) {
     >
       <h2
         id="landing-categories-title"
-        className="mb-8 text-center text-2xl font-bold tracking-tight text-base-content md:mb-12 md:text-3xl lg:text-4xl"
+        className="mb-8 text-2xl font-bold tracking-tight text-base-content md:mb-12 md:text-3xl lg:text-4xl"
       >
         {categories.sectionTitle}
       </h2>

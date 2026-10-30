@@ -13,7 +13,7 @@
       "hero": {
         "eyebrow": "Tours privados por los Andes colombianos",
         "title": "Tours Privados a Minas de Esmeraldas en Colombia",
-        "subtitle": "Nos especializamos en tours privados por los Andes, con un enfoque especial en el turismo esmeraldero y la historia minera de Colombia: Muzo, Coscuez, Chivor y Gachalá.",
+        "subtitle": "Tours privados por los Andes centrados en el turismo esmeraldero y la historia minera de Colombia, desde Muzo y Coscuez hasta Chivor y Gachalá.",
         "description": "Explora las regiones esmeralderas de Colombia con tours privados y guías locales. Destinos y actividades prácticas dependen del itinerario; encontrar una esmeralda no está garantizado.",
         "primaryCta": "Encuentra tu experiencia",
         "secondaryCta": "Pregunta por WhatsApp",
@@ -66,28 +66,28 @@
         "cta": "Explorar",
         "items": {
           "emerald": {
-            "title": "Turismo Esmeraldero en Colombia",
+            "title": "Turismo de esmeraldas en Colombia",
             "description": "Conoce la historia minera y las comunidades locales de Muzo, Coscuez, Chivor y Gachalá. La disponibilidad de tours varía según el destino.",
             "exclusiveAccess": "Visitas coordinadas con familias mineras y guías locales"
           },
           "nature": {
-            "title": "Camina Rutas Andinas Escondidas",
-            "description": "Páramos, bosques de niebla y cascadas escondidas — rutas que la mayoría de viajeros nunca encuentran."
+            "title": "Rutas andinas escondidas a pie",
+            "description": "Páramos, bosques de niebla y cascadas escondidas. Rutas que la mayoría de viajeros nunca encuentra."
           },
           "rural": {
-            "title": "Quédate con Anfitriones Rurales",
+            "title": "Hospédate con familias rurales",
             "description": "Despierta en una finca activa, comparte una comida con la familia anfitriona, aprende los oficios que heredaron."
           },
           "horseback": {
-            "title": "Recorre Antiguos Senderos de Montaña",
-            "description": "Caminos andinos a pie o a caballo — como siempre ha viajado la gente de aquí."
+            "title": "Cabalga por antiguos caminos de montaña",
+            "description": "Senderos andinos a pie o a caballo, como viaja la gente de aquí desde hace siglos."
           }
         }
       },
       "featured": {
-        "title": "Experiencias que valen el viaje",
+        "title": "Viajes desde Chivor",
         "viewAll": "Ver todas las experiencias",
-        "nextAvailability": "Próxima salida: {date} — Solo {count, plural, one {# cupo} other {# cupos}} disponibles",
+        "nextAvailability": "Próxima salida: {date}. Solo {count, plural, one {# cupo} other {# cupos}} disponibles",
         "nextAvailabilityDate": "Próxima salida: {date}",
         "fromLabel": "Desde",
         "perPersonLabel": "/ persona",
@@ -99,7 +99,7 @@
         "items": {
           "emerald": {
             "title": "Aventura de Minería de Esmeraldas",
-            "description": "Dos días en Chivor: visita una mina activa, prueba buscar esmeraldas con guías locales y conoce la vida minera.",
+            "description": "Dos días en Chivor. Visita una mina activa, busca esmeraldas con guías locales y conoce la vida minera.",
             "duration": "2 días / 1 noche",
             "location": "Chivor, Boyacá"
           },
@@ -112,12 +112,12 @@
         }
       },
       "whyUs": {
-        "title": "No es un tour. Es una invitación local.",
-        "lead": "No somos una operadora turística. Somos una red de anfitriones locales que comparten lo que realmente conocen.",
+        "title": "Anfitriones que viven aquí",
+        "lead": "Somos una red de anfitriones locales, no una operadora turística. Comparten lo que realmente saben.",
         "items": {
           "localHosts": {
             "title": "Anfitriones que lo viven",
-            "description": "Viajas con las familias y guías que han construido su vida en estos lugares — no con un representante de empresa."
+            "description": "Viajas con las familias y guías que han construido su vida en estos lugares, no con un representante de empresa."
           },
           "smallGroups": {
             "title": "Grupos de máximo 10",
@@ -125,7 +125,7 @@
           },
           "culturalAccess": {
             "title": "Acceso que no consigues en otro lugar",
-            "description": "Parte de lo que te mostramos — la mina, la cocina de la hacienda, la finca familiar — solo es posible gracias a años de confianza."
+            "description": "Parte de lo que te mostramos, como la mina, la cocina de la hacienda o la finca familiar, existe gracias a años de confianza."
           },
           "secureBooking": {
             "title": "Reserva simple y segura",
@@ -172,7 +172,7 @@
           },
           "private": {
             "label": "Grupos privados",
-            "recommendation": "Itinerarios completos construidos alrededor de tu grupo — amigos, equipos o viajes de fechas especiales."
+            "recommendation": "Itinerarios de uno o varios días diseñados para tu grupo: amigos, equipos o viajes especiales."
           },
           "adventure": {
             "label": "Aventureros",
@@ -180,7 +180,7 @@
           },
           "culture": {
             "label": "Amantes de la cultura",
-            "recommendation": "Talleres con mineros, alfareros, tejedores y campesinos — aprender haciendo, no mirando."
+            "recommendation": "Talleres con mineros, alfareros, tejedores y campesinos. Aprendes haciendo."
           }
         }
       },
@@ -198,7 +198,7 @@
         "liveNetwork": "Red en vivo",
         "cta": "Planea tu ruta",
         "bullets": {
-          "region": "Territorio esmeraldero de Colombia: Muzo, Coscuez, Chivor y Gachalá",
+          "region": "Territorio esmeraldero: Muzo, Coscuez, Chivor y Gachalá",
           "driving": "Chivor y San Pablo de Borbur están al este de Bogotá",
           "transport": "El transporte local depende del plan; los traslados desde Bogotá son opcionales y se indican en cada página",
           "customizable": "Itinerarios construidos según tus fechas y grupo",
@@ -215,7 +215,7 @@
           "guides": "Guías locales que conocen cada recorrido",
           "meetingPoints": "Puntos de encuentro fijos y verificados",
           "payments": "Pagos con cifrado extremo a extremo",
-          "deposit": "25% de anticipo — el resto se paga el día de la experiencia",
+          "deposit": "25% de anticipo, el resto se paga el día de la experiencia",
           "whatsapp": "Soporte por WhatsApp durante todo tu viaje",
           "flexible": "Reprogramación gratuita hasta 48 horas antes"
         }
@@ -260,9 +260,9 @@
       "trustPanel": {
         "title": "Por qué los viajeros vuelven",
         "bullets": {
-          "local": "Empresa local — todos los ingresos se quedan en las comunidades de Boyacá",
+          "local": "Empresa local. Todos los ingresos se quedan en las comunidades de Boyacá",
           "reviews": "5.0★ de 5 viajeros verificados",
-          "payment": "Reserva con el 25% — el resto lo pagas al llegar",
+          "payment": "Reserva con el 25%, el resto lo pagas al llegar",
           "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
         }
       }
@@ -468,11 +468,11 @@
   },
   "Header": {
     "selectLanguage": "Seleccionar idioma: {language}",
-    "bookNow": "RESERVA AHORA",
+    "bookNow": "Reservar ahora",
     "toggleTheme": "Cambiar tema",
     "lightMode": "Modo claro",
     "darkMode": "Modo oscuro",
-    "experiences": "EXPERIENCIAS"
+    "experiences": "Experiencias"
   },
   "ExperiencesList": {
     "metaTitle": "Tours a Minas de Esmeraldas en Colombia | Chivor | Andean Scapes",

@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { formatDayMonth } from '@/utils/dateFormatters';
 import { Clock3 } from 'lucide-react';
 import type { LandingFeaturedExperienceContent } from '@/lib/schemas/landing.schema';
-import { ArrowRight, Clock, MapPin } from 'lucide-react';
+import { Clock, MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge/Badge';
 import { CardImageCarousel } from '@/components/ui/CardImageCarousel/CardImageCarousel';
 import { MineBadge, PrivateBadge } from '@/components/ui/CardBadges/CardBadges';
@@ -127,7 +127,6 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
           </div>
           <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
             {experience.viewDetailsLabel}
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </span>
         </div>
       </div>

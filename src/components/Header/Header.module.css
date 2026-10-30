@@ -82,7 +82,7 @@
 
 /* Navigation */
 .navLink {
-  @apply h-16 inline-flex items-center text-base uppercase;
+  @apply h-16 inline-flex items-center text-base;
 }
 
 .navLink.hasDropdown {

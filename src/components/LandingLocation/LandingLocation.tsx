@@ -1,37 +1,33 @@
 import { memo } from 'react';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import type { LandingLocationBrandContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { getLandingIcon } from '@/utils/landingIconMap';
-import { ArrowRight, Radio } from 'lucide-react';
 
 interface Props {
   locationBrand: LandingLocationBrandContent;
   className?: string;
 }
 
-/** Pixel coords in the 600×400 SVG viewBox converted to percentages */
-const LIVE_NODES = [
-  { id: 'bogota', label: 'Bogotá', xPct: '25%', yPct: '70%' },
-  { id: 'chivor', label: 'Chivor', xPct: '75%', yPct: '37.5%' },
+/** Marker positions in the 600×400 SVG viewBox, as percentages. */
+const MAP_MARKERS = [
+  { id: 'bogota', xPct: '25%', yPct: '70%' },
+  { id: 'chivor', xPct: '75%', yPct: '37.5%' },
 ] as const;
 
 /**
  * Brand "where we operate" section.
  * Two-column layout (md+): static map illustration on the left, bullet list + CTA on the right.
- * SVG pulse overlays mark the live network nodes (Bogotá + Chivor).
  */
 function LandingLocationComponent({ locationBrand, className = '' }: Props) {
-  const t = useTranslations();
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-base-100 py-10 md:py-14 ${className}`.trim()}
+      sectionClassName={`bg-base-200/40 py-10 md:py-14 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
-      <header className="mx-auto mb-8 max-w-3xl text-center md:mb-12">
+      <header className="mb-8 max-w-3xl md:mb-12">
         <h2
           id="landing-location-title"
           className="text-2xl font-bold tracking-tight text-base-content md:text-3xl lg:text-4xl"
@@ -41,8 +37,7 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
       </header>
 
       <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-14">
-        {/* Map with pulse overlays */}
-        {/* Matches the map's 3:2 viewBox so the % positioned nodes land on the drawn markers. */}
+        {/* Matches the map's 3:2 viewBox so the % positioned markers land on the drawn points. */}
         <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-base-200 bg-base-200/30 shadow-sm">
           <Image
             src={locationBrand.mapImage}
@@ -52,26 +47,14 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
             className="object-contain"
           />
 
-          {/* Live network pulse nodes */}
-          {LIVE_NODES.map((node) => (
+          {MAP_MARKERS.map((marker) => (
             <span
-              key={node.id}
-              className="pointer-events-none absolute"
-              style={{ left: node.xPct, top: node.yPct, transform: 'translate(-50%, -50%)' }}
+              key={marker.id}
               aria-hidden="true"
-            >
-              {/* Ping ring — disabled for prefers-reduced-motion */}
-              <span className="absolute inset-0 h-5 w-5 animate-ping rounded-full bg-emerald-400/50 motion-reduce:hidden" />
-              {/* Solid core */}
-              <span className="relative block h-5 w-5 animate-pulse rounded-full border-2 border-white/80 bg-emerald-400 shadow-[0_0_10px_rgba(0,255,157,0.7)] motion-reduce:animate-none" />
-            </span>
+              className="pointer-events-none absolute h-3 w-3 rounded-full border-2 border-white bg-primary shadow-sm"
+              style={{ left: marker.xPct, top: marker.yPct, transform: 'translate(-50%, -50%)' }}
+            />
           ))}
-
-          {/* Live-network badge */}
-          <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-400 backdrop-blur-sm shadow-[0_0_10px_rgba(0,255,157,0.15)]">
-            <Radio className="h-3 w-3" aria-hidden="true" />
-            {t('Landing.brand.location.liveNetwork')}
-          </div>
         </div>
 
         <div className="flex flex-col gap-6">
@@ -91,10 +74,9 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
 
           <Link
             href={locationBrand.ctaHref}
-            className="inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-content shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
+            className="inline-flex w-fit items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-content shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
           >
             {locationBrand.ctaLabel}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </div>
@@ -105,4 +87,3 @@ function LandingLocationComponent({ locationBrand, className = '' }: Props) {
 LandingLocationComponent.displayName = 'LandingLocation';
 
 export default memo(LandingLocationComponent);
-

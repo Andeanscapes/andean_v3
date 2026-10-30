@@ -4,7 +4,6 @@ import { memo } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
-import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
@@ -57,10 +56,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
         sectionClassName="relative"
         containerClassName="flex items-center justify-center px-4 py-20 md:px-6 md:py-28 lg:px-10 lg:py-36"
       >
-        <GlassCard className="w-full max-w-2xl rounded-3xl border-white/15 bg-black/35 p-8 text-center backdrop-blur-xl md:p-12">
-          <p className="eyebrow mb-3 text-primary">
-            {flagship.badge}
-          </p>
+        <div className="w-full max-w-2xl rounded-3xl border border-white/15 bg-slate-950/90 p-8 text-center md:p-12">
           <h2 className="text-3xl font-bold tracking-tight leading-tight text-white md:text-4xl lg:text-5xl">
             {finalCta.sectionTitle}
           </h2>
@@ -73,7 +69,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
               href={finalCta.primaryCtaHref}
               variant="gradient"
               size="lg"
-              className="w-full gap-2 shadow-[0_0_24px_rgba(0,240,143,0.35)] sm:w-auto"
+              className="w-full gap-2 sm:w-auto"
               data-event="final_cta_reserve"
             >
               {finalCta.primaryCtaLabel}
@@ -90,7 +86,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
               {finalCta.secondaryCtaLabel}
             </a>
           </div>
-        </GlassCard>
+        </div>
       </SectionContainer>
     </section>
   );

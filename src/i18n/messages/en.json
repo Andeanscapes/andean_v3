@@ -13,7 +13,7 @@
       "hero": {
         "eyebrow": "Private tours in Colombia’s Andes",
         "title": "Private Emerald Mine Tours in Colombia",
-        "subtitle": "We specialize in private Andean tours, with a special focus on Colombia’s emerald tourism and mining heritage—from Muzo and Coscuez to Chivor and Gachalá.",
+        "subtitle": "Private Andean tours focused on Colombia’s emerald tourism and mining heritage, from Muzo and Coscuez to Chivor and Gachalá.",
         "description": "Explore Colombia’s emerald regions with locally guided private tours. Destinations and hands-on activities depend on the itinerary; finding an emerald is never guaranteed.",
         "primaryCta": "Find your experience",
         "secondaryCta": "Ask on WhatsApp",
@@ -66,28 +66,28 @@
         "cta": "Explore",
         "items": {
           "emerald": {
-            "title": "Emerald Tourism in Colombia",
+            "title": "Emerald tourism in Colombia",
             "description": "Discover Colombia’s emerald-mining heritage and local communities across Muzo, Coscuez, Chivor and Gachalá. Tour availability varies by destination.",
             "exclusiveAccess": "Visits arranged with local mining families and guides"
           },
           "nature": {
-            "title": "Walk Hidden Andean Routes",
-            "description": "Páramos, cloud forests and hidden waterfalls — routes that most travelers never find."
+            "title": "Walk hidden Andean routes",
+            "description": "Páramos, cloud forests and hidden waterfalls. Routes most travelers never find."
           },
           "rural": {
-            "title": "Stay With Rural Hosts",
+            "title": "Stay with rural hosts",
             "description": "Wake up on a working farm, share a meal with the host family, learn the trades they inherited."
           },
           "horseback": {
-            "title": "Ride Old Mountain Trails",
-            "description": "Andean trails on foot or horseback — the way people here have traveled for centuries."
+            "title": "Ride old mountain trails",
+            "description": "Andean trails on foot or on horseback, the way people here have traveled for centuries."
           }
         }
       },
       "featured": {
-        "title": "Experiences worth the trip",
+        "title": "Trips from Chivor",
         "viewAll": "Browse all experiences",
-        "nextAvailability": "Next availability: {date} — Only {count, plural, one {# spot} other {# spots}} left",
+        "nextAvailability": "Next availability: {date}. Only {count, plural, one {# spot} other {# spots}} left",
         "nextAvailabilityDate": "Next availability: {date}",
         "fromLabel": "From",
         "perPersonLabel": "/ person",
@@ -99,7 +99,7 @@
         "items": {
           "emerald": {
             "title": "Emerald Mining Adventure",
-            "description": "Two days in Chivor — visit a working emerald mine, try searching for emeralds with local guides and learn about mining life.",
+            "description": "Two days in Chivor. Visit a working emerald mine, try searching for emeralds with local guides and learn about mining life.",
             "duration": "2 days / 1 night",
             "location": "Chivor, Boyacá"
           },
@@ -112,12 +112,12 @@
         }
       },
       "whyUs": {
-        "title": "Not a tour. A local invitation.",
-        "lead": "Not a tour operator. A network of local hosts who share what they actually know.",
+        "title": "Hosted by the families who live here",
+        "lead": "We are a network of local hosts, not a tour operator. They share what they actually know.",
         "items": {
           "localHosts": {
             "title": "Hosts who live it",
-            "description": "You travel with the families and guides who have built their lives in these places — not a company rep."
+            "description": "You travel with the families and guides who have built their lives in these places, not a company rep."
           },
           "smallGroups": {
             "title": "Groups capped at 10",
@@ -125,7 +125,7 @@
           },
           "culturalAccess": {
             "title": "Access you can't buy elsewhere",
-            "description": "Some of what we show you — the mine, the hacienda kitchen, the family farm — is only available because of trust built over years."
+            "description": "Some of what we show you, like the mine, the hacienda kitchen and the family farm, exists because of trust built over years."
           },
           "secureBooking": {
             "title": "Simple, secure booking",
@@ -172,7 +172,7 @@
           },
           "private": {
             "label": "Private groups",
-            "recommendation": "Full-day or multi-day itineraries built around your group — friends, teams, or milestone trips."
+            "recommendation": "Full-day or multi-day itineraries built around your group: friends, teams or milestone trips."
           },
           "adventure": {
             "label": "Adventure seekers",
@@ -180,7 +180,7 @@
           },
           "culture": {
             "label": "Culture lovers",
-            "recommendation": "Workshops with miners, potters, weavers and farmers — learning by doing, not watching."
+            "recommendation": "Workshops with miners, potters, weavers and farmers. You learn by doing."
           }
         }
       },
@@ -198,7 +198,7 @@
         "liveNetwork": "Live network",
         "cta": "Plan your route",
         "bullets": {
-          "region": "Colombia’s emerald country — Muzo, Coscuez, Chivor and Gachalá",
+          "region": "Emerald country: Muzo, Coscuez, Chivor and Gachalá",
           "driving": "Chivor and San Pablo de Borbur are east of Bogotá",
           "transport": "Local transport depends on the trip; Bogotá transfers are optional and listed on each page",
           "customizable": "Itineraries built around your dates and group",
@@ -215,7 +215,7 @@
           "guides": "Local guides familiar with each route",
           "meetingPoints": "Fixed, verified meeting points",
           "payments": "End-to-end encrypted payments",
-          "deposit": "25% deposit — rest due on the day",
+          "deposit": "25% deposit, rest due on the day",
           "whatsapp": "WhatsApp support throughout your trip",
           "flexible": "Free rescheduling up to 48 hours before"
         }
@@ -260,9 +260,9 @@
       "trustPanel": {
         "title": "Why travelers come back",
         "bullets": {
-          "local": "Locally owned — all revenue stays within Boyacá communities",
+          "local": "Locally owned. All revenue stays in Boyacá communities",
           "reviews": "5.0★ from 5 verified travelers",
-          "payment": "Reserve with 25% — pay the rest on arrival",
+          "payment": "Reserve with 25%, pay the rest on arrival",
           "support": "WhatsApp support from booking to the day you leave"
         }
       }
@@ -468,8 +468,8 @@
   },
   "Header": {
     "selectLanguage": "Select language: {language}",
-    "bookNow": "BOOK NOW",
-    "experiences": "EXPERIENCES",
+    "bookNow": "Book now",
+    "experiences": "Experiences",
     "toggleTheme": "Toggle theme",
     "lightMode": "Light mode",
     "darkMode": "Dark mode"

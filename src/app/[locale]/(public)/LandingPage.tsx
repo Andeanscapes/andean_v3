@@ -72,10 +72,10 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
       <LandingWhyUs whyUs={landingData.whyUs} />
       <LandingSafety safety={landingData.safety} />
       <Reviews landingData={landingData} />
+      <LandingTrustStats trustStats={landingData.trustStats} />
       <LandingHowItWorks howItWorks={landingData.howItWorks} />
       <LandingFaqs landingData={landingData} />
       <LandingTravelerSegments travelerSegments={landingData.travelerSegments} />
-      <LandingTrustStats trustStats={landingData.trustStats} />
       <LandingLocation locationBrand={landingData.locationBrand} />
       <FinalCtaBanner landingData={landingData} />
       <LandingMobileSticky

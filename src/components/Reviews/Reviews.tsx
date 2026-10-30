@@ -19,10 +19,9 @@ function ReviewsComponent({ landingData, className = '' }: ReviewsProps) {
 
   return (
     <SectionContainer
-      sectionClassName={`bg-base-100 px-4 py-16 md:px-6 md:py-20 lg:px-10 ${className}`.trim()}
+      sectionClassName={`bg-base-200/40 px-4 py-16 md:px-6 md:py-20 lg:px-10 ${className}`.trim()}
     >
       <div className="mb-8 md:mb-10">
-        <p className="eyebrow mb-3 text-base-content/60">{reviews.eyebrow}</p>
         <h2 id="landing-reviews" className="text-3xl font-bold tracking-tight leading-tight text-base-content md:text-4xl">
           {reviews.sectionTitle}
         </h2>

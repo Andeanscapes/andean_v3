@@ -112,7 +112,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             priority
                         />
                     </Link>
-                    <div className="main-menu uppercase ml-4">
+                    <div className="main-menu ml-4">
                         <ul className={`flex items-center ${styles.navList}`}>
                             <li>
                                 <Link href="/experiences" className={`${styles.navLink} ${navTextColorClass} ${navInteractiveClass}`}>
@@ -126,7 +126,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     {!hideBookingCta && (
                         <Link 
                             href={BOOKING_LINKS.airbnb} 
-                            className="btn btn-sm border-0 bg-primary text-primary-content font-bold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
+                            className="btn btn-sm border-0 bg-primary text-primary-content font-bold transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
@@ -232,7 +232,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                     <Link
                                         href="/experiences"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="btn btn-md w-full border-0 bg-primary text-primary-content font-bold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
+                                        className="btn btn-md w-full border-0 bg-primary text-primary-content font-bold transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                                     >
                                         {tm('exploreExperiences')}
                                     </Link>

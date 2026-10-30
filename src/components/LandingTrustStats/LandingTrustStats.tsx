@@ -8,8 +8,8 @@ interface Props {
 }
 
 /**
- * Compact KPI strip ("trust stats"). Pure presentational.
- * Each stat exposes value (large) + label (smaller, descriptive).
+ * Quiet metrics row. Pure presentational.
+ * Values come from the feed; no decorative band, sits between hairlines.
  */
 function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
   if (trustStats.items.length === 0) return null;
@@ -17,7 +17,7 @@ function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-primary text-primary-content py-8 md:py-10 ${className}`.trim()}
+      sectionClassName={`border-y border-base-200 bg-base-100 py-8 md:py-10 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
       <h2 id="landing-truststats-title" className="sr-only">
@@ -29,12 +29,12 @@ function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
       >
         {trustStats.items.map((item) => (
           <div key={item.id} className="flex flex-col items-center gap-1">
-            <dt className="order-2 text-xs font-medium uppercase tracking-wide text-primary-content/80 md:text-sm">
-              {item.label}
-            </dt>
-            <dd className="order-1 text-3xl font-bold md:text-4xl lg:text-5xl">
+            <dd className="order-1 text-3xl font-bold text-base-content md:text-4xl">
               {item.value}
             </dd>
+            <dt className="order-2 text-sm text-base-content/70">
+              {item.label}
+            </dt>
           </div>
         ))}
       </dl>

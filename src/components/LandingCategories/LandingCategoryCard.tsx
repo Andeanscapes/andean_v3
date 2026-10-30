@@ -1,7 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import type { LandingCategoryContent } from '@/lib/schemas/landing.schema';
 import { getLandingIcon } from '@/utils/landingIconMap';
-import { ArrowRight } from 'lucide-react';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface Props {
@@ -64,9 +63,8 @@ export default function LandingCategoryCard({ category }: Props) {
             {category.exclusiveAccess}
           </p>
         ) : null}
-        <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
+        <span className="mt-auto text-sm font-medium text-primary group-hover:underline">
           {category.ctaLabel}
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </span>
       </div>
     </Link>

@@ -1,11 +1,10 @@
 'use client';
 
 import { memo, useEffect, useRef, useState } from 'react';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
-import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
 
@@ -39,90 +38,72 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
 
   return (
     <SectionContainer
-      sectionClassName={`relative overflow-hidden bg-[#0A0A0A] px-4 pb-16 pt-16 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-20 lg:pt-20 ${className}`.trim()}
+      sectionClassName={`bg-[#0A0A0A] px-4 pb-16 pt-16 md:px-6 md:pb-20 md:pt-20 lg:px-10 lg:pb-20 lg:pt-20 ${className}`.trim()}
     >
-      <div aria-hidden="true" className="absolute inset-0 bg-[#0A0A0A]/96" />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.16),transparent_32%),linear-gradient(90deg,rgba(10,10,10,0.92),rgba(10,10,10,0.78),rgba(10,10,10,0.96))]"
-      />
+      <div className="max-w-3xl">
+        <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
+          {faqs.title}
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/70 md:text-base">
+          {faqs.description}
+        </p>
+      </div>
 
-      <div className="relative">
-        <div className="mb-6 max-w-3xl md:mb-8">
-          <p className="eyebrow mb-3 text-primary">{faqs.sectionTitle}</p>
-          <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
-            {faqs.title}
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/70 md:text-base">
-            {faqs.description}
-          </p>
+      <div className="mt-6 grid grid-cols-1 gap-6 md:mt-8 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
+        <div>
+          {/* All items stay server-rendered for crawlers; extras are only visually collapsed. */}
+          <Accordion
+            ref={accordionRef}
+            items={accordionItems}
+            defaultOpen={[accordionItems[0]?.id ?? '']}
+            useJoin={false}
+            className={`${showAll ? '' : '[&>.collapse:nth-child(n+9)]:hidden'} [&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base`}
+            itemClassName="border border-white/10 bg-slate-900/45 transition-colors duration-200 hover:border-white/25"
+            titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-medium leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-lg"
+            contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
+            activeItemClassName="border-white/30 bg-slate-900/70"
+            activeTitleClassName="text-primary"
+          />
+
+          {hasHiddenItems && !showAll ? (
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-white/10 bg-transparent px-4 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/25 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:rounded-3xl md:text-base"
+            >
+              {t('showAll')}
+            </button>
+          ) : null}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
-          <div>
-            {/* All items stay server-rendered for crawlers; extras are only visually collapsed. */}
-            <Accordion
-              ref={accordionRef}
-              items={accordionItems}
-              defaultOpen={[accordionItems[0]?.id ?? '']}
-              useJoin={false}
-              className={`${showAll ? '' : '[&>.collapse:nth-child(n+9)]:hidden'} [&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base`}
-              itemClassName="border border-white/10 bg-slate-900/45 transition-colors duration-200 hover:border-emerald-400/35 active:border-emerald-500/50"
-              titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-medium leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-lg"
-              contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
-              activeItemClassName="border-emerald-500/50 border-l-4 border-l-emerald-500 bg-slate-900/60 shadow-[0_0_0_1px_rgba(16,185,129,0.18)]"
-              activeTitleClassName="text-emerald-400"
-            />
+        <div className="h-fit rounded-3xl border border-white/10 bg-slate-900 p-6 md:p-8 lg:sticky lg:top-24">
+          <h3 className="text-3xl font-bold leading-tight text-white md:text-4xl">
+            {faqs.enquiryTitle}
+          </h3>
+          <p className="mt-4 text-sm font-medium leading-relaxed text-white/72">
+            {faqs.enquiryDescription}
+          </p>
 
-            {hasHiddenItems && !showAll ? (
-              <button
-                type="button"
-                onClick={() => setShowAll(true)}
-                className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-2xl border border-white/10 bg-transparent px-4 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-emerald-400/35 hover:text-white active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:rounded-3xl md:text-base"
-              >
-                {t('showAll')}
-              </button>
-            ) : null}
-          </div>
-
-          <div className="h-fit lg:sticky lg:top-24">
-            <GlassCard className="relative overflow-hidden rounded-3xl p-6 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-8">
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-slate-950/25 to-slate-950/85" />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent" />
-              <div className="relative">
-                <h3 className="text-3xl font-bold leading-tight text-white md:text-4xl">
-                  {faqs.enquiryTitle}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-white/72">
-                  {faqs.enquiryDescription}
-                </p>
-
-                <div className="mt-8 flex flex-col gap-3">
-                  <PrimaryCtaButton
-                    href={finalCta.primaryCtaHref}
-                    variant="gradient"
-                    size="lg"
-                    className="w-full shadow-[0_0_24px_rgba(0,240,143,0.25)] hover:shadow-[0_0_30px_rgba(0,240,143,0.38)]"
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      {finalCta.primaryCtaLabel}
-                      <ArrowRight size={18} className="flex-shrink-0" aria-hidden="true" />
-                    </span>
-                  </PrimaryCtaButton>
-                  <a
-                    href={globalCtas.whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />
-                      {globalCtas.whatsappLabel}
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </GlassCard>
+          <div className="mt-8 flex flex-col gap-3">
+            <PrimaryCtaButton
+              href={finalCta.primaryCtaHref}
+              variant="gradient"
+              size="lg"
+              className="w-full"
+            >
+              {finalCta.primaryCtaLabel}
+            </PrimaryCtaButton>
+            <a
+              href={globalCtas.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <span className="inline-flex items-center gap-2">
+                <MessageCircle size={18} className="flex-shrink-0" aria-hidden="true" />
+                {globalCtas.whatsappLabel}
+              </span>
+            </a>
           </div>
         </div>
       </div>

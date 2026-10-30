@@ -6,7 +6,6 @@ import type { LandingTravelerSegmentsContent } from '@/lib/schemas/landing.schem
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import { SegmentedControl } from '@/components/ui/SegmentedControl/SegmentedControl';
 import { getLandingIcon } from '@/utils/landingIconMap';
-import { ArrowRight } from 'lucide-react';
 
 interface Props {
   travelerSegments: LandingTravelerSegmentsContent;
@@ -40,7 +39,7 @@ function LandingTravelerSegmentsComponent({ travelerSegments, className = '' }: 
       sectionClassName={`bg-base-100 py-16 md:py-20 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
-      <header className="mx-auto mb-6 max-w-3xl text-center md:mb-8">
+      <header className="mb-6 max-w-3xl md:mb-8">
         <h2
           id="landing-traveler-title"
           className="text-2xl font-bold tracking-tight text-base-content md:text-3xl lg:text-4xl"
@@ -62,7 +61,7 @@ function LandingTravelerSegmentsComponent({ travelerSegments, className = '' }: 
         role="region"
         aria-live="polite"
         aria-labelledby="landing-traveler-title"
-        className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-white/20 bg-white/10 p-6 text-center shadow-sm backdrop-blur-md md:mt-8 md:p-8 animate-[fadeUp_280ms_ease-out] motion-reduce:animate-none"
+        className="mx-auto mt-6 flex max-w-2xl flex-col items-center gap-4 rounded-2xl border border-base-200 bg-base-200/60 p-6 text-center shadow-sm md:mt-8 md:p-8 animate-[fadeUp_280ms_ease-out] motion-reduce:animate-none"
       >
         <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Icon className="h-6 w-6" aria-hidden="true" />
@@ -75,7 +74,6 @@ function LandingTravelerSegmentsComponent({ travelerSegments, className = '' }: 
           className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-content shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
         >
           {active.ctaLabel}
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
     </SectionContainer>

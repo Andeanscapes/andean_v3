@@ -3,7 +3,6 @@ import { Link } from '@/i18n/navigation';
 import type { LandingFeaturedExperiencesContent } from '@/lib/schemas/landing.schema';
 import { SectionContainer } from '@/components/ui/SectionContainer/SectionContainer';
 import LandingFeaturedExperienceCard from './LandingFeaturedExperienceCard';
-import { ArrowRight } from 'lucide-react';
 
 interface Props {
   featured: LandingFeaturedExperiencesContent;
@@ -38,7 +37,6 @@ function LandingFeaturedExperiencesComponent({ featured, excludeSlug, className 
           className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:text-base"
         >
           {featured.viewAllLabel}
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </header>
 

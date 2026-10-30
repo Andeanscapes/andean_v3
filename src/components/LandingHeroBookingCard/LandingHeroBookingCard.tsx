@@ -95,7 +95,7 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
             className="inline-flex w-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             data-event="hero_booking_card_click"
           >
-            <span className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-content shadow-[0_0_20px_rgba(0,240,143,0.25)] transition-[transform,box-shadow] duration-200 active:scale-95 hover:shadow-[0_0_28px_rgba(0,240,143,0.38)]">
+            <span className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-content transition-transform duration-200 active:scale-95">
               {strings.reserveLabel}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </span>

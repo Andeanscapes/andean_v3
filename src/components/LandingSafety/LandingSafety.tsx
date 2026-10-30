@@ -39,10 +39,10 @@ function LandingSafetyComponent({ safety, className = '' }: Props) {
     <div id="safety-full">
     <SectionContainer
       as="section"
-      sectionClassName={`bg-base-200/40 py-16 md:py-20 ${className}`.trim()}
+      sectionClassName={`bg-base-100 py-16 md:py-20 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
-      <header className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
+      <header className="mb-8 max-w-3xl md:mb-10">
         <h2
           id="landing-safety-title"
           className="text-2xl font-bold tracking-tight text-base-content md:text-3xl lg:text-4xl"
@@ -57,7 +57,7 @@ function LandingSafetyComponent({ safety, className = '' }: Props) {
       <ul
         role="list"
         aria-labelledby="landing-safety-title"
-        className="mx-auto grid max-w-3xl grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2"
+        className="grid max-w-3xl grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2"
       >
         {safety.items.map((item) => {
           const Icon = getLandingIcon(item.iconName);
@@ -73,7 +73,7 @@ function LandingSafetyComponent({ safety, className = '' }: Props) {
       </ul>
 
       {safety.protocolLinkLabel && safety.protocolHref ? (
-        <div className="mx-auto mt-8 max-w-5xl text-center">
+        <div className="mt-8 max-w-3xl">
           <Link
             href={safety.protocolHref}
             onClick={handleProtocolClick}

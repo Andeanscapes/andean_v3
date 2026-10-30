@@ -18,7 +18,7 @@ function LandingWhyUsComponent({ whyUs, className = '' }: Props) {
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-base-100 py-16 md:py-20 ${className}`.trim()}
+      sectionClassName={`bg-base-200/40 py-16 md:py-20 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
