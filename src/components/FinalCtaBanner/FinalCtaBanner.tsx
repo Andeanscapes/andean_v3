@@ -10,7 +10,7 @@ import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 interface FinalCtaBannerProps {
   landingData: {
     finalCta: LandingContent['finalCta'];
-    flagship: Pick<LandingContent['flagship'], 'badge' | 'whatsappLink'>;
+    flagship: Pick<LandingContent['flagship'], 'whatsappLink'>;
   };
   className?: string;
 }

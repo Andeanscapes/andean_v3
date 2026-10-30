@@ -85,7 +85,7 @@
         }
       },
       "featured": {
-        "title": "Trips from Chivor",
+        "title": "More emerald tours",
         "viewAll": "Browse all experiences",
         "nextAvailability": "Next availability: {date}. Only {count, plural, one {# spot} other {# spots}} left",
         "nextAvailabilityDate": "Next availability: {date}",

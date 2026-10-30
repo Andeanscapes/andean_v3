@@ -29,12 +29,13 @@ function LandingTrustStatsComponent({ trustStats, className = '' }: Props) {
       >
         {trustStats.items.map((item) => (
           <div key={item.id} className="flex flex-col items-center gap-1">
-            <dd className="order-1 text-3xl font-bold text-base-content md:text-4xl">
-              {item.value}
-            </dd>
+            {/* DOM order dt → dd (valid dl group); `order-*` shows the value first. */}
             <dt className="order-2 text-sm text-base-content/70">
               {item.label}
             </dt>
+            <dd className="order-1 text-3xl font-bold text-base-content md:text-4xl">
+              {item.value}
+            </dd>
           </div>
         ))}
       </dl>

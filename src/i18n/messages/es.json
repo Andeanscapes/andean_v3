@@ -85,9 +85,9 @@
         }
       },
       "featured": {
-        "title": "Viajes desde Chivor",
+        "title": "Más tours de esmeraldas",
         "viewAll": "Ver todas las experiencias",
-        "nextAvailability": "Próxima salida: {date}. Solo {count, plural, one {# cupo} other {# cupos}} disponibles",
+        "nextAvailability": "Próxima salida: {date}. {count, plural, one {Solo # cupo disponible} other {Solo # cupos disponibles}}",
         "nextAvailabilityDate": "Próxima salida: {date}",
         "fromLabel": "Desde",
         "perPersonLabel": "/ persona",

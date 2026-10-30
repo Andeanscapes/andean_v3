@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 const linkClassName =
-    'inline-flex min-h-11 items-center gap-2 rounded-sm text-sm text-base-content/75 md:min-h-0 md:py-1 underline-offset-4 transition-colors duration-200 hover:text-base-content hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary';
+    'inline-flex min-h-11 items-center gap-2 rounded-sm text-sm text-base-content/75 lg:min-h-0 lg:py-1 underline-offset-4 transition-colors duration-200 hover:text-base-content hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary';
 
 const Footer = ({ flagshipExperiencePath }: FooterProps) => {
     const t = useTranslations('Footer');
@@ -34,7 +34,7 @@ const Footer = ({ flagshipExperiencePath }: FooterProps) => {
                 <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
                     <div className="space-y-4">
                         <Link href="/" className="inline-flex min-h-11 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-                            <img src={SITE_INFO.logo} alt={SITE_INFO.name} className="h-14 w-auto object-contain md:h-16" />
+                            <img src={SITE_INFO.logo} alt={SITE_INFO.name} width={150} height={150} className="h-14 w-auto object-contain md:h-16" />
                         </Link>
                         <p className="max-w-sm text-sm leading-relaxed text-base-content/70">
                             {t('valueProposition')}

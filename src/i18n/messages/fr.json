@@ -85,7 +85,7 @@
         }
       },
       "featured": {
-        "title": "Circuits au départ de Chivor",
+        "title": "Autres circuits de l’émeraude",
         "viewAll": "Voir toutes les expériences",
         "nextAvailability": "Prochaine disponibilité : {date}. Plus que {count, plural, one {# place} other {# places}}",
         "nextAvailabilityDate": "Prochaine disponibilité : {date}",

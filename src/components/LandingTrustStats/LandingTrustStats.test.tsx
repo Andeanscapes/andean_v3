@@ -22,6 +22,13 @@ describe('LandingTrustStats', () => {
     expect(dl?.getAttribute('aria-labelledby')).toBe('landing-truststats-title');
   });
 
+  it('keeps dt before dd in each group (valid definition list)', () => {
+    const { container } = render(<LandingTrustStats trustStats={TRUST_STATS_FIXTURE} />);
+    for (const group of Array.from(container.querySelectorAll('dl > div'))) {
+      expect(Array.from(group.children).map((child) => child.tagName)).toEqual(['DT', 'DD']);
+    }
+  });
+
   it('renders nothing when items is empty', () => {
     const { container } = render(
       <LandingTrustStats trustStats={{ ...TRUST_STATS_FIXTURE, items: [] }} />,
