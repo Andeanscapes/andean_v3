@@ -104,7 +104,7 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
             href={flagship.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="self-center text-sm font-medium text-white/80 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="inline-flex min-h-11 items-center self-center rounded-md px-2 text-sm font-medium text-white/80 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             data-event="hero_whatsapp_click"
           >
             {strings.askFirstLabel}

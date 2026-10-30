@@ -53,18 +53,17 @@ function AccordionItemView({
     <div
       className={`collapse collapse-arrow ${useJoin ? 'join-item' : ''} border border-base-300 ${itemClassName} ${isOpen ? `collapse-open ${activeItemClassName}` : 'collapse-close'}`.trim()}
     >
-      <h3 className="m-0">
-        <button
-          type="button"
-          id={buttonId}
-          aria-expanded={isOpen}
-          aria-controls={panelId}
-          onClick={() => onToggle(item.id)}
-          className={`collapse-title w-full cursor-pointer text-left font-semibold text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${titleClassName} ${isOpen ? activeTitleClassName : ''}`.trim()}
-        >
-          {item.title}
-        </button>
-      </h3>
+      {/* Must stay a direct child: daisyUI draws the arrow via `.collapse-arrow > .collapse-title`. */}
+      <button
+        type="button"
+        id={buttonId}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        onClick={() => onToggle(item.id)}
+        className={`collapse-title w-full cursor-pointer text-left font-semibold text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary ${titleClassName} ${isOpen ? activeTitleClassName : ''}`.trim()}
+      >
+        {item.title}
+      </button>
       <div
         id={panelId}
         role="region"

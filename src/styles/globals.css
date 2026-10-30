@@ -159,19 +159,10 @@ html {
   }
 }
 
-@media (prefers-reduced-transparency: reduce) {
-  .backdrop-blur-xl,
-  .backdrop-blur-lg,
-  .backdrop-blur-md,
-  .backdrop-blur-sm,
-  .backdrop-blur {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
-
-.eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+/* Eyebrow label. Colour is set per surface: `text-primary` on dark sections,
+   `text-base-content/60` on theme-aware surfaces (primary fails contrast on white). */
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.18em];
 }
 
 

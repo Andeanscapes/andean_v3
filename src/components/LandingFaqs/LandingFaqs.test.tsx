@@ -39,26 +39,29 @@ describe('LandingFaqs progressive disclosure', () => {
     vi.unstubAllEnvs();
   });
 
-  it('shows the first eight questions and reveals the rest on "Show all"', async () => {
+  it('renders every question for crawlers, collapses extras, and focuses the first revealed one', async () => {
     const data = await getLandingDataSSR('en');
     const total = data.faqs.items.length;
     expect(total).toBeGreaterThan(8);
 
-    render(
+    const { container } = render(
       <NextIntlClientProvider locale="en" messages={messages.en} timeZone="UTC">
         <LandingFaqs landingData={data} />
       </NextIntlClientProvider>,
     );
 
-    expect(screen.getAllByRole('button').filter((b) => b.hasAttribute('aria-controls'))).toHaveLength(8);
+    const questionButtons = () =>
+      Array.from(container.querySelectorAll<HTMLButtonElement>('button[aria-controls]'));
+    expect(questionButtons()).toHaveLength(total);
 
-    const showAll = screen.getByRole('button', { name: messages.en.Landing.faqs.showAll });
-    expect(showAll).toHaveAttribute('aria-expanded', 'false');
+    const accordionRoot = questionButtons()[0].closest('.collapse')?.parentElement;
+    expect(accordionRoot?.className).toContain('[&>.collapse:nth-child(n+9)]:hidden');
 
-    fireEvent.click(showAll);
+    fireEvent.click(screen.getByRole('button', { name: messages.en.Landing.faqs.showAll }));
 
-    expect(screen.getAllByRole('button').filter((b) => b.hasAttribute('aria-controls'))).toHaveLength(total);
+    expect(accordionRoot?.className).not.toContain('nth-child(n+9)');
     expect(screen.queryByRole('button', { name: messages.en.Landing.faqs.showAll })).not.toBeInTheDocument();
+    expect(document.activeElement).toBe(questionButtons()[8]);
   });
 });
 

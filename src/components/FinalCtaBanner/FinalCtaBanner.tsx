@@ -58,7 +58,7 @@ function FinalCtaBannerComponent({ landingData, className = '' }: FinalCtaBanner
         containerClassName="flex items-center justify-center px-4 py-20 md:px-6 md:py-28 lg:px-10 lg:py-36"
       >
         <GlassCard className="w-full max-w-2xl rounded-3xl border-white/15 bg-black/35 p-8 text-center backdrop-blur-xl md:p-12">
-          <p className="eyebrow mb-3">
+          <p className="eyebrow mb-3 text-primary">
             {flagship.badge}
           </p>
           <h2 className="text-3xl font-bold tracking-tight leading-tight text-white md:text-4xl lg:text-5xl">

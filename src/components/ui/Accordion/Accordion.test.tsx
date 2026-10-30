@@ -31,6 +31,13 @@ describe('Accordion', () => {
     expect(buttons[1]).toHaveAttribute('aria-expanded', 'false');
   });
 
+  it('keeps the title button a direct child of the collapse so the arrow renders', () => {
+    render(<Accordion items={items} />);
+    const button = screen.getAllByRole('button')[0];
+    expect(button).toHaveClass('collapse-title');
+    expect(button.parentElement).toHaveClass('collapse-arrow');
+  });
+
   it('links each button to its region', () => {
     render(<Accordion items={items} />);
     const button = screen.getAllByRole('button')[0];

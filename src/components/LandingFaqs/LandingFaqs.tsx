@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { LandingContent } from '@/lib/schemas/landing.schema';
@@ -20,6 +20,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
   const { faqs, finalCta, globalCtas } = landingData;
   const t = useTranslations('Landing.faqs');
   const [showAll, setShowAll] = useState(false);
+  const accordionRef = useRef<HTMLDivElement>(null);
 
   const accordionItems = faqs.items.map((item) => ({
     id: item.id,
@@ -27,8 +28,14 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
     content: item.answer,
   }));
 
-  const visibleItems = showAll ? accordionItems : accordionItems.slice(0, INITIAL_FAQ_COUNT);
   const hasHiddenItems = accordionItems.length > INITIAL_FAQ_COUNT;
+
+  // The trigger unmounts on reveal, so hand focus to the first newly shown question.
+  useEffect(() => {
+    if (!showAll) return;
+    const firstRevealed = accordionRef.current?.querySelectorAll<HTMLButtonElement>('button[aria-controls]')[INITIAL_FAQ_COUNT];
+    firstRevealed?.focus();
+  }, [showAll]);
 
   return (
     <SectionContainer
@@ -42,7 +49,7 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
 
       <div className="relative">
         <div className="mb-6 max-w-3xl md:mb-8">
-          <p className="eyebrow mb-3">{faqs.sectionTitle}</p>
+          <p className="eyebrow mb-3 text-primary">{faqs.sectionTitle}</p>
           <h2 id="landing-faqs" className="text-xl font-bold leading-tight text-white md:text-3xl">
             {faqs.title}
           </h2>
@@ -53,11 +60,13 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
 
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.35fr)_360px] lg:items-start">
           <div>
+            {/* All items stay server-rendered for crawlers; extras are only visually collapsed. */}
             <Accordion
-              items={visibleItems}
+              ref={accordionRef}
+              items={accordionItems}
               defaultOpen={[accordionItems[0]?.id ?? '']}
               useJoin={false}
-              className="[&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base"
+              className={`${showAll ? '' : '[&>.collapse:nth-child(n+9)]:hidden'} [&_.collapse]:mb-2.5 [&_.collapse]:overflow-hidden [&_.collapse]:rounded-2xl md:[&_.collapse]:mb-3 md:[&_.collapse]:rounded-3xl [&_.collapse:last-child]:mb-0 [&_.collapse-content]:px-4 [&_.collapse-content]:pb-3 [&_.collapse-content]:text-sm [&_.collapse-content]:font-medium [&_.collapse-content]:leading-snug [&_.collapse-content]:text-white/70 md:[&_.collapse-content]:px-5 md:[&_.collapse-content]:pb-4 md:[&_.collapse-content]:text-base`}
               itemClassName="border border-white/10 bg-slate-900/45 transition-colors duration-200 hover:border-emerald-400/35 active:border-emerald-500/50"
               titleClassName="flex min-h-0 items-center px-4 py-2.5 pr-12 text-base font-medium leading-snug text-white transition-colors duration-200 md:px-5 md:py-3 md:pr-14 md:text-lg"
               contentInnerClassName="max-h-[260px] overflow-y-auto pt-1.5 pr-1 md:max-h-[300px] md:pt-2"
@@ -68,7 +77,6 @@ function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps)
             {hasHiddenItems && !showAll ? (
               <button
                 type="button"
-                aria-expanded={showAll}
                 onClick={() => setShowAll(true)}
                 className="btn btn-outline mt-4 w-full border-white/25 bg-white/5 text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >

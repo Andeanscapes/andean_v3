@@ -45,7 +45,7 @@ function LandingFeaturedExperiencesComponent({ featured, excludeSlug, className 
       <ul
         role="list"
         aria-labelledby="landing-featured-title"
-        className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 md:gap-6 lg:grid-cols-3"
+        className={`-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 md:gap-6 ${items.length >= 3 ? 'lg:grid-cols-3' : ''}`}
       >
         {items.map((experience) => (
           <li key={experience.id} className="w-[80%] shrink-0 snap-start sm:w-auto sm:shrink sm:h-full">

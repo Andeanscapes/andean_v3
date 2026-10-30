@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 const linkClassName =
-    'inline-flex min-h-11 items-center text-sm text-slate-300 transition-colors duration-200 hover:text-primary hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm';
+    'inline-flex min-h-11 items-center rounded-sm text-sm text-base-content/75 underline-offset-4 transition-colors duration-200 hover:text-base-content hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary';
 
 const Footer = ({ flagshipExperiencePath }: FooterProps) => {
     const t = useTranslations('Footer');
@@ -49,7 +49,7 @@ const Footer = ({ flagshipExperiencePath }: FooterProps) => {
                     </div>
 
                     <nav aria-labelledby="footer-territory-heading">
-                        <h3 id="footer-territory-heading" className="eyebrow">{t('territoryEssentials')}</h3>
+                        <h3 id="footer-territory-heading" className="eyebrow text-base-content/60">{t('territoryEssentials')}</h3>
                         <ul className="mt-4 space-y-1">
                             {territoryLinks.map((link) => (
                                 <li key={link.label}>
@@ -62,14 +62,14 @@ const Footer = ({ flagshipExperiencePath }: FooterProps) => {
                     </nav>
 
                     <nav aria-labelledby="footer-allies-heading">
-                        <h3 id="footer-allies-heading" className="eyebrow">{t('allyNetwork')}</h3>
+                        <h3 id="footer-allies-heading" className="eyebrow text-base-content/60">{t('allyNetwork')}</h3>
                         <ul className="mt-4 space-y-1">
                             {allyLinks.map((link) => (
                                 <li key={link.label}>
                                     <Link href={link.href} className={linkClassName}>
                                         {link.label}
                                         {link.isPartner ? (
-                                            <span className="ml-2 rounded-full border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                                            <span className="ml-2 rounded-full border border-primary/40 bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-base-content">
                                                 {t('partner')}
                                             </span>
                                         ) : null}
