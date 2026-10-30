@@ -49,16 +49,7 @@
         "bookingCard": {
           "reserveLabel": "Reserva tu fecha",
           "askFirstLabel": "Pregunta primero",
-          "nextAvailability": "Próxima disponibilidad",
-          "only": "Solo",
-          "spot": "cupo",
-          "spotsLeft": "cupos",
-          "trust": {
-            "deposit": "25% de anticipo",
-            "secure": "Pago seguro",
-            "support": "Inglés y español",
-            "vetted": "Anfitriones verificados"
-          }
+          "nextAvailability": "Próxima disponibilidad"
         }
       },
       "categories": {
@@ -195,7 +186,6 @@
       "location": {
         "title": "Regiones Esmeralderas de Colombia",
         "mapAlt": "Mapa que muestra Bogotá y Chivor, Boyacá, Colombia",
-        "liveNetwork": "Red en vivo",
         "cta": "Planea tu ruta",
         "bullets": {
           "region": "Territorio esmeraldero: Muzo, Coscuez, Chivor y Gachalá",
@@ -230,7 +220,6 @@
     "reviews": {
       "sectionTitle": "Lo que dicen los viajeros",
       "subtitle": "Reseñas de huéspedes verificados en Airbnb.",
-      "eyebrow": "Reseñas de viajeros",
       "outOf5Aria": "de 5",
       "countSuffix": "reseñas",
       "verifiedGuest": "Huésped verificado",
@@ -256,20 +245,10 @@
         "camilo": {
           "comment": "Excelente experiencia, un lugar muy tranquilo con mucho espacio para hacer actividades dentro de las instalaciones. Una conexión con la naturaleza excepcional. Recomendadísimo."
         }
-      },
-      "trustPanel": {
-        "title": "Por qué los viajeros vuelven",
-        "bullets": {
-          "local": "Empresa local. Todos los ingresos se quedan en las comunidades de Boyacá",
-          "reviews": "5.0★ de 5 viajeros verificados",
-          "payment": "Reserva con el 25%, el resto lo pagas al llegar",
-          "support": "Soporte por WhatsApp desde la reserva hasta que te vayas"
-        }
       }
     },
     "faqs": {
       "showAll": "Ver todas las preguntas",
-      "sectionTitle": "Tours privados por los Andes colombianos",
       "title": "Turismo Esmeraldero en Colombia",
       "description": "Nos especializamos en tours privados por los Andes colombianos, con especial enfoque en destinos esmeralderos, patrimonio minero local y experiencias con comunidades.",
       "enquiryTitle": "Planea Tu Tour Privado por los Andes",
@@ -346,13 +325,7 @@
       "subtitle": "Reserva con el 25% hoy. Tu anfitrión local confirma los detalles por WhatsApp.",
       "primaryCta": "Reserva tu experiencia",
       "secondaryCta": "Pregúntanos por WhatsApp primero",
-      "bookAria": "Reserva tu experiencia con Andean Scapes",
-      "badges": {
-        "deposit": "25% de anticipo para confirmar",
-        "secure": "Pago cifrado",
-        "cancellation": "Cancelación gratuita 48h antes",
-        "verified": "Anfitriones verificados"
-      }
+      "bookAria": "Reserva tu experiencia con Andean Scapes"
     },
     "hero": {
       "badge": "Aventura de Minería de Esmeraldas",
@@ -1440,15 +1413,7 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "¡Hola! Estoy interesado en tus servicios para Andean Scapes",
-    "backToTop": "Volver arriba",
     "valueProposition": "Andean Scapes: Aventuras curadas en la Capital Esmeraldera.",
-    "verifiedBySeal": "Verificado por Andean Scapes",
-    "verifiedFiveStarReviews": "Reseñas verificadas de 5 estrellas",
-    "ugcAlt": "Momento de viajero {index}",
-    "supportTitle": "Recibe Soporte",
-    "supportSubtitle": "Elige tu canal de soporte preferido y te conectamos rápido.",
-    "chatWithGuide": "Chatea con un Guía",
-    "emailSupport": "Soporte por Email",
     "startWhatsapp": "Iniciar Chat por WhatsApp",
     "sendEmail": "Enviar Email",
     "territoryEssentials": "Esenciales del Territorio",

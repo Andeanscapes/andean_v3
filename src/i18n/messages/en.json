@@ -49,16 +49,7 @@
         "bookingCard": {
           "reserveLabel": "Reserve your date",
           "askFirstLabel": "Ask questions first",
-          "nextAvailability": "Next availability",
-          "only": "Only",
-          "spot": "spot left",
-          "spotsLeft": "spots left",
-          "trust": {
-            "deposit": "25% deposit",
-            "secure": "Secure payment",
-            "support": "English & Spanish",
-            "vetted": "Vetted hosts"
-          }
+          "nextAvailability": "Next availability"
         }
       },
       "categories": {
@@ -195,7 +186,6 @@
       "location": {
         "title": "Colombia’s Emerald Regions",
         "mapAlt": "Map showing Bogotá and Chivor, Boyacá, Colombia",
-        "liveNetwork": "Live network",
         "cta": "Plan your route",
         "bullets": {
           "region": "Emerald country: Muzo, Coscuez, Chivor and Gachalá",
@@ -230,7 +220,6 @@
     "reviews": {
       "sectionTitle": "What travelers say",
       "subtitle": "Reviews from verified Airbnb guests, translated from Spanish.",
-      "eyebrow": "Traveler reviews",
       "outOf5Aria": "out of 5",
       "countSuffix": "reviews",
       "verifiedGuest": "Verified Guest",
@@ -256,20 +245,10 @@
         "camilo": {
           "comment": "Excellent experience, a very peaceful place with plenty of space for activities within the property. An exceptional connection with nature. Highly recommended."
         }
-      },
-      "trustPanel": {
-        "title": "Why travelers come back",
-        "bullets": {
-          "local": "Locally owned. All revenue stays in Boyacá communities",
-          "reviews": "5.0★ from 5 verified travelers",
-          "payment": "Reserve with 25%, pay the rest on arrival",
-          "support": "WhatsApp support from booking to the day you leave"
-        }
       }
     },
     "faqs": {
       "showAll": "Show all questions",
-      "sectionTitle": "Private tours in Colombia’s Andes",
       "title": "Emerald Tourism in Colombia",
       "description": "We specialize in private tours in the Colombian Andes, with a special focus on emerald destinations, local mining heritage and community-led experiences.",
       "enquiryTitle": "Plan Your Private Andes Tour",
@@ -346,13 +325,7 @@
       "subtitle": "Reserve with 25% today. Your local host confirms details by WhatsApp.",
       "primaryCta": "Reserve your experience",
       "secondaryCta": "Ask us on WhatsApp first",
-      "bookAria": "Reserve your Andean Scapes experience",
-      "badges": {
-        "deposit": "25% deposit to confirm",
-        "secure": "Encrypted payment",
-        "cancellation": "Free cancellation 48h before",
-        "verified": "Vetted hosts"
-      }
+      "bookAria": "Reserve your Andean Scapes experience"
     },
     "hero": {
       "badge": "Emerald Mining Adventure",
@@ -1440,15 +1413,7 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes",
-    "backToTop": "Back to top",
     "valueProposition": "Andean Scapes: Curated Adventures in the Esmeralda Capital.",
-    "verifiedBySeal": "Verified by Andean Scapes",
-    "verifiedFiveStarReviews": "Verified 5-Star Reviews",
-    "ugcAlt": "Traveler moment {index}",
-    "supportTitle": "Get Support",
-    "supportSubtitle": "Choose your preferred support channel and we will connect you fast.",
-    "chatWithGuide": "Chat with a Guide",
-    "emailSupport": "Email Support",
     "startWhatsapp": "Start WhatsApp Chat",
     "sendEmail": "Send Email",
     "territoryEssentials": "Territory Essentials",

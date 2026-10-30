@@ -6,7 +6,6 @@ import { ArrowRight, Clock3, MapPin, CalendarCheck } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { formatDayMonth } from '@/utils/dateFormatters';
 import type { LandingFlagshipContent, LandingHeroBrandContent } from '@/lib/schemas/landing.schema';
-import { PackageTagBadges } from '@/components/ui/PackageTagBadges/PackageTagBadges';
 
 type BookingCardStrings = LandingHeroBrandContent['bookingCard'] & {
   duration: string;
@@ -54,7 +53,6 @@ function LandingHeroBookingCardComponent({ flagship, bookingUrl, strings, classN
           {flagship.title}
         </h3>
 
-        <PackageTagBadges tags={flagship.packageTags} className="mt-2" />
 
         {/* Meta row */}
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/75 md:text-sm">

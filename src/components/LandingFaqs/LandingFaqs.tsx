@@ -13,6 +13,7 @@ interface LandingFaqsProps {
   className?: string;
 }
 
+// Keep in sync with the `nth-child(n+9)` selector below (Tailwind needs a static class).
 const INITIAL_FAQ_COUNT = 8;
 
 function LandingFaqsComponent({ landingData, className = '' }: LandingFaqsProps) {

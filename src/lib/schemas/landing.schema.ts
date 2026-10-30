@@ -115,12 +115,6 @@ export const LandingFaqMockSchema = z.object({
   answerKey: z.string(),
 });
 
-export const LandingTrustBulletMockSchema = z.object({
-  id: z.string(),
-  iconName: z.string(),
-  textKey: z.string(),
-});
-
 // ── Brand-level mock schemas (new landing structure) ─────────────────────────
 
 export const LandingHeroBrandMockSchema = z.object({
@@ -138,14 +132,7 @@ export const LandingHeroBrandMockSchema = z.object({
   bookingCard: z.object({
     reserveLabelKey: z.string(),
     askFirstLabelKey: z.string(),
-    trustDepositKey: z.string(),
-    trustSecureKey: z.string(),
-    trustSupportKey: z.string(),
-    trustVettedKey: z.string(),
     nextAvailabilityLabelKey: z.string(),
-    onlyLabelKey: z.string(),
-    spotLabelKey: z.string(),
-    spotsLeftLabelKey: z.string(),
   }),
   /**
    * Optional: no v2 feed source and no mounted consumer. `LandingHeroBrand`
@@ -310,17 +297,12 @@ export const LandingFeedSchema = z.object({
     sectionTitleKey: z.string(),
     subtitleKey: z.string(),
     items: z.array(LandingReviewMockSchema),
-    trustPanel: z.object({
-      titleKey: z.string(),
-      bullets: z.array(LandingTrustBulletMockSchema),
-    }),
     aggregateRating: z.object({
       ratingValue: z.number(),
       reviewCount: z.number(),
     }),
   }),
   faqs: z.object({
-    sectionTitleKey: z.string(),
     titleKey: z.string(),
     descriptionKey: z.string(),
     items: z.array(LandingFaqMockSchema),
@@ -334,11 +316,6 @@ export const LandingFeedSchema = z.object({
     primaryCtaLabelKey: z.string(),
     primaryCtaHref: z.string(),
     secondaryCtaLabelKey: z.string(),
-    trustBadges: z.array(z.object({
-      id: z.string(),
-      iconName: z.string(),
-      labelKey: z.string(),
-    })),
   }),
 });
 
@@ -438,14 +415,7 @@ export const LandingContentSchema = z.object({
     bookingCard: z.object({
       reserveLabel: z.string(),
       askFirstLabel: z.string(),
-      trustDeposit: z.string(),
-      trustSecure: z.string(),
-      trustSupport: z.string(),
-      trustVetted: z.string(),
       nextAvailabilityLabel: z.string(),
-      onlyLabel: z.string(),
-      spotLabel: z.string(),
-      spotsLeftLabel: z.string(),
     }),
     search: z.object({
       destinations: z.array(z.object({ value: z.string(), label: z.string() })),
@@ -577,25 +547,15 @@ export const LandingContentSchema = z.object({
   reviews: z.object({
     sectionTitle: z.string(),
     subtitle: z.string(),
-    eyebrow: z.string(),
     outOf5Aria: z.string(),
     countSuffix: z.string(),
     items: z.array(LandingReviewContentSchema),
-    trustPanel: z.object({
-      title: z.string(),
-      bullets: z.array(z.object({
-        id: z.string(),
-        iconName: z.string(),
-        text: z.string(),
-      })),
-    }),
     aggregateRating: z.object({
       ratingValue: z.number(),
       reviewCount: z.number(),
     }),
   }),
   faqs: z.object({
-    sectionTitle: z.string(),
     title: z.string(),
     description: z.string(),
     items: z.array(LandingFaqContentSchema),
@@ -610,11 +570,6 @@ export const LandingContentSchema = z.object({
     primaryCtaLabel: z.string(),
     primaryCtaHref: z.string(),
     secondaryCtaLabel: z.string(),
-    trustBadges: z.array(z.object({
-      id: z.string(),
-      iconName: z.string(),
-      label: z.string(),
-    })),
   }),
 });
 

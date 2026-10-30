@@ -179,14 +179,6 @@ function toReviews(feed: LandingFeedV2): LandingFeed['reviews'] {
     sectionTitleKey: S.reviews.sectionTitleKey,
     subtitleKey: S.reviews.subtitleKey,
     items,
-    trustPanel: {
-      titleKey: S.reviews.trustPanel.titleKey,
-      bullets: S.reviews.trustPanel.bullets.map((bullet) => ({
-        id: bullet.id,
-        iconName: bullet.iconName,
-        textKey: bullet.textKey,
-      })),
-    },
     aggregateRating: {
       ratingValue: feed.reviewSummary.rating,
       reviewCount: feed.reviewSummary.count,
@@ -308,7 +300,6 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     },
     reviews: toReviews(feed),
     faqs: {
-      sectionTitleKey: S.faqs.sectionTitleKey,
       titleKey: S.faqs.titleKey,
       descriptionKey: S.faqs.descriptionKey,
       enquiryTitleKey: S.faqs.enquiryTitleKey,
@@ -326,7 +317,6 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       primaryCtaLabelKey: S.finalCta.primaryCtaLabelKey,
       primaryCtaHref: S.finalCta.primaryCtaHref,
       secondaryCtaLabelKey: S.finalCta.secondaryCtaLabelKey,
-      trustBadges: S.finalCta.trustBadges.map((badge) => ({ ...badge })),
     },
   };
 }

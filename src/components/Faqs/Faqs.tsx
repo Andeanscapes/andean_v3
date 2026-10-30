@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Accordion } from '@/components/ui/Accordion/Accordion';
@@ -20,18 +20,6 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
   const t = useTranslations();
   const { config, whatsappLink, heroContent } = experienceData;
   const bgImageUrl = heroContent?.backgroundImageUrl;
-
-  const handleSupportClick = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const supportModule = document.getElementById('support-module');
-    if (supportModule) {
-      supportModule.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-
-    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
-  }, [whatsappLink]);
 
   const faqItems = getExperienceFaqKeys(config.id).map((faq) => ({
     id: faq.id,
@@ -110,8 +98,9 @@ function FaqsComponent({ className = '', experienceData }: FaqsProps) {
                     </span>
                   </PrimaryCtaButton>
                   <a
-                    href="#support-module"
-                    onClick={handleSupportClick}
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-lg btn-outline w-full border-white/25 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 hover:brightness-110 hover:shadow-[0_0_20px_rgba(255,255,255,0.14)]"
                   >
                     <span className="inline-flex items-center gap-2">

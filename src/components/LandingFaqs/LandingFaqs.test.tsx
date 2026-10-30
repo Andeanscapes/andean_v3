@@ -55,6 +55,7 @@ describe('LandingFaqs progressive disclosure', () => {
     expect(questionButtons()).toHaveLength(total);
 
     const accordionRoot = questionButtons()[0].closest('.collapse')?.parentElement;
+    // The CSS selector hides from item INITIAL_FAQ_COUNT + 1 (8 → n+9).
     expect(accordionRoot?.className).toContain('[&>.collapse:nth-child(n+9)]:hidden');
 
     fireEvent.click(screen.getByRole('button', { name: messages.en.Landing.faqs.showAll }));

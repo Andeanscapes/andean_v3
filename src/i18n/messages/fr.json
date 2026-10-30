@@ -49,16 +49,7 @@
         "bookingCard": {
           "reserveLabel": "Réservez votre date",
           "askFirstLabel": "Posez vos questions",
-          "nextAvailability": "Prochaine disponibilité",
-          "only": "Seulement",
-          "spot": "place restante",
-          "spotsLeft": "places restantes",
-          "trust": {
-            "deposit": "25% d'acompte",
-            "secure": "Paiement sécurisé",
-            "support": "Anglais et espagnol",
-            "vetted": "Hôtes vérifiés"
-          }
+          "nextAvailability": "Prochaine disponibilité"
         }
       },
       "categories": {
@@ -195,7 +186,6 @@
       "location": {
         "title": "Régions colombiennes de l’émeraude",
         "mapAlt": "Carte montrant Bogotá et Chivor, Boyacá, Colombie",
-        "liveNetwork": "Réseau en direct",
         "cta": "Planifiez votre itinéraire",
         "bullets": {
           "region": "Région de l’émeraude : Muzo, Coscuez, Chivor et Gachalá",
@@ -230,7 +220,6 @@
     "reviews": {
       "sectionTitle": "Ce que disent les voyageurs",
       "subtitle": "Avis de voyageurs vérifiés sur Airbnb, traduits de l'espagnol.",
-      "eyebrow": "Avis de voyageurs",
       "outOf5Aria": "sur 5",
       "countSuffix": "avis",
       "verifiedGuest": "Invité vérifié",
@@ -256,20 +245,10 @@
         "camilo": {
           "comment": "Excellente expérience, un endroit très tranquille avec beaucoup d'espace pour faire des activités sur place. Une connexion exceptionnelle avec la nature. Très recommandé."
         }
-      },
-      "trustPanel": {
-        "title": "Pourquoi les voyageurs reviennent",
-        "bullets": {
-          "local": "Entreprise locale. Tous les revenus restent dans les communautés de Boyacá",
-          "reviews": "5,0★ de 5 voyageurs vérifiés",
-          "payment": "Réservez avec 25 %, payez le reste à l’arrivée",
-          "support": "Support WhatsApp de la réservation jusqu'au jour de votre départ"
-        }
       }
     },
     "faqs": {
       "showAll": "Voir toutes les questions",
-      "sectionTitle": "Circuits privés dans les Andes colombiennes",
       "title": "Tourisme de l’Émeraude en Colombie",
       "description": "Nous sommes spécialisés dans les circuits privés dans les Andes colombiennes, avec un intérêt particulier pour les régions de l’émeraude, le patrimoine minier et les communautés locales.",
       "enquiryTitle": "Préparez Votre Circuit Privé dans les Andes",
@@ -346,13 +325,7 @@
       "subtitle": "Réservez avec 25% aujourd'hui. Votre hôte local confirme les détails par WhatsApp.",
       "primaryCta": "Réservez votre expérience",
       "secondaryCta": "Posez-nous vos questions sur WhatsApp",
-      "bookAria": "Réservez votre expérience Andean Scapes",
-      "badges": {
-        "deposit": "25% d'acompte pour confirmer",
-        "secure": "Paiement chiffré",
-        "cancellation": "Annulation gratuite 48h avant",
-        "verified": "Hôtes vérifiés"
-      }
+      "bookAria": "Réservez votre expérience Andean Scapes"
     },
     "hero": {
       "badge": "Aventure Minière d'Émeraudes",
@@ -1440,15 +1413,7 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Bonjour! Je suis intéressé par vos services pour Andean Scapes",
-    "backToTop": "Retour en haut",
     "valueProposition": "Andean Scapes: Aventures curatoriales dans la Capitale de l'Émeraude.",
-    "verifiedBySeal": "Vérifié par Andean Scapes",
-    "verifiedFiveStarReviews": "Avis vérifiés 5 étoiles",
-    "ugcAlt": "Moment voyageur {index}",
-    "supportTitle": "Obtenir de l'Aide",
-    "supportSubtitle": "Choisissez votre canal d'assistance préféré et nous vous connectons rapidement.",
-    "chatWithGuide": "Parler avec un Guide",
-    "emailSupport": "Support Email",
     "startWhatsapp": "Démarrer le Chat WhatsApp",
     "sendEmail": "Envoyer un Email",
     "territoryEssentials": "Essentiels du Territoire",

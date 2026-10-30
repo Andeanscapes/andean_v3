@@ -57,12 +57,10 @@ export default function LandingFeaturedExperienceCard({ experience }: Props) {
       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-r from-emerald-950/10 via-emerald-500/10 to-emerald-950/10 md:h-52">
         <CardImageCarousel images={experience.images} title={experience.title} hovered={hovered} />
         <div className="pointer-events-none absolute inset-0 bg-black/20" aria-hidden="true" />
-        {experience.mineBadge || experience.planBadge || experience.privateBadge ? (
-          <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
-            <div className="flex flex-wrap items-start gap-1.5">
-              {experience.mineBadge ? <MineBadge label={experience.mineBadge.label} /> : null}
-              {experience.privateBadge ? <PrivateBadge label={experience.privateBadge.label} /> : null}
-            </div>
+        {experience.mineBadge || experience.privateBadge ? (
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex flex-wrap items-start gap-1.5">
+            {experience.mineBadge ? <MineBadge label={experience.mineBadge.label} /> : null}
+            {experience.privateBadge ? <PrivateBadge label={experience.privateBadge.label} /> : null}
           </div>
         ) : null}
       </div>

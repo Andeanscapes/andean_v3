@@ -21,7 +21,7 @@ export default function LandingHeroBrandTrustChips({ trustChips, className = '' 
         return (
           <li
             key={chip.id}
-            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm md:text-sm"
+            className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-white/25 bg-black/30 px-3 py-1.5 text-xs font-medium text-white md:text-sm"
           >
             {Icon ? <Icon className="h-3.5 w-3.5 md:h-4 md:w-4" aria-hidden="true" /> : null}
             <span>{chip.label}</span>

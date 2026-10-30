@@ -81,7 +81,6 @@ export function toLandingReviewsContent(
   return {
     sectionTitle: t(reviews.sectionTitleKey),
     subtitle: t(reviews.subtitleKey),
-    eyebrow: t('Landing.reviews.eyebrow'),
     outOf5Aria: t('Landing.reviews.outOf5Aria'),
     countSuffix: t('Landing.reviews.countSuffix'),
     items: reviews.items.map((item) => ({
@@ -96,14 +95,6 @@ export function toLandingReviewsContent(
       verifiedExperience: item.verifiedExperienceKey ? t(item.verifiedExperienceKey) : undefined,
       sourceUrl: item.sourceUrl,
     })),
-    trustPanel: {
-      title: t(reviews.trustPanel.titleKey),
-      bullets: reviews.trustPanel.bullets.map((b) => ({
-        id: b.id,
-        iconName: b.iconName,
-        text: t(b.textKey),
-      })),
-    },
     aggregateRating: reviews.aggregateRating,
   };
 }
@@ -115,7 +106,6 @@ export function toLandingFaqsContent(
   t: Translator,
 ): LandingContent['faqs'] {
   return {
-    sectionTitle: t(raw.faqs.sectionTitleKey),
     title: t(raw.faqs.titleKey),
     description: t(raw.faqs.descriptionKey),
     enquiryTitle: t(raw.faqs.enquiryTitleKey),
@@ -143,11 +133,6 @@ export function toLandingFinalCtaContent(
     primaryCtaLabel: t(finalCta.primaryCtaLabelKey),
     primaryCtaHref: finalCta.primaryCtaHref,
     secondaryCtaLabel: t(finalCta.secondaryCtaLabelKey),
-    trustBadges: finalCta.trustBadges.map((b) => ({
-      id: b.id,
-      iconName: b.iconName,
-      label: t(b.labelKey),
-    })),
   };
 }
 
@@ -176,14 +161,7 @@ export function toLandingHeroBrandContent(
     bookingCard: {
       reserveLabel: t(heroBrand.bookingCard.reserveLabelKey),
       askFirstLabel: t(heroBrand.bookingCard.askFirstLabelKey),
-      trustDeposit: t(heroBrand.bookingCard.trustDepositKey),
-      trustSecure: t(heroBrand.bookingCard.trustSecureKey),
-      trustSupport: t(heroBrand.bookingCard.trustSupportKey),
-      trustVetted: t(heroBrand.bookingCard.trustVettedKey),
       nextAvailabilityLabel: t(heroBrand.bookingCard.nextAvailabilityLabelKey),
-      onlyLabel: t(heroBrand.bookingCard.onlyLabelKey),
-      spotLabel: t(heroBrand.bookingCard.spotLabelKey),
-      spotsLeftLabel: t(heroBrand.bookingCard.spotsLeftLabelKey),
     },
     search: heroBrand.search
       ? {

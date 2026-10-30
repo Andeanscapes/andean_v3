@@ -70,6 +70,15 @@ describe('LandingFeaturedExperienceCard', () => {
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
+  it('renders no badge overlay when only a plan badge is present', () => {
+    const { container } = renderWithIntl(
+      <LandingFeaturedExperienceCard
+        experience={{ ...FIRST, mineBadge: undefined, privateBadge: undefined }}
+      />,
+    );
+    expect(container.querySelector('.top-3.z-10')).toBeNull();
+  });
+
   it('renders the mine badge over the image and no plan badge', () => {
     renderWithIntl(<LandingFeaturedExperienceCard experience={FIRST} />);
     expect(screen.getByText('Chivor')).toHaveClass('uppercase');

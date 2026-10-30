@@ -34,14 +34,7 @@ export const LANDING_STRUCTURE = {
     bookingCard: {
       reserveLabelKey: 'Landing.brand.hero.bookingCard.reserveLabel',
       askFirstLabelKey: 'Landing.brand.hero.bookingCard.askFirstLabel',
-      trustDepositKey: 'Landing.brand.hero.bookingCard.trust.deposit',
-      trustSecureKey: 'Landing.brand.hero.bookingCard.trust.secure',
-      trustSupportKey: 'Landing.brand.hero.bookingCard.trust.support',
-      trustVettedKey: 'Landing.brand.hero.bookingCard.trust.vetted',
       nextAvailabilityLabelKey: 'Landing.brand.hero.bookingCard.nextAvailability',
-      onlyLabelKey: 'Landing.brand.hero.bookingCard.only',
-      spotLabelKey: 'Landing.brand.hero.bookingCard.spot',
-      spotsLeftLabelKey: 'Landing.brand.hero.bookingCard.spotsLeft',
     },
   },
 
@@ -182,7 +175,6 @@ export const LANDING_STRUCTURE = {
   },
 
   faqs: {
-    sectionTitleKey: 'Landing.faqs.sectionTitle',
     titleKey: 'Landing.faqs.title',
     descriptionKey: 'Landing.faqs.description',
     enquiryTitleKey: 'Landing.faqs.enquiryTitle',
@@ -215,26 +207,11 @@ export const LANDING_STRUCTURE = {
     primaryCtaLabelKey: 'Landing.finalCta.primaryCta',
     primaryCtaHref: '/experiences',
     secondaryCtaLabelKey: 'Landing.finalCta.secondaryCta',
-    trustBadges: [
-      { id: 'deposit', iconName: 'CreditCard', labelKey: 'Landing.finalCta.badges.deposit' },
-      { id: 'secure', iconName: 'Lock', labelKey: 'Landing.finalCta.badges.secure' },
-      { id: 'cancellation', iconName: 'Calendar', labelKey: 'Landing.finalCta.badges.cancellation' },
-      { id: 'verified', iconName: 'BadgeCheck', labelKey: 'Landing.finalCta.badges.verified' },
-    ],
   },
 
   reviews: {
     sectionTitleKey: 'Landing.reviews.sectionTitle',
     subtitleKey: 'Landing.reviews.subtitle',
-    trustPanel: {
-      titleKey: 'Landing.reviews.trustPanel.title',
-      bullets: [
-        { id: 'local', iconName: 'Home', textKey: 'Landing.reviews.trustPanel.bullets.local' },
-        { id: 'reviews', iconName: 'Star', textKey: 'Landing.reviews.trustPanel.bullets.reviews' },
-        { id: 'payment', iconName: 'CreditCard', textKey: 'Landing.reviews.trustPanel.bullets.payment' },
-        { id: 'support', iconName: 'MessageCircle', textKey: 'Landing.reviews.trustPanel.bullets.support' },
-      ],
-    },
   },
 } as const;
 

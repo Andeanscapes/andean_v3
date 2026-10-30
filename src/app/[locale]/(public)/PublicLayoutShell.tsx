@@ -12,6 +12,17 @@ interface PublicLayoutShellProps {
     flagshipExperiencePath: string;
 }
 
+/**
+ * Bottom padding reserved below `<main>`.
+ * `usePathname` from `@/i18n/navigation` is locale-free, so `/` matches every locale.
+ */
+function getMainPaddingClass(pathname: string | null): string {
+    if (pathname?.includes('/experiences/')) return 'pb-0';
+    // Landing reserves space only for its mobile sticky bar (md:hidden).
+    if (pathname === '/') return 'pb-24 md:pb-0';
+    return 'pb-24 lg:pb-30';
+}
+
 const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShellProps) => {
     const variant = "transparent-V2" as const;
     const [isSticky, setIsSticky] = useState(false);
@@ -19,9 +30,7 @@ const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShe
     const pathname = usePathname();
     
     const isExperiencesPage = pathname?.includes('/experiences/');
-    // Landing reserves space only for its mobile sticky bar (md:hidden); desktop flows straight into the footer.
-    const isLandingPage = pathname === '/';
-    const mainPaddingClass = isExperiencesPage ? 'pb-0' : isLandingPage ? 'pb-24 md:pb-0' : 'pb-24 lg:pb-30';
+    const mainPaddingClass = getMainPaddingClass(pathname);
 
     useEffect(() => {
         const handleScroll = () => {
