@@ -189,6 +189,12 @@ Avoid:
 - Respect `prefers-reduced-motion` and data-saver constraints.
 - Keep Cloudflare-friendly caching and preload behavior aligned with the current implementation.
 
+### Motion and interaction
+- The `apple-design` skill is guidance only; this file and the existing design system win on any conflict.
+- Implement motion with CSS transitions/animations and existing primitives.
+- Do not add animation libraries (e.g. `motion`, `framer-motion`) without explicit approval.
+- Under `prefers-reduced-motion`, replace slides, scales and loops with a short cross-fade or a static state; do not remove the feedback itself.
+
 ---
 
 ## Remote Data Layer
