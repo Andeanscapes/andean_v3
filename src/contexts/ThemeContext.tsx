@@ -19,21 +19,19 @@ export function ThemeProvider({
   children: React.ReactNode;
 }) {
   const [theme, setThemeState] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    // Get theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    if (savedTheme) {
-      setThemeState(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const defaultTheme = prefersDark ? 'dark' : 'light';
-      setThemeState(defaultTheme);
-      document.documentElement.setAttribute('data-theme', defaultTheme);
-    }
+    // THEME_INIT_SCRIPT already set <html data-theme> before paint; adopt it so
+    // React state matches what is on screen. Fallback for when the script failed.
+    const fromDom = document.documentElement.getAttribute('data-theme');
+    const resolved: Theme =
+      fromDom === 'light' || fromDom === 'dark'
+        ? fromDom
+        : window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+    setThemeState(resolved);
+    document.documentElement.setAttribute('data-theme', resolved);
   }, []);
 
   const toggleTheme = () => {
@@ -50,10 +48,6 @@ export function ThemeProvider({
     localStorage.setItem('theme', newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
   };
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider

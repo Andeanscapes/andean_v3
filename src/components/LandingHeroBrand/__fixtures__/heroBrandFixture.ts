@@ -24,14 +24,7 @@ export const HERO_BRAND_FIXTURE: LandingHeroBrandContent = {
   bookingCard: {
     reserveLabel: 'Reserve your date',
     askFirstLabel: 'Ask questions first',
-    trustDeposit: '15% deposit',
-    trustSecure: 'Secure payment',
-    trustSupport: 'English & Spanish',
-    trustVetted: 'Vetted hosts',
     nextAvailabilityLabel: 'Next availability',
-    onlyLabel: 'Only',
-    spotLabel: 'spot',
-    spotsLeftLabel: 'spots left',
   },
   search: {
     destinationLabel: 'Destination',

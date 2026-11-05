@@ -16,17 +16,26 @@ import {
 } from '@/hooks/experiences/useReservationContext';
 import { buildReservationSchema, resolveReservationError } from '@/utils/validationSchemas';
 import type { ExperienceConfig, TransportOption } from '@/lib/schemas';
+import type { CheckoutResponse } from '@/lib/schemas/payment.schema';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { formatMoney } from '@/utils/formatCurrency';
 
 interface MobileStickyDockProps {
   config: ExperienceConfig;
   transportOptions: TransportOption[];
+  /** A deposit is approved, pending, or open in another tab: block a second payment. */
+  paymentLocked?: boolean;
+  onCheckoutStarted?: (checkout: CheckoutResponse) => void;
 }
 
-export function MobileStickyDock({ config, transportOptions }: MobileStickyDockProps) {
+export function MobileStickyDock({
+  config,
+  transportOptions,
+  paymentLocked = false,
+  onCheckoutStarted,
+}: MobileStickyDockProps) {
   const t = useTranslations('experiences.ui');
-  const { isValid, state } = useReservationValidation();
+  const { isValid, isTierMissing, state } = useReservationValidation();
   const { total, depositAmount } = useReservationPricing();
   const { selectedDateLabel } = useReservationDate();
   const { selectedTierId } = useReservationTier();
@@ -34,7 +43,7 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
   const { peopleCount, roomSelections } = useReservationRooms();
   const roomModes = useReservationRoomModes();
   const { transportMode } = useReservationTransport();
-  const { createLink, loading, error } = useMercadoPagoLink(config.id);
+  const { createLink, loading, error } = useMercadoPagoLink(config.id, onCheckoutStarted);
   const { currentLocale } = useLanguageContext();
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -101,12 +110,13 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
 
   const missingStep = useMemo(() => {
     if (!state.selectedDateId) return t('mobileDockMissingDate');
+    if (isTierMissing) return t('mobileDockMissingStay');
     if (state.peopleCount < 1 || state.roomSelections.length === 0) return t('mobileDockMissingRooms');
     if (!state.transportMode) return t('mobileDockMissingTransport');
     if (state.contact.name.length < 2 || state.contact.phone.length < 7) return t('mobileDockMissingContact');
     if (!state.termsAccepted) return t('mobileDockMissingTerms');
     return null;
-  }, [state, t]);
+  }, [state, isTierMissing, t]);
 
   const summaryParts = [
     selectedDateLabel,
@@ -145,24 +155,25 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
       }`}
       style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.5)' }}
     >
-      <div className="border-t border-white/10 bg-black/[0.88] px-4 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] backdrop-blur-xl">
+      {/* Collapsed height is mirrored by getBottomBarSpacerClass in PublicLayoutShell (footer clearance); update both together. */}
+      <div className="border-t border-white/10 bg-zinc-950 px-4 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+0.75rem)]">
         <button
           type="button"
           onClick={() => setIsExpanded((value) => !value)}
-          className="mb-2 flex w-full items-center justify-between gap-3 rounded-2xl border border-white/15 bg-slate-900/45 px-3 py-2 text-left shadow-[0_12px_36px_rgba(0,0,0,0.28)] backdrop-blur-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+          className="mb-2 flex min-h-11 w-full items-center justify-between gap-3 rounded-2xl border border-white/15 bg-slate-900/45 px-3 py-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           aria-expanded={isExpanded}
           aria-controls="mobile-booking-summary"
           tabIndex={isVisible ? 0 : -1}
         >
           <span className="min-w-0 flex-1">
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+            <span className="block text-xs font-medium text-white/75">
               {t('mobileDockSummaryLabel')}
             </span>
             <span className="block truncate text-xs font-medium text-white/90">
               {summaryText}
             </span>
           </span>
-          <span className="shrink-0 text-[11px] font-semibold text-primary">
+          <span className="shrink-0 text-[11px] font-semibold text-emerald-400">
             {isExpanded ? t('mobileDockHideDetails') : t('mobileDockViewDetails')}
           </span>
         </button>
@@ -170,28 +181,28 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
         {isExpanded && (
           <div
             id="mobile-booking-summary"
-            className="mb-2 max-h-[45vh] overflow-y-auto rounded-2xl border border-white/15 bg-slate-900/95 p-3 text-sm text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-2xl"
+            className="mb-2 max-h-[45vh] overflow-y-auto rounded-2xl border border-white/15 bg-slate-900/95 p-3 text-sm text-white"
           >
             <dl className="grid grid-cols-[88px_1fr] gap-x-3 gap-y-2">
-              <dt className="text-white/50">{t('mobileDockDate')}</dt>
+              <dt className="text-white/75">{t('mobileDockDate')}</dt>
               <dd className="font-medium text-white">{selectedDateLabel ?? t('mobileDockNotSelected')}</dd>
 
-              <dt className="text-white/50">{t('mobileDockPeople')}</dt>
+              <dt className="text-white/75">{t('mobileDockPeople')}</dt>
               <dd className="font-medium text-white">
                 {peopleCount > 0 ? t('mobileDockPeopleSummary', { count: peopleCount }) : t('mobileDockNotSelected')}
               </dd>
 
               {config.numberOfNights > 0 && (
                 <>
-                  <dt className="text-white/50">{t('mobileDockStay')}</dt>
+                  <dt className="text-white/75">{t('mobileDockStay')}</dt>
                   <dd className="truncate font-medium text-white">{selectedTier?.tierLabel ?? t('mobileDockNotSelected')}</dd>
 
-                  <dt className="text-white/50">{t('mobileDockRoom')}</dt>
+                  <dt className="text-white/75">{t('mobileDockRoom')}</dt>
                   <dd className="font-medium text-white">{roomSummary ?? t('mobileDockNotSelected')}</dd>
                 </>
               )}
 
-              <dt className="text-white/50">{t('mobileDockTransport')}</dt>
+              <dt className="text-white/75">{t('mobileDockTransport')}</dt>
               <dd className="font-medium text-white">{selectedTransport ?? t('mobileDockNotSelected')}</dd>
             </dl>
 
@@ -219,11 +230,11 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
         <div className="flex items-center gap-3">
           {/* Left: deposit amount with roll animation on change */}
           <div className="flex-1 min-w-0">
-            <p className="text-[11px] text-white/50 leading-none mb-0.5">
+            <p className="text-[11px] text-white/75 leading-none mb-0.5">
               {t('payTodayLabel')} ({config.depositPercent}%)
             </p>
             <p
-              className={`text-base font-bold text-primary tabular-nums transition-all duration-200 ${
+              className={`text-base font-bold text-emerald-400 tabular-nums transition-all duration-200 ${
                 priceAnimated ? 'scale-110 opacity-75' : 'scale-100 opacity-100'
               }`}
             >
@@ -234,9 +245,9 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
           {/* Right: compact pay button */}
           <Button
             onClick={handlePayment}
-            disabled={!isVisible || !isValid || loading}
+            disabled={!isVisible || !isValid || loading || paymentLocked}
             tabIndex={isVisible ? 0 : -1}
-            className="btn-primary min-h-[48px] px-5 shrink-0 shadow-lg hover:shadow-[0_0_15px_rgba(0,168,107,0.4)] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary/60 disabled:opacity-60 transition-all duration-200"
+            className="btn-primary min-h-[48px] px-5 shrink-0 shadow-lg active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-emerald-400 disabled:opacity-60 transition-all duration-200"
           >
             {loading ? (
               <span className="loading loading-spinner loading-sm" />
@@ -246,14 +257,8 @@ export function MobileStickyDock({ config, transportOptions }: MobileStickyDockP
           </Button>
         </div>
 
-        <p className="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/50">
-          <span className="relative inline-flex h-1.5 w-1.5 shrink-0">
-            <span
-              className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60"
-              style={{ animationDuration: '1.8s' }}
-            />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-          </span>
+        <p className="mt-2 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/75">
+          <span className="inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden="true" />
           {missingStep ?? t('mobileDockTrustLine')}
         </p>
       </div>

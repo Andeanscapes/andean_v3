@@ -29,6 +29,16 @@ const MOCK_AVAILABLE_DATES: AvailableDate[] = [
 ];
 
 describe('DateSelector', () => {
+  it('explains when a shared link named a date that is no longer available', () => {
+    render(<DateSelector availableDates={MOCK_AVAILABLE_DATES} sharedDateUnavailable />);
+    expect(screen.getByRole('status')).toHaveTextContent('La fecha de este enlace ya no está disponible');
+  });
+
+  it('shows no shared-date notice by default', () => {
+    render(<DateSelector availableDates={MOCK_AVAILABLE_DATES} />);
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+  });
+
   it('renders title', () => {
     render(<DateSelector availableDates={MOCK_AVAILABLE_DATES} />);
     expect(screen.getByText('Fechas disponibles')).toBeInTheDocument();
@@ -64,6 +74,8 @@ describe('DateSelector', () => {
     const dateButtons = screen.getAllByRole('button');
     await user.click(dateButtons[0]);
 
-    expect(dateButtons[0]).toHaveClass('bg-primary/10');
+    expect(dateButtons[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(dateButtons[0]).toHaveClass('border-primary');
+    expect(dateButtons[1]).toHaveAttribute('aria-pressed', 'false');
   });
 });

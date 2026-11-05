@@ -18,9 +18,9 @@
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { FOOTER_TRUST_GALLERY } from '../../src/constant/SiteConfig';
+import { FOOTER_TRUST_GALLERY, HOST_PORTRAIT, TRAVELER_SEGMENT_IMAGES } from '../../src/constant/SiteConfig';
 import { resolveMediaUrl } from '../../src/utils/mediaUrl';
-import { getResponsiveImageSrc, hasImageExtension } from '../../src/utils/responsiveImage';
+import { getResponsiveImageSrc, hasImageExtension, isAvifHeroKey, toAvifKey } from '../../src/utils/responsiveImage';
 import { readLength } from './cdn';
 
 const REPO_ROOT = path.resolve(__dirname, '../..');
@@ -204,6 +204,8 @@ export function discoverHeroVariants(
  *   experiences[].media.card    `LandingFeaturedExperienceCard`
  *   experiences[].media.gallery `CardImageCarousel`
  *   FOOTER_TRUST_GALLERY        `Footer`, app-owned and absent from the feed
+ *   HOST_PORTRAIT               `LandingWhyUs`, app-owned and absent from the feed
+ *   TRAVELER_SEGMENT_IMAGES     `LandingTravelerSegments`, app-owned and absent from the feed
  *
  * `experiences[].media.hero` is deliberately **excluded**: `LandingPage` does not
  * mount `ExperienceHero`, so nothing on this page renders it through `<picture>`
@@ -220,7 +222,7 @@ export function landingResponsiveMediaKeys(landing: {
   };
   experiences: readonly { media: { card: string; gallery?: readonly string[] } }[];
 }): string[] {
-  const keys: string[] = [...FOOTER_TRUST_GALLERY];
+  const keys: string[] = [...FOOTER_TRUST_GALLERY, HOST_PORTRAIT, ...Object.values(TRAVELER_SEGMENT_IMAGES)];
 
   if (landing.media) {
     keys.push(
@@ -241,20 +243,23 @@ export function landingResponsiveMediaKeys(landing: {
 /**
  * Every media key `/experiences` renders through `<picture>`.
  *
+ *   hero                        `ExperienceReservation/ExperienceHero` (HeroPicture)
  *   experiences[].card.image    `ExperienceCardImage`
  *   experiences[].card.gallery  `CardImageCarousel` (via `ExperienceCardImage`)
  *
  * Only published entries: drafts are filtered out before render.
  */
 export function listResponsiveMediaKeys(list: {
+  hero?: string;
   experiences: readonly {
     status: string;
     card: { image: string; gallery?: readonly string[] };
   }[];
 }): string[] {
-  return list.experiences
+  const cards = list.experiences
     .filter((entry) => entry.status === 'published')
     .flatMap((entry) => [entry.card.image, ...(entry.card.gallery ?? [])]);
+  return list.hero ? [list.hero, ...cards] : cards;
 }
 
 /**
@@ -292,7 +297,8 @@ export function experienceResponsiveMediaKeys(feed: {
 
 export interface MissingSibling {
   key: string;
-  mobileKey: string;
+  /** The required sibling: the `-mobile` WebP, or an `.avif` for heroes. */
+  siblingKey: string;
   /** `absent` when the object is not in R2; otherwise why the check failed. */
   reason: 'absent' | string;
 }
@@ -335,23 +341,31 @@ export async function findMissingResponsiveSiblings(
       !path.basename(key).includes('-mobile'),
   );
 
+  // Every sibling the page will request: the `-mobile` WebP, plus both AVIFs
+  // for hero keys (HeroPicture serves them first; a 404 there is not retried).
+  const checks = distinct.flatMap((key) => {
+    const mobileKey = getResponsiveImageSrc(key).mobile;
+    const siblings = [mobileKey];
+    if (isAvifHeroKey(key)) siblings.push(toAvifKey(key), toAvifKey(mobileKey));
+    return siblings.map((sibling) => ({ key, sibling }));
+  });
+
   const results = await Promise.all(
-    distinct.map(async (key) => {
-      const mobileKey = getResponsiveImageSrc(key).mobile;
-      const result = await readLength(resolveMediaUrl(mobileKey), true);
+    checks.map(async ({ key, sibling }) => {
+      const result = await readLength(resolveMediaUrl(sibling), true);
 
       if (result.status === 'found') return null;
 
       return {
         key,
-        mobileKey,
+        siblingKey: sibling,
         reason: result.status === 'absent' ? 'absent' : result.reason,
       } satisfies MissingSibling;
     }),
   );
 
   return {
-    checked: distinct.length,
+    checked: checks.length,
     missing: results.filter((entry): entry is MissingSibling => entry !== null),
   };
 }

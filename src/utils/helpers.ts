@@ -9,6 +9,7 @@ import type {
   RoomSelection,
   TransportMode,
   RoundtripTransferConfig,
+  AvailableDate,
 } from '@/lib/schemas';
 
 /** Selections that can be forwarded from the detail page to booking via query string. */
@@ -50,7 +51,7 @@ export function parseBookingSearchParams(
   let people: number | null = null;
   if (typeof params.people === 'string') {
     const n = Number(params.people);
-    if (Number.isFinite(n) && n > 0) people = n;
+    if (Number.isInteger(n) && n > 0) people = n;
   }
 
   let transport: TransportMode | null = null;
@@ -59,6 +60,55 @@ export function parseBookingSearchParams(
   }
 
   return { tier, date, people, transport };
+}
+
+export interface SharedSelectionsResult {
+  selections: BookingSelections;
+  /** The link named a date that no longer exists, is closed or is full. */
+  dateUnavailable: boolean;
+}
+
+/**
+ * Check shared-link selections against current availability, so a link sent
+ * weeks ago opens on a bookable state: an expired or full date is dropped (and
+ * reported, so the page can say why), and `people` is kept within the tour's
+ * limits and the chosen date's free spots.
+ */
+export function resolveSharedSelections(
+  selections: BookingSelections,
+  availableDates: readonly AvailableDate[],
+  limits: { minPeople: number; maxPeople: number },
+): SharedSelectionsResult {
+  const date = selections.date
+    ? availableDates.find((d) => d.id === selections.date && d.isAvailable && d.spots > 0)
+    : undefined;
+  const dateUnavailable = Boolean(selections.date) && !date;
+
+  let people = selections.people ?? null;
+  if (people !== null) {
+    const max = date ? Math.min(limits.maxPeople, date.spots) : limits.maxPeople;
+    people = Math.max(Math.min(people, max), Math.min(limits.minPeople, max));
+  }
+
+  return {
+    selections: { ...selections, date: date?.id ?? null, people },
+    dateUnavailable,
+  };
+}
+
+/**
+ * Day trips have a single tier that only buckets guests for pricing, so it is
+ * preselected and no tier picker is shown. A stale or unknown `?tier=` must
+ * therefore fall back to that tier: the customer could not fix it, and
+ * checkout requires a tier.
+ */
+export function resolveDayTripSelections(
+  selections: BookingSelections | undefined,
+  tiers: readonly { id: string }[],
+): BookingSelections {
+  const linkedTier = selections?.tier;
+  const isKnownTier = Boolean(linkedTier && tiers.some((tier) => tier.id === linkedTier));
+  return { ...selections, tier: isKnownTier ? linkedTier : (tiers[0]?.id ?? null) };
 }
 
 export function createExperienceConfig(

@@ -29,18 +29,18 @@ function OptionalExtrasComponent({ className = '', experienceData }: OptionalExt
 
   return (
     <SectionContainer
-      sectionClassName={`relative overflow-hidden px-4 py-12 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
+      sectionClassName={`relative overflow-hidden px-4 py-6 sm:py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}
     >
-      <h2 className="mb-8 text-3xl font-bold leading-tight text-base-content md:text-5xl lg:text-6xl">
+      <h2 className="mb-4 text-balance text-md font-bold leading-tight text-base-content sm:text-2md md:mb-8 md:text-5xl lg:text-6xl">
         {addonsContent.sectionTitle}
       </h2>
 
-      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+      <ul className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:gap-8">
         {addonsContent.items.map((addon) => (
           <li key={addon.id}>
-            <Card className="h-full" padding="md">
+            <Card className="h-full" padding="responsive">
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-lg font-semibold text-base-content md:text-xl">
+                <h3 className="text-sm font-semibold text-base-content md:text-xl">
                   {addon.label}
                 </h3>
                 {addon.includedInPlan ? (
@@ -48,9 +48,9 @@ function OptionalExtrasComponent({ className = '', experienceData }: OptionalExt
                     {addonsContent.includedLabel}
                   </Badge>
                 ) : (
-                  <p className="whitespace-nowrap text-right text-lg font-bold text-base-content md:text-xl">
+                  <p className="whitespace-nowrap text-right text-base font-bold text-base-content md:text-xl">
                     {formatMoney(addon.pricePerPerson, locale, experienceData.config.currency)}
-                    <span className="block text-xs font-normal text-base-content/60">
+                    <span className="block text-xs font-normal text-base-content/70">
                       {addonsContent.perPersonLabel}
                     </span>
                   </p>
@@ -58,13 +58,13 @@ function OptionalExtrasComponent({ className = '', experienceData }: OptionalExt
               </div>
 
               {addon.description ? (
-                <p className="mt-3 text-sm leading-relaxed text-base-content/70">
+                <p className="mt-2 text-xs leading-relaxed text-base-content/80 md:mt-3 md:text-sm">
                   {addon.description}
                 </p>
               ) : null}
 
               {addon.includedInPlan ? (
-                <p className="mt-3 text-xs leading-relaxed text-base-content/60">
+                <p className="mt-2 text-xs leading-relaxed text-base-content/70 md:mt-3">
                   {addonsContent.includedNoteLabel}
                 </p>
               ) : null}

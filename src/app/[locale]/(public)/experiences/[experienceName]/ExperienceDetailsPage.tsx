@@ -44,7 +44,7 @@ export default function ExperienceDetailsPage({
         widget={(
           <div
             id="booking"
-            className="scroll-mt-24 rounded-2xl border border-transparent transition-[box-shadow,border-color] duration-700 target:border-emerald-400/60 target:shadow-[0_0_45px_rgba(0,240,143,0.35)] target:[animation:booking-anchor-glow_1s_ease-out]"
+            className="scroll-mt-24 rounded-2xl outline-2 outline-offset-4 outline-transparent transition-[outline-color] duration-700 target:outline-emerald-400/70"
           >
             <ExpericeWidget experienceData={experienceData} />
           </div>

@@ -13,7 +13,7 @@
       "hero": {
         "eyebrow": "Circuits privés dans les Andes colombiennes",
         "title": "Visites Privées de Mines d’Émeraudes en Colombie",
-        "subtitle": "Nous organisons des circuits privés dans les Andes, avec un intérêt particulier pour le tourisme de l’émeraude et l’histoire minière colombienne : Muzo, Coscuez, Chivor et Gachalá.",
+        "subtitle": "Circuits privés dans les Andes, centrés sur le tourisme de l’émeraude et l’histoire minière de Colombie, de Muzo et Coscuez à Chivor et Gachalá.",
         "description": "Découvrez les régions colombiennes de l’émeraude avec des circuits privés guidés localement. Destinations et activités pratiques varient selon l’itinéraire ; aucune trouvaille n’est garantie.",
         "primaryCta": "Trouvez votre expérience",
         "secondaryCta": "Demandez sur WhatsApp",
@@ -49,30 +49,21 @@
         "bookingCard": {
           "reserveLabel": "Réservez votre date",
           "askFirstLabel": "Posez vos questions",
-          "nextAvailability": "Prochaine disponibilité",
-          "only": "Seulement",
-          "spot": "place restante",
-          "spotsLeft": "places restantes",
-          "trust": {
-            "deposit": "25% d'acompte",
-            "secure": "Paiement sécurisé",
-            "support": "Anglais et espagnol",
-            "vetted": "Hôtes vérifiés"
-          }
+          "nextAvailability": "Prochaine disponibilité"
         }
       },
       "categories": {
-        "title": "Choisissez votre Boyacá",
+        "title": "Circuits de l’émeraude et expériences dans le Boyacá",
         "cta": "Explorer",
         "items": {
           "emerald": {
-            "title": "Tourisme de l’Émeraude en Colombie",
+            "title": "Tourisme de l’émeraude en Colombie",
             "description": "Découvrez le patrimoine minier et les communautés locales de Muzo, Coscuez, Chivor et Gachalá. La disponibilité des circuits varie selon la destination.",
             "exclusiveAccess": "Visites organisées avec des familles de mineurs et des guides locaux"
           },
           "nature": {
-            "title": "Parcourez les sentiers andins cachés",
-            "description": "Páramos, forêts de nuages et cascades cachées — des itinéraires que la plupart des voyageurs ne trouvent jamais."
+            "title": "Itinéraires andins cachés à pied",
+            "description": "Páramos, forêts de nuages et cascades cachées. Des itinéraires que la plupart des voyageurs ne trouvent jamais."
           },
           "rural": {
             "title": "Séjournez chez des hôtes ruraux",
@@ -80,14 +71,15 @@
           },
           "horseback": {
             "title": "Chevauchez les anciens sentiers de montagne",
-            "description": "Des chemins andins à pied ou à cheval — comme les gens d'ici voyagent depuis des siècles."
+            "description": "Des sentiers andins à pied ou à cheval, comme les gens d’ici voyagent depuis des siècles."
           }
         }
       },
       "featured": {
-        "title": "Des expériences qui valent le déplacement",
+        "title": "Autres circuits de l’émeraude",
         "viewAll": "Voir toutes les expériences",
-        "nextAvailability": "Prochaine disponibilité : {date} — Plus que {count, plural, one {# place} other {# places}}",
+        "nextAvailability": "Prochaine disponibilité : {date}. Plus que {count, plural, one {# place} other {# places}}",
+        "nextAvailabilityDate": "Prochaine disponibilité : {date}",
         "fromLabel": "À partir de",
         "perPersonLabel": "/ personne",
         "viewDetails": "Voir les détails",
@@ -98,7 +90,7 @@
         "items": {
           "emerald": {
             "title": "Aventure Minière d'Émeraudes",
-            "description": "Deux jours à Chivor : visitez une mine en activité, essayez de chercher des émeraudes avec un guide et découvrez la vie minière locale.",
+            "description": "Deux jours à Chivor. Visitez une mine en activité, cherchez des émeraudes avec des guides locaux et découvrez la vie minière.",
             "duration": "2 jours / 1 nuit",
             "location": "Chivor, Boyacá"
           },
@@ -111,12 +103,16 @@
         }
       },
       "whyUs": {
-        "title": "Pas un circuit. Une invitation locale.",
-        "lead": "Pas un opérateur touristique. Un réseau d'hôtes locaux qui partagent ce qu'ils connaissent vraiment.",
+        "title": "Accueillis par les familles qui vivent ici",
+        "lead": "Nous sommes un réseau d’hôtes locaux, pas un opérateur touristique. Ils partagent ce qu’ils savent vraiment.",
+        "portrait": {
+          "alt": "Hôtes locaux d’Andean Scapes avec des casques de mineur à Chivor, Boyacá",
+          "caption": "Hôtes locaux · Chivor, Boyacá"
+        },
         "items": {
           "localHosts": {
-            "title": "Des hôtes qui le vivent",
-            "description": "Vous voyagez avec les familles et guides qui ont construit leur vie dans ces endroits — pas un représentant d'entreprise."
+            "title": "Familles et guides de la région",
+            "description": "Vous voyagez avec les familles et guides qui ont construit leur vie dans ces lieux, pas avec un représentant d’entreprise."
           },
           "smallGroups": {
             "title": "Groupes limités à 10",
@@ -124,7 +120,7 @@
           },
           "culturalAccess": {
             "title": "Un accès introuvable ailleurs",
-            "description": "Certaines choses que nous vous montrons — la mine, la cuisine de l'hacienda, la ferme familiale — ne sont possibles que grâce à des années de confiance."
+            "description": "Certaines choses que nous vous montrons, comme la mine, la cuisine de l’hacienda ou la ferme familiale, n’existent que grâce à des années de confiance."
           },
           "secureBooking": {
             "title": "Réservation simple et sécurisée",
@@ -159,27 +155,51 @@
         "segments": {
           "couples": {
             "label": "Couples",
-            "recommendation": "Hôtes privés, paysages paisibles et séjours qui vous donnent vraiment l'espace pour décrocher."
+            "title": "Pour les couples qui veulent du temps à deux",
+            "bullet1": "Hôtes privés",
+            "bullet2": "Paysages paisibles",
+            "bullet3": "Des séjours pour vraiment décrocher",
+            "imageAlt": "Deux voyageurs examinant une émeraude brute sur une table"
           },
           "families": {
             "label": "Familles",
-            "recommendation": "Visites de fermes, randonnées légères et activités pratiques pensées pour les enfants curieux et les parents sereins."
+            "title": "Pour les familles qui explorent ensemble",
+            "bullet1": "Visites de fermes",
+            "bullet2": "Randonnées légères",
+            "bullet3": "Activités pratiques pour enfants curieux",
+            "imageAlt": "Enfant avec un casque de mineur et sa famille à la mine d’émeraudes"
           },
           "nomads": {
             "label": "Nomades numériques",
-            "recommendation": "Séjours de plusieurs jours avec wifi fiable, rythme local et une vraie communauté — pas un espace de coworking."
+            "title": "Pour les nomades numériques qui restent un moment",
+            "bullet1": "Séjours de plusieurs jours",
+            "bullet2": "Wifi fiable",
+            "bullet3": "Un rythme et une communauté locale",
+            "imageAlt": "Deux voyageurs travaillant sur ordinateur portable dans une salle avec vue sur les montagnes"
           },
           "private": {
             "label": "Groupes privés",
-            "recommendation": "Itinéraires complets construits autour de votre groupe — amis, équipes ou voyages commémoratifs."
+            "title": "Pour les groupes privés et les voyages spéciaux",
+            "bullet1": "Itinéraires d’une journée ou plus",
+            "bullet2": "Conçus pour votre groupe",
+            "bullet3": "Amis, équipes ou voyages spéciaux",
+            "imageAlt": "Groupe de voyageurs avec des casques de mineur à la mine d’émeraudes"
           },
           "adventure": {
             "label": "Aventuriers",
-            "recommendation": "Routes hors-piste, sentiers équestres et randonnées qui vous récompensent avec des vues difficiles à décrire."
+            "title": "Pour les amateurs d’aventure",
+            "bullet1": "Routes hors-piste",
+            "bullet2": "Sentiers équestres",
+            "bullet3": "Randonnées aux vues difficiles à décrire",
+            "imageAlt": "Deux voyageurs avec des casques de mineur et une moto tout-terrain sur un chemin de montagne"
           },
           "culture": {
             "label": "Amateurs de culture",
-            "recommendation": "Ateliers avec des mineurs, potiers, tisserands et paysans — apprendre en faisant, pas en regardant."
+            "title": "Pour les amateurs de culture",
+            "bullet1": "Ateliers avec des mineurs locaux",
+            "bullet2": "Potiers, tisserands et paysans",
+            "bullet3": "On apprend en faisant",
+            "imageAlt": "Groupe de voyageurs avec des casques de mineur à l’entrée d’une mine"
           }
         }
       },
@@ -194,10 +214,9 @@
       "location": {
         "title": "Régions colombiennes de l’émeraude",
         "mapAlt": "Carte montrant Bogotá et Chivor, Boyacá, Colombie",
-        "liveNetwork": "Réseau en direct",
         "cta": "Planifiez votre itinéraire",
         "bullets": {
-          "region": "Régions colombiennes de l’émeraude : Muzo, Coscuez, Chivor et Gachalá",
+          "region": "Région de l’émeraude : Muzo, Coscuez, Chivor et Gachalá",
           "driving": "Chivor et San Pablo de Borbur se trouvent à l’est de Bogotá",
           "transport": "Le transport local dépend du séjour ; les transferts depuis Bogotá sont facultatifs et indiqués sur chaque page",
           "customizable": "Itinéraires construits autour de vos dates et de votre groupe",
@@ -210,11 +229,16 @@
         "lead": "Chaque hôte, itinéraire et moyen de paiement est vérifié avant de rejoindre le réseau.",
         "protocolLink": "Voir notre Protocole de Sécurité & Logistique",
         "protocolComingSoon": "Bientôt disponible",
+        "groups": {
+          "financial": "Réservation sans risque",
+          "operational": "Opérations vérifiées",
+          "assistance": "Assistance en route"
+        },
         "items": {
           "guides": "Guides locaux connaissant chaque itinéraire",
           "meetingPoints": "Points de rencontre fixes et vérifiés",
           "payments": "Paiements chiffrés de bout en bout",
-          "deposit": "25% d'acompte — le reste est dû le jour même",
+          "deposit": "25% d’acompte, le reste se paie le jour même",
           "whatsapp": "Support WhatsApp tout au long de votre voyage",
           "flexible": "Report gratuit jusqu'à 48 heures avant le départ"
         }
@@ -229,9 +253,10 @@
     "reviews": {
       "sectionTitle": "Ce que disent les voyageurs",
       "subtitle": "Avis de voyageurs vérifiés sur Airbnb, traduits de l'espagnol.",
-      "eyebrow": "Avis de voyageurs",
       "outOf5Aria": "sur 5",
-      "countSuffix": "avis",
+      "ratingSource": "Avis vérifiés de voyageurs sur Airbnb",
+      "readMore": "Lire l'avis complet",
+      "readLess": "Voir moins",
       "verifiedGuest": "Invité vérifié",
       "opensInNewTab": "(s'ouvre dans un nouvel onglet)",
       "verifiedStay": "Hacienda El Recuerdo · Airbnb",
@@ -241,53 +266,58 @@
       },
       "items": {
         "carlosTulio": {
+          "headline": "J'aurais voulu rester plus longtemps.",
           "comment": "La propriété est très belle et les chambres confortables, il y a beaucoup à faire sur place. J'aurais voulu rester plus longtemps."
         },
         "anamaria": {
+          "headline": "Heinner est un excellent hôte.",
           "comment": "Notre séjour à la Hacienda El Recuerdo a été merveilleux. Un endroit très accueillant et tranquille. On peut vraiment se connecter avec la nature. Monsieur Yesid et Madame Marlen sont des personnes très attentionnées et bienveillantes, elles nous ont fait sentir chez nous. Heinner est un excellent hôte. C'était une excellente expérience. La seule chose à prendre en compte est le moyen de transport pour arriver à la propriété, car elle se trouve au milieu des montagnes. Dans l'ensemble, c'est une expérience inoubliable pour ceux qui aiment l'aventure et la nature. Nous espérons revenir !"
         },
         "odessa": {
+          "headline": "Ce fut une expérience incroyable !",
           "comment": "Je ne peux pas dire assez de bonnes choses sur ce séjour. Heinner a été d'une grande aide même avant notre arrivée, nous proposant de nous guider jusqu'à la propriété depuis la ville ou d'organiser le transport. Sa famille vit ici et ils sont tous si bienveillants et accueillants que nous avions immédiatement l'impression de rendre visite à des amis. Heinner est très impliqué dans la communauté locale et a organisé une visite des mines d'émeraude locales ! Ce fut une expérience incroyable ! Nous avons apprécié les promenades sur la propriété, l'observation des oiseaux et même la traite des vaches. Tous nos repas étaient faits maison par la mère de Heinner et ils étaient parfaits. Le wifi était rapide et fiable et ils disposent d'un grand espace de coworking avec des bureaux."
         },
         "sandraPatricia": {
+          "headline": "Nous nous sommes sentis comme à la maison.",
           "comment": "Notre séjour à la Hacienda El Recuerdo a été très agréable, nos hôtes Marlen, Yesid, Heinner, Kyra et Luna étaient très attentionnés, toujours à l'écoute de nos besoins. La chambre était très confortable et nous avons très bien dormi. La nourriture était délicieuse et préparée avec beaucoup d'amour. Nous nous sommes sentis comme à la maison. Séjourner à El Recuerdo est une excellente option : il ne s'agit pas seulement de se reposer, mais de découvrir les environs, de pratiquer des activités d'écotourisme, de rencontrer les habitants, nos racines, et d'apprécier les merveilles de notre pays. Nous le recommandons et nous reviendrons !"
         },
         "camilo": {
+          "headline": "Une connexion exceptionnelle avec la nature.",
           "comment": "Excellente expérience, un endroit très tranquille avec beaucoup d'espace pour faire des activités sur place. Une connexion exceptionnelle avec la nature. Très recommandé."
         }
       },
-      "trustPanel": {
-        "title": "Pourquoi les voyageurs reviennent",
-        "bullets": {
-          "local": "Entreprise locale — tous les revenus restent dans les communautés de Boyacá",
-          "reviews": "5,0★ de 5 voyageurs vérifiés",
-          "payment": "Réservez avec 25% — payez le reste à l'arrivée",
-          "support": "Support WhatsApp de la réservation jusqu'au jour de votre départ"
-        }
+      "platforms": {
+        "title": "Plus d'avis et de réservations sur",
+        "google": "Google",
+        "airbnb": "Airbnb Expériences",
+        "getyourguide": "GetYourGuide",
+        "readReviews": "Lire les avis",
+        "book": "Voir et réserver"
       }
     },
     "faqs": {
-      "sectionTitle": "Circuits privés dans les Andes colombiennes",
+      "showAll": "Voir toutes les questions",
       "title": "Tourisme de l’Émeraude en Colombie",
       "description": "Nous sommes spécialisés dans les circuits privés dans les Andes colombiennes, avec un intérêt particulier pour les régions de l’émeraude, le patrimoine minier et les communautés locales.",
       "enquiryTitle": "Préparez Votre Circuit Privé dans les Andes",
       "enquiryDescription": "Indiquez vos dates, la taille du groupe et vos envies. Renseignez-vous sur les destinations, les langues des guides et les itinéraires avant de choisir.",
+      "planImageAlt": "Voyageuse avec un appareil photo et un casque de mineur dans une vallée verte de Chivor",
       "items": {
         "whatIsAndeanScapes": {
           "question": "Qu'est-ce qu'Andean Scapes ?",
           "answer": "Andean Scapes organise des circuits privés dans les Andes colombiennes pour les voyageurs locaux et internationaux, avec un intérêt particulier pour le tourisme de l’émeraude, le patrimoine minier et les communautés locales."
         },
         "emeraldMineTour": {
-          "question": "Que peut-on découvrir lors d’un circuit autour de l’émeraude en Colombie ?",
-          "answer": "Les itinéraires consacrés à l’émeraude peuvent inclure des visites guidées de mines, des récits miniers locaux et une recherche pratique encadrée d’émeraudes. Les activités varient selon la destination et le circuit ; aucune trouvaille n’est garantie."
+          "question": "Que peut-on vivre lors d'une visite de mines d'émeraudes en Colombie ?",
+          "answer": "Nos départs ont actuellement lieu à Chivor, dans le Boyacá, sur la ceinture émeraudière orientale. Vous entrez dans de vraies mines d'émeraudes en activité avec un guide local, un casque et des bottes, aux côtés de mineurs de la région : ce ne sont ni des mines de charbon ni des reconstitutions pour touristes. Choisissez une excursion d'une journée (1 mine et une randonnée), un séjour de 2 jours et 1 nuit (1 mine et une randonnée) ou un séjour de 2 jours et 1 nuit avec 2 mines et une balade à cheval. Trouver une émeraude est possible, mais jamais garanti."
         },
         "minerForADay": {
-          "question": "Peut-on devenir mineur le temps d’une journée ?",
-          "answer": "Certains itinéraires proposent une initiation pratique et encadrée à la recherche d’émeraudes avec des guides locaux. C’est une activité touristique, pas un emploi minier ; trouver une pierre n’est jamais garanti. Consultez les activités de chaque circuit."
+          "question": "Puis-je être mineur d’un jour à Chivor et garder une émeraude ?",
+          "answer": "Vous passez bien la journée aux côtés des mineurs, avec équipement de sécurité et guide, mais il s'agit d'une expérience pour visiteurs, pas d'un travail minier. Trouver une émeraude n'est pas garanti : cela peut arriver, et si une pierre apparaît, cela se décide sur place avec les mineurs et le guide. La vraie valeur réside dans la culture de l'émeraude, la nature et la gastronomie de la région."
         },
         "emeraldRegions": {
-          "question": "Où se trouvent les régions colombiennes de l’émeraude ?",
-          "answer": "Les régions colombiennes les plus connues pour l’émeraude comprennent Muzo, Coscuez, Chivor et Gachalá. Chacune a son histoire minière et ses paysages ; destinations et dates des circuits privés dépendent des disponibilités."
+          "question": "Où se trouvent les mines d’émeraudes en Colombie ?",
+          "answer": "La Colombie compte deux grandes zones émeraudières dans la Cordillère orientale : l'ouest du Boyacá (Muzo, Coscuez et San Pablo de Borbur) et l'est (Chivor, Gachalá et la région du Guavio). Ce sont des destinations distinctes, à plusieurs heures de route l'une de l'autre. Consultez la page des expériences pour voir quelles destinations ont des dates disponibles."
         },
         "privateTours": {
           "question": "Proposez-vous des circuits privés dans les Andes colombiennes ?",
@@ -298,8 +328,8 @@
           "answer": "Nous privilégions les circuits privés adaptés à votre groupe. Disponibilités, itinéraire et inclusions dépendent de la destination et du circuit choisi."
         },
         "spanish": {
-          "question": "Dois-je parler espagnol ?",
-          "answer": "Les langues des guides varient selon la destination et l’itinéraire. Consultez les détails du circuit ou contactez-nous avant de réserver pour confirmer les langues disponibles."
+          "question": "Faut-il parler espagnol ?",
+          "answer": "Les visites sont guidées en espagnol. Si vous avez besoin d'aide dans une autre langue, nous pouvons organiser un traducteur en supplément ; demandez-nous avant de réserver."
         },
         "afterReserve": {
           "question": "Que se passe-t-il après la réservation ?",
@@ -310,24 +340,24 @@
           "answer": "Oui. Les voyageurs peuvent contacter Andean Scapes avant de réserver pour confirmer les détails, dates, options de transport, taille du groupe ou besoins particuliers."
         },
         "transportHelp": {
-          "question": "Pouvez-vous m'aider pour le transport ?",
-          "answer": "Des options de transport peuvent être disponibles selon la destination et le forfait. Certaines expériences incluent le transport, tandis que d'autres le proposent en supplément."
+          "question": "Comment rejoindre Chivor depuis Bogotá ?",
+          "answer": "Chivor se trouve à environ 5 à 6 heures de route de Bogotá : prenez la route de Tunja, descendez vers la vallée de Tenza à hauteur d'El Sisga et continuez jusqu'à Chivor ; le dernier tronçon est une piste de montagne non goudronnée. Vous pouvez rejoindre le village de Chivor en bus, en voiture ou à moto ; de là, notre 4x4 local vous conduit à la mine, inclus dans toutes les formules. Nous proposons aussi un transfert privé aller-retour en 4x4 depuis Bogotá, en supplément ; le prix est par véhicule et couvre jusqu'à 4 personnes."
         },
         "meals": {
           "question": "Les repas sont-ils inclus ?",
-          "answer": "De nombreuses expériences incluent des repas colombiens traditionnels, mais les inclusions dépendent du forfait choisi. Chaque page d'expérience indique clairement ce qui est inclus."
+          "answer": "Oui. À Chivor, les formules de 2 jours et 1 nuit incluent 4 repas : 2 petits-déjeuners, 1 déjeuner traditionnel à emporter (fiambre) et 1 dîner ; l'excursion d'une journée inclut le petit-déjeuner et un déjeuner à emporter. Le menu est local et nous tenons compte des restrictions alimentaires si vous nous les indiquez à la réservation."
         },
         "families": {
-          "question": "Les expériences conviennent-elles aux familles ?",
-          "answer": "Certaines expériences sont adaptées aux familles, tandis que d'autres peuvent demander plus de marche, d'accès rural ou d'activité en plein air. L'équipe peut recommander la meilleure option pour votre groupe."
+          "question": "Les expériences conviennent-elles aux familles et aux enfants ?",
+          "answer": "Oui, à partir de 5 ans. Prévoyez de la marche, de la boue et de l'humidité : elles conviennent aux familles qui aiment l'aventure ; les groupes avec de jeunes enfants doivent d'abord valider avec l'équipe. Chaque participant, adulte ou enfant, compte comme une place : il n'y a pas de tarif enfant."
         },
         "bring": {
           "question": "Que dois-je apporter ?",
-          "answer": "Les articles recommandés incluent généralement des vêtements confortables, des chaussures de marche, une veste légère, de la crème solaire, de l'eau et vos effets personnels. Des recommandations spécifiques sont partagées avant chaque expérience."
+          "answer": "Des chaussures qui peuvent se mouiller et se salir, une tenue de rechange complète, une petite serviette, une veste légère ou imperméable, une gourde, de la crème solaire, une casquette, vos médicaments personnels et des espèces pour les dépenses locales. Nous fournissons le casque et les bottes de sécurité pour la mine."
         },
         "payment": {
-          "question": "Comment fonctionne l'acompte ou le paiement ?",
-          "answer": "Certaines expériences peuvent nécessiter un acompte pour confirmer la réservation, le solde étant payé selon les conditions du forfait."
+          "question": "Comment fonctionnent l'acompte et le paiement ?",
+          "answer": "L’équipe confirme d’abord la disponibilité de votre date ; vous versez ensuite un acompte de 25 % à 30 % du total, selon la formule (le pourcentage exact est indiqué lors de la réservation), pour garantir la réservation. Le solde est réglé selon les conditions de la formule. Nous ne demandons jamais le paiement intégral avant d’avoir confirmé votre réservation."
         },
         "customized": {
           "question": "Les expériences peuvent-elles être personnalisées ?",
@@ -336,6 +366,22 @@
         "localOrInternational": {
           "question": "Andean Scapes est-il réservé aux voyageurs internationaux ?",
           "answer": "Non. Andean Scapes accueille les voyageurs colombiens et internationaux à la recherche d'expériences authentiques, locales et bien organisées."
+        },
+        "safety": {
+          "question": "Est-il sûr de visiter une mine d'émeraudes ?",
+          "answer": "Vous entrez toujours avec un guide local et un équipement de sécurité (casque et bottes), dans des mines à accès contrôlé. Chaque formule inclut une assistance médicale pendant l'expérience, et l'équipe vérifie les conditions de la zone et de la mine avant chaque départ. Dans la mine, il y a de l'eau, de la boue et un sol irrégulier : un effort physique modéré à élevé est nécessaire. En cas de problème cardiaque, de phobie sévère ou de mobilité réduite, consultez-nous avant de réserver."
+        },
+        "cancellation": {
+          "question": "Puis-je annuler ou changer de date ?",
+          "answer": "Oui. Vous pouvez annuler ou reporter jusqu'à 7 jours avant la visite, 2 fois au maximum. Passé ce délai, l'acompte n'est pas remboursable et toute modification dépend des frais déjà engagés, comme l'assurance ou les repas réservés."
+        },
+        "pets": {
+          "question": "Puis-je venir avec mon chien ?",
+          "answer": "Oui, les animaux sont les bienvenus. À Chivor, dans toutes les formules, les chiens peuvent entrer dans la mine avec le groupe et séjourner à l'hacienda. Ils doivent être vaccinés et tenus sous contrôle ; organisez-le avec l'équipe lors de la réservation."
+        },
+        "bestSeason": {
+          "question": "Quelle est la meilleure période pour visiter Chivor ?",
+          "answer": "Chivor se situe à environ 2 000 m d'altitude, avec un climat frais et des nuits froides. La saison sèche va de décembre à février et la saison des pluies de mai à août. La mine comporte toujours des zones humides : prévoyez des vêtements imperméables en saison des pluies."
         }
       }
     },
@@ -344,13 +390,7 @@
       "subtitle": "Réservez avec 25% aujourd'hui. Votre hôte local confirme les détails par WhatsApp.",
       "primaryCta": "Réservez votre expérience",
       "secondaryCta": "Posez-nous vos questions sur WhatsApp",
-      "bookAria": "Réservez votre expérience Andean Scapes",
-      "badges": {
-        "deposit": "25% d'acompte pour confirmer",
-        "secure": "Paiement chiffré",
-        "cancellation": "Annulation gratuite 48h avant",
-        "verified": "Hôtes vérifiés"
-      }
+      "bookAria": "Réservez votre expérience Andean Scapes"
     },
     "hero": {
       "badge": "Aventure Minière d'Émeraudes",
@@ -466,15 +506,19 @@
   },
   "Header": {
     "selectLanguage": "Choisir la langue : {language}",
-    "bookNow": "RÉSERVER MAINTENANT",
-    "experiences": "EXPÉRIENCES"
+    "bookNow": "Réserver",
+    "toggleTheme": "Changer de thème",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "experiences": "Expériences",
+    "guides": "Guides"
   },
   "ExperiencesList": {
     "metaTitle": "Visites de Mines d’Émeraudes en Colombie | Chivor | Andean Scapes",
-    "metaDescription": "Comparez les visites guidées de mines d’émeraudes à Chivor, en Colombie. Les deux circuits incluent une visite de mine et une recherche pratique ; comparez durée, repas et séjour.",
+    "metaDescription": "Comparez les visites guidées de mines d'émeraudes à Chivor, Boyacá : excursion d'une journée, 2 jours avec une mine ou 2 mines avec équitation. Chaque formule entre dans une mine en activité avec un guide local.",
     "hero": {
       "title": "Comparez les Visites de Mines d’Émeraudes en Colombie",
-      "subtitle": "Comparez les circuits de deux jours à Chivor avec recherche d’émeraudes et nuit en hacienda : une mine ou deux mines avec balade à cheval.",
+      "subtitle": "Comparez l'excursion d'une journée à Chivor avec les circuits de deux jours avec nuit en hacienda : une mine, ou deux mines avec balade à cheval. Chaque formule inclut une recherche pratique d'émeraudes.",
       "summary": "Circuits en petit groupe avec des guides locaux",
       "highlightText": "Visite d’une mine en activité et recherche d’émeraudes",
       "ctaLabel": "Explorer les expériences",
@@ -542,8 +586,8 @@
     "whatsappMiningQuote": "Bonjour ! Je souhaite réserver l'Aventure Minière d'Émeraude avec séjour à Hacienda El Recuerdo, Chivor. Pouvez-vous m'aider avec la disponibilité ?"
   },
   "ChivorEmeraldCore": {
-    "metaTitle": "Chivor : Mine d'Émeraude + Séjour en Hacienda | Andean Scapes",
-    "metaDescription": "Visitez une mine à Chivor : recherche d’émeraudes, atelier de tri, repas et nuit en hacienda. Aucune trouvaille n’est garantie.",
+    "metaTitle": "Mines d'Émeraudes de Chivor : 2 Jours + Hacienda | Andean Scapes",
+    "metaDescription": "Mineur d’un jour à Chivor, Boyacá : mine d’émeraudes, recherche pratique, atelier, repas et nuit en hacienda. Aucune trouvaille n’est garantie.",
     "subtitle": "Expérience minière d'émeraude 2J/1N avec séjour à Hacienda El Recuerdo, Chivor, Boyacá",
     "selectDate": "Sélectionnez votre date",
     "selectPeople": "Combien de personnes ?",
@@ -574,11 +618,11 @@
     "whatsappCta": "Ou renseignez-vous via WhatsApp"
   },
   "ChivorEmeraldBasic": {
-    "metaTitle": "Excursion Chivor d'une journée : mine d'émeraudes + déjeuner fiambre | Andean Scapes",
+    "metaTitle": "Excursion aux Mines d'Émeraudes de Chivor | Andean Scapes",
     "metaDescription": "Une journée dans les mines d'émeraudes de Chivor : visite guidée de la mine, belvédère du Púlpito, petit-déjeuner et déjeuner fiambre, retour le soir même."
   },
   "ChivorEmeraldPrime": {
-    "metaTitle": "Chivor : 2 Mines d'Émeraude + Équitation | Andean Scapes",
+    "metaTitle": "2 Mines d'Émeraudes à Chivor + Équitation | Andean Scapes",
     "metaDescription": "Visitez deux mines à Chivor : balade à cheval, recherche d’émeraudes, repas et nuit en hacienda. Aucune trouvaille n’est garantie.",
     "subtitle": "Expérience minière d'émeraude 2J/1N avec équitation et séjour à Hacienda El Recuerdo, Chivor, Boyacá",
     "selectDate": "Sélectionnez votre date",
@@ -628,7 +672,6 @@
       "heroCta": "Voir les dates",
       "heroSummary": "{duration} • Visite de la mine + atelier d'émeraudes • Départ de Chivor • Petits groupes",
       "onSelectedDates": "aux dates sélectionnées",
-      "topSellerLabel": "MEILLEURE VENTE",
       "fromLabel": "À partir de",
       "perPersonLabel": "par personne",
       "reviewsCountLabel": "({count} avis)",
@@ -643,9 +686,29 @@
       "processing": "Traitement...",
       "paymentMethods": "Carte · PSE · Paiement sécurisé",
       "validationError": "Erreur de validation",
+      "paymentWaiting": "Finalisez votre paiement dans l'onglet Mercado Pago. Cette page se met à jour automatiquement. Référence : {reference}.",
+      "paymentReopen": "Rouvrir Mercado Pago",
+      "paymentOpensInNewTab": "(s'ouvre dans un nouvel onglet)",
+      "paymentTitleApproved": "Acompte reçu",
+      "paymentTitlePending": "Paiement en cours",
+      "paymentTitleRejected": "Paiement non approuvé",
+      "paymentTitleUnconfirmed": "Nous n'avons pas encore pu confirmer votre paiement",
+      "paymentTitleWaiting": "En attente de votre paiement",
+      "paymentTitleChecking": "Vérification de votre paiement",
+      "paymentWhatsappApprovedCta": "Envoyer la confirmation sur WhatsApp",
+      "paymentWhatsappHelpCta": "Nous contacter sur WhatsApp",
+      "paymentWhatsappApprovedMessage": "Bonjour ! Je viens de payer l'acompte pour {title}. Référence de paiement : {reference}.",
+      "paymentWhatsappHelpMessage": "Bonjour ! J'ai besoin d'aide pour mon paiement pour {title}. Référence de paiement : {reference}.",
+      "paymentChecking": "Vérification de votre paiement...",
+      "paymentStatusApproved": "Envoyez-nous la confirmation sur WhatsApp et nous confirmerons votre réservation sous peu. Référence : {reference}.",
+      "paymentStatusPending": "Votre paiement est en cours de traitement. Référence : {reference}. Envoyez-la-nous sur WhatsApp pour confirmation.",
+      "paymentStatusRejected": "Le paiement n'a pas été approuvé. Vous pouvez réessayer ou nous contacter sur WhatsApp. Référence : {reference}.",
+      "paymentStatusNotFound": "Nous ne trouvons pas encore de paiement pour cette réservation. Si vous avez payé, contactez-nous sur WhatsApp avec la référence {reference}.",
+      "paymentStatusError": "Nous ne pouvons pas vérifier votre paiement pour le moment. Référence : {reference}. Contactez-nous sur WhatsApp avec elle.",
+      "paymentLinkError": "Nous n'avons pas pu lancer le paiement. Réessayez ou contactez-nous sur WhatsApp.",
+      "paymentUnavailableError": "Votre sélection n'est plus disponible. Vérifiez la date et les chambres.",
       "scrollHint": "Faites defiler pour voir plus de dates",
       "lowAvailability": "Peu de disponibilité",
-      "socialProofBookings": "Rejoignez 12 autres personnes ayant réservé cette expérience au cours des 48 dernières heures.",
       "mobileDockSummaryLabel": "Votre réservation",
       "mobileDockEmptySummary": "Choisissez date, personnes et hébergement",
       "mobileDockEmptySummaryDayTrip": "Choisissez date et personnes",
@@ -659,6 +722,7 @@
       "mobileDockTransport": "Transport",
       "mobileDockNotSelected": "Non sélectionné",
       "mobileDockMissingDate": "Choisissez une date",
+      "mobileDockMissingStay": "Choisissez l'hébergement",
       "mobileDockMissingRooms": "Choisissez une chambre",
       "mobileDockMissingTransport": "Choisissez le transport",
       "mobileDockMissingContact": "Complétez vos coordonnées",
@@ -697,7 +761,7 @@
       "roundtripTransferPerVehicle": "par véhicule",
       "roundtripTransferVehicles": "{count, plural, one {# véhicule} other {# véhicules}}",
       "roundtripTransferLineItem": "Aller-retour {origin} ↔ {destination}",
-        "allInclusiveLineItem": "Repas et nuitée compris pour {count, plural, one {# personne} other {# personnes}} ; consultez les détails du transport",
+      "allInclusiveLineItem": "Repas et nuitée compris pour {count, plural, one {# personne} other {# personnes}} ; consultez les détails du transport",
       "dayTripLineItem": "Excursion d'une journée pour {count, plural, one {# personne} other {# personnes}}",
       "roomSelectionTitle": "Choisir les chambres",
       "closeModal": "Fermer",
@@ -743,7 +807,7 @@
         "tile3Title": "Nature et Culture",
         "tile3Desc": "Immergez-vous dans la culture authentique des Andes et les paysages montagneux",
         "tripLogisticsTitle": "Logistique du Voyage et Inclusions Détaillées",
-        "itineraryTitle": "Itinéraire Interactif",
+        "itineraryTitle": "Itinéraire jour par jour",
         "includedLabel": "Inclus",
         "notIncludedLabel": "Non Inclus",
         "faqsTitle": "Questions Fréquemment Posées",
@@ -758,7 +822,6 @@
         "faq3A": "Le trajet jusqu’à Chivor n’est pas inclus ; sur place, le transport local l’est : de Chivor à la ou aux mines, à l’Hacienda El Recuerdo et retour. Pour rejoindre Chivor, venez avec votre véhicule (un 4x4 est recommandé pour le dernier tronçon), en bus, ou ajoutez notre transfert aller-retour depuis Bogotá lors de la réservation.",
         "coscuezTransportFaqQ": "Comment rejoindre l’expérience de Coscuez ?",
         "coscuezTransportFaqA": "L’expérience est basée à San Pablo de Borbur, dans le Boyacá. Le trajet jusqu’à Borbur n’est pas inclus dans le circuit ; vous pouvez venir en voiture, en bus ou choisir le transfert privé aller-retour facultatif depuis Bogotá. Son prix apparaît lors du choix du transport.",
-        "exploreHiddenHeart": "Explorez le Cœur Caché des Andes",
         "checkDatesBtn": "Vérifier les Disponibilités",
         "talkToHostBtn": "Parler à l'Hôte",
         "bookNowBtn": "Réserver Maintenant",
@@ -778,7 +841,7 @@
         "addonsTeamConfirmation": "L'équipe confirme la disponibilité et le prix final",
         "addonsIncludedLabel": "Inclus",
         "addonsIncludedNote": "Inclus dans votre forfait. Participation facultative ; non remboursable en cas de non-participation.",
-        "hostChoiceLabel": "Choix de l'Hôte",
+        "hostChoiceLabel": "Choix de l'hôte",
         "selectedLabel": "Sélectionné",
         "tierBadgeHeritage": "Heritage / Traditionnel",
         "tierBadgeAdventure": "Aventure en plein air",
@@ -790,7 +853,7 @@
         "privateBathroomNo": "Salle de Bain Partagée",
         "wifiYes": "WiFi",
         "wifiNo": "Sans WiFi",
-        "viewGalleryLabel": "Voir la Galerie",
+        "viewGalleryLabel": "Voir la galerie",
         "gallerySubtitle": "Chambre, vues et équipements",
         "activityGallerySubtitle": "Photos et moments forts de l'activité",
         "closeGalleryLabel": "Fermer",
@@ -800,12 +863,14 @@
         "roomCapacityLabel": "Jusqu'à {count} personnes",
         "tierBadgeBorbur": "Hôtel Rural à Borbur",
         "valueStackRuralHotelStay": "Séjour en hôtel rural",
-        "valueStackFuraTena": "Excursion à Fura & Tena"
+        "valueStackFuraTena": "Excursion à Fura & Tena",
+        "faqsHeading": "Avant de réserver votre visite des mines d'émeraudes"
       },
       "packageTags": {
         "allInclusive": "Séjour tout compris",
         "dayTrip": "Excursion d'une journée"
-      }
+      },
+      "sharedDateUnavailable": "La date de ce lien n’est plus disponible. Choisissez-en une autre."
     },
     "tiers": {
       "borbur": {
@@ -892,7 +957,7 @@
       }
     },
     "chivorEmeraldCore": {
-      "title": "Chivor : Tour des Mines d'Émeraude 2 Jours et Séjour en Hacienda",
+      "title": "Visite de Mines d'Émeraudes à Chivor, Boyacá : 2 Jours et Séjour en Hacienda",
       "cardTitle": "Tour des Mines d'Émeraude 2 Jours et Séjour en Hacienda",
       "subtitle": "Expérience tout compris à Chivor (Boyacá), Colombie 🇨🇴",
       "description": "Visitez une mine d’émeraudes en activité à Chivor et essayez d’en chercher avec des guides locaux. Découvrez le tri des gemmes ; repas et nuit à Hacienda El Recuerdo. Aucune trouvaille n’est garantie.",
@@ -945,15 +1010,13 @@
         "idealFor": "Idéal pour",
         "goodToKnow": "Bon à Savoir",
         "faq1Q": "Quel est le niveau de difficulté?",
-        "faq1A": "Randonnée modérée et condition physique de base requise pour les visites de mines",
-        "faq2Q": "Quelle est la meilleure période pour visiter?",
-        "faq2A": "La météo varie selon la saison et les conditions en montagne ; consultez les prévisions et les conseils de préparation avant le départ.",
-        "faq3Q": "Comment organiser le transport?",
-        "faq3A": "Nous fournissons le transport depuis Chivor, ou arrangé depuis Bogotá sur demande",
+        "faq1A": "Effort modéré : environ 2 h 30 d'activité minière dans 1 mine et 2 heures de randonnée en terrain rural irrégulier, avec de l'eau, de la boue et de l'humidité dans la mine. Le temps passé sous terre n'est qu'une partie de la journée. Déconseillé en cas de mobilité très réduite.",
         "exploreHiddenHeart": "Explorez le Cœur Caché des Andes",
         "checkDatesBtn": "Vérifier les Disponibilités",
         "talkToHostBtn": "Parler à l'Hôte",
-        "bookNowBtn": "Réserver Maintenant"
+        "bookNowBtn": "Réserver Maintenant",
+        "faqStartQ": "À quelle heure commence la visite et quand dois-je partir de Bogotá ?",
+        "faqStartA": "La journée minière commence à 9 h à Chivor. Avec 5 à 6 heures de trajet depuis Bogotá, prévoyez de partir entre 3 h et 4 h du matin. Vous pouvez aussi arriver l'après-midi et visiter la mine le lendemain, en accord avec l'équipe ; dans ce cas, quittez Bogotá avant midi."
       },
       "logistics": {
         "start": "Heure de début",
@@ -1014,7 +1077,7 @@
       }
     },
     "chivorEmeraldBasic": {
-      "title": "Excursion Chivor d'une journée : mines d'émeraudes, petit-déjeuner et déjeuner fiambre",
+      "title": "Excursion d'une journée aux mines d'émeraudes de Chivor : petit-déjeuner et déjeuner fiambre",
       "cardTitle": "Journée aux mines d'émeraudes : petit-déjeuner et déjeuner fiambre",
       "subtitle": "Excursion à la journée à Chivor (Boyacá) : visite de la mine, belvédère du Púlpito et déjeuner fiambre, retour le soir même",
       "description": "Arrivée à 9h00, retour le soir même. Causerie sur l'histoire des émeraudes, entrée guidée dans une mine en activité, marche guidée autour des mines, belvédère du Púlpito et déjeuner fiambre traditionnel à l'Hacienda El Recuerdo. Transport 4x4 interne Chivor - mines - Chivor inclus.",
@@ -1082,10 +1145,16 @@
         "stop6Title": "Marche guidée autour des mines",
         "stop6ShortDesc": "Sentiers de montagne avec guide local",
         "stop6Desc": "Marche guidée dans la zone minière d'émeraudes avec votre guide local, pour comprendre le travail des mines avant le retour à Chivor."
+      },
+      "experienceDetails": {
+        "faq1Q": "Quel est le niveau de difficulté ?",
+        "faq1A": "C'est une longue journée avec un effort modéré : environ 2 heures d'activité minière et 1 heure de randonnée en terrain rural, avec de l'eau, de la boue et de l'humidité dans la mine. Ajoutez 5 à 6 heures de trajet aller et retour depuis Bogotá le même jour. Déconseillé en cas de mobilité très réduite.",
+        "faqStartQ": "À quelle heure commence la visite et quand dois-je partir de Bogotá ?",
+        "faqStartA": "La visite commence à 9 h à Chivor et se termine le jour même. Avec 5 à 6 heures de trajet depuis Bogotá, prévoyez de partir entre 3 h et 4 h du matin. Si vous préférez un rythme plus calme, optez pour une formule de 2 jours et 1 nuit."
       }
     },
     "chivorEmeraldPrime": {
-      "title": "Chivor : Tour des Mines d'Émeraude 2 Jours avec 2 Mines, Équitation et Hacienda",
+      "title": "Visite de Mines d'Émeraudes à Chivor, Boyacá : 2 Jours, 2 Mines, Équitation et Hacienda",
       "cardTitle": "Tour des Mines d'Émeraude 2 Jours avec 2 Mines, Équitation et Hacienda",
       "subtitle": "Expérience culturelle et nature tout compris à Chivor (Boyacá), Colombie 🇨🇴",
       "description": "Visitez deux mines d’émeraudes à Chivor, rejoignez la seconde à cheval et essayez d’en chercher avec des guides locaux. Repas et nuit à Hacienda El Recuerdo ; aucune trouvaille n’est garantie.",
@@ -1138,15 +1207,13 @@
         "idealFor": "Idéal pour",
         "goodToKnow": "Bon à Savoir",
         "faq1Q": "Quel est le niveau de difficulté?",
-        "faq1A": "Randonnée modérée et condition physique de base requise pour les visites de mines",
-        "faq2Q": "Quelle est la meilleure période pour visiter?",
-        "faq2A": "La météo varie selon la saison et les conditions en montagne ; consultez les prévisions et les conseils de préparation avant le départ.",
-        "faq3Q": "Comment organiser le transport?",
-        "faq3A": "Nous fournissons le transport depuis Chivor, ou arrangé depuis Bogotá sur demande",
+        "faq1A": "Effort élevé : environ 5 heures d'activité minière dans 2 mines et 2 heures de balade à cheval, avec de l'eau, de la boue et un sol irrégulier. Si la balade ne peut pas avoir lieu, elle est remplacée par un trajet en 4x4 sans changement de prix. Déconseillé en cas de mobilité très réduite.",
         "exploreHiddenHeart": "Explorez le Cœur Caché des Andes",
         "checkDatesBtn": "Vérifier les Disponibilités",
         "talkToHostBtn": "Parler à l'Hôte",
-        "bookNowBtn": "Réserver Maintenant"
+        "bookNowBtn": "Réserver Maintenant",
+        "faqStartQ": "À quelle heure commence la visite et quand dois-je partir de Bogotá ?",
+        "faqStartA": "La journée commence à 8 h à Chivor car elle comprend deux mines. À titre indicatif, quittez Bogotá vers 3 h du matin, ou plus tôt si vous prévoyez plus de 5 heures de trajet. Vous pouvez aussi arriver l'après-midi et commencer le lendemain, en accord avec l'équipe ; dans ce cas, quittez Bogotá avant midi."
       },
       "logistics": {
         "start": "Heure de début",
@@ -1435,15 +1502,7 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Bonjour! Je suis intéressé par vos services pour Andean Scapes",
-    "backToTop": "Retour en haut",
     "valueProposition": "Andean Scapes: Aventures curatoriales dans la Capitale de l'Émeraude.",
-    "verifiedBySeal": "Vérifié par Andean Scapes",
-    "verifiedFiveStarReviews": "Avis vérifiés 5 étoiles",
-    "ugcAlt": "Moment voyageur {index}",
-    "supportTitle": "Obtenir de l'Aide",
-    "supportSubtitle": "Choisissez votre canal d'assistance préféré et nous vous connectons rapidement.",
-    "chatWithGuide": "Parler avec un Guide",
-    "emailSupport": "Support Email",
     "startWhatsapp": "Démarrer le Chat WhatsApp",
     "sendEmail": "Envoyer un Email",
     "territoryEssentials": "Essentiels du Territoire",
@@ -1451,6 +1510,7 @@
     "transportation": "Transport",
     "staySelection": "Options de Séjour",
     "allyNetwork": "Notre Réseau d'Alliés Curés",
+    "partner": "Partenaire",
     "allyHacienda": "Hacienda El Recuerdo",
     "allyGlamping": "Glamping Aventura",
     "allyExperiences": "Toutes les Expériences",
@@ -1460,7 +1520,8 @@
     "terms": "Conditions",
     "privacy": "Confidentialité",
     "comingSoon": "Bientôt disponible",
-    "allRightsReserved": "Tous droits réservés."
+    "allRightsReserved": "Tous droits réservés.",
+    "allyGuides": "Guides"
   },
   "MobileMenu": {
     "brandLine": "Séjours et expériences authentiques dans les Andes colombiennes",
@@ -1482,7 +1543,8 @@
     "nav": {
       "howItWorks": "Comment Ça Marche",
       "reviews": "Avis",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "guides": "Guides"
     }
   },
   "Error": {
@@ -1499,5 +1561,23 @@
   "CoscuezEmeraldPrime": {
     "metaTitle": "Coscuez : Mines d'Émeraudes + Excursion Fura & Tena | Andean Scapes",
     "metaDescription": "Mines de Coscuez et excursion à Fura & Tena avec séjour en hôtel rural 2J/1N à Borbur, 5 repas et guides spécialisés."
+  },
+  "Trust": {
+    "title": "Qui organise cette visite",
+    "lead": "La même entreprise prépare le voyage, répond à vos messages et assure la journée à Chivor. Voici les informations à vérifier avant de payer quoi que ce soit.",
+    "operatorLabel": "Opérateur touristique",
+    "operatorDetail": "{legalName}, société colombienne (NIT {taxId}), siège social au {address}, Colombie.",
+    "technologyLabel": "Site web et réservations",
+    "technologyDetail": "{name}, société enregistrée dans l’État de Géorgie (États-Unis), développe ce site et gère le processus de réservation en ligne.",
+    "paymentLabel": "Comment vous payez",
+    "paymentDetail": "Nous confirmons d’abord votre date. Ensuite seulement, vous versez un acompte de 25 % à 30 % ; le solde suit les conditions de la formule. Nous ne demandons jamais le montant total à l’avance.",
+    "includedLabel": "Le jour de la visite",
+    "includedDetail": "Un guide local accompagne le groupe en permanence, casque et bottes sont fournis, et une assistance médicale couvre l’expérience.",
+    "platformsLabel": "Également présents, avec des avis vérifiés, sur",
+    "opensInNewTab": "(s’ouvre dans un nouvel onglet)"
+  },
+  "BookingShare": {
+    "title": "Réserver : {title} | Andean Scapes",
+    "description": "Choisissez votre date et réservez avec un acompte de 25 % à 30 %, payé seulement après confirmation de la disponibilité."
   }
 }

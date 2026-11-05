@@ -7,6 +7,7 @@ import {Providers} from '@/app/providers';
 
 import {locales, routing, type Locale} from '@/i18n/routing';
 import { SITE_INFO } from '@/constant/SiteConfig';
+import { THEME_INIT_SCRIPT } from '@/app/themeInitScript';
 
 /* Configure Google Fonts - Apple 2026 Aesthetic */
 // Single modern sans-serif: Inter - the closest to San Francisco
@@ -16,7 +17,9 @@ const inter = Inter({
   subsets: ['latin'],
   style: ['normal'],
   display: 'swap',
-  preload: true,
+  // Not preloaded: on mobile the 48 KB font competed with the LCP hero image for
+  // bandwidth. `swap` + `adjustFontFallback` paint text at once with no layout shift.
+  preload: false,
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI'],
   adjustFontFallback: true,
   variable: '--font-inter'
@@ -69,6 +72,10 @@ export default async function LocaleLayout({
       className={`${inter.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Static constant, no user input: safe to inline. Sets the theme before first paint. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body suppressHydrationWarning className="antialiased">
         <Providers locale={locale} messages={messages}>
           {children}

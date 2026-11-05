@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { createTranslator, NextIntlClientProvider } from 'next-intl';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { locales, type Locale } from '@/i18n/routing';
@@ -23,6 +23,48 @@ import { getLandingDataSSR } from '@/lib/services/landing.service';
 import LandingFaqs from './LandingFaqs';
 
 const messages = { en, es, fr };
+
+describe('LandingFaqs progressive disclosure', () => {
+  beforeEach(() => {
+    vi.stubEnv('REMOTE_DATA_BASE_URL', 'https://cdn.andeanscapes.com/services');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => cloneFixture(LANDING_FIXTURE),
+    }));
+  });
+
+  afterEach(() => {
+    cleanup();
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
+  it('renders every question for crawlers, collapses extras, and focuses the first revealed one', async () => {
+    const data = await getLandingDataSSR('en');
+    const total = data.faqs.items.length;
+    expect(total).toBeGreaterThan(8);
+
+    const { container } = render(
+      <NextIntlClientProvider locale="en" messages={messages.en} timeZone="UTC">
+        <LandingFaqs landingData={data} />
+      </NextIntlClientProvider>,
+    );
+
+    const questionButtons = () =>
+      Array.from(container.querySelectorAll<HTMLButtonElement>('button[aria-controls]'));
+    expect(questionButtons()).toHaveLength(total);
+
+    const accordionRoot = questionButtons()[0].closest('.collapse')?.parentElement;
+    // The CSS selector hides from item INITIAL_FAQ_COUNT + 1 (8 → n+9).
+    expect(accordionRoot?.className).toContain('[&>.collapse:nth-child(n+9)]:hidden');
+
+    fireEvent.click(screen.getByRole('button', { name: messages.en.Landing.faqs.showAll }));
+
+    expect(accordionRoot?.className).not.toContain('nth-child(n+9)');
+    expect(screen.queryByRole('button', { name: messages.en.Landing.faqs.showAll })).not.toBeInTheDocument();
+    expect(document.activeElement).toBe(questionButtons()[8]);
+  });
+});
 
 describe('LandingFaqs', () => {
   beforeEach(() => {
@@ -64,5 +106,10 @@ describe('LandingFaqs', () => {
     expect(enquiry).not.toHaveAttribute('href', data.flagship.whatsappLink);
     const browse = screen.getByRole('link', { name: data.finalCta.primaryCtaLabel });
     expect(browse).toHaveAttribute('href', locale === 'en' ? '/experiences' : `/${locale}/experiences`);
+
+    // Planning card sits on a real photo, resolved to the CDN, with localized alt text.
+    const photo = screen.getByRole('img', { name: copy.planImageAlt });
+    expect(photo.getAttribute('src')).toBe('https://cdn.andeanscapes.com/images/brand/faq-plan.webp');
+    expect(photo).toHaveAttribute('loading', 'lazy');
   });
 });

@@ -1,12 +1,31 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
-import { CONTACT_INFO, SITE_INFO, SOCIAL_LINKS } from '@/constant/SiteConfig';
+import {
+  BUSINESS_INFO,
+  CONTACT_INFO,
+  FOOTER_PHONE,
+  REVIEW_LINKS,
+  SITE_INFO,
+  SOCIAL_LINKS,
+} from '@/constant/SiteConfig';
 import { getLandingDataSSR } from '@/lib/services/landing.service';
 import { safeJsonLd } from '@/utils/jsonLd';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
-import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seoUrls';
-import { buildTravelAgencyLd, buildWebsiteLd } from '@/utils/structuredData';
+import { HeroPreload } from '@/components/ui/HeroPicture/HeroPreload';
+import {
+  buildAbsoluteLocalizedUrl,
+  buildExperiencePath,
+  buildLocalizedAlternates,
+  buildOgLocale,
+  SEO_ORGANIZATION_ID,
+  toAbsoluteUrl,
+} from '@/utils/seoUrls';
+import {
+  buildFaqLd,
+  buildItemListLd,
+  buildTravelAgencyLd,
+  buildWebsiteLd,
+} from '@/utils/structuredData';
 import LandingPage from './LandingPage';
 
 // The hero rotates per render (`pickHeroVariant` in landing.service), so this
@@ -47,7 +66,7 @@ export async function generateMetadata({
       url: canonical,
       siteName: 'Andean Scapes',
       type: 'website',
-      locale,
+      ...buildOgLocale(locale),
       images: [{ url: heroBrand.backgroundImage, alt: t('metaTitle') }],
     },
     twitter: {
@@ -72,47 +91,41 @@ export default async function Page({
   // links here lets the browser start the fetch from the document head instead
   // of discovering it once the client component tree renders.
   const heroImageUrl = landingData.heroBrand.backgroundImage;
-  const heroImageUrlMobile = getResponsiveImageSrc(heroImageUrl).mobile;
 
   const travelAgencyLd = buildTravelAgencyLd({
+    id: SEO_ORGANIZATION_ID,
     name: SITE_INFO.name,
+    legalName: BUSINESS_INFO.legalName,
+    taxId: BUSINESS_INFO.taxId,
     url: SITE_URL,
     logo: `${SITE_URL}${SITE_INFO.logo}`,
-    sameAs: [SOCIAL_LINKS.instagram],
+    // Stable profile URLs only; a share/short link is not an entity identifier.
+    sameAs: [SOCIAL_LINKS.instagram, REVIEW_LINKS.airbnb],
     email: CONTACT_INFO.email,
+    telephone: `+${FOOTER_PHONE.phone}`,
+    address: BUSINESS_INFO.legalAddress,
+    operatingBase: BUSINESS_INFO.operatingBase,
+    areaServed: BUSINESS_INFO.areaServed,
   });
 
   const websiteLd = buildWebsiteLd({ name: SITE_INFO.name, url: SITE_URL });
 
-  // ItemList schema for landing categories (helps rich results).
-  const itemListLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    itemListElement: landingData.categories.items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
+  // ItemList of the featured tours rendered on this page (each has its own URL).
+  const itemListLd = buildItemListLd(
+    landingData.featuredExperiences.items.map((item) => ({
       name: item.title,
-      url: buildAbsoluteLocalizedUrl(locale, item.href),
+      url: toAbsoluteUrl(buildExperiencePath(locale, item.experienceSlug)),
     })),
-  };
+  );
+
+  // Same FAQ items the <LandingFaqs> section renders, so markup matches visible content.
+  const faqLd = buildFaqLd(
+    landingData.faqs.items.map((item) => ({ question: item.question, answer: item.answer })),
+  );
 
   return (
     <>
-      {/* Responsive hero preloads — browser picks the matching media query */}
-      <link
-        rel="preload"
-        as="image"
-        href={heroImageUrlMobile}
-        media="(max-width: 767px)"
-        fetchPriority="high"
-      />
-      <link
-        rel="preload"
-        as="image"
-        href={heroImageUrl}
-        media="(min-width: 768px)"
-        fetchPriority="high"
-      />
+      <HeroPreload src={heroImageUrl} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(travelAgencyLd) }}
@@ -124,6 +137,10 @@ export default async function Page({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(itemListLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqLd) }}
       />
       <LandingPage landingData={landingData} />
     </>

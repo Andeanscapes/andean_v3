@@ -15,23 +15,23 @@ function ValuePropositionsComponent({ className = '', experienceData }: ValuePro
   const valuePropositions = experienceData.valuePropositionsContent;
 
   return (
-    <SectionContainer sectionClassName={`px-4 pb-12 pt-12 md:px-6 md:pb-20 md:pt-20 lg:px-10 ${className}`.trim()}>
-        <div className="mb-10 md:mb-12 lg:mb-14">
-          <h2 className="text-3xl font-bold leading-tight text-base-content md:text-4xl">
+    <SectionContainer sectionClassName={`px-4 py-6 sm:py-10 md:px-6 md:py-20 lg:px-10 ${className}`.trim()}>
+        <div className="mb-4 md:mb-12 lg:mb-14">
+          <h2 className="text-balance text-md font-bold leading-tight text-base-content sm:text-2md md:text-4xl">
             {valuePropositions?.title}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8 xl:grid-cols-3">
           {valuePropositions?.items.map((item) => (
             <GlassCard
               key={item.id}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border-white/10 backdrop-blur-md transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:border-[#00F08F]/50 hover:bg-slate-900/60"
+              className="relative aspect-[16/10] overflow-hidden rounded-2xl border-white/10 sm:aspect-[4/3]"
             >
               {item.imageUrl ? (
                 <BackgroundImageWithFallback
                   src={item.imageUrl}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                   fallbackClassName="absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900/80 via-slate-800/65 to-slate-900/70"
                 />
@@ -49,20 +49,20 @@ function ValuePropositionsComponent({ className = '', experienceData }: ValuePro
                 <div className="pointer-events-none absolute inset-0 bg-black/40" />
               ) : null}
 
-              <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-8">
+              <div className="relative z-10 flex h-full flex-col justify-between p-4 md:p-8">
                 <div className="flex justify-end">
                   {item.badge ? (
-                    <span className="animate-[pulse_2.8s_ease-in-out_infinite] rounded-full bg-emerald-500/85 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-lg">
+                    <span className="rounded-full bg-black/55 px-2.5 py-1 text-xs font-semibold text-white">
                       {item.badge}
                     </span>
                   ) : null}
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold leading-tight text-white drop-shadow-md md:text-4xl">
+                  <h3 className="text-md font-bold leading-tight text-white drop-shadow-md md:text-4xl">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-base font-medium leading-relaxed text-white/85 md:text-lg">
+                  <p className="mt-1.5 line-clamp-3 text-sm font-medium leading-snug text-white/90 md:mt-3 md:line-clamp-none md:text-lg md:leading-relaxed">
                     {item.description}
                   </p>
                 </div>

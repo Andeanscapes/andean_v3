@@ -22,17 +22,34 @@ describe('LandingSafety', () => {
     expect(screen.getByText(SAFETY_FIXTURE.lead)).toBeInTheDocument();
   });
 
-  it('renders one list item per safety item', () => {
+  it('renders one card per group and one list item per safety item', () => {
     render(<LandingSafety safety={SAFETY_FIXTURE} />);
-    expect(screen.getAllByRole('listitem')).toHaveLength(SAFETY_FIXTURE.items.length);
-    for (const item of SAFETY_FIXTURE.items) {
+    const items = SAFETY_FIXTURE.groups.flatMap((group) => group.items);
+    expect(screen.getAllByRole('listitem')).toHaveLength(items.length);
+    for (const group of SAFETY_FIXTURE.groups) {
+      expect(screen.getByRole('article', { name: group.title })).toBeInTheDocument();
+    }
+    for (const item of items) {
       expect(screen.getByText(item.title)).toBeInTheDocument();
     }
   });
 
-  it('renders nothing when items is empty', () => {
+  it('renders the assistance CTA as an external link', () => {
+    render(<LandingSafety safety={SAFETY_FIXTURE} />);
+    const cta = SAFETY_FIXTURE.groups.find((group) => group.cta)?.cta;
+    if (!cta) throw new Error('fixture must include a CTA');
+    const link = screen.getByRole('link', { name: `${cta.label} ${cta.opensInNewTab}` });
+    expect(link).toHaveAttribute('href', cta.href);
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(link).toHaveAttribute('data-event', 'safety_whatsapp_click');
+  });
+
+  it('renders nothing when every group is empty', () => {
     const { container } = render(
-      <LandingSafety safety={{ ...SAFETY_FIXTURE, items: [] }} />,
+      <LandingSafety
+        safety={{ ...SAFETY_FIXTURE, groups: SAFETY_FIXTURE.groups.map((group) => ({ ...group, items: [] })) }}
+      />,
     );
     expect(container).toBeEmptyDOMElement();
   });

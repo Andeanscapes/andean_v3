@@ -42,7 +42,14 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
-import { FOOTER_TRUST_GALLERY } from '../src/constant/SiteConfig';
+import {
+  FAQ_PLAN_IMAGE,
+  FOOTER_TRUST_GALLERY,
+  HOST_PORTRAIT,
+  REVIEW_PLATFORM_LOGOS,
+  TRAVELER_SEGMENT_IMAGES,
+} from '../src/constant/SiteConfig';
+import { hashFile, producedBy, readSourceManifest } from './lib/source-manifest';
 import { resolveMediaUrl } from '../src/utils/mediaUrl';
 import { getResponsiveImageSrc, hasImageExtension } from '../src/utils/responsiveImage';
 import {
@@ -64,6 +71,7 @@ import {
   isVideoSource,
   selectPrunableSources,
   toDeliveryKey,
+  isAvifHeroKey,
 } from './lib/media';
 
 /** Kept in one place so it cannot drift from the `media:optimize` npm script. */
@@ -82,7 +90,13 @@ const CACHE_DIR = path.resolve(__dirname, '../r2-cache');
  * Imported from the same constant the component renders, so this cannot drift:
  * adding a footer tile in `SiteConfig` makes it publishable here automatically.
  */
-const APP_OWNED_MEDIA: readonly string[] = FOOTER_TRUST_GALLERY;
+const APP_OWNED_MEDIA: readonly string[] = [
+  ...FOOTER_TRUST_GALLERY,
+  HOST_PORTRAIT,
+  FAQ_PLAN_IMAGE,
+  ...Object.values(TRAVELER_SEGMENT_IMAGES),
+  ...Object.values(REVIEW_PLATFORM_LOGOS),
+];
 
 /**
  * Target bucket. Configuration, not a credential — `wrangler.toml` declares no
@@ -97,6 +111,16 @@ const BUCKET = process.env.R2_BUCKET?.trim() || 'andean-app-dev';
  * unoptimized duplicate of an object that is already there as `.webp`/`.webm`.
  */
 const CONTENT_TYPES = MEDIA_CONTENT_TYPES;
+
+/**
+ * Cache lifetime for uploaded media. Keys such as `hero.webp` are overwritten in
+ * place, and the purge after upload clears only Cloudflare's edge, never a
+ * visitor's browser. So browsers keep a file for one hour (`max-age`), while the
+ * edge may keep it a week (`s-maxage`) because each upload purges it. A longer
+ * browser lifetime would show replaced images for days to returning visitors.
+ * Objects uploaded before a header change keep the old one until re-pushed.
+ */
+const MEDIA_CACHE_CONTROL = 'public, max-age=3600, s-maxage=604800, stale-while-revalidate=86400';
 
 // Accepts `--confirm` as a no-op: it was required until the flow was made
 // single-command, and muscle memory should not error.
@@ -247,6 +271,8 @@ function upload(key: string, localPath: string): void {
       localPath,
       '--content-type',
       CONTENT_TYPES[path.extname(key).toLowerCase()],
+      '--cache-control',
+      MEDIA_CACHE_CONTROL,
       '--remote',
     ],
     { cwd: path.resolve(__dirname, '..'), stdio: 'pipe' },
@@ -332,7 +358,14 @@ function assertReferenced(keys: readonly string[]): void {
   );
 
   const allowedList = Array.from(allowed);
-  const orphans = keys.filter((key) => !allowed.has(key) && !isHeroVariantKey(key));
+  // A hero's `.avif` sibling is read whenever its `.webp` is (see `isAvifHeroKey`).
+  const isAllowed = (key: string) => allowed.has(key) || isHeroVariantKey(key);
+  const orphans = keys.filter((key) => {
+    if (isAllowed(key)) return false;
+    if (!key.toLowerCase().endsWith('.avif')) return true;
+    const webpKey = key.replace(/\.avif$/i, '.webp');
+    return !(isAvifHeroKey(webpKey) && isAllowed(webpKey));
+  });
 
   if (orphans.length === 0) return;
 
@@ -342,8 +375,9 @@ function assertReferenced(keys: readonly string[]): void {
     console.error(`  ✗ ${key}${suggestion ? `\n      did you mean ${suggestion} ?` : ''}`);
   }
   console.error(
-    '[media:push] nothing was uploaded. Rename the file, or pass --allow-orphan if the ' +
-      'feed change that references it is still to come.',
+    '[media:push] nothing was uploaded. Rename the file, add its path to fixtures-local/, or —\n' +
+      '[media:push] when the feed change that references it is still to come — re-run with\n' +
+      '[media:push] `npm run feed:sync -- --allow-orphan` (or `media:push -- --allow-orphan`).',
   );
   process.exit(1);
 }
@@ -364,6 +398,9 @@ async function main(): Promise<void> {
   }
 
   keys.sort();
+  // Before the reference check: a source whose output is already published must
+  // not linger because an unrelated key fails that check.
+  await pruneSourcesAlreadyPublished();
   assertReferenced(keys);
 
   console.log(`[media:push] r2-cache/ -> ${BUCKET} (${keys.length} local file(s))`);
@@ -459,16 +496,9 @@ async function main(): Promise<void> {
 
   const verified: string[] = [];
   for (const key of succeeded) {
-    const remote = await downloadFromOrigin(resolveMediaUrl(key));
-    if (!remote.ok) {
-      console.error(`  ✗ ${key}: upload succeeded but origin verification failed: ${remote.reason}`);
-      failed += 1;
-      continue;
-    }
-
-    const remoteMd5 = createHash('md5').update(new Uint8Array(remote.body)).digest('hex');
-    if (remoteMd5 !== fingerprint(key).md5) {
-      console.error(`  ✗ ${key}: origin bytes do not match the local file; source retained`);
+    const match = await originMatches(key);
+    if (!match.ok) {
+      console.error(`  ✗ ${key}: upload succeeded but origin verification failed: ${match.reason}; source retained`);
       failed += 1;
       continue;
     }
@@ -503,55 +533,90 @@ async function main(): Promise<void> {
 }
 
 /**
- * Remove each converted original whose output is published.
+ * True when R2 serves exactly the local bytes at `key` (fresh origin fetch,
+ * MD5 compared). The only evidence pruning and upload verification accept.
+ */
+async function originMatches(key: string): Promise<{ ok: true } | { ok: false; reason: string }> {
+  const remote = await downloadFromOrigin(resolveMediaUrl(key));
+  if (!remote.ok) return { ok: false, reason: remote.reason };
+
+  const remoteMd5 = createHash('md5').update(new Uint8Array(remote.body)).digest('hex');
+  return remoteMd5 === fingerprint(key).md5
+    ? { ok: true }
+    : { ok: false, reason: 'origin bytes do not match the local file' };
+}
+
+/**
+ * Of `candidates`, the sources the manifest proves produced their output. A
+ * replaced source (same name, new bytes) fails this and is kept, whatever its
+ * mtime says — see `scripts/lib/source-manifest.ts`.
+ */
+function provenSources(candidates: readonly string[]): string[] {
+  const manifest = readSourceManifest(CACHE_DIR);
+  return candidates.filter((source) =>
+    producedBy(manifest, toDeliveryKey(source), hashFile(path.join(CACHE_DIR, source))),
+  );
+}
+
+/** Delete (or, on a dry run, list) sources whose output is proven published. */
+function removeSources(sources: readonly string[], reason: string): void {
+  if (sources.length === 0) return;
+
+  if (dryRun) {
+    console.log(`[media:push] DRY RUN — ${sources.length} source(s) would be removed (${reason}):`);
+    for (const key of sources) console.log(`    - ${key}`);
+    return;
+  }
+
+  let removed = 0;
+  for (const key of sources) {
+    try {
+      rmSync(path.join(CACHE_DIR, key));
+      console.log(`  - ${key} (${path.basename(toDeliveryKey(key))} ${reason}, source removed)`);
+      removed += 1;
+    } catch (error) {
+      // Never fatal: a file that could not be deleted costs disk space, not correctness.
+      console.warn(
+        `[media:push] could not remove ${key}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+  console.log(`[media:push] removed ${removed} converted source file(s) from r2-cache/`);
+}
+
+/**
+ * Remove each converted original whose output this run uploaded and verified.
  *
- * Runs after the upload, never before it, and only for keys **this run
- * uploaded**. The original is the only full-resolution copy and the bucket has
- * no object versioning, so deleting it ahead of a confirmed publish would make a
- * failed upload — or a bad crop — unrecoverable. A source whose delivery key is
- * not in `publishedKeys` therefore stays on disk, which is exactly the file a
- * retry needs.
- *
- * Keys the diff merely reported as `current` are excluded on purpose: when the
- * ETag is not a content hash that verdict falls back to a `content-length`
- * comparison, which cannot tell a matching file from a different one of the
- * same size.
- *
- * Delivery formats are never touched: they *are* the published objects, and
- * `r2-cache/` is their local mirror.
+ * Only keys **this run uploaded**: a `current` diff verdict can fall back to a
+ * `content-length` comparison, which cannot tell matching bytes from different
+ * ones of the same size. And only sources the manifest proves produced that
+ * output, so a replacement photo is never deleted in place of the old one.
+ * Delivery formats are never touched: they are the published objects.
  */
 function pruneConvertedSources(publishedKeys: readonly string[]): void {
   if (!pruneSources) return;
 
   const sources = collectUnder((key) => isImageSource(key) || isVideoSource(key));
-  const prunable = selectPrunableSources(sources, new Set(publishedKeys)).sort();
+  removeSources(provenSources(selectPrunableSources(sources, new Set(publishedKeys)).sort()), 'published');
+}
 
-  if (prunable.length === 0) return;
+/**
+ * Remove originals whose output an earlier run already published (for example
+ * `media:push` without `--prune-sources`). Same evidence as above: the manifest
+ * links source to output, and the origin serves exactly that output.
+ */
+async function pruneSourcesAlreadyPublished(): Promise<void> {
+  if (!pruneSources) return;
 
-  if (dryRun) {
-    console.log(`[media:push] DRY RUN — ${prunable.length} converted source(s) would be removed:`);
-    for (const key of prunable) console.log(`    - ${key}`);
-    return;
+  const sources = collectUnder((key) => isImageSource(key) || isVideoSource(key))
+    .filter((source) => existsSync(path.join(CACHE_DIR, toDeliveryKey(source))))
+    .sort();
+
+  const removable: string[] = [];
+  for (const source of provenSources(sources)) {
+    if ((await originMatches(toDeliveryKey(source))).ok) removable.push(source);
   }
-
-  let removed = 0;
-  for (const key of prunable) {
-    try {
-      rmSync(path.join(CACHE_DIR, key));
-      console.log(`  - ${key} (published as ${path.basename(toDeliveryKey(key))}, source removed)`);
-      removed += 1;
-    } catch (error) {
-      // Never fatal: the upload already succeeded, and a file that could not be
-      // deleted costs disk space rather than correctness.
-      console.warn(
-        `[media:push] could not remove ${key}: ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
-    }
-  }
-
-  console.log(`[media:push] removed ${removed} converted source file(s) from r2-cache/`);
+  removeSources(removable, 'already published');
 }
 
 /**

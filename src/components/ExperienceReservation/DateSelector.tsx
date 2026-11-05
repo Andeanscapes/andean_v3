@@ -3,27 +3,21 @@
 import { memo, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
-import { Badge } from '@/components/ui/Badge/Badge';
 import { useReservationDate } from '@/hooks/experiences/useReservationContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import { formatAvailableDates } from '@/utils/dateFormatters';
 import type { AvailableDate } from '@/lib/schemas';
 
 interface DateSelectorProps {
   availableDates: AvailableDate[];
+  /** Explains why a date from a shared link is not preselected. */
+  sharedDateUnavailable?: boolean;
 }
 
-function DateSelectorComponent({ availableDates }: DateSelectorProps) {
+function DateSelectorComponent({ availableDates, sharedDateUnavailable = false }: DateSelectorProps) {
   const t = useTranslations('experiences.ui');
   const { selectedDateId, selectedDateLabel, setDate } = useReservationDate();
   const { currentLocale } = useLanguageContext();
-  const { theme } = useThemeContext();
-  const isDark = theme === 'dark';
-
-  const cardClass = isDark
-    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
-    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
 
   // Format dates based on user's locale
   const formattedDates = useMemo(
@@ -39,47 +33,53 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
   const showScrollHint = availableOnly.length > 6;
 
   return (
-    <Card id="available-dates" className={cardClass}>
+    <Card id="available-dates" padding="responsive" className="mb-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-        <h2 className="text-xl font-semibold text-base-content">
+        <h2 className="text-md sm:text-2md md:text-xl font-semibold text-base-content">
           {t('availableDates')}
         </h2>
         {selectedDateLabel && (
-          <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
+          <p className="text-xs font-medium text-primary">
             {t('selectedDateLabel')}: {selectedDateLabel}
           </p>
         )}
       </div>
+      {sharedDateUnavailable && !selectedDateId && (
+        <p
+          role="status"
+          className="mb-4 rounded-xl border border-amber-300/70 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-500/30 dark:bg-amber-900/20 dark:text-amber-200"
+        >
+          {t('sharedDateUnavailable')}
+        </p>
+      )}
       <div className="relative">
         <div className="max-h-64 overflow-y-auto -mx-1.5 px-2.5 py-1.5 space-y-2">
           {availableOnly.map((date) => {
             const isSelected = selectedDateId === date.id;
             const isLowAvailability = date.spots > 0 && date.spots < 3;
             return (
-              <Badge
+              <button
                 key={date.id}
-                selected={isSelected}
+                type="button"
+                aria-pressed={isSelected}
                 onClick={() => setDate(date.id, date.label, date.spots)}
-                className={`w-full text-left justify-between border shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
+                className={`flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
                   isSelected
-                    ? isDark
-                      ? 'bg-primary/10 border-primary ring-2 ring-primary/50 text-base-content font-semibold shadow-md shadow-[0_0_15px_rgba(0,168,107,0.3)]'
-                      : 'bg-primary/20 border-primary/90 ring-2 ring-primary/80 text-base-content font-semibold shadow-md shadow-[0_0_15px_rgba(0,168,107,0.5)]'
-                    : 'bg-base-200/50 border-base-300/60 text-base-content/90'
+                    ? 'border-primary bg-primary/5 ring-1 ring-primary font-semibold text-base-content dark:bg-primary/10'
+                    : 'border-zinc-200/80 bg-white text-base-content/80 hover:border-primary/40 dark:border-white/10 dark:bg-slate-900/40'
                 }`}
-                variant="primary"
               >
                 <span className="flex items-center gap-2">
                   <span>{date.label}</span>
                   {isLowAvailability && (
-                    <span className="inline-flex items-center rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">
+                    <span className="inline-flex items-center rounded-full bg-amber-100 px-1.5 py-0.5 text-[11px] font-semibold text-amber-800 dark:bg-amber-900/40 dark:text-amber-400">
                       {t('lowAvailability')}
                     </span>
                   )}
                 </span>
-                <span className="text-xs opacity-80 flex items-center gap-2">
+                <span className="text-xs font-normal text-base-content/70 flex items-center gap-2">
                   {isSelected && (
-                    <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/15 text-primary">
                       <svg
                         aria-hidden="true"
                         viewBox="0 0 24 24"
@@ -96,23 +96,23 @@ function DateSelectorComponent({ availableDates }: DateSelectorProps) {
                   )}
                   <span>({t('spotsAvailable', { count: date.spots })})</span>
                 </span>
-              </Badge>
+              </button>
             );
           })}
         </div>
         {showScrollHint && (
           <>
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-base-100 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-base-100 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white to-transparent dark:from-base-100" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white to-transparent dark:from-base-100" />
           </>
         )}
       </div>
       {showScrollHint && (
-        <p className="mt-2 text-[11px] text-base-content/60">
+        <p className="mt-2 text-[11px] text-base-content/70">
           {t('scrollHint')}
         </p>
       )}
-      <p className="text-[11px] text-base-content/60 mt-4">
+      <p className="text-[11px] text-base-content/70 mt-4">
         {t('controlledDatesNote')}
       </p>
     </Card>

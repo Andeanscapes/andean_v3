@@ -73,4 +73,15 @@ describe('SegmentedControl', () => {
       expect(button).toBeDisabled();
     });
   });
+
+  it('renders the pills variant with the same pressed semantics', async () => {
+    const user = userEvent.setup();
+    const handleChange = vi.fn();
+    render(<SegmentedControl variant="pills" options={options} value="opt2" onChange={handleChange} />);
+
+    expect(screen.getByRole('button', { name: 'Option 2', pressed: true })).toHaveClass('bg-primary');
+    expect(screen.getByRole('button', { name: 'Option 1', pressed: false })).not.toHaveClass('btn');
+    await user.click(screen.getByRole('button', { name: 'Option 3' }));
+    expect(handleChange).toHaveBeenCalledWith('opt3');
+  });
 });

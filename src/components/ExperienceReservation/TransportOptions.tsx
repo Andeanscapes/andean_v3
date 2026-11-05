@@ -11,7 +11,6 @@ import {
   useReservationAccommodationTiers,
   useReservationCurrency,
 } from '@/hooks/experiences/useReservationContext';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import { useLanguageContext } from '@/contexts/LanguageContext';
 import { formatMoney } from '@/utils/formatCurrency';
 import type { TransportMode, TransportOption } from '@/lib/schemas';
@@ -31,9 +30,7 @@ export function TransportOptions({
   const { peopleCount } = useReservationRooms();
   const tiersContent = useReservationAccommodationTiers();
   const currency = useReservationCurrency();
-  const { theme } = useThemeContext();
   const { currentLocale } = useLanguageContext();
-  const isDark = theme === 'dark';
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const roundtripConfig = useMemo(() => {
@@ -42,12 +39,6 @@ export function TransportOptions({
   }, [selectedTierId, tiersContent]);
 
   const formatPrice = (price: number) => formatMoney(price, currentLocale, currency);
-
-  const cardClass = `transition-all duration-300 ${isDark
-    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-2xl'
-    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]'} ${
-    transportMode ? 'shadow-[0_0_20px_rgba(0,168,107,0.2)]' : ''
-  }`;
 
   const radioOptions = useMemo(() => {
     return transportOptions.map((opt) => {
@@ -60,7 +51,7 @@ export function TransportOptions({
         const description = (
           <span className="space-y-0.5 block">
             <span className="block">{opt.description}</span>
-            <span className={`block text-xs font-medium ${isDark ? 'text-[#00F08F]/80' : 'text-emerald-700'}`}>
+            <span className="block text-xs font-medium text-primary">
               {t('roundtripTransferVehicles', { count: vehicleCount })} × {priceLabel} = {totalLabel}
             </span>
           </span>
@@ -71,10 +62,10 @@ export function TransportOptions({
           label: (
             <span className="inline-flex items-center gap-2 flex-wrap">
               <span>{opt.label}</span>
-              <span className={`text-xs ${isDark ? 'text-base-content/60' : 'text-neutral-500'}`}>
+              <span className="text-xs text-base-content/70">
                 ({roundtripConfig.origin} ↔ {roundtripConfig.destination})
               </span>
-              <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold ${isDark ? 'bg-[#00F08F]/15 text-[#00F08F]' : 'bg-emerald-100 text-emerald-800'}`}>
+              <span className="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-800 dark:border-transparent dark:bg-emerald-500/10 dark:text-emerald-300">
                 {priceLabel}/{t('roundtripTransferPerVehicle')}
               </span>
             </span>
@@ -95,7 +86,7 @@ export function TransportOptions({
                   aria-label={t('transportTooltipCarNo4x4')}
                   onClick={(e) => { e.preventDefault(); setTooltipOpen((v) => !v); }}
                   onBlur={() => setTooltipOpen(false)}
-                  className="inline-flex h-[18px] w-[18px] items-center justify-center text-amber-500 hover:text-amber-600 focus-visible:ring-2 focus-visible:ring-amber-500/60 rounded-full dark:text-amber-400 dark:hover:text-amber-300"
+                  className="relative inline-flex h-[18px] w-[18px] items-center justify-center before:absolute before:-inset-[13px] before:content-[''] text-amber-500 hover:text-amber-600 focus-visible:ring-2 focus-visible:ring-amber-500/60 rounded-full dark:text-amber-400 dark:hover:text-amber-300"
                 >
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-full w-full">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-1 4a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5z"/>
@@ -104,11 +95,7 @@ export function TransportOptions({
                 {tooltipOpen && (
                   <span
                     role="tooltip"
-                    className={`absolute left-6 top-0 z-20 w-60 rounded-lg border p-2.5 text-[11px] leading-relaxed shadow-lg ${
-                      isDark
-                        ? 'border-white/10 bg-slate-800 text-base-content/90'
-                        : 'border-amber-200 bg-amber-50 text-amber-900'
-                    }`}
+                    className="absolute left-6 top-0 z-20 w-60 rounded-lg border border-amber-200 bg-amber-50 p-2.5 text-[11px] leading-relaxed text-amber-900 shadow-lg dark:border-white/10 dark:bg-slate-800 dark:text-base-content/90"
                   >
                     {t('transportTooltipCarNo4x4')}
                   </span>
@@ -126,11 +113,11 @@ export function TransportOptions({
         description: opt.description,
       };
     });
-  }, [transportOptions, roundtripConfig, peopleCount, isDark, currentLocale, t, tooltipOpen]);
+  }, [transportOptions, roundtripConfig, peopleCount, currentLocale, t, tooltipOpen]);
 
   return (
-    <Card className={cardClass}>
-      <h2 className="text-xl font-semibold mb-4 text-base-content leading-snug pr-2">
+    <Card padding="responsive" className="mb-6">
+      <h2 className="text-md sm:text-2md md:text-xl font-semibold mb-4 text-base-content leading-snug pr-2">
         {title || t('startingPoint')}
       </h2>
       <RadioGroup
@@ -141,7 +128,7 @@ export function TransportOptions({
         label={t('howToArrive')}
         orientation="vertical"
       />
-      <p className="mt-3 text-xs leading-snug text-base-content/60">{t('transportNote')}</p>
+      <p className="mt-3 text-xs leading-snug text-base-content/70">{t('transportNote')}</p>
     </Card>
   );
 }

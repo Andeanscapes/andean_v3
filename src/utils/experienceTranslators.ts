@@ -86,7 +86,6 @@ export function toWidgetContent(
     verifiedReviewsLine: t('experiences.ui.verifiedReviews'),
     whatsappCtaLabel: t('BookingCtas.whatsappCta'),
     fallbackDateLabel: t('experiences.ui.availableDates'),
-    topSellerLabel: t('experiences.ui.topSellerLabel'),
     fromLabel: t('experiences.ui.fromLabel'),
     totalLabel: t('experiences.ui.totalLabel'),
     perPersonLabel: t('experiences.ui.perPersonLabel'),

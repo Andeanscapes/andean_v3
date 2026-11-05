@@ -70,7 +70,17 @@ import {
   isVideoSource,
   targetFor,
   toDeliveryKey,
+  isAvifHeroKey,
+  toAvifKey,
+  AVIF_HERO_QUALITY,
 } from './lib/media';
+import {
+  hashFile,
+  producedBy,
+  readSourceManifest,
+  writeSourceManifest,
+  type SourceManifest,
+} from './lib/source-manifest';
 
 type SharpModule = (input: string | Buffer, options?: { animated?: boolean }) => Sharp;
 
@@ -214,8 +224,15 @@ function isUpToDate(sourceKey: string, outputKey: string): boolean {
   const output = localPath(outputKey);
   if (!existsSync(output)) return false;
 
+  // The manifest is authoritative: a replaced source keeps its name and often
+  // an old mtime, and must still be converted.
+  if (!producedBy(sourceManifest, outputKey, hashFile(localPath(sourceKey)))) return false;
+
   return statSync(output).mtimeMs >= statSync(localPath(sourceKey)).mtimeMs;
 }
+
+/** Loaded in `main`; see `scripts/lib/source-manifest.ts`. */
+let sourceManifest: SourceManifest = {};
 
 /**
  * Dimensions of the object currently published at a key.
@@ -349,6 +366,8 @@ async function encodeImage(
   decodedPath: string | null,
 ): Promise<Result> {
   const source = decodedPath ?? localPath(sourceKey);
+  if (inferRole(outputKey) === 'logo') return encodeLogo(sourceKey, outputKey, source);
+
   const animated = decodedPath === null && isAnimatedCapable(sourceKey);
   const meta = await sharp(source, animated ? { animated: true } : undefined).metadata();
 
@@ -516,6 +535,110 @@ async function encodeImage(
   };
 }
 
+/** Margin added around a trimmed logo, as a share of its longer side. */
+const LOGO_PADDING_RATIO = 0.08;
+
+/** Below this (trimmed, longest side) a logo is visibly soft at 3x density. */
+const LOGO_MIN_SOURCE_PX = 128;
+
+/**
+ * Normalize a platform logo of any size or format: trim the uniform border,
+ * fit inside the `logo` box without cropping, re-pad evenly in the detected
+ * background colour (transparent stays transparent) and encode lossless WebP,
+ * which keeps flat brand colours exact.
+ *
+ * A `.webp` dropped in directly is normalized too, unless it already fits the
+ * padded box and the byte budget — the state this function itself writes — so
+ * re-runs never re-encode an output.
+ */
+async function encodeLogo(sourceKey: string, outputKey: string, source: string): Promise<Result> {
+  const before = statSync(localPath(sourceKey)).size;
+  const box = targetFor('logo');
+  const maxSide = Math.ceil(Math.max(box.width, box.height) * (1 + LOGO_PADDING_RATIO * 2));
+  const budget = byteBudgetFor('logo');
+
+  if (sourceKey === outputKey && !force) {
+    const meta = await sharp(source).metadata();
+    if ((meta.width ?? Infinity) <= maxSide && (meta.height ?? Infinity) <= maxSide && before <= budget) {
+      return { ok: true, changed: false, note: `${Math.round(before / 1024)} KB — logo already normalized` };
+    }
+  }
+  const { data: corner } = await sharp(source)
+    .ensureAlpha()
+    .extract({ left: 0, top: 0, width: 1, height: 1 })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const background = { r: corner[0], g: corner[1], b: corner[2], alpha: corner[3] / 255 };
+
+  const trimmed = await sharp(source).ensureAlpha().trim({ threshold: 12 }).toBuffer({ resolveWithObject: true });
+  const smallNote =
+    Math.max(trimmed.info.width, trimmed.info.height) < LOGO_MIN_SOURCE_PX
+      ? ` — SMALL source (${trimmed.info.width}x${trimmed.info.height}); supply >=${LOGO_MIN_SOURCE_PX}px for a sharp logo`
+      : '';
+  const fitted = await sharp(trimmed.data)
+    .resize({ width: box.width, height: box.height, fit: 'inside', withoutEnlargement: true })
+    .toBuffer({ resolveWithObject: true });
+
+  const pad = Math.round(Math.max(fitted.info.width, fitted.info.height) * LOGO_PADDING_RATIO);
+  const buffer = await sharp(fitted.data)
+    .extend({ top: pad, bottom: pad, left: pad, right: pad, background })
+    .webp({ lossless: true, effort: 6 })
+    .toBuffer();
+
+  const size = `${fitted.info.width + pad * 2}x${fitted.info.height + pad * 2}`;
+  const budgetNote =
+    buffer.byteLength > budget ? ` — OVER the ${Math.round(budget / 1024)} KB budget for this slot` : '';
+
+  if (dryRun) {
+    return { ok: true, changed: true, note: `would write logo ${size}, ${Math.round(buffer.byteLength / 1024)} KB (dry run)${smallNote}` };
+  }
+
+  mkdirSync(path.dirname(localPath(outputKey)), { recursive: true });
+  writeFileSync(localPath(outputKey), buffer);
+
+  return {
+    ok: true,
+    changed: true,
+    note:
+      `logo trimmed + fitted (no crop) -> ${size}, ` +
+      `${Math.round(before / 1024)} KB -> ${Math.round(buffer.byteLength / 1024)} KB${budgetNote}${smallNote}`,
+  };
+}
+
+/**
+ * Write the `.avif` sibling of every hero WebP (`isAvifHeroKey`) that is missing
+ * or older than its WebP. Encoded from the final WebP, so it always matches the
+ * published framing; regenerated whenever that WebP changes.
+ */
+async function writeAvifHeroSiblings(): Promise<void> {
+  const heroes: string[] = [];
+  for (const top of ['images']) {
+    const dir = path.join(CACHE_DIR, top);
+    if (existsSync(dir)) walk(dir, `/${top}`, heroes);
+  }
+
+  let written = 0;
+  for (const webpKey of heroes.filter(isAvifHeroKey).sort()) {
+    const avifKey = toAvifKey(webpKey);
+    const webpPath = localPath(webpKey);
+    const avifPath = localPath(avifKey);
+    if (existsSync(avifPath) && statSync(avifPath).mtimeMs >= statSync(webpPath).mtimeMs && !force) continue;
+
+    const buffer = await sharp(webpPath).avif({ quality: AVIF_HERO_QUALITY, effort: 6 }).toBuffer();
+    const note = `${Math.round(statSync(webpPath).size / 1024)} KB webp -> ${Math.round(buffer.byteLength / 1024)} KB avif`;
+    if (dryRun) {
+      console.log(`  ✓ ${avifKey}  would write ${note} (dry run)`);
+    } else {
+      writeFileSync(avifPath, buffer);
+      console.log(`  ✓ ${avifKey}  ${note}`);
+    }
+    written += 1;
+  }
+  if (written > 0) {
+    console.log(`[media:optimize] ${written} hero AVIF sibling(s) ${dryRun ? 'would be written (dry run)' : 'written'}`);
+  }
+}
+
 /**
  * Delete a source whose output is on disk, and report whether it went.
  *
@@ -669,6 +792,7 @@ async function main(): Promise<void> {
   }
 
   sharp = await loadSharp();
+  sourceManifest = readSourceManifest(CACHE_DIR);
 
   const keys: string[] = [];
   for (const top of ['images', 'videos']) {
@@ -676,7 +800,10 @@ async function main(): Promise<void> {
     if (existsSync(dir)) walk(dir, `/${top}`, keys);
   }
 
-  const reviewable = keys.filter((key) => isReviewableImage(key) || isReviewableVideo(key)).sort();
+  const reviewable = keys
+    .filter((key) => !key.toLowerCase().endsWith('.avif'))
+    .filter((key) => isReviewableImage(key) || isReviewableVideo(key))
+    .sort();
 
   /**
    * Keys that a source file in this same run will produce.
@@ -747,6 +874,12 @@ async function main(): Promise<void> {
       continue;
     }
 
+    // Record before `consumeSource` can delete the file being hashed.
+    if (!dryRun && sourceKey !== outputKey) {
+      sourceManifest[outputKey] = hashFile(localPath(sourceKey));
+      writeSourceManifest(CACHE_DIR, sourceManifest);
+    }
+
     const removed = consumeSource(sourceKey, outputKey);
 
     const from = isDeliveryFormat(sourceKey)
@@ -760,6 +893,9 @@ async function main(): Promise<void> {
     `[media:optimize] ${converted} ${dryRun ? 'would be written (dry run)' : 'written'}, ` +
       `${unchanged} already optimal`,
   );
+
+  // Runs after the WebP pass so a hero re-encoded above gets a fresh sibling.
+  await writeAvifHeroSiblings();
 
   if (failures.length > 0) {
     console.error(

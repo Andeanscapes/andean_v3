@@ -11,6 +11,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   inferRole,
+  isAvifHeroKey,
+  toAvifKey,
   isAnimatedCapable,
   isDeliveryFormat,
   isImageSource,
@@ -53,6 +55,27 @@ const PUBLISHED: ReadonlyArray<readonly [string, number, number]> = [
 /** Same tolerance the optimizer treats as "the same framing". */
 const ASPECT_TOLERANCE = 0.02;
 
+describe('isAvifHeroKey', () => {
+  it.each([
+    '/images/brand/landing-hero.webp',
+    '/images/brand/landing-hero-03-mobile.webp',
+    '/images/experiences/list-hero.webp',
+    '/images/experiences/chivor-emerald-core/hero-mobile.webp',
+  ])('matches hero %s', (key) => {
+    expect(isAvifHeroKey(key)).toBe(true);
+    expect(toAvifKey(key)).toBe(key.replace(/\.webp$/, '.avif'));
+  });
+
+  it.each([
+    '/images/brand/final-cta.webp',
+    '/images/experiences/x/card.webp',
+    '/images/brand/landing-hero.avif',
+    '/images/brand/landing-hero.jpg',
+  ])('ignores %s', (key) => {
+    expect(isAvifHeroKey(key)).toBe(false);
+  });
+});
+
 describe('inferRole', () => {
   /**
    * The regression this guards: the role decides how a new image is cropped, so
@@ -87,6 +110,14 @@ describe('inferRole', () => {
       height: 569,
     });
   });
+
+  /** Logos are fitted, never cropped, so their directory wins over any filename rule. */
+  it.each(['google.webp', 'card-avatar.png', 'hero.jpg', 'getyourguide-mobile.png'])(
+    'treats platforms/%s as a logo',
+    (name) => {
+      expect(inferRole(`/images/brand/platforms/${name}`)).toBe('logo');
+    },
+  );
 
   it('treats an explicit card filename as the 3:4 crop', () => {
     expect(inferRole('/images/experiences/emerald-mining/card.webp')).toBe('portrait');

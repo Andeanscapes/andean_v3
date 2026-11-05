@@ -25,12 +25,12 @@ function AccommodationTiersComponent({ className = '', experienceData }: Accommo
   const locationLabel = experienceData.inclusionsContent?.location?.label ?? experienceData.config.location?.label;
 
   return (
-    <SectionContainer sectionClassName={`relative overflow-hidden px-4 py-12 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
-      <h2 className="mb-8 text-3xl font-bold leading-tight text-base-content md:text-5xl lg:text-6xl">
+    <SectionContainer sectionClassName={`relative overflow-hidden px-4 py-6 sm:py-10 md:px-6 md:py-14 lg:px-10 lg:py-16 ${className}`.trim()}>
+      <h2 className="mb-4 text-balance text-md font-bold leading-tight text-base-content sm:text-2md md:mb-8 md:text-5xl lg:text-6xl">
         {sectionTitle}
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:gap-8 lg:grid-cols-3">
         {tiersContent.tiers.map((tier) => (
           <StayCard
             key={tier.id}

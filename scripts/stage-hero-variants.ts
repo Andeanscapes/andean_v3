@@ -174,8 +174,8 @@ async function main(): Promise<void> {
         missing
           .map((entry) =>
             entry.reason === 'absent'
-              ? `  ✗ ${entry.key} -> ${entry.mobileKey}`
-              : `  ✗ ${entry.mobileKey} (${entry.reason})`,
+              ? `  ✗ ${entry.key} -> ${entry.siblingKey}`
+              : `  ✗ ${entry.siblingKey} (${entry.reason})`,
           )
           .join('\n') +
         '\n\nAdd the `-mobile` crop beside each source and run `npm run media:sync:new`.',

@@ -94,6 +94,9 @@ export const LandingTierItemMockSchema = z.object({
   ctaLabelKey: z.string(),
 });
 
+/** Review/booking platforms linked from the reviews section (see `REVIEW_PLATFORM_LINKS`). */
+export const ReviewPlatformIdSchema = z.enum(['google', 'airbnb', 'getyourguide']);
+
 export const LandingReviewMockSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -103,22 +106,20 @@ export const LandingReviewMockSchema = z.object({
   countryFlag: z.string().optional(),
   rating: z.number().min(1).max(5),
   commentKey: z.string(),
+  /** Verbatim pull-quote from the comment; omitted when unmapped. */
+  headlineKey: z.string().optional(),
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperienceKey: z.string().optional(),
   sourceUrl: z.string().url().optional(),
+  /** Logo of the platform the review was left on (`REVIEW_PLATFORM_LOGOS`). */
+  sourceLogo: z.string().optional(),
 });
 
 export const LandingFaqMockSchema = z.object({
   id: z.string(),
   questionKey: z.string(),
   answerKey: z.string(),
-});
-
-export const LandingTrustBulletMockSchema = z.object({
-  id: z.string(),
-  iconName: z.string(),
-  textKey: z.string(),
 });
 
 // ── Brand-level mock schemas (new landing structure) ─────────────────────────
@@ -138,14 +139,7 @@ export const LandingHeroBrandMockSchema = z.object({
   bookingCard: z.object({
     reserveLabelKey: z.string(),
     askFirstLabelKey: z.string(),
-    trustDepositKey: z.string(),
-    trustSecureKey: z.string(),
-    trustSupportKey: z.string(),
-    trustVettedKey: z.string(),
     nextAvailabilityLabelKey: z.string(),
-    onlyLabelKey: z.string(),
-    spotLabelKey: z.string(),
-    spotsLeftLabelKey: z.string(),
   }),
   /**
    * Optional: no v2 feed source and no mounted consumer. `LandingHeroBrand`
@@ -225,7 +219,10 @@ export const LandingTravelerSegmentMockSchema = z.object({
   id: z.string(),
   iconName: z.string(),
   labelKey: z.string(),
-  recommendationKey: z.string(),
+  titleKey: z.string(),
+  bulletKeys: z.array(z.string()),
+  image: z.string(),
+  imageAltKey: z.string(),
   ctaLabelKey: z.string(),
   ctaHref: z.string(),
 });
@@ -257,10 +254,23 @@ export const LandingSafetyItemMockSchema = z.object({
   titleKey: z.string(),
 });
 
+export const LandingSafetyGroupIdSchema = z.enum(['financial', 'operational', 'assistance']);
+
+export const LandingSafetyGroupMockSchema = z.object({
+  id: LandingSafetyGroupIdSchema,
+  titleKey: z.string(),
+  items: z.array(LandingSafetyItemMockSchema),
+  cta: z.object({
+    labelKey: z.string(),
+    href: z.string(),
+    opensInNewTabKey: z.string(),
+  }).optional(),
+});
+
 export const LandingSafetyMockSchema = z.object({
   sectionTitleKey: z.string(),
   leadKey: z.string(),
-  items: z.array(LandingSafetyItemMockSchema),
+  groups: z.array(LandingSafetyGroupMockSchema),
   protocolLinkLabelKey: z.string().optional(),
   protocolHref: z.string().optional(),
   protocolComingSoonKey: z.string().optional(),
@@ -290,6 +300,11 @@ export const LandingFeedSchema = z.object({
   whyUs: z.object({
     sectionTitleKey: z.string(),
     leadKey: z.string(),
+    portrait: z.object({
+      image: z.string(),
+      altKey: z.string(),
+      captionKey: z.string(),
+    }).optional(),
     items: z.array(LandingWhyUsItemMockSchema),
   }),
   howItWorks: z.object({
@@ -310,22 +325,27 @@ export const LandingFeedSchema = z.object({
     sectionTitleKey: z.string(),
     subtitleKey: z.string(),
     items: z.array(LandingReviewMockSchema),
-    trustPanel: z.object({
-      titleKey: z.string(),
-      bullets: z.array(LandingTrustBulletMockSchema),
-    }),
+    platformsTitleKey: z.string(),
+    platforms: z.array(z.object({
+      id: ReviewPlatformIdSchema,
+      href: z.string().url(),
+      logo: z.string(),
+      labelKey: z.string(),
+      ctaKey: z.string(),
+    })),
     aggregateRating: z.object({
       ratingValue: z.number(),
       reviewCount: z.number(),
     }),
   }),
   faqs: z.object({
-    sectionTitleKey: z.string(),
     titleKey: z.string(),
     descriptionKey: z.string(),
     items: z.array(LandingFaqMockSchema),
     enquiryTitleKey: z.string(),
     enquiryDescriptionKey: z.string(),
+    planImage: z.string(),
+    planImageAltKey: z.string(),
   }),
   finalCta: z.object({
     sectionTitleKey: z.string(),
@@ -334,11 +354,6 @@ export const LandingFeedSchema = z.object({
     primaryCtaLabelKey: z.string(),
     primaryCtaHref: z.string(),
     secondaryCtaLabelKey: z.string(),
-    trustBadges: z.array(z.object({
-      id: z.string(),
-      iconName: z.string(),
-      labelKey: z.string(),
-    })),
   }),
 });
 
@@ -409,10 +424,12 @@ export const LandingReviewContentSchema = z.object({
   countryFlag: z.string().optional(),
   rating: z.number(),
   comment: z.string(),
+  headline: z.string().optional(),
   avatarUrl: z.string().optional(),
   isVerified: z.boolean().optional(),
   verifiedExperience: z.string().optional(),
   sourceUrl: z.string().url().optional(),
+  sourceLogo: z.string().optional(),
 });
 
 export const LandingFaqContentSchema = z.object({
@@ -438,14 +455,7 @@ export const LandingContentSchema = z.object({
     bookingCard: z.object({
       reserveLabel: z.string(),
       askFirstLabel: z.string(),
-      trustDeposit: z.string(),
-      trustSecure: z.string(),
-      trustSupport: z.string(),
-      trustVetted: z.string(),
       nextAvailabilityLabel: z.string(),
-      onlyLabel: z.string(),
-      spotLabel: z.string(),
-      spotsLeftLabel: z.string(),
     }),
     search: z.object({
       destinations: z.array(z.object({ value: z.string(), label: z.string() })),
@@ -505,6 +515,11 @@ export const LandingContentSchema = z.object({
   whyUs: z.object({
     sectionTitle: z.string(),
     lead: z.string(),
+    portrait: z.object({
+      image: z.string(),
+      alt: z.string(),
+      caption: z.string(),
+    }).optional(),
     items: z.array(z.object({
       id: z.string(),
       iconName: z.string(),
@@ -527,7 +542,10 @@ export const LandingContentSchema = z.object({
       id: z.string(),
       iconName: z.string(),
       label: z.string(),
-      recommendation: z.string(),
+      title: z.string(),
+      bullets: z.array(z.string()),
+      image: z.string(),
+      imageAlt: z.string(),
       ctaLabel: z.string(),
       ctaHref: z.string(),
     })),
@@ -555,10 +573,19 @@ export const LandingContentSchema = z.object({
   safety: z.object({
     sectionTitle: z.string(),
     lead: z.string(),
-    items: z.array(z.object({
-      id: z.string(),
-      iconName: z.string(),
+    groups: z.array(z.object({
+      id: LandingSafetyGroupIdSchema,
       title: z.string(),
+      items: z.array(z.object({
+        id: z.string(),
+        iconName: z.string(),
+        title: z.string(),
+      })),
+      cta: z.object({
+        label: z.string(),
+        href: z.string(),
+        opensInNewTab: z.string(),
+      }).optional(),
     })),
     protocolLinkLabel: z.string().optional(),
     protocolHref: z.string().optional(),
@@ -577,30 +604,33 @@ export const LandingContentSchema = z.object({
   reviews: z.object({
     sectionTitle: z.string(),
     subtitle: z.string(),
-    eyebrow: z.string(),
     outOf5Aria: z.string(),
-    countSuffix: z.string(),
+    ratingSource: z.string(),
+    readMore: z.string(),
+    readLess: z.string(),
     items: z.array(LandingReviewContentSchema),
-    trustPanel: z.object({
-      title: z.string(),
-      bullets: z.array(z.object({
-        id: z.string(),
-        iconName: z.string(),
-        text: z.string(),
-      })),
-    }),
+    platformsTitle: z.string(),
+    platforms: z.array(z.object({
+      id: ReviewPlatformIdSchema,
+      href: z.string().url(),
+      logo: z.string(),
+      label: z.string(),
+      cta: z.string(),
+      opensInNewTab: z.string(),
+    })),
     aggregateRating: z.object({
       ratingValue: z.number(),
       reviewCount: z.number(),
     }),
   }),
   faqs: z.object({
-    sectionTitle: z.string(),
     title: z.string(),
     description: z.string(),
     items: z.array(LandingFaqContentSchema),
     enquiryTitle: z.string(),
     enquiryDescription: z.string(),
+    planImage: z.string(),
+    planImageAlt: z.string(),
   }),
   finalCta: z.object({
     sectionTitle: z.string(),
@@ -610,11 +640,6 @@ export const LandingContentSchema = z.object({
     primaryCtaLabel: z.string(),
     primaryCtaHref: z.string(),
     secondaryCtaLabel: z.string(),
-    trustBadges: z.array(z.object({
-      id: z.string(),
-      iconName: z.string(),
-      label: z.string(),
-    })),
   }),
 });
 
@@ -626,6 +651,7 @@ export type LandingFlagshipContent = z.infer<typeof LandingFlagshipContentSchema
 export type LandingValuePropContent = z.infer<typeof LandingValuePropContentSchema>;
 export type LandingReviewContent = z.infer<typeof LandingReviewContentSchema>;
 export type LandingFaqContent = z.infer<typeof LandingFaqContentSchema>;
+export type LandingReviewPlatformContent = LandingContent['reviews']['platforms'][number];
 
 // Brand-level types (new structure)
 export type LandingHeroBrandContent = LandingContent['heroBrand'];
@@ -637,7 +663,7 @@ export type LandingWhyUsContent = LandingContent['whyUs'];
 export type LandingHowItWorksContent = LandingContent['howItWorks'];
 export type LandingTravelerSegmentsContent = LandingContent['travelerSegments'];
 export type LandingTravelerSegmentContent = LandingTravelerSegmentsContent['segments'][number];
-export type LandingTrustStatsContent = LandingContent['trustStats'];
 export type LandingLocationBrandContent = LandingContent['locationBrand'];
 export type LandingSafetyContent = LandingContent['safety'];
+export type LandingSafetyGroupContent = LandingSafetyContent['groups'][number];
 export type LandingGlobalCtasContent = LandingContent['globalCtas'];

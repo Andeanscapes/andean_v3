@@ -50,30 +50,37 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
       <div
         role="region"
         aria-label={brandCtas.mobileBookNowLabel}
-        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-slate-950/90 px-4 py-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] shadow-[0_-14px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white/95 px-4 pt-2.5 pb-[calc(env(safe-area-inset-bottom)+0.625rem)] shadow-[0_-4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950 dark:shadow-[0_-14px_30px_rgba(0,0,0,0.28)] dark:backdrop-blur-none transition-transform duration-300 md:hidden ${visible ? 'translate-y-0' : 'translate-y-full'}`}
       >
+        {/* Height is mirrored by getBottomBarSpacerClass in PublicLayoutShell (footer clearance); update both together. */}
+        {/* min-w-0 + truncate on the price, shrink-0 on the actions: on narrow phones the
+            price clips instead of sliding under the button. */}
         <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
-              {brandCtas.mobileFromLabel}
-            </p>
-            <p className="text-lg font-extrabold leading-tight text-white">
+          <div className="flex min-w-0 flex-col gap-0.5">
+            <p className="text-[10px] font-medium text-zinc-600 dark:font-normal dark:text-zinc-400">{brandCtas.mobileFromLabel}</p>
+            <p className="truncate text-base font-bold leading-none text-zinc-900 [font-variant-numeric:tabular-nums] dark:text-white">
               {formattedBrandPrice}
             </p>
           </div>
-          <div className="flex flex-shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <a
               href={brandCtas.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={brandCtas.whatsappLabel}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sm transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 transition-transform hover:bg-emerald-100 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-transparent dark:bg-emerald-500/20 dark:text-emerald-400 dark:hover:bg-emerald-500/30 dark:focus-visible:ring-emerald-400 dark:focus-visible:ring-offset-zinc-950"
             >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
+              <MessageCircle className="h-[18px] w-[18px]" aria-hidden="true" />
             </a>
-            <PrimaryCtaButton href={bookingHref ?? brandCtas.exploreHref} variant="gradient" size="md" className="gap-1.5 px-5">
+            <PrimaryCtaButton
+              href={bookingHref ?? brandCtas.exploreHref}
+              fullWidth={false}
+              variant="gradient"
+              size="md"
+              className="gap-1.5 rounded-xl px-4 text-xs font-semibold shadow-lg"
+            >
               {brandCtas.mobileBookNowLabel}
-              <ArrowRight size={16} className="flex-shrink-0" aria-hidden="true" />
+              <ArrowRight size={14} className="flex-shrink-0" aria-hidden="true" />
             </PrimaryCtaButton>
           </div>
         </div>
@@ -98,7 +105,7 @@ function LandingMobileStickyComponent({ landingData, bookingHref, brandCtas }: L
           <p className="text-[10px] font-medium uppercase tracking-widest text-white/55">
             {flagship.labels.fromLabel}
           </p>
-          <p className="text-lg font-extrabold leading-tight text-white">
+          <p className="text-lg font-bold leading-tight text-white">
             {formattedPrice}
             <span className="ml-1 text-[10px] font-normal text-white/55">{flagship.labels.perPersonLabel}</span>
           </p>

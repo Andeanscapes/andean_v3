@@ -1,0 +1,310 @@
+{
+  "hub": {
+    "metaTitle": "Guías de Turismo Esmeraldero en Colombia | Andean Scapes",
+    "metaDescription": "Guías sobre minas de esmeraldas en Colombia: cómo visitar una mina real, seguridad en Chivor, Peter Rainier y Green Fire, la esmeralda de Gachalá y la leyenda de Fura y Tena.",
+    "title": "Guías de turismo esmeraldero en Colombia",
+    "lead": "Historia, geografía y consejos prácticos sobre los dos cinturones esmeralderos de Colombia, escritos por el equipo que opera los tours en Chivor y con las fuentes a la vista.",
+    "readGuide": "Leer la guía",
+    "imageAlt": "Visitantes con casco en las montañas de las minas de esmeraldas de Chivor, Boyacá"
+  },
+  "ui": {
+    "breadcrumbGuides": "Guías",
+    "updated": "Actualizado",
+    "author": "Equipo de Andean Scapes",
+    "sourcesTitle": "Fuentes",
+    "relatedToursTitle": "Tours a minas de esmeraldas en Chivor",
+    "moreGuidesTitle": "Más guías",
+    "breadcrumbLabel": "Ruta de navegación"
+  },
+  "articles": {
+    "emeraldMineToursColombia": {
+      "metaTitle": "Tour a Minas de Esmeraldas en Colombia: Guía 2026 | Andean Scapes",
+      "metaDescription": "Cómo visitar una mina de esmeraldas real en Colombia: regiones esmeralderas, cómo llegar a Chivor desde Bogotá, qué se vive dentro de la mina, seguridad y qué llevar.",
+      "title": "Tour a minas de esmeraldas en Colombia: guía práctica 2026",
+      "lead": "Casi todos los «tours de esmeraldas» que aparecen primero en Google ocurren en Bogotá, entre joyerías y los comerciantes de la avenida Jiménez. Entrar a una mina es otra cosa: hay que viajar a las regiones mineras, ponerse casco y botas y aceptar que puede no aparecer ninguna piedra. Así funciona en Chivor.",
+      "imageAlt": "Visitantes con casco y botas a la entrada de una mina de esmeraldas en Chivor, Boyacá",
+      "sections": {
+        "whatIs": {
+          "heading": "¿Qué es un tour a una mina de esmeraldas?",
+          "paragraphs": [
+            "Es una visita guiada a una mina de esmeraldas en operación, junto a los mineros de la zona. Las minas que visitamos en Chivor son minas reales de esmeralda: algunas trabajan de forma artesanal y otras a mayor escala. No son minas de carbón ni montajes para turistas. Es lo que mucha gente busca como «minero por un día»: una jornada al lado de los mineros, no un trabajo.",
+            "Se entra con guía local, casco y botas. El tiempo bajo tierra es solo una parte de la jornada, que también incluye el traslado en 4x4 desde el pueblo, la preparación y, según el plan, caminatas o cabalgata por los caminos mineros. Encontrar una esmeralda es posible, pero nunca está garantizado.",
+            "Es distinto de los tours de esmeraldas en Bogotá, que muestran el comercio, la talla y la joyería en la ciudad pero no entran a una mina. Si quieres ver de dónde sale la piedra, tienes que viajar a las regiones mineras."
+          ]
+        },
+        "regions": {
+          "heading": "¿Dónde hay minas de esmeraldas en Colombia?",
+          "paragraphs": [
+            "Las esmeraldas colombianas se encuentran en dos franjas de la Cordillera Oriental. El cinturón occidental, en el occidente de Boyacá, incluye Muzo, Coscuez, Maripí, Quípama, Otanche, Pauna y San Pablo de Borbur. El cinturón oriental incluye Chivor, Somondoco, Macanal y Guateque en Boyacá, y Gachalá y Ubalá en Cundinamarca.",
+            "Son destinos diferentes, a varias horas de carretera entre sí, por lo que no conviene combinarlos en un mismo viaje corto. Chivor es considerada la fuente de las primeras esmeraldas que salieron de América tras la conquista, y en Gachalá se encontró en 1967 una de las esmeraldas más famosas del mundo, de 858 quilates. Por departamentos, casi todas están en Boyacá; en Cundinamarca hay minas en Gachalá y Ubalá, en la región del Guavio."
+          ]
+        },
+        "chivor": {
+          "heading": "Por qué visitar Chivor",
+          "paragraphs": [
+            "Chivor está a unos 2.000 metros de altura, sobre el valle del río Sinaí, que más abajo da origen al Guavio, con clima fresco y noches frías. Desde el mirador de El Púlpito, justo debajo de las minas, se alcanza a ver hacia los Llanos Orientales en días despejados.",
+            "Además de su historia, que va desde los pueblos muiscas hasta el ingeniero Peter W. Rainier y su libro Green Fire, Chivor permite entrar a minas activas con mineros de la comunidad. Nuestra base es la Hacienda El Recuerdo, en Mundo Nuevo (Ubalá), muy cerca de Chivor, una finca ganadera y apícola donde se duerme en los planes de dos días."
+          ]
+        },
+        "gettingThere": {
+          "heading": "Cómo llegar a Chivor, Boyacá, desde Bogotá",
+          "paragraphs": [
+            "Desde Bogotá se toma la vía hacia Tunja; a la altura del Sisga se gira a la derecha para bajar al Valle de Tenza y seguir hacia Chivor, sin llegar a Tunja. Cerca de Macanal se cruza en ferry el embalse La Esmeralda, dentro de su horario, o se bordea la represa. El trayecto toma unas 5 a 6 horas, porque el último tramo es carretera destapada de montaña.",
+            "Puedes llegar en bus, carro propio o moto hasta Chivor pueblo; desde ahí, el transporte local en 4x4 hasta la mina va incluido en todos nuestros planes. Si prefieres no conducir, ofrecemos un traslado privado en 4x4 ida y vuelta desde Bogotá con costo adicional, cuyo valor es por vehículo y cubre hasta 4 personas.",
+            "Existe una ruta alterna por Ubalá, en la región del Guavio, pero solo es apta para moto o carro 4x4: son unos 35 km de vía rural hasta la hacienda. Con carro normal, la opción correcta es llegar por Chivor pueblo."
+          ]
+        },
+        "inside": {
+          "heading": "Qué se vive dentro de la mina",
+          "paragraphs": [
+            "La jornada empieza con una charla con mineros y artesanos locales sobre cómo se busca la esmeralda. Después se entrega el equipo de seguridad y se entra con el guía a los túneles, donde hay agua, lodo y terreno irregular.",
+            "Dentro se ve cómo trabajan los mineros, cómo se sigue una veta y qué minerales acompañan a la esmeralda. En los planes de dos días hay además un taller esmeraldero de cerca de una hora sobre cómo se clasifica la piedra.",
+            "Si durante la visita aparece una esmeralda, se acuerda en el momento con los mineros y el guía, que comparten lo encontrado. El valor de la experiencia está en la cultura esmeraldera, la naturaleza y la gastronomía de la región, no en el hallazgo."
+          ]
+        },
+        "choose": {
+          "heading": "Cómo elegir tu tour",
+          "paragraphs": [
+            "El pasadía incluye una mina y una caminata en un solo día. Es posible, pero es un día largo: hay que salir de Bogotá de madrugada y sumar otras 5 a 6 horas de regreso.",
+            "El plan de 2 días y 1 noche incluye una mina, caminata, taller, alojamiento en la Hacienda El Recuerdo y 4 comidas. El plan más completo suma una segunda mina y una cabalgata guiada de unas 2 horas.",
+            "La edad mínima es de 5 años y los perros pueden acompañar al grupo dentro de la mina en Chivor. Si tienes movilidad reducida, condiciones cardiovasculares o fobias severas, consúltanos antes de reservar."
+          ]
+        },
+        "safety": {
+          "heading": "Seguridad, clima de Chivor y qué llevar",
+          "paragraphs": [
+            "Siempre se entra con guía y equipo de seguridad, en minas con ingreso controlado, y cada plan incluye una póliza de asistencia médica durante la experiencia. El equipo valida las condiciones de la zona y de la mina antes de cada salida.",
+            "La temporada seca va de diciembre a febrero y la de lluvias de mayo a agosto. Lleva zapatos que se puedan mojar y ensuciar, una muda completa de ropa, toalla pequeña, chaqueta ligera o impermeable, agua, protector solar y efectivo para gastos locales."
+          ]
+        },
+        "logistics": {
+          "heading": "Esto no es un paseo a la Catedral de Sal",
+          "paragraphs": [
+            "La Catedral de Sal de Zipaquirá queda a una hora de Bogotá, con parqueadero, restaurantes y buses cada pocos minutos. Una mina de esmeraldas es otra cosa. Chivor está a unos 160 a 180 km de la capital, según la ruta, y eso son entre 5 y 6 horas de carretera; el occidente de Boyacá queda igual de lejos o más. Las bocaminas no están en el pueblo: se llega a ellas por caminos de montaña sin pavimentar, donde un carro normal no sube.",
+            "Por eso el transporte suele ser la parte más difícil del viaje. El turismo en la región todavía es pequeño, no hay una oferta de traslados como en los destinos masivos y lo que funciona es un 4x4 con conductor desde Bogotá. Ese conductor trabaja una jornada completa de ida y otra de regreso, y se nota en el precio. Nuestro traslado privado en 4x4, ida y vuelta Bogotá–Chivor–Bogotá, cuesta 1.700.000 COP por vehículo y lleva hasta 4 personas (precio de referencia a noviembre de 2026). Para una pareja que toma el plan de dos días, a 475.000 COP por persona, el transporte cuesta más que el propio tour. También se puede llegar en bus hasta Chivor pueblo, la opción más económica, y subir desde ahí en nuestro 4x4 local.",
+            "El otro problema es dónde dormir y comer. Chivor es un municipio pequeño, con pocos hoteles y pocos restaurantes, y la mina está lejos del casco urbano. Si llegas por tu cuenta, tienes que cuadrar por separado el alojamiento, las comidas, el transporte hasta la bocamina y la entrada a la mina, cada cosa con un proveedor distinto y sin mucha señal para coordinarlas.",
+            "Un plan con todo incluido resuelve esas piezas de una vez: noche en la Hacienda El Recuerdo, comidas, transporte local en 4x4 y la jornada minera, sin intermediarios entre tú y la gente de la región. Y pasas el viaje con anfitriones y guías que viven allí, que pueden cambiar el plan si llueve y que conocen lo que no aparece en ningún mapa. Puedes armarlo todo por tu cuenta, claro; solo cuenta con más llamadas y más imprevistos."
+          ]
+        }
+      }
+    },
+    "chivorHistory": {
+      "metaTitle": "Historia de la Mina de Esmeraldas de Chivor | Andean Scapes",
+      "metaDescription": "De Somondoco a Peter Rainier y Green Fire: la historia de las minas de esmeraldas de Chivor, su redescubrimiento en 1896 y el mirador de El Púlpito.",
+      "title": "Historia de la mina de esmeraldas de Chivor: de Somondoco a Green Fire",
+      "lead": "Chivor fue una de las primeras fuentes de esmeraldas que conocieron los conquistadores, quedó perdida bajo la selva durante dos siglos y vivió una segunda época de aventura en los años veinte. Esta es su historia, basada en la investigación publicada por el Gemological Institute of America (GIA).",
+      "imageAlt": "Montañas y valle de las minas de esmeraldas de Chivor, Boyacá",
+      "sections": {
+        "somondoco": {
+          "heading": "Somondoco: las esmeraldas antes de la conquista",
+          "paragraphs": [
+            "Cuando los españoles llegaron a la Cordillera Oriental, los pueblos chibchas (muiscas) ya usaban esmeraldas en su joyería. El yacimiento que hoy llamamos Chivor era conocido como Somondoco, por el pueblo cercano donde se seleccionaban las piedras.",
+            "Según los historiadores citados por GIA, las esmeraldas de esta zona se intercambiaban desde mucho antes de la conquista, y Chivor es considerada la fuente de las primeras esmeraldas que salieron de América hacia el resto del mundo."
+          ]
+        },
+        "conquest": {
+          "heading": "1537: la expedición de Valenzuela",
+          "paragraphs": [
+            "En 1537, Gonzalo Jiménez de Quesada supo de la existencia de las minas de Somondoco y envió al capitán Pedro Fernández Valenzuela a buscarlas. Valenzuela informó que, desde las alturas de las minas, se veían los Llanos del Orinoco a través de una abertura en la sierra. Ese detalle sería clave siglos después.",
+            "Los españoles explotaron Chivor durante los siglos XVI y XVII con mano de obra indígena, devastada en pocas décadas. Una cédula real de 1593 ordenó dar un trato humano a los mineros; en 1602 Felipe III exigió cumplirla, cuando ya era tarde. La primera concesión registrada data de 1592. En 1672 la mina fue abandonada por orden de la Corona y la selva la cubrió durante unos doscientos años, mientras la atención se trasladaba a Muzo."
+          ]
+        },
+        "rediscovery": {
+          "heading": "1896: el redescubrimiento de Francisco Restrepo",
+          "paragraphs": [
+            "A finales del siglo XIX, el ingeniero de minas colombiano Francisco Restrepo estudió en la Biblioteca Nacional las crónicas de los frailes que describían las minas perdidas de Somondoco. Tras unos ocho años de búsqueda por la cordillera, en 1896 encontró la mina: la pista decisiva fue precisamente la vista hacia los Llanos.",
+            "Desde 1911 trabajó allí el alemán Fritz Klein, de Idar-Oberstein, quien publicó en 1925 el primer relato detallado de la mina, Smaragde unter dem Urwald (Esmeraldas bajo la selva). A comienzos de la década de 1920 salió de Chivor la esmeralda Patricia, un cristal de 632 quilates que hoy se exhibe en el Museo Americano de Historia Natural de Nueva York."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter W. Rainier y Green Fire",
+          "paragraphs": [
+            "Peter W. Rainier, ingeniero de minas nacido en el sur de África en 1890, dirigió Chivor entre 1926 y 1931 para una compañía de Nueva York. Al llegar clavó una estaca de hierro en El Púlpito para marcar el límite de la concesión. Cuando la junta directiva le ordenó cerrar la mina por pérdidas, siguió trabajando, y en una semana apareció la primera veta.",
+            "Tras la crisis de 1929 sus empleadores cerraron la mina. Rainier se quedó en la región y, con su esposa Margaret, fundó Las Cascadas, una plantación de té en las laderas del valle del Guavio, a unos 15 km de Chivor, descrita como la primera plantación comercial de té de Suramérica. Cuando él estaba en la mina, la pareja se hacía señas con linternas cada noche.",
+            "En 1942 publicó sus memorias, Green Fire. John Sinkankas, autor de la gran bibliografía de la gemología, las describió como «pintorescas, a veces sensacionalistas», aunque llenas de datos valiosos. En 1954 MGM estrenó una película con el mismo título, protagonizada por Grace Kelly y Stewart Granger."
+          ]
+        },
+        "pulpito": {
+          "heading": "El Púlpito: el mirador de los Llanos",
+          "paragraphs": [
+            "El Púlpito es un monolito de arenisca que cuelga sobre el valle del río Sinaí, justo debajo de la mina. Más abajo, los ríos Rucio y Sinaí se unen para formar el río Guavio.",
+            "Desde allí se ve la abertura en las montañas que permite mirar hacia los Llanos Orientales, la misma vista que describió Valenzuela en 1537 y que guio a Restrepo en 1896. En 2015, un equipo de GIA que siguió los pasos de Rainier encontró en la roca el orificio de su estaca de hierro. El mirador forma parte del recorrido de nuestro pasadía."
+          ]
+        },
+        "today": {
+          "heading": "Chivor hoy: dónde están las minas",
+          "paragraphs": [
+            "Hoy la minería en Chivor se hace sobre todo en túneles subterráneos, en minas de distinta escala a lo largo del valle del Sinaí. Las esmeraldas se forman en vetas dentro de lutitas negras del Cretácico, y el cromo y el vanadio les dan el verde con matiz azulado que caracteriza a la piedra de Chivor. Las minas quedan en el municipio de Chivor, en la provincia de Oriente de Boyacá. El pueblo es el punto de partida; a las bocaminas se sube en 4x4.",
+            "Los mineros tienen su propio vocabulario: las chispas son cristales pequeños de color intenso y las gotas de aceite, las de mejor calidad. En la mina vas a oír ambas palabras antes de ver una sola piedra."
+          ]
+        }
+      }
+    },
+    "gachalaGuavio": {
+      "metaTitle": "Esmeralda de Gachalá (858 Quilates) y el Valle del Guavio | Andean Scapes",
+      "metaDescription": "La historia de la esmeralda de Gachalá, de 858 quilates, hoy en el Smithsonian, y del valle del Guavio que conecta Gachalá con Chivor y la Hacienda El Recuerdo.",
+      "title": "La esmeralda de Gachalá y el valle del Guavio",
+      "lead": "La esmeralda más famosa del cinturón oriental no está en Colombia. Está en una vitrina del Museo Nacional de Historia Natural, en Washington. Salió en 1967 de una mina de Gachalá, en el mismo valle del Guavio donde hoy operamos.",
+      "imageAlt": "Paisaje rural del valle del Guavio cerca de Chivor",
+      "sections": {
+        "stone": {
+          "heading": "La esmeralda de Gachalá: 858 quilates",
+          "paragraphs": [
+            "La esmeralda de Gachalá fue encontrada en 1967 en la mina La Vega de San Juan, en el municipio de Gachalá (Cundinamarca). Es un cristal de 858 quilates, unos 172 gramos y cerca de 5 centímetros, de un verde intenso.",
+            "El joyero neoyorquino Harry Winston la donó en 1969 a la Smithsonian Institution, y hoy forma parte de la colección permanente del Museo Nacional de Historia Natural en Washington. Su nombre viene del municipio donde apareció; según la tradición, Gachalá significa en lengua chibcha «lugar de Gacha»."
+          ]
+        },
+        "belt": {
+          "heading": "Minas de esmeraldas en Cundinamarca: Gachalá y el cinturón oriental",
+          "paragraphs": [
+            "Gachalá pertenece al cinturón esmeraldero oriental de Colombia, junto con Chivor, Somondoco, Macanal, Guateque y Ubalá. Es una franja distinta de la del occidente de Boyacá, donde están Muzo y Coscuez.",
+            "En esta franja las esmeraldas aparecen en vetas dentro de rocas sedimentarias del Cretácico, y su historia minera se remonta a los pueblos chibchas que ya explotaban la zona de Somondoco, hoy Chivor."
+          ]
+        },
+        "valley": {
+          "heading": "El valle del Guavio",
+          "paragraphs": [
+            "Por debajo de las minas de Chivor, los ríos Rucio y Sinaí se unen para formar el río Guavio. Un puente colgante sobre el Rucio marca el límite entre Cundinamarca y Boyacá, y en las laderas del valle, a unos 15 km de Chivor, están las ruinas de Las Cascadas, la plantación de té que fundaron Peter y Margaret Rainier en los años treinta. Aguas abajo, el Guavio llena el embalse de la mayor central hidroeléctrica en operación del país, que además recibe por un túnel de 2,2 km las aguas del río Chivor.",
+            "En 2015, un equipo de GIA recorrió en seis días el camino entre Gachalá y Chivor, primero en 4x4 y luego a pie y en mula, pasando por Las Cascadas y el caserío de Montecristo. Describieron un paisaje de cascadas de cientos de metros, bromelias y aves rapaces."
+          ]
+        },
+        "hacienda": {
+          "heading": "Hacienda El Recuerdo: nuestra base en el Guavio",
+          "paragraphs": [
+            "La Hacienda El Recuerdo está en Mundo Nuevo, en el municipio de Ubalá (Cundinamarca), dentro de la región del Guavio y muy cerca de Chivor. Es una finca dedicada a la ganadería y la apicultura, con habitaciones privadas y WiFi, donde se hospedan los viajeros de nuestros planes de dos días.",
+            "Los tours inician y terminan en Chivor pueblo. Desde Ubalá hay unos 35 km de vía rural hasta la hacienda, una ruta apta solo para moto o carro 4x4; con carro normal, lo recomendable es llegar por Chivor."
+          ]
+        },
+        "visit": {
+          "heading": "Cómo visitar la región",
+          "paragraphs": [
+            "Para conocer el cinturón oriental sin planear una expedición, el punto de partida es Chivor: una mina, una noche en la Hacienda El Recuerdo y la vuelta a Bogotá por el Valle de Tenza, unas 5 a 6 horas.",
+            "Si quieres recorrer también Gachalá y el valle del Guavio, consulta antes el estado de las vías, que son rurales y cambian con las lluvias, y planea al menos un día adicional."
+          ]
+        }
+      }
+    },
+    "travelSafety": {
+      "metaTitle": "¿Es Seguro Visitar Chivor? Guía para Viajeros 2026 | Andean Scapes",
+      "metaDescription": "Qué dicen los avisos de viaje oficiales sobre Boyacá, por qué el oriente esmeraldero tiene otra historia, carreteras, dinero, fotos y emergencias en Chivor.",
+      "title": "¿Es seguro visitar Chivor? Lo que conviene saber antes de viajar",
+      "lead": "Es la pregunta que aparece en casi todas las conversaciones con viajeros de fuera de Colombia, y es razonable hacerla. La respuesta corta: Chivor no está en las zonas que los avisos de viaje extranjeros piden evitar, pero es montaña rural y se viaja con reglas claras. Aquí están, con sus fuentes.",
+      "imageAlt": "Paisaje de montaña en la región esmeraldera de Chivor, Boyacá",
+      "sections": {
+        "advice": {
+          "heading": "Qué dicen los avisos de viaje oficiales",
+          "paragraphs": [
+            "El Reino Unido publica uno de los avisos más detallados sobre Colombia. En su versión del 30 de octubre de 2026 desaconseja viajar, salvo por motivos esenciales, al Catatumbo, a casi todo Arauca, a la franja de 5 km junto a la frontera con Venezuela, a buena parte del Chocó y a la costa pacífica del Valle del Cauca, entre otras zonas. Ni Boyacá ni Cundinamarca aparecen en esas listas.",
+            "Eso no equivale a riesgo cero. El mismo aviso señala que el problema más frecuente para los visitantes es el robo en las ciudades grandes, incluida La Candelaria en Bogotá, y que en el campo la señal de celular es limitada. Revisa también el aviso de tu propio gobierno: estos documentos se actualizan con frecuencia."
+          ]
+        },
+        "twoBelts": {
+          "heading": "¿Es peligroso Muzo o Chivor? Dos historias distintas",
+          "paragraphs": [
+            "Quien busca «esmeraldas Colombia violencia» encuentra sobre todo el occidente de Boyacá. Allí, entre 1965 y 1990, las llamadas guerras verdes enfrentaron a grupos esmeralderos por el control de las minas, con miles de muertos según las cifras citadas por la prensa colombiana. Terminaron con un acuerdo de paz firmado el 12 de julio de 1990. Después de 2013 hubo nuevos episodios de tensión en esa zona.",
+            "Chivor está en el otro cinturón, el oriental, a unas diez horas de carretera de Borbur. Su entorno lo marcan la minería y dos de las mayores centrales hidroeléctricas del país."
+          ]
+        },
+        "infrastructure": {
+          "heading": "La represa de Chivor, el Guavio y la fuerza pública",
+          "paragraphs": [
+            "El embalse que se cruza en ferry cerca de Macanal se llama La Esmeralda y alimenta la central de Chivor: 1.000 MW y ocho turbinas Pelton, construida entre 1970 y 1977. Al sur, en Mambita (Ubalá), la central del Guavio funciona dentro de la montaña. Con 1.260 MW es la mayor central en operación de Colombia, y un túnel de 2,2 km desvía hacia su embalse las aguas del río Chivor.",
+            "Son infraestructura estratégica y en la región hay presencia permanente de la fuerza pública. Lo contamos desde nuestra experiencia operando allí, no como dato oficial, y no publicamos ubicaciones ni detalles de esa presencia. Lo que sí hacemos: validar las condiciones de la zona y de la mina antes de cada salida."
+          ]
+        },
+        "roads": {
+          "heading": "Carreteras, horarios y lluvia",
+          "paragraphs": [
+            "Desde Bogotá son unas 5 a 6 horas. El último tramo es destapado y de montaña, y por eso el viaje se planea de día, como aconseja el aviso británico para cualquier carretera rural del país.",
+            "El gobierno colombiano declaró un fenómeno de El Niño para 2026–2027 con alta probabilidad de intensidad fuerte, y se esperan lluvias inusuales y derrumbes. Después de un aguacero fuerte, pregunta por el estado de la vía antes de salir. La ruta alterna por Ubalá solo sirve para moto o 4x4."
+          ]
+        },
+        "money": {
+          "heading": "Dinero y señal",
+          "paragraphs": [
+            "Lleva efectivo para los gastos locales: en las minas no hay cajeros ni datáfonos. Si necesitas retirar, hazlo en Bogotá, en horario bancario y dentro de un banco o un centro comercial.",
+            "La señal de celular en la zona rural es irregular. La hacienda tiene WiFi. Antes de subir a la mina, deja tu itinerario a alguien de confianza."
+          ]
+        },
+        "photos": {
+          "heading": "Qué no fotografiar",
+          "paragraphs": [
+            "En Colombia es ilegal fotografiar instalaciones militares o sitios estratégicos del Estado. En la práctica: nada de fotos a soldados, puestos de control ni a las instalaciones de las presas. Dentro de la mina, pregunta antes de fotografiar a los mineros. Es su lugar de trabajo."
+          ]
+        },
+        "health": {
+          "heading": "Salud y seguros",
+          "paragraphs": [
+            "Chivor está a unos 2.000 m. No es altura extrema, pero la humedad y el esfuerzo dentro de la mina se notan. Cada plan incluye una póliza de asistencia médica durante la experiencia. Un seguro de viaje integral no está incluido, y si viajas desde el exterior te lo recomendamos.",
+            "Si tienes una condición cardiovascular, una fobia severa o te estás recuperando de una lesión, escríbenos antes de reservar."
+          ]
+        },
+        "emergency": {
+          "heading": "En caso de emergencia",
+          "paragraphs": [
+            "En Colombia el número de emergencias es el 123. Durante la jornada minera el guía va con el grupo de principio a fin, y antes del viaje tienes el WhatsApp del equipo para cualquier imprevisto en carretera.",
+            "Una regla que no cambia: nadie entra a la mina sin guía."
+          ]
+        }
+      }
+    },
+    "westernBoyaca": {
+      "metaTitle": "Fura y Tena, Muzo y las Esmeraldas Trapiche | Andean Scapes",
+      "metaDescription": "La leyenda de Fura y Tena, los muzos que resistieron veinte años a los españoles, las esmeraldas trapiche y el camino a la paz de 1990 en el occidente de Boyacá.",
+      "title": "Occidente de Boyacá: Fura y Tena, Muzo y las esmeraldas trapiche",
+      "lead": "Se repite que Fura y Tena es una leyenda muisca. No lo es. Es de los muzos, un pueblo de lengua caribe que asaltaba a sus vecinos muiscas y que tuvo a los españoles veinte años sin poder fundar una ciudad en su territorio.",
+      "imageAlt": "Paisaje de montaña en la región esmeraldera del occidente de Boyacá",
+      "sections": {
+        "muzos": {
+          "heading": "Los muzos, el pueblo de la esmeralda",
+          "paragraphs": [
+            "Según el registro de nombres geográficos de Colombia, «muzo» viene de una lengua de la familia caribe y significa «persona». Los muzos sacaban esmeraldas de forma rudimentaria y las usaban como adorno y para el trueque entre clanes.",
+            "Luis Lanchero entró contra ellos en 1539 y fracasó. Lo intentaron Diego de Martínez en 1544, Melchor de Valdés en 1550 y Pedro de Ursúa en 1551. El 20 de febrero de 1559 Lanchero fundó por fin la Villa de la Santísima Trinidad de los Muzos, y aun entonces no los había dominado del todo."
+          ]
+        },
+        "legend": {
+          "heading": "La leyenda de Fura y Tena",
+          "paragraphs": [
+            "En la versión que recogió Julio Roberto Garavito, Are, el dios creador, formó con un puñado de tierra a Fura, la mujer, y a Tena, el hombre, y los arrojó al río Minero. Les dio juventud eterna con una sola condición: amarse únicamente entre ellos.",
+            "Llegó Zarbi, un forastero que buscaba una flor capaz de curar todos los males. Fura lo acompañó a buscarla y en la selva se enamoraron. Con la infidelidad llegó la vejez. Tena se clavó su macana en el corazón, recostado en las rodillas de Fura.",
+            "Zarbi quedó convertido en roca, y su sangre en el río que separa para siempre a los dos amantes, hechos cerros. Los gritos de Fura se volvieron mariposas; sus lágrimas, esmeraldas. Por eso, dice el relato, es el agua del Minero la que lava las esmeraldas de Muzo."
+          ]
+        },
+        "hills": {
+          "heading": "¿Dónde están Fura y Tena?",
+          "paragraphs": [
+            "Fura y Tena son dos cerros enfrentados sobre el río Minero, entre San Pablo de Borbur, Pauna y Muzo. Las alturas que se publican son de unos 840 m para Tena y 500 m para Fura. Para los muzos eran el asiento de sus dioses.",
+            "La mariposa morfo, de azul eléctrico y negro, hace parte de la cultura de la zona. En la leyenda, cada grito de Fura estalla en una bandada de mariposas."
+          ]
+        },
+        "trapiche": {
+          "heading": "¿Qué es una esmeralda trapiche?",
+          "paragraphs": [
+            "Algunas esmeraldas del occidente muestran seis brazos oscuros que salen del centro, como los rayos de la rueda de un trapiche de caña. Émile Bertrand las describió por primera vez en 1879.",
+            "Salen casi solo de Muzo, Coscuez y Peñas Blancas. Textos antiguos las atribuían también a Chivor, pero una revisión publicada en Gems & Gemology en 2015 considera hoy improbable ese origen. Si alguien te ofrece una trapiche «de Chivor», pregunta dos veces."
+          ]
+        },
+        "furaStone": {
+          "heading": "Una esmeralda con nombre de leyenda",
+          "paragraphs": [
+            "En 1999 salió de una mina de Muzo un cristal en bruto de unos 11.000 quilates, más de dos kilos. Lo llamaron Fura. Según la prensa que lo reportó en 2011, con él apareció otro más pequeño, bautizado Tena."
+          ]
+        },
+        "peace": {
+          "heading": "Del conflicto a la paz de 1990",
+          "paragraphs": [
+            "La historia reciente del occidente pasa por las llamadas guerras verdes, tres periodos de violencia entre grupos esmeralderos entre 1965 y 1990. Solo el primero, hasta 1975, dejó más de 1.200 muertos según las cifras citadas por la prensa. En 1980 llegó a haber en Muzo unos 35.000 guaqueros.",
+            "El 12 de julio de 1990 se firmó el acuerdo de paz que cerró ese ciclo; Muzo conmemoró sus 30 años en 2020. Después de 2013 hubo nuevos episodios de tensión. Lo contamos porque es parte de la región y de su gente, no como atracción."
+          ]
+        },
+        "visit": {
+          "heading": "Cómo es viajar al occidente",
+          "paragraphs": [
+            "Muzo está a unos 815 m y promedia 26 °C, nada que ver con los 2.000 m y las noches frías de Chivor. Desde Chiquinquirá se llega por la Ruta 60 en dirección a Pauna y Maripí.",
+            "Coscuez está en nuestro catálogo, pero hoy no tiene fechas. La experiencia disponible es Chivor, en el cinturón oriental."
+          ]
+        }
+      }
+    }
+  }
+}

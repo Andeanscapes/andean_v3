@@ -2,13 +2,13 @@
 
 import { memo, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { BedDouble, User } from 'lucide-react';
 import { Card } from '@/components/ui/Card/Card';
 import { Button } from '@/components/ui/Button/Button';
 import { Stepper } from '@/components/ui/Stepper/Stepper';
 import { Modal } from '@/components/ui/Modal/Modal';
 import { SegmentedControl } from '@/components/ui/SegmentedControl/SegmentedControl';
 import { useReservationRoomModes, useReservationRooms, useReservationTier } from '@/hooks/experiences/useReservationContext';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import type { RoomMode, RoomSelection } from '@/lib/schemas';
 import { computePeopleCount } from '@/utils/helpers';
 
@@ -36,8 +36,6 @@ function AccommodationSelectorComponent({
     useReservationRooms();
   const allRoomModes = useReservationRoomModes();
   const { selectedTierId } = useReservationTier();
-  const { theme } = useThemeContext();
-  const isDark = theme === 'dark';
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [occupancyByRoomType, setOccupancyByRoomType] = useState<Record<string, RoomMode>>({});
 
@@ -114,24 +112,20 @@ function AccommodationSelectorComponent({
       .filter((selection) => selection.quantity > 0);
   }, [roomModes, roomSelections]);
 
-  const cardClass = isDark
-    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
-    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
-
   return (
-    <Card className={cardClass}>
+    <Card padding="responsive" className="mb-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
-        <h2 className="text-xl font-semibold">{t('roomPickerTitle')}</h2>
-        <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
+        <h2 className="text-md sm:text-2md md:text-xl font-semibold text-base-content">{t('roomPickerTitle')}</h2>
+        <p className={"text-xs font-medium text-primary"}>
           {t('peopleLabel')}: {peopleCount}
         </p>
       </div>
 
       <div>
         <p className="text-sm text-base-content/80 mb-3">{t('roomType')}</p>
-        <div className="rounded-xl border border-base-300/60 bg-base-200/40 px-3 py-3">
+        <div className="rounded-xl border border-zinc-200/80 bg-zinc-50 p-3 md:p-4 dark:border-white/10 dark:bg-slate-900/40">
           <div className="flex items-center justify-between mb-2">
-            <p className={`text-xs font-medium ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
+            <p className={"text-xs font-medium text-primary"}>
               {isRoomSuggested && roomSelections.length > 0
                 ? t('suggestedRoomsLabel', { count: peopleCount })
                 : t('selectedRoomsLabel')}
@@ -143,7 +137,7 @@ function AccommodationSelectorComponent({
                   setRoomSelections([]);
                   setOccupancyByRoomType({});
                 }}
-                className={`text-xs underline transition-colors ${isDark ? 'text-base-content/50 hover:text-base-content/70' : 'text-base-content/60 hover:text-base-content/90'}`}
+                className={"inline-flex min-h-11 items-center text-xs underline text-base-content/70 transition-colors hover:text-base-content/90"}
               >
                 {t('clearSelection')}
               </button>
@@ -171,7 +165,7 @@ function AccommodationSelectorComponent({
             </div>
           )}
           {isRoomSuggested && roomSelections.length > 0 && (
-            <p className={`mt-2 mb-1 text-[11px] ${isDark ? 'text-amber-400/80' : 'text-amber-700'}`}>
+            <p className={"mt-2 mb-1 text-[11px] text-amber-700 dark:text-amber-400"}>
               {t('suggestedRoomsNote')}
             </p>
           )}
@@ -179,7 +173,7 @@ function AccommodationSelectorComponent({
             <Button
               type="button"
               variant="outline"
-              size="sm"
+              size="md"
               onClick={() => setIsModalOpen(true)}
             >
               {isRoomSuggested && roomSelections.length > 0 ? t('editRooms') : t('addRoom')}
@@ -188,7 +182,7 @@ function AccommodationSelectorComponent({
         </div>
       </div>
 
-      <p className={`text-xs mt-4 ${isDark ? 'text-primary/90' : 'text-[#006B40]'}`}>
+      <p className={"text-xs mt-4 text-primary"}>
         {t('roomMixHint')}
       </p>
 
@@ -261,19 +255,20 @@ function AccommodationSelectorComponent({
             const showCoupleNote = currentOccupancy.endsWith('_couple');
 
             return (
-              <div key={group.id} className="rounded-xl border border-primary/20 bg-base-100 px-4 py-4">
+              <div key={group.id} className="rounded-xl border border-zinc-200/80 bg-white p-3 md:p-4 dark:border-white/10 dark:bg-slate-900/40">
                 <div className="mb-3">
                   <h3 className="text-base font-semibold mb-1">
                     {group.name}
                   </h3>
-                  <p className="text-xs text-base-content/60">
+                  <p className="text-xs text-base-content/70">
                     {t('unitsAvailable', { count: group.unitsAvailable })}
                   </p>
                 </div>
                 
                 <div className="mb-3">
-                  <label className="text-sm text-base-content/80 mb-2 block">
-                    👤 {t('guestsPerRoom')}
+                  <label className="text-sm text-base-content/80 mb-2 flex items-center gap-1.5">
+                    <User aria-hidden="true" className="h-4 w-4" />
+                    {t('guestsPerRoom')}
                   </label>
                   <SegmentedControl
                     value={currentOccupancy}
@@ -282,13 +277,14 @@ function AccommodationSelectorComponent({
                       value: opt.value,
                       label: opt.label,
                     }))}
-                    size="sm"
+                    size="md"
                   />
                 </div>
                 
                 <div>
-                  <label className="text-sm text-base-content/80 mb-2 block">
-                    🛏️ {t('numberOfRooms')}
+                  <label className="text-sm text-base-content/80 mb-2 flex items-center gap-1.5">
+                    <BedDouble aria-hidden="true" className="h-4 w-4" />
+                    {t('numberOfRooms')}
                   </label>
                   <Stepper
                     decreaseLabel={t('decrease')}
@@ -297,7 +293,7 @@ function AccommodationSelectorComponent({
                     onChange={(value) => updateSelection(currentOccupancy, value)}
                     min={0}
                     max={computedMax}
-                    size="sm"
+                    size="md"
                   />
                 </div>
                 

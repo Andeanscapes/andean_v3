@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from './seoUrls';
+import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates, buildOgLocale, toOgLocale } from './seoUrls';
 
 describe('localized SEO URLs', () => {
   it('keeps structured-data URLs in the current locale', () => {
@@ -18,5 +18,18 @@ describe('localized SEO URLs', () => {
       fr: 'https://andeanscapes.com/fr/experiences',
       'x-default': 'https://andeanscapes.com/experiences',
     });
+  });
+});
+
+describe('Open Graph locales', () => {
+  it('maps each locale to language_TERRITORY', () => {
+    expect(toOgLocale('en')).toBe('en_US');
+    expect(toOgLocale('es')).toBe('es_CO');
+    expect(toOgLocale('fr')).toBe('fr_FR');
+    expect(toOgLocale('xx')).toBe('en_US');
+  });
+
+  it('lists the other locales as alternates', () => {
+    expect(buildOgLocale('fr')).toEqual({ locale: 'fr_FR', alternateLocale: ['en_US', 'es_CO'] });
   });
 });

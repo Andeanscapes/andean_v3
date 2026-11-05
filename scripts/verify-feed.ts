@@ -111,8 +111,8 @@ async function checkResponsiveSiblings(file: string, keys: readonly string[]): P
   for (const entry of missing) {
     fail(
       entry.reason === 'absent'
-        ? `${file}: "${entry.key}" has no published "-mobile" sibling at ${entry.mobileKey}`
-        : `${file}: cannot verify "${entry.mobileKey}": ${entry.reason}`,
+        ? `${file}: "${entry.key}" is missing its published sibling ${entry.siblingKey}`
+        : `${file}: cannot verify "${entry.siblingKey}": ${entry.reason}`,
     );
   }
 
@@ -121,7 +121,7 @@ async function checkResponsiveSiblings(file: string, keys: readonly string[]): P
   const verified = checked - missing.length;
   if (verified > 0) {
     console.log(
-      `  ✓ ${file}: ${verified}/${checked} responsive image(s) have a published -mobile sibling`,
+      `  ✓ ${file}: ${verified}/${checked} responsive sibling(s) published (-mobile, plus AVIF for heroes)`,
     );
   }
 }

@@ -25,11 +25,18 @@ type NativeButtonProps = CommonProps &
 
 type PrimaryCtaButtonProps = AnchorProps | NativeButtonProps;
 
+/**
+ * Light theme: solid primary (emerald-700) with white text and a quiet shadow — the
+ * mint gradient and neon glow read as low-contrast on white. Dark theme keeps the
+ * original gradient/glow unchanged via `dark:`.
+ */
 function getBaseClass(variant: CtaVariant): string {
+  const base =
+    'btn border-0 bg-primary text-primary-content font-extrabold shadow-sm transition-all duration-200 hover:bg-primary/90 active:scale-95 active:brightness-95';
   if (variant === 'gradient') {
-    return 'btn border-0 bg-gradient-to-r from-emerald-400 to-emerald-500 text-slate-900 font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.30)] transition-all duration-200 hover:from-emerald-300 hover:to-emerald-400 hover:brightness-105 active:scale-95 active:brightness-95';
+    return `${base} dark:bg-gradient-to-r dark:from-emerald-400 dark:to-emerald-500 dark:text-slate-900 dark:shadow-[0_0_20px_rgba(0,240,143,0.30)] dark:hover:from-emerald-300 dark:hover:to-emerald-400 dark:hover:brightness-105`;
   }
-  return 'btn border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-95 active:brightness-95';
+  return `${base} dark:shadow-[0_0_20px_rgba(0,240,143,0.24)] dark:hover:brightness-105`;
 }
 
 export function PrimaryCtaButton(props: PrimaryCtaButtonProps) {

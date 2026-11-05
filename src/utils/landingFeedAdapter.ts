@@ -24,7 +24,14 @@ import type { LandingExperienceV2, LandingFeedV2 } from '@/lib/schemas/feed/v2';
 import { experiencePath } from '@/utils/experienceRoutes';
 import { splitCardHighlights } from '@/utils/cardHighlights';
 import { whatsappUrl } from '@/utils/whatsapp';
-import { REVIEW_LINKS } from '@/constant/SiteConfig';
+import {
+  FAQ_PLAN_IMAGE,
+  HOST_PORTRAIT,
+  REVIEW_LINKS,
+  REVIEW_PLATFORM_LINKS,
+  REVIEW_PLATFORM_LOGOS,
+  TRAVELER_SEGMENT_IMAGES,
+} from '@/constant/SiteConfig';
 
 const S = LANDING_STRUCTURE;
 
@@ -169,24 +176,26 @@ function toReviews(feed: LandingFeedV2): LandingFeed['reviews'] {
         countryKey: countryKeyFor(review.countryCode),
         rating: review.rating,
         commentKey,
+        headlineKey: LANDING_I18N.reviewHeadlines[review.id],
         isVerified: review.verified,
         verifiedExperienceKey: LANDING_I18N.reviewSource[review.source],
         sourceUrl: REVIEW_LINKS[review.source],
+        sourceLogo: REVIEW_PLATFORM_LOGOS[review.source],
       };
     });
+
+  // A platform without a configured link is hidden, never rendered empty.
+  const platforms = S.reviews.platforms.flatMap((platform) => {
+    const href = REVIEW_PLATFORM_LINKS[platform.id];
+    return href ? [{ ...platform, href, logo: REVIEW_PLATFORM_LOGOS[platform.id] }] : [];
+  });
 
   return {
     sectionTitleKey: S.reviews.sectionTitleKey,
     subtitleKey: S.reviews.subtitleKey,
     items,
-    trustPanel: {
-      titleKey: S.reviews.trustPanel.titleKey,
-      bullets: S.reviews.trustPanel.bullets.map((bullet) => ({
-        id: bullet.id,
-        iconName: bullet.iconName,
-        textKey: bullet.textKey,
-      })),
-    },
+    platformsTitleKey: S.reviews.platformsTitleKey,
+    platforms,
     aggregateRating: {
       ratingValue: feed.reviewSummary.rating,
       reviewCount: feed.reviewSummary.count,
@@ -266,6 +275,11 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     whyUs: {
       sectionTitleKey: S.whyUs.sectionTitleKey,
       leadKey: S.whyUs.leadKey,
+      portrait: {
+        image: HOST_PORTRAIT,
+        altKey: S.whyUs.portraitAltKey,
+        captionKey: S.whyUs.portraitCaptionKey,
+      },
       items: S.whyUs.items.map((item) => ({ ...item })),
     },
     howItWorks: {
@@ -278,7 +292,10 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
         id: segment.id,
         iconName: segment.iconName,
         labelKey: segment.labelKey,
-        recommendationKey: segment.recommendationKey,
+        titleKey: segment.titleKey,
+        bulletKeys: [segment.bullet1Key, segment.bullet2Key, segment.bullet3Key],
+        image: TRAVELER_SEGMENT_IMAGES[segment.id],
+        imageAltKey: segment.imageAltKey,
         ctaLabelKey: S.travelerSegments.ctaLabelKey,
         ctaHref: S.travelerSegments.ctaHref,
       })),
@@ -295,7 +312,12 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     safety: {
       sectionTitleKey: S.safety.sectionTitleKey,
       leadKey: S.safety.leadKey,
-      items: S.safety.items.map((item) => ({ ...item })),
+      groups: S.safety.groups.map((group) => ({
+        id: group.id,
+        titleKey: group.titleKey,
+        items: group.items.map((item) => ({ ...item })),
+        cta: 'whatsappCta' in group ? { ...group.whatsappCta, href: whatsappUrl() } : undefined,
+      })),
       protocolLinkLabelKey: S.safety.protocolLinkLabelKey,
       protocolHref: S.safety.protocolHref,
       protocolComingSoonKey: S.safety.protocolComingSoonKey,
@@ -308,11 +330,12 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
     },
     reviews: toReviews(feed),
     faqs: {
-      sectionTitleKey: S.faqs.sectionTitleKey,
       titleKey: S.faqs.titleKey,
       descriptionKey: S.faqs.descriptionKey,
       enquiryTitleKey: S.faqs.enquiryTitleKey,
       enquiryDescriptionKey: S.faqs.enquiryDescriptionKey,
+      planImage: FAQ_PLAN_IMAGE,
+      planImageAltKey: S.faqs.planImageAltKey,
       items: S.faqs.itemIds.map((id) => ({
         id,
         questionKey: `Landing.faqs.items.${id}.question`,
@@ -326,7 +349,6 @@ export function adaptLandingFeedV2(feed: LandingFeedV2): LandingFeed {
       primaryCtaLabelKey: S.finalCta.primaryCtaLabelKey,
       primaryCtaHref: S.finalCta.primaryCtaHref,
       secondaryCtaLabelKey: S.finalCta.secondaryCtaLabelKey,
-      trustBadges: S.finalCta.trustBadges.map((badge) => ({ ...badge })),
     },
   };
 }

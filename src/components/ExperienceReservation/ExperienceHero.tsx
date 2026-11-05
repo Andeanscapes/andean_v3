@@ -9,7 +9,7 @@ import type {
 } from '@/lib/schemas';
 import { Button } from '@/components/ui/Button/Button';
 import { Badge } from '@/components/ui/Badge/Badge';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { HeroPicture } from '@/components/ui/HeroPicture/HeroPicture';
 
 type ExperienceHeroProps = {
   config?: ExperienceConfig;
@@ -132,29 +132,13 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
 
   return (
     <div
-      className="relative flex w-full min-h-[max(31vh,230px)] md:min-h-[50vh] overflow-hidden bg-base-950"
+      className="relative flex w-full min-h-[max(31vh,230px)] md:min-h-[50vh] overflow-hidden bg-zinc-950"
     >
       {/* <picture> with responsive sources — proper LCP candidate,
           discoverable by preload scanner, benefits from fetchPriority.
           Mobile variant is ~70 % smaller than the desktop image. */}
       {backgroundImageUrl ? (
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcSet={getResponsiveImageSrc(backgroundImageUrl).mobile}
-          />
-          <img
-            src={backgroundImageUrl}
-            alt=""
-            aria-hidden="true"
-            width={1900}
-            height={900}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </picture>
+        <HeroPicture src={backgroundImageUrl} width={1900} height={900} />
       ) : null}
       {/* Video Background */}
       {shouldRenderVideo && video ? (
@@ -164,7 +148,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
           loop
           playsInline
           preload={isDesktopViewport ? 'metadata' : 'none'}
-          className="absolute inset-0 w-full h-full object-cover bg-base-950"
+          className="absolute inset-0 w-full h-full object-cover bg-zinc-950"
         >
           <source src={video.mobile ?? video.desktop} type="video/webm" media="(max-width: 767px)" />
           <source src={video.desktop} type="video/webm" />
@@ -175,11 +159,10 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
       {/* Overlay stack for contrast */}
       <div className="pointer-events-none absolute inset-0 bg-black/40" />
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-black/70 to-transparent" />
-      <div className="pointer-events-none absolute -bottom-24 -left-16 hidden h-48 w-48 rounded-full bg-emerald-400/25 blur-3xl md:block md:h-72 md:w-72" />
 
       {/* Content */}
       <div className="relative z-10 flex w-full items-center justify-center pt-16 pb-8 backdrop-blur-sm md:pt-16 md:backdrop-blur-md">
-        <div className="w-full max-w-5xl rounded-2xl bg-base-950/70 px-4 py-2.5 md:px-8 md:py-8">
+        <div className="w-full max-w-5xl px-4 py-2.5 md:px-8 md:py-8">
           <div className="text-center">
             <h1 className="mb-1 text-[1.35rem] font-bold leading-tight text-white drop-shadow-lg md:mb-2 md:text-3xl lg:text-4xl">
               {resolvedContent.title}
@@ -205,7 +188,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
                   {resolvedContent.ctaLabel}
                 </Button>
               ) : null}
-              <p className="mt-1.5 text-[11px] leading-tight text-white/70 md:mt-2 md:text-sm md:text-white/75">
+              <p className="mt-1.5 text-xs leading-tight text-white/80 md:mt-2 md:text-sm">
                 {resolvedContent.helperText}
               </p>
             </div>
@@ -216,7 +199,7 @@ function ExperienceHeroComponent({ config, heroContent, content }: ExperienceHer
                   key={badge.label}
                   variant="secondary"
                   size="sm"
-                  className="border-white/20 bg-base-900/80 px-2 py-0.5 text-[11px] text-white shadow-sm backdrop-blur-md md:px-2.5 md:py-1 md:text-xs"
+                  className="border-white/20 px-2 py-0.5 text-xs text-white shadow-sm backdrop-blur-md md:px-2.5 md:py-1"
                 >
                   <span className="inline-flex items-center gap-1.5">
                     <HeroBadgeIcon icon={badge.icon ?? 'none'} />

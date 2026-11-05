@@ -23,7 +23,7 @@ import {
   readMediaFromDirectories,
   withResponsiveSiblings,
 } from './feed-media';
-import { FOOTER_TRUST_GALLERY } from '../../src/constant/SiteConfig';
+import { FOOTER_TRUST_GALLERY, HOST_PORTRAIT, TRAVELER_SEGMENT_IMAGES } from '../../src/constant/SiteConfig';
 
 /**
  * Every `<picture>` consumer needs a published `-mobile` sibling, and the
@@ -31,6 +31,13 @@ import { FOOTER_TRUST_GALLERY } from '../../src/constant/SiteConfig';
  * is the only thing standing between a component change and a hero, tile or card
  * that 404s on phones and nowhere else.
  */
+describe('listResponsiveMediaKeys hero', () => {
+  it('includes the list hero, rendered through HeroPicture', () => {
+    const keys = listResponsiveMediaKeys({ hero: '/images/experiences/list-hero.webp', experiences: [] });
+    expect(keys).toEqual(['/images/experiences/list-hero.webp']);
+  });
+});
+
 describe('listResponsiveMediaKeys', () => {
   it('covers the card image and carousel gallery of published entries only', () => {
     const keys = listResponsiveMediaKeys({
@@ -94,6 +101,10 @@ describe('landingResponsiveMediaKeys', () => {
     expect(keys).toContain(gallery[0]);
   });
 
+  it('includes the host portrait, which is app-owned', () => {
+    expect(landingResponsiveMediaKeys(LANDING)).toContain(HOST_PORTRAIT);
+  });
+
   it('includes the footer gallery, which the feed never names', () => {
     const keys = landingResponsiveMediaKeys(LANDING);
     for (const key of FOOTER_TRUST_GALLERY) expect(keys).toContain(key);
@@ -119,7 +130,11 @@ describe('landingResponsiveMediaKeys', () => {
 
   /** The media block is optional during the staged rollout. */
   it('still returns the app-owned keys when the feed carries no media block', () => {
-    expect(landingResponsiveMediaKeys({ experiences: [] })).toEqual([...FOOTER_TRUST_GALLERY]);
+    expect(landingResponsiveMediaKeys({ experiences: [] })).toEqual([
+      ...FOOTER_TRUST_GALLERY,
+      HOST_PORTRAIT,
+      ...Object.values(TRAVELER_SEGMENT_IMAGES),
+    ]);
   });
 });
 
@@ -328,7 +343,16 @@ describe('findMissingResponsiveSiblings', () => {
       '/images/brand/landing-hero-02.webp',
     ]);
 
-    expect(report).toEqual({ checked: 2, missing: [] });
+    // Each hero needs its -mobile WebP plus both AVIFs (HeroPicture serves AVIF first).
+    expect(report).toEqual({ checked: 6, missing: [] });
+  });
+
+  it('only checks the -mobile sibling for non-hero images', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(foundResponse()));
+
+    const report = await findMissingResponsiveSiblings(['/images/experiences/x/card.webp']);
+
+    expect(report).toEqual({ checked: 1, missing: [] });
   });
 
   it('reports the derived key when the sibling is absent', async () => {
@@ -336,14 +360,13 @@ describe('findMissingResponsiveSiblings', () => {
 
     const report = await findMissingResponsiveSiblings(['/images/brand/landing-hero-01.webp']);
 
-    expect(report.checked).toBe(1);
-    expect(report.missing).toEqual([
-      {
-        key: '/images/brand/landing-hero-01.webp',
-        mobileKey: '/images/brand/landing-hero-01-mobile.webp',
-        reason: 'absent',
-      },
+    expect(report.checked).toBe(3);
+    expect(report.missing.map((entry) => entry.siblingKey)).toEqual([
+      '/images/brand/landing-hero-01-mobile.webp',
+      '/images/brand/landing-hero-01.avif',
+      '/images/brand/landing-hero-01-mobile.avif',
     ]);
+    expect(report.missing.every((entry) => entry.key === '/images/brand/landing-hero-01.webp' && entry.reason === 'absent')).toBe(true);
   });
 
   /** An unreachable CDN must not be reported as a published sibling. */
@@ -352,8 +375,9 @@ describe('findMissingResponsiveSiblings', () => {
 
     const report = await findMissingResponsiveSiblings(['/images/brand/landing-hero-01.webp']);
 
-    expect(report.missing).toHaveLength(1);
-    expect(report.missing[0].reason).toBe('ECONNRESET');
+    // -mobile WebP + 2 AVIFs, each reported with the failure reason.
+    expect(report.missing).toHaveLength(3);
+    expect(report.missing.every((entry) => entry.reason === 'ECONNRESET')).toBe(true);
   });
 
   /** `hero` is normally listed in `heroVariants` too; probing it twice overstates the count. */
@@ -366,8 +390,9 @@ describe('findMissingResponsiveSiblings', () => {
       '/images/brand/landing-hero.webp',
     ]);
 
-    expect(report.checked).toBe(1);
-    expect(mock).toHaveBeenCalledTimes(1);
+    // One hero (deduplicated) -> its 3 siblings, each requested once.
+    expect(report.checked).toBe(3);
+    expect(mock).toHaveBeenCalledTimes(3);
   });
 
   /** Only images carry the `-mobile` convention. */

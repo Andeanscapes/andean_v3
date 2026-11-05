@@ -20,6 +20,13 @@
 
 ---
 
+## Skills
+- `andean-reviewer` (`.opencode/skills/`): repo-owned.
+- `apple-design` (`.agents/skills/`): third-party, managed by the `skills` CLI and pinned in `skills-lock.json`. Do not edit or move; update with `npx skills update`.
+- Precedence on conflict: `.github/copilot-instructions.md` > `andean-reviewer` > `apple-design`.
+
+---
+
 > Full architecture, design-system, security, and i18n rules live in `.github/copilot-instructions.md`.
 > That file is the single source of truth for this repo. A mirror for non-Copilot agents lives at `docs/AI-INSTRUCTIONS.md`.
 > These rules are additive.

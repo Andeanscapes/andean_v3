@@ -9,7 +9,6 @@ import {X} from 'lucide-react';
 import LanguageSelector from "@/components/LanguageSelector/LanguageSelector";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import {useLayoutContext} from "@/contexts/LayoutContext";
-import {useThemeContext} from "@/contexts/ThemeContext";
 import {BOOKING_LINKS, MOBILE_MENU_CHIPS, SITE_INFO} from "@/constant/SiteConfig";
 import { whatsappUrl } from '@/utils/whatsapp';
 import styles from "./Header.module.css";
@@ -20,7 +19,6 @@ interface HeaderProps {
 
 const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
     const {variant, isSticky} = useLayoutContext();
-    const {theme} = useThemeContext();
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -30,16 +28,15 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
     const isDarkThemeVariant =
         variant === 'black' || variant === 'transparent' || variant === 'transparent-V2';
 
-    const navTextColorClass =
-        isSticky && theme === 'light'
-            ? 'text-slate-900'
-            : isDarkThemeVariant
-                ? 'text-slate-300'
-                : 'text-slate-900';
+    // Theme lives on <html> (set before paint), so colour switches are CSS `dark:`
+    // variants, never JS: a JS branch renders the server default ('dark') first.
+    const navTextColorClass = isSticky
+        ? (isDarkThemeVariant ? 'text-slate-900 dark:text-slate-300' : 'text-slate-900')
+        : (isDarkThemeVariant ? 'text-slate-300' : 'text-slate-900');
 
     const navInteractiveClass = 'hover:text-primary-1 transition-colors duration-200';
 
-    const mobileMenuTextColorClass = theme === 'dark' ? 'text-slate-300' : 'text-slate-900';
+    const mobileMenuTextColorClass = 'text-slate-900 dark:text-slate-300';
 
     const headerClassName = useMemo(() => {
         return `${styles.headerStyle}
@@ -51,10 +48,17 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
            `;
         }, [variant, isSticky, isMobileMenuOpen]);
 
-    const logoSrc = useMemo(() => {
-        if (isSticky && theme === 'light') return SITE_INFO.logoWhite;
-        return SITE_INFO.logo;
-    }, [theme, isSticky]);
+    // Sticky + light theme uses the alternate logo. Both are rendered and swapped with
+    // `dark:` so the right one shows on first paint; only after scroll (isSticky).
+    const renderLogo = (props: { sizes: string; className: string; priority?: boolean }) =>
+        isSticky ? (
+            <>
+                <Image alt="logo" width={150} height={150} {...props} className={`${props.className} dark:hidden`} src={SITE_INFO.logoWhite} />
+                <Image alt="logo" width={150} height={150} {...props} className={`${props.className} hidden dark:block`} src={SITE_INFO.logo} />
+            </>
+        ) : (
+            <Image alt="logo" width={150} height={150} {...props} src={SITE_INFO.logo} />
+        );
 
     useEffect(() => {
         setIsMounted(true);
@@ -95,28 +99,23 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
 
     return (
         <>
-        <header 
-        data-theme={theme}
-        className={headerClassName}>
+        <header className={headerClassName}>
             <div className="desktop-menu max-w-[1570px] mx-auto h-16 justify-between items-center xl:flex hidden">
 
                 <div className="main-menu flex items-center ">
                     <Link href="/" className="shrink-0">
-                        <Image
-                            alt='logo'
-                            width={150}
-                            height={150}
-                            sizes="48px"
-                            className="h-[48px] w-[48px] object-contain"
-                            src={logoSrc}
-                            priority
-                        />
+                        {renderLogo({ sizes: '48px', className: 'h-[48px] w-[48px] object-contain', priority: true })}
                     </Link>
-                    <div className="main-menu uppercase ml-4">
+                    <div className="main-menu ml-4">
                         <ul className={`flex items-center ${styles.navList}`}>
                             <li>
                                 <Link href="/experiences" className={`${styles.navLink} ${navTextColorClass} ${navInteractiveClass}`}>
                                     {t('experiences')}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/guides" className={`${styles.navLink} ${navTextColorClass} ${navInteractiveClass}`}>
+                                    {t('guides')}
                                 </Link>
                             </li>
                         </ul>
@@ -126,7 +125,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                     {!hideBookingCta && (
                         <Link 
                             href={BOOKING_LINKS.airbnb} 
-                            className="btn btn-sm border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
+                            className="btn btn-sm border-0 bg-primary text-primary-content font-bold transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
@@ -140,14 +139,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
 
             <div className={`${styles.mobileBar}`}>
                 <Link href="/" className="shrink-0 max-w-[42px]">
-                    <Image
-                        alt='logo'
-                        width={150}
-                        height={150}
-                        sizes="42px"
-                        className="h-[42px] w-[42px] object-contain"
-                        src={logoSrc}
-                    />
+                    {renderLogo({ sizes: '42px', className: 'h-[42px] w-[42px] object-contain' })}
                 </Link>
                 <button
                     type="button"
@@ -190,29 +182,17 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
 
                     <aside
                         id="mobile-header-menu"
-                        data-theme={theme}
-                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] shadow-xl backdrop-blur-md transition-transform duration-300 ease-out overflow-y-auto ${
-                            theme === 'dark'
-                                ? 'border-l border-white/10 bg-slate-950/96'
-                                : 'border-l border-black/10 bg-white/96'
-                        } ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                        className={`xl:hidden fixed top-0 right-0 z-[52] h-svh w-[88%] max-w-[360px] shadow-xl backdrop-blur-md transition-transform duration-300 ease-out overflow-y-auto border-l border-black/10 bg-white/96 dark:border-white/10 dark:bg-slate-950/96 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                         role="dialog"
                         aria-modal="true"
                         aria-label={tm('dialogLabel')}
                     >
-                        <div className={`flex items-start justify-between p-5 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                        <div className={`flex items-start justify-between p-5 pb-3 border-b border-black/5 dark:border-white/[0.08]`}>
                             <div className="flex items-start gap-3 min-w-0">
                                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="shrink-0">
-                                    <Image
-                                        alt='logo'
-                                        width={150}
-                                        height={150}
-                                        sizes="40px"
-                                        className="h-10 w-10 object-contain"
-                                        src={logoSrc}
-                                    />
+                                    {renderLogo({ sizes: '40px', className: 'h-10 w-10 object-contain' })}
                                 </Link>
-                                <p className={`text-[11px] leading-tight font-medium max-w-[160px] ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
+                                <p className={`text-[11px] leading-tight font-medium max-w-[160px] text-slate-600 dark:text-slate-400`}>
                                     {tm('brandLine')}
                                 </p>
                             </div>
@@ -227,12 +207,12 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                         </div>
 
                         {!hideBookingCta && (
-                            <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                            <div className={`px-5 pt-4 pb-3 border-b border-black/5 dark:border-white/[0.08]`}>
                                 <div className="flex flex-col gap-2.5">
                                     <Link
                                         href="/experiences"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="btn btn-md w-full border-0 bg-primary text-primary-content font-extrabold shadow-[0_0_20px_rgba(0,240,143,0.24)] transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
+                                        className="btn btn-md w-full border-0 bg-primary text-primary-content font-bold transition-all duration-200 hover:bg-primary/90 hover:brightness-105 active:scale-[0.98] active:brightness-95"
                                     >
                                         {tm('exploreExperiences')}
                                     </Link>
@@ -241,7 +221,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`btn btn-md btn-outline w-full ${theme === 'dark' ? 'border-white/20 text-slate-300 hover:border-white/35 hover:bg-white/5' : 'border-black/15 text-slate-700 hover:border-black/25 hover:bg-black/3'}`}
+                                        className={`btn btn-md btn-outline w-full border-black/15 text-slate-700 hover:border-black/25 hover:bg-black/3 dark:border-white/20 dark:text-slate-300 dark:hover:border-white/35 dark:hover:bg-white/5`}
                                     >
                                         {tm('planOnWhatsApp')}
                                     </a>
@@ -249,7 +229,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             </div>
                         )}
 
-                        <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                        <div className={`px-5 pt-4 pb-3 border-b border-black/5 dark:border-white/[0.08]`}>
                             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-2.5">
                                 {tm('sectionNavigate')}
                             </p>
@@ -260,6 +240,13 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                     className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
                                 >
                                     {t('experiences')}
+                                </Link>
+                                <Link
+                                    href="/guides"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
+                                >
+                                    {tm('nav.guides')}
                                 </Link>
                                 <Link
                                     href="/#landing-howitworks-title"
@@ -285,7 +272,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             </nav>
                         </div>
 
-                        <div className={`px-5 pt-4 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
+                        <div className={`px-5 pt-4 pb-3 border-b border-black/5 dark:border-white/[0.08]`}>
                             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-2.5">
                                 {tm('sectionQuickExplore')}
                             </p>
@@ -295,11 +282,7 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                         key={chip.id}
                                         href={chip.href}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`btn btn-sm rounded-full transition-all duration-200 ${
-                                            theme === 'dark'
-                                                ? 'border-white/15 bg-white/5 text-slate-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary'
-                                                : 'border-black/10 bg-black/3 text-slate-600 hover:border-primary/40 hover:bg-primary/5 hover:text-primary'
-                                        }`}
+                                        className={`btn btn-sm rounded-full transition-all duration-200 border-black/10 bg-black/3 text-slate-600 hover:border-primary/40 hover:bg-primary/5 hover:text-primary dark:border-white/15 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-primary/10`}
                                     >
                                         {tm(chip.i18nKey as Parameters<typeof tm>[0])}
                                     </Link>
@@ -307,15 +290,15 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                             </div>
                         </div>
 
-                        <div className={`px-5 pt-3 pb-3 ${theme === 'dark' ? 'border-b border-white/[0.08]' : 'border-b border-black/5'}`}>
-                            <p className={`text-[11px] leading-relaxed ${theme === 'dark' ? 'text-slate-500/80' : 'text-slate-500'}`}>
+                        <div className={`px-5 pt-3 pb-3 border-b border-black/5 dark:border-white/[0.08]`}>
+                            <p className={`text-[11px] leading-relaxed text-slate-600 dark:text-slate-400`}>
                                 {tm('trustMicroCopy')}
                             </p>
                         </div>
 
                         <div className="px-5 pt-4 pb-6 flex items-center justify-between">
-                            <ThemeToggle colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
-                            <LanguageSelector colorOverride={theme === 'dark' ? 'text-slate-300' : 'text-slate-900'} />
+                            <ThemeToggle colorOverride="text-slate-900 dark:text-slate-300" />
+                            <LanguageSelector colorOverride="text-slate-900 dark:text-slate-300" />
                         </div>
                     </aside>
                 </>,

@@ -46,6 +46,15 @@ describe('ExperienceCard', () => {
     expect(screen.getByText(mockCard.description)).toBeInTheDocument();
   });
 
+  /** Regression: `hidden`/`sm:block` and `line-clamp-*` all set `display`; never on one element. */
+  it('hides the description below sm on a wrapper, keeping the clamp on the text', () => {
+    render(<ExperienceCard {...defaultProps} />);
+    const description = screen.getByText(mockCard.description);
+    expect(description).toHaveClass('line-clamp-2');
+    expect(description).not.toHaveClass('hidden');
+    expect(description.parentElement).toHaveClass('hidden', 'sm:block');
+  });
+
   it('renders the tag badge', () => {
     render(<ExperienceCard {...defaultProps} />);
     expect(screen.getByText('Most Popular')).toBeInTheDocument();

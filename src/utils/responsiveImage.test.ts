@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getResponsiveImageSrc, hasImageExtension } from './responsiveImage';
+import { getAvifSrc, getResponsiveImageSrc, hasImageExtension, isAvifHeroKey } from './responsiveImage';
 
 describe('getResponsiveImageSrc', () => {
   it('derives mobile from .webp extension', () => {
@@ -75,5 +75,38 @@ describe('hasImageExtension', () => {
 
   it('returns false for pdf', () => {
     expect(hasImageExtension('/doc.pdf')).toBe(false);
+  });
+});
+
+describe('getAvifSrc', () => {
+  it('derives the avif sibling of a webp, keeping the query', () => {
+    expect(getAvifSrc('https://cdn.example.com/images/brand/landing-hero-mobile.webp?v=2')).toBe(
+      'https://cdn.example.com/images/brand/landing-hero-mobile.avif?v=2',
+    );
+  });
+
+  it('returns null for non-webp sources', () => {
+    expect(getAvifSrc('/images/brand/logo.svg')).toBeNull();
+    expect(getAvifSrc('/images/brand/hero.jpg')).toBeNull();
+  });
+});
+
+/**
+ * The app requests AVIF only where the pipeline publishes it. A hero published
+ * under a non-matching name must fall back to WebP, never to a 404ing AVIF.
+ */
+describe('AVIF rule shared by app and pipeline', () => {
+  it.each([
+    'https://cdn.example.com/images/experiences/x/cover.webp',
+    'https://cdn.example.com/images/brand/final-cta.webp',
+    'https://cdn.example.com/images/experiences/x/card-mobile.webp',
+  ])('gives no AVIF for %s', (src) => {
+    expect(isAvifHeroKey(src)).toBe(false);
+    expect(getAvifSrc(src)).toBeNull();
+  });
+
+  it('agrees with the pipeline export (same function)', async () => {
+    const pipeline = await import('../../scripts/lib/media');
+    expect(pipeline.isAvifHeroKey).toBe(isAvifHeroKey);
   });
 });

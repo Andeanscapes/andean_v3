@@ -25,7 +25,6 @@ const LANDING_DATA = {
     primaryCtaLabel: 'Reserve',
     primaryCtaHref: '/booking',
     secondaryCtaLabel: 'Ask a question',
-    trustBadges: [{ id: 'secure', iconName: 'ShieldCheck', label: 'Secure booking' }],
   },
 } satisfies {
   finalCta: LandingContent['finalCta'];

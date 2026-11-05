@@ -16,9 +16,6 @@ const LandingTravelerSegments = dynamic(
   () => import('@/components/LandingTravelerSegments'),
   { ssr: true },
 );
-const LandingTrustStats = dynamic(() => import('@/components/LandingTrustStats'), {
-  ssr: true,
-});
 const LandingLocation = dynamic(() => import('@/components/LandingLocation'), {
   ssr: true,
 });
@@ -64,7 +61,10 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
         featuredBookingUrl={featuredBookingUrl}
         featuredStrings={featuredStrings}
       />
-      <LandingFeaturedExperiences featured={landingData.featuredExperiences} />
+      <LandingFeaturedExperiences
+        featured={landingData.featuredExperiences}
+        heroSlug={flagship.experienceSlug}
+      />
       <LandingCategories categories={landingData.categories} />
       <LandingWhyUs whyUs={landingData.whyUs} />
       <LandingSafety safety={landingData.safety} />
@@ -72,7 +72,6 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
       <LandingHowItWorks howItWorks={landingData.howItWorks} />
       <LandingFaqs landingData={landingData} />
       <LandingTravelerSegments travelerSegments={landingData.travelerSegments} />
-      <LandingTrustStats trustStats={landingData.trustStats} />
       <LandingLocation locationBrand={landingData.locationBrand} />
       <FinalCtaBanner landingData={landingData} />
       <LandingMobileSticky
@@ -80,10 +79,13 @@ function LandingPageComponent({ landingData }: LandingPageProps) {
         bookingHref={featuredBookingUrl}
         brandCtas={landingData.globalCtas}
       />
-      <FloatingWhatsApp
-        href={landingData.globalCtas.whatsappHref}
-        ariaLabel={landingData.globalCtas.whatsappLabel}
-      />
+      {/* Desktop only: below md the sticky bar already carries WhatsApp, so a second floating button collided with it. */}
+      <div className="hidden md:block">
+        <FloatingWhatsApp
+          href={landingData.globalCtas.whatsappHref}
+          ariaLabel={landingData.globalCtas.whatsappLabel}
+        />
+      </div>
     </div>
   );
 }

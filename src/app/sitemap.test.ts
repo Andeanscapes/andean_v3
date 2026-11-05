@@ -29,6 +29,16 @@ describe('sitemap', () => {
     expect(urls).not.toContain('https://andeanscapes.com/es/');
   });
 
+  it('lists the guides hub and every guide in each locale, with lastModified', async () => {
+    const entries = await sitemap();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toContain('https://andeanscapes.com/es/guides');
+    expect(urls).toContain('https://andeanscapes.com/es/guides/chivor-emerald-mine-history');
+    const guide = entries.find((entry) => entry.url === 'https://andeanscapes.com/guides/chivor-emerald-mine-history');
+    expect(guide?.lastModified).toBeTruthy();
+  });
+
   it('gives every entry hreflang alternates including x-default', async () => {
     for (const entry of await sitemap()) {
       const languages = entry.alternates?.languages ?? {};
