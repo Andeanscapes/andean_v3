@@ -84,7 +84,7 @@
     "@vitejs/plugin-react": "6.1.2",
     "dotenv-cli": "^8.0.0",
     "esbuild": "0.28.2",
-    "eslint": "^9.39.5",
+    "eslint": "^10.14.0",
     "jsdom": "^26.1.0",
     "patch-package": "^8.0.1",
     "postcss": "8.5.26",
