@@ -23,6 +23,23 @@ describe('LandingWhyUs', () => {
     }
   });
 
+  it('renders the host portrait with alt text and caption when provided', () => {
+    const portrait = { image: '/images/brand/host.webp', alt: 'Local host', caption: 'Local hosts · Chivor' };
+    render(<LandingWhyUs whyUs={{ ...WHYUS_FIXTURE, portrait }} />);
+    const img = screen.getByRole('img', { name: portrait.alt });
+    expect(img).toHaveAttribute('src', portrait.image);
+    expect(img.parentElement?.querySelector('source')).toHaveAttribute(
+      'srcset',
+      '/images/brand/host-mobile.webp',
+    );
+    expect(screen.getByText(portrait.caption)).toBeInTheDocument();
+  });
+
+  it('omits the portrait when not provided', () => {
+    render(<LandingWhyUs whyUs={WHYUS_FIXTURE} />);
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+
   it('renders nothing when items is empty', () => {
     const { container } = render(
       <LandingWhyUs whyUs={{ ...WHYUS_FIXTURE, items: [] }} />,

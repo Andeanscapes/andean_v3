@@ -20,6 +20,18 @@ export const LANDING_I18N = {
     CO: 'Landing.reviews.countries.colombia',
     ES: 'Landing.reviews.countries.spain',
   } as const,
+  /**
+   * Optional pull-quote per review id. Each value must be a verbatim sentence
+   * from that review's own comment in every locale, never editorial copy.
+   * An unmapped review renders without a headline.
+   */
+  reviewHeadlines: {
+    carlosTulio: 'Landing.reviews.items.carlosTulio.headline',
+    anamaria: 'Landing.reviews.items.anamaria.headline',
+    odessa: 'Landing.reviews.items.odessa.headline',
+    sandraPatricia: 'Landing.reviews.items.sandraPatricia.headline',
+    camilo: 'Landing.reviews.items.camilo.headline',
+  } as Partial<Readonly<Record<string, string>>>,
 } as const;
 
 export type MappedCountryCode = keyof typeof LANDING_I18N.countries;

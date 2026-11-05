@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import ExperienceDetailsPage from './ExperienceDetailsPage';
+import { OperatorTrust } from '@/components/OperatorTrust/OperatorTrust';
 import {
   getExperienceByNameSSR,
   getExperienceDataSSR,
@@ -18,7 +19,9 @@ import {
   buildAbsoluteLocalizedUrl,
   buildExperienceAlternates,
   buildExperiencePath,
+  buildOgLocale,
   sanitizeLocale,
+  SEO_ORGANIZATION_ID,
   SEO_SITE_URL,
   toAbsoluteUrl,
 } from '@/utils/seoUrls';
@@ -69,9 +72,9 @@ export async function generateMetadata({
       description,
       url: canonicalUrl,
       type: 'website',
-      locale,
+      ...buildOgLocale(locale),
       images: imageUrl
-        ? [{ url: imageUrl, width: 1200, height: 630, alt: title }]
+        ? [{ url: imageUrl, alt: title }]
         : undefined,
     },
     twitter: {
@@ -111,7 +114,7 @@ export default async function ExperiencePage({
     imageUrl,
     price: config.experiencePricePerPerson,
     currency: config.currency,
-    provider: { name: SITE_INFO.name, url: SITE_INFO.url },
+    provider: { id: SEO_ORGANIZATION_ID, name: SITE_INFO.name, url: SITE_INFO.url },
     // The service already drops past/full departures (`filterCurrentAvailableDates`).
     availableStartDates: experienceData.availableDates.map((date) => date.startDate),
   });
@@ -145,6 +148,7 @@ export default async function ExperiencePage({
         dangerouslySetInnerHTML={{ __html: safeJsonLd(faqStructuredData) }}
       />
       <ExperienceDetailsPage experienceData={experienceData} />
+      <OperatorTrust />
     </>
   );
 }

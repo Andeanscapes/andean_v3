@@ -4,7 +4,6 @@ import { memo, useMemo } from 'react';
 import { Hotel } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Card } from '@/components/ui/Card/Card';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import {
   useReservationTier,
   useReservationAccommodationTiers,
@@ -30,17 +29,10 @@ function computeCostIndicator(
 
 function TierPickerComponent() {
   const t = useTranslations('experiences.ui');
-  const { theme } = useThemeContext();
   const { selectedTierId, setTier } = useReservationTier();
   const tiersContent = useReservationAccommodationTiers();
 
   const tiers = tiersContent?.tiers ?? [];
-
-  const isDark = theme === 'dark';
-
-  const cardClass = isDark
-    ? 'mb-6 border border-white/15 bg-slate-900/45 backdrop-blur-xl'
-    : 'mb-6 border border-neutral-200 bg-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.18)]';
 
   const tierCards = useMemo(
     () =>
@@ -54,8 +46,8 @@ function TierPickerComponent() {
   if (tiers.length === 0) return null;
 
   return (
-    <Card className={cardClass}>
-      <h2 className="text-xl font-semibold mb-4 text-base-content">
+    <Card padding="responsive" className="mb-6">
+      <h2 className="text-md sm:text-2md md:text-xl font-semibold mb-4 text-base-content">
         {t('selectTierTitle')}
       </h2>
 
@@ -67,17 +59,11 @@ function TierPickerComponent() {
         {tierCards.map((tier) => {
           const isSelected = selectedTierId === tier.id;
 
-          const itemClass = isDark
-            ? `relative flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition-all duration-200 ${
-                isSelected
-                  ? 'border-[#00F08F] bg-[#00F08F]/8 shadow-[0_0_16px_rgba(0,240,143,0.12)]'
-                  : 'border-white/15 bg-slate-900/30 hover:border-white/25'
-              }`
-            : `relative flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition-all duration-200 ${
-                isSelected
-                  ? 'border-emerald-500 bg-emerald-50 shadow-md'
-                  : 'border-neutral-200 bg-base-100 hover:border-neutral-300'
-              }`;
+          const itemClass = `relative flex min-h-11 cursor-pointer items-start gap-3 rounded-xl border p-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
+            isSelected
+              ? 'border-primary bg-primary/5 ring-1 ring-primary dark:bg-primary/10'
+              : 'border-zinc-200/80 bg-white hover:border-zinc-300 dark:border-white/10 dark:bg-slate-900/40 dark:hover:border-white/25'
+          }`;
 
           return (
             <div
@@ -105,11 +91,7 @@ function TierPickerComponent() {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p
-                  className={`text-[10px] font-semibold uppercase tracking-wider ${
-                    isDark ? 'text-base-content/50' : 'text-neutral-500'
-                  }`}
-                >
+                <p className="text-xs font-medium text-base-content/70">
                   {tier.tierTag}
                 </p>
                 <p className="text-sm font-bold leading-tight text-base-content">
@@ -117,16 +99,14 @@ function TierPickerComponent() {
                 </p>
                 <div className="mt-1 flex items-center gap-2">
                   <span
-                    className={`text-xs font-bold ${
-                      isDark ? 'text-[#00F08F]' : 'text-emerald-600'
-                    }`}
+                    className="text-xs font-bold text-primary"
                     aria-label={`${t('tierPriceRange')}: ${tier.costIndicator}`}
                   >
                     {tier.costIndicator}
                   </span>
                   {tier.isHostChoice && (
-                    <span className="inline-flex items-center gap-1 rounded-sm bg-[#00F08F] px-1.5 py-0.5 text-[8px] font-bold tracking-widest text-black">
-                      <Hotel className="h-2.5 w-2.5" />
+                    <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200/80 bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-800 dark:border-transparent dark:bg-emerald-500/10 dark:text-emerald-300">
+                      <Hotel aria-hidden="true" className="h-3 w-3" />
                       {t('experienceDetails.hostChoiceLabel')}
                     </span>
                   )}
@@ -134,12 +114,13 @@ function TierPickerComponent() {
               </div>
 
               {isSelected && (
-                <span className="absolute right-2 top-2 flex items-center gap-1 rounded-sm bg-[#00F08F] px-2 py-0.5 text-[8px] font-bold tracking-widest text-black">
+                <span className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[11px] font-semibold text-primary-content">
                   <svg
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
                     fill="currentColor"
-                    className="h-2.5 w-2.5"
+                    className="h-3 w-3"
                   >
                     <path
                       fillRule="evenodd"

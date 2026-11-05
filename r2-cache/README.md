@@ -9,7 +9,9 @@ commit the media itself.
     npm run media:push                # optimize, then upload what differs
     npm run media:push -- --dry-run   # print the plan, upload nothing
     npm run media:push -- --upscale   # allow undersized sources to fill slots
-    npm run media:sync                # optimize, upload, prune sources, then sync fixtures-local feed edits
+    npm run feed:sync                 # optimize, upload, prune sources, then sync fixtures-local feed edits
+    npm run media:sync                # alias of feed:sync
+    npm run feed:sync:only            # feed JSON only; media untouched
     npm run media:sync:new            # upload unreferenced media only; feed publish stays separate
 
 Drop a source of **any size or shape** (`.jpg`, `.png`, `.heic`, `.mov`, `.mp4`)
@@ -28,19 +30,27 @@ Originals are **kept** by `media:push`. They are never uploaded — only deliver
 formats are — so they simply sit here. The default is to keep them because the
 upload cannot be undone: with the original gone, a bad crop is unrecoverable.
 
-`--prune-sources` removes originals after their converted outputs upload
-successfully. `media:sync` enables it, so the original is gone once its `.webp`
-is published: upload success does not prove that an automatic crop is visually
-correct, and R2 object versioning is not enabled. Use `media:push` to keep
-originals. An output whose original is still on disk is re-uploaded even when
-R2 already holds it, so every removal follows a confirmed upload. Anything that
-failed to upload keeps its source, as does any pair of originals that would
-produce the same delivery key. `--dry-run` lists what would be removed without
-touching it.
+`--prune-sources` removes originals once their output is published. `feed:sync`
+(and its alias `media:sync`) enables it. A source is removed only when **both**
+hold:
+
+- `.sources.json` (written by the optimizer at conversion) records that this
+  exact source — by SHA-256, not mtime — produced the output, so a replacement
+  photo with the same name and an old date is converted, never deleted unseen;
+- R2 serves exactly the local output, verified by a fresh origin fetch (MD5):
+  either uploaded and verified in this run, or already published by an earlier
+  one.
+
+Anything else keeps its source, as does any pair of originals that would produce
+the same delivery key. Upload success does not prove an automatic crop looks
+right and R2 has no object versioning, so keep a copy of anything you may want
+to re-crop, or use `media:push` (which keeps originals). `--dry-run` lists what
+would be removed without touching it; it does not convert, so a source dropped
+since the last run is not listed until it has been converted once.
 
 `media:sync` reads media paths from editable JSON files in `fixtures-local/` as
 well as the published feed. It uploads media first, verifies exact origin bytes,
-prunes only verified sources, then runs conflict-safe `feed:sync`.
+prunes only verified sources, then runs conflict-safe `feed:sync:only`.
 If feed sync finds a conflict, uploaded media remains in R2 and feed stays
 unchanged. `npm run media:sync -- --dry-run` previews media only; it uploads
 neither media nor feed.
@@ -93,8 +103,30 @@ Hosts and stays are scoped to their experience. A place shared by two
 experiences (for example Core and Prime) is stored once per experience on
 purpose, so each experience can change its photos independently.
 
+Review/booking platform logos are app-owned (`REVIEW_PLATFORM_LOGOS` in
+`SiteConfig`). Drop any raster (`.png`, `.jpg`, `.heic`, `.webp`, any size) under
+this name; the `logo` role trims the border, fits it inside 256x256 **without
+cropping**, re-pads evenly in the logo's background colour and writes lossless
+`.webp`. No `-mobile` sibling is needed:
+
+    images/brand/platforms/google.<ext>        -> google.webp
+    images/brand/platforms/airbnb.<ext>        -> airbnb.webp
+    images/brand/platforms/getyourguide.<ext>  -> getyourguide.webp
+
+SVG is not converted; export it as PNG first.
+
 Every file takes a `-mobile` sibling where the app uses responsive images.
 Filenames decide the slot size (`thumb`/`avatar` -> icon, the rest -> tile).
+
+## Hero AVIF siblings
+
+Hero WebPs (`landing-hero[-n]`, `list-hero`, `hero`, each with its `-mobile`)
+also get an `.avif` (~35-50% smaller). `media:optimize` encodes it from the
+final WebP and regenerates it when the WebP is newer; `HeroPicture` serves it
+first, and `verify:feed` / `feed:sync` refuse to publish a hero whose AVIFs are
+missing. The name rule is `isAvifHeroKey` in `src/utils/responsiveImage.ts`,
+shared by the app and the pipeline: a hero under any other name gets no AVIF
+and is served as WebP.
 
 ## Adding a landing hero
 

@@ -10,12 +10,14 @@ import {
 } from '@/lib/services/experiences-catalog.service';
 import {
   buildExperiencePath,
+  buildOgLocale,
   sanitizeLocale,
   SEO_SITE_URL,
   toAbsoluteUrl,
 } from '@/utils/seoUrls';
-import { parseBookingSearchParams } from '@/utils/helpers';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { parseBookingSearchParams, resolveSharedSelections } from '@/utils/helpers';
+import { HeroPreload } from '@/components/ui/HeroPicture/HeroPreload';
+import { MercadoPagoPaymentIdSchema, PaymentReferenceSchema } from '@/lib/schemas/payment.schema';
 
 // searchParams requires dynamic rendering — opt out of static prerendering
 export const dynamic = 'force-dynamic';
@@ -46,14 +48,15 @@ export async function generateMetadata({
     };
   }
 
-  const t = await getTranslations({ locale, namespace: experience.metadataNamespace });
+  const t = await getTranslations({ locale });
   const experienceData = await getExperienceDataSSR(experienceName, locale);
   // Canonical points at the indexable detail page; noindex pages get no hreflang.
   const canonicalUrl = `${SEO_SITE_URL}${buildExperiencePath(locale, experienceName)}`;
   const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
   const imageUrl = heroImageUrl ? toAbsoluteUrl(heroImageUrl) : undefined;
-  const title = t('metaTitle');
-  const description = t('metaDescription');
+  // Shared booking links must read as a booking, not as a copy of the tour page.
+  const title = t('BookingShare.title', { title: experienceData.config.title });
+  const description = t('BookingShare.description');
 
   return {
     title,
@@ -62,16 +65,15 @@ export async function generateMetadata({
     alternates: {
       canonical: canonicalUrl,
     },
+    // No `og:url`: platforms then use the exact shared URL, so a clicked card
+    // opens the booking page with its tier/people/transport preselection.
     openGraph: {
       siteName: SITE_INFO.name,
       title,
       description,
-      url: canonicalUrl,
       type: 'website',
-      locale,
-      images: imageUrl
-        ? [{ url: imageUrl, width: 1200, height: 630, alt: title }]
-        : undefined,
+      ...buildOgLocale(locale),
+      images: imageUrl ? [{ url: imageUrl, alt: title }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
@@ -100,11 +102,14 @@ export default async function BookingPage({
 
   const experienceData = await getExperienceDataSSR(experienceName, locale);
   const rawSearchParams = await searchParams;
-  const initialSelections = parseBookingSearchParams(rawSearchParams);
+  const { selections: initialSelections, dateUnavailable } = resolveSharedSelections(
+    parseBookingSearchParams(rawSearchParams),
+    experienceData.availableDates,
+    { minPeople: experienceData.config.minPeople, maxPeople: experienceData.config.maxPeople },
+  );
   const heroImageUrl = experienceData.heroContent?.backgroundImageUrl;
-  const heroImageUrlMobile = heroImageUrl
-    ? getResponsiveImageSrc(heroImageUrl).mobile
-    : undefined;
+  const paymentRef = PaymentReferenceSchema.safeParse(rawSearchParams.ref);
+  const paymentId = MercadoPagoPaymentIdSchema.safeParse(rawSearchParams.payment_id);
 
   // If a tier is pre-selected via URL params, preload its thumbnail so the
   // browser fetches it alongside the hero — avoids an LCP image discovered
@@ -118,19 +123,15 @@ export default async function BookingPage({
 
   return (
     <>
-      {/* Responsive hero preloads — browser picks the matching media query */}
-      {heroImageUrlMobile ? (
-        <link rel="preload" as="image" href={heroImageUrlMobile} media="(max-width: 767px)" fetchPriority="high" />
-      ) : null}
-      {heroImageUrl ? (
-        <link rel="preload" as="image" href={heroImageUrl} media="(min-width: 768px)" fetchPriority="high" />
-      ) : null}
+      {heroImageUrl ? <HeroPreload src={heroImageUrl} /> : null}
       {tierThumbnailUrl && (
         <link rel="preload" as="image" href={tierThumbnailUrl} fetchPriority="high" />
       )}
       <ExperienceReservationPage
         experienceData={experienceData}
         initialSelections={initialSelections}
+        sharedDateUnavailable={dateUnavailable}
+        payment={paymentRef.success ? { reference: paymentRef.data, paymentId: paymentId.success ? paymentId.data : null } : null}
       />
     </>
   );

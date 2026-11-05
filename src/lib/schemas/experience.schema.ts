@@ -296,7 +296,6 @@ export const ExperienceWidgetContentSchema = z.object({
   verifiedReviewsLine: z.string(),
   whatsappCtaLabel: z.string(),
   fallbackDateLabel: z.string(),
-  topSellerLabel: z.string().optional(),
   fromLabel: z.string().optional(),
   totalLabel: z.string().optional(),
   perPersonLabel: z.string().optional(),

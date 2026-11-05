@@ -18,6 +18,8 @@ vi.mock('next-intl/server', () => ({
 import { getFlagshipExperiencePathSSR, getLandingDataSSR } from './landing.service';
 import { LANDING_FIXTURE, cloneFixture } from '@/test/fixtures';
 import { ExperienceIdSchema } from '@/lib/schemas/feed/v2';
+import { whatsappUrl } from '@/utils/whatsapp';
+import { HOST_PORTRAIT } from '@/constant/SiteConfig';
 
 // v2's AvailableDateSchema is strict and carries no `endDate`.
 const PAST_DATE = {
@@ -183,6 +185,32 @@ describe('getLandingDataSSR', () => {
       'https://cdn.andeanscapes.com/images/brand/rural.webp',
       'https://cdn.andeanscapes.com/images/brand/horseback.webp',
     ]);
+  });
+
+  it('resolves the app-owned host portrait through the CDN', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayload())));
+
+    const { whyUs } = await getLandingDataSSR('en');
+
+    expect(whyUs.portrait).toEqual({
+      image: `https://cdn.andeanscapes.com${HOST_PORTRAIT}`,
+      alt: 'Landing.brand.whyUs.portrait.alt',
+      caption: 'Landing.brand.whyUs.portrait.caption',
+    });
+  });
+
+  it('attaches the WhatsApp CTA to the assistance safety group only', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(okResponse(feedPayload())));
+
+    const { safety } = await getLandingDataSSR('en');
+
+    expect(safety.groups.map((group) => group.id)).toEqual(['financial', 'operational', 'assistance']);
+    expect(safety.groups.find((group) => group.id === 'assistance')?.cta).toEqual({
+      label: 'Landing.brand.globalCtas.whatsapp',
+      href: whatsappUrl(),
+      opensInNewTab: 'Landing.reviews.opensInNewTab',
+    });
+    expect(safety.groups.filter((group) => group.cta)).toHaveLength(1);
   });
 
   it('selects a resolved hero variant when the feed provides variants', async () => {

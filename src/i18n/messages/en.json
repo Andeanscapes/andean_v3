@@ -13,7 +13,7 @@
       "hero": {
         "eyebrow": "Private tours in Colombia’s Andes",
         "title": "Private Emerald Mine Tours in Colombia",
-        "subtitle": "We specialize in private Andean tours, with a special focus on Colombia’s emerald tourism and mining heritage—from Muzo and Coscuez to Chivor and Gachalá.",
+        "subtitle": "Private Andean tours focused on Colombia’s emerald tourism and mining heritage, from Muzo and Coscuez to Chivor and Gachalá.",
         "description": "Explore Colombia’s emerald regions with locally guided private tours. Destinations and hands-on activities depend on the itinerary; finding an emerald is never guaranteed.",
         "primaryCta": "Find your experience",
         "secondaryCta": "Ask on WhatsApp",
@@ -49,45 +49,37 @@
         "bookingCard": {
           "reserveLabel": "Reserve your date",
           "askFirstLabel": "Ask questions first",
-          "nextAvailability": "Next availability",
-          "only": "Only",
-          "spot": "spot left",
-          "spotsLeft": "spots left",
-          "trust": {
-            "deposit": "25% deposit",
-            "secure": "Secure payment",
-            "support": "English & Spanish",
-            "vetted": "Vetted hosts"
-          }
+          "nextAvailability": "Next availability"
         }
       },
       "categories": {
-        "title": "Choose your kind of Boyacá",
+        "title": "Emerald tours and Boyacá experiences",
         "cta": "Explore",
         "items": {
           "emerald": {
-            "title": "Emerald Tourism in Colombia",
+            "title": "Emerald tourism in Colombia",
             "description": "Discover Colombia’s emerald-mining heritage and local communities across Muzo, Coscuez, Chivor and Gachalá. Tour availability varies by destination.",
             "exclusiveAccess": "Visits arranged with local mining families and guides"
           },
           "nature": {
-            "title": "Walk Hidden Andean Routes",
-            "description": "Páramos, cloud forests and hidden waterfalls — routes that most travelers never find."
+            "title": "Walk hidden Andean routes",
+            "description": "Páramos, cloud forests and hidden waterfalls. Routes most travelers never find."
           },
           "rural": {
-            "title": "Stay With Rural Hosts",
+            "title": "Stay with rural hosts",
             "description": "Wake up on a working farm, share a meal with the host family, learn the trades they inherited."
           },
           "horseback": {
-            "title": "Ride Old Mountain Trails",
-            "description": "Andean trails on foot or horseback — the way people here have traveled for centuries."
+            "title": "Ride old mountain trails",
+            "description": "Andean trails on foot or on horseback, the way people here have traveled for centuries."
           }
         }
       },
       "featured": {
-        "title": "Experiences worth the trip",
+        "title": "More emerald tours",
         "viewAll": "Browse all experiences",
-        "nextAvailability": "Next availability: {date} — Only {count, plural, one {# spot} other {# spots}} left",
+        "nextAvailability": "Next availability: {date}. Only {count, plural, one {# spot} other {# spots}} left",
+        "nextAvailabilityDate": "Next availability: {date}",
         "fromLabel": "From",
         "perPersonLabel": "/ person",
         "viewDetails": "View details",
@@ -98,7 +90,7 @@
         "items": {
           "emerald": {
             "title": "Emerald Mining Adventure",
-            "description": "Two days in Chivor — visit a working emerald mine, try searching for emeralds with local guides and learn about mining life.",
+            "description": "Two days in Chivor. Visit a working emerald mine, try searching for emeralds with local guides and learn about mining life.",
             "duration": "2 days / 1 night",
             "location": "Chivor, Boyacá"
           },
@@ -111,12 +103,16 @@
         }
       },
       "whyUs": {
-        "title": "Not a tour. A local invitation.",
-        "lead": "Not a tour operator. A network of local hosts who share what they actually know.",
+        "title": "Hosted by the families who live here",
+        "lead": "We are a network of local hosts, not a tour operator. They share what they actually know.",
+        "portrait": {
+          "alt": "Andean Scapes local hosts in mining helmets in Chivor, Boyacá",
+          "caption": "Local hosts · Chivor, Boyacá"
+        },
         "items": {
           "localHosts": {
-            "title": "Hosts who live it",
-            "description": "You travel with the families and guides who have built their lives in these places — not a company rep."
+            "title": "Families and guides from the region",
+            "description": "You travel with the families and guides who have built their lives in these places, not a company rep."
           },
           "smallGroups": {
             "title": "Groups capped at 10",
@@ -124,7 +120,7 @@
           },
           "culturalAccess": {
             "title": "Access you can't buy elsewhere",
-            "description": "Some of what we show you — the mine, the hacienda kitchen, the family farm — is only available because of trust built over years."
+            "description": "Some of what we show you, like the mine, the hacienda kitchen and the family farm, exists because of trust built over years."
           },
           "secureBooking": {
             "title": "Simple, secure booking",
@@ -159,27 +155,51 @@
         "segments": {
           "couples": {
             "label": "Couples",
-            "recommendation": "Private hosts, quiet landscapes and stays that give you space to actually disconnect."
+            "title": "For couples who want time to themselves",
+            "bullet1": "Private hosts",
+            "bullet2": "Quiet landscapes",
+            "bullet3": "Stays with space to truly disconnect",
+            "imageAlt": "Two travelers examining a raw emerald at a table"
           },
           "families": {
             "label": "Families",
-            "recommendation": "Farm visits, gentle hikes and hands-on activities built for curious kids and patient parents."
+            "title": "For families exploring together",
+            "bullet1": "Farm visits",
+            "bullet2": "Gentle hikes",
+            "bullet3": "Hands-on activities for curious kids",
+            "imageAlt": "Child in a mining helmet with his family at the emerald mine"
           },
           "nomads": {
             "label": "Digital nomads",
-            "recommendation": "Multi-day stays with reliable wifi, a local rhythm, and a community that isn't a co-working space."
+            "title": "For digital nomads who stay a while",
+            "bullet1": "Multi-day stays",
+            "bullet2": "Reliable wifi",
+            "bullet3": "A local rhythm and community",
+            "imageAlt": "Two travelers working on laptops in a room with mountain views"
           },
           "private": {
             "label": "Private groups",
-            "recommendation": "Full-day or multi-day itineraries built around your group — friends, teams, or milestone trips."
+            "title": "For private groups and special trips",
+            "bullet1": "Full-day or multi-day itineraries",
+            "bullet2": "Built around your group",
+            "bullet3": "Friends, teams or milestone trips",
+            "imageAlt": "Group of travelers in mining helmets at the emerald mine"
           },
           "adventure": {
             "label": "Adventure seekers",
-            "recommendation": "Off-road routes, horseback trails and hikes that reward you with views you'll struggle to describe."
+            "title": "For travelers chasing adventure",
+            "bullet1": "Off-road routes",
+            "bullet2": "Horseback trails",
+            "bullet3": "Hikes with views that are hard to describe",
+            "imageAlt": "Two travelers in mining helmets with an off-road motorcycle on a mountain trail"
           },
           "culture": {
             "label": "Culture lovers",
-            "recommendation": "Workshops with miners, potters, weavers and farmers — learning by doing, not watching."
+            "title": "For culture lovers",
+            "bullet1": "Workshops with local miners",
+            "bullet2": "Potters, weavers and farmers",
+            "bullet3": "You learn by doing",
+            "imageAlt": "Group of travelers in mining helmets at a mine entrance"
           }
         }
       },
@@ -194,10 +214,9 @@
       "location": {
         "title": "Colombia’s Emerald Regions",
         "mapAlt": "Map showing Bogotá and Chivor, Boyacá, Colombia",
-        "liveNetwork": "Live network",
         "cta": "Plan your route",
         "bullets": {
-          "region": "Colombia’s emerald country — Muzo, Coscuez, Chivor and Gachalá",
+          "region": "Emerald country: Muzo, Coscuez, Chivor and Gachalá",
           "driving": "Chivor and San Pablo de Borbur are east of Bogotá",
           "transport": "Local transport depends on the trip; Bogotá transfers are optional and listed on each page",
           "customizable": "Itineraries built around your dates and group",
@@ -210,11 +229,16 @@
         "lead": "Every host, route and payment method is vetted before it becomes part of the network.",
         "protocolLink": "View our Safety & Logistics Protocol",
         "protocolComingSoon": "Coming soon",
+        "groups": {
+          "financial": "Risk-free booking",
+          "operational": "Verified on the ground",
+          "assistance": "Support along the way"
+        },
         "items": {
           "guides": "Local guides familiar with each route",
           "meetingPoints": "Fixed, verified meeting points",
           "payments": "End-to-end encrypted payments",
-          "deposit": "25% deposit — rest due on the day",
+          "deposit": "25% deposit, rest due on the day",
           "whatsapp": "WhatsApp support throughout your trip",
           "flexible": "Free rescheduling up to 48 hours before"
         }
@@ -229,9 +253,10 @@
     "reviews": {
       "sectionTitle": "What travelers say",
       "subtitle": "Reviews from verified Airbnb guests, translated from Spanish.",
-      "eyebrow": "Traveler reviews",
       "outOf5Aria": "out of 5",
-      "countSuffix": "reviews",
+      "ratingSource": "Verified guest reviews on Airbnb",
+      "readMore": "Read full review",
+      "readLess": "Show less",
       "verifiedGuest": "Verified Guest",
       "opensInNewTab": "(opens in a new tab)",
       "verifiedStay": "Hacienda El Recuerdo · Airbnb",
@@ -241,53 +266,58 @@
       },
       "items": {
         "carlosTulio": {
+          "headline": "I wanted to stay longer.",
           "comment": "The property is beautiful and the rooms comfortable, there is so much to do here. I wanted to stay longer."
         },
         "anamaria": {
+          "headline": "Heinner is an excellent host.",
           "comment": "Our stay at Hacienda El Recuerdo was wonderful. A very welcoming and peaceful place. You can truly connect with nature. Yesid and Marlen are very attentive and kind people who made us feel at home. Heinner is an excellent host. It was an excellent experience. The only thing to consider is how you get to the property, since it sits in the middle of the mountains. Overall, it is an unforgettable experience for those of us who love adventure and nature. We hope to return!"
         },
         "odessa": {
+          "headline": "It was an incredible experience!",
           "comment": "I cannot say enough good things about this stay. Heinner was of great help even before we arrived, offering to guide us to the property from the city or arrange transport. His family lives here and they are all so kind and welcoming that we felt like we were visiting friends right away. Heinner is deeply involved in the local community and organised a tour so we could visit the local emerald mines! It was an incredible experience! We enjoyed walking the property, watching birds and even milking cows. All our meals were homemade by Heinner's mother and they were perfect. The wifi was fast and reliable and they have a great coworking space with desks."
         },
         "sandraPatricia": {
+          "headline": "We felt at home.",
           "comment": "Our stay at Hacienda El Recuerdo was very pleasant. Our hosts Marlen, Yesid, Heinner, Kyra and Luna were very attentive, always looking after whatever we needed. The room was very comfortable and we slept wonderfully. The food was delicious and prepared with great love. We felt at home. Staying at El Recuerdo is a great option — it is not only about resting, but about getting to know the surroundings, doing ecotourism activities, meeting the locals, our roots, and appreciating the wonders of our country. We recommend it and we will return!"
         },
         "camilo": {
+          "headline": "An exceptional connection with nature.",
           "comment": "Excellent experience, a very peaceful place with plenty of space for activities within the property. An exceptional connection with nature. Highly recommended."
         }
       },
-      "trustPanel": {
-        "title": "Why travelers come back",
-        "bullets": {
-          "local": "Locally owned — all revenue stays within Boyacá communities",
-          "reviews": "5.0★ from 5 verified travelers",
-          "payment": "Reserve with 25% — pay the rest on arrival",
-          "support": "WhatsApp support from booking to the day you leave"
-        }
+      "platforms": {
+        "title": "More reviews and bookings on",
+        "google": "Google",
+        "airbnb": "Airbnb Experiences",
+        "getyourguide": "GetYourGuide",
+        "readReviews": "Read reviews",
+        "book": "View & book"
       }
     },
     "faqs": {
-      "sectionTitle": "Private tours in Colombia’s Andes",
+      "showAll": "Show all questions",
       "title": "Emerald Tourism in Colombia",
       "description": "We specialize in private tours in the Colombian Andes, with a special focus on emerald destinations, local mining heritage and community-led experiences.",
       "enquiryTitle": "Plan Your Private Andes Tour",
       "enquiryDescription": "Tell us your dates, group size and interests. Ask about destinations, guide languages and itinerary options before choosing your tour.",
+      "planImageAlt": "Traveler with a camera and mining helmet in a green valley in Chivor",
       "items": {
         "whatIsAndeanScapes": {
           "question": "What is Andean Scapes?",
           "answer": "Andean Scapes creates private tours in Colombia’s Andes for local and international travelers, with a special focus on emerald tourism, mining heritage and local communities."
         },
         "emeraldMineTour": {
-          "question": "What can I experience on an emerald tour in Colombia?",
-          "answer": "Emerald-focused itineraries can include guided mine visits, local mining stories and supervised, hands-on emerald searching. Activities vary by destination and plan; finding an emerald is possible but never guaranteed."
+          "question": "What can I experience on an emerald mine tour in Colombia?",
+          "answer": "Our departures currently run in Chivor, Boyacá, in Colombia's eastern emerald belt. You enter real, working emerald mines with a local guide, helmet and boots, alongside local miners: they are not coal mines or mock-ups built for tourists. Choose a day trip (1 mine and a hike), a 2-day/1-night tour (1 mine and a hike) or a 2-day/1-night tour with 2 mines and horseback riding. Finding an emerald is possible but never guaranteed."
         },
         "minerForADay": {
-          "question": "Can I be a miner for a day?",
-          "answer": "Some itineraries offer a supervised, hands-on introduction to searching for emeralds with local guides. It is a visitor activity, not a mining job, and finding a stone is never guaranteed. Check each plan for its activities."
+          "question": "Can I be a miner for a day in Chivor and keep an emerald?",
+          "answer": "You do spend the day alongside miners, with safety gear and a guide, but it is a visitor experience, not mining work. Finding an emerald is not guaranteed: it can happen, and if a stone turns up it is agreed on the spot with the miners and the guide. The real value is the emerald culture, nature and food of the region."
         },
         "emeraldRegions": {
-          "question": "Where are Colombia’s emerald regions?",
-          "answer": "Colombia’s best-known emerald regions include Muzo, Coscuez, Chivor and Gachalá. Each has its own mining history and landscape; private-tour destinations and dates depend on current availability."
+          "question": "Where are the emerald mines in Colombia?",
+          "answer": "Colombia has two main emerald zones in the Eastern Andes: western Boyacá (Muzo, Coscuez and San Pablo de Borbur) and the east (Chivor, Gachalá and the Guavio region). They are separate destinations, several hours apart by road. Check the experiences page to see which destinations have dates available."
         },
         "privateTours": {
           "question": "Do you offer private tours in the Colombian Andes?",
@@ -299,7 +329,7 @@
         },
         "spanish": {
           "question": "Do I need to speak Spanish?",
-          "answer": "Guide languages vary by destination and itinerary. Check the tour details or ask us before booking so we can confirm the available language support."
+          "answer": "Tours are guided in Spanish. If you need support in another language, we can arrange a translator at extra cost; ask us before booking."
         },
         "afterReserve": {
           "question": "What happens after I reserve?",
@@ -310,24 +340,24 @@
           "answer": "Yes. Travelers can contact Andean Scapes before booking to confirm details, dates, transportation options, group size or special needs."
         },
         "transportHelp": {
-          "question": "Can you help with transport?",
-          "answer": "Transportation options may be available depending on the destination and package. Some experiences include transport, while others offer it as an add-on."
+          "question": "How do I get to Chivor from Bogotá?",
+          "answer": "Chivor is about 5–6 hours by car from Bogotá: take the road towards Tunja, turn down into the Tenza Valley at El Sisga and continue to Chivor; the last stretch is an unpaved mountain road. You can reach Chivor town by bus, car or motorbike, and from there our local 4x4 takes you to the mine, included in every tour. We also offer a private round-trip 4x4 transfer from Bogotá at extra cost; the price is per vehicle and covers up to 4 people."
         },
         "meals": {
           "question": "Are meals included?",
-          "answer": "Many experiences include traditional Colombian meals, but inclusions depend on the selected package. Each experience page clearly shows what is included."
+          "answer": "Yes. In Chivor, the 2-day/1-night tours include 4 meals: 2 breakfasts, 1 traditional packed lunch (fiambre) and 1 dinner; the day trip includes breakfast and a packed lunch. The menu is local, and we accommodate dietary restrictions if you tell us when booking."
         },
         "families": {
-          "question": "Are the experiences suitable for families?",
-          "answer": "Some experiences are family-friendly, while others may require more walking, rural access or outdoor activity. The team can recommend the best option for your group."
+          "question": "Are the experiences suitable for families and children?",
+          "answer": "Yes, from age 5. Expect hiking, mud and humidity, so they suit families who enjoy adventure; groups with young children need to check with the team first. Every participant, adult or child, counts as one place: there is no child rate."
         },
         "bring": {
           "question": "What should I bring?",
-          "answer": "Recommended items usually include comfortable clothes, walking shoes, a light jacket, sunscreen, water and personal essentials. Specific recommendations are shared before each experience."
+          "answer": "Shoes that can get wet and muddy, a full change of clothes, a small towel, a light or waterproof jacket, a water bottle, sunscreen, a cap, your personal medication and cash for local expenses. We provide the helmet and safety boots for the mine."
         },
         "payment": {
           "question": "How does the deposit or payment work?",
-          "answer": "Some experiences may require a deposit to confirm the reservation, with the remaining balance paid according to the package conditions."
+          "answer": "First the team confirms availability for your date; then you pay a deposit of 25% to 30% of the total, depending on the tour (the exact percentage is shown when you book), to secure the booking. The balance is paid according to the tour conditions. We never ask for full payment before confirming your booking."
         },
         "customized": {
           "question": "Can experiences be customized?",
@@ -336,6 +366,22 @@
         "localOrInternational": {
           "question": "Is Andean Scapes only for international travelers?",
           "answer": "No. Andean Scapes welcomes both Colombian and international travelers looking for authentic, local and well-organized experiences."
+        },
+        "safety": {
+          "question": "Is it safe to visit an emerald mine?",
+          "answer": "You always enter with a local guide and safety gear (helmet and boots), in mines with controlled access. Every tour includes medical assistance cover during the experience, and the team checks local and mine conditions before each departure. Inside the mine there is water, mud and uneven ground, so moderate to high physical effort is needed; if you have a heart condition, a severe phobia or reduced mobility, ask us before booking."
+        },
+        "cancellation": {
+          "question": "Can I cancel or change my date?",
+          "answer": "Yes. You can cancel or reschedule up to 7 days before the tour, a maximum of 2 times. After that deadline the deposit is non-refundable and any change is subject to costs already incurred, such as insurance or booked meals."
+        },
+        "pets": {
+          "question": "Can I bring my dog?",
+          "answer": "Yes, we are pet-friendly. In Chivor, on every tour, dogs can enter the mine with the group and stay at the hacienda. They must be vaccinated and under control; arrange it with the team when you book."
+        },
+        "bestSeason": {
+          "question": "When is the best time to visit Chivor?",
+          "answer": "Chivor sits at about 2,000 m, with a cool climate and cold nights. The dry season runs from December to February and the rainy season from May to August. The mine always has wet areas, so bring waterproof clothing in the rainy season."
         }
       }
     },
@@ -344,13 +390,7 @@
       "subtitle": "Reserve with 25% today. Your local host confirms details by WhatsApp.",
       "primaryCta": "Reserve your experience",
       "secondaryCta": "Ask us on WhatsApp first",
-      "bookAria": "Reserve your Andean Scapes experience",
-      "badges": {
-        "deposit": "25% deposit to confirm",
-        "secure": "Encrypted payment",
-        "cancellation": "Free cancellation 48h before",
-        "verified": "Vetted hosts"
-      }
+      "bookAria": "Reserve your Andean Scapes experience"
     },
     "hero": {
       "badge": "Emerald Mining Adventure",
@@ -466,15 +506,19 @@
   },
   "Header": {
     "selectLanguage": "Select language: {language}",
-    "bookNow": "BOOK NOW",
-    "experiences": "EXPERIENCES"
+    "bookNow": "Book now",
+    "experiences": "Experiences",
+    "toggleTheme": "Toggle theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "guides": "Guides"
   },
   "ExperiencesList": {
     "metaTitle": "Emerald Mine Tours in Colombia | Chivor | Andean Scapes",
-    "metaDescription": "Compare guided emerald mine tours in Chivor, Colombia. Both include a working-mine visit and hands-on emerald searching; compare duration, meals and stays.",
+    "metaDescription": "Compare guided emerald mine tours in Chivor, Boyacá: a day trip, a 2-day tour with one mine, or 2 mines with horseback riding. Every tour enters a working mine with a local guide.",
     "hero": {
       "title": "Compare Emerald Mine Tours in Colombia",
-      "subtitle": "Compare two-day Chivor mine tours with hands-on emerald searching and a hacienda stay. Choose one mine visit or two mines with horseback riding.",
+      "subtitle": "Compare a Chivor day trip with two-day tours that include a hacienda stay: one mine, or two mines with horseback riding. Every tour includes hands-on emerald searching.",
       "summary": "Small-group tours hosted by local guides",
       "highlightText": "Working mine visits and a chance to search for emeralds",
       "ctaLabel": "Explore experiences",
@@ -542,8 +586,8 @@
     "whatsappMiningQuote": "Hello! I'm interested in the Emerald Mining Adventure at Hacienda El Recuerdo in Chivor. Can you help me with availability?"
   },
   "ChivorEmeraldCore": {
-    "metaTitle": "Chivor Emerald Mine Tour + Hacienda Stay | Andean Scapes",
-    "metaDescription": "Tour a Chivor emerald mine with hands-on searching, gem sorting, meals and a hacienda stay. Finding emeralds is not guaranteed.",
+    "metaTitle": "Chivor Emerald Mine Tour, Colombia: 2 Days + Hacienda | Andean Scapes",
+    "metaDescription": "Miner for a day in Chivor, Boyacá: an emerald mine with hands-on searching, a workshop, meals and a hacienda night. Finding emeralds is not guaranteed.",
     "subtitle": "2D/1N emerald mining experience with Hacienda El Recuerdo stay in Chivor, Boyacá",
     "selectDate": "Select your date",
     "selectPeople": "How many people?",
@@ -574,11 +618,11 @@
     "whatsappCta": "Or inquire via WhatsApp"
   },
   "ChivorEmeraldBasic": {
-    "metaTitle": "Chivor Day Trip: Emerald Mine + Fiambre Lunch | Andean Scapes",
+    "metaTitle": "Chivor Emerald Mine Day Trip, Boyacá, Colombia | Andean Scapes",
     "metaDescription": "Spend a day at Chivor's emerald mines: guided mine entry, Pulpito viewpoint, breakfast and fiambre lunch, back home the same afternoon."
   },
   "ChivorEmeraldPrime": {
-    "metaTitle": "Chivor Emerald Tour: 2 Mines + Horseback | Andean Scapes",
+    "metaTitle": "Chivor Emerald Mine Tour: 2 Mines + Horseback | Andean Scapes",
     "metaDescription": "Visit two Chivor emerald mines with horseback riding, hands-on searching, meals and a hacienda stay. Finding emeralds is not guaranteed.",
     "subtitle": "2D/1N emerald mining experience with horseback riding and Hacienda El Recuerdo stay in Chivor, Boyacá",
     "selectDate": "Select your date",
@@ -628,7 +672,6 @@
       "heroCta": "Check dates",
       "heroSummary": "{duration} • Mine visit + emerald workshop • Starts in Chivor • Small groups",
       "onSelectedDates": "on selected dates",
-      "topSellerLabel": "TOP SELLER",
       "fromLabel": "From",
       "perPersonLabel": "per person",
       "reviewsCountLabel": "({count} reviews)",
@@ -643,9 +686,29 @@
       "processing": "Processing...",
       "paymentMethods": "Card · PSE · Secure payment",
       "validationError": "Validation error",
+      "paymentWaiting": "Complete your payment in the Mercado Pago tab. This page updates on its own. Reference: {reference}.",
+      "paymentReopen": "Open Mercado Pago again",
+      "paymentOpensInNewTab": "(opens in a new tab)",
+      "paymentTitleApproved": "Deposit received",
+      "paymentTitlePending": "Payment in progress",
+      "paymentTitleRejected": "Payment not approved",
+      "paymentTitleUnconfirmed": "We couldn't confirm your payment yet",
+      "paymentTitleWaiting": "Waiting for your payment",
+      "paymentTitleChecking": "Checking your payment",
+      "paymentWhatsappApprovedCta": "Send confirmation on WhatsApp",
+      "paymentWhatsappHelpCta": "Contact us on WhatsApp",
+      "paymentWhatsappApprovedMessage": "Hi! I just paid the deposit for {title}. Payment reference: {reference}.",
+      "paymentWhatsappHelpMessage": "Hi! I need help with my payment for {title}. Payment reference: {reference}.",
+      "paymentChecking": "Checking your payment...",
+      "paymentStatusApproved": "Send us the confirmation on WhatsApp and we will confirm your booking shortly. Reference: {reference}.",
+      "paymentStatusPending": "Your payment is being processed. Reference: {reference}. Send it to us on WhatsApp and we will confirm it.",
+      "paymentStatusRejected": "The payment was not approved. You can try again or contact us on WhatsApp. Reference: {reference}.",
+      "paymentStatusNotFound": "We could not find a payment for this booking yet. If you paid, contact us on WhatsApp with reference {reference}.",
+      "paymentStatusError": "We could not check your payment right now. Reference: {reference}. Contact us on WhatsApp with it.",
+      "paymentLinkError": "We couldn't start the payment. Please try again or contact us on WhatsApp.",
+      "paymentUnavailableError": "Your selection is no longer available. Please review the date and rooms.",
       "scrollHint": "Scroll to see more dates",
       "lowAvailability": "Low Availability",
-      "socialProofBookings": "Join 12 others who booked this experience in the last 48 hours.",
       "mobileDockSummaryLabel": "Your booking",
       "mobileDockEmptySummary": "Choose date, guests, and stay",
       "mobileDockEmptySummaryDayTrip": "Choose date and guests",
@@ -659,6 +722,7 @@
       "mobileDockTransport": "Transport",
       "mobileDockNotSelected": "Not selected",
       "mobileDockMissingDate": "Choose date",
+      "mobileDockMissingStay": "Choose stay",
       "mobileDockMissingRooms": "Choose room",
       "mobileDockMissingTransport": "Choose transport",
       "mobileDockMissingContact": "Complete contact info",
@@ -743,7 +807,7 @@
         "tile3Title": "Nature & Culture",
         "tile3Desc": "Immerse yourself in authentic Andean culture and mountain landscapes",
         "tripLogisticsTitle": "Trip Logistics & Detailed Inclusions",
-        "itineraryTitle": "Interactive Itinerary",
+        "itineraryTitle": "Day-by-day itinerary",
         "includedLabel": "Included",
         "notIncludedLabel": "Not Included",
         "faqsTitle": "Frequently Asked Questions",
@@ -758,7 +822,6 @@
         "faq3A": "Getting to Chivor isn't included — once you're there, local transport is: from Chivor to the mine(s), Hacienda El Recuerdo and back. To reach Chivor, drive yourself (a 4x4 is recommended for the final stretch), take the bus, or add our round-trip transfer from Bogotá when you book.",
         "coscuezTransportFaqQ": "How do I get to the Coscuez experience?",
         "coscuezTransportFaqA": "The experience is based in San Pablo de Borbur, Boyacá. Travel to Borbur is separate from the tour; you can drive, take a bus, or select the optional private round-trip transfer from Bogotá. The transfer price is shown when you choose your transport option.",
-        "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
         "checkDatesBtn": "Check Dates",
         "talkToHostBtn": "Talk to Host",
         "bookNowBtn": "Book Now",
@@ -778,7 +841,7 @@
         "addonsTeamConfirmation": "The team confirms availability and final price",
         "addonsIncludedLabel": "Included",
         "addonsIncludedNote": "Included in your plan. Optional to join, not refundable if skipped.",
-        "hostChoiceLabel": "Host's Choice",
+        "hostChoiceLabel": "Host's choice",
         "selectedLabel": "Selected",
         "tierBadgeHeritage": "Heritage / Traditional",
         "tierBadgeAdventure": "Outdoor Adventure",
@@ -790,7 +853,7 @@
         "privateBathroomNo": "Shared Bath",
         "wifiYes": "WiFi",
         "wifiNo": "No WiFi",
-        "viewGalleryLabel": "View Gallery",
+        "viewGalleryLabel": "View gallery",
         "gallerySubtitle": "Room, views, and amenities",
         "activityGallerySubtitle": "Activity photos and highlights",
         "closeGalleryLabel": "Close",
@@ -800,12 +863,14 @@
         "roomCapacityLabel": "Up to {count} guests",
         "tierBadgeBorbur": "Rural Hotel in Borbur",
         "valueStackRuralHotelStay": "Rural hotel stay",
-        "valueStackFuraTena": "Fura & Tena excursion"
+        "valueStackFuraTena": "Fura & Tena excursion",
+        "faqsHeading": "Before you book your emerald mine tour"
       },
       "packageTags": {
         "allInclusive": "All-inclusive stay",
         "dayTrip": "Day trip"
-      }
+      },
+      "sharedDateUnavailable": "The date in this link is no longer available. Please choose another one."
     },
     "tiers": {
       "borbur": {
@@ -892,7 +957,7 @@
       }
     },
     "chivorEmeraldCore": {
-      "title": "Chivor: 2-Day Emerald Mine Tour & Hacienda Stay",
+      "title": "Chivor Emerald Mine Tour in Boyacá, Colombia: 2 Days with Hacienda Stay",
       "cardTitle": "2-Day Emerald Mine Tour & Hacienda Stay",
       "subtitle": "All-inclusive experience in Chivor (Boyaca), Colombia 🇨🇴",
       "description": "Take a guided visit inside a working Chivor emerald mine and try searching for emeralds with local guides. Learn gem sorting, enjoy included meals and stay overnight at Hacienda El Recuerdo; finding an emerald is not guaranteed.",
@@ -945,15 +1010,13 @@
         "idealFor": "Ideal for",
         "goodToKnow": "Good to Know",
         "faq1Q": "What is the difficulty level?",
-        "faq1A": "Moderate hiking and basic fitness required for mine tours",
-        "faq2Q": "What is the best season to visit?",
-        "faq2A": "Weather changes with the season and mountain conditions; check the forecast and preparation notes before your trip.",
-        "faq3Q": "How do I arrange transportation?",
-        "faq3A": "We provide transport from Chivor, or arrange from Bogotá upon request",
+        "faq1A": "Moderate effort: about 2.5 hours of mining activity in 1 mine and a 2-hour hike over uneven rural terrain, with water, mud and humidity inside the mine. Time underground is only part of the day. Not recommended for severely reduced mobility.",
         "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
         "checkDatesBtn": "Check Dates",
         "talkToHostBtn": "Talk to Host",
-        "bookNowBtn": "Book Now"
+        "bookNowBtn": "Book Now",
+        "faqStartQ": "What time does the tour start, and when should I leave Bogotá?",
+        "faqStartA": "The mining day starts at 9:00 a.m. in Chivor. With 5–6 hours of travel from Bogotá, plan to leave between 3:00 and 4:00 a.m. You can also arrive in the afternoon and visit the mine the next day, arranged with the team; in that case, leave Bogotá by noon."
       },
       "logistics": {
         "start": "Start time",
@@ -1014,7 +1077,7 @@
       }
     },
     "chivorEmeraldBasic": {
-      "title": "Chivor Day Trip: Emerald Mines, Breakfast & Fiambre Lunch",
+      "title": "Chivor Emerald Mine Day Trip in Boyacá: Breakfast & Fiambre Lunch",
       "cardTitle": "Emerald Mines Day Trip: Breakfast & Fiambre Lunch",
       "subtitle": "Day tour in Chivor (Boyacá): mine visit, Pulpito viewpoint and fiambre lunch, back the same afternoon",
       "description": "Start at 9:00 am and return the same afternoon. Emerald history talk, guided entry to a working emerald mine, guided walk around the mines, Pulpito viewpoint and a traditional fiambre lunch at Hacienda El Recuerdo. Internal 4x4 ride Chivor - mines - Chivor included.",
@@ -1082,10 +1145,16 @@
         "stop6Title": "Guided walk around the mines",
         "stop6ShortDesc": "Mountain paths with a local guide",
         "stop6Desc": "A guided walk around the emerald mining area with your local guide, learning how the mines are worked before returning to Chivor."
+      },
+      "experienceDetails": {
+        "faq1Q": "How difficult is it?",
+        "faq1A": "It is a long day with moderate effort: about 2 hours of mining activity and a 1-hour hike over rural terrain, with water, mud and humidity inside the mine. Add 5–6 hours of travel each way from Bogotá on the same day. Not recommended for severely reduced mobility.",
+        "faqStartQ": "What time does the tour start, and when should I leave Bogotá?",
+        "faqStartA": "The tour starts at 9:00 a.m. in Chivor and ends the same day. With 5–6 hours of travel from Bogotá, plan to leave between 3:00 and 4:00 a.m. If you prefer a slower pace, consider a 2-day/1-night tour."
       }
     },
     "chivorEmeraldPrime": {
-      "title": "Chivor: 2-Day Emerald Mine Tour with 2 Mines, Horseback & Hacienda",
+      "title": "Chivor Emerald Mine Tour in Boyacá: 2 Days, 2 Mines, Horseback & Hacienda",
       "cardTitle": "2-Day Emerald Mine Tour with 2 Mines, Horseback & Hacienda",
       "subtitle": "All-inclusive cultural and nature experience in Chivor (Boyacá), Colombia 🇨🇴",
       "description": "Visit two Chivor emerald mines, ride horseback to the second and try searching for emeralds with local guides. Includes meals and an overnight stay at Hacienda El Recuerdo; finding an emerald is not guaranteed.",
@@ -1138,15 +1207,13 @@
         "idealFor": "Ideal for",
         "goodToKnow": "Good to Know",
         "faq1Q": "What is the difficulty level?",
-        "faq1A": "Moderate hiking and basic fitness required for mine tours",
-        "faq2Q": "What is the best season to visit?",
-        "faq2A": "Weather changes with the season and mountain conditions; check the forecast and preparation notes before your trip.",
-        "faq3Q": "How do I arrange transportation?",
-        "faq3A": "We provide transport from Chivor, or arrange from Bogotá upon request",
+        "faq1A": "High effort: about 5 hours of mining activity in 2 mines and a 2-hour horseback ride, with water, mud and uneven ground. If the ride cannot take place, it is replaced by a 4x4 route at no change in price. Not recommended for severely reduced mobility.",
         "exploreHiddenHeart": "Explore the Hidden Heart of the Andes",
         "checkDatesBtn": "Check Dates",
         "talkToHostBtn": "Talk to Host",
-        "bookNowBtn": "Book Now"
+        "bookNowBtn": "Book Now",
+        "faqStartQ": "What time does the tour start, and when should I leave Bogotá?",
+        "faqStartA": "The day starts at 8:00 a.m. in Chivor because it includes two mines. As a guide, leave Bogotá around 3:00 a.m., or earlier if you expect more than 5 hours of travel. You can also arrive in the afternoon and start the next day, arranged with the team; in that case, leave Bogotá by noon."
       },
       "logistics": {
         "start": "Start time",
@@ -1435,15 +1502,7 @@
     "whatsapp": "whatsapp",
     "instagram": "Instagram",
     "whatsappMessage": "Hello! I'm interested in your services for Andean Scapes",
-    "backToTop": "Back to top",
     "valueProposition": "Andean Scapes: Curated Adventures in the Esmeralda Capital.",
-    "verifiedBySeal": "Verified by Andean Scapes",
-    "verifiedFiveStarReviews": "Verified 5-Star Reviews",
-    "ugcAlt": "Traveler moment {index}",
-    "supportTitle": "Get Support",
-    "supportSubtitle": "Choose your preferred support channel and we will connect you fast.",
-    "chatWithGuide": "Chat with a Guide",
-    "emailSupport": "Email Support",
     "startWhatsapp": "Start WhatsApp Chat",
     "sendEmail": "Send Email",
     "territoryEssentials": "Territory Essentials",
@@ -1451,6 +1510,7 @@
     "transportation": "Transportation",
     "staySelection": "Stay Options",
     "allyNetwork": "Our Curated Ally Network",
+    "partner": "Partner",
     "allyHacienda": "Hacienda El Recuerdo",
     "allyGlamping": "Glamping Aventura",
     "allyExperiences": "All Experiences",
@@ -1460,7 +1520,8 @@
     "terms": "Terms",
     "privacy": "Privacy",
     "comingSoon": "Coming soon",
-    "allRightsReserved": "All rights reserved."
+    "allRightsReserved": "All rights reserved.",
+    "allyGuides": "Guides"
   },
   "MobileMenu": {
     "brandLine": "Authentic stays & experiences in the Colombian Andes",
@@ -1482,7 +1543,8 @@
     "nav": {
       "howItWorks": "How It Works",
       "reviews": "Reviews",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "guides": "Guides"
     }
   },
   "Error": {
@@ -1499,5 +1561,23 @@
   "CoscuezEmeraldPrime": {
     "metaTitle": "Coscuez Emerald Mine + Fura & Tena 4x4 | Andean Scapes",
     "metaDescription": "Coscuez emerald mines and Fura & Tena mountain excursion with 2D/1N rural hotel stay in Borbur, 5 meals and local guides."
+  },
+  "Trust": {
+    "title": "Who runs this tour",
+    "lead": "The same company plans the trip, answers your messages and operates the day in Chivor. These are the details you can check before paying anything.",
+    "operatorLabel": "Tour operator",
+    "operatorDetail": "{legalName}, a Colombian company (NIT {taxId}), registered office at {address}, Colombia.",
+    "technologyLabel": "Website and bookings",
+    "technologyDetail": "{name}, a company registered in the state of Georgia (USA), builds this website and runs the online reservation process.",
+    "paymentLabel": "How you pay",
+    "paymentDetail": "We confirm your date first. Only then do you pay a deposit of 25% to 30%; the balance follows the tour conditions. We never ask for the full amount upfront.",
+    "includedLabel": "On the day",
+    "includedDetail": "A local guide stays with the group, helmet and boots are provided, and medical assistance cover applies during the experience.",
+    "platformsLabel": "Also listed, with verified reviews, on",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "BookingShare": {
+    "title": "Book: {title} | Andean Scapes",
+    "description": "Pick your date and reserve with a 25–30% deposit, paid only after we confirm availability."
   }
 }

@@ -138,6 +138,23 @@ export const getBookingDataSSR = cache(async (
   return translatedResult.data;
 });
 
+/**
+ * Adapted but untranslated experience data, for server-side pricing.
+ *
+ * Skips the translate pass, media resolution and the two Zod parses of
+ * `getBookingDataSSR`: checkout only needs numbers, and that work is Worker CPU.
+ * Text fields stay i18n keys from the typed mapping.
+ */
+export async function getBookingPricingData(
+  experienceId: string,
+): Promise<{ data: ExperienceData; slug: string }> {
+  const feed = await fetchRawExperienceData(experienceId);
+  return {
+    data: adaptExperienceFeedV2(feed, mappingFor(feed.experience.id), ''),
+    slug: feed.experience.slug,
+  };
+}
+
 // ── Fetch the raw v2 experience feed ─────────────────────────────────────────
 //
 // To add a new experience: publish `experience-<kebab-id>.json` to the feed, add

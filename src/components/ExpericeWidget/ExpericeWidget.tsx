@@ -9,9 +9,8 @@ import { formatDateRange } from '@/utils/dateFormatters';
 import { formatMoney } from '@/utils/formatCurrency';
 import { buildBookingUrl, calculatePricingForPeople } from '@/utils/helpers';
 import { PrimaryCtaButton } from '@/components/ui/Button/PrimaryCtaButton';
-import { Card } from '@/components/ui/Card/Card';
+import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
 import { Select } from '@/components/ui/Select/Select';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import {
   useDetailSelectedDate,
   useDetailPeopleCount,
@@ -29,7 +28,6 @@ function ExpericeWidgetComponent({
 }: ExpericeWidgetProps) {
   const widgetId = useId();
   const locale = useLocale();
-  const { theme } = useThemeContext();
   const { selectedDateId, setDate } = useDetailSelectedDate();
   const { peopleCount, setPeopleCount } = useDetailPeopleCount();
   const { transportMode, setTransportMode } = useDetailTransport();
@@ -75,61 +73,26 @@ function ExpericeWidgetComponent({
     return formatMoney(total, locale, config.currency);
   }, [config, experienceData.roomModes, peopleCount, selectedTierId, locale, transportMode, roundtripConfig]);
 
-  const isDarkTheme = theme === 'dark';
-
-  const cardClass = isDarkTheme
-    ? 'relative border border-white/15 bg-slate-900/45 p-4 shadow-none backdrop-blur-xl md:p-8'
-    : 'relative border border-neutral-200 bg-white/95 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:p-8';
-
-  const overlayClass = isDarkTheme
-    ? 'pointer-events-none absolute inset-0 rounded-[inherit] bg-slate-950/35'
-    : 'pointer-events-none absolute inset-0 rounded-[inherit] bg-white/80';
-
-  const selectTriggerClass = isDarkTheme
-    ? 'flex w-full items-center justify-between gap-2 rounded-lg border border-white/20 bg-slate-900 px-3 py-2.5 text-sm text-base-content transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F08F]/60'
-    : 'flex w-full items-center justify-between gap-2 rounded-lg border border-neutral-300 bg-white px-3 py-2.5 text-sm text-neutral-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/60';
-
-  const selectPanelClass = isDarkTheme
-    ? 'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-white/15 bg-slate-900 shadow-[0_8px_32px_rgba(0,0,0,0.55)]'
-    : 'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)]';
-
-  const selectOptionClass = isDarkTheme
-    ? 'flex cursor-pointer select-none items-center px-3 py-2.5 text-sm text-base-content/90 transition-colors border-t border-white/8 first:border-t-0'
-    : 'flex cursor-pointer select-none items-center px-3 py-2.5 text-sm text-neutral-800 transition-colors border-t border-neutral-200 first:border-t-0';
-
-  const selectOptionHoverClass = isDarkTheme
-    ? 'hover:bg-white/10 hover:text-white'
-    : 'hover:bg-emerald-50 hover:text-emerald-900';
-
-  const mutedTextClass = isDarkTheme ? 'text-base-content/60' : 'text-neutral-700';
-  const bodyTextClass = isDarkTheme ? 'text-base-content/70' : 'text-neutral-700';
-  const iconClass = isDarkTheme ? 'text-[#00F08F]' : 'text-emerald-600';
-  const whatsappSecondaryCtaClass = isDarkTheme
-    ? 'btn btn-outline mt-3 h-auto min-h-12 w-full gap-2 border-white/40 bg-slate-900/40 text-white hover:bg-slate-900/60 md:mt-4'
-    : 'btn btn-outline mt-3 h-auto min-h-12 w-full gap-2 border-neutral-300 bg-white/70 text-neutral-900 hover:bg-neutral-100 md:mt-4';
+  // Theme handled in CSS (`dark:` keyed to data-theme): the card sits on the hero photo in both themes.
+  const bodyTextClass = 'text-base-content/80';
+  const mutedTextClass = 'text-base-content/70';
 
   return (
     <>
-      <Card
-        padding="md"
-        className={cardClass}
-      >
-        <div className={overlayClass} />
-
-        <span className="absolute -top-2 left-3 rounded-sm bg-[#00F08F] px-2.5 py-1 text-[9px] font-bold tracking-widest text-black shadow-[0_0_10px_rgba(0,240,143,0.4)] md:-top-3 md:-left-2 md:px-3 md:text-[10px]">
-          {widgetContent?.topSellerLabel}
-        </span>
+      <GlassCard variant="auto" className="relative rounded-2xl p-4 md:p-8">
+        {/* Dark only: the glass alone is too thin over a bright hero photo. */}
+        <div className="pointer-events-none absolute inset-0 hidden rounded-[inherit] bg-slate-950/35 dark:block" aria-hidden="true" />
 
         <div className="relative z-10 space-y-4 md:space-y-5">
           <div>
-            <p className="mt-2 text-2xl font-extrabold text-base-content md:mt-0 md:text-3xl">
+            <p className="text-[1.625rem] font-extrabold leading-tight text-base-content md:text-3xl">
               {widgetContent?.fromLabel ? (
-                <span className={`mr-1 text-sm font-normal tracking-wide md:text-base ${mutedTextClass}`}>
+                <span className={`mr-1 text-sm font-normal md:text-base ${mutedTextClass}`}>
                   {widgetContent.fromLabel}
                 </span>
               ) : null}
               {formattedPrice}
-              <span className={`ml-1 text-[10px] font-normal tracking-wide md:text-xs ${mutedTextClass}`}>
+              <span className={`ml-1 text-xs font-normal ${mutedTextClass}`}>
                 {peopleCount > 1 ? widgetContent?.totalLabel : widgetContent?.perPersonLabel}
               </span>
             </p>
@@ -142,7 +105,7 @@ function ExpericeWidgetComponent({
                       size={14}
                       fill="currentColor"
                       stroke="currentColor"
-                      className={iconClass}
+                      className="text-primary"
                     />
                   ))}
                 </div>
@@ -172,10 +135,6 @@ function ExpericeWidgetComponent({
               ]}
               value={selectedDateId ?? ''}
               onChange={(v) => setDate(String(v))}
-              triggerClassName={selectTriggerClass}
-              panelClassName={selectPanelClass}
-              optionClassName={selectOptionClass}
-              optionHoverClassName={selectOptionHoverClass}
             />
           </div>
 
@@ -191,10 +150,6 @@ function ExpericeWidgetComponent({
                 })}
                 value={peopleCount}
                 onChange={(v) => setPeopleCount(Number(v))}
-                triggerClassName={selectTriggerClass}
-                panelClassName={selectPanelClass}
-                optionClassName={selectOptionClass}
-                optionHoverClassName={selectOptionHoverClass}
               />
             </div>
           </div>
@@ -208,10 +163,6 @@ function ExpericeWidgetComponent({
               options={transportOptions.map((t) => ({ value: t.value, label: t.label }))}
               value={transportMode ?? ''}
               onChange={(v) => { if (v) setTransportMode(v as TransportMode); }}
-              triggerClassName={selectTriggerClass}
-              panelClassName={selectPanelClass}
-              optionClassName={selectOptionClass}
-              optionHoverClassName={selectOptionHoverClass}
             />
             <p id={`${widgetId}-transport-note`} className={`text-xs leading-snug ${bodyTextClass}`}>
               {widgetContent?.transportNoteLabel}
@@ -227,26 +178,26 @@ function ExpericeWidgetComponent({
 
           <div className={`flex flex-col gap-1 text-sm ${bodyTextClass}`}>
             <div className="flex items-center gap-2">
-              <ShieldCheck size={14} className={iconClass} />
+              <ShieldCheck size={14} className="text-primary" />
               <span>{widgetContent?.securityLine}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Undo2 size={14} className={iconClass} />
+              <Undo2 size={14} className="text-primary" />
               <span>{widgetContent?.freeCancellationLine}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Star size={14} className={iconClass} />
+              <Star size={14} className="text-primary" />
               <span>{widgetContent?.verifiedReviewsLine}</span>
             </div>
           </div>
         </div>
-      </Card>
+      </GlassCard>
 
       <a
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className={whatsappSecondaryCtaClass}
+        className="btn btn-outline mt-3 h-auto min-h-12 w-full gap-2 border-zinc-300 bg-white text-base-content hover:bg-zinc-100 md:mt-4 dark:border-white/40 dark:bg-slate-900/40 dark:text-white dark:hover:bg-slate-900/60"
       >
         <MessageCircle size={18} className="flex-shrink-0" />
         {widgetContent?.whatsappCtaLabel}

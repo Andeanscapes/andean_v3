@@ -34,14 +34,7 @@ export const LANDING_STRUCTURE = {
     bookingCard: {
       reserveLabelKey: 'Landing.brand.hero.bookingCard.reserveLabel',
       askFirstLabelKey: 'Landing.brand.hero.bookingCard.askFirstLabel',
-      trustDepositKey: 'Landing.brand.hero.bookingCard.trust.deposit',
-      trustSecureKey: 'Landing.brand.hero.bookingCard.trust.secure',
-      trustSupportKey: 'Landing.brand.hero.bookingCard.trust.support',
-      trustVettedKey: 'Landing.brand.hero.bookingCard.trust.vetted',
       nextAvailabilityLabelKey: 'Landing.brand.hero.bookingCard.nextAvailability',
-      onlyLabelKey: 'Landing.brand.hero.bookingCard.only',
-      spotLabelKey: 'Landing.brand.hero.bookingCard.spot',
-      spotsLeftLabelKey: 'Landing.brand.hero.bookingCard.spotsLeft',
     },
   },
 
@@ -95,6 +88,8 @@ export const LANDING_STRUCTURE = {
   whyUs: {
     sectionTitleKey: 'Landing.brand.whyUs.title',
     leadKey: 'Landing.brand.whyUs.lead',
+    portraitAltKey: 'Landing.brand.whyUs.portrait.alt',
+    portraitCaptionKey: 'Landing.brand.whyUs.portrait.caption',
     items: [
       { id: 'localHosts', iconName: 'Heart', titleKey: 'Landing.brand.whyUs.items.localHosts.title', descriptionKey: 'Landing.brand.whyUs.items.localHosts.description' },
       { id: 'smallGroups', iconName: 'Users', titleKey: 'Landing.brand.whyUs.items.smallGroups.title', descriptionKey: 'Landing.brand.whyUs.items.smallGroups.description' },
@@ -118,12 +113,12 @@ export const LANDING_STRUCTURE = {
     ctaLabelKey: 'Landing.brand.travelerSegments.cta',
     ctaHref: '/experiences',
     segments: [
-      { id: 'couples', iconName: 'Heart', labelKey: 'Landing.brand.travelerSegments.segments.couples.label', recommendationKey: 'Landing.brand.travelerSegments.segments.couples.recommendation' },
-      { id: 'families', iconName: 'Users', labelKey: 'Landing.brand.travelerSegments.segments.families.label', recommendationKey: 'Landing.brand.travelerSegments.segments.families.recommendation' },
-      { id: 'nomads', iconName: 'Laptop', labelKey: 'Landing.brand.travelerSegments.segments.nomads.label', recommendationKey: 'Landing.brand.travelerSegments.segments.nomads.recommendation' },
-      { id: 'private', iconName: 'Lock', labelKey: 'Landing.brand.travelerSegments.segments.private.label', recommendationKey: 'Landing.brand.travelerSegments.segments.private.recommendation' },
-      { id: 'adventure', iconName: 'Mountain', labelKey: 'Landing.brand.travelerSegments.segments.adventure.label', recommendationKey: 'Landing.brand.travelerSegments.segments.adventure.recommendation' },
-      { id: 'culture', iconName: 'Palette', labelKey: 'Landing.brand.travelerSegments.segments.culture.label', recommendationKey: 'Landing.brand.travelerSegments.segments.culture.recommendation' },
+      { id: 'couples', iconName: 'Heart', labelKey: 'Landing.brand.travelerSegments.segments.couples.label', titleKey: 'Landing.brand.travelerSegments.segments.couples.title', bullet1Key: 'Landing.brand.travelerSegments.segments.couples.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.couples.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.couples.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.couples.imageAlt' },
+      { id: 'families', iconName: 'Users', labelKey: 'Landing.brand.travelerSegments.segments.families.label', titleKey: 'Landing.brand.travelerSegments.segments.families.title', bullet1Key: 'Landing.brand.travelerSegments.segments.families.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.families.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.families.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.families.imageAlt' },
+      { id: 'nomads', iconName: 'Laptop', labelKey: 'Landing.brand.travelerSegments.segments.nomads.label', titleKey: 'Landing.brand.travelerSegments.segments.nomads.title', bullet1Key: 'Landing.brand.travelerSegments.segments.nomads.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.nomads.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.nomads.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.nomads.imageAlt' },
+      { id: 'private', iconName: 'Lock', labelKey: 'Landing.brand.travelerSegments.segments.private.label', titleKey: 'Landing.brand.travelerSegments.segments.private.title', bullet1Key: 'Landing.brand.travelerSegments.segments.private.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.private.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.private.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.private.imageAlt' },
+      { id: 'adventure', iconName: 'Mountain', labelKey: 'Landing.brand.travelerSegments.segments.adventure.label', titleKey: 'Landing.brand.travelerSegments.segments.adventure.title', bullet1Key: 'Landing.brand.travelerSegments.segments.adventure.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.adventure.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.adventure.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.adventure.imageAlt' },
+      { id: 'culture', iconName: 'Palette', labelKey: 'Landing.brand.travelerSegments.segments.culture.label', titleKey: 'Landing.brand.travelerSegments.segments.culture.title', bullet1Key: 'Landing.brand.travelerSegments.segments.culture.bullet1', bullet2Key: 'Landing.brand.travelerSegments.segments.culture.bullet2', bullet3Key: 'Landing.brand.travelerSegments.segments.culture.bullet3', imageAltKey: 'Landing.brand.travelerSegments.segments.culture.imageAlt' },
     ],
   },
 
@@ -163,13 +158,36 @@ export const LANDING_STRUCTURE = {
     protocolLinkLabelKey: 'Landing.brand.safety.protocolLink',
     protocolHref: '#safety-full',
     protocolComingSoonKey: 'Landing.brand.safety.protocolComingSoon',
-    items: [
-      { id: 'guides', iconName: 'BadgeCheck', titleKey: 'Landing.brand.safety.items.guides' },
-      { id: 'meetingPoints', iconName: 'MapPin', titleKey: 'Landing.brand.safety.items.meetingPoints' },
-      { id: 'payments', iconName: 'Lock', titleKey: 'Landing.brand.safety.items.payments' },
-      { id: 'deposit', iconName: 'CreditCard', titleKey: 'Landing.brand.safety.items.deposit' },
-      { id: 'whatsapp', iconName: 'MessageCircle', titleKey: 'Landing.brand.safety.items.whatsapp' },
-      { id: 'flexible', iconName: 'Calendar', titleKey: 'Landing.brand.safety.items.flexible' },
+    groups: [
+      {
+        id: 'financial',
+        titleKey: 'Landing.brand.safety.groups.financial',
+        items: [
+          { id: 'deposit', iconName: 'CreditCard', titleKey: 'Landing.brand.safety.items.deposit' },
+          { id: 'flexible', iconName: 'Calendar', titleKey: 'Landing.brand.safety.items.flexible' },
+          { id: 'payments', iconName: 'Lock', titleKey: 'Landing.brand.safety.items.payments' },
+        ],
+      },
+      {
+        id: 'operational',
+        titleKey: 'Landing.brand.safety.groups.operational',
+        items: [
+          { id: 'guides', iconName: 'BadgeCheck', titleKey: 'Landing.brand.safety.items.guides' },
+          { id: 'meetingPoints', iconName: 'MapPin', titleKey: 'Landing.brand.safety.items.meetingPoints' },
+        ],
+      },
+      {
+        id: 'assistance',
+        titleKey: 'Landing.brand.safety.groups.assistance',
+        items: [
+          { id: 'whatsapp', iconName: 'MessageCircle', titleKey: 'Landing.brand.safety.items.whatsapp' },
+        ],
+        // href is resolved at adapt time via `whatsappUrl()`.
+        whatsappCta: {
+          labelKey: 'Landing.brand.globalCtas.whatsapp',
+          opensInNewTabKey: 'Landing.reviews.opensInNewTab',
+        },
+      },
     ],
   },
 
@@ -182,26 +200,30 @@ export const LANDING_STRUCTURE = {
   },
 
   faqs: {
-    sectionTitleKey: 'Landing.faqs.sectionTitle',
     titleKey: 'Landing.faqs.title',
     descriptionKey: 'Landing.faqs.description',
     enquiryTitleKey: 'Landing.faqs.enquiryTitle',
     enquiryDescriptionKey: 'Landing.faqs.enquiryDescription',
+    planImageAltKey: 'Landing.faqs.planImageAlt',
     itemIds: [
       'whatIsAndeanScapes',
       'emeraldMineTour',
+      'transportHelp',
       'minerForADay',
+      'safety',
       'emeraldRegions',
+      'payment',
+      'cancellation',
+      'families',
+      'pets',
+      'bestSeason',
+      'bring',
+      'meals',
+      'spanish',
       'privateTours',
       'privateOrShared',
-      'spanish',
       'afterReserve',
       'questionsFirst',
-      'transportHelp',
-      'meals',
-      'families',
-      'bring',
-      'payment',
       'customized',
       'localOrInternational',
     ],
@@ -215,26 +237,17 @@ export const LANDING_STRUCTURE = {
     primaryCtaLabelKey: 'Landing.finalCta.primaryCta',
     primaryCtaHref: '/experiences',
     secondaryCtaLabelKey: 'Landing.finalCta.secondaryCta',
-    trustBadges: [
-      { id: 'deposit', iconName: 'CreditCard', labelKey: 'Landing.finalCta.badges.deposit' },
-      { id: 'secure', iconName: 'Lock', labelKey: 'Landing.finalCta.badges.secure' },
-      { id: 'cancellation', iconName: 'Calendar', labelKey: 'Landing.finalCta.badges.cancellation' },
-      { id: 'verified', iconName: 'BadgeCheck', labelKey: 'Landing.finalCta.badges.verified' },
-    ],
   },
 
   reviews: {
     sectionTitleKey: 'Landing.reviews.sectionTitle',
     subtitleKey: 'Landing.reviews.subtitle',
-    trustPanel: {
-      titleKey: 'Landing.reviews.trustPanel.title',
-      bullets: [
-        { id: 'local', iconName: 'Home', textKey: 'Landing.reviews.trustPanel.bullets.local' },
-        { id: 'reviews', iconName: 'Star', textKey: 'Landing.reviews.trustPanel.bullets.reviews' },
-        { id: 'payment', iconName: 'CreditCard', textKey: 'Landing.reviews.trustPanel.bullets.payment' },
-        { id: 'support', iconName: 'MessageCircle', textKey: 'Landing.reviews.trustPanel.bullets.support' },
-      ],
-    },
+    platformsTitleKey: 'Landing.reviews.platforms.title',
+    platforms: [
+      { id: 'google', labelKey: 'Landing.reviews.platforms.google', ctaKey: 'Landing.reviews.platforms.readReviews' },
+      { id: 'airbnb', labelKey: 'Landing.reviews.platforms.airbnb', ctaKey: 'Landing.reviews.platforms.book' },
+      { id: 'getyourguide', labelKey: 'Landing.reviews.platforms.getyourguide', ctaKey: 'Landing.reviews.platforms.book' },
+    ],
   },
 } as const;
 

@@ -25,13 +25,13 @@ export default function LandingHeroBrandContent({ hero }: Props) {
 
       <h1
         id="landing-hero-brand-title"
-        className="text-balance text-[clamp(2rem,9vw,3rem)] font-extrabold leading-[1.04] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:text-5xl md:leading-tight lg:text-6xl"
+        className="max-w-[90%] text-balance text-[1.375rem] font-bold leading-tight tracking-[-0.02em] sm:text-lg md:max-w-none text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] md:text-5xl md:leading-tight lg:text-6xl"
       >
         {hero.title}
       </h1>
 
       {hero.subtitle ? (
-        <p className="overflow-hidden text-pretty text-sm font-medium leading-snug text-white/95 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] md:block md:text-lg md:leading-normal lg:text-xl">
+        <p className="line-clamp-2 text-pretty text-xs font-medium leading-relaxed text-white/90 md:max-w-2xl md:text-md md:leading-normal lg:text-2md">
           {hero.subtitle}
         </p>
       ) : null}
@@ -44,8 +44,14 @@ export default function LandingHeroBrandContent({ hero }: Props) {
 
       <LandingHeroBrandTrustChips trustChips={hero.trustChips} className="mt-1" />
 
-      <div className="mt-1 flex flex-col gap-3 sm:flex-row md:mt-2 md:gap-4">
-        <PrimaryCtaButton href={hero.primaryCtaHref} fullWidth={false} size="lg" data-event="hero_reserve_click">
+      <div className="flex flex-col gap-2 sm:flex-row sm:gap-3 md:mt-2 md:gap-4">
+        <PrimaryCtaButton
+          href={hero.primaryCtaHref}
+          fullWidth={false}
+          size="md"
+          className="w-fit text-xs font-semibold max-md:rounded-xl md:btn-lg md:px-5 md:text-base"
+          data-event="hero_reserve_click"
+        >
           <span>{hero.primaryCtaLabel}</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </PrimaryCtaButton>
@@ -54,7 +60,7 @@ export default function LandingHeroBrandContent({ hero }: Props) {
           href={hero.secondaryCtaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-lg btn-outline inline-flex min-h-11 items-center justify-center gap-2 border-white/40 px-4 text-white hover:bg-white/10"
+          className="inline-flex min-h-11 items-center gap-2 self-start rounded-md px-1 text-xs font-medium text-white/90 sm:justify-center sm:self-auto sm:px-2 md:text-sm underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           data-event="hero_whatsapp_click"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />

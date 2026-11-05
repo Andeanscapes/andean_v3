@@ -201,8 +201,12 @@ export function useReservationDispatch() {
 export function useReservationValidation() {
   return useContextSelector(ExperienceReservationContext, (ctx) => {
     const safe = requireContext(ctx);
+    // The server prices by tier; without one, a tiered experience cannot be checked out.
+    const isTierMissing = (safe.accommodationTiersContent?.tiers.length ?? 0) > 0 && safe.state.selectedTierId === null;
     return {
+      isTierMissing,
       isValid:
+        !isTierMissing &&
         safe.state.selectedDateId !== null &&
         safe.state.peopleCount >= 1 &&
         safe.state.roomSelections.length > 0 &&
@@ -216,6 +220,7 @@ export function useReservationValidation() {
         safe.dispatch({ type: 'SET_TERMS', payload: value }),
     };
   }) as {
+    isTierMissing: boolean;
     isValid: boolean;
     state: import('@/lib/schemas').ReservationState;
     dispatch: (action: import('@/lib/schemas').ReservationAction) => void;

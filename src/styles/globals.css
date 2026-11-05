@@ -11,8 +11,11 @@
   name: "light";
   default: true;
   color-scheme: light;
-  --color-primary: #00D47E;                            /* darker green for light-theme contrast */
-  --color-primary-content: oklch(20% 0.02 165);        /* dark text on bright primary */
+  /* emerald-700: 5.5:1 as text on white AND as a fill under white text (WCAG AA).
+     The previous #00D47E was ~1.9:1 on white, so every text-primary link/icon failed.
+     It is ~3.5:1 on near-black, so always-dark surfaces use fixed emerald-400 instead. */
+  --color-primary: #047857;
+  --color-primary-content: #ffffff;
   --color-secondary: oklch(73.2% 0.167 35.3);          /* #FF7C5B – brand coral */
   --color-secondary-content: oklch(98% 0.01 35);       /* white text on secondary */
   --color-accent: oklch(74.8% 0.099 162.7);            /* #6FC19B – lighter green */
@@ -33,6 +36,26 @@
   --color-accent-content: oklch(90% 0.02 165);
   --color-neutral: oklch(30% 0.005 270);
   --color-neutral-content: oklch(90% 0.01 270);
+}
+
+/* ── `dark:` follows the site theme, not just the OS ──
+   Mirrors daisyUI exactly: an explicit data-theme wins; before hydration (no
+   attribute yet) the OS preference decides, like `prefersdark: true` above.
+   Without this, Tailwind's default `dark:` ignored the theme toggle. */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme]), :root:not([data-theme]) *) {
+      @slot;
+    }
+  }
+}
+
+/* ── Light-mode card elevation: one place to tune it ── */
+@utility shadow-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* ── Source paths for content detection ── */
@@ -144,6 +167,29 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Eyebrow label. Colour is set per surface: fixed `text-emerald-400` on always-dark
+   sections (`primary` is emerald-700 in light, ~3.6:1 on black), `text-base-content/70`
+   on theme-aware surfaces. */
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.18em];
+}
+
+
 .no-scrollbar {
   scrollbar-width: none;
 }
@@ -245,14 +291,6 @@ html {
   @media (width >= 1400px) {
     padding-inline: 5rem;
   }
-}
-
-main[data-theme="light"] {
-  @apply bg-white;
-}
-
-main[data-theme="dark"] {
-  @apply bg-slate-950;
 }
 
 @layer base {

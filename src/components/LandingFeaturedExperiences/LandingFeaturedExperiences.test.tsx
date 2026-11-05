@@ -45,6 +45,29 @@ describe('LandingFeaturedExperiences', () => {
     expect(link).toHaveAttribute('href', FEATURED_FIXTURE.viewAllHref);
   });
 
+  it('leads with the hero tour on mobile only, and keeps it out of the desktop grid', () => {
+    const hero = FEATURED_FIXTURE.items[FEATURED_FIXTURE.items.length - 1];
+    renderWithIntl(<LandingFeaturedExperiences featured={FEATURED_FIXTURE} heroSlug={hero.experienceSlug} />);
+    const [section] = screen.getAllByRole('list');
+    const items = Array.from(section.querySelectorAll(':scope > li'));
+
+    expect(items).toHaveLength(FEATURED_FIXTURE.items.length);
+    expect(items[0]).toHaveTextContent(hero.title);
+    expect(items[0]).toHaveClass('md:hidden');
+    for (const item of items.slice(1)) expect(item).not.toHaveClass('md:hidden');
+  });
+
+  it('hides the whole section from md when the hero tour is the only item', () => {
+    const [hero] = FEATURED_FIXTURE.items;
+    const { container } = renderWithIntl(
+      <LandingFeaturedExperiences
+        featured={{ ...FEATURED_FIXTURE, items: [hero] }}
+        heroSlug={hero.experienceSlug}
+      />,
+    );
+    expect(container.querySelector('section')).toHaveClass('md:hidden');
+  });
+
   it('renders nothing when items is empty', () => {
     const { container } = renderWithIntl(
       <LandingFeaturedExperiences featured={{ ...FEATURED_FIXTURE, items: [] }} />,

@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useState } from 'react';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { getAvifSrc, getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 type OptimizedBackgroundImageProps = {
   src: string;
@@ -19,12 +19,19 @@ function OptimizedBackgroundImage({
   placeholderClassName = 'absolute inset-0 animate-pulse bg-gradient-to-br from-slate-900/70 via-slate-800/60 to-slate-900/70',
 }: OptimizedBackgroundImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { mobile } = getResponsiveImageSrc(src);
+  // Hero photos reused as a section background get the AVIF the hero already
+  // downloaded (no second, WebP copy). `null` for everything else.
+  const avifMobile = getAvifSrc(mobile);
+  const avifDesktop = getAvifSrc(src);
 
   return (
     <>
       {!isLoaded ? <div aria-hidden="true" className={placeholderClassName} /> : null}
       <picture>
-        <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(src).mobile} />
+        {avifMobile ? <source type="image/avif" media="(max-width: 767px)" srcSet={avifMobile} /> : null}
+        <source media="(max-width: 767px)" srcSet={mobile} />
+        {avifDesktop ? <source type="image/avif" srcSet={avifDesktop} /> : null}
         <img
           src={src}
           alt=""

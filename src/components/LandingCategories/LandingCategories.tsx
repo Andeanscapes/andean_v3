@@ -18,12 +18,12 @@ function LandingCategoriesComponent({ categories, className = '' }: Props) {
   return (
     <SectionContainer
       as="section"
-      sectionClassName={`bg-base-100 py-16 md:py-20 ${className}`.trim()}
+      sectionClassName={`bg-base-100 py-6 sm:py-10 md:py-20 ${className}`.trim()}
       containerClassName="px-4 md:px-6 lg:px-10"
     >
       <h2
         id="landing-categories-title"
-        className="mb-8 text-center text-2xl font-bold tracking-tight text-base-content md:mb-12 md:text-3xl lg:text-4xl"
+        className="mb-6 text-balance text-md font-bold sm:text-2md tracking-tight text-base-content md:mb-12 md:text-3xl lg:text-4xl"
       >
         {categories.sectionTitle}
       </h2>

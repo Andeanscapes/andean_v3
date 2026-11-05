@@ -81,9 +81,10 @@ export function toLandingReviewsContent(
   return {
     sectionTitle: t(reviews.sectionTitleKey),
     subtitle: t(reviews.subtitleKey),
-    eyebrow: t('Landing.reviews.eyebrow'),
     outOf5Aria: t('Landing.reviews.outOf5Aria'),
-    countSuffix: t('Landing.reviews.countSuffix'),
+    ratingSource: t('Landing.reviews.ratingSource'),
+    readMore: t('Landing.reviews.readMore'),
+    readLess: t('Landing.reviews.readLess'),
     items: reviews.items.map((item) => ({
       id: item.id,
       name: item.name,
@@ -91,20 +92,23 @@ export function toLandingReviewsContent(
       countryFlag: item.countryFlag,
       rating: item.rating,
       comment: t(item.commentKey),
+      headline: item.headlineKey ? t(item.headlineKey) : undefined,
       avatarUrl: item.avatarUrl,
       isVerified: item.isVerified,
       verifiedExperience: item.verifiedExperienceKey ? t(item.verifiedExperienceKey) : undefined,
       sourceUrl: item.sourceUrl,
+      sourceLogo: item.sourceLogo,
     })),
-    trustPanel: {
-      title: t(reviews.trustPanel.titleKey),
-      bullets: reviews.trustPanel.bullets.map((b) => ({
-        id: b.id,
-        iconName: b.iconName,
-        text: t(b.textKey),
-      })),
-    },
     aggregateRating: reviews.aggregateRating,
+    platformsTitle: t(reviews.platformsTitleKey),
+    platforms: reviews.platforms.map((platform) => ({
+      id: platform.id,
+      href: platform.href,
+      logo: platform.logo,
+      label: t(platform.labelKey),
+      cta: t(platform.ctaKey),
+      opensInNewTab: t('Landing.reviews.opensInNewTab'),
+    })),
   };
 }
 
@@ -115,11 +119,12 @@ export function toLandingFaqsContent(
   t: Translator,
 ): LandingContent['faqs'] {
   return {
-    sectionTitle: t(raw.faqs.sectionTitleKey),
     title: t(raw.faqs.titleKey),
     description: t(raw.faqs.descriptionKey),
     enquiryTitle: t(raw.faqs.enquiryTitleKey),
     enquiryDescription: t(raw.faqs.enquiryDescriptionKey),
+    planImage: raw.faqs.planImage,
+    planImageAlt: t(raw.faqs.planImageAltKey),
     items: raw.faqs.items.map((item) => ({
       id: item.id,
       question: t(item.questionKey),
@@ -143,11 +148,6 @@ export function toLandingFinalCtaContent(
     primaryCtaLabel: t(finalCta.primaryCtaLabelKey),
     primaryCtaHref: finalCta.primaryCtaHref,
     secondaryCtaLabel: t(finalCta.secondaryCtaLabelKey),
-    trustBadges: finalCta.trustBadges.map((b) => ({
-      id: b.id,
-      iconName: b.iconName,
-      label: t(b.labelKey),
-    })),
   };
 }
 
@@ -176,14 +176,7 @@ export function toLandingHeroBrandContent(
     bookingCard: {
       reserveLabel: t(heroBrand.bookingCard.reserveLabelKey),
       askFirstLabel: t(heroBrand.bookingCard.askFirstLabelKey),
-      trustDeposit: t(heroBrand.bookingCard.trustDepositKey),
-      trustSecure: t(heroBrand.bookingCard.trustSecureKey),
-      trustSupport: t(heroBrand.bookingCard.trustSupportKey),
-      trustVetted: t(heroBrand.bookingCard.trustVettedKey),
       nextAvailabilityLabel: t(heroBrand.bookingCard.nextAvailabilityLabelKey),
-      onlyLabel: t(heroBrand.bookingCard.onlyLabelKey),
-      spotLabel: t(heroBrand.bookingCard.spotLabelKey),
-      spotsLeftLabel: t(heroBrand.bookingCard.spotsLeftLabelKey),
     },
     search: heroBrand.search
       ? {
@@ -278,6 +271,13 @@ export function toLandingWhyUsContent(
   return {
     sectionTitle: t(raw.whyUs.sectionTitleKey),
     lead: t(raw.whyUs.leadKey),
+    portrait: raw.whyUs.portrait
+      ? {
+          image: raw.whyUs.portrait.image,
+          alt: t(raw.whyUs.portrait.altKey),
+          caption: t(raw.whyUs.portrait.captionKey),
+        }
+      : undefined,
     items: raw.whyUs.items.map((item) => ({
       id: item.id,
       iconName: item.iconName,
@@ -316,7 +316,10 @@ export function toLandingTravelerSegmentsContent(
       id: seg.id,
       iconName: seg.iconName,
       label: t(seg.labelKey),
-      recommendation: t(seg.recommendationKey),
+      title: t(seg.titleKey),
+      bullets: seg.bulletKeys.map((key) => t(key)),
+      image: seg.image,
+      imageAlt: t(seg.imageAltKey),
       ctaLabel: t(seg.ctaLabelKey),
       ctaHref: seg.ctaHref,
     })),
@@ -369,10 +372,21 @@ export function toLandingSafetyContent(
   return {
     sectionTitle: t(raw.safety.sectionTitleKey),
     lead: t(raw.safety.leadKey),
-    items: raw.safety.items.map((item) => ({
-      id: item.id,
-      iconName: item.iconName,
-      title: t(item.titleKey),
+    groups: raw.safety.groups.map((group) => ({
+      id: group.id,
+      title: t(group.titleKey),
+      items: group.items.map((item) => ({
+        id: item.id,
+        iconName: item.iconName,
+        title: t(item.titleKey),
+      })),
+      cta: group.cta
+        ? {
+            label: t(group.cta.labelKey),
+            href: group.cta.href,
+            opensInNewTab: t(group.cta.opensInNewTabKey),
+          }
+        : undefined,
     })),
     protocolLinkLabel: raw.safety.protocolLinkLabelKey
       ? t(raw.safety.protocolLinkLabelKey)

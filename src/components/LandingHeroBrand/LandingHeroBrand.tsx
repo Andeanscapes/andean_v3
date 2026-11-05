@@ -7,7 +7,7 @@ import { SectionContainer } from '@/components/ui/SectionContainer/SectionContai
 import LandingHeroBrandContent from './LandingHeroBrandContent';
 import LandingHeroBrandSearch from './LandingHeroBrandSearch';
 import LandingHeroBookingCard from '../LandingHeroBookingCard/LandingHeroBookingCard';
-import { getResponsiveImageSrc } from '@/utils/responsiveImage';
+import { HeroPicture } from '@/components/ui/HeroPicture/HeroPicture';
 
 type BookingCardStrings = HeroBrand['bookingCard'] & {
   duration: string;
@@ -43,18 +43,7 @@ function LandingHeroBrandComponent({ hero, featuredExperience, featuredBookingUr
       aria-labelledby="landing-hero-brand-title"
       className={`relative w-full overflow-hidden ${className}`.trim()}
     >
-      <picture>
-        <source media="(max-width: 767px)" srcSet={getResponsiveImageSrc(hero.backgroundImage).mobile} />
-        <img
-          src={hero.backgroundImage}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </picture>
+      <HeroPicture src={hero.backgroundImage} />
 
       <div className="pointer-events-none absolute inset-0 bg-black/30" aria-hidden="true" />
       <div
@@ -69,14 +58,15 @@ function LandingHeroBrandComponent({ hero, featuredExperience, featuredBookingUr
       <SectionContainer
         as="div"
         sectionClassName="relative"
-        containerClassName="grid min-h-[560px] grid-cols-1 gap-4 px-4 pb-5 pt-20 md:min-h-[620px] md:gap-8 md:px-6 md:pb-16 md:pt-32 lg:grid-cols-12 lg:px-10 lg:py-10"
+        containerClassName="grid min-h-[420px] grid-cols-1 gap-4 px-4 pb-5 pt-16 md:min-h-[620px] md:pt-20 md:gap-8 md:px-6 md:pb-16 md:pt-32 lg:grid-cols-12 lg:px-10 lg:py-10"
       >
-        <div className={`${contentColClass} pt-0 md:pt-12 lg:pt-16`}>
+        <div className={`${contentColClass} min-w-0 pt-0 md:pt-12 lg:pt-16`}>
           <LandingHeroBrandContent hero={hero} />
         </div>
 
         {hasRightCol && (
-          <div className="pt-4 lg:col-span-5 lg:pl-4 md:pt-12 lg:pt-16">
+          <div className={`${showBookingCard ? 'hidden md:block' : ''} pt-4 md:pt-12 lg:col-span-5 lg:pl-4 lg:pt-16`.trim()}>
+            {/* Booking card hidden below md: the flagship leads the featured carousel there instead, so the first scroll reaches a tour. */}
             {showBookingCard ? (
               <LandingHeroBookingCard
                 flagship={featuredExperience}

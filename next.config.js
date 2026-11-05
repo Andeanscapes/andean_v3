@@ -104,6 +104,15 @@ const nextConfig = {
         destination: 'https://andeanscapes.com/:path*',
         permanent: true
       },
+      // Client-only booking stub (noindex) was still indexed by search engines.
+      ...locales.map((locale) => {
+        const prefix = locale === 'en' ? '' : `/${locale}`;
+        return {
+          source: `${prefix}/booking`,
+          destination: `${prefix}/experiences`,
+          permanent: true
+        };
+      }),
       ...legacyExperienceRoutes.flatMap(({ source, destination }) => [
         { source, destination, permanent: true },
         ...locales.filter((locale) => locale !== 'en').map((locale) => ({

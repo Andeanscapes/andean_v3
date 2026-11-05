@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
 import { safeJsonLd } from './jsonLd';
-import { buildBreadcrumbLd, buildFaqLd, buildTouristTripLd, type TouristTripInput } from './structuredData';
+import {
+  buildBreadcrumbLd,
+  buildFaqLd,
+  buildTouristTripLd,
+  buildTravelAgencyLd,
+  type TouristTripInput,
+} from './structuredData';
 
 const PROVIDER = { name: 'Andean Scapes', url: 'https://andeanscapes.com' };
 const PAGE_URL = 'https://andeanscapes.com/es/experiences/chivor-emerald-mine-tour';
@@ -50,6 +56,48 @@ describe('buildTouristTripLd', () => {
 
     expect(json).not.toContain('</script>');
     expect(JSON.parse(json).name).toBe('</script><b>x');
+  });
+});
+
+describe('buildTravelAgencyLd', () => {
+  const ORG_ID = 'https://andeanscapes.com/#organization';
+
+  const ld = buildTravelAgencyLd({
+    id: ORG_ID,
+    name: 'Andean Scapes',
+    legalName: 'Andean Scapes Colombia SAS',
+    taxId: '9021124608',
+    url: 'https://andeanscapes.com',
+    logo: 'https://andeanscapes.com/logo.webp',
+    sameAs: ['https://www.instagram.com/andean_scapes/'],
+    email: 'info@andeanscapes.com',
+    telephone: '+573124815443',
+    address: { streetAddress: 'Calle 78A #63-50', addressLocality: 'Bogotá', addressRegion: 'Bogotá D.C.', addressCountry: 'CO' },
+    operatingBase: { name: 'Hacienda El Recuerdo', addressLocality: 'Ubalá', addressRegion: 'Cundinamarca', addressCountry: 'CO' },
+    areaServed: [{ name: 'Chivor', region: 'Boyacá' }],
+  });
+
+  it('keeps the legal address separate from the operating base', () => {
+    expect(ld.address).toMatchObject({ '@type': 'PostalAddress', addressLocality: 'Bogotá' });
+    expect(ld.location).toEqual({
+      '@type': 'Place',
+      name: 'Hacienda El Recuerdo',
+      address: { '@type': 'PostalAddress', addressLocality: 'Ubalá', addressRegion: 'Cundinamarca', addressCountry: 'CO' },
+    });
+  });
+
+  it('serves the listed places plus the country', () => {
+    expect(ld.areaServed).toEqual([
+      { '@type': 'Place', name: 'Chivor', containedInPlace: { '@type': 'AdministrativeArea', name: 'Boyacá' } },
+      { '@type': 'Country', name: 'Colombia' },
+    ]);
+  });
+
+  it('shares its @id with the tour provider', () => {
+    const trip = buildTouristTripLd(tripInput({ provider: { id: ORG_ID, ...PROVIDER } }));
+
+    expect(ld['@id']).toBe(ORG_ID);
+    expect(trip.provider['@id']).toBe(ORG_ID);
   });
 });
 

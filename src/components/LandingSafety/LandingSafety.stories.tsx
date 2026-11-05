@@ -16,10 +16,10 @@ export const Default: Story = {
   args: { safety: SAFETY_FIXTURE },
 };
 
-export const ThreeItems: Story = {
-  args: { safety: { ...SAFETY_FIXTURE, items: SAFETY_FIXTURE.items.slice(0, 3) } },
+export const WithoutAssistance: Story = {
+  args: { safety: { ...SAFETY_FIXTURE, groups: SAFETY_FIXTURE.groups.slice(0, 2) } },
 };
 
 export const Empty: Story = {
-  args: { safety: { ...SAFETY_FIXTURE, items: [] } },
+  args: { safety: { ...SAFETY_FIXTURE, groups: [] } },
 };

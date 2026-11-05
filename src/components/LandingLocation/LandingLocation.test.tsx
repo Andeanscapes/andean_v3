@@ -42,4 +42,10 @@ describe('LandingLocation', () => {
     expect(screen.getByRole('link', { name: new RegExp(LOCATION_FIXTURE.ctaLabel, 'i') }))
       .toHaveAttribute('href', LOCATION_FIXTURE.ctaHref);
   });
+
+  it('renders no live-network badge; markers are decorative', () => {
+    const { container } = render(<LandingLocation locationBrand={LOCATION_FIXTURE} />);
+    expect(screen.queryByText(/live network/i)).not.toBeInTheDocument();
+    expect(container.querySelectorAll('.animate-ping, .animate-pulse')).toHaveLength(0);
+  });
 });

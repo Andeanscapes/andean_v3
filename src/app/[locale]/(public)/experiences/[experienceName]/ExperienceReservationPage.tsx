@@ -1,17 +1,18 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { ExperienceReservationProvider } from '@/contexts/ExperienceReservationContext';
 import { ExperienceDetailProvider } from '@/contexts/ExperienceDetailContext';
-import { useThemeContext } from '@/contexts/ThemeContext';
 import { ExperienceHero } from '@/components/ExperienceReservation/ExperienceHero';
 import { DateSelector } from '@/components/ExperienceReservation/DateSelector';
 import { PeopleSelector } from '@/components/ExperienceReservation/PeopleSelector';
 import { PriceSummary } from '@/components/ExperienceReservation/PriceSummary';
 import { ConfirmationAction } from '@/components/ExperienceReservation/ConfirmationAction';
+import { PaymentStatusBanner } from '@/components/ExperienceReservation/PaymentStatusBanner';
 import type { ExperienceData } from '@/lib/schemas';
-import type { BookingSelections } from '@/utils/helpers';
+import type { CheckoutResponse, PaymentStatusResponse } from '@/lib/schemas/payment.schema';
+import { resolveDayTripSelections, type BookingSelections } from '@/utils/helpers';
 
 /*
  * Heavy / below-the-fold form components are code-split into separate JS chunks.
@@ -48,24 +49,35 @@ const MobileStickyDock = dynamic(
 interface ExperienceReservationPageProps {
   experienceData: ExperienceData;
   initialSelections?: BookingSelections;
+  /** A shared link named a date that is no longer bookable. */
+  sharedDateUnavailable?: boolean;
+  /** Return from Mercado Pago (`?ref=`, `?payment_id=`), validated server-side. */
+  payment?: { reference: string; paymentId: string | null } | null;
 }
 
 export default function ExperienceReservationPage({
   experienceData,
   initialSelections,
+  sharedDateUnavailable = false,
+  payment = null,
 }: ExperienceReservationPageProps) {
   const { config, transportOptions, roomModes, availableDates, whatsappLink, heroContent, accommodationTiersContent } = experienceData;
-  const { theme } = useThemeContext();
-  const isDark = theme === 'dark';
   // Day trips have no overnight stay: their single tier only buckets guests for
   // pricing, so it is preselected and the stay/room pickers are not shown.
   const isDayTrip = config.numberOfNights === 0;
-  const dayTripTierId = accommodationTiersContent?.tiers[0]?.id ?? null;
   // Memoized: the provider re-hydrates whenever this reference changes.
   const reservationSelections = useMemo(
-    () => (isDayTrip ? { ...initialSelections, tier: initialSelections?.tier ?? dayTripTierId } : initialSelections),
-    [isDayTrip, initialSelections, dayTripTierId],
+    () => (isDayTrip ? resolveDayTripSelections(initialSelections, accommodationTiersContent?.tiers ?? []) : initialSelections),
+    [isDayTrip, initialSelections, accommodationTiersContent],
   );
+  // Checkout opened in another tab from this page: the banner follows it here.
+  const [openCheckout, setOpenCheckout] = useState<CheckoutResponse | null>(null);
+  const trackCheckout = useCallback((checkout: CheckoutResponse) => setOpenCheckout(checkout), []);
+  const [paymentResult, setPaymentResult] = useState<PaymentStatusResponse['status'] | null>(null);
+  const handlePaymentResult = useCallback((status: PaymentStatusResponse['status']) => setPaymentResult(status), []);
+  // No second deposit while one is paid, still processing (PSE/cash), or open in
+  // another tab; the banner's "Open Mercado Pago again" link covers retries there.
+  const paymentLocked = paymentResult === 'approved' || paymentResult === 'pending' || openCheckout !== null;
 
   return (
     <ExperienceDetailProvider experienceData={experienceData}>
@@ -80,8 +92,26 @@ export default function ExperienceReservationPage({
       <ExperienceHero config={config} heroContent={heroContent} />
 
       {/* Page body */}
-      <div className={`min-h-screen ${isDark ? 'booking-bg' : 'bg-base-200'}`}>
+      <div className="min-h-screen bg-base-200 dark:bg-booking-bg">
         <div className="container mx-auto max-w-6xl px-4 py-6">
+          {openCheckout ? (
+            <PaymentStatusBanner
+              key={openCheckout.reference}
+              reference={openCheckout.reference}
+              paymentId={null}
+              checkoutUrl={openCheckout.url}
+              experienceTitle={config.title}
+              onResult={handlePaymentResult}
+            />
+          ) : payment ? (
+            <PaymentStatusBanner
+              reference={payment.reference}
+              paymentId={payment.paymentId}
+              checkoutUrl={null}
+              experienceTitle={config.title}
+              onResult={handlePaymentResult}
+            />
+          ) : null}
           {/*
            * Desktop: two-column grid — main form (left) + sticky sidebar (right).
            * Mobile: single column, ConfirmationAction sticks to the bottom of the viewport.
@@ -90,7 +120,7 @@ export default function ExperienceReservationPage({
 
             {/* ── Left column: reservation form steps ── */}
             <div>
-              <DateSelector availableDates={availableDates} />
+              <DateSelector availableDates={availableDates} sharedDateUnavailable={sharedDateUnavailable} />
               <PeopleSelector maxPeople={config.maxPeople} minPeople={config.minPeople} />
               <TransportOptions transportOptions={transportOptions} />
               {!isDayTrip && <TierPicker />}
@@ -100,20 +130,25 @@ export default function ExperienceReservationPage({
               {/* Mobile-only: price summary + in-flow actions (above fixed dock) */}
               <div className="lg:hidden pb-28">
                 <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} isDayTrip={isDayTrip} />
-                <ConfirmationAction config={config} whatsappLink={whatsappLink} />
+                <ConfirmationAction config={config} whatsappLink={whatsappLink} paymentLocked={paymentLocked} onCheckoutStarted={trackCheckout} />
               </div>
             </div>
 
             {/* ── Right column: sticky sidebar (desktop only) ── */}
             <aside className="hidden lg:block lg:sticky lg:top-20 space-y-0 pb-6">
               <PriceSummary depositPercent={config.depositPercent} transportOptions={transportOptions} experienceTitle={config.title} isDayTrip={isDayTrip} />
-              <ConfirmationAction config={config} whatsappLink={whatsappLink} />
+              <ConfirmationAction config={config} whatsappLink={whatsappLink} paymentLocked={paymentLocked} onCheckoutStarted={trackCheckout} />
             </aside>
           </div>
         </div>
 
         {/* Mobile: fixed floating dock — scroll-activated, handles payment CTA */}
-        <MobileStickyDock config={config} transportOptions={transportOptions} />
+        <MobileStickyDock
+          config={config}
+          transportOptions={transportOptions}
+          paymentLocked={paymentLocked}
+          onCheckoutStarted={trackCheckout}
+        />
       </div>
       </ExperienceReservationProvider>
     </ExperienceDetailProvider>

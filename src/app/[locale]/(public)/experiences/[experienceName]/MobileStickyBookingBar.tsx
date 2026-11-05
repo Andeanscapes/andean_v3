@@ -64,24 +64,26 @@ export default function MobileStickyBookingBar({
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 block border-t border-emerald-500/20 bg-slate-900/90 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.3)] backdrop-blur-xl [backface-visibility:hidden] [contain:paint] [transform:translateZ(0)] [will-change:transform] lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 block border-t border-zinc-200 bg-white/95 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] backdrop-blur-md [backface-visibility:hidden] [contain:paint] [transform:translateZ(0)] [will-change:transform] lg:hidden dark:border-zinc-800/80 dark:bg-zinc-950 dark:shadow-[0_-14px_30px_rgba(0,0,0,0.28)] dark:backdrop-blur-none"
     >
+      {/* Height is mirrored by getBottomBarSpacerClass in PublicLayoutShell (footer clearance); update both together. */}
       <div
-        className="mx-auto grid min-h-[4.5rem] max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 pt-1.5 sm:px-4"
-        style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 0.5rem)' }}
+        className="mx-auto grid min-h-16 max-w-screen-2xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 pt-2.5"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.625rem)' }}
       >
         <div className="min-w-0 text-left">
-          <p className="truncate text-[10px] font-medium uppercase tracking-[0.08em] text-white/60">{experienceData.config.title}</p>
-          <p className="whitespace-nowrap text-lg font-bold leading-tight text-white sm:text-xl">
+          <p className="truncate text-xs font-medium text-zinc-600 dark:text-zinc-400">{experienceData.config.title}</p>
+          <p className="truncate text-base font-bold leading-tight text-zinc-900 [font-variant-numeric:tabular-nums] dark:text-white">
             {formattedPrice}
-            <span className="ml-1 text-[10px] font-normal text-white/60">{priceQualifier}</span>
+            <span className="ml-1 text-xs font-normal text-zinc-600 dark:text-zinc-400">{priceQualifier}</span>
           </p>
         </div>
 
         <PrimaryCtaButton
           href={bookingHref}
           size="md"
-          className="w-full max-w-[176px] justify-self-end !min-h-10 px-3 text-sm"
+          fullWidth={false}
+          className="shrink-0 justify-self-end rounded-xl px-4 text-xs font-semibold"
         >
           {t('experiences.ui.experienceDetails.bookNowBtn')}
         </PrimaryCtaButton>

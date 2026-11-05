@@ -31,6 +31,15 @@ fallthrough = true
 # boundary. The deploy workflows fail fast on an empty value for that reason.
 [vars]
 REMOTE_DATA_BASE_URL = "https://cdn.andeanscapes.com/services"
+# Mercado Pago checkout mode. Public flag, not a credential. The access token is
+# a Worker secret (`wrangler secret put MERCADOPAGO_ACCESS_TOKEN`) and must be a
+# real-account token here; test credentials are rejected in this mode.
+MERCADOPAGO_MODE = "production"
+ALERT_EMAIL_FROM = "Andean Scapes <reservas@notify.andeanscapes.com>"
+# Telegram payment alerts read the Worker secrets TELEGRAM_BOT_TOKEN and
+# TELEGRAM_CHAT_ID (same bot and bridge chat as the WhatsApp sales bot).
+# Email alerts read the Worker secrets RESEND_API_KEY and ALERT_EMAIL_TO, and the
+# var ALERT_EMAIL_FROM (an address on a domain verified in Resend).
 #
 # NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER is deliberately NOT declared here. It is
 # inlined into the client bundle by `next build`, so a runtime var would be dead
@@ -46,7 +55,8 @@ service = "andean-v3"
 name = "andean-v3-dev"
 routes = []
 # Points at the same feed as prod: there is currently no separate dev feed.
-vars = { REMOTE_DATA_BASE_URL = "https://cdn.andeanscapes.com/services" }
+# Sandbox checkout: needs test credentials (`wrangler secret put MERCADOPAGO_ACCESS_TOKEN --env dev`).
+vars = { REMOTE_DATA_BASE_URL = "https://cdn.andeanscapes.com/services", MERCADOPAGO_MODE = "sandbox", ALERT_EMAIL_FROM = "Andean Scapes <reservas@notify.andeanscapes.com>" }
 
 [[env.dev.services]]
 binding = "WORKER_SELF_REFERENCE"

@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ExperienceId } from '@/lib/schemas/feed/v2';
+import { EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/experience';
+import { locales } from '@/i18n/routing';
+import en from '@/i18n/messages/en.json';
+import es from '@/i18n/messages/es.json';
+import fr from '@/i18n/messages/fr.json';
 import { getExperienceFaqKeys } from './SiteConfig';
 
 afterEach(() => vi.unstubAllEnvs());
@@ -65,10 +70,34 @@ describe('getExperienceFaqKeys', () => {
     }
   });
 
-  it('keeps Chivor transport details for other experiences', () => {
+  it('uses the shared Chivor route answer for Chivor experiences', () => {
     expect(getExperienceFaqKeys('chivorEmeraldCore')[2]).toMatchObject({
-      question: 'experiences.ui.experienceDetails.faq3Q',
-      answer: 'experiences.ui.experienceDetails.faq3A',
+      question: 'Landing.faqs.items.transportHelp.question',
+      answer: 'Landing.faqs.items.transportHelp.answer',
     });
+  });
+
+  const experienceIds = Object.keys(EXPERIENCE_METADATA_NAMESPACE) as ExperienceId[];
+  const messages = { en, es, fr };
+
+  const lookup = (tree: unknown, key: string): unknown =>
+    key.split('.').reduce<unknown>(
+      (node, part) => (node && typeof node === 'object' ? (node as Record<string, unknown>)[part] : undefined),
+      tree,
+    );
+
+  it.each(experienceIds)('%s: every FAQ key resolves in en, es and fr', (id) => {
+    for (const locale of locales) {
+      for (const faq of getExperienceFaqKeys(id)) {
+        expect(typeof lookup(messages[locale], faq.question), `${locale} ${faq.question}`).toBe('string');
+        expect(typeof lookup(messages[locale], faq.answer), `${locale} ${faq.answer}`).toBe('string');
+      }
+    }
+  });
+
+  it.each(experienceIds)('%s: FAQ ids are unique and the first is the default-open item', (id) => {
+    const ids = getExperienceFaqKeys(id).map((faq) => faq.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(ids[0]).toBe('faq-1');
   });
 });

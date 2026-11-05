@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import { CONTACT_INFO, SITE_INFO, SOCIAL_LINKS } from '@/constant/SiteConfig';
 import { getExperiencesCatalogSSR } from '@/lib/services/experiences-catalog.service';
+import { GUIDES, guidePath } from '@/lib/content/guides.structure';
+import { getGuideContentSSR, getGuidesUiSSR } from '@/lib/services/guides.service';
 import { buildAbsoluteLocalizedUrl, buildExperiencePath, SEO_SITE_URL } from '@/utils/seoUrls';
 
 // Built from the catalog feed like `sitemap.ts`, so it shares its build-time
@@ -11,10 +13,19 @@ export const dynamic = 'force-static';
 const LOCALE = 'en';
 
 export async function GET(): Promise<Response> {
-  const [t, catalog] = await Promise.all([
+  const [t, catalog, guidesUi] = await Promise.all([
     getTranslations({ locale: LOCALE }),
     getExperiencesCatalogSSR(),
+    getGuidesUiSSR(LOCALE),
   ]);
+
+  const guideLines = await Promise.all(
+    GUIDES.map(async (guide) => {
+      const content = await getGuideContentSSR(LOCALE, guide);
+      const url = buildAbsoluteLocalizedUrl(LOCALE, guidePath(guide.slug));
+      return `- [${content.title}](${url}): ${content.metaDescription}`;
+    }),
+  );
 
   const experienceLines = await Promise.all(
     catalog.map(async ({ experienceName, metadataNamespace }) => {
@@ -33,6 +44,10 @@ export async function GET(): Promise<Response> {
     '',
     `- [${t('Seo.breadcrumbExperiences')}](${buildAbsoluteLocalizedUrl(LOCALE, '/experiences')})`,
     ...experienceLines,
+    '',
+    `## ${guidesUi('ui.breadcrumbGuides')}`,
+    '',
+    ...guideLines,
     '',
     `## ${t('Seo.llmsContactHeading')}`,
     '',

@@ -1035,6 +1035,23 @@ describeV2('v2 schemas fail closed', () => {
     expect(LandingFeedV2Schema.safeParse(payload).success).toBe(false);
   });
 
+  /** The host portrait is app-owned (`HOST_PORTRAIT`); a feed copy would be ignored, so it is refused. */
+  it('rejects hostPortrait in the landing media block', () => {
+    const payload = clone(LANDING) as { media?: Record<string, unknown> };
+    payload.media = {
+      hero: '/images/brand/hero.webp',
+      finalCta: '/images/brand/final-cta.webp',
+      hostPortrait: '/images/brand/card-host-portrait.webp',
+      categories: {
+        emeraldMining: '/images/brand/emerald.webp',
+        nature: '/images/brand/nature.webp',
+        rural: '/images/brand/rural.webp',
+        horseback: '/images/brand/horseback.webp',
+      },
+    };
+    expect(LandingFeedV2Schema.safeParse(payload).success).toBe(false);
+  });
+
   it('rejects a room mode pointing at an undeclared tier', () => {
     const payload = clone(EXPERIENCE) as { roomModes: { tierId: string }[] };
     payload.roomModes[0].tierId = 'nonexistentTier';

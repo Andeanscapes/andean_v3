@@ -182,12 +182,19 @@ Avoid:
 - Experience cards must keep using `ExperienceCardImage` in `src/components/ExperienceList/ExperienceCardImage.tsx`.
 - Use `<picture>`-based responsive image behavior where the repo already does so.
 - Keep lazy loading, async decoding, and skeleton fallbacks for below-the-fold media.
+- Above-the-fold heroes render through `HeroPicture` (AVIF first, WebP fallback) with `HeroPreload`. Which images get AVIF is decided only by `isAvifHeroKey` in `src/utils/responsiveImage.ts`; the media pipeline and `verify:feed` use the same function. Never add an AVIF `<source>` by hand.
 - Wrap lazy-loaded image components in `Suspense` when following the existing experience-list pattern.
 
 ### Video
 - Preserve the current responsive hero-video behavior.
 - Respect `prefers-reduced-motion` and data-saver constraints.
 - Keep Cloudflare-friendly caching and preload behavior aligned with the current implementation.
+
+### Motion and interaction
+- The `apple-design` skill is guidance only; this file and the existing design system win on any conflict.
+- Implement motion with CSS transitions/animations and existing primitives.
+- Do not add animation libraries (e.g. `motion`, `framer-motion`) without explicit approval.
+- Under `prefers-reduced-motion`, replace slides, scales and loops with a short cross-fade or a static state; do not remove the feedback itself.
 
 ---
 
@@ -221,6 +228,7 @@ Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticat
 - Purge-by-URL for public page URLs does not reach the internal `__edge_*` keys. *Purge Everything* clears the Cloudflare layer; immediate feed freshness also requires invalidating any upstream Next data cache.
 - No effect on `workers.dev` (dev env): the Cache API only works on a custom domain.
 - Page HTML must depend only on the URL. Do not add cookies, `localeDetection`, or per-user rendering to public pages without excluding them here. `localeCookie` stays `false` for the same reason.
+- Language detection is client-side only: `LocaleSuggestion` offers the browser language after load, and the selector saves the choice in `localStorage` (`src/utils/localePreference.ts`). Only the unprefixed home redirects, and only with a saved preference, so crawlers and explicit `/es`/`/fr` links are never redirected. The bar's copy lives in `LOCALE_SUGGESTION_COPY` (`src/i18n/languages.ts`) because it must speak a locale the client has not loaded; this is the only copy allowed outside `messages/*.json`.
 - `npm run build:worker` builds OpenNext then runs `typecheck:worker` against the generated entry. Preview, deploy and upload use this command. Cache read failures fall back to Next; cache write failures are logged without failing the page.
 
 ### Service ownership
@@ -280,13 +288,12 @@ The landing page follows the same `fetch → validate → translate → return` 
 | Why us | `LandingWhyUs/` | `whyUs` |
 | How it works | `LandingHowItWorks/` | `howItWorks` |
 | Traveler segments | `LandingTravelerSegments/` | `travelerSegments` |
-| Trust stats | `LandingTrustStats/` | `trustStats` |
+| Reviews + trust stats | `Reviews/` | `reviews`, `trustStats` |
 | Location | `LandingLocation/` | `locationBrand` |
 | Safety | `LandingSafety/` | `safety` |
 | Value props | `LandingValueProps/` | `valueProps` |
 | Inclusions | `LandingInclusions/` | `inclusions` |
 | Tiers | `LandingTiers/` | `tiers` |
-| Reviews | `Reviews/` | `reviews` |
 | FAQs | `LandingFaqs/` | `faqs` |
 | Final CTA | `FinalCtaBanner/` | `finalCta` |
 | Mobile sticky | `LandingMobileSticky/` | `globalCtas` |
@@ -341,6 +348,15 @@ Do not replace selector hooks with broad `useContext` reads that increase render
 - Never expose secrets or internal stack traces.
 - Keep browser storage free of secrets and tokens.
 - Align frontend behavior with `next.config.js` and `public/_headers` when security or caching changes are involved.
+
+### Payments (interim, until `andean-scapes-payments`)
+- `POST /api/payments/mercadopago` → `src/lib/services/mercadopago.service.ts` (server only). The client sends selections, never amounts; the service re-prices from the feed with `calculatePricing`.
+- `MERCADOPAGO_ACCESS_TOKEN` is a runtime secret: `.env.local` locally, `wrangler secret put MERCADOPAGO_ACCESS_TOKEN [--env dev]` when deployed. Never `NEXT_PUBLIC_*`, never in `wrangler.toml`, CI variables, tests, or docs.
+- `MERCADOPAGO_MODE` (`wrangler.toml [vars]`): prod `production`, dev `sandbox`; unset means sandbox. Sandbox requires test credentials (a `TEST-` token or a test-user account, checked via `/users/me`), production rejects them.
+- No webhook yet. Mercado Pago returns the customer to the booking page with `?ref=` (our UUID); `GET /api/payments/mercadopago/status` asks Mercado Pago for that reference server-side. Never trust the return URL's own `status` params.
+- Approved deposits alert the operator on Telegram and by email (Resend), from `src/lib/services/payment-alert.service.ts`, sent in the background (`waitUntil`) by the status route. Shared content, one claim per channel, transient failures retried by later status checks. Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `RESEND_API_KEY`, `ALERT_EMAIL_TO`; var `ALERT_EMAIL_FROM`. Never `NEXT_PUBLIC_*`. Best effort until the Mercado Pago webhook exists.
+- OpenNext bakes `.env*` values into the Worker bundle (`.open-next/cloudflare/next-env.mjs`) as a runtime fallback. `npm run build:worker` strips every key except public ones (`scripts/strip-worker-env.ts`), so local secrets never ship and a missing prod secret is never filled with a dev value. Keep secrets out of `.env.development`/`.env.production`; use `.env.local` and `wrangler secret put`.
+- `npm run dev` raises Node's happy-eyeballs attempt timeout (250 ms default) to 2 s: on networks whose DNS returns a bogus IPv6 for a host, Node's `fetch` otherwise fails slow IPv4 hosts with `ETIMEDOUT` (seen with `api.telegram.org`). Workers are unaffected.
 
 ---
 
@@ -430,7 +446,7 @@ For media and interactive UI, prefer assertions around:
 - Typecheck: `npm run typecheck`
 - Verify live feed: `REMOTE_DATA_BASE_URL=<url> npm run verify:feed`
 - Refresh local feed copies: `npm run fixtures:fetch` (runs automatically via `pretest`)
-- Sync staged media and feed edits: edit `fixtures-local/` and place media in `r2-cache/`, then run `npm run media:sync`. It uploads referenced media, verifies exact origin bytes before removing each source, then syncs feed edits with conflict checks and backups. Use `npm run feed:sync` for feed-only edits.
+- Sync staged media and feed edits: edit `fixtures-local/` and place media in `r2-cache/`, then run `npm run feed:sync` (alias `media:sync`). It uploads referenced media, verifies exact origin bytes before removing each source, then syncs feed edits with conflict checks and backups. It refuses fields the live feed lacks until the reader is deployed; then pass `-- --allow-new-fields`. After every publish it checks the live site and re-uploads the previous feed if a page answers 4xx/5xx. Use `npm run feed:sync:only` for feed-only edits.
 - `package.json` `overrides` pins `glob@^10.5.0` under `@node-minify/core` (GHSA-5j98-mcp5-4vw2, reached via `@opennextjs/aws`). Remove it once `@opennextjs/aws` ships a fixed `@node-minify/core`, then confirm `npm audit` stays clean.
 - Test: `npm test`
 - Storybook: `npm run storybook`

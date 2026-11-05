@@ -7,11 +7,13 @@ import {useLayoutContext} from '@/contexts/LayoutContext';
 import {useLanguageContext} from '@/contexts/LanguageContext';
 import {useThemeContext} from '@/contexts/ThemeContext';
 import {Check, ChevronDown, Languages} from 'lucide-react';
+import {saveLocale} from '@/utils/localePreference';
 
 const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) => {
   const {currentLocale, availableLanguages} = useLanguageContext();
   const pathname = usePathname();
   const {variant, isSticky} = useLayoutContext();
+  // Dropdown only: it renders after a click, when the context already holds the real theme.
   const {theme} = useThemeContext();
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('Header');
@@ -26,10 +28,10 @@ const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) =>
   const getTextColor = useCallback(() => {
     if (colorOverride) return colorOverride;
     // If sticky in light mode, use dark text
-    if (isSticky && theme === 'light') return 'text-gray-900';
-    // Otherwise use variant-based color
+    // Sticky: dark text in light theme via CSS `dark:` (theme is on <html> before paint).
+    if (isSticky) return isDarkTheme ? 'text-gray-900 dark:text-white' : 'text-gray-900';
     return isDarkTheme ? 'text-white' : 'text-gray-900';
-  }, [colorOverride, isSticky, theme, isDarkTheme]);
+  }, [colorOverride, isSticky, isDarkTheme]);
 
   const getHoverColor = useCallback(() => 'hover:text-primary-1', []);
 
@@ -92,7 +94,10 @@ const LanguageSelector = ({ colorOverride }: { colorOverride?: string } = {}) =>
             href={getPathname({href: pathname || '/', locale: lang.code})}
             hrefLang={lang.code}
             lang={lang.code}
-            onClick={handleCloseDropdown}
+            onClick={() => {
+              saveLocale(lang.code);
+              handleCloseDropdown();
+            }}
             aria-current={currentLocale === lang.code ? 'page' : undefined}
             className={`w-full flex items-center gap-3 px-4 py-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary ${
               currentLocale === lang.code

@@ -24,6 +24,11 @@ export interface CardImageCarouselProps {
    * itself. The card then also needs the `group/card` class to reveal the arrows.
    */
   hovered?: boolean;
+  /**
+   * `low` keeps cards that render in the first viewport from being boosted to
+   * High by the browser, so they do not compete with the page's LCP image.
+   */
+  fetchPriority?: 'low' | 'auto';
 }
 
 /**
@@ -40,6 +45,7 @@ export function CardImageCarousel({
   title,
   swipe = false,
   hovered: hoveredByCard,
+  fetchPriority = 'auto',
 }: CardImageCarouselProps) {
   const t = useTranslations('ExperiencesList.carousel');
   const [index, setIndex] = useState(0);
@@ -98,6 +104,7 @@ export function CardImageCarousel({
           aria-hidden="true"
           loading="lazy"
           decoding="async"
+          fetchPriority={fetchPriority}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </picture>
@@ -137,6 +144,7 @@ export function CardImageCarousel({
                   alt=""
                   loading="lazy"
                   decoding="async"
+                  fetchPriority={fetchPriority}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </>

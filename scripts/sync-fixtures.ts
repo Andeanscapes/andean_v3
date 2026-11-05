@@ -2,7 +2,8 @@
  * Sync local feed edits in `fixtures-local/` to `services/` in R2.
  *
  * Run it with:
- *   npm run feed:sync
+ *   npm run feed:sync:only   # feed JSON only
+ *   npm run feed:sync        # media from r2-cache/ first, then this
  *
  * First run (no `fixtures-local/`): downloads the published feed from origin,
  * validates every payload, writes it plus a `.base/` snapshot, and stops so it
@@ -20,11 +21,16 @@
  *      so a stale local copy can never overwrite a newer publish
  *   2b. refuse the run if a changed payload references media (or a derived
  *      `-mobile` sibling) the CDN does not serve yet
+ *   2c. refuse the run if a changed payload adds a field its live copy lacks:
+ *      schemas are strict, so the deployed app would reject it. Deploy the
+ *      reader first, then re-run with `-- --allow-new-fields`
  *   3. back up the live copy of every changed file to
  *      `fixtures-local/.previous/<timestamp>/` — a failed backup uploads nothing
  *   4. upload owners (`experience-*.json`) before projections, stopping at the
  *      first failure with restore instructions
  *   5. purge the CDN cache for the uploaded files (best effort)
+ *   6. check the live site over ~1 minute; on a 4xx/5xx, re-upload the backed-up
+ *      live copies and fail (`--skip-health-check` to opt out)
  *
  * **This uploads without confirmation**, by request. R2 object versioning is not
  * enabled, so the `.previous/` backup is the only undo.
@@ -60,6 +66,9 @@ import {
 } from './lib/feed-media';
 import { DEFAULT_FEED_BASE_URL, resolveExperienceIds, resolveFeedBaseUrl } from './lib/feed';
 import { findStatusIssues } from './lib/feed-status';
+import { findNewKeyPaths } from './lib/feed-fields';
+import { checkSiteHealth } from './lib/feed-health';
+import { SITE_INFO } from '../src/constant/SiteConfig';
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const LOCAL_DIR = path.join(REPO_ROOT, 'fixtures-local');
@@ -72,6 +81,20 @@ const PREVIOUS_DIR = path.join(LOCAL_DIR, '.previous');
  * R2 binding, so there is no existing source of truth to read this from.
  */
 const BUCKET = process.env.R2_BUCKET?.trim() || 'andean-app-dev';
+
+/** Opt-in after deploying the code that reads a newly published field. */
+const ALLOW_NEW_FIELDS = process.argv.includes('--allow-new-fields');
+
+/**
+ * Post-publish health check (see `requireHealthySite`). Targets the production
+ * site by default; set `FEED_HEALTH_BASE_URL` when `R2_BUCKET` points elsewhere.
+ * `--skip-health-check` exists for offline/CI runs, not for routine use.
+ */
+const SKIP_HEALTH_CHECK = process.argv.includes('--skip-health-check');
+const HEALTH_BASE_URL = (process.env.FEED_HEALTH_BASE_URL?.trim() || SITE_INFO.url).replace(/\/+$/, '');
+const HEALTH_PATHS = ['/', '/experiences'] as const;
+const HEALTH_ATTEMPTS = 4;
+const HEALTH_INTERVAL_MS = 15_000;
 
 /** Matches `REMOTE_DATA_BASE_URL`, which is `<cdn>/services`. */
 const KEY_PREFIX = 'services';
@@ -310,7 +333,7 @@ async function requirePublishedMedia(changes: readonly Change[]): Promise<void> 
   ]);
   const missing = [
     ...referenced.missing.map(({ key, reason }) => ({ key, reason })),
-    ...siblings.missing.map(({ mobileKey, reason }) => ({ key: mobileKey, reason })),
+    ...siblings.missing.map(({ siblingKey, reason }) => ({ key: siblingKey, reason })),
   ];
 
   if (missing.length > 0) {
@@ -324,6 +347,40 @@ async function requirePublishedMedia(changes: readonly Change[]): Promise<void> 
   console.log(
     `[feed:sync] media OK: ${referenced.checked} referenced, ${siblings.checked} -mobile sibling(s)`,
   );
+}
+
+/**
+ * Refuse to publish a field the live copy does not have yet. The deployed app
+ * parses feeds with strict schemas, so a new key fails every page that reads
+ * the file until code that knows it is deployed. Files not yet live are
+ * skipped: nothing reads them, and the schema check already ran.
+ */
+function requireKnownFields(changes: readonly Change[]): void {
+  if (ALLOW_NEW_FIELDS) return;
+
+  const added: string[] = [];
+  for (const { file, previous } of changes) {
+    if (previous === null) continue;
+    let live: unknown;
+    try {
+      live = JSON.parse(previous.toString('utf8'));
+    } catch (error) {
+      fail(`the live ${file} is not valid JSON (${errorMessage(error)}). Nothing was uploaded.`);
+    }
+    // Already schema-validated above, so this parse cannot fail.
+    const local: unknown = JSON.parse(readFileSync(path.join(LOCAL_DIR, file), 'utf8'));
+    for (const keyPath of findNewKeyPaths(live, local)) added.push(`${file}: ${keyPath}`);
+  }
+
+  if (added.length > 0) {
+    fail(
+      'these fields are not in the live feed yet:\n' +
+        added.map((entry) => `    ${entry}`).join('\n') +
+        '\n[feed:sync] nothing was uploaded. Feed schemas are strict: publishing a field\n' +
+        '[feed:sync] before the code that reads it is deployed breaks every page that reads\n' +
+        '[feed:sync] the file. Deploy first, then run `npm run feed:sync -- --allow-new-fields`.',
+    );
+  }
 }
 
 /**
@@ -371,7 +428,7 @@ function backUp(changes: readonly Change[]): string {
   return dir;
 }
 
-function upload(file: string): void {
+function upload(file: string, source: string = path.join(LOCAL_DIR, file)): void {
   // `--remote` is not optional: without it wrangler writes to the local
   // Miniflare bucket under .wrangler/ and still reports success.
   execFileSync(
@@ -390,7 +447,7 @@ function upload(file: string): void {
       'put',
       `${BUCKET}/${KEY_PREFIX}/${file}`,
       '--file',
-      path.join(LOCAL_DIR, file),
+      source,
       '--content-type',
       'application/json',
       '--remote',
@@ -458,6 +515,7 @@ async function sync(): Promise<void> {
     return;
   }
 
+  requireKnownFields(changes);
   await requirePublishedMedia(changes);
 
   const backupDir = backUp(changes);
@@ -485,7 +543,79 @@ async function sync(): Promise<void> {
 
   console.log(`[feed:sync] ${uploaded.length} file(s) uploaded`);
   await invalidate(uploaded);
+  await requireHealthySite(changes.filter(({ file }) => uploaded.includes(file)), backupDir);
   console.log('[feed:sync] deployed pages refresh within about 1 hour (services revalidate: 3600).');
+}
+
+/**
+ * Ask the live site whether it still renders, and restore the previous feed if
+ * it does not. Catches a publish the deployed code cannot parse — the failure
+ * that reached production twice — whatever flags were passed.
+ *
+ * Limits, stated rather than hidden: it watches for HEALTH_ATTEMPTS passes, and
+ * a worker that keeps its cached copy of the old feed beyond that window will
+ * only fail later. `verify:feed` and the deploy-first order remain the guard;
+ * this is the safety net.
+ */
+async function requireHealthySite(published: readonly Change[], backupDir: string): Promise<void> {
+  if (published.length === 0 || SKIP_HEALTH_CHECK) return;
+
+  const urls = HEALTH_PATHS.map((pathname) => `${HEALTH_BASE_URL}${pathname}`);
+  console.log(`[feed:sync] checking the live site (${urls.join(', ')})…`);
+
+  const verdict = await checkSiteHealth(urls, {
+    attempts: HEALTH_ATTEMPTS,
+    intervalMs: HEALTH_INTERVAL_MS,
+    timeoutMs: 15_000,
+  });
+
+  if (verdict.status === 'healthy') {
+    console.log('[feed:sync] live site healthy after publish');
+    return;
+  }
+
+  if (verdict.status === 'inconclusive') {
+    console.warn(
+      `[feed:sync] could not reach the live site (${verdict.reason}). The feed stays published —\n` +
+        `[feed:sync] check ${HEALTH_BASE_URL}/ now; to undo, copy ${path.relative(REPO_ROOT, backupDir)}/ ` +
+        'into fixtures-local/ and run `npm run feed:sync:only`.',
+    );
+    return;
+  }
+
+  console.error(
+    `[feed:sync] LIVE SITE BROKEN after publish: ${verdict.url} answered ${verdict.httpStatus}. ` +
+      'Restoring the previous feed…',
+  );
+
+  const restored: string[] = [];
+  const manual: string[] = [];
+  for (const { file, previous } of published) {
+    // A file that did not exist live has nothing to restore to.
+    if (previous === null) {
+      manual.push(file);
+      continue;
+    }
+    try {
+      upload(file, path.join(backupDir, file));
+      writeFileSync(path.join(BASE_DIR, file), previous);
+      restored.push(file);
+      console.error(`  ↺ ${file} restored`);
+    } catch (error) {
+      manual.push(file);
+      console.error(`  ✗ ${file} could not be restored: ${errorMessage(error)}`);
+    }
+  }
+  await invalidate(restored);
+
+  fail(
+    'the publish was rolled back. Your local edits are kept in fixtures-local/.\n' +
+      '[feed:sync] Most likely the deployed code does not accept a field you published: deploy first,\n' +
+      '[feed:sync] then re-run.' +
+      (manual.length > 0
+        ? `\n[feed:sync] NOT restored, fix by hand: ${manual.join(', ')} (backup: ${path.relative(REPO_ROOT, backupDir)}/)`
+        : ''),
+  );
 }
 
 async function main(): Promise<void> {

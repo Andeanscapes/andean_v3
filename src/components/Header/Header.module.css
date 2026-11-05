@@ -4,11 +4,11 @@
   /* Header Component Styles */
 
   .headerStyle {
-    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full border-b border-white/10 bg-slate-950/94 duration-200 ease-in-out overflow-visible;
+    @apply px-3 xl:px-5 py-0 fixed z-20 left-0 top-0 w-full border-b border-white/10 bg-slate-950/72 duration-200 ease-in-out overflow-visible;
   }
 
-  .headerStyle[data-theme="light"] {
-    @apply bg-white/95 border-b border-black/5;
+  :global([data-theme="light"]) .headerStyle {
+    @apply bg-white/80 border-b border-black/5;
   }
 
   .headerStyle > * {
@@ -25,20 +25,20 @@
 }
 
 /* Theme-aware sticky backgrounds for transparent variants */
-.headerStyle.variantTwo.sticky[data-theme="dark"] {
-  @apply !bg-slate-950/94;
+:global([data-theme="dark"]) .headerStyle.variantTwo.sticky {
+  @apply !bg-slate-950/72;
 }
 
-.headerStyle.variantTwo.sticky[data-theme="light"] {
-  @apply !bg-white/95;
+:global([data-theme="light"]) .headerStyle.variantTwo.sticky {
+  @apply !bg-white/80;
 }
 
-.headerStyle.variantThree.sticky[data-theme="dark"] {
-  @apply !bg-slate-950/94;
+:global([data-theme="dark"]) .headerStyle.variantThree.sticky {
+  @apply !bg-slate-950/72;
 }
 
-.headerStyle.variantThree.sticky[data-theme="light"] {
-  @apply !bg-white/95;
+:global([data-theme="light"]) .headerStyle.variantThree.sticky {
+  @apply !bg-white/80;
 }
 
 .variantTwo {
@@ -60,10 +60,10 @@
   transition: opacity 200ms ease-in-out;
 }
 
-.variantTwo[data-theme="dark"]::before,
-.variantThree[data-theme="dark"]::before,
-.variantTwo[data-theme="light"]::before,
-.variantThree[data-theme="light"]::before {
+:global([data-theme="dark"]) .variantTwo::before,
+:global([data-theme="dark"]) .variantThree::before,
+:global([data-theme="light"]) .variantTwo::before,
+:global([data-theme="light"]) .variantThree::before {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 40%, transparent 100%);
 }
 
@@ -77,12 +77,12 @@
 }
 
 .variantFour {
-  @apply !bg-slate-950/94;
+  @apply !bg-slate-950/72;
 }
 
 /* Navigation */
 .navLink {
-  @apply h-16 inline-flex items-center text-base uppercase;
+  @apply h-16 inline-flex items-center text-base;
 }
 
 .navLink.hasDropdown {

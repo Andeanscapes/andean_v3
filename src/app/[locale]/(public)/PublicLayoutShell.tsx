@@ -5,28 +5,51 @@ import { usePathname } from '@/i18n/navigation';
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import {LayoutProvider} from "@/contexts/LayoutContext";
-import { useThemeContext } from "@/contexts/ThemeContext";
-import { FOOTER_TRUST_GALLERY } from "@/constant/SiteConfig";
-import { resolveMediaUrl } from "@/utils/mediaUrl";
+import dynamic from 'next/dynamic';
 
-// Resolved once at module scope: `resolveMediaUrl` only reads a build-inlined
-// env var, so the result is constant for the life of the bundle and does not
-// need to be recomputed — or memoized — per render.
-const FOOTER_TRUST_GALLERY_URLS = FOOTER_TRUST_GALLERY.map(resolveMediaUrl);
+// Browser-only (reads navigator.languages); kept out of the server HTML and the initial bundle.
+const LocaleSuggestion = dynamic(() => import('@/components/LocaleSuggestion/LocaleSuggestion'), { ssr: false });
 
 interface PublicLayoutShellProps {
     children: React.ReactNode;
     flagshipExperiencePath: string;
 }
 
+/**
+ * Bottom padding reserved below `<main>`.
+ * `usePathname` from `@/i18n/navigation` is locale-free, so `/` matches every locale.
+ */
+function getMainPaddingClass(pathname: string | null): string {
+    if (pathname?.includes('/experiences/') || pathname === '/') return 'pb-0';
+    return 'pb-24 lg:pb-30';
+}
+
+/**
+ * Space after the footer for routes with a fixed bottom bar. Padding on <main>
+ * cannot do this: the footer renders after <main>, so its last lines sat under
+ * the bar. Heights match each bar plus the home-indicator inset; same breakpoint
+ * as the bar it reserves room for.
+ */
+function getBottomBarSpacerClass(pathname: string | null): string | null {
+    if (pathname === '/') return 'h-[calc(4.5rem+env(safe-area-inset-bottom))] md:hidden';
+    if (pathname && /^\/experiences\/[^/]+$/.test(pathname)) {
+        return 'h-[calc(5rem+env(safe-area-inset-bottom))] lg:hidden';
+    }
+    // Booking dock: summary row + 48px CTA.
+    if (pathname && /^\/experiences\/[^/]+\/booking$/.test(pathname)) {
+        return 'h-[calc(9rem+env(safe-area-inset-bottom))] lg:hidden';
+    }
+    return null;
+}
+
 const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShellProps) => {
     const variant = "transparent-V2" as const;
     const [isSticky, setIsSticky] = useState(false);
-    const { theme } = useThemeContext();
     const pathname = usePathname();
     
     const isExperiencesPage = pathname?.includes('/experiences/');
-    const mainPaddingClass = isExperiencesPage ? 'pb-0' : 'pb-24 lg:pb-30';
+    const mainPaddingClass = getMainPaddingClass(pathname);
+    const bottomBarSpacerClass = getBottomBarSpacerClass(pathname);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,10 +62,14 @@ const PublicLayoutShell = ({ children, flagshipExperiencePath }: PublicLayoutShe
     return (
         <LayoutProvider variant={variant} isSticky={isSticky}>
             <Header hideBookingCta={isExperiencesPage} />
-            <main className={`${mainPaddingClass} bg-base-100 text-base-content`} data-theme={theme}>
+            {/* No data-theme here: <html> carries it (set before paint), and a server-rendered
+                value would always be 'dark' and override the visitor's light theme. */}
+            <main className={`${mainPaddingClass} bg-base-100 text-base-content`}>
                 {children}
             </main>
-            <Footer trustGallery={FOOTER_TRUST_GALLERY_URLS} flagshipExperiencePath={flagshipExperiencePath} />
+            <Footer flagshipExperiencePath={flagshipExperiencePath} />
+            <LocaleSuggestion />
+            {bottomBarSpacerClass ? <div aria-hidden="true" className={bottomBarSpacerClass} /> : null}
         </LayoutProvider>
     );
 }

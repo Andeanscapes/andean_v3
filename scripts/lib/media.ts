@@ -125,6 +125,11 @@ const TARGET = {
    * the 150x150 `icon` size in the first place.
    */
   thumbGalleryMobile: { width: 200, height: 200 },
+  /**
+   * Bounding box, not an exact size: logos are fitted inside it and never
+   * cropped (see `isLogoKey`). 256 covers a ~40 CSS px badge at 3x+ density.
+   */
+  logo: { width: 256, height: 256 },
 } as const;
 
 export type MediaRole = keyof typeof TARGET;
@@ -144,6 +149,8 @@ export interface MediaTarget {
  * objecting.
  */
 const BYTE_BUDGET: Readonly<Record<MediaRole, number>> = {
+  // Heroes also ship an AVIF sibling (~35% smaller, see `isAvifHeroKey`); the
+  // WebP is the fallback, so its budget stays at the measured maximum.
   hero: 230 * 1024,
   heroMobile: 70 * 1024,
   tile: 150 * 1024,
@@ -153,6 +160,7 @@ const BYTE_BUDGET: Readonly<Record<MediaRole, number>> = {
   icon: 15 * 1024,
   thumbGallery: 30 * 1024,
   thumbGalleryMobile: 15 * 1024,
+  logo: 30 * 1024,
 };
 
 export function byteBudgetFor(role: MediaRole): number {
@@ -184,6 +192,8 @@ function extensionOf(key: string): string {
  * roughly 200 CSS px, so a 150w source is visibly soft on a 2x display.
  */
 export function inferRole(key: string): MediaRole {
+  if (isLogoKey(key)) return 'logo';
+
   const name = path.basename(key).toLowerCase();
   const mobile = name.includes('-mobile');
 
@@ -194,6 +204,22 @@ export function inferRole(key: string): MediaRole {
 
   return mobile ? 'tileMobile' : 'tile';
 }
+
+/**
+ * Third-party platform logos (`REVIEW_PLATFORM_LOGOS`). The one role decided by
+ * directory rather than filename: a logo must be fitted, never cropped like a
+ * photo, whatever it is named.
+ */
+export function isLogoKey(key: string): boolean {
+  return key.toLowerCase().startsWith('/images/brand/platforms/');
+}
+
+// The hero rule lives with the app code that requests the AVIF, so the two can
+// never disagree. Re-exported for the pipeline scripts.
+export { isAvifHeroKey, toAvifKey } from '../../src/utils/responsiveImage';
+
+/** AVIF quality for hero siblings: visually equal to the WebP at ~35% fewer bytes (measured on landing-hero-mobile). */
+export const AVIF_HERO_QUALITY = 50;
 
 /** Output size for a slot, used when nothing is published at that key yet. */
 export function targetFor(role: MediaRole): MediaTarget {

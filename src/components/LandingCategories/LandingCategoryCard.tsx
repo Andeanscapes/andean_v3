@@ -1,7 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import type { LandingCategoryContent } from '@/lib/schemas/landing.schema';
 import { getLandingIcon } from '@/utils/landingIconMap';
-import { ArrowRight } from 'lucide-react';
 import { getResponsiveImageSrc } from '@/utils/responsiveImage';
 
 interface Props {
@@ -19,7 +18,7 @@ export default function LandingCategoryCard({ category }: Props) {
   return (
     <Link
       href={category.href}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-all duration-200 hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-sm transition-[transform,box-shadow] duration-200 hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       <div className="relative h-40 w-full overflow-hidden bg-base-200 md:h-44">
         {/*
@@ -64,9 +63,8 @@ export default function LandingCategoryCard({ category }: Props) {
             {category.exclusiveAccess}
           </p>
         ) : null}
-        <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
+        <span className="mt-auto text-sm font-medium text-primary group-hover:underline">
           {category.ctaLabel}
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </span>
       </div>
     </Link>

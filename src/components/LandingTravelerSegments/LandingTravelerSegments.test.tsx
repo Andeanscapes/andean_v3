@@ -34,22 +34,33 @@ describe('LandingTravelerSegments', () => {
     expect(heading.id).toBe('landing-traveler-title');
   });
 
-  it('renders the first segment as initially active', () => {
+  it('renders the first segment as initially active with its title, bullets and photo', () => {
     renderWithIntl(<LandingTravelerSegments travelerSegments={TRAVELER_SEGMENTS_FIXTURE} />);
-    expect(screen.getByText(FIRST.recommendation)).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: FIRST.label, pressed: true }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: FIRST.label, pressed: true })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: FIRST.title })).toBeInTheDocument();
+    for (const bullet of FIRST.bullets) expect(screen.getByText(bullet)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: FIRST.imageAlt })).toHaveAttribute('src', FIRST.image);
+    expect(screen.getByRole('region', { name: FIRST.title })).toBeInTheDocument();
   });
 
-  it('switches recommendation when another segment is selected', async () => {
+  it('serves the -mobile photo below md', () => {
+    const { container } = renderWithIntl(
+      <LandingTravelerSegments travelerSegments={TRAVELER_SEGMENTS_FIXTURE} />,
+    );
+    expect(container.querySelector('source')?.getAttribute('srcset')).toBe(
+      FIRST.image.replace(/\.webp$/, '-mobile.webp'),
+    );
+  });
+
+  it('switches title, bullets and photo when another segment is selected', async () => {
     const user = userEvent.setup();
     renderWithIntl(<LandingTravelerSegments travelerSegments={TRAVELER_SEGMENTS_FIXTURE} />);
 
     await user.click(screen.getByRole('button', { name: SECOND.label, pressed: false }));
 
-    expect(screen.getByText(SECOND.recommendation)).toBeInTheDocument();
-    expect(screen.queryByText(FIRST.recommendation)).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: SECOND.title })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { level: 3, name: FIRST.title })).not.toBeInTheDocument();
+    expect(screen.getByRole('img', { name: SECOND.imageAlt })).toHaveAttribute('src', SECOND.image);
     expect(screen.getByRole('link')).toHaveAttribute('href', SECOND.ctaHref);
   });
 

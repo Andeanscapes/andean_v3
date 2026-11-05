@@ -139,16 +139,17 @@ export function Select({
     }
   }
 
+  // Light by default, dark via `dark:` (keyed to data-theme). 44px rows for touch.
   const defaultTrigger =
-    'flex w-full items-center justify-between gap-2 rounded-lg border border-white/20 bg-slate-900 px-3 py-2.5 text-sm text-base-content transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F08F]/60 disabled:cursor-not-allowed disabled:opacity-50';
+    'flex min-h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-sm text-base-content transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 disabled:cursor-not-allowed disabled:opacity-50 dark:border-white/20 dark:bg-slate-900';
 
   const defaultPanel =
-    'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-white/15 bg-slate-900 shadow-[0_8px_32px_rgba(0,0,0,0.45)]';
+    'absolute z-50 mt-1 w-full overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-lg dark:border-white/15 dark:bg-slate-900 dark:shadow-[0_8px_32px_rgba(0,0,0,0.45)]';
 
   const defaultOption =
-    'flex cursor-pointer select-none items-center px-3 py-2.5 text-sm text-base-content/90 transition-colors';
+    'flex min-h-11 cursor-pointer select-none items-center px-3 py-2.5 text-sm text-base-content/90 transition-colors';
 
-  const defaultOptionHover = 'hover:bg-white/10 hover:text-base-content';
+  const defaultOptionHover = 'hover:bg-base-content/5 hover:text-base-content dark:hover:bg-white/10';
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
@@ -202,13 +203,13 @@ export function Select({
                 className={[
                   optionClassName ?? defaultOption,
                   !option.disabled ? (optionHoverClassName ?? defaultOptionHover) : 'cursor-not-allowed opacity-40',
-                  isFocused && !option.disabled ? 'bg-white/10 text-base-content' : '',
-                  isSelected ? 'font-semibold text-[#00F08F]' : '',
+                  isFocused && !option.disabled ? 'bg-base-content/5 text-base-content dark:bg-white/10' : '',
+                  isSelected ? 'font-semibold text-primary' : '',
                   index === 0 ? '[&]:border-t-0' : '',
                 ].join(' ')}
               >
                 {isSelected && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="mr-2 h-3.5 w-3.5 shrink-0 text-[#00F08F]">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="mr-2 h-3.5 w-3.5 shrink-0 text-primary">
                     <path fillRule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
                   </svg>
                 )}
