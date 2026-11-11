@@ -1,0 +1,87 @@
+{
+  "pages": {
+    "hub": {
+      "metaTitle": "Esmeraldas colombianas: minas, leyendas e historia",
+      "metaDescription": "Las esmeraldas colombianas explicadas: qué es una esmeralda, dónde se extraen, Muzo y Chivor, piedras famosas, leyendas, guerras verdes y cultura minera.",
+      "title": "Esmeraldas colombianas: minas, leyendas e historia",
+      "lead": "Mundo Esmeralda es nuestra referencia con fuentes sobre las esmeraldas colombianas: la gema, los dos cinturones mineros, las piedras con nombre propio, las leyendas, las guerras verdes y la vida diaria de quienes las buscan.",
+      "imageAlt": "Dos viajeros con los brazos en alto frente a picos de montaña verdes, empinados y cubiertos de bosque, en Colombia",
+      "sections": {
+        "what": {
+          "heading": "¿Qué es Mundo Esmeralda?",
+          "note": "editorial",
+          "answer": "Mundo Esmeralda es la biblioteca de referencia de Andean Scapes sobre las esmeraldas, centrada en Colombia: de dónde vienen, cómo se forman, las minas y pueblos que las producen, las piedras que hicieron historia y la cultura de quienes las extraen. Cada página separa la leyenda del hecho documentado y muestra sus fuentes.",
+          "paragraphs": [
+            "Trabajamos en Chivor, en el cinturón esmeraldero oriental de Colombia, y los viajeros nos hacían siempre las mismas preguntas: por qué son tan famosas las esmeraldas colombianas, cómo funciona de verdad una mina, qué cuenta la leyenda de Fura y Tena, qué pasó en las guerras verdes. Mundo Esmeralda es donde las respondemos con rigor.",
+            "Empieza por Fuego Verde, nuestros cuatro viajes documentales por Oriente, Occidente, Coscuez y las piedras con nombre propio. Luego profundiza por tema: mitología, las guerras verdes contadas una por una, las esmeraldas famosas con cada peso que da cada fuente, y la cultura de quienes extraen y buscan."
+          ]
+        },
+        "emerald": {
+          "heading": "¿Qué es una esmeralda y por qué son famosas las colombianas?",
+          "answer": "La esmeralda es la variedad verde a verde azulada del mineral berilo.[[gia-emerald-description]] Colombia es el mayor productor y se estima que concentra entre el 70 y el 90% del mercado mundial de esmeraldas.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "El cromo, el vanadio y el hierro dan el color a la esmeralda. Se dice que las colombianas tienen un verde puro más cálido e intenso que las zambianas, aunque el GIA advierte que la apariencia se superpone entre orígenes.[[gia-emerald-quality]]",
+            "Las esmeraldas finas y extrafinas son extremadamente raras, aunque las de calidad comercial abundan.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "belts": {
+          "heading": "¿De dónde vienen las esmeraldas colombianas?",
+          "answer": "Las esmeraldas colombianas vienen de dos cinturones, a lado y lado de la cuenca de la cordillera Oriental. El occidental reúne los distritos mineros de Muzo, Coscuez, La Pita, Peñas Blancas y La Glorieta–Yacopí; el oriental, Chivor, Gachalá y Macanal.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Los dos cinturones no se formaron al mismo tiempo. La datación de la moscovita verde que creció junto a las esmeraldas da unos 65 millones de años para el cinturón oriental, en el límite entre el Cretácico y el Terciario, y entre 38 y 32 millones de años para el occidental.[[gia-trapiche-2015]] En Colombia, las esmeraldas trapiche, con seis brazos oscuros que salen del centro, solo aparecen en los depósitos occidentales de Muzo, Coscuez y Peñas Blancas.[[gia-trapiche-2015]]",
+            "El cinturón oriental tiene su propia historia. El ingeniero de minas Peter W. Rainier dirigió Chivor entre 1926 y 1931.[[gia-rainier-2016]] Sus memorias, Green Fire, salieron en 1942[[rainier-green-fire-1942]], y la MGM las llevó al cine con Grace Kelly y Stewart Granger; la película se estrenó en Nueva York en diciembre de 1954.[[afi-green-fire-1954]] En 1967 la mina Vega de San Juan, en Gachalá, entregó un cristal de 858 quilates que hoy está en el Museo Nacional de Historia Natural del Smithsonian.[[smithsonian-gachala]]"
+          ],
+          "figure": {
+            "alt": "Mapa esquemático del centro de Colombia. El cinturón esmeraldero occidental (Muzo, San Pablo de Borbur, Maripí, Yacopí) queda al norte de Bogotá; el oriental (Chivor, Macanal, Gachalá), al nororiente.",
+            "caption": "Los dos cinturones esmeralderos, con cada distrito minero ubicado en su cabecera municipal. Las líneas desde Bogotá son rectas, no carreteras."
+          }
+        },
+        "culture": {
+          "heading": "La cultura esmeraldera es más que minas",
+          "note": "fieldNote",
+          "answer": "En las regiones esmeralderas de Colombia una esmeralda casi nunca significa lujo. Puede significar el trabajo de toda una vida. Alrededor de las minas hay fincas, ganado, cacao y miel, avíos para las jornadas largas, música norteña en cada radio y plazas donde las piedras se negocian a la vista.",
+          "paragraphs": [
+            "Muchos viajeros imaginan Boyacá como altiplano frío. La región esmeraldera es otra cosa: montañas tropicales, calientes y húmedas, donde la cultura minera también pasa a Cundinamarca, porque las esmeraldas nunca respetaron fronteras departamentales.",
+            "Esta cultura viva es la parte que casi nunca aparece en un buscador, y es la que documentamos de primera mano. Lo que lees aquí sobre ella es nuestra propia observación de campo en los pueblos y las minas, y las historias que se cuentan en la región se presentan como tradición oral cuando ningún documento las confirma."
+          ],
+          "list": [
+            "Oriente: Chivor, Gachalá y el valle del Guavio, donde vivió y trabajó Rainier.[[gia-rainier-2016]]",
+            "Occidente: Muzo, Coscuez, Pauna, Borbur y los cerros de Fura y Tena sobre el río Minero.",
+            "La gente: mineros, guaqueros y las familias que viven alrededor de las minas."
+          ]
+        },
+        "method": {
+          "heading": "Cómo investigamos",
+          "note": "editorial",
+          "paragraphs": [
+            "Los hechos documentados están ligados a las fuentes que aparecen al final de cada página, y preferimos fuentes académicas y de museos como Gems & Gemology y el Smithsonian, archivos y prensa colombianos y documentos primarios. Lo que vimos en terreno se presenta como observación propia. Cuando las fuentes no coinciden, mostramos ambas versiones.",
+            "Nunca citamos operadores turísticos, joyeros ni vendedores de esmeraldas, así que nada de lo que lees aquí busca venderte una piedra. Las fechas indican cuándo se revisó cada página por última vez, y corregimos los errores cuando aparece nueva evidencia."
+          ],
+          "list": [
+            "La leyenda se presenta como leyenda, la tradición oral como tradición oral, y el hecho documentado lleva su fuente.",
+            "Los pesos, fechas y ubicaciones actuales de las piedras famosas vienen de la institución que las custodia.",
+            "La historia sensible, como las guerras verdes, se cuenta desde fuentes colombianas en español y la memoria de las comunidades."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿Dónde se extraen las esmeraldas en Colombia?",
+          "answer": "Sobre todo en Boyacá y Cundinamarca. Las tres minas principales son Muzo, Coscuez y Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "¿Por qué son tan valiosas las esmeraldas colombianas?",
+          "answer": "Colombia produce la mayoría de las esmeraldas finas del mundo, y las mejores combinan un verde puro intenso con alta transparencia, algo escaso.[[wiki-en-colombian-emeralds]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "¿Son mejores las esmeraldas colombianas que las zambianas?",
+          "answer": "No automáticamente. Las zambianas suelen ser más oscuras por tener más hierro, y el valor depende de cada piedra, porque la apariencia se superpone entre orígenes.[[gia-origin-2019]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "¿Qué es una esmeralda trapiche?",
+          "answer": "Una esmeralda con seis brazos oscuros que salen de un núcleo como los rayos de una rueda. En Colombia solo salen de Muzo, Coscuez y Peñas Blancas.[[gia-trapiche-2015]]"
+        }
+      ]
+    }
+  }
+}

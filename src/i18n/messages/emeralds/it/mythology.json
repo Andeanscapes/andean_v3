@@ -1,0 +1,115 @@
+{
+  "pages": {
+    "mythology": {
+      "navLabel": "Mitologia",
+      "metaTitle": "Mitologia dello smeraldo: Fura, Tena e il popolo muzo",
+      "metaDescription": "Le leggende degli smeraldi colombiani: Fura e Tena nelle loro versioni, le colline sacre dei muzo e cosa credevano gli antichi sui poteri degli smeraldi.",
+      "title": "Mitologia dello smeraldo: le storie dietro il verde",
+      "lead": "Prima di essere un commercio, gli smeraldi erano sacri. Le leggende del Boyacá occidentale, come sono cambiate a ogni nuovo racconto e come distinguere un mito da una testimonianza scritta.",
+      "imageAlt": "Un visitatore con il casco tra colline verdi e pareti di roccia nella regione degli smeraldi",
+      "sections": {
+        "what": {
+          "heading": "Di cosa parla questa sezione",
+          "note": "editorial",
+          "paragraphs": [
+            "Le leggende fanno parte della storia dello smeraldo, e viaggiano: ogni nuovo racconto cambia un dettaglio. Qui riportiamo ogni versione con la fonte che la registra, e diciamo chiaramente quando una storia non ha alcuna traccia scritta."
+          ]
+        },
+        "muzo": {
+          "heading": "I muzo e le loro colline sacre",
+          "answer": "Le colline di Fura e Tena erano un luogo di culto per il popolo muzo, che le considerava la sede dei propri dèi.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "Gli smeraldi viaggiavano anche molto prima della conquista. Quando Tunja cadde nel 1537, gli spagnoli si impadronirono di quasi 2.000 smeraldi, e le pietre furono commerciate per secoli, a nord fino agli aztechi e a sud fino agli inca.[[gia-rainier-2016]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura e Tena, in breve",
+          "answer": "Fura e Tena erano la prima coppia, plasmata dal dio Are e obbligata alla fedeltà per conservare la giovinezza. Fura infranse la promessa, i due invecchiarono e morirono, e Are li trasformò in colline sopra il fiume Minero, dove le lacrime di Fura diventarono smeraldi.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Le fonti non concordano nemmeno su quale popolo appartenga il dio: la Wikipedia in inglese fa di Are un dio muisca[[wiki-en-colombian-emeralds]], mentre la tradizione in lingua spagnola colloca la storia tra i muzo, a cui appartengono queste colline.[[wiki-es-fura-tena]] Il nostro articolo approfondito confronta tutte le versioni che abbiamo trovato."
+          ]
+        },
+        "meanings": {
+          "heading": "Cosa si credeva che facessero gli smeraldi",
+          "note": "editorial",
+          "answer": "Nell’antichità gli smeraldi non erano apprezzati solo per la loro bellezza: si credeva che acuissero l’intelligenza, proteggessero il matrimonio, facilitassero il parto e permettessero a chi li possedeva di prevedere il futuro.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Sono credenze, non proprietà. Le riportiamo perché spiegano perché gli smeraldi contavano per chi li estraeva e commerciava, e non le ripetiamo come affermazioni sulla pietra."
+          ]
+        }
+      }
+    },
+    "furaTenaLegend": {
+      "metaTitle": "La leggenda di Fura e Tena: tutte le versioni a confronto",
+      "metaDescription": "La leggenda di Fura e Tena a confronto: la versione del Boyacá occidentale, quella delle tribù nemiche, quella inglese, le colline e le pietre del 1999.",
+      "title": "La leggenda di Fura e Tena, e le sue versioni",
+      "lead": "Due amanti, una promessa infranta, lacrime diventate smeraldi. La leggenda più nota della terra degli smeraldi colombiana si racconta in modo diverso in spagnolo e in inglese. Ecco tutte le versioni che abbiamo trovato, una accanto all’altra.",
+      "imageAlt": "Tre persone dietro una cassa di legno da miniera tra le felci arboree nel Boyacá occidentale",
+      "sections": {
+        "short": {
+          "heading": "La risposta breve",
+          "answer": "Fura e Tena sono due colline sopra il fiume Minero nel Boyacá occidentale e gli amanti della leggenda sugli smeraldi più nota della Colombia. La Wikipedia in spagnolo attribuisce la versione scritta della leggenda a Julio Roberto Garavito.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "La leggenda è legata a un paesaggio reale: due colline una di fronte all’altra sulle sponde del fiume Minero, Fura a San Pablo de Borbur e Tena a Pauna.[[wiki-es-borbur]]"
+          ]
+        },
+        "garavito": {
+          "heading": "La versione raccontata nella regione",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Are, il creatore, plasmò Fura e Tena e donò loro l’eterna giovinezza a una condizione: che amassero solo l’uno l’altra. Poi arrivò Zarbi. Fura infranse la promessa. Tena scoprì il tradimento e morì.",
+            "Fura pianse. Le sue lacrime diventarono smeraldi e le sue grida farfalle. Are trasformò entrambi in montagne, e in una versione Zarbi diventò il torrente che li tiene separati: il fiume Minero. È la versione che abbiamo sentito lungo la strada e che raccontiamo in Fuego Verde, episodio 2."
+          ]
+        },
+        "enemies": {
+          "heading": "La versione delle tribù nemiche",
+          "answer": "Un’altra versione, riportata nella pagina della Wikipedia in spagnolo sullo smeraldo Fura, fa degli amanti i figli di due capi di tribù nemiche che si innamorarono contro la volontà delle famiglie; dopo un litigio tra innamorati Tena muore ed entrambi diventano fiumi e montagne di smeraldi.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "L’articolo della Wikipedia in spagnolo sullo smeraldo Tena la racconta con un finale più duro: Tena si toglie la vita, e le lacrime di Fura diventano smeraldi.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "englishVersion": {
+          "heading": "La versione in inglese",
+          "answer": "La versione in inglese che la maggior parte dei lettori trova fa di Fura e Tena due immortali creati dal dio muisca Are per popolare la terra. Fura fu infedele; entrambi persero l’immortalità, invecchiarono e morirono, e Are, impietosito, li trasformò in rupi protette da tempeste e serpenti, nelle cui profondità le lacrime di Fura diventarono smeraldi.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Quel racconto non ha Zarbi e dà alle colline un ruolo protettivo: sono «le guardiane ufficiali della zona degli smeraldi della Colombia».[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "differences": {
+          "heading": "Cosa cambia tra le versioni",
+          "paragraphs": [
+            "Le costanti sono la promessa infranta, la morte di Tena e le lacrime che diventano smeraldi.[[wiki-es-fura-tena]] Cambia il popolo: muisca in inglese[[wiki-en-colombian-emeralds]], muzo nella tradizione spagnola legata alle colline.[[wiki-es-fura-tena]] E cambia la causa della tragedia, un estraneo in un racconto e famiglie in lotta in un altro.[[wiki-es-esmeralda-fura]]"
+          ],
+          "list": [
+            "Chi è infedele: Fura, in tutte le versioni che abbiamo trovato.",
+            "Chi muore per primo: Tena.",
+            "Il terzo personaggio: Zarbi nel racconto regionale; assente in inglese.",
+            "Il fiume: il Minero, a volte Zarbi stesso trasformato."
+          ]
+        },
+        "hills": {
+          "heading": "Le colline",
+          "answer": "Le colline esistono davvero e sono separate dal fiume Minero.[[wiki-es-fura-tena]] Quale delle due sia più alta dipende dall’articolo che leggi.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Le altezze variano a seconda della fonte. L’articolo della Wikipedia in spagnolo sulle colline attribuisce a Tena circa 840 metri e a Fura circa 500[[wiki-es-fura-tena]]; il suo articolo su Borbur dà a Fura 800 metri[[wiki-es-borbur]]; la Wikipedia in inglese riporta le stesse due cifre con le colline invertite.[[wiki-en-colombian-emeralds]]",
+            "Fura si trova nella vereda di San Isidro, a San Pablo de Borbur; Tena si innalza di fronte, a Pauna.[[wiki-es-borbur]] La foresta intorno è nota per le sue farfalle, tra cui il Morpho blu, che tiene visibile un dettaglio della leggenda.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "stones": {
+          "heading": "Gli smeraldi chiamati Fura e Tena",
+          "answer": "Nel 1999 una miniera di Muzo produsse un cristallo grezzo di circa 11.000 carati, 2,2 chilogrammi, e lo chiamò Fura in onore della leggenda.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, di circa 2.000 carati e di un verde scuro, venne alla luce lo stesso anno ed è descritta come la più preziosa delle due.[[wiki-es-esmeralda-tena]] Entrambe sono raccontate nella nostra pagina sugli smeraldi famosi."
+          ]
+        },
+        "seeing": {
+          "heading": "Vederle",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Da Chanares puoi raggiungere a piedi un belvedere attraverso una foresta piena di farfalle. Da lì la leggenda smette di essere una storia: Fura da un lato, Tena dall’altro e il Minero che scorre in mezzo."
+          ]
+        }
+      }
+    }
+  }
+}

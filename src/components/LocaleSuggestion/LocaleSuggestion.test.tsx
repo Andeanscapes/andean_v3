@@ -44,7 +44,7 @@ describe('LocaleSuggestion', () => {
 
   it.each([
     ['the browser matches the page', 'en', '/', ['en-US']],
-    ['the browser language is unsupported', 'en', '/', ['de-DE']],
+    ['the browser language is unsupported', 'en', '/', ['pt-BR']],
   ] as const)('stays hidden when %s', (_label, locale, pathname, languages) => {
     renderAt(locale, pathname, [...languages]);
     expect(screen.queryByRole('region')).not.toBeInTheDocument();

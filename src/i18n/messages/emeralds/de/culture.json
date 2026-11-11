@@ -1,0 +1,109 @@
+{
+  "pages": {
+    "culture": {
+      "navLabel": "Kultur",
+      "metaTitle": "Smaragdkultur in Kolumbien: Essen, Musik, Märkte und Glaube",
+      "metaDescription": "Wie man in Kolumbiens Smaragdregionen lebt: das tropische Boyacá, Essen für die Mine, Norteña-Musik, Kartenspiele, Smaragdmärkte und Glaube.",
+      "title": "Smaragdkultur: wie die Bergbauregionen leben",
+      "lead": "Ein Smaragd bedeutet hier selten Luxus. Er bedeutet Höfe, lange Tage unter Tage, Essen für die Mine, Norteña im Radio, einen Markt auf gestampftem Lehmboden und eine Basilika auf dem Weg hinunter.",
+      "imageAlt": "Eine Gruppe von Besuchern mit Helmen auf dem Hof einer Smaragdmine",
+      "sections": {
+        "what": {
+          "heading": "Worum es in diesem Bereich geht",
+          "note": "editorial",
+          "paragraphs": [
+            "Das meiste, was folgt, sind Feldnotizen von den Fuego-Verde-Reisen: was wir gegessen, gehört und gesehen haben. Wo ein Dokument ein Detail bestätigt, ist eine Quelle angegeben."
+          ]
+        },
+        "tropical": {
+          "heading": "Das tropische Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Die Smaragdregionen sind heiße, feuchte, bäuerliche Berge und haben nichts mit dem kalten Hochland gemein, das sich die meisten Reisenden bei Boyacá vorstellen. Kakao, Rinder und Honig teilen sich die Hänge mit den Minen, und die Kultur reicht ungefragt bis nach Cundinamarca hinein."
+          ]
+        },
+        "table": {
+          "heading": "Der Tisch",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Im Oriente: avíos, für die Mine eingepackt, carne oreada, nacumas. In Coscuez: arroz de fines, gallina Nicaragua, gallina borracha, Namen, die uns niemand ganz erklären konnte.",
+            "In Gachalá zeigen die Leute auf die gallina campesina, ein Freilandhuhn, serviert mit Maisarepas, Consommé, Maniok und Arracacha.[[wiki-es-gachala]]"
+          ]
+        },
+        "music": {
+          "heading": "Norteña, cacho und naipe",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Norteña, die Akkordeonmusik aus dem Norden Mexikos, schallt in beiden Regionen aus Autos und Läden. In Coscuez gehören die Abende dem cacho und dem naipe, Würfeln und Karten, der tomata und den alten Jeeps, die draußen parken."
+          ]
+        },
+        "markets": {
+          "heading": "Der Markt auf dem Lehmboden",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Auf der Plaza del Chácaro bei Coscuez gehen die Steine von Hand zu Hand, zwischen guaqueros, Käufern und Bergleuten, die noch schwarz vom Stollen sind. Manche Käufer lesen einen Smaragd in fünf Sekunden.",
+            "Die Suche auf eigene Faust, die guaquería, gibt es in den Smaragdorten im Westen von Boyacá seit mehr als siebzig Jahren, seit der Zeit, als die Zentralbank die Minen betrieb.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "devotion": {
+          "heading": "Glaube auf dem Weg hinunter",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Die Straße in den Occidente beginnt in Chiquinquirá mit seiner Basilika, und die Verehrung der dortigen Jungfrau zieht sich durch die ganze Region. Als der dritte Grüne Krieg endete, war es der Bischof von Chiquinquirá, der 1990 den Waffenstillstand vermittelte.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    },
+    "guaqueros": {
+      "metaTitle": "Guaqueros: Kolumbiens unabhängige Smaragdsucher",
+      "metaDescription": "Wer Kolumbiens guaqueros sind: Fahrten zu den Minen im Morgengrauen, Kampf um Abraum, das tambreo der 1970er, Frauen auf Suche und warum jeder guaquea.",
+      "title": "Guaqueros: die Menschen, die auf eigene Faust suchen",
+      "lead": "Noch vor Sonnenaufgang warten Hunderte Menschen an den Toren der Minen auf die Erde, die die Unternehmen wegwerfen. So funktioniert die Smaragdsuche für alle, die keine eigene Mine haben.",
+      "imageAlt": "Ein Bergmann schlägt im Licht seiner Stirnlampe an einer Felswand in einer Smaragdmine",
+      "sections": {
+        "who": {
+          "heading": "Wer ist ein guaquero?",
+          "answer": "Ein guaquero ist ein unabhängiger Smaragdsucher, der ohne Bergbaurecht arbeitet. In den Smaragdorten im Westen von Boyacá wie Muzo, Maripí, Pauna, Santa Bárbara, Otanche und San Pablo de Borbur gibt es die guaquería seit mehr als siebzig Jahren.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Manche graben auf eigene Rechnung und ohne Genehmigung Löcher in den Berg, andere gehen durch stillgelegte Stollen, die früher von Unternehmen betrieben wurden, und die Kühnsten steigen nachts in aktive. In der Region nennt man das minería de hecho, faktischen Bergbau.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "dawn": {
+          "heading": "Der Morgen einer guaquera",
+          "answer": "Eine in Muzo befragte guaquera steht um 3:30 Uhr auf, kocht für ihre vier Kinder und wartet um 4:30 Uhr mit etwa vierzig anderen auf dem Marktplatz auf die Lastwagen zu den 50 Minuten entfernten Minen. Sie hat die 10.000 Pesos für die Hinfahrt dabei und hofft, einen Stein zu finden, um die Rückfahrt zu bezahlen.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Wenn das Geld für die Fahrt fehlt, bricht sie um zwei Uhr nachts auf und geht zu Fuß.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "voladoras": {
+          "heading": "Der Kampf um die Erde",
+          "answer": "Die Unternehmen geben die Erde ab, die aus ihren Stollen kommt, und die guaqueros waschen sie in der Hoffnung, dass ein Stein durchgerutscht ist. Unternehmer in der Region schätzen, dass für jedes Karat Smaragd zehn Tonnen taube Erde durchsucht werden.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Jeden Morgen warten zwischen 50 und 500 guaqueros an den Minentoren; spricht sich herum, dass eine Mine Farbe zeigt, kommen mehr als 3.000. Die Stellen, an denen die Erde abgekippt wird, heißen voladoras, und das Gedränge bringt Stöße, Schlägereien und Knochenbrüche mit sich.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "tambreo": {
+          "heading": "Vom Tagebau zu den Stollen",
+          "answer": "Mitte der 1970er Jahre schnitten die ersten Tagebaue mit Bulldozern in den Berg, und die Erde fiel in die Bäche, wo die guaqueros den Schlamm nach Steinen durchschaufelten. Man nannte das tambreo, und es zog Menschen aus ganz Kolumbien in improvisierte Siedlungen wie La Catorce, Matecafé und La Nevera zwischen Muzo und Quípama.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Um 1980 gab es in Muzo bis zu 35.000 guaqueros.[[semana-molano-2017]] Als der Abbau später in Stollen verlegt wurde, blieb weniger Erde für sie übrig, und sie sagen, dass sie heute weniger und schlechtere Steine finden, weshalb sie in Gruppen arbeiten und teilen, was sie finden.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "women": {
+          "heading": "Frauen in den Minen",
+          "answer": "Die Suche ist ein Gewerbe voller Frauen, weil es für sie in den Bergbauunternehmen nur wenige Arbeitsplätze gibt.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "In den voladoras haben Frauen das Schlimmste abbekommen, vom erdrückenden Gedränge bis zur Belästigung, und in den Smaragdorten sind viele Witwen der Grünen Kriege.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "everyone": {
+          "heading": "Jeder guaquea",
+          "answer": "„Soldaten, Polizisten, Richter, Bürgermeister, Priester, Ingenieure, alle guaquean nachts und legen dafür die Uniform ab. Smaragde machen alle verrückt“, schrieb der Journalist Pedro Claver Téllez in La guerra verde, wie Verdad Abierta zitiert.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Die Gewohnheit ist alt. In den Jahrzehnten, in denen die Zentralbank die Minen betrieb, versuchten bereits Hunderte Kolumbianer, inmitten staatlicher Gleichgültigkeit von der illegalen Suche zu leben.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    }
+  }
+}

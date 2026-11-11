@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "famousEmeralds": {
+      "navLabel": "Smeraldi famosi",
+      "metaTitle": "Smeraldi colombiani famosi: Patricia, Gachalá, Fura, Tena",
+      "metaDescription": "Gli smeraldi colombiani con un nome: dove sono stati trovati, quanto pesano secondo ogni fonte, dove sono oggi e le storie che nessun documento conferma.",
+      "title": "Smeraldi colombiani famosi",
+      "lead": "Alcuni smeraldi smettono di essere pietre e finiscono per avere un nome. Patricia, Gachalá, Emilia, Fura e Tena, con i pesi indicati da ogni fonte e le storie che i documenti tralasciano.",
+      "imageAlt": "Due uomini esaminano qualcosa di piccolo tenuto tra le dita a un tavolo di legno",
+      "sections": {
+        "what": {
+          "heading": "Come trattiamo queste pietre",
+          "note": "editorial",
+          "paragraphs": [
+            "I pesi cambiano da una fonte all’altra, le date slittano e alcune pietre vivono solo nella memoria di un paese. Per ognuna indichiamo ogni cifra che abbiamo trovato, chi la fornisce e dove si dice che la pietra si trovi oggi."
+          ]
+        },
+        "weights": {
+          "heading": "Leggere un carato",
+          "answer": "Il cristallo di Gachalá pesa 858 carati.[[smithsonian-gachala]] Un carato equivale a 0,2 grammi, quindi sono circa 172 grammi.",
+          "paragraphs": [
+            "Ne consegue che la Fura, con circa 11.000 carati, è un cristallo di 2,2 chilogrammi.[[wiki-es-esmeralda-fura]] I cristalli di queste dimensioni e di questo colore raramente vengono conservati interi; la maggior parte viene tagliata in gemme, ed è anche per questo che quelli sopravvissuti sono famosi.[[smithsonian-gachala]]"
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia (Chivor, 632 carati)",
+          "answer": "Patricia è un cristallo esagonale biterminato di 632 carati trovato a Chivor e conservato all’American Museum of Natural History di New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Il GIA data il ritrovamento al gennaio 1921; le fonti in lingua spagnola indicano il 1920.[[wiki-es-chivor]] La storia completa, con i dieci dollari, ha una pagina tutta sua."
+          ]
+        },
+        "gachala": {
+          "heading": "Gachalá (858 carati)",
+          "answer": "Lo smeraldo Gachalá è un cristallo di 858 carati trovato nel 1967 a Gachalá, nel Cundinamarca.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Proviene dalla miniera Vega de San Juan ed è entrato nella collezione dello Smithsonian nel 1969.[[smithsonian-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia (Gachalá, circa 7.000 carati)",
+          "answer": "Emilia fu trovata nel 1969 nella miniera Las Cruces a Gachalá. El Tiempo ne indicò il peso in 7.025 carati[[el-tiempo-emilia-1996]]; la Wikipedia in spagnolo riporta 7.015 carati e la data del 15 luglio 1969.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Dove si trovi oggi è controverso. Il proprietario della miniera disse a El Tiempo che in seguito era ricomparsa in un museo in Svizzera[[el-tiempo-emilia-1996]]; la Wikipedia in spagnolo afferma che è custodita al Museo del Oro del Banco de la República.[[wiki-es-gachala]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura e Tena (Muzo, 1999)",
+          "answer": "La Fura è un cristallo grezzo di circa 11.000 carati trovato nel 1999 a Muzo e chiamato così in onore della leggenda di Fura e Tena.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, di circa 2.000 carati e circa 400 grammi, venne alla luce lo stesso anno. Il suo verde scuro e uniforme la rende la più pregiata delle due.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "monstro": {
+          "heading": "El Monstro",
+          "note": "oralTradition",
+          "paragraphs": [
+            "A Gachalá si parla di El Monstro, un cristallo che peserebbe 16.020 carati. Non abbiamo trovato alcun documento, registro museale o articolo di stampa che lo confermi. Lo teniamo qui, con la sua etichetta, finché non ne comparirà uno."
+          ]
+        }
+      }
+    },
+    "patricia": {
+      "metaTitle": "Lo smeraldo Patricia: 632 carati da Chivor e 10 dollari",
+      "metaDescription": "Lo smeraldo Patricia, 632 carati da Chivor: come uscì dalla vena, la questione 1920 o 1921, i 10 dollari del minatore e dove si trova oggi.",
+      "title": "Patricia: 632 carati da Chivor",
+      "lead": "Un minatore aprì la sacca, il direttore ci infilò il braccio fino al gomito e un cristallo esagonale finì nella tasca di una giacca. La pietra andò a New York. Al minatore, si racconta, toccarono dieci dollari.",
+      "imageAlt": "Due visitatori con la lampada frontale in uno stretto tunnel di miniera a Chivor",
+      "sections": {
+        "stone": {
+          "heading": "La pietra",
+          "answer": "Patricia è un cristallo esagonale biterminato di smeraldo di 632 carati proveniente dalla miniera di Chivor, oggi all’American Museum of Natural History di New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "La Wikipedia in spagnolo ne indica le dimensioni in 8 centimetri di altezza e 5,5 centimetri di diametro.[[wiki-es-chivor]]"
+          ]
+        },
+        "find": {
+          "heading": "Come venne alla luce",
+          "answer": "Un lavoratore della miniera di nome Justo Daza portò alla luce a Chivor quella che sembrava una vena produttiva con una sacca.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Il direttore ricordava di aver infilato il braccio nella vena «fino al gomito», tirando fuori prima piccoli cristalli di albite, apatite e quarzo, poi di aver stretto la mano su qualcosa di grande e di averlo messo in tasca senza guardare. «Se quello che ho in tasca è uno smeraldo, avrò adempiuto al mio contratto», disse a un collega.[[gia-rainier-2016]]"
+          ]
+        },
+        "date": {
+          "heading": "1920 o 1921?",
+          "answer": "Il GIA, citando il resoconto del direttore della miniera del 1925, data il ritrovamento al gennaio 1921.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "L’articolo della Wikipedia in spagnolo su Chivor indica il 1920[[wiki-es-chivor]], e Semana, nel 1992, scrisse dicembre 1920.[[semana-reinsercion-1992]] Seguiamo il GIA, che cita il resoconto del direttore presente sul posto, e riportiamo le altre date perché i lettori le incontreranno."
+          ]
+        },
+        "ten": {
+          "heading": "I dieci dollari",
+          "answer": "Si dice che Justo Daza abbia ricevuto circa dieci dollari.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Semana nel 1992 la raccontò diversamente: la pietra fu comprata dal suo proprietario per 10 dollari e venduta all’estero per 60.000 dollari dell’epoca.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Dove si trova",
+          "answer": "Patricia fa parte della collezione dell’American Museum of Natural History di New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "La Wikipedia in spagnolo attribuisce la donazione al direttore legale della miniera dell’epoca.[[wiki-es-chivor]] Il sito web del museo blocca la lettura automatica, quindi non abbiamo ancora potuto verificarlo sul suo registro."
+          ]
+        }
+      }
+    },
+    "emiliaAndLaTito": {
+      "metaTitle": "Emilia e sua sorella: gli smeraldi di Gachalá del 1969",
+      "metaDescription": "Emilia, smeraldo di 7.000 carati trovato a Gachalá nel 1969, e la pietra più pura trovata lo stesso giorno: il resoconto del 1996, altre versioni, La Indiecita.",
+      "title": "Emilia e sua sorella: gli smeraldi di Gachalá",
+      "lead": "Lo stesso giorno in cui Emilia uscì da una miniera di Gachalá, una seconda pietra, più pura, comparve sotto una scarpata di terra che franava. Lasciò la miniera avvolta in una mantella. Ecco cosa dicono i documenti, e dove si fermano.",
+      "imageAlt": "Due visitatori con casco e lampada frontale in un tunnel di una miniera di smeraldi",
+      "sections": {
+        "short": {
+          "heading": "La risposta breve",
+          "answer": "Emilia è uno smeraldo di circa 7.000 carati trovato nel 1969 nella miniera Las Cruces a Gachalá. Lo stesso giorno, secondo il proprietario della miniera, un lavoratore trovò una seconda pietra, più pura, e la portò fuori dalla miniera nascosta in una mantella.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "La nostra fonte principale è un articolo di El Tiempo del 1996 basato sui ricordi del proprietario della miniera e del figlio dell’uomo che negoziò la vendita di Emilia.[[el-tiempo-emilia-1996]] La Wikipedia in spagnolo racconta una versione in parte diversa.[[wiki-es-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia",
+          "answer": "Emilia pesava 7.025 carati, quasi tre libbre. Il giorno dopo il ritrovamento passò in custodia al Banco de la República.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "La Wikipedia in spagnolo riporta 7.015 carati, la data del 15 luglio 1969, una vendita a Bogotá per 20 milioni di pesos e una sede al Museo del Oro.[[wiki-es-gachala]] Il proprietario, che disse di aver ricevuto 30.000 pesos per la sua parte, ricordava di averla poi vista dietro un vetro in un museo svizzero.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sister": {
+          "heading": "La sorella",
+          "answer": "Lo stesso giorno un lavoratore di nome Tito Daza diresse il getto della manichetta sul punto da cui era uscita Emilia. Una scarpata di terra franò, nel fango comparvero lampi verdi, e lui lavò la pietra e la avvolse in una mantella.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Non disse niente a nessuno in miniera, raccontò di avere mal di pancia e se ne andò, tenendo la pietra contro la pancia. Il proprietario la tenne tre mesi sul comodino. La descrisse larga circa 12 centimetri, lunga circa 50, di 8,5 libbre, a forma di cuneo e più pura di Emilia.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sale": {
+          "heading": "La vendita",
+          "answer": "Mesi dopo fu venduta in casa del proprietario per 5 milioni di pesos. Qualche tempo più tardi il compratore mostrò loro una rivista in inglese secondo cui era stata venduta negli Stati Uniti per 87 milioni di pesos.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Il proprietario andò negli Stati Uniti e contattò l’Interpol; Daza passò due mesi in carcere prima che la denuncia fosse ritirata. Nel 1996 Daza era il genero del proprietario.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "versions": {
+          "heading": "La Tito, La Indiecita e altri nomi",
+          "answer": "I documenti non concordano su data, peso e nome della seconda pietra.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "La Wikipedia in spagnolo descrive una pietra di 8.000 carati trovata da Tito Daza tre anni dopo Emilia, nello stesso luogo, nota a Gachalá come «La Tito» e portata di nascosto in Svizzera.[[wiki-es-gachala]] La memoria regionale che abbiamo registrato per Fuego Verde chiama la sorella di Emilia La Indiecita e racconta che uscì sotto una ruana; il resoconto del 1996 parla di una mantella e non dà alcun nome.[[el-tiempo-emilia-1996]]",
+            "Tito Daza di Gachalá non è Justo Daza, il minatore di Chivor legato allo smeraldo Patricia nel 1921.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "curse": {
+          "heading": "Una maledizione con un nome di donna",
+          "answer": "El Tiempo intitolò il suo articolo «una maledizione con un nome di donna». Con le parole dell’articolo, trovare uno smeraldo è come vincere la lotteria e perderla nello stesso momento.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Per chi le trovò, queste pietre furono raramente la fortuna che promettevano. Nel 1996 il proprietario viveva a Gachetá e raccontava la storia da una panchina della piazza principale.[[el-tiempo-emilia-1996]]"
+          ]
+        }
+      }
+    }
+  }
+}

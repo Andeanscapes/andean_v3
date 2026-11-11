@@ -1,0 +1,109 @@
+{
+  "pages": {
+    "culture": {
+      "navLabel": "Cultura",
+      "metaTitle": "Cultura dello smeraldo in Colombia: cibo, musica e fede",
+      "metaDescription": "Come si vive nelle regioni dello smeraldo in Colombia: il Boyacá tropicale, il cibo della miniera, la norteña, le carte, i mercati e la fede.",
+      "title": "La cultura dello smeraldo: come vivono le regioni minerarie",
+      "lead": "Qui uno smeraldo raramente significa lusso. Significa fattorie, lunghe giornate sottoterra, cibo pensato per la miniera, la norteña alla radio, un mercato su un pavimento di terra battuta e una basilica lungo la discesa.",
+      "imageAlt": "Un gruppo di visitatori con il casco nel cortile di una miniera di smeraldi",
+      "sections": {
+        "what": {
+          "heading": "Di cosa parla questa sezione",
+          "note": "editorial",
+          "paragraphs": [
+            "Gran parte di ciò che segue sono note sul campo dei viaggi di Fuego Verde: ciò che abbiamo mangiato, sentito e visto. Dove un documento conferma un dettaglio, è indicata la fonte."
+          ]
+        },
+        "tropical": {
+          "heading": "Il Boyacá tropicale",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Le regioni dello smeraldo sono montagne contadine calde e umide, niente a che vedere con l’altopiano freddo che la maggior parte dei viaggiatori immagina quando sente nominare il Boyacá. Cacao, bestiame e miele condividono i pendii con le miniere, e la cultura sconfina nel Cundinamarca senza chiedere permesso."
+          ]
+        },
+        "table": {
+          "heading": "La tavola",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Nell’Oriente: avíos preparati per la miniera, carne oreada, nacumas. A Coscuez: arroz de fines, gallina Nicaragua, gallina borracha, nomi che nessuno ha saputo spiegarci fino in fondo.",
+            "A Gachalá il piatto che tutti indicano è la gallina campesina, una gallina ruspante servita con arepas di mais, consommé, manioca e arracacha.[[wiki-es-gachala]]"
+          ]
+        },
+        "music": {
+          "heading": "Norteña, cacho e naipe",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La norteña, la musica con la fisarmonica del nord del Messico, esce da auto e negozi in entrambe le regioni. A Coscuez le serate sono di cacho e naipe, dadi e carte, e della tomata, e delle vecchie jeep parcheggiate fuori."
+          ]
+        },
+        "markets": {
+          "heading": "Il mercato sulla terra battuta",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Nella Plaza del Chácaro, vicino a Coscuez, le pietre passano di mano in mano tra guaqueros, compratori e minatori ancora neri dal tunnel. Alcuni compratori leggono uno smeraldo in cinque secondi.",
+            "La ricerca per conto proprio, la guaquería, esiste nei paesi dello smeraldo del Boyacá occidentale da più di settant’anni, da quando le miniere erano gestite dalla banca centrale.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "devotion": {
+          "heading": "La fede lungo la discesa",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La strada verso l’Occidente parte da Chiquinquirá e dalla sua basilica, e la devozione alla Vergine di quel santuario attraversa tutta la regione. Alla fine della terza Guerra Verde fu il vescovo di Chiquinquirá a mediare il cessate il fuoco del 1990.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    },
+    "guaqueros": {
+      "metaTitle": "Guaqueros: i cercatori indipendenti di smeraldi in Colombia",
+      "metaDescription": "Chi sono i guaqueros colombiani: viaggi all’alba verso le miniere, la lotta per la terra scartata, il tambreo degli anni ’70, le donne che cercano.",
+      "title": "Guaqueros: chi cerca per conto proprio",
+      "lead": "Prima dell’alba centinaia di persone aspettano ai cancelli delle miniere la terra che le compagnie buttano via. Ecco come funziona la ricerca degli smeraldi per chi non ha una miniera.",
+      "imageAlt": "Un minatore scalpella una parete di roccia alla luce della lampada frontale dentro una miniera di smeraldi",
+      "sections": {
+        "who": {
+          "heading": "Chi è un guaquero?",
+          "answer": "Un guaquero è un cercatore indipendente di smeraldi che lavora senza un titolo minerario. Nei paesi dello smeraldo del Boyacá occidentale come Muzo, Maripí, Pauna, Santa Bárbara, Otanche e San Pablo de Borbur, la guaquería esiste da più di settant’anni.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Alcuni scavano buche nella montagna per conto proprio senza permessi, altri percorrono i tunnel inattivi che un tempo sfruttavano le compagnie, e i più audaci entrano di notte in quelli attivi. Nella regione la chiamano minería de hecho, estrazione di fatto.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "dawn": {
+          "heading": "Il mattino di una guaquera",
+          "answer": "Una guaquera intervistata a Muzo si alza alle 3:30, cucina per i suoi quattro figli e alle 4:30 aspetta in piazza del mercato con una quarantina di altre persone i camion per le miniere, a 50 minuti di distanza. Porta con sé i 10.000 pesos del viaggio di andata e spera di trovare una pietra per pagarsi il ritorno.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Quando non ci sono soldi per il biglietto, parte alle due del mattino e va a piedi.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "voladoras": {
+          "heading": "La lotta per la terra",
+          "answer": "Le compagnie distribuiscono la terra che esce dai loro tunnel, e i guaqueros la lavano sperando che sia sfuggita qualche pietra. Gli imprenditori della regione stimano che per ogni carato di smeraldo si esplorino dieci tonnellate di terra sterile.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Ogni mattina tra 50 e 500 guaqueros aspettano ai cancelli delle miniere; se si sparge la voce che una miniera sta dando colore, ne arrivano più di 3.000. I luoghi dove si scarica la terra si chiamano voladoras, e la ressa porta spintoni, risse e ossa rotte.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "tambreo": {
+          "heading": "Dalle cave a cielo aperto ai tunnel",
+          "answer": "A metà degli anni ’70 le prime operazioni a cielo aperto tagliarono la montagna con i bulldozer, e la terra finì nei torrenti, dove i guaqueros spalavano il fango in cerca di pietre. Si chiamava tambreo, e attirò gente da tutta la Colombia in insediamenti improvvisati come La Catorce, Matecafé e La Nevera, tra Muzo e Quípama.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Nel 1980 Muzo contava fino a 35.000 guaqueros.[[semana-molano-2017]] Quando in seguito l’estrazione si spostò nei tunnel, per loro rimase meno terra, e raccontano che oggi trovano pietre più rare e più povere, così lavorano in gruppo e dividono ciò che trovano.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "women": {
+          "heading": "Le donne nelle miniere",
+          "answer": "La ricerca è un mestiere pieno di donne, perché per loro ci sono pochi posti di lavoro nelle compagnie minerarie.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Nelle voladoras le donne hanno avuto la peggio, dalla ressa che schiaccia alle molestie, e nei paesi dello smeraldo molte sono vedove delle Guerre Verdi.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "everyone": {
+          "heading": "Tutti guaquean",
+          "answer": "«Soldati, poliziotti, giudici, sindaci, preti, ingegneri, tutti guaquean di notte, mettendo da parte l’uniforme. Gli smeraldi fanno impazzire tutti», scrisse il giornalista Pedro Claver Téllez in La guerra verde, come riportato da Verdad Abierta.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "L’abitudine è antica. Nei decenni in cui la banca centrale gestiva le miniere, centinaia di colombiani cercavano già di guadagnarsi da vivere cercando illegalmente, nell’indifferenza dello Stato.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    }
+  }
+}

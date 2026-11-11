@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { locales } from '@/i18n/routing';
+import { indexableLocales } from '@/i18n/locales';
 import { getExperiencePathListSSR } from '@/lib/services/experiences-catalog.service';
 import { GUIDES, guidePath } from '@/lib/content/guides.structure';
+import { EMERALD_AUTHORS, EMERALD_PAGES, emeraldAuthorPath, emeraldPath } from '@/lib/content/emeralds.structure';
 import { experiencePath } from '@/utils/experienceRoutes';
 import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seoUrls';
 
@@ -9,7 +10,7 @@ import { buildAbsoluteLocalizedUrl, buildLocalizedAlternates } from '@/utils/seo
 function buildEntry(path: string, priority: number, lastModified?: string): MetadataRoute.Sitemap {
   const languages = buildLocalizedAlternates(path);
 
-  return locales.map((locale) => ({
+  return indexableLocales.map((locale) => ({
     url: buildAbsoluteLocalizedUrl(locale, path),
     ...(lastModified ? { lastModified } : {}),
     changeFrequency: 'weekly',
@@ -30,5 +31,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
     ...buildEntry(guidePath(), 0.7),
     ...GUIDES.flatMap((guide) => buildEntry(guidePath(guide.slug), 0.7, guide.updatedAt)),
+    ...EMERALD_PAGES.flatMap((page) =>
+      buildEntry(emeraldPath(page), page.kind === 'hub' ? 0.8 : 0.6, page.updatedAt),
+    ),
+    ...EMERALD_AUTHORS.flatMap((author) => buildEntry(emeraldAuthorPath(author), 0.4)),
   ];
 }

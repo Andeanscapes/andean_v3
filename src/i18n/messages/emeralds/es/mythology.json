@@ -1,0 +1,115 @@
+{
+  "pages": {
+    "mythology": {
+      "navLabel": "Mitología",
+      "metaTitle": "Mitología de la esmeralda: Fura, Tena y los muzos",
+      "metaDescription": "Leyendas de las esmeraldas colombianas: Fura y Tena en sus versiones, los cerros sagrados de los muzos y lo que se creía de la esmeralda.",
+      "title": "Mitología de la esmeralda: las historias detrás del verde",
+      "lead": "Antes de ser un negocio, las esmeraldas fueron sagradas. Las leyendas del occidente de Boyacá, cómo cambiaron al contarse otra vez y cómo distinguir un mito de un registro.",
+      "imageAlt": "Una visitante con casco entre colinas verdes y paredes de roca en la región esmeraldera",
+      "sections": {
+        "what": {
+          "heading": "Qué cubre esta sección",
+          "note": "editorial",
+          "paragraphs": [
+            "Las leyendas son parte de la historia de la esmeralda, y viajan: cada versión cambia un detalle. Aquí damos cada versión con la fuente que la registra, y decimos claramente cuando una historia no tiene rastro escrito."
+          ]
+        },
+        "muzo": {
+          "heading": "Los muzos y sus cerros sagrados",
+          "answer": "Los cerros de Fura y Tena fueron lugar de culto de los muzos, que los consideraban asiento de sus dioses.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "Las esmeraldas también viajaban mucho antes de la conquista. Cuando cayó Tunja en 1537, los españoles tomaron cerca de 2.000 esmeraldas, y las piedras se comerciaban desde hacía siglos, al norte hasta los aztecas y al sur hasta los incas.[[gia-rainier-2016]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura y Tena, en breve",
+          "answer": "Fura y Tena fueron la primera pareja, formada por el dios Are y obligada a serse fiel para conservar la juventud. Fura rompió la promesa, los dos envejecieron y murieron, y Are los convirtió en cerros sobre el río Minero, donde las lágrimas de Fura se volvieron esmeraldas.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Las fuentes ni siquiera coinciden en a qué pueblo pertenece el dios: la Wikipedia en inglés hace de Are un dios muisca[[wiki-en-colombian-emeralds]], mientras la tradición en español ubica la historia entre los muzos, dueños de estos cerros.[[wiki-es-fura-tena]] Nuestro artículo largo compara todas las versiones que encontramos."
+          ]
+        },
+        "meanings": {
+          "heading": "Lo que se creía de las esmeraldas",
+          "note": "editorial",
+          "answer": "En la antigüedad las esmeraldas se valoraban por algo más que su belleza: se creía que aumentaban la inteligencia, protegían el matrimonio, facilitaban el parto y permitían a su dueño ver el futuro.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Son creencias, no propiedades. Las contamos porque explican por qué las esmeraldas importaban a quienes las extraían y comerciaban, y no las repetimos como afirmaciones sobre la piedra."
+          ]
+        }
+      }
+    },
+    "furaTenaLegend": {
+      "metaTitle": "La leyenda de Fura y Tena: todas las versiones comparadas",
+      "metaDescription": "La leyenda de Fura y Tena comparada: la versión del occidente de Boyacá, la de las tribus enemigas, la inglesa, los cerros y las piedras de 1999.",
+      "title": "La leyenda de Fura y Tena, y sus versiones",
+      "lead": "Dos amantes, una promesa rota, lágrimas que se volvieron esmeraldas. La leyenda más conocida de la región esmeraldera se cuenta distinto en español y en inglés. Aquí están todas las versiones que encontramos, una al lado de la otra.",
+      "imageAlt": "Tres personas de pie detrás de un cajón minero de madera entre helechos en el occidente de Boyacá",
+      "sections": {
+        "short": {
+          "heading": "La respuesta corta",
+          "answer": "Fura y Tena son dos cerros sobre el río Minero en el occidente de Boyacá y los amantes de la leyenda esmeraldera más conocida de Colombia. Wikipedia en español atribuye la leyenda escrita a Julio Roberto Garavito.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "La leyenda está atada a un paisaje real: dos cerros enfrentados a lado y lado del río Minero, Fura en San Pablo de Borbur y Tena en Pauna.[[wiki-es-borbur]]"
+          ]
+        },
+        "garavito": {
+          "heading": "La versión que se cuenta en la región",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Are, el creador, formó a Fura y a Tena y les dio juventud eterna con una condición: que se amaran solo entre ellos. Entonces apareció Zarbi. Fura rompió la promesa. Tena descubrió la traición y murió.",
+            "Fura lloró. Sus lágrimas se convirtieron en esmeraldas y sus gritos en mariposas. Are convirtió a los dos en montañas, y en una de las versiones Zarbi se volvió el torrente que los separa: el río Minero. Es la versión que oímos en el camino y que contamos en el episodio 2 de Fuego Verde."
+          ]
+        },
+        "enemies": {
+          "heading": "La versión de las tribus enemigas",
+          "answer": "Otra versión, recogida en la página de Wikipedia en español sobre la esmeralda Fura, hace de los amantes hijos de dos caciques de tribus enemigas que se enamoraron contra la voluntad de sus familias; tras un desencuentro, Tena muere y los dos se transforman en ríos y montañas de esmeraldas.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "El artículo de Wikipedia en español sobre la esmeralda Tena la cuenta con un final más duro: Tena se quita la vida y las lágrimas de Fura se vuelven esmeraldas.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "englishVersion": {
+          "heading": "La versión en inglés",
+          "answer": "La versión en inglés que encuentran casi todos los lectores hace de Fura y Tena dos inmortales creados por el dios muisca Are para poblar la tierra. Fura fue infiel; ambos perdieron la inmortalidad, envejecieron y murieron, y Are, compadecido, los convirtió en peñascos protegidos de tormentas y serpientes, en cuyo interior las lágrimas de Fura se hicieron esmeraldas.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Esa versión no tiene a Zarbi y les da a los cerros un papel protector: son “los guardianes oficiales de la zona esmeraldera de Colombia”.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "differences": {
+          "heading": "Qué cambia entre versiones",
+          "paragraphs": [
+            "Lo constante es la promesa rota, la muerte de Tena y las lágrimas que se vuelven esmeraldas.[[wiki-es-fura-tena]] Cambia el pueblo: muisca en inglés[[wiki-en-colombian-emeralds]], muzo en la tradición en español ligada a los cerros.[[wiki-es-fura-tena]] También cambia la causa de la tragedia: un forastero en una versión, familias enfrentadas en otra.[[wiki-es-esmeralda-fura]]"
+          ],
+          "list": [
+            "Quién es infiel: Fura, en todas las versiones que encontramos.",
+            "Quién muere primero: Tena.",
+            "El tercer personaje: Zarbi en la versión regional; no aparece en inglés.",
+            "El río: el Minero, a veces el propio Zarbi transformado."
+          ]
+        },
+        "hills": {
+          "heading": "Los cerros",
+          "answer": "Los cerros existen y los separa el río Minero.[[wiki-es-fura-tena]] Cuál es más alto depende del artículo que uno lea.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Las alturas cambian según la fuente. El artículo de Wikipedia en español sobre los cerros da unos 840 metros para Tena y 500 para Fura[[wiki-es-fura-tena]]; el de Borbur le da 800 metros a Fura[[wiki-es-borbur]]; la Wikipedia en inglés da las mismas dos cifras con los cerros intercambiados.[[wiki-en-colombian-emeralds]]",
+            "Fura está en la vereda San Isidro, en San Pablo de Borbur; Tena se levanta enfrente, en Pauna.[[wiki-es-borbur]] El bosque que los rodea es conocido por sus mariposas, entre ellas la Morpho azul, que mantiene a la vista un detalle de la leyenda.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "stones": {
+          "heading": "Esmeraldas llamadas Fura y Tena",
+          "answer": "En 1999 una mina de Muzo entregó un cristal en bruto de unos 11.000 quilates, 2,2 kilogramos, y lo bautizaron Fura por la leyenda.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, de unos 2.000 quilates y verde oscuro, salió el mismo año y se describe como la más valiosa de las dos.[[wiki-es-esmeralda-tena]] Las dos están en nuestra página de esmeraldas famosas."
+          ]
+        },
+        "seeing": {
+          "heading": "Verlos",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Desde Chanares se puede caminar hasta un mirador entre un bosque lleno de mariposas. Desde allí la leyenda deja de ser un cuento: Fura de un lado, Tena del otro y el Minero corriendo entre los dos."
+          ]
+        }
+      }
+    }
+  }
+}

@@ -6,11 +6,24 @@
  * only change when the facts in the copy change.
  */
 
-export interface GuideSource {
-  /** Bibliographic reference; a proper name, not translated. */
-  label: string;
-  url?: string;
-}
+import {
+  CHIVOR_PLANT,
+  FCDO_COLOMBIA,
+  FURA_TENA_HILLS,
+  GACHALA_EMERALD,
+  GIA_CHIVOR_HISTORY_2020,
+  GIA_RAINIER_2016,
+  GREEN_WARS,
+  GUAVIO_PLANT,
+  MUZO_MUNICIPALITY,
+  RAINIER_GREEN_FIRE,
+  TRAPICHE_GIA_2015,
+  type EditorialSource,
+} from '@/lib/content/sources';
+import type { EmeraldPageId } from '@/lib/content/emeralds.structure';
+
+/** Kept for existing importers; the shape is shared with Emerald World. */
+export type GuideSource = EditorialSource;
 
 export interface GuideDefinition {
   slug: string;
@@ -24,6 +37,8 @@ export interface GuideDefinition {
   publishedAt: string;
   updatedAt: string;
   sources: readonly GuideSource[];
+  /** Emerald World pages that go deeper into this guide's topics, rendered as a link list. */
+  emeraldLinks?: readonly EmeraldPageId[];
 }
 
 export type GuideId =
@@ -32,62 +47,6 @@ export type GuideId =
   | 'chivorHistory'
   | 'gachalaGuavio'
   | 'westernBoyaca';
-
-const GIA_RAINIER_2016: GuideSource = {
-  label:
-    'Weldon, R., Ortiz, J. G. & Ottaway, T. (2016). In Rainier’s Footsteps: Journey to the Chivor Emerald Mine. Gems & Gemology, 52(2). GIA.',
-  url: 'https://www.gia.edu/gems-gemology/summer-2016-rainier-footsteps-journey-chivor-emerald-mine',
-};
-
-const GIA_CHIVOR_HISTORY_2020: GuideSource = {
-  label:
-    'Schmetzer, K. & Martayan, G. (2020). History of the Chivor Emerald Mine, Part I (1880–1925). Gems & Gemology, 56(1). GIA.',
-};
-
-const RAINIER_GREEN_FIRE: GuideSource = {
-  label: 'Rainier, P. W. (1942). Green Fire. New York: Random House.',
-};
-
-const FCDO_COLOMBIA: GuideSource = {
-  label: 'UK Foreign, Commonwealth & Development Office. Colombia travel advice (updated 30 October 2026).',
-  url: 'https://www.gov.uk/foreign-travel-advice/colombia',
-};
-
-const CHIVOR_PLANT: GuideSource = {
-  label: 'Central hidroeléctrica de Chivor. Wikipedia en español.',
-  url: 'https://es.wikipedia.org/wiki/Central_hidroel%C3%A9ctrica_de_Chivor',
-};
-
-const GUAVIO_PLANT: GuideSource = {
-  label: 'Central hidroeléctrica del Guavio. Wikipedia en español.',
-  url: 'https://es.wikipedia.org/wiki/Central_hidroel%C3%A9ctrica_del_Guavio',
-};
-
-const GREEN_WARS: GuideSource = {
-  label: 'Guerras verdes. Wikipedia en español (citing El Tiempo, Semana, El Espectador and Verdad Abierta).',
-  url: 'https://es.wikipedia.org/wiki/Guerras_verdes',
-};
-
-const FURA_TENA_HILLS: GuideSource = {
-  label: 'Fura y Tena. Wikipedia en español.',
-  url: 'https://es.wikipedia.org/wiki/Fura_y_Tena',
-};
-
-const MUZO_MUNICIPALITY: GuideSource = {
-  label: 'Muzo (Boyacá). Wikipedia en español.',
-  url: 'https://es.wikipedia.org/wiki/Muzo',
-};
-
-const TRAPICHE_GIA_2015: GuideSource = {
-  label:
-    'Pignatelli, I., Giuliani, G., Ohnenstetter, D. et al. (2015). Colombian Trapiche Emeralds: Recent Advances in Understanding Their Formation. Gems & Gemology, 51(3), 222–259.',
-  url: 'https://doi.org/10.5741/GEMS.51.3.222',
-};
-
-const GACHALA_EMERALD: GuideSource = {
-  label: 'Gachalá Emerald. Wikipedia (citing the Smithsonian National Museum of Natural History).',
-  url: 'https://en.wikipedia.org/wiki/Gachal%C3%A1_Emerald',
-};
 
 export const GUIDES: readonly GuideDefinition[] = [
   {
@@ -99,6 +58,8 @@ export const GUIDES: readonly GuideDefinition[] = [
     publishedAt: '2026-11-02',
     updatedAt: '2026-11-02',
     sources: [GIA_RAINIER_2016, GACHALA_EMERALD, CHIVOR_PLANT],
+
+    emeraldLinks: ['hub', 'mines', 'muzo', 'gemology', 'patricia', 'furaTenaLegend', 'greenWars'],
   },
   {
     slug: 'chivor-travel-safety',
@@ -109,6 +70,8 @@ export const GUIDES: readonly GuideDefinition[] = [
     publishedAt: '2026-11-02',
     updatedAt: '2026-11-02',
     sources: [FCDO_COLOMBIA, CHIVOR_PLANT, GUAVIO_PLANT, GREEN_WARS],
+
+    emeraldLinks: ['greenWars', 'peace1990', 'culture'],
   },
   {
     slug: 'chivor-emerald-mine-history',
@@ -119,6 +82,8 @@ export const GUIDES: readonly GuideDefinition[] = [
     publishedAt: '2026-11-02',
     updatedAt: '2026-11-02',
     sources: [GIA_RAINIER_2016, GIA_CHIVOR_HISTORY_2020, RAINIER_GREEN_FIRE],
+
+    emeraldLinks: ['patricia', 'episodeOriente', 'mines', 'famousEmeralds'],
   },
   {
     slug: 'gachala-emerald-guavio-valley',
@@ -129,6 +94,8 @@ export const GUIDES: readonly GuideDefinition[] = [
     publishedAt: '2026-11-02',
     updatedAt: '2026-11-02',
     sources: [GACHALA_EMERALD, GIA_RAINIER_2016, GUAVIO_PLANT],
+
+    emeraldLinks: ['emiliaAndLaTito', 'famousEmeralds', 'episodeExtraordinary'],
   },
   {
     slug: 'western-boyaca-fura-tena-muzo',
@@ -140,6 +107,8 @@ export const GUIDES: readonly GuideDefinition[] = [
     publishedAt: '2026-11-02',
     updatedAt: '2026-11-02',
     sources: [FURA_TENA_HILLS, MUZO_MUNICIPALITY, TRAPICHE_GIA_2015, GREEN_WARS],
+
+    emeraldLinks: ['furaTenaLegend', 'muzo', 'greenWars', 'episodeOccidente'],
   },
 ];
 

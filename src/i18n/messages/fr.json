@@ -511,7 +511,8 @@
     "lightMode": "Mode clair",
     "darkMode": "Mode sombre",
     "experiences": "Expériences",
-    "guides": "Guides"
+    "guides": "Guides",
+    "emeralds": "Monde Émeraude"
   },
   "ExperiencesList": {
     "metaTitle": "Visites de Mines d’Émeraudes en Colombie | Chivor | Andean Scapes",
@@ -1521,7 +1522,8 @@
     "privacy": "Confidentialité",
     "comingSoon": "Bientôt disponible",
     "allRightsReserved": "Tous droits réservés.",
-    "allyGuides": "Guides"
+    "allyGuides": "Guides",
+    "allyEmeralds": "Monde Émeraude"
   },
   "MobileMenu": {
     "brandLine": "Séjours et expériences authentiques dans les Andes colombiennes",
@@ -1544,7 +1546,8 @@
       "howItWorks": "Comment Ça Marche",
       "reviews": "Avis",
       "faq": "FAQ",
-      "guides": "Guides"
+      "guides": "Guides",
+      "emeralds": "Monde Émeraude"
     }
   },
   "Error": {

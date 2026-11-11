@@ -1,0 +1,115 @@
+{
+  "pages": {
+    "mythology": {
+      "navLabel": "Mythologie",
+      "metaTitle": "Mythologie de l’émeraude : Fura, Tena et les Muzos",
+      "metaDescription": "Légendes des émeraudes colombiennes : Fura et Tena dans leurs versions, les collines sacrées des Muzos et ce qu’on prêtait à l’émeraude.",
+      "title": "Mythologie de l’émeraude : les histoires derrière le vert",
+      "lead": "Avant d’être un commerce, les émeraudes étaient sacrées. Les légendes de l’ouest du Boyacá, comment elles ont changé en se transmettant, et comment distinguer un mythe d’un document.",
+      "imageAlt": "Une visiteuse casquée parmi des collines vertes et des parois rocheuses de la région émeraudière",
+      "sections": {
+        "what": {
+          "heading": "Ce que couvre cette rubrique",
+          "note": "editorial",
+          "paragraphs": [
+            "Les légendes font partie de l’histoire de l’émeraude, et elles voyagent : chaque version change un détail. Nous donnons ici chaque version avec la source qui la rapporte, et nous disons clairement quand une histoire n’a pas de trace écrite."
+          ]
+        },
+        "muzo": {
+          "heading": "Les Muzos et leurs collines sacrées",
+          "answer": "Les collines de Fura et Tena étaient un lieu de culte du peuple muzo, qui y voyait le siège de ses dieux.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "Les émeraudes voyageaient aussi bien avant la conquête. À la chute de Tunja en 1537, les Espagnols saisirent près de 2 000 émeraudes, et les pierres s’échangeaient depuis des siècles, au nord jusqu’aux Aztèques et au sud jusqu’aux Incas.[[gia-rainier-2016]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura et Tena, en bref",
+          "answer": "Fura et Tena formaient le premier couple, façonné par le dieu Are et tenu à la fidélité pour garder sa jeunesse. Fura rompit la promesse, tous deux vieillirent et moururent, et Are les changea en collines au-dessus du río Minero, où les larmes de Fura devinrent des émeraudes.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Les sources ne s’accordent même pas sur le peuple du dieu : Wikipédia en anglais fait d’Are un dieu muisca[[wiki-en-colombian-emeralds]], tandis que la tradition en espagnol situe l’histoire chez les Muzos, à qui appartiennent ces collines.[[wiki-es-fura-tena]] Notre long article compare toutes les versions trouvées."
+          ]
+        },
+        "meanings": {
+          "heading": "Ce que l’on prêtait aux émeraudes",
+          "note": "editorial",
+          "answer": "Dans l’Antiquité, les émeraudes étaient prisées pour plus que leur beauté : on croyait qu’elles aiguisaient l’intelligence, protégeaient le mariage, facilitaient l’accouchement et permettaient de prédire l’avenir.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Ce sont des croyances, pas des propriétés. Nous les rapportons parce qu’elles expliquent pourquoi les émeraudes comptaient pour ceux qui les extrayaient et les échangeaient, sans les reprendre comme des affirmations sur la pierre."
+          ]
+        }
+      }
+    },
+    "furaTenaLegend": {
+      "metaTitle": "La légende de Fura et Tena : toutes les versions comparées",
+      "metaDescription": "La légende de Fura et Tena comparée : version de l’ouest du Boyacá, version des tribus ennemies, version anglaise, collines et pierres de 1999.",
+      "title": "La légende de Fura et Tena, et ses versions",
+      "lead": "Deux amants, une promesse rompue, des larmes changées en émeraudes. La légende la plus connue du pays de l’émeraude se raconte différemment en espagnol et en anglais. Voici toutes les versions trouvées, côte à côte.",
+      "imageAlt": "Trois personnes debout derrière une caisse de mine en bois, parmi les fougères de l’ouest du Boyacá",
+      "sections": {
+        "short": {
+          "heading": "La réponse courte",
+          "answer": "Fura et Tena sont deux collines au-dessus du río Minero, dans l’ouest du Boyacá, et les amants de la légende émeraudière la plus connue de Colombie. Wikipédia en espagnol attribue la légende écrite à Julio Roberto Garavito.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "La légende est attachée à un paysage réel : deux collines face à face de part et d’autre du río Minero, Fura à San Pablo de Borbur et Tena à Pauna.[[wiki-es-borbur]]"
+          ]
+        },
+        "garavito": {
+          "heading": "La version racontée dans la région",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Are, le créateur, façonna Fura et Tena et leur donna une jeunesse éternelle à une condition : qu’ils ne s’aiment que l’un l’autre. Puis vint Zarbi. Fura rompit la promesse. Tena découvrit la trahison et mourut.",
+            "Fura pleura. Ses larmes devinrent des émeraudes et ses cris des papillons. Are les changea tous deux en montagnes, et dans une version Zarbi devint le torrent qui les sépare : le río Minero. C’est la version entendue sur la route et racontée dans l’épisode 2 de Fuego Verde."
+          ]
+        },
+        "enemies": {
+          "heading": "La version des tribus ennemies",
+          "answer": "Une autre version, donnée sur la page de Wikipédia en espagnol consacrée à l’émeraude Fura, fait des amants les enfants de deux caciques de tribus ennemies, épris contre la volonté de leurs familles ; après une brouille, Tena meurt et tous deux deviennent rivières et montagnes d’émeraudes.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "L’article de Wikipédia en espagnol sur l’émeraude Tena la raconte avec une fin plus dure : Tena se donne la mort, et les larmes de Fura deviennent des émeraudes.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "englishVersion": {
+          "heading": "La version en anglais",
+          "answer": "La version anglaise que trouvent la plupart des lecteurs fait de Fura et Tena deux immortels créés par le dieu muisca Are pour peupler la terre. Fura fut infidèle ; tous deux perdirent l’immortalité, vieillirent et moururent, et Are, pris de pitié, les changea en rochers protégés des tempêtes et des serpents, au fond desquels les larmes de Fura devinrent des émeraudes.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Cette version n’a pas de Zarbi et donne aux collines un rôle protecteur : elles sont « les gardiennes officielles de la zone émeraudière de Colombie ».[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "differences": {
+          "heading": "Ce qui change d’une version à l’autre",
+          "paragraphs": [
+            "Les constantes sont la promesse rompue, la mort de Tena et les larmes changées en émeraudes.[[wiki-es-fura-tena]] Le peuple change : muisca en anglais[[wiki-en-colombian-emeralds]], muzo dans la tradition en espagnol liée aux collines.[[wiki-es-fura-tena]] La cause du drame aussi : un étranger dans une version, des familles ennemies dans une autre.[[wiki-es-esmeralda-fura]]"
+          ],
+          "list": [
+            "Qui est infidèle : Fura, dans toutes les versions trouvées.",
+            "Qui meurt en premier : Tena.",
+            "Le troisième personnage : Zarbi dans la version régionale ; absent en anglais.",
+            "La rivière : le Minero, parfois Zarbi lui-même transformé."
+          ]
+        },
+        "hills": {
+          "heading": "Les collines",
+          "answer": "Les collines existent et le río Minero les sépare.[[wiki-es-fura-tena]] Laquelle est la plus haute dépend de l’article consulté.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Les altitudes varient selon la source. L’article de Wikipédia en espagnol sur les collines donne environ 840 mètres pour Tena et 500 pour Fura[[wiki-es-fura-tena]] ; celui sur Borbur attribue 800 mètres à Fura[[wiki-es-borbur]] ; Wikipédia en anglais donne les deux mêmes chiffres en inversant les collines.[[wiki-en-colombian-emeralds]]",
+            "Fura se dresse dans la vereda San Isidro, à San Pablo de Borbur ; Tena lui fait face, à Pauna.[[wiki-es-borbur]] La forêt qui les entoure est connue pour ses papillons, dont le Morpho bleu, qui garde visible un détail de la légende.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "stones": {
+          "heading": "Des émeraudes nommées Fura et Tena",
+          "answer": "En 1999, une mine de Muzo a livré un cristal brut d’environ 11 000 carats, soit 2,2 kilogrammes, baptisé Fura d’après la légende.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, d’environ 2 000 carats et d’un vert sombre, est sortie la même année et passe pour la plus précieuse des deux.[[wiki-es-esmeralda-tena]] Les deux figurent sur notre page des émeraudes célèbres."
+          ]
+        },
+        "seeing": {
+          "heading": "Les voir",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Depuis Chanares, on peut marcher jusqu’à un belvédère à travers une forêt pleine de papillons. De là, la légende cesse d’être un conte : Fura d’un côté, Tena de l’autre, et le Minero qui coule entre les deux."
+          ]
+        }
+      }
+    }
+  }
+}

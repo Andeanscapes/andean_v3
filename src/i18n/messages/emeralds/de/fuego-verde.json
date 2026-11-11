@@ -1,0 +1,357 @@
+{
+  "pages": {
+    "fuegoVerde": {
+      "navLabel": "Fuego Verde",
+      "metaTitle": "Fuego Verde: Reisen durch Kolumbiens Smaragdland",
+      "metaDescription": "Vier Dokumentarreisen durch Kolumbiens Smaragdregionen: Chivor und Green Fire, Fura und Tena, Coscuez und sein Markt, Steine mit Namen.",
+      "title": "Fuego Verde: vier Reisen in Kolumbiens Smaragdland",
+      "lead": "Eine Dokumentarserie, gedreht in den Smaragdregionen von Boyacá und Cundinamarca. Zu jeder Folge gibt es hier eine Textseite mit dem, was wir unterwegs gesehen haben, und den Dokumenten hinter jeder Angabe.",
+      "imageAlt": "Besucher mit Helmen hören in einem Smaragdstollen einem Bergmann zu",
+      "sections": {
+        "what": {
+          "heading": "Was ist Fuego Verde?",
+          "note": "editorial",
+          "paragraphs": [
+            "Fuego Verde ist eine kurze Dokumentarserie, die Andean Scapes in Kolumbiens Smaragdregionen gedreht hat. Der Name ist der spanische Titel von Green Fire, den 1942 erschienenen Memoiren des Ingenieurs, der in den 1920er-Jahren die Mine von Chivor leitete.",
+            "Die Videos sind kurz. Diese Seiten sind die lange Fassung: dieselbe Route, die im Film genannten Orte, die Geschichten aus den Dörfern und die Quellen, die sie bestätigen oder widerlegen."
+          ]
+        },
+        "twoRegions": {
+          "heading": "Zwei Regionen, ein Smaragdland",
+          "answer": "Kolumbiens Smaragde stammen aus zwei Gürteln zu beiden Seiten des Beckens der Ostkordillere, und sie sind nicht gleichzeitig entstanden: im Osten vor etwa 65 Millionen Jahren, im Westen vor 38 bis 32 Millionen Jahren.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Oriente, der östliche Gürtel, umfasst Chivor, Gachalá und Macanal. Occidente, der westliche Gürtel, umfasst Muzo, Coscuez, La Pita, Peñas Blancas und La Glorieta–Yacopí.[[gia-trapiche-2015]] Folge 1 bereist den Osten. Die Folgen 2 und 3 wechseln in den Westen. Folge 4 folgt den Steinen, die aus beiden stammen."
+          ],
+          "figure": {
+            "alt": "Schematische Karte Zentralkolumbiens mit dem westlichen Smaragdgürtel nördlich von Bogotá und dem östlichen Gürtel im Nordosten.",
+            "caption": "Die beiden Regionen, die die Serie bereist. Jeder Bergbaubezirk ist an seinem Gemeindehauptort eingezeichnet; die Linien von Bogotá aus sind Luftlinien, keine Straßen."
+          }
+        },
+        "howToRead": {
+          "heading": "So lesen Sie diese Seiten",
+          "note": "editorial",
+          "paragraphs": [
+            "Abschnitte mit der Kennzeichnung Feldnotizen geben wieder, was wir unterwegs gesehen und gehört haben. Abschnitte mit der Kennzeichnung Mündliche Überlieferung sind Geschichten aus der Region, die kein von uns gefundenes Dokument bestätigt. Alles andere ist mit einer nummerierten Quelle belegt.",
+            "Kursiv gesetzte Zitate stammen aus dem Off-Kommentar. Das spanische Original steht auf der spanischen Seite; die übrigen Sprachfassungen übersetzen es."
+          ]
+        }
+      }
+    },
+    "episodeOriente": {
+      "metaTitle": "Oriente: Chivor, Gachalá und Green Fire | Fuego Verde 1",
+      "metaDescription": "Tropisches Boyacá: Höfe, norteña, zwei Smaragdgürtel unterschiedlichen Alters, Peter Rainier in Chivor, Grace Kelly und Tee in den Anden.",
+      "title": "Folge 1. Oriente: Chivor, Gachalá und Green Fire",
+      "lead": "Eine Anti-Werbung für die Smaragdregion, ein Boyacá, das die meisten Reisenden nie sehen, und der Ingenieur, dessen Memoiren zu einem Hollywoodfilm wurden.",
+      "imageAlt": "Eine Besuchergruppe mit Bergmannshelmen an einem grasbewachsenen Hang in der Smaragdregion",
+      "sections": {
+        "hook": {
+          "heading": "Die schlechteste Tourismuskampagne Kolumbiens",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Die Folge beginnt damit, Ihnen von der Reise abzuraten. Es gibt Schlamm. Es ist heiß. Manche Straßen sind fragwürdig. Wer nach der Geschichte fragt, hört irgendwann von Gewalt.",
+            "Das alles stimmt. Es ist aber auch sehr unvollständig, und genau darum geht es in den nächsten zwanzig Minuten unterwegs."
+          ],
+          "quote": {
+            "text": "Kommen Sie nicht in die Smaragdregion. Es gibt Schlamm. Es ist heiß. Manche Straßen sind … fragwürdig.",
+            "attribution": "Fuego Verde, Folge 1 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        },
+        "otherBoyaca": {
+          "heading": "Das andere Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Die meisten Reisenden kennen ein Boyacá: Villa de Leyva, Ráquira, El Cocuy. Kalte Morgen, Páramo, eine ruana über den Schultern. Dafür hatten wir gepackt.",
+            "Das Smaragd-Boyacá ist ein anderer Ort. Tropische Berge, dichte Vegetation, Kakao, Hitze. Heiß, feucht, bäuerlich. Die erste Stunde verbrachten wir damit, die Kleidung in der Tasche zu überdenken."
+          ]
+        },
+        "borders": {
+          "heading": "Smaragde kennen keine Departementsgrenzen",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Die Smaragdkultur endet nicht an der Grenze von Boyacá. Sie reicht im Osten über Gachalá und Ubalá bis nach Cundinamarca hinein und teilt die Region in zwei Hälften: Die Leute hier sagen Oriente und Occidente, bevor sie ein Departement nennen."
+          ]
+        },
+        "table": {
+          "heading": "Höfe, avíos und norteña",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Wir kamen wegen der Minen und fanden zuerst Höfe: Rinder, Honig, Kakao. Und Essen für lange Tage unter Tage: avíos als Proviant für die Mine, carne oreada, nacumas. Smaragdsuche macht offenbar hungrig.",
+            "Der Soundtrack ist norteña, die Akkordeonmusik aus dem Norden Mexikos, die zwischen den Bergen von Boyacá und Cundinamarca aus jedem Auto und jedem Laden kommt. Sie ist das erste Zeichen, dass ein Smaragd hier selten Luxus bedeutet. Er kann die Arbeit eines ganzen Lebens bedeuten."
+          ]
+        },
+        "ages": {
+          "heading": "Zwei Gürtel, zwei Zeitalter",
+          "answer": "Die Smaragde des östlichen Gürtels entstanden vor etwa 65 Millionen Jahren, die des westlichen Gürtels vor 38 bis 32 Millionen Jahren.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Die Daten stammen aus Argon-Argon-Analysen von grünem Muskovit, einem Glimmer, der zusammen mit den Smaragden gewachsen ist; sie datieren also die Mineralisierung selbst.[[gia-trapiche-2015]] Das östliche Datum fällt auf die Kreide-Tertiär-Grenze, den Zeitpunkt, an dem die Dinosaurier verschwanden.[[gia-trapiche-2015]] Selbst im Alter widersprechen sich die beiden Regionen."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter Rainier in Chivor",
+          "answer": "Peter W. Rainier war der Bergbauingenieur, den ein New Yorker Konsortium, die Colombia Emerald Development Corporation, anstellte, um die aufgegebene Mine von Chivor wieder in Betrieb zu nehmen. Er leitete sie von 1926 bis 1931.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Rainier, 1890 in Swasiland „auf der Ladefläche eines Ochsenwagens“ geboren, kam 1926 nach Chivor und schlug einen Eisenpflock in El Púlpito, den Felsen, der die Grenze der Konzession markiert.[[gia-rainier-2016]] Unter ihm wurde die aufgegebene Mine wieder sehr profitabel; bis 1931 hatte sie 46.250 Karat gefördert, und im selben Jahr, auf dem Höhepunkt der Förderung, verlor er die Kontrolle über sie.[[gia-rainier-2016]]",
+            "Er erzählte die Geschichte in Green Fire, erschienen 1942, lange nachdem er Kolumbien verlassen hatte.[[rainier-green-fire-1942]] Er widmete das Buch unter anderem „Joaquin dem Banditen, der mich zum Duell forderte und der böseste Mensch war, dem ich je begegnet bin“.[[gia-rainier-2016]]"
+          ]
+        },
+        "film": {
+          "heading": "Chivor, Smaragde und Grace Kelly",
+          "answer": "Aus Green Fire wurde ein MGM-Film mit Grace Kelly und Stewart Granger. Er kam am 24. Dezember 1954 in New York in die Kinos.[[afi-green-fire-1954]]",
+          "paragraphs": [
+            "MGM las die Druckfahnen von Rainiers Buch im September 1942; im Dezember 1952 folgte ein Drehbuchentwurf.[[afi-green-fire-1954]] Der Film behielt den Titel und änderte fast alles andere: Laut GIA ähnelt die Handlung dem Buch nur vage.[[gia-rainier-2016]]"
+          ]
+        },
+        "cascadas": {
+          "heading": "Gachalá, Las Cascadas und der Tee",
+          "answer": "Mit seiner Frau Margaret gründete Rainier in Las Cascadas, an einem hohen Hang des Guavio-Tals bei Gachalá, die erste kommerzielle Teeplantage Südamerikas.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Der Gipfel von Chivor lag auf der anderen Talseite, 15 Kilometer flussabwärts am Guavio. Wenn Rainier in der Mine war, gaben er und Margaret sich jede Nacht mit 18-Zoll-Taschenlampen Lichtzeichen.[[gia-rainier-2016]]"
+          ],
+          "quote": {
+            "text": "Smaragde waren offenbar nicht exotisch genug. Jemand musste auch noch Tee in den Anden anbauen.",
+            "attribution": "Fuego Verde, Folge 1 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        },
+        "next": {
+          "heading": "Die andere Seite des Berges",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Schlamm, Hitze, norteña, Smaragde, Grace Kelly, Hollywood und Tee, und das war nur Oriente. Auf der anderen Seite des Berges lag der Teil der Region, vor dem wir uns noch fürchteten."
+          ]
+        }
+      }
+    },
+    "episodeOccidente": {
+      "metaTitle": "Occidente: Fura, Tena und der Fluss Minero | Fuego Verde 2",
+      "metaDescription": "Von Chiquinquirá ins westliche Boyacá: Boca de Monte, der Fluss Minero, die Hügel Fura und Tena, ihre Legende und warum Occidente mehr ist als Muzo.",
+      "title": "Folge 2. Occidente: Fura, Tena und der Fluss Minero",
+      "lead": "Eine Liebesgeschichte mit Untreue, Tod und Smaragden, deren Hauptfiguren zwei Berge sind. Es gibt sie wirklich, und man kann zwischen ihnen stehen.",
+      "imageAlt": "Ein Paar mit Helmen auf einem Motorrad auf einer bewaldeten Bergstraße",
+      "sections": {
+        "hook": {
+          "heading": "Eine Liebesgeschichte, erzählt von Bergen",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Diese Geschichte hat Liebe, Untreue, Tod und Smaragde. Das Seltsame ist, dass die Hauptfiguren zwei Berge sind, Fura und Tena, und dass es sie wirklich gibt. Um das zu verstehen, muss man zuerst die Kordillere hinunterfahren."
+          ]
+        },
+        "descent": {
+          "heading": "Von Chiquinquirá hinab",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Chiquinquirá und seine Basilika kannten wir, die Straße hinunter in diesen Teil von Boyacá nicht. Im Morgengrauen gab Boca de Monte den ersten Hinweis: Nebel, Farben und Berge, so weit das Auge reichte. Boyacá wirkte plötzlich riesig.",
+            "Dann ein Schild: Muzo. Diesen Namen kennt jeder. Smaragde, Minen, die Smaragdhauptstadt der Welt. Wir fuhren direkt daran vorbei."
+          ]
+        },
+        "mistake": {
+          "heading": "Occidente ist nicht nur Muzo",
+          "answer": "Der westliche Gürtel hat fünf Bergbaubezirke: Muzo, Coscuez, La Pita, Peñas Blancas und La Glorieta–Yacopí.[[gia-trapiche-2015]] Occidente mit Muzo gleichzusetzen, war unser erster Fehler.",
+          "paragraphs": [
+            "Maripí hat seinen Namen aus der Sprache der Muzo, in der er „rote Blume“ bedeutet.[[wiki-es-maripi]] San Pablo de Borbur nennt sich wegen der vielen Lagerstätten auf seinem Gebiet „die Smaragdgemeinde Kolumbiens“.[[wiki-es-borbur]] Unterwegs wird die Liste immer länger: Maripí mit La Pita und Cunas, Coper, Pauna, Borbur. Unsere innere Landkarte von Occidente war viel kleiner als Occidente."
+          ]
+        },
+        "river": {
+          "heading": "Der dunkle Fluss",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Hinter Pauna verändert sich der Wald, die Luft wird wärmer, und der Minero erscheint: dunkel, schwer von Sediment. Die naheliegende Erklärung ist der Bergbau, und sie stimmt nur zum Teil.",
+            "Die westlichen Smaragde liegen in schwarzen Schiefertonen und dolomitischen Kalksteinen, die 130 bis 116 Millionen Jahre alt sind.[[gia-trapiche-2015]] Der Fluss trägt dieses schwarze Gestein flussabwärts, und der Bergbau kann auf manchen Abschnitten weitere Feststoffe hinzufügen. Selbst das Wasser hatte mehr als eine Geschichte."
+          ]
+        },
+        "hills": {
+          "heading": "Fura und Tena gibt es wirklich",
+          "answer": "Fura erhebt sich in San Pablo de Borbur, Tena in Pauna; die beiden stehen sich über den Fluss Minero hinweg gegenüber.[[wiki-es-borbur]]",
+          "paragraphs": [
+            "Ihre Höhe hängt von der Quelle ab. Der Artikel der spanischen Wikipedia über die Hügel nennt etwa 840 Meter für Tena und 500 für Fura[[wiki-es-fura-tena]], der Artikel über Borbur dagegen 800 Meter für Fura.[[wiki-es-borbur]]",
+            "Die Hügel waren eine Kultstätte des Volkes der Muzo, der Sitz ihrer Götter, und der Wald um sie herum ist für seine Schmetterlinge bekannt, darunter der blaue Morphofalter.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "legend": {
+          "heading": "Die Legende, wie sie hier erzählt wird",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Fura und Tena schworen sich Liebe. Zarbi erschien. Fura brach das Versprechen. Tena entdeckte den Verrat und starb. Fura weinte: Ihre Tränen wurden zu Smaragden und ihre Schreie zu Schmetterlingen. Are verwandelte die beiden in Berge, und in einer Version wurde Zarbi zu einem Sturzbach, dem Fluss Minero.",
+            "Betrachten Sie das Tal mit diesem Wissen noch einmal: Fura auf der einen Seite, Tena auf der anderen und Zarbi, der zwischen ihnen fließt. Die schriftliche Fassung der Legende wird Julio Roberto Garavito zugeschrieben.[[wiki-es-fura-tena]]"
+          ],
+          "quote": {
+            "text": "Liebe. Untreue. Tod. Smaragde. Schmetterlinge. Im Grunde eine kolumbianische Telenovela, geschrieben in den Bergen.",
+            "attribution": "Fuego Verde, Folge 2 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        },
+        "map": {
+          "heading": "Trapiche, ein Smaragd des Westens",
+          "answer": "In Kolumbien kommen Trapiche-Smaragde, bei denen sechs dunkle Arme wie die Speichen eines Zuckermühlrads von einem Kern ausgehen, nur in den westlichen Lagerstätten Muzo, Coscuez und Peñas Blancas vor.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Der französische Mineraloge Émile Bertrand beschrieb sie erstmals 1879 und stellte „merkwürdige Smaragdkristalle … aus Muso, Neugranada“ vor.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Diagramm eines Trapiche-Smaragds im Querschnitt: ein dunkler sechseckiger Kern, sechs dunkle Arme und sechs grüne Sektoren.",
+            "caption": "Ein Trapiche-Smaragd in Blickrichtung seiner Achse. Schematisch, nicht maßstabsgetreu."
+          }
+        },
+        "next": {
+          "heading": "Was noch fehlte: die Kultur bei der Arbeit",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Bis dahin hatten wir die Landschaft, die Minen und die Legende gesehen. Noch nicht gesehen hatten wir, wie sich diese Kultur anfühlt, wenn sie lebendig ist: wenn sie arbeitet, handelt, isst und sich um einen Smaragd versammelt. Dafür fehlte noch ein Ort: Coscuez."
+          ]
+        }
+      }
+    },
+    "episodeCoscuez": {
+      "metaTitle": "Coscuez, Cielo Abierto und Plaza del Chácaro | Fuego Verde 3",
+      "metaDescription": "Coscuez ohne Filter: Schlammpisten, der Aussichtspunkt Cielo Abierto, Territorio Vásquez, die Mine, der Smaragdmarkt Plaza del Chácaro, Spiele und Essen.",
+      "title": "Folge 3. Coscuez: Cielo Abierto, die Mine und die Plaza del Chácaro",
+      "lead": "Von außen sieht Occidente nach Schlamm, Schnaps und Leuten aus, die um grüne Steine streiten. Coscuez zeigte uns, was wir nicht zu sehen verstanden.",
+      "imageAlt": "Vier Personen mit Helmen am Eingang einer Smaragdmine",
+      "sections": {
+        "hook": {
+          "heading": "Schlamm, Schnaps und grüne Steine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Von außen sieht Occidente nach Schlamm, Schnaps und Leuten aus, die um grüne Steine streiten. Das dachten wir auch, bis Coscuez. Das Problem war nicht der Ort. Es war all das, was wir nicht anzuschauen verstanden."
+          ]
+        },
+        "arrival": {
+          "heading": "Die Ankunft",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez gibt sich wenig Mühe, modern zu wirken. Schotterpiste, Schlamm, Motorräder, alte Jeeps, Wellblechhütten. Nichts, was nach Premium-Reiseziel aussieht."
+          ]
+        },
+        "cieloAbierto": {
+          "heading": "Cielo Abierto",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Oberhalb der Siedlung liegt Cielo Abierto, ein Aussichtspunkt, von dem aus sich ganz Occidente auf einmal zu öffnen scheint: Las Quinchas, Quípama, Muzo, Pauna, ein Berg hinter dem anderen.",
+            "Coscuez selbst ist einer der Hügel von San Pablo de Borbur, die einen eigenen Namen tragen, wie auch Peñas Blancas.[[wiki-es-borbur]]"
+          ]
+        },
+        "vasquez": {
+          "heading": "Territorio Vásquez",
+          "answer": "Territorio Vásquez ist keine Tourismusmarke. Von 1863 bis 1883 war es unbesiedeltes Staatsland der Republik Kolumbien, ein baldío, das das heutige Puerto Boyacá, Otanche und Borbur umfasste.[[wiki-es-territorio-vasquez]]",
+          "paragraphs": [
+            "Benannt wurde es nach Cayetano Vásquez, einem Märtyrer der Unabhängigkeit. Geschaffen wurde es vor allem, um die Straße nach Westen zu bauen und an ihr Siedlungen zu gründen, und im 19. Jahrhundert stritten die Staaten Cundinamarca und Boyacá darum.[[wiki-es-territorio-vasquez]]"
+          ]
+        },
+        "mine": {
+          "heading": "Unten in der Mine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Unten ändert sich die Geschichte: Stollen, Schlamm, Lärm, Hände. Menschen, die in den Berg gehen und darauf warten, dass die Ader endlich Farbe zeigt. Coscuez ist einer der fünf Bergbaubezirke des westlichen Gürtels.[[gia-trapiche-2015]]",
+            "Ein Smaragd beginnt nicht im Juweliergeschäft. Er beginnt hier, in Arbeit, Geduld und Dunkelheit."
+          ]
+        },
+        "chacaro": {
+          "heading": "Plaza del Chácaro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Ganz in der Nähe liegt die Plaza del Chácaro: Lehmboden, Stände, Motorräder, guaqueros, Käufer, Bergleute, die noch schwarz vom Stollen sind, und Steine, die von Hand zu Hand gehen. Manche sehen einen Smaragd fünf Sekunden lang an und wissen weit mehr als wir nach einer halben Stunde. Sie sehen Qualität, Farbe, Kristall. Wir sahen Grün.",
+            "Die unabhängige Suche, die guaquería, gibt es in den Smaragdorten des westlichen Boyacá seit mehr als siebzig Jahren.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "life": {
+          "heading": "Karten, cacho und gallina borracha",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez endet nicht an der Mine. Da sind die Musik, cacho und naipe, tomata, die Jeeps, die Gespräche. Und das Essen: arroz de fines, gallina Nicaragua, gallina borracha."
+          ],
+          "quote": {
+            "text": "Ich weiß nicht, wer diesen Gerichten ihre Namen gegeben hat, aber Angst vor klaren Worten hatte er offensichtlich nicht.",
+            "attribution": "Fuego Verde, Folge 3 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        },
+        "identity": {
+          "heading": "Das ist keine Rückständigkeit",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Man kann ein altes Hotel bauen, einen Jeep kaufen, Volksmusik auflegen und Fotos von Smaragden aufhängen. Coscuez lässt sich nicht herstellen. Hier sind die Mine, das Essen, die Spiele, die Straßen, die Geschichten und die Menschen gemeinsam gewachsen. Das ist keine Rückständigkeit. Das ist Identität.",
+            "Nachdem wir gesehen hatten, woher diese Steine kommen, blieb eine Frage: Was muss geschehen, damit ein Smaragd aufhört, ein Stein zu sein, und einen eigenen Namen bekommt? Davon handelt die nächste Folge."
+          ]
+        }
+      }
+    },
+    "episodeExtraordinary": {
+      "metaTitle": "Außergewöhnliche kolumbianische Smaragde | Fuego Verde 4",
+      "metaDescription": "Dreiphaseneinschlüsse, Fura und Tena, Patricia und die 10 Dollar, der Gachalá-Smaragd, Emilia und die Schwester, die unter einem Umhang verschwand.",
+      "title": "Folge 4. Außergewöhnliche Smaragde und der eine, der verschwand",
+      "lead": "Ein fast einen halben Meter langer Smaragd verließ eine kolumbianische Mine versteckt unter einer ruana und wurde nie wieder gesehen. Vor dem Tresor und der Vitrine gab es immer einen Berg.",
+      "imageAlt": "Zwei Männer mit Helmen und Stirnlampen neben einem unterirdischen Wasserfall",
+      "sections": {
+        "hook": {
+          "heading": "Ein Smaragd, der verschwand",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Ein fast einen halben Meter langer Smaragd verschwand. Zuerst verließ er versteckt unter einer ruana eine kolumbianische Mine. Er wurde verkauft, gelangte in die Vereinigten Staaten, und dann verlor sich seine Spur. Das geschah in Gachalá.",
+            "So wird die Geschichte in der Region erzählt. Die Dokumente erzählen eine etwas andere, weiter unten auf dieser Seite."
+          ]
+        },
+        "belts": {
+          "heading": "Vor dem Glanz",
+          "answer": "Wir lernen Smaragde erst anzusehen, wenn sie den Berg verlassen haben, geschliffen und mit einem Preis versehen. In Kolumbien stammen sie aus zwei Gürteln: Chivor und Gachalá im Osten, Muzo und Coscuez im Westen, mineralisiert vor etwa 65 bzw. vor 38 bis 32 Millionen Jahren.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Und nein, der Altersunterschied bedeutet nicht dreißig Millionen zusätzliche Jahre, um die östlichen Steine zu mästen. Es sind getrennte geologische Episoden, die jeweils Spuren in den Kristallen hinterlassen haben.[[gia-trapiche-2015]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Salzwasser, Gas und ein winziger Salzwürfel",
+          "answer": "Das markanteste Merkmal kolumbianischer Smaragde ist der gezackte Dreiphaseneinschluss: ein Hohlraum mit Salzlösung, der eine Gasblase und einen würfelförmigen Kristall enthält, meist Halit oder Sylvin, in der Regel zwischen 100 Mikrometern und 1 Millimeter groß.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Jahrelang bedeutete der Anblick dieser drei Phasen nur eines: Kolumbien. Heute kennt man ähnliche Einschlüsse in Smaragden aus Afghanistan und China sowie aus einer kleinen Lagerstätte in Musakashi in Sambia.[[gia-origin-2019]]",
+            "Die Größe entscheidet. Gezackte Flüssigkeitseinschlüsse von mehr als etwa 500 Mikrometern, also einem halben Millimeter, gibt es nur in Kolumbien, und sie gelten als diagnostischer Herkunftsnachweis.[[gia-origin-2019]] Selbst die Bläschen brauchen einen Ausweis."
+          ],
+          "figure": {
+            "alt": "Diagramm eines gezackten Flüssigkeitseinschlusses in einem Smaragd mit drei beschrifteten Phasen: Salzlösung, Gasblase und würfelförmiger Salzkristall.",
+            "caption": "Ein Dreiphaseneinschluss, der klassische Fingerabdruck kolumbianischer Smaragde. Schematisch, nicht maßstabsgetreu."
+          }
+        },
+        "giants": {
+          "heading": "Größer ist nicht besser",
+          "paragraphs": [
+            "1999 brachte Muzo Fura hervor, einen ungeschliffenen Kristall von etwa 11.000 Karat, 2,2 Kilogramm.[[wiki-es-esmeralda-fura]] Im selben Jahr kam Tena zutage, rund 2.000 Karat, weit kleiner und wegen seines dunklen, gleichmäßigen Grüns als der wertvollere der beiden gefeiert.[[wiki-es-esmeralda-tena]]",
+            "In Gachalá wog Emilia laut dem Bericht von El Tiempo aus dem Jahr 1996 7.025 Karat.[[el-tiempo-emilia-1996]] Der Größte zu sein, garantiert noch keinen Sieg."
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia und die zehn Dollar",
+          "answer": "Patricia ist ein Kristall von 632 Karat aus Chivor, der heute im American Museum of Natural History in New York liegt.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Die Kristalltasche wurde im Januar 1921 von einem Minenarbeiter namens Justo Daza geöffnet; der Verwalter griff bis zum Ellbogen in die Ader und zog den Kristall heraus.[[gia-rainier-2016]] Spanischsprachige Quellen datieren den Fund auf 1920.[[wiki-es-chivor]]",
+            "Daza soll etwa zehn Dollar erhalten haben.[[gia-rainier-2016]] Der Stein ging nach New York. Justo blieb mit zehn Dollar zurück."
+          ],
+          "quote": {
+            "text": "Personalabteilung, wir müssen reden.",
+            "attribution": "Fuego Verde, Folge 4 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        },
+        "gachala": {
+          "heading": "Schon wieder Gachalá",
+          "answer": "Der Gachalá-Smaragd ist ein 1967 gefundener Kristall von 858 Karat, der seit 1969 im National Museum of Natural History der Smithsonian Institution aufbewahrt wird.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Gerade wenn man denkt, Gachalá habe genug gezeigt, kommt noch einer. Er wurde in der Mine Vega de San Juan gefunden.[[smithsonian-gachala]]"
+          ]
+        },
+        "indiecita": {
+          "heading": "La Indiecita, die fehlt",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Im Bergbaugedächtnis von Gachalá hatte Emilia eine Schwester: reiner, fast einen halben Meter lang, unter einer ruana aus der Mine getragen, verkauft, in die Vereinigten Staaten gebracht und verschollen. Die Leute nennen sie La Indiecita.",
+            "Die schriftliche Überlieferung ist ähnlich, aber nicht gleich. 1996 hörte El Tiempo die Version des Minenbesitzers: Am Tag, an dem Emilia zum Vorschein kam, fand ein Arbeiter namens Tito Daza einen zweiten Stein, wickelte ihn in einen Umhang und verkaufte ihn Monate später; er soll in den Vereinigten Staaten weiterverkauft worden sein.[[el-tiempo-emilia-1996]] Die spanische Wikipedia beschreibt dagegen einen Stein von 8.000 Karat, den Tito Daza drei Jahre später fand und der als „La Tito“ bekannt ist.[[wiki-es-gachala]] Kein Dokument, das wir gefunden haben, nennt ihn La Indiecita.",
+            "Die Serie erwähnt außerdem zwei Geschichten, die wir nicht belegen konnten: El Monstro, einen Kristall aus Gachalá, der 16.020 Karat gewogen haben soll, und eine Explosion in Chivor, die einen Kristall zerstörte, der möglicherweise größer war als Patricia. Justo Daza, der Patricia in Chivor fand, und Tito Daza aus der Geschichte von Gachalá sind verschiedene Personen."
+          ]
+        },
+        "closing": {
+          "heading": "Was das Etikett nicht sagen kann",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Ein Labor kann Ihnen sagen, was ein Smaragd in sich trägt. Ein Museum kann Ihnen sagen, was er wiegt. Kein Etikett kann Ihnen alles erzählen, was vorher geschah. Vor New York, Washington, einem Tresor oder einer Vitrine gab es einen Berg, eine Mine und jemanden, der den Stein herausholen musste."
+          ],
+          "quote": {
+            "text": "Wenn Sie das nächste Mal einen kolumbianischen Smaragd sehen, schauen Sie nicht nur auf den Stein. Fragen Sie sich, was geschehen musste, bevor er in Ihre Hände gelangte.",
+            "attribution": "Fuego Verde, Folge 4 (Off-Kommentar, aus dem Spanischen übersetzt)"
+          }
+        }
+      }
+    }
+  }
+}

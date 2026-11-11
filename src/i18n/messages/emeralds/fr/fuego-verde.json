@@ -1,0 +1,357 @@
+{
+  "pages": {
+    "fuegoVerde": {
+      "navLabel": "Fuego Verde",
+      "metaTitle": "Fuego Verde : voyages au pays de l’émeraude colombienne",
+      "metaDescription": "Quatre voyages documentaires dans les régions émeraudières : Chivor et Green Fire, Fura et Tena, Coscuez et son marché, et les pierres qui portent un nom.",
+      "title": "Fuego Verde : quatre voyages au pays de l’émeraude",
+      "lead": "Une série documentaire tournée dans les régions émeraudières du Boyacá et du Cundinamarca. Chaque épisode a ici sa version écrite, avec ce que nous avons vu sur la route et les documents derrière chaque fait.",
+      "imageAlt": "Des visiteurs casqués écoutent un mineur dans une galerie de mine d’émeraudes",
+      "sections": {
+        "what": {
+          "heading": "Qu’est-ce que Fuego Verde ?",
+          "note": "editorial",
+          "paragraphs": [
+            "Fuego Verde est une courte série documentaire tournée par Andean Scapes dans les régions émeraudières de Colombie. Le titre traduit Green Fire, les mémoires publiés en 1942 par l’ingénieur qui dirigea la mine de Chivor dans les années 1920.",
+            "Les vidéos sont courtes. Ces pages en sont la version longue : le même trajet, les lieux qui apparaissent à l’écran, les histoires racontées dans les villages et les sources qui les confirment ou les contredisent."
+          ]
+        },
+        "twoRegions": {
+          "heading": "Deux régions, un même pays de l’émeraude",
+          "answer": "Les émeraudes colombiennes proviennent de deux ceintures, de part et d’autre du bassin de la cordillère Orientale, et elles ne se sont pas formées en même temps : il y a environ 65 millions d’années à l’est, entre 38 et 32 millions d’années à l’ouest.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "L’Oriente, la ceinture orientale, c’est Chivor, Gachalá et Macanal. L’Occidente, la ceinture occidentale, c’est Muzo, Coscuez, La Pita, Peñas Blancas et La Glorieta–Yacopí.[[gia-trapiche-2015]] L’épisode 1 parcourt l’est. Les épisodes 2 et 3 passent à l’ouest. L’épisode 4 suit les pierres sorties des deux."
+          ],
+          "figure": {
+            "alt": "Carte schématique du centre de la Colombie, avec la ceinture émeraudière occidentale au nord de Bogotá et la ceinture orientale au nord-est.",
+            "caption": "Les deux régions parcourues par la série. Chaque district minier est placé à son chef-lieu ; les lignes depuis Bogotá sont des droites, pas des routes."
+          }
+        },
+        "howToRead": {
+          "heading": "Comment lire ces pages",
+          "note": "editorial",
+          "paragraphs": [
+            "Les sections marquées Notes de terrain rapportent ce que nous avons vu et entendu en route. Celles marquées Tradition orale sont des histoires racontées dans la région qu’aucun document trouvé ne confirme. Tout le reste porte une source numérotée.",
+            "Les citations en italique viennent de la narration originale en espagnol ; les pages anglaise et française les traduisent."
+          ]
+        }
+      }
+    },
+    "episodeOriente": {
+      "metaTitle": "Oriente : Chivor, Gachalá et Green Fire | Fuego Verde 1",
+      "metaDescription": "Le Boyacá tropical : fermes, norteña, deux ceintures d’âges différents, Peter Rainier à Chivor, Grace Kelly et du thé dans les Andes.",
+      "title": "Épisode 1. Oriente : Chivor, Gachalá et Green Fire",
+      "lead": "Une anti-publicité pour la région émeraudière, un Boyacá que presque aucun voyageur ne connaît, et l’ingénieur dont les mémoires sont devenus un film d’Hollywood.",
+      "imageAlt": "Un groupe de visiteurs en casque de mineur sur un versant herbeux de la région émeraudière",
+      "sections": {
+        "hook": {
+          "heading": "La pire campagne touristique de Colombie",
+          "note": "fieldNote",
+          "paragraphs": [
+            "L’épisode commence en vous déconseillant de venir. Il y a de la boue. Il fait chaud. Certaines routes sont discutables. Et si vous demandez l’histoire, quelqu’un finit par parler de violence.",
+            "Tout cela est vrai. C’est aussi ridiculement incomplet, et c’est le sujet du reste de la route."
+          ],
+          "quote": {
+            "text": "Ne venez pas dans la région de l’émeraude. Il y a de la boue. Il fait chaud. Certaines routes sont… discutables.",
+            "attribution": "Fuego Verde, épisode 1 (narration traduite de l’espagnol)"
+          }
+        },
+        "otherBoyaca": {
+          "heading": "L’autre Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La plupart des voyageurs connaissent un seul Boyacá : Villa de Leyva, Ráquira, El Cocuy. Matins froids, páramo, ruana sur les épaules. Nous avions fait nos bagages pour celui-là.",
+            "Le Boyacá de l’émeraude est un autre pays. Montagnes tropicales, végétation dense, cacao, chaleur. Chaud, humide, paysan. Nous avons passé la première heure à reconsidérer le contenu de la valise."
+          ]
+        },
+        "borders": {
+          "heading": "L’émeraude ignore les frontières",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La culture de l’émeraude ne s’arrête pas à la limite du Boyacá. Elle continue dans le Cundinamarca, par Gachalá et Ubalá à l’est, et elle coupe la région en deux : ici, on dit Oriente et Occidente avant de dire un département."
+          ]
+        },
+        "table": {
+          "heading": "Fermes, avíos et musique norteña",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Nous sommes venus chercher des mines et avons d’abord trouvé des fermes : bétail, miel, cacao. Et une cuisine pensée pour les longues journées sous terre : les avíos emportés à la mine, la carne oreada, les nacumas. Apparemment, chercher des émeraudes ouvre l’appétit.",
+            "La bande-son est norteña, l’accordéon du nord du Mexique, qui sort de chaque voiture et de chaque boutique entre les montagnes du Boyacá et du Cundinamarca. C’est le premier signe qu’ici une émeraude signifie rarement le luxe. Elle peut représenter le travail d’une vie."
+          ]
+        },
+        "ages": {
+          "heading": "Deux ceintures, deux âges",
+          "answer": "Les émeraudes de la ceinture orientale se sont formées il y a environ 65 millions d’années ; celles de la ceinture occidentale, entre 38 et 32 millions d’années.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Les dates proviennent de la datation argon–argon de la muscovite verte, un mica qui a cristallisé avec les émeraudes : elles datent donc la minéralisation elle-même.[[gia-trapiche-2015]] La date orientale tombe à la limite Crétacé–Tertiaire, au moment de la disparition des dinosaures.[[gia-trapiche-2015]] Même par leur âge, les deux régions se contredisent."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter Rainier à Chivor",
+          "answer": "Peter W. Rainier est l’ingénieur des mines engagé par un consortium new-yorkais, la Colombia Emerald Development Corporation, pour rouvrir la mine abandonnée de Chivor. Il l’a dirigée de 1926 à 1931.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Né en 1890 au Swaziland, « à l’arrière d’un char à bœufs », Rainier arrive à Chivor en 1926 et plante un pieu de fer dans El Púlpito, le rocher qui marque la limite de la concession.[[gia-rainier-2016]] Sous sa direction, la mine abandonnée redevient très rentable ; en 1931 elle a produit 46 250 carats, et cette même année, en pleine production, il en perd le contrôle.[[gia-rainier-2016]]",
+            "Il raconte l’histoire dans Green Fire, publié en 1942, longtemps après avoir quitté la Colombie.[[rainier-green-fire-1942]] Il le dédie en partie à « Joaquin le bandit, qui m’a provoqué en duel et fut l’homme le plus malfaisant que j’aie connu ».[[gia-rainier-2016]]"
+          ]
+        },
+        "film": {
+          "heading": "Chivor, les émeraudes et Grace Kelly",
+          "answer": "Green Fire est devenu un film de la MGM avec Grace Kelly et Stewart Granger, sorti à New York le 24 décembre 1954.[[afi-green-fire-1954]]",
+          "paragraphs": [
+            "La MGM lit les épreuves du livre de Rainier en septembre 1942 ; un traitement de scénario suit en décembre 1952.[[afi-green-fire-1954]] Le film garde le titre et change presque tout le reste : le GIA décrit son intrigue comme vaguement semblable au livre.[[gia-rainier-2016]]"
+          ]
+        },
+        "cascadas": {
+          "heading": "Gachalá, Las Cascadas et le thé",
+          "answer": "Avec son épouse Margaret, Rainier a fondé la première plantation commerciale de thé d’Amérique du Sud à Las Cascadas, sur un haut versant de la vallée du Guavio, près de Gachalá.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Le sommet de Chivor se trouvait de l’autre côté de la vallée, à 15 kilomètres en aval sur le Guavio. Quand Rainier était à la mine, Margaret et lui se faisaient signe chaque soir avec des lampes de 18 pouces.[[gia-rainier-2016]]"
+          ],
+          "quote": {
+            "text": "Apparemment, les émeraudes n’étaient pas assez exotiques. Il fallait aussi cultiver du thé dans les Andes.",
+            "attribution": "Fuego Verde, épisode 1 (narration traduite de l’espagnol)"
+          }
+        },
+        "next": {
+          "heading": "De l’autre côté de la montagne",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Boue, chaleur, norteña, émeraudes, Grace Kelly, Hollywood et thé, et nous ne connaissions encore que l’Oriente. De l’autre côté de la montagne se trouvait la partie de la région que nous avions encore peur de découvrir."
+          ]
+        }
+      }
+    },
+    "episodeOccidente": {
+      "metaTitle": "Occidente : Fura, Tena et le río Minero | Fuego Verde 2",
+      "metaDescription": "De Chiquinquirá vers l’ouest du Boyacá : Boca de Monte, le río Minero, les collines de Fura et Tena et un Occidente bien plus vaste que Muzo.",
+      "title": "Épisode 2. Occidente : Fura, Tena et le río Minero",
+      "lead": "Une histoire d’amour avec infidélité, mort et émeraudes, dont les héros sont deux montagnes. Elles existent, et l’on peut se tenir entre elles.",
+      "imageAlt": "Un couple casqué à moto sur une route de montagne boisée",
+      "sections": {
+        "hook": {
+          "heading": "Une histoire d’amour racontée par des montagnes",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Cette histoire a de l’amour, de l’infidélité, de la mort et des émeraudes. Le plus étrange : les héros sont deux montagnes, Fura et Tena, et elles existent. Pour comprendre pourquoi, il faut d’abord descendre la cordillère."
+          ]
+        },
+        "descent": {
+          "heading": "En descendant de Chiquinquirá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Chiquinquirá et sa basilique étaient familières ; la route vers cette partie du Boyacá ne l’était pas. À l’aube, Boca de Monte a donné le premier indice : brouillard, couleurs, et des montagnes à perte de vue. Soudain, le Boyacá paraissait immense.",
+            "Puis un panneau : Muzo. Ce nom-là, tout le monde le connaît. Émeraudes, mines, capitale mondiale de l’émeraude. Nous avons continué tout droit. Muzo attendra."
+          ]
+        },
+        "mistake": {
+          "heading": "L’Occidente, ce n’est pas seulement Muzo",
+          "answer": "La ceinture occidentale compte cinq districts miniers : Muzo, Coscuez, La Pita, Peñas Blancas et La Glorieta–Yacopí.[[gia-trapiche-2015]] Croire que l’Occidente se résumait à Muzo fut notre première erreur.",
+          "paragraphs": [
+            "Maripí tire son nom de la langue muzo, où il signifie « fleur rouge ».[[wiki-es-maripi]] San Pablo de Borbur se présente comme « la commune émeraude de Colombie » pour le nombre de gisements sur son territoire.[[wiki-es-borbur]] Sur la route, la liste ne cesse de s’allonger : Maripí avec La Pita et Cunas, Coper, Pauna, Borbur. Notre carte mentale de l’Occidente était bien plus petite que l’Occidente."
+          ]
+        },
+        "river": {
+          "heading": "La rivière sombre",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Après Pauna, la forêt change, l’air se réchauffe et apparaît le Minero : sombre, chargé de sédiments. L’explication évidente est la mine, et ce n’est qu’une partie de l’histoire.",
+            "Les émeraudes occidentales se trouvent dans des schistes noirs et des calcaires dolomitiques vieux de 130 à 116 millions d’années.[[gia-trapiche-2015]] La rivière charrie cette roche noire, et l’activité minière peut augmenter les matières en suspension par endroits. Même l’eau avait plus d’une histoire."
+          ]
+        },
+        "hills": {
+          "heading": "Fura et Tena existent",
+          "answer": "Fura s’élève à San Pablo de Borbur et Tena à Pauna, face à face, séparées par le río Minero.[[wiki-es-borbur]]",
+          "paragraphs": [
+            "Leur altitude dépend de la source. L’article de Wikipédia en espagnol sur les collines donne environ 840 mètres pour Tena et 500 pour Fura[[wiki-es-fura-tena]], tandis que l’article sur Borbur attribue 800 mètres à Fura.[[wiki-es-borbur]]",
+            "Les collines étaient un lieu de culte du peuple muzo, siège de ses dieux, et la forêt qui les entoure est connue pour ses papillons, dont le Morpho bleu.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "legend": {
+          "heading": "La légende, telle qu’on la raconte ici",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Fura et Tena se jurent amour. Zarbi apparaît. Fura rompt la promesse. Tena découvre la trahison et meurt. Fura pleure : ses larmes deviennent des émeraudes et ses cris des papillons. Are les change tous deux en montagnes, et dans une version Zarbi devient un torrent, le río Minero.",
+            "Regardez à nouveau la vallée avec cela en tête : Fura d’un côté, Tena de l’autre, et Zarbi qui coule entre les deux. La légende écrite est attribuée à Julio Roberto Garavito.[[wiki-es-fura-tena]]"
+          ],
+          "quote": {
+            "text": "L’amour. L’infidélité. La mort. Des émeraudes. Des papillons. En somme, une telenovela colombienne écrite dans les montagnes.",
+            "attribution": "Fuego Verde, épisode 2 (narration traduite de l’espagnol)"
+          }
+        },
+        "map": {
+          "heading": "Trapiche, une émeraude de l’ouest",
+          "answer": "En Colombie, les émeraudes trapiche, avec six bras sombres partant d’un noyau comme les rayons d’une roue de moulin à canne, ne se trouvent que dans les gisements occidentaux de Muzo, Coscuez et Peñas Blancas.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Le minéralogiste français Émile Bertrand les a décrites pour la première fois en 1879, en présentant de « curieux cristaux d’émeraude… de Muso, Nouvelle-Grenade ».[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Schéma de la section d’une émeraude trapiche : un noyau hexagonal sombre, six bras sombres et six secteurs verts.",
+            "caption": "Une émeraude trapiche vue dans l’axe. Schéma, pas à l’échelle."
+          }
+        },
+        "next": {
+          "heading": "Il manquait la culture au travail",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Jusque-là, nous avions vu le paysage, les mines et la légende. Il restait à voir comment cette culture se vit quand elle est vivante : quand elle travaille, négocie, mange et se réunit autour d’une émeraude. Pour cela, il manquait un lieu : Coscuez."
+          ]
+        }
+      }
+    },
+    "episodeCoscuez": {
+      "metaTitle": "Coscuez et la Plaza del Chácaro | Fuego Verde 3",
+      "metaDescription": "Coscuez sans filtre : routes en terre, le belvédère de Cielo Abierto, le Territorio Vásquez, la mine, le marché de la Plaza del Chácaro, les jeux et la cuisine.",
+      "title": "Épisode 3. Coscuez : Cielo Abierto, la mine et la Plaza del Chácaro",
+      "lead": "Vu de l’extérieur, l’Occidente ressemble à de la boue, de l’alcool et des gens qui se battent pour des pierres vertes. Coscuez nous a montré ce que nous ne savions pas regarder.",
+      "imageAlt": "Quatre personnes casquées à l’entrée d’une mine d’émeraudes",
+      "sections": {
+        "hook": {
+          "heading": "Boue, alcool et pierres vertes",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Vu de l’extérieur, l’Occidente ressemble à de la boue, de l’alcool et des gens qui se battent pour des pierres vertes. Nous le pensions aussi, jusqu’à Coscuez. Le problème n’était pas le lieu. C’était tout ce que nous ne savions pas regarder."
+          ]
+        },
+        "arrival": {
+          "heading": "L’arrivée",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez ne fait pas beaucoup d’efforts pour paraître moderne. Piste en terre, boue, motos, vieilles jeeps, cabanes en tôle. Rien qui évoque une « destination premium »."
+          ]
+        },
+        "cieloAbierto": {
+          "heading": "Cielo Abierto",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Au-dessus se trouve Cielo Abierto, un belvédère d’où tout l’Occidente semble s’ouvrir : Las Quinchas, Quípama, Muzo, Pauna, une montagne derrière l’autre.",
+            "Coscuez est l’une des collines nommées de San Pablo de Borbur, avec Peñas Blancas.[[wiki-es-borbur]]"
+          ]
+        },
+        "vasquez": {
+          "heading": "Territorio Vásquez",
+          "answer": "Le Territorio Vásquez n’est pas une marque touristique. Entre 1863 et 1883, ce fut une terre publique vacante de la République de Colombie, un baldío, couvrant les actuelles communes de Puerto Boyacá, Otanche et Borbur.[[wiki-es-territorio-vasquez]]",
+          "paragraphs": [
+            "Il doit son nom à Cayetano Vásquez, martyr de l’indépendance. Il fut créé surtout pour construire la route de l’ouest et fonder des villages le long de celle-ci, et au XIXe siècle les États de Cundinamarca et de Boyacá se le disputèrent.[[wiki-es-territorio-vasquez]]"
+          ]
+        },
+        "mine": {
+          "heading": "En bas, dans la mine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "En bas, l’histoire change : galeries, boue, bruit, mains. Des gens qui entrent dans la montagne en attendant que la veine finisse par montrer sa couleur. Coscuez est l’un des cinq districts miniers de la ceinture occidentale.[[gia-trapiche-2015]]",
+            "Une émeraude ne commence pas dans une bijouterie. Elle commence ici, dans le travail, la patience et l’obscurité."
+          ]
+        },
+        "chacaro": {
+          "heading": "La Plaza del Chácaro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Tout près se trouve la Plaza del Chácaro : sol en terre, étals, motos, guaqueros, acheteurs, mineurs encore noircis par la galerie, et des pierres qui passent de main en main. Certains regardent une émeraude cinq secondes et en savent bien plus que nous après une demi-heure. Ils voient la qualité, la couleur, le cristal. Nous, du vert.",
+            "La guaquería, la recherche indépendante d’émeraudes, existe dans les villages de l’ouest du Boyacá depuis plus de soixante-dix ans.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "life": {
+          "heading": "Cartes, cacho et gallina borracha",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez ne s’arrête pas à la mine. Il y a aussi la musique, le cacho et les cartes, la tomata, les jeeps, les conversations. Et la cuisine : arroz de fines, gallina Nicaragua, gallina borracha."
+          ],
+          "quote": {
+            "text": "Je ne sais pas qui a baptisé ces plats, mais visiblement il n’avait pas peur de s’engager sur un nom.",
+            "attribution": "Fuego Verde, épisode 3 (narration traduite de l’espagnol)"
+          }
+        },
+        "identity": {
+          "heading": "Ce n’est pas du retard",
+          "note": "fieldNote",
+          "paragraphs": [
+            "On peut construire un vieil hôtel, acheter une jeep, mettre de la musique populaire et accrocher des photos d’émeraudes. On ne peut pas fabriquer Coscuez. Ici, la mine, la cuisine, les jeux, les routes, les histoires et les gens ont grandi ensemble. Ce n’est pas du retard. C’est une identité.",
+            "Après avoir vu d’où viennent ces pierres, une question restait : que doit-il se passer pour qu’une émeraude cesse d’être une pierre et finisse par porter un nom ? C’est le sujet de l’épisode suivant."
+          ]
+        }
+      }
+    },
+    "episodeExtraordinary": {
+      "metaTitle": "Émeraudes extraordinaires | Fuego Verde 4",
+      "metaDescription": "Inclusions triphasées, Fura et Tena, Patricia et la prime de dix dollars, l’émeraude de Gachalá, Emilia et la sœur disparue sous une cape.",
+      "title": "Épisode 4. Émeraudes extraordinaires, et celle qui a disparu",
+      "lead": "Une émeraude de près d’un demi-mètre est sortie d’une mine colombienne cachée sous une ruana et n’a jamais été revue. Avant le coffre et la vitrine, il y a toujours eu une montagne.",
+      "imageAlt": "Deux hommes casqués avec lampe frontale près d’une cascade souterraine",
+      "sections": {
+        "hook": {
+          "heading": "Une émeraude qui a disparu",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Une émeraude de près d’un demi-mètre a disparu. Elle est d’abord sortie d’une mine colombienne cachée sous une ruana. Elle a été vendue, elle est arrivée aux États-Unis, puis sa trace s’est perdue. C’était à Gachalá.",
+            "C’est ainsi qu’on la raconte dans la région. Les documents racontent une histoire un peu différente, plus bas sur cette page."
+          ]
+        },
+        "belts": {
+          "heading": "Avant l’éclat",
+          "answer": "On nous a appris à regarder les émeraudes une fois sorties de la montagne, polies et chiffrées. En Colombie, elles viennent de deux ceintures : Chivor et Gachalá à l’est, Muzo et Coscuez à l’ouest, minéralisées il y a environ 65 et entre 38 et 32 millions d’années.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Et non, l’écart d’âge ne veut pas dire trente millions d’années de plus pour faire grossir les émeraudes de l’est. Ce sont des épisodes géologiques distincts, et chacun a laissé des indices dans le cristal.[[gia-trapiche-2015]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "De l’eau salée, du gaz et un minuscule cube de sel",
+          "answer": "Le trait le plus reconnaissable des émeraudes colombiennes est l’inclusion triphasée dentelée : une cavité de saumure qui contient une bulle de gaz et un cristal cubique, en général de l’halite ou de la sylvite, de 100 micromètres à 1 millimètre.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Pendant des années, voir ces trois phases faisait aussitôt penser à la Colombie. On connaît aujourd’hui des inclusions semblables dans des émeraudes d’Afghanistan et de Chine, et d’un gisement mineur à Musakashi, en Zambie.[[gia-origin-2019]]",
+            "La taille tranche. Les inclusions fluides dentelées de plus d’environ 500 micromètres, un demi-millimètre, sont propres à la Colombie et valent preuve diagnostique de l’origine.[[gia-origin-2019]] Même les bulles ont besoin d’une carte d’identité."
+          ],
+          "figure": {
+            "alt": "Schéma d’une inclusion fluide dentelée dans une émeraude, avec trois phases indiquées : saumure, bulle de gaz et cristal cubique de sel.",
+            "caption": "Une inclusion triphasée, l’empreinte classique des émeraudes colombiennes. Schéma, pas à l’échelle."
+          }
+        },
+        "giants": {
+          "heading": "La plus grosse ne gagne pas toujours",
+          "paragraphs": [
+            "En 1999, Muzo a livré la Fura, un cristal brut d’environ 11 000 carats, soit 2,2 kilogrammes.[[wiki-es-esmeralda-fura]] La même année est apparue la Tena, d’environ 2 000 carats, bien plus petite et célébrée comme la plus précieuse des deux pour son vert sombre et régulier.[[wiki-es-esmeralda-tena]]",
+            "À Gachalá, Emilia pesait 7 025 carats selon le récit publié par El Tiempo en 1996.[[el-tiempo-emilia-1996]] Être la plus grosse ne garantit pas de gagner."
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia et les dix dollars",
+          "answer": "Patricia est un cristal de 632 carats de Chivor, aujourd’hui conservé à l’American Museum of Natural History de New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "La poche a été ouverte en janvier 1921 par un ouvrier de la mine nommé Justo Daza ; le directeur a plongé le bras dans la veine jusqu’au coude et en a sorti le cristal.[[gia-rainier-2016]] Les sources en espagnol datent la découverte de 1920.[[wiki-es-chivor]]",
+            "Daza aurait reçu une dizaine de dollars.[[gia-rainier-2016]] La pierre est partie à New York. Justo, avec dix dollars."
+          ],
+          "quote": {
+            "text": "Ressources humaines, il faut qu’on parle.",
+            "attribution": "Fuego Verde, épisode 4 (narration traduite de l’espagnol)"
+          }
+        },
+        "gachala": {
+          "heading": "Gachalá, encore",
+          "answer": "L’émeraude de Gachalá est un cristal de 858 carats découvert en 1967 et conservé au Muséum national d’histoire naturelle du Smithsonian depuis 1969.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Au moment où l’on croit que Gachalá en a assez montré, en voici une autre. Elle est sortie de la mine de Vega de San Juan.[[smithsonian-gachala]]"
+          ]
+        },
+        "indiecita": {
+          "heading": "La Indiecita, celle qui manque",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Dans la mémoire minière de Gachalá, Emilia avait une sœur : plus pure, longue de près d’un demi-mètre, sortie de la mine sous une ruana, vendue, emportée aux États-Unis et perdue. On l’appelle La Indiecita.",
+            "Les archives sont proches, sans être identiques. En 1996, El Tiempo a recueilli la version du propriétaire de la mine : le jour où Emilia est apparue, un ouvrier nommé Tito Daza a trouvé une seconde pierre, l’a enveloppée dans une cape et l’a vendue quelques mois plus tard ; on disait qu’elle avait été revendue aux États-Unis.[[el-tiempo-emilia-1996]] Wikipédia en espagnol décrit plutôt une pierre de 8 000 carats trouvée par Tito Daza trois ans plus tard et connue sous le nom de « La Tito ».[[wiki-es-gachala]] Aucun document que nous avons trouvé ne l’appelle La Indiecita.",
+            "La série évoque aussi deux histoires que nous n’avons pas pu documenter : El Monstro, un cristal de Gachalá qui aurait pesé 16 020 carats, et une explosion à Chivor qui aurait détruit un cristal peut-être plus grand que Patricia. Justo Daza, qui a trouvé Patricia à Chivor, et Tito Daza, de l’histoire de Gachalá, sont deux personnes différentes."
+          ]
+        },
+        "closing": {
+          "heading": "Ce que l’étiquette ne dit pas",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Un laboratoire peut vous dire ce qu’une émeraude contient. Un musée, combien elle pèse. Aucune étiquette ne raconte tout ce qui s’est passé avant. Avant New York, Washington, un coffre ou une vitrine, il y a eu une montagne, une mine, et quelqu’un qui a dû l’en sortir."
+          ],
+          "quote": {
+            "text": "La prochaine fois que vous verrez une émeraude colombienne, ne regardez pas seulement la pierre. Demandez-vous ce qu’il a fallu pour qu’elle arrive entre vos mains.",
+            "attribution": "Fuego Verde, épisode 4 (narration traduite de l’espagnol)"
+          }
+        }
+      }
+    }
+  }
+}

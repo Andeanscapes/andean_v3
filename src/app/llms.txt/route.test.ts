@@ -5,6 +5,7 @@ import { EXPERIENCE_METADATA_NAMESPACE } from '@/i18n/mappings/experience';
 import { cloneFixture, EXPERIENCES_LIST_FIXTURE } from '@/test/fixtures';
 import { SITE_INFO } from '@/constant/SiteConfig';
 import { GUIDES } from '@/lib/content/guides.structure';
+import { EMERALD_PAGES, emeraldPath } from '@/lib/content/emeralds.structure';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: async (options: { locale: string; namespace?: string }) =>
@@ -45,6 +46,17 @@ describe('llms.txt', () => {
     expect(body).toContain('## Guides');
     for (const guide of GUIDES) {
       expect(body).toContain(`${SITE_INFO.url}/guides/${guide.slug}`);
+    }
+  });
+
+  it('lists every Emerald World page with its English URL', async () => {
+    vi.stubEnv('REMOTE_DATA_BASE_URL', 'https://cdn.andeanscapes.com/services');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify(cloneFixture(EXPERIENCES_LIST_FIXTURE)))));
+
+    const body = await (await GET()).text();
+    expect(body).toContain('## Emerald World');
+    for (const page of EMERALD_PAGES) {
+      expect(body).toContain(`${SITE_INFO.url}${emeraldPath(page)}`);
     }
   });
 

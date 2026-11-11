@@ -1,0 +1,87 @@
+{
+  "pages": {
+    "hub": {
+      "metaTitle": "Émeraudes colombiennes : mines, légendes, histoire",
+      "metaDescription": "Les émeraudes colombiennes expliquées : ce qu’est une émeraude, où on l’extrait, Muzo et Chivor, pierres célèbres, légendes, guerres vertes et culture minière.",
+      "title": "Émeraudes colombiennes : mines, légendes et histoire",
+      "lead": "Monde Émeraude est notre référence sourcée sur les émeraudes colombiennes : la gemme elle-même, les deux ceintures minières, les pierres qui portent un nom, les légendes, les guerres vertes et la vie de ceux qui les cherchent.",
+      "imageAlt": "Deux voyageurs, les bras levés, face à des sommets verdoyants, abrupts et boisés, en Colombie",
+      "sections": {
+        "what": {
+          "heading": "Qu’est-ce que Monde Émeraude ?",
+          "note": "editorial",
+          "answer": "Monde Émeraude est la bibliothèque de référence d’Andean Scapes sur les émeraudes, centrée sur la Colombie : leur origine, leur formation, les mines et villages qui les produisent, les pierres qui ont marqué l’histoire et la culture de ceux qui les extraient. Chaque page distingue la légende du fait documenté et cite ses sources.",
+          "paragraphs": [
+            "Nous travaillons à Chivor, dans la ceinture émeraudière orientale de la Colombie, et les voyageurs nous posaient toujours les mêmes questions : pourquoi les émeraudes colombiennes sont-elles si célèbres, comment fonctionne vraiment une mine, que raconte la légende de Fura et Tena, que s’est-il passé pendant les guerres vertes. Monde Émeraude est l’endroit où nous y répondons avec rigueur.",
+            "Commencez par Fuego Verde, nos quatre voyages documentaires dans l’Oriente, l’Occidente, à Coscuez et parmi les pierres qui portent un nom. Puis approfondissez par thème : mythologie, les guerres vertes racontées une à une, les émeraudes célèbres avec chaque poids donné par chaque source, et la culture de ceux qui extraient et qui cherchent."
+          ]
+        },
+        "emerald": {
+          "heading": "Qu’est-ce qu’une émeraude, et pourquoi les colombiennes sont-elles célèbres ?",
+          "answer": "L’émeraude est la variété verte à vert bleuté du béryl.[[gia-emerald-description]] La Colombie en est le premier producteur et représenterait de 70 à 90 % du marché mondial de l’émeraude.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Le chrome, le vanadium et le fer donnent sa couleur à l’émeraude. On prête aux colombiennes un vert pur plus chaud et plus intense qu’aux zambiennes, même si le GIA rappelle que l’apparence se recoupe d’une origine à l’autre.[[gia-emerald-quality]]",
+            "Les émeraudes fines et extra-fines sont extrêmement rares, alors que les pierres de qualité commerciale abondent.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "belts": {
+          "heading": "D’où viennent les émeraudes colombiennes ?",
+          "answer": "Les émeraudes colombiennes proviennent de deux ceintures, de part et d’autre du bassin de la cordillère Orientale. La ceinture occidentale regroupe les districts miniers de Muzo, Coscuez, La Pita, Peñas Blancas et La Glorieta–Yacopí ; la ceinture orientale, ceux de Chivor, Gachalá et Macanal.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Les deux ceintures ne se sont pas formées en même temps. La datation de la muscovite verte qui a cristallisé avec les émeraudes donne environ 65 millions d’années pour la ceinture orientale, à la limite Crétacé–Tertiaire, et entre 38 et 32 millions d’années pour la ceinture occidentale.[[gia-trapiche-2015]] En Colombie, les émeraudes trapiche, avec six bras sombres partant du centre, ne se trouvent que dans les gisements occidentaux de Muzo, Coscuez et Peñas Blancas.[[gia-trapiche-2015]]",
+            "La ceinture orientale a sa propre histoire. L’ingénieur des mines Peter W. Rainier a dirigé Chivor de 1926 à 1931.[[gia-rainier-2016]] Ses mémoires, Green Fire, ont paru en 1942[[rainier-green-fire-1942]], et la MGM en a tiré un film avec Grace Kelly et Stewart Granger, sorti à New York en décembre 1954.[[afi-green-fire-1954]] En 1967, la mine de Vega de San Juan, à Gachalá, a livré un cristal de 858 carats, aujourd’hui au Muséum national d’histoire naturelle du Smithsonian.[[smithsonian-gachala]]"
+          ],
+          "figure": {
+            "alt": "Carte schématique du centre de la Colombie. La ceinture émeraudière occidentale (Muzo, San Pablo de Borbur, Maripí, Yacopí) se trouve au nord de Bogotá ; la ceinture orientale (Chivor, Macanal, Gachalá), au nord-est.",
+            "caption": "Les deux ceintures émeraudières, chaque district minier placé à son chef-lieu. Les lignes depuis Bogotá sont des droites, pas des routes."
+          }
+        },
+        "culture": {
+          "heading": "La culture de l’émeraude ne se résume pas aux mines",
+          "note": "fieldNote",
+          "answer": "Dans les régions émeraudières de Colombie, une émeraude est rarement synonyme de luxe. Elle peut représenter le travail de toute une vie. Autour des mines, il y a des fermes, du bétail, du cacao et du miel, des provisions pour les longues journées, de la musique norteña à la radio et des places où les pierres s’échangent à découvert.",
+          "paragraphs": [
+            "Beaucoup de voyageurs imaginent le Boyacá comme un haut plateau froid. Les régions émeraudières sont différentes : des montagnes tropicales, chaudes et humides, où la culture minière déborde aussi sur le Cundinamarca, car les émeraudes n’ont jamais respecté les frontières départementales.",
+            "Cette culture vivante est la partie qui apparaît rarement dans un moteur de recherche, et c’est celle que nous documentons sur le terrain. Ce que vous lisez ici à son sujet relève de notre propre observation dans les villages et les mines, et les histoires racontées sur place sont présentées comme tradition orale lorsqu’aucun document ne les confirme."
+          ],
+          "list": [
+            "L’Oriente : Chivor, Gachalá et la vallée du Guavio, où Rainier a vécu et travaillé.[[gia-rainier-2016]]",
+            "L’Occidente : Muzo, Coscuez, Pauna, Borbur et les collines de Fura et Tena au-dessus du río Minero.",
+            "Les gens : mineurs, chercheurs indépendants (guaqueros) et familles qui vivent autour des mines."
+          ]
+        },
+        "method": {
+          "heading": "Notre méthode de recherche",
+          "note": "editorial",
+          "paragraphs": [
+            "Les faits documentés sont liés aux sources citées à la fin de chaque page, et nous privilégions les sources scientifiques et muséales comme Gems & Gemology et le Smithsonian, les archives et la presse colombiennes et les documents primaires. Ce que nous avons observé sur le terrain est présenté comme notre propre observation. Lorsque les sources divergent, nous présentons les deux versions.",
+            "Nous ne citons jamais d’agences de voyages, de joailliers ni de vendeurs d’émeraudes : rien ici n’est écrit pour vous vendre une pierre. Les dates indiquent la dernière vérification de chaque page, et nous corrigeons les erreurs dès que de nouvelles preuves apparaissent."
+          ],
+          "list": [
+            "La légende est présentée comme légende, la tradition orale comme tradition orale, et le fait documenté est sourcé.",
+            "Les poids, dates et lieux de conservation des pierres célèbres proviennent de l’institution qui les détient.",
+            "L’histoire sensible, comme les guerres vertes, est racontée à partir de sources colombiennes en espagnol et de la mémoire des communautés."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Où extrait-on les émeraudes en Colombie ?",
+          "answer": "Surtout dans le Boyacá et le Cundinamarca. Les trois grandes mines sont Muzo, Coscuez et Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Pourquoi les émeraudes colombiennes sont-elles si précieuses ?",
+          "answer": "La Colombie produit la plupart des belles émeraudes du monde, et les plus fines associent un vert pur intense à une grande transparence, ce qui est rare.[[wiki-en-colombian-emeralds]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "Les émeraudes colombiennes sont-elles meilleures que les zambiennes ?",
+          "answer": "Pas automatiquement. Les zambiennes sont souvent plus sombres car plus riches en fer, et la valeur dépend de chaque pierre, l’apparence se recoupant d’une origine à l’autre.[[gia-origin-2019]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "Qu’est-ce qu’une émeraude trapiche ?",
+          "answer": "Une émeraude dont six bras sombres partent d’un noyau comme les rayons d’une roue. En Colombie, elles ne viennent que de Muzo, Coscuez et Peñas Blancas.[[gia-trapiche-2015]]"
+        }
+      ]
+    }
+  }
+}

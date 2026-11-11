@@ -4,6 +4,7 @@ import { locales } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { SITE_INFO } from '@/constant/SiteConfig';
 import { GUIDES, guidePath } from '@/lib/content/guides.structure';
+import { EMERALDS_ROOT } from '@/lib/content/emeralds.structure';
 import { getGuideContentSSR, getGuidesUiSSR } from '@/lib/services/guides.service';
 import { Card } from '@/components/ui/Card/Card';
 import ExperienceCardImage from '@/components/ExperienceList/ExperienceCardImage';
@@ -113,6 +114,15 @@ export default async function GuidesHubPage({ params }: GuidesHubParams) {
             </li>
           ))}
         </ul>
+        <p className="mt-10 text-sm leading-relaxed text-base-content/75 md:text-base">
+          {ui('ui.emeraldWorldBody')}{' '}
+          <Link
+            href={EMERALDS_ROOT}
+            className="rounded-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            {ui('ui.emeraldWorldCta')}
+          </Link>
+        </p>
       </section>
     </>
   );

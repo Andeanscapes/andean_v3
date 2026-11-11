@@ -1,0 +1,317 @@
+{
+  "pages": {
+    "greenWars": {
+      "navLabel": "Guerras verdes",
+      "metaTitle": "Guerras verdes: los conflictos esmeralderos, 1965–1990",
+      "metaDescription": "Las tres guerras verdes por las minas de esmeraldas, contadas como hechos: fechas, causas, el costo para los pueblos y la paz de 1990.",
+      "title": "Las guerras verdes: los conflictos esmeralderos de Colombia",
+      "lead": "Durante un cuarto de siglo los pueblos esmeralderos del occidente de Boyacá vivieron tres guerras por las minas. Esto fue lo que pasó, guerra por guerra, según fuentes colombianas, y cómo terminó.",
+      "imageAlt": "Mineros y visitantes con casco alrededor de una vagoneta oxidada entre helechos",
+      "sections": {
+        "what": {
+          "heading": "¿Qué fueron las guerras verdes?",
+          "answer": "Las guerras verdes son el nombre de una serie de conflictos entre esmeralderos en Colombia, librados sobre todo en Boyacá, aunque su violencia alcanzó otros lugares del país. Las fuentes cuentan tres guerras entre 1965 y 1990.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "El registro en español une esmeraldas y violencia desde los años cincuenta, cuando los pájaros de la Violencia bipartidista llegaron a Boyacá.[[semana-molano-2017]] Casi todo lo que sigue viene de prensa y libros colombianos, resumidos aquí también para lectores que no leen español.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "approach": {
+          "heading": "Por qué esta sección no nombra a nadie",
+          "note": "editorial",
+          "paragraphs": [
+            "La prensa colombiana nombra a los patrones de cada bando. Nosotros contamos los hechos y lo que significaron para los pueblos, los guaqueros y las familias, no las biografías de quienes dirigieron las guerras. Las fuentes al final de cada página cubren el resto."
+          ]
+        },
+        "timeline": {
+          "heading": "Línea de tiempo",
+          "answer": "Los conflictos nacieron de un siglo de concesiones estatales y de una fiebre esmeraldera en los sesenta, y terminaron con una paz firmada en julio de 1990.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Las fechas cambian entre fuentes, a veces por años; cada artículo de esta sección muestra las versiones una al lado de la otra.[[wiki-es-guerras-verdes]][[semana-reinsercion-1992]]"
+          ],
+          "timeline": [
+            {
+              "date": "1827–1828",
+              "text": "El Ministerio de Hacienda de la nueva república entrega las minas de Muzo a un general y a dos particulares. Las fuentes no coinciden en el año.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+            },
+            {
+              "date": "1947",
+              "text": "El Banco de la República asume la explotación directa de las minas de esmeraldas, salvo Chivor.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "Años 50",
+              "text": "La relación entre esmeraldas y violencia se hace visible con la llegada a Boyacá de los pájaros de la Violencia.[[semana-molano-2017]]"
+            },
+            {
+              "date": "1965–1975",
+              "text": "Primera guerra verde. Más de 1.200 muertos en Chiquinquirá, Muzo, Coscuez, Borbur y Somondoco.[[semana-molano-2017]]"
+            },
+            {
+              "date": "17 de julio de 1973",
+              "text": "El Gobierno cierra las minas y saca su explotación a licitación pública.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1975–1978",
+              "text": "Segunda guerra verde, que termina con el primer pacto de paz entre esmeralderos del occidente de Boyacá.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "1984–1990",
+              "text": "Tercera guerra verde, la más mortífera, mezclada con narcotráfico, guerrilla y grupos paramilitares.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "6 de junio de 1990",
+              "text": "Se pacta un cese al fuego en una gallera abandonada de Quípama.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "12 de julio de 1990",
+              "text": "La paz se firma públicamente con una declaración de respeto a la vida.[[semana-reinsercion-1992]]"
+            }
+          ]
+        },
+        "counting": {
+          "heading": "Cuántos murieron",
+          "answer": "Nadie tiene una cifra exacta, y los números publicados varían mucho. Hay que leerlos como órdenes de magnitud, no como estadísticas.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Para la primera guerra: más de 1.200 muertos según Alfredo Molano[[semana-molano-2017]]; al menos 1.000 entre 1967 y 1973 según Semana en 1992.[[semana-reinsercion-1992]]",
+            "Para la tercera: unos 3.000 según Semana[[semana-reinsercion-1992]]; entre 3.500 y 6.000 según Wikipedia en español.[[wiki-es-guerras-verdes]] La historia municipal de Maripí cuenta al menos 5.000 muertes en toda la región entre 1960 y 1991.[[wiki-es-maripi]]"
+          ]
+        },
+        "why": {
+          "heading": "Por qué las minas se volvieron campo de batalla",
+          "answer": "En la raíz estaba el control de las minas: quién podía explotarlas, quién podía vender lo que salía y quién se quedaba con el dinero.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "El dinero cambió lo que estaba en juego. Después de la crisis cambiaria de 1967, que volvió ilegal tener dólares, las esmeraldas se convirtieron en una forma de sacar dólares del país y creció el contrabando.[[semana-reinsercion-1992]] Un subsidio del 15 por ciento a las exportaciones llevó a sobrefacturarlas: las exportaciones registradas llegaron a 80 millones de dólares en 1973, y el subsidio se suspendió ese diciembre.[[semana-reinsercion-1992]]",
+            "En los ochenta llegaron el dinero del narcotráfico y los grupos armados, y las minas se volvieron un corredor estratégico tanto como una fuente de piedras.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Después de 1990",
+          "answer": "La paz de 1990 se sostuvo donde casi todos los ceses al fuego colombianos habían fracasado; Semana anotó en 1992 que se estaba respetando.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "La violencia regresó en la década de 2010, y la región sigue viviendo tensiones con la llegada de empresas extranjeras y la reestructuración minera.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "beforeTheWars": {
+      "metaTitle": "Antes de las guerras verdes: concesiones y la Violencia",
+      "metaDescription": "Cómo las minas de esmeraldas pasaron de las concesiones del siglo XIX al Banco de la República, la Violencia y la fiebre verde de los sesenta.",
+      "title": "Antes de las guerras: concesiones, el Banco y la Violencia",
+      "lead": "Las guerras verdes no salieron de la nada. Un siglo de concesiones, un Estado que explotó las minas y luego las soltó, y una guerra política que llegó a los pueblos de la esmeralda.",
+      "imageAlt": "Un grupo de visitantes con casco en el patio de una mina de esmeraldas",
+      "sections": {
+        "concessions": {
+          "heading": "Una república reparte las minas",
+          "answer": "Tras la independencia, el recién creado Ministerio de Hacienda entregó las minas de Muzo a un general compañero de armas de Bolívar y a dos particulares. Así empezó una larga tradición colombiana: el Estado entrega a particulares la explotación de los recursos naturales.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Las fuentes no coinciden en el año: 1827 según Wikipedia en español[[wiki-es-guerras-verdes]], 1828 según Alfredo Molano.[[semana-molano-2017]] El siglo XIX se fue entre guerras civiles y experimentos estatales de administración de esa riqueza.[[semana-molano-2017]]"
+          ]
+        },
+        "bank": {
+          "heading": "El Banco de la República explota las minas",
+          "answer": "Desde 1947 el Banco de la República explotó directamente las minas de esmeraldas, salvo las de Chivor. Mientras tanto, cientos de colombianos intentaban ganarse la vida guaqueando de forma ilegal, en medio de la indiferencia estatal.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En 1966 el Banco entregó las minas al Gobierno, y lo que siguió fue la invasión y el saqueo.[[semana-reinsercion-1992]] Wikipedia en español fecha el papel del Banco desde 1944, cuando nombró un delegado para la explotación.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "violencia": {
+          "heading": "La Violencia llega a los pueblos esmeralderos",
+          "answer": "La relación entre violencia y esmeraldas se hizo evidente en los años cincuenta, con la aparición en Boyacá de los pájaros, los sicarios partidistas de la Violencia.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Uno de ellos, un exmilitar convertido en bandolero, llegó al occidente de Boyacá como sicario de los negociantes conservadores que manejaban el negocio de las esmeraldas, y le pagaron con el control de una mina cerca de Muzo. Murió en Bogotá en junio de 1965, tras cinco horas de combate con más de 1.200 soldados.[[semana-molano-2017]]"
+          ]
+        },
+        "fever": {
+          "heading": "La fiebre verde",
+          "answer": "En los sesenta Boyacá vivió una auténtica fiebre del oro verde. Cientos de hombres y sus familias se trasladaron a Muzo, Chiquinquirá o Pauna en busca del fuego verde.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Cuando los conflictos por el control de las minas se agudizaron, mezclando ganancias fabulosas con armas para defenderlas, el Gobierno ordenó al Ejército ocupar las minas de esmeraldas.[[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "firstGreenWar": {
+      "metaTitle": "La primera guerra verde (1965–1975) | Esmeraldas",
+      "metaDescription": "La primera guerra verde por las minas de esmeraldas: fechas según cada fuente, qué la desató, la ocupación militar, los muertos y 1973.",
+      "title": "La primera guerra verde (1965–1975)",
+      "lead": "La muerte de un bandolero, una crisis cambiaria y la ocupación militar convirtieron la fiebre esmeraldera en guerra. Terminó cuando el Estado sacó las minas a licitación.",
+      "imageAlt": "Mineros y visitantes con casco alrededor de una vagoneta oxidada entre helechos",
+      "sections": {
+        "dates": {
+          "heading": "Cuándo ocurrió",
+          "answer": "Wikipedia en español y el sociólogo Alfredo Molano fechan la primera guerra verde entre 1965 y 1975.[[wiki-es-guerras-verdes]][[semana-molano-2017]]",
+          "paragraphs": [
+            "Semana, en 1992, fecha la primera gran guerra verde entre 1967 y 1973.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "trigger": {
+          "heading": "Qué la desató",
+          "answer": "Empezó con la muerte en 1965 del bandolero que había controlado una mina cerca de Muzo. Sus hombres y los esmeralderos que habían trabajado con él se enfrentaron por las minas y el negocio.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "La crisis cambiaria de 1967, que volvió ilegal tener dólares, empujó las esmeraldas al contrabando como forma de sacar dólares, y Semana ubica allí el origen de la primera guerra.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "army": {
+          "heading": "Entra el Ejército",
+          "answer": "Cuando las peleas por las minas se extendieron, el Gobierno ordenó al Ejército ocupar las minas de esmeraldas.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Para Molano, el ingreso del Ejército a la zona solo podía agravar los conflictos.[[semana-molano-2017]]"
+          ]
+        },
+        "cost": {
+          "heading": "El costo",
+          "answer": "Más de 1.200 personas murieron en Chiquinquirá, Muzo, Coscuez, Borbur y Somondoco.[[semana-molano-2017]] Semana contó al menos 1.000 entre 1967 y 1973.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Mientras tanto, la empresa estatal creada en 1968 para la explotación captaba apenas unos 200 millones de pesos al año por exportaciones registradas, y por debajo de cuerda el negocio era enorme.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "closure": {
+          "heading": "Cómo terminó",
+          "answer": "El 17 de julio de 1973 el Gobierno cerró las minas y sacó su explotación a licitación pública. El primer paso después fue firmar la paz, y duró muy poco.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Las minas se repartieron entre empresas privadas formadas por los esmeralderos de la región, una repartición que selló el final de la primera guerra.[[semana-molano-2017]][[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "secondGreenWar": {
+      "metaTitle": "La segunda guerra verde (1975–1978) | Esmeraldas",
+      "metaDescription": "La segunda guerra verde: de los asesinatos de 1975 al primer pacto de paz de 1978, el paso del negocio a la calle 14 de Bogotá y los 35.000 guaqueros de Muzo.",
+      "title": "La segunda guerra verde (1975–1978)",
+      "lead": "Una guerra corta mientras el negocio de la esmeralda se mudaba de las minas a las calles de Bogotá, y la primera paz escrita entre los esmeralderos del occidente de Boyacá.",
+      "imageAlt": "Mineros y visitantes con casco alrededor de una vagoneta oxidada entre helechos",
+      "sections": {
+        "dates": {
+          "heading": "Cuándo ocurrió",
+          "answer": "La segunda guerra verde fue entre 1975 y 1978. Empezó en 1975 con el asesinato de los hermanos de un esmeraldero.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Llegó cuando la paz que siguió a la licitación de 1973 ya se deshacía bajo el dinero de afuera y las pugnas internas.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "street": {
+          "heading": "El negocio se muda a la calle 14",
+          "answer": "Durante la paz pasajera el negocio se desplazó de las minas a la calle 14, en el centro de Bogotá. La comercialización, no la minería, pasó a ser el centro del negocio.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En pocos años los compradores japoneses se volvieron los mayores compradores y los que fijaban los precios.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "fortunes": {
+          "heading": "Las fortunas esmeralderas salen a la superficie",
+          "answer": "Como el precio de las gemas subió frente al dólar, los ganadores del negocio se volvieron magnates. Compraron grandes extensiones de tierra en la zona cundiboyacense, caballos de paso fino, casinos y caballos de carreras.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En esos mismos años los compradores japoneses, que compraban en la calle y en las minas, llegaron a dominar la comercialización y a fijar los precios.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "pact": {
+          "heading": "El primer pacto de paz",
+          "answer": "En 1978 los esmeralderos del occidente de Boyacá firmaron su primer pacto de paz.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Ese mismo año se abrió la licitación a particulares para explotar esmeraldas, y los esmeralderos pudieron formalizar sus fortunas.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "blocs": {
+          "heading": "Dos bloques y 35.000 guaqueros",
+          "answer": "De esta guerra salieron dos grandes grupos: uno de Coscuez, Maripí y Pauna, y otro de Otanche, Borbur, Santa Bárbara y Muzo.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Hacia 1980 llegó a haber 35.000 guaqueros en Muzo.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "thirdGreenWar": {
+      "metaTitle": "La tercera guerra verde (1984–1990) | Esmeraldas",
+      "metaDescription": "La guerra verde más mortífera: pactos rotos, carteles y guerrilla, la masacre de la quebrada Itoco, el costo para los pueblos y su final.",
+      "title": "La tercera guerra verde (1984–1990)",
+      "lead": "La más larga y mortífera de las guerras esmeralderas mezcló viejas rencillas con cocaína, guerrilla y paramilitares. La pagaron los pueblos mineros.",
+      "imageAlt": "Mineros y visitantes con casco alrededor de una vagoneta oxidada entre helechos",
+      "sections": {
+        "dates": {
+          "heading": "Cuándo ocurrió",
+          "answer": "La tercera guerra verde fue entre 1984 y 1990. Empezó cuando varias familias incumplieron los pactos que habían cerrado las guerras anteriores.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Semana ubica su inicio en mayo de 1984, con el asesinato de un personaje influyente en las minas de Coscuez.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "causes": {
+          "heading": "Tres causas a la vez",
+          "answer": "Semana señaló tres causas: la pugna entre grupos esmeralderos por las minas, la llegada de las FARC al occidente de Boyacá y el regreso del jefe militar del cartel de Medellín, que quería tomarse Muzo.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Muzo y Quípama eran piezas clave de un corredor aéreo que pasaba por Paime, Pacho, Zipaquirá y Bogotá, lo que hacía de la zona esmeraldera un lugar valioso para mover tropas y cocaína.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "terror": {
+          "heading": "El terror como arma",
+          "answer": "El terrorismo se volvió el arma principal. En julio de 1989 una bomba semidestruyó las oficinas de una empresa minera en Bogotá, y el 15 de julio sesenta hombres armados llegaron a la quebrada Itoco, escogieron a seis campesinos y los fusilaron uno a uno delante de miles de guaqueros.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En este conflicto se formaron grupos paramilitares que se enfrentaron con las FARC y estuvieron implicados en la guerra sucia contra la Unión Patriótica.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "communities": {
+          "heading": "Los pueblos en medio",
+          "answer": "Los pobladores de Maripí se vieron involucrados en el conflicto a partir de los ochenta, con numerosas muertes.[[wiki-es-maripi]]",
+          "paragraphs": [
+            "En la primera etapa cayeron muchos mineros, guaqueros y comerciantes medianos.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "toll": {
+          "heading": "El costo y el final",
+          "answer": "Semana contó unos 3.000 muertos[[semana-reinsercion-1992]]; Wikipedia en español da entre 3.500 y 6.000.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Terminó después de la muerte del jefe militar del cartel en diciembre de 1989 y del acuerdo de julio de 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "peace1990": {
+      "metaTitle": "La paz esmeraldera de 1990 en el occidente de Boyacá",
+      "metaDescription": "Cómo se pactó la paz esmeraldera de 1990: un cese al fuego en una gallera de Quípama, la firma del 12 de julio y por qué se sostuvo.",
+      "title": "La paz esmeraldera de 1990",
+      "lead": "Después de tres guerras, los grupos esmeralderos del occidente de Boyacá pactaron un cese al fuego en una gallera abandonada. A diferencia de casi todos los ceses al fuego en Colombia, se sostuvo.",
+      "imageAlt": "Dos viajeros con los brazos en alto frente a picos de montaña verdes, empinados y boscosos",
+      "sections": {
+        "what": {
+          "heading": "Qué se pactó",
+          "answer": "El 12 de julio de 1990 los grupos esmeralderos enfrentados en el occidente de Boyacá firmaron una paz pública basada en una declaración de respeto a la vida.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Wikipedia en español la registra como un acuerdo entre los líderes de las dos facciones principales, firmado el 12 de julio de 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "gallera": {
+          "heading": "Un cese al fuego en una gallera",
+          "answer": "Después de que la zona fue militarizada en mayo de 1990, las autoridades se retiraron y los grupos empezaron a reunirse para hablar de cese al fuego. Se pactó el 6 de junio de 1990 en una gallera abandonada de Quípama.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Las conversaciones contaron con la mediación del obispo de Chiquinquirá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "signing": {
+          "heading": "La firma pública",
+          "answer": "La paz se firmó en público el 12 de julio con una declaración de respeto a la vida.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "El acuerdo también reorganizó la propiedad de una empresa minera de Coscuez entre los grupos que se la habían disputado, y sentó a la mesa a un vocero cívico del occidente boyacense.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "held": {
+          "heading": "Por qué importó",
+          "answer": "En 1992 Semana anotó que, a diferencia de la mayoría de los ceses al fuego firmados en Colombia, este se había respetado.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "El mismo reportaje describía a los esmeralderos queriendo entrar al sistema legal, con conversaciones sobre la legalización total del negocio.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "economy": {
+          "heading": "El negocio después de la paz",
+          "answer": "Hacia 1991 la producción colombiana de esmeraldas se estimaba en 300 millones de dólares de valor comercial, cerca de la mitad registrada como exportación; según Semana, eso hacía de la esmeralda el tercer renglón de exportación después del café y el petróleo.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Un año después de la paz, se buscó la misma mediación para llevar la paz a la región de Rionegro, en Cundinamarca.[[semana-reinsercion-1992]]",
+            "Las siguientes preocupaciones del negocio ya no eran las balas: compradores que dominaban los precios y piedras bañadas en aceites minerales y vegetales para parecer más finas, algunas de las cuales estallaban en los vuelos o se ennegrecían a los pocos meses.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "after": {
+          "heading": "Lo que quedó",
+          "answer": "La guerra terminó; la pobreza no. En 2016 Verdad Abierta contó que, sin guerra, en los pueblos esmeralderos persistían la pobreza, la falta de oportunidades y la ausencia del Estado, y que las mujeres habían llevado la peor parte.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "La violencia volvió años después, y persisten tensiones por la reestructuración minera y la llegada de empresas extranjeras.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    }
+  }
+}

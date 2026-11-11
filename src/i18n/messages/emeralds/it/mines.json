@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "mines": {
+      "navLabel": "Miniere",
+      "metaTitle": "Miniere di smeraldi in Colombia: Muzo, Coscuez, Chivor",
+      "metaDescription": "Dove si estraggono gli smeraldi in Colombia: la fascia occidentale di Muzo e Coscuez, quella orientale di Chivor e Gachalá, e il senso di «Muzo» e «Chivor».",
+      "title": "Le miniere di smeraldi della Colombia",
+      "lead": "Due fasce, otto distretti e tre nomi famosi. Dove escono dalla terra gli smeraldi colombiani, in cosa differiscono i due versanti e perché «Muzo» a volte è un colore, non una miniera.",
+      "imageAlt": "Un bambino con un casco da minatore insieme ad alcuni adulti in una miniera di smeraldi",
+      "sections": {
+        "what": {
+          "heading": "Dove si trovano le miniere di smeraldi della Colombia?",
+          "answer": "La maggior parte degli smeraldi colombiani si estrae nel Boyacá e nel Cundinamarca, nelle Ande Orientali. Le tre miniere principali sono Muzo, Coscuez e Chivor.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "I giacimenti si trovano in due fasce ai lati del bacino della Cordigliera Orientale.[[gia-trapiche-2015]]"
+          ]
+        },
+        "western": {
+          "heading": "La fascia occidentale",
+          "answer": "La fascia occidentale comprende i distretti di Muzo, Coscuez, La Pita, Peñas Blancas e La Glorieta–Yacopí.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "I suoi smeraldi si trovano in argilliti nere e calcari dolomitici di 130-116 milioni di anni, e si sono formati tra 38 e 32 milioni di anni fa. In Colombia gli smeraldi trapiche provengono solo da Muzo, Coscuez e Peñas Blancas.[[gia-trapiche-2015]]",
+            "Coscuez e Peñas Blancas sono colline di San Pablo de Borbur che portano un nome proprio.[[wiki-es-borbur]]"
+          ],
+          "figure": {
+            "alt": "Mappa schematica della Colombia centrale con la fascia occidentale degli smeraldi a nord di Bogotá e quella orientale a nord-est.",
+            "caption": "Le due fasce degli smeraldi della Colombia, con ogni distretto minerario indicato nel suo capoluogo municipale. Le linee da Bogotá sono rette, non strade."
+          }
+        },
+        "eastern": {
+          "heading": "La fascia orientale",
+          "answer": "La fascia orientale comprende Chivor, Gachalá e Macanal. I suoi smeraldi si sono formati circa 65 milioni di anni fa in un orizzonte di argilliti nere e calcari di 135-130 milioni di anni.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Gli storici indicano Chivor come la fonte dei primi smeraldi commerciati nelle Americhe e dei primi esportati dopo la conquista spagnola.[[gia-rainier-2016]] Da Gachalá proviene il cristallo di 858 carati oggi allo Smithsonian.[[smithsonian-gachala]]"
+          ]
+        },
+        "names": {
+          "heading": "Quando «Muzo» è un colore",
+          "answer": "Nel commercio, «Muzo» e «Chivor» indicano spesso il colore più che la miniera: Muzo un verde erba caldo con sfumature gialle, Chivor un verde più profondo.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Quindi una pietra venduta come «Muzo» o «Chivor» è una descrizione, non un certificato di origine. Sull’origine può esprimere un parere solo un laboratorio, in base a inclusioni, spettroscopia ed elementi in traccia.[[gia-origin-2019]]"
+          ]
+        },
+        "visiting": {
+          "heading": "Visitare una miniera",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Sono siti di lavoro attivi. Le visite dipendono dal permesso del gestore, da una guida locale e dal tempo sulle strade. Nella nostra esperienza a Chivor, il tempo sottoterra è solo una parte della giornata; il resto è la strada, la montagna e le persone intorno alla miniera."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Dove si estraggono gli smeraldi in Colombia?",
+          "answer": "Soprattutto nel Boyacá e nel Cundinamarca. Le tre miniere principali sono Muzo, Coscuez e Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Qual è la differenza tra le due fasce degli smeraldi?",
+          "answer": "La fascia occidentale (Muzo, Coscuez) si è formata tra 38 e 32 milioni di anni fa ed è l’unica fonte colombiana di trapiche; quella orientale (Chivor, Gachalá) si è formata circa 65 milioni di anni fa.[[gia-trapiche-2015]]"
+        }
+      ]
+    },
+    "muzo": {
+      "metaTitle": "Smeraldi di Muzo: storia, geologia e trapiche",
+      "metaDescription": "Muzo, capitale colombiana dello smeraldo: il popolo muzo, la conquista, la geologia delle argilliti nere, i trapiche, il cristallo Fura e le Guerre Verdi.",
+      "title": "Muzo: la capitale dello smeraldo",
+      "lead": "Un paese che porta il nome di un popolo che combatté gli spagnoli per decenni, colline nere piene di smeraldi, il trapiche, la Fura da 11.000 carati e il peggio delle Guerre Verdi.",
+      "imageAlt": "Tre persone dietro una cassa di legno da miniera tra le felci arboree nella regione degli smeraldi",
+      "sections": {
+        "short": {
+          "heading": "Dove si trova Muzo?",
+          "answer": "Muzo è un comune del Boyacá occidentale, a 170 km da Tunja e a 90 km da Chiquinquirá, noto in tutto il mondo per i suoi giacimenti di smeraldi.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La Wikipedia in inglese definisce Muzo la miniera di smeraldi più importante del mondo.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "name": {
+          "heading": "Il nome e il popolo",
+          "answer": "Il paese prende il nome dai muzo, il popolo indigeno del Boyacá occidentale; la parola significa «persona».[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Prima della conquista i muzo, un popolo caribe guerriero, estraevano smeraldi in modo rudimentale e li usavano come ornamenti e negli scambi tra clan.[[wiki-es-muzo]]"
+          ]
+        },
+        "conquest": {
+          "heading": "Una lunga conquista",
+          "answer": "Agli spagnoli servirono circa vent’anni di guerra per sconfiggere i muzo. Dopo diverse campagne fallite a partire dal 1539, Luis Lanchero fondò la Villa de la Santísima Trinidad de los Muzos il 20 febbraio 1559.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La Wikipedia in inglese parla di cinque decenni.[[wiki-en-colombian-emeralds]] Le vene stesse furono scoperte per caso, scrisse Semana nel 1992: nel 1564 una grossa pietra verde rimase incastrata nel ferro di cavallo della cavalcatura di un conquistador.[[semana-reinsercion-1992]]",
+            "Nel XVI secolo gli smeraldi di Muzo erano i preferiti della nobiltà moghul dell’India.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "geology": {
+          "heading": "Le rocce",
+          "answer": "Gli smeraldi di Muzo si trovano in argilliti nere e calcari dolomitici delle formazioni Rosablanca e Paja, di 130-116 milioni di anni.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Come nel resto della fascia occidentale, gli smeraldi di Muzo si sono formati tra 38 e 32 milioni di anni fa.[[gia-trapiche-2015]]"
+          ]
+        },
+        "trapiche": {
+          "heading": "Trapiche",
+          "answer": "Il mineralogista francese Émile Bertrand descrisse per primo gli smeraldi trapiche nel 1879, presentando «curiosi cristalli di smeraldo… da Muso, Nuova Granada».[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "In Colombia gli smeraldi trapiche provengono solo da Muzo, Coscuez e Peñas Blancas.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Schema della sezione di uno smeraldo trapiche: un nucleo esagonale scuro, sei bracci scuri e sei settori verdi.",
+            "caption": "Uno smeraldo trapiche visto lungo il suo asse, una specialità della fascia occidentale. Schema, non in scala."
+          }
+        },
+        "color": {
+          "heading": "Il verde Muzo",
+          "answer": "Nel commercio, «Muzo» indica anche un colore: un verde erba caldo con sfumature gialle.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Semana scrisse nel 1992 che le miniere di Muzo erano le uniche a produrre la «gota de aceite», il nome che il commercio dà alle pietre più fini.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "stones": {
+          "heading": "Fura",
+          "answer": "Nel 1999 una miniera di Muzo produsse la Fura, un cristallo grezzo di circa 11.000 carati, 2,2 chilogrammi.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Prese il nome dalla leggenda di Fura e Tena, le colline che si innalzano circa 30 km a nord delle miniere di Muzo.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "conflict": {
+          "heading": "Muzo e le Guerre Verdi",
+          "answer": "Muzo fu al centro delle Guerre Verdi, i conflitti per le miniere di smeraldi che durarono dal 1965 al 1990.[[semana-molano-2017]]",
+          "paragraphs": [
+            "La prima Guerra Verde uccise più di 1.200 persone a Chiquinquirá, Muzo, Coscuez, Borbur e Somondoco, e nel 1980 Muzo contava fino a 35.000 guaqueros.[[semana-molano-2017]]"
+          ]
+        },
+        "today": {
+          "heading": "Muzo oggi",
+          "answer": "L’attività mineraria domina l’economia: circa il 75% della popolazione attiva di Muzo lavora nell’estrazione e nel commercio degli smeraldi, accanto a canna da zucchero, cacao, manioca e bestiame.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La guaquería, la ricerca indipendente, fa parte della vita quotidiana, e molti dei cercatori sono donne.[[verdad-abierta-mujeres-2016]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Perché gli smeraldi di Muzo sono famosi?",
+          "answer": "Muzo produce smeraldi da prima della conquista e dà il nome a un verde erba caldo nel commercio.[[wiki-en-colombian-emeralds]] È anche una delle sole tre fonti colombiane di smeraldi trapiche.[[gia-trapiche-2015]]"
+        },
+        {
+          "question": "Come si arriva a Muzo?",
+          "answer": "Muzo si trova a 90 km da Chiquinquirá: prendi verso ovest la Ruta Nacional 60 in direzione di Pauna e Maripí, oppure arriva da Ubaté passando per Simijaca. Il paese ha anche una pista d’atterraggio per piccoli aerei.[[wiki-es-muzo]]"
+        }
+      ]
+    }
+  }
+}

@@ -96,3 +96,6 @@ cdn-upload/
 # the directory is documented and present on a fresh clone.
 /r2-cache/*
 !/r2-cache/README.md
+
+# Search Console reports (npm run seo:index-status)
+seo-index-status-*.csv

@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "breadcrumbEmeralds": "Mundo Esmeralda",
+    "breadcrumbLabel": "Ruta de navegación",
+    "updated": "Actualizado",
+    "author": "Equipo de Andean Scapes",
+    "sourcesTitle": "Fuentes",
+    "relatedTitle": "Empieza a leer",
+    "visitTitle": "Conoce la región esmeraldera en persona",
+    "visitBody": "Chivor, en el cinturón oriental, es donde trabajamos. Si quieres entrar a una mina activa junto a mineros locales, nuestra guía práctica explica cómo funciona.",
+    "visitCta": "Leer la guía de tours a minas de esmeraldas",
+    "sourceRef": "Fuente {number}",
+    "sourceLanguage": {
+      "en": "(en inglés)",
+      "es": "(en español)",
+      "fr": "(en francés)",
+      "de": "(en alemán)",
+      "it": "(en italiano)"
+    },
+    "sectionNavLabel": "Secciones de Mundo Esmeralda",
+    "tocLabel": "En esta página",
+    "pagerLabel": "Más en esta sección",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "authorPagesTitle": "Páginas de este autor",
+    "faqTitle": "Preguntas frecuentes"
+  },
+  "notes": {
+    "fieldNote": "Notas de campo: lo que vimos en la región",
+    "oralTradition": "Tradición oral: se cuenta en la región, ningún documento lo confirma"
+  },
+  "illustrations": {
+    "beltMap": {
+      "western": "Cinturón occidental",
+      "eastern": "Cinturón oriental",
+      "credit": "Mapa: Andean Scapes, coordenadas de las cabeceras municipales según Wikipedia en español"
+    },
+    "trapiche": {
+      "core": "Núcleo",
+      "arm": "Brazo oscuro",
+      "sector": "Sector verde",
+      "credit": "Ilustración: Andean Scapes"
+    },
+    "threePhase": {
+      "liquid": "Salmuera",
+      "gas": "Burbuja de gas",
+      "crystal": "Cristal de sal",
+      "credit": "Ilustración: Andean Scapes"
+    }
+  },
+  "authors": {}
+}

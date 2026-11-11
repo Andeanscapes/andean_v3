@@ -1,0 +1,234 @@
+{
+  "pages": {
+    "gemology": {
+      "navLabel": "Gemmologie",
+      "metaTitle": "Gemmologie de l’émeraude : couleur, jardin, traitements",
+      "metaDescription": "Ce qu’est une émeraude : un béryl vert coloré par le chrome, le vanadium et le fer, son jardin, les inclusions triphasées, les traitements à l’huile.",
+      "title": "Gemmologie de l’émeraude : ce qui fait une émeraude",
+      "lead": "Du béryl vert, quelques atomes de chrome et de vanadium, un jardin d’inclusions et, souvent, un peu d’huile. La science derrière le vert, d’après les laboratoires qui l’étudient.",
+      "imageAlt": "Un mineur attaque un front de roche à la lumière de sa lampe frontale dans une mine d’émeraudes",
+      "sections": {
+        "what": {
+          "heading": "Qu’est-ce qu’une émeraude ?",
+          "answer": "L’émeraude est la variété verte à vert bleuté du béryl, l’espèce minérale qui comprend aussi l’aigue-marine.[[gia-emerald-description]]",
+          "paragraphs": [
+            "La frontière entre béryl vert et émeraude est discutée. Certains négociants appellent émeraude tout béryl vert coloré par le chrome ; la plupart des gemmologues, laboratoires et négociants parlent de béryl vert quand la couleur est trop claire, et le GIA tranche avec des pierres de comparaison étalonnées en laboratoire.[[gia-emerald-description]]"
+          ]
+        },
+        "color": {
+          "heading": "D’où vient le vert",
+          "answer": "Le chrome, le vanadium et le fer donnent sa couleur à l’émeraude ; lesquels sont présents, et en quelle quantité, fixe le vert exact de chaque cristal.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Les couleurs les plus recherchées vont du vert bleuté au vert pur, avec une saturation vive, un ton pas trop sombre et une couleur répartie de façon homogène. Trop jaune ou trop bleue, la pierre devient une autre variété de béryl.[[gia-emerald-quality]]"
+          ]
+        },
+        "jardin": {
+          "heading": "Le jardin : pourquoi les émeraudes sont rarement pures",
+          "answer": "La plupart des émeraudes contiennent des inclusions visibles à l’œil nu, souvent d’aspect moussu, comme un jardin. Le commerce les appelle justement « jardin ».[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Le commerce accepte les inclusions visibles dans les belles émeraudes ; les pierres nettes à l’œil nu sont rares et particulièrement précieuses. Les inclusions ne coûtent de la valeur que lorsqu’elles troublent la transparence.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Inclusions triphasées et origine",
+          "answer": "L’inclusion colombienne classique est une cavité dentelée remplie de saumure, avec une bulle de gaz et un cristal cubique de sel, en général de 100 micromètres à 1 millimètre. Les inclusions dentelées de plus d’un demi-millimètre sont propres à la Colombie.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Les laboratoires classent les émeraudes en deux familles. Les colombiennes, afghanes et chinoises (Davdar) se forment en milieu hydrothermal ou métamorphique et présentent souvent des inclusions multiphasées dentelées ; celles de Zambie (Kafubu), de Russie, d’Éthiopie et du Brésil sont encaissées dans des schistes et ont plutôt des inclusions anguleuses en bloc.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Schéma d’une inclusion fluide dentelée dans une émeraude, avec trois phases indiquées : saumure, bulle de gaz et cristal cubique de sel.",
+            "caption": "Une inclusion triphasée dentelée, typique des émeraudes colombiennes. Schéma, pas à l’échelle."
+          }
+        },
+        "treatments": {
+          "heading": "Huile, résine et rapport d’émeraude",
+          "answer": "Les fractures des émeraudes qui atteignent la surface sont souvent remplies d’huiles, de cires ou de résines artificielles pour les rendre moins visibles et améliorer la pureté apparente.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "La stabilité et la quantité des remplissages varient, d’insignifiante à importante. Une émeraude remplie doit être tenue à l’écart de la chaleur, des variations brusques de pression, des produits chimiques et même de l’eau chaude de la vaisselle.[[gia-gem-treatment]]",
+            "Depuis 2000, le laboratoire du GIA classe l’amélioration de pureté des émeraudes en mineure, modérée ou significative. Cette classification décrit le traitement ; ce n’est pas un grade de pureté.[[gia-emerald-quality]]"
+          ]
+        },
+        "facts": {
+          "heading": "L’émeraude en chiffres",
+          "answer": "L’émeraude est un béryl, Be₃Al₂Si₆O₁₈, d’une dureté de 7,5 à 8 sur l’échelle de Mohs, d’une densité de 2,72 et d’un indice de réfraction de 1,577 à 1,583.[[gia-emerald-facts]]",
+          "paragraphs": [
+            "Dureté n’est pas ténacité. Presque toutes les émeraudes ont des fractures et sont plus fragiles que le corindon : elles peuvent s’abîmer à la taille, au sertissage ou au port sans précaution.[[gia-emerald-quality]]",
+            "L’émeraude est la pierre de naissance du mois de mai et la gemme des 20e et 35e anniversaires de mariage.[[gia-emerald-facts]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "L’émeraude est-elle un béryl ?",
+          "answer": "Oui. L’émeraude est la variété verte à vert bleuté du béryl, la même espèce minérale que l’aigue-marine.[[gia-emerald-description]]"
+        },
+        {
+          "question": "Toutes les émeraudes ont-elles des inclusions ?",
+          "answer": "Presque toutes. Les inclusions visibles, le jardin, sont normales dans l’émeraude, et les pierres nettes à l’œil nu sont rares et particulièrement précieuses.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "Les émeraudes sont-elles traitées ?",
+          "answer": "Souvent. Les fractures qui atteignent la surface sont couramment remplies d’huiles, de cires ou de résines artificielles pour améliorer la pureté apparente.[[gia-gem-treatment]]"
+        }
+      ]
+    },
+    "colombianVsZambian": {
+      "metaTitle": "Émeraudes colombiennes ou zambiennes : vraies différences",
+      "metaDescription": "Ce qui distingue émeraudes colombiennes et zambiennes : géologie, fer et couleur, inclusions dentelées ou en bloc, méthodes des laboratoires, laquelle choisir.",
+      "title": "Émeraudes colombiennes ou zambiennes : ce qui change vraiment",
+      "lead": "La Zambie est la grande rivale de la Colombie pour les belles émeraudes. Elles naissent dans des roches différentes, portent des traces différentes et, pour beaucoup de pierres, se ressemblent malgré tout. Voici ce qu’utilisent les laboratoires.",
+      "imageAlt": "Une visiteuse casquée parmi des collines vertes et des parois rocheuses de la région émeraudière",
+      "sections": {
+        "short": {
+          "heading": "La réponse courte",
+          "answer": "Elles se forment dans des contextes géologiques différents. Les colombiennes appartiennent au groupe hydrothermal/métamorphique ; les zambiennes de Kafubu sont encaissées dans des schistes, formées là où des pegmatites ou d’autres corps magmatiques ont rencontré des roches mafiques, ultramafiques ou métamorphiques.[[gia-origin-2019]]",
+          "paragraphs": [
+            "La Zambie fait partie des sources qui, depuis le XXe siècle, ont contesté la place de la Colombie sur le marché, avec le Brésil et la Russie. Avec la multiplication des gisements, l’origine géographique est devenue un facteur important pour les belles émeraudes.[[gia-origin-2019]]"
+          ]
+        },
+        "geology": {
+          "heading": "Des roches et des âges différents",
+          "answer": "Les émeraudes colombiennes se sont formées quand des saumures chaudes de bassin, après avoir interagi avec des évaporites, ont circulé dans des schistes noirs riches en matière organique.[[gia-trapiche-2015]] Celles de Zambie, comme les autres gisements de schistes, se sont formées là où des pegmatites ou d’autres corps magmatiques ont rencontré des roches mafiques, ultramafiques ou métamorphiques.[[gia-origin-2019]]",
+          "paragraphs": [
+            "En Colombie, la roche hôte est un schiste noir : la ceinture occidentale repose sur des roches de 130 à 116 millions d’années, et les émeraudes se sont formées il y a environ 65 millions d’années à l’est et entre 38 et 32 millions d’années à l’ouest.[[gia-trapiche-2015]]"
+          ]
+        },
+        "color": {
+          "heading": "Couleur et fer",
+          "answer": "Les émeraudes encaissées dans des schistes, comme les zambiennes, sont en général d’un vert plus sombre que les colombiennes, parce qu’elles contiennent davantage de fer.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Dans le commerce, on dit que les colombiennes ont un vert pur plus chaud et plus intense, et les zambiennes un vert plus froid et bleuté. Le GIA rappelle que l’apparence se recoupe d’une origine à l’autre.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Dentelées ou en bloc",
+          "answer": "Les colombiennes montrent typiquement des inclusions triphasées dentelées ; les émeraudes de schistes ont des inclusions en bloc, et le mica y est l’inclusion solide la plus courante. Les inclusions dentelées de plus d’un demi-millimètre sont propres à la Colombie.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Les frontières sont floues : un gisement zambien mineur, Musakashi, peut présenter des inclusions triphasées dentelées proches des colombiennes.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Schéma d’une inclusion fluide dentelée dans une émeraude, avec trois phases indiquées : saumure, bulle de gaz et cristal cubique de sel.",
+            "caption": "Une inclusion triphasée dentelée, typique des émeraudes colombiennes. Schéma, pas à l’échelle."
+          }
+        },
+        "lab": {
+          "heading": "Comment tranche un laboratoire",
+          "answer": "L’origine se détermine en combinant les inclusions, la spectroscopie UV-Vis-NIR et la chimie des éléments traces mesurée par ablation laser ICP-MS.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Le fer se voit dans le spectre : les émeraudes de schistes présentent une bande d’absorption du fer bien plus forte à 810 nanomètres. Sans inclusions diagnostiques ni données d’éléments traces, aucune opinion d’origine n’est parfois possible.[[gia-origin-2019]]"
+          ]
+        },
+        "better": {
+          "heading": "La colombienne est-elle meilleure que la zambienne ?",
+          "answer": "Pas automatiquement. La valeur dépend de chaque pierre : couleur, pureté, taille et poids. L’apparence se recoupe d’une origine à l’autre.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "L’origine compte commercialement : elle est devenue un facteur important pour les belles émeraudes.[[gia-origin-2019]] Mais une belle zambienne vaut mieux qu’une colombienne médiocre ; on juge d’abord la pierre, puis on demande son origine à un laboratoire."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Les émeraudes zambiennes sont-elles plus sombres que les colombiennes ?",
+          "answer": "En général, oui. Les émeraudes de schistes comme celles de Zambie contiennent davantage de fer, ce qui les rend d’un vert plus sombre.[[gia-origin-2019]]"
+        },
+        {
+          "question": "Un laboratoire peut-il distinguer une émeraude colombienne d’une zambienne ?",
+          "answer": "Le plus souvent, en combinant inclusions, spectroscopie et éléments traces. Les inclusions dentelées de plus d’un demi-millimètre sont propres à la Colombie.[[gia-origin-2019]]"
+        }
+      ]
+    },
+    "emeraldValue": {
+      "metaTitle": "Valeur d’une émeraude colombienne : couleur, pureté, prix",
+      "metaDescription": "Ce qui fixe le prix d’une émeraude colombienne : couleur, jardin, taille, carats, traitement à l’huile ou à la résine, rapports de laboratoire, gota de aceite.",
+      "title": "Comment s’évalue une émeraude colombienne",
+      "lead": "Il n’existe pas de prix au carat pour « une émeraude colombienne ». Il existe des pierres, et chacune s’évalue d’abord à sa couleur, puis à sa pureté, sa taille, son poids, son traitement et son origine. Voici ce que regardent les professionnels.",
+      "imageAlt": "Deux hommes casqués avec lampe frontale près d’une cascade souterraine",
+      "sections": {
+        "short": {
+          "heading": "La réponse courte",
+          "answer": "Les émeraudes s’évaluent d’abord à leur couleur, puis à leur pureté et leur transparence, à leur taille et à leur poids en carats.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "À qualité égale, le prix d’une émeraude peut augmenter de façon spectaculaire avec la taille.[[gia-emerald-quality]]"
+          ]
+        },
+        "color": {
+          "heading": "La couleur d’abord",
+          "answer": "Les émeraudes les plus cotées vont du vert bleuté au vert pur, avec une saturation vive, un ton pas trop sombre, une grande transparence et une couleur homogène, sans zonage visible.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Si la teinte tire trop vers le jaune ou le bleu, la pierre n’est plus une émeraude mais un autre béryl, et sa valeur baisse d’autant.[[gia-emerald-quality]]"
+          ]
+        },
+        "clarity": {
+          "heading": "Pureté et jardin",
+          "answer": "On s’attend à voir des inclusions dans une émeraude : le jardin. Les pierres qui en sont dépourvues sont rares et particulièrement précieuses.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Les inclusions ne posent problème que lorsqu’elles troublent la transparence ; elles réduisent alors fortement la valeur.[[gia-emerald-quality]]"
+          ]
+        },
+        "cut": {
+          "heading": "La taille, et les émeraudes en bague",
+          "answer": "La taille décide de la couleur et du poids qui subsistent. Presque toutes les émeraudes ont des fractures, et les erreurs coûtent du poids et de la valeur.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Le brut colombien est particulièrement délicat : sa couleur est plus intense près de la surface, et une taille négligente peut laisser une pierre bien plus pâle que le cristal d’origine.[[gia-emerald-quality]]",
+            "Pour une bague, cela compte. L’émeraude est plus fragile que le corindon, et la taille émeraude la protège parce que ses coins vulnérables sont facettés et offrent un appui plus sûr aux griffes.[[gia-emerald-quality]]"
+          ]
+        },
+        "size": {
+          "heading": "Le poids",
+          "answer": "À qualité égale, le prix augmente de façon spectaculaire avec la taille.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Les pierres de 1 à 5 carats sont prisées comme pierres centrales ; les plus petites tailles de joaillerie vont de 0,02 à 0,50 carat, et les pièces de prestige peuvent porter des émeraudes de plus de 20 carats.[[gia-emerald-quality]]"
+          ]
+        },
+        "treatment": {
+          "heading": "Le traitement",
+          "answer": "Les fractures des émeraudes sont souvent remplies d’huiles, de cires ou de résines artificielles pour améliorer la pureté apparente. Le type et la quantité de remplissage influent sur la valeur.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "La quantité de remplissage va d’insignifiante à importante, et sa stabilité varie. Une émeraude remplie demande des précautions : ni chaleur, ni produits chimiques, ni eau chaude, ni variations brusques de pression.[[gia-gem-treatment]]"
+          ]
+        },
+        "reports": {
+          "heading": "Les rapports de laboratoire",
+          "answer": "Un rapport d’émeraude du GIA classe l’amélioration de pureté en mineure, modérée ou significative et comporte une image de la pierre ; il décrit le traitement, pas un grade de pureté.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Les opinions d’origine combinent inclusions, spectroscopie et éléments traces ; une pierre sans inclusions diagnostiques peut ne recevoir aucune opinion d’origine.[[gia-origin-2019]]"
+          ]
+        },
+        "origin": {
+          "heading": "L’origine et la gota de aceite",
+          "answer": "« Gota de aceite », « goutte d’huile », est le nom que le commerce donne aux émeraudes colombiennes de haute qualité.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "L’origine est devenue un facteur important du prix des belles émeraudes, d’où les efforts des laboratoires pour distinguer les colombiennes des autres.[[gia-origin-2019]]"
+          ]
+        },
+        "checklist": {
+          "heading": "Avant d’acheter : les questions à poser",
+          "note": "editorial",
+          "paragraphs": [
+            "Nous ne vendons pas d’émeraudes et ne donnons pas de prix : un chiffre sans la pierre sous les yeux ne veut rien dire. Voici les questions que posent les professionnels, quel que soit le vendeur."
+          ],
+          "list": [
+            "La pierre est-elle traitée, avec quoi et dans quelle mesure ?",
+            "Existe-t-il un rapport d’un laboratoire gemmologique indépendant, et son image correspond-elle à la pierre ?",
+            "Le rapport donne-t-il une opinion d’origine, ou indique-t-il qu’elle n’était pas possible ?",
+            "Comment nettoyer et porter cette pierre, compte tenu de son traitement ?"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Combien vaut une émeraude colombienne ?",
+          "answer": "Il n’y a pas de prix unique. La valeur dépend d’abord de la couleur, puis de la pureté, de la taille et du poids, et à qualité égale le prix augmente fortement avec la taille.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "Que signifie gota de aceite ?",
+          "answer": "C’est l’expression du commerce, « goutte d’huile », pour les émeraudes colombiennes de haute qualité.[[gia-rainier-2016]]"
+        },
+        {
+          "question": "Comment savoir si une émeraude est colombienne ?",
+          "answer": "Seul un laboratoire gemmologique peut donner une opinion d’origine, à partir des inclusions, de la spectroscopie et des éléments traces.[[gia-origin-2019]]"
+        }
+      ]
+    }
+  }
+}

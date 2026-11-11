@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "mines": {
+      "navLabel": "Mines",
+      "metaTitle": "Colombian Emerald Mines: Muzo, Coscuez, Chivor",
+      "metaDescription": "Where emeralds are mined in Colombia: the western belt of Muzo and Coscuez, the eastern belt of Chivor and Gachalá, and what “Muzo” and “Chivor” mean.",
+      "title": "Colombia’s emerald mines",
+      "lead": "Two belts, eight districts and three famous names. Where Colombian emeralds come out of the ground, how the two sides differ, and why “Muzo” is sometimes a color, not a mine.",
+      "imageAlt": "A child in a miner’s helmet with adults at an emerald mine",
+      "sections": {
+        "what": {
+          "heading": "Where are Colombia’s emerald mines?",
+          "answer": "Most Colombian emeralds are mined in Boyacá and Cundinamarca, in the Eastern Andes. The three major mines are Muzo, Coscuez and Chivor.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "The deposits sit in two belts on either side of the Eastern Cordillera basin.[[gia-trapiche-2015]]"
+          ]
+        },
+        "western": {
+          "heading": "The western belt",
+          "answer": "The western belt holds the districts of Muzo, Coscuez, La Pita, Peñas Blancas and La Glorieta–Yacopí.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Its emeralds sit in black shales and dolomitic limestones 130 to 116 million years old, and formed between 38 and 32 million years ago. In Colombia, trapiche emeralds come only from Muzo, Coscuez and Peñas Blancas.[[gia-trapiche-2015]]",
+            "Coscuez and Peñas Blancas are named hills of San Pablo de Borbur.[[wiki-es-borbur]]"
+          ],
+          "figure": {
+            "alt": "Schematic map of central Colombia with the western emerald belt north of Bogotá and the eastern belt to the northeast.",
+            "caption": "Colombia’s two emerald belts, each mining district plotted at its municipal seat. Lines from Bogotá are straight, not roads."
+          }
+        },
+        "eastern": {
+          "heading": "The eastern belt",
+          "answer": "The eastern belt holds Chivor, Gachalá and Macanal. Its emeralds formed about 65 million years ago in a black shale and limestone horizon 135 to 130 million years old.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Historians single out Chivor as the source of the first emeralds traded in the Americas and the first exported after the Spanish conquest.[[gia-rainier-2016]] Gachalá gave the 858-carat crystal now at the Smithsonian.[[smithsonian-gachala]]"
+          ]
+        },
+        "names": {
+          "heading": "When “Muzo” is a color",
+          "answer": "In the trade, “Muzo” and “Chivor” often describe color rather than the mine: Muzo a warm, grassy green with hints of yellow, Chivor a deeper green.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "So a stone sold as “Muzo” or “Chivor” is a description, not a certificate of origin. Origin is something only a laboratory can give an opinion on, from inclusions, spectroscopy and trace elements.[[gia-origin-2019]]"
+          ]
+        },
+        "visiting": {
+          "heading": "Visiting a mine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "These are working sites. Visits depend on the operator’s permission, a local guide and the weather on the roads. In our experience in Chivor, the time underground is only part of the day; most of it is the road, the mountain and the people around the mine."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Where are emeralds mined in Colombia?",
+          "answer": "Mostly in Boyacá and Cundinamarca. The three major mines are Muzo, Coscuez and Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "What is the difference between the two emerald belts?",
+          "answer": "The western belt (Muzo, Coscuez) formed 38 to 32 million years ago and is the only Colombian source of trapiche; the eastern belt (Chivor, Gachalá) formed about 65 million years ago.[[gia-trapiche-2015]]"
+        }
+      ]
+    },
+    "muzo": {
+      "metaTitle": "Muzo Emeralds: History, Geology and Trapiche",
+      "metaDescription": "Muzo, Colombia’s emerald capital: the Muzo people, the conquest, the black-shale geology, trapiche emeralds, the Fura crystal and the Green Wars.",
+      "title": "Muzo: the emerald capital",
+      "lead": "A town named after a people who fought the Spanish for decades, a set of black hills full of emeralds, the trapiche, the 11,000-carat Fura and the worst of the Green Wars.",
+      "imageAlt": "Three people stand behind a wooden mine box among tree ferns in the emerald region",
+      "sections": {
+        "short": {
+          "heading": "Where is Muzo?",
+          "answer": "Muzo is a municipality in western Boyacá, 170 km from Tunja and 90 km from Chiquinquirá, known worldwide for its emerald deposits.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "English Wikipedia calls Muzo the most important emerald mine in the world.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "name": {
+          "heading": "The name and the people",
+          "answer": "The town takes its name from the Muzo, the indigenous people of western Boyacá; the word means “person”.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Before the conquest the Muzo, a warlike Carib people, mined emeralds in a rudimentary way and used them as ornaments and in trade between clans.[[wiki-es-muzo]]"
+          ]
+        },
+        "conquest": {
+          "heading": "A long conquest",
+          "answer": "The Spanish needed about twenty years of war to defeat the Muzo. After several failed campaigns from 1539, Luis Lanchero founded the Villa de la Santísima Trinidad de los Muzos on 20 February 1559.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "English Wikipedia speaks of five decades.[[wiki-en-colombian-emeralds]] The veins themselves were found by accident, Semana wrote in 1992: in 1564 a large green stone stuck in the horseshoe of a conquistador’s horse.[[semana-reinsercion-1992]]",
+            "In the 16th century Muzo emeralds were favored by the Mughal nobility of India.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "geology": {
+          "heading": "The rocks",
+          "answer": "Muzo’s emeralds sit in black shales and dolomitic limestones of the Rosablanca and Paja formations, 130 to 116 million years old.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Like the rest of the western belt, Muzo’s emeralds formed between 38 and 32 million years ago.[[gia-trapiche-2015]]"
+          ]
+        },
+        "trapiche": {
+          "heading": "Trapiche",
+          "answer": "The French mineralogist Émile Bertrand first described trapiche emeralds in 1879, presenting “curious crystals of emerald… from Muso, New Granada.”[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "In Colombia trapiche emeralds come only from Muzo, Coscuez and Peñas Blancas.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Diagram of a trapiche emerald cross-section: a dark hexagonal core, six dark arms and six green sectors.",
+            "caption": "A trapiche emerald seen down its axis, a western-belt speciality. Schematic, not to scale."
+          }
+        },
+        "color": {
+          "heading": "Muzo green",
+          "answer": "In the trade, “Muzo” also names a color: a warm, grassy green with hints of yellow.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Semana wrote in 1992 that Muzo’s mines were the only ones producing the “gota de aceite”, the trade’s name for the finest stones.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "stones": {
+          "heading": "Fura",
+          "answer": "In 1999 a Muzo mine produced Fura, an uncut crystal of about 11,000 carats, 2.2 kilograms.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "It was named after the legend of Fura and Tena, the hills that rise about 30 km north of the Muzo mines.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "conflict": {
+          "heading": "Muzo and the Green Wars",
+          "answer": "Muzo was at the center of the Green Wars, the conflicts over the emerald mines that ran from 1965 to 1990.[[semana-molano-2017]]",
+          "paragraphs": [
+            "The first Green War killed more than 1,200 people in Chiquinquirá, Muzo, Coscuez, Borbur and Somondoco, and by 1980 Muzo had as many as 35,000 guaqueros.[[semana-molano-2017]]"
+          ]
+        },
+        "today": {
+          "heading": "Muzo today",
+          "answer": "Mining dominates the economy: about 75% of Muzo’s working population is in emerald mining and trade, alongside sugar cane, cacao, cassava and cattle.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Guaquería, independent searching, is part of daily life, and many of the searchers are women.[[verdad-abierta-mujeres-2016]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Why are Muzo emeralds famous?",
+          "answer": "Muzo has produced emeralds since before the conquest and gives its name to a warm grassy green in the trade.[[wiki-en-colombian-emeralds]] It is also one of only three Colombian sources of trapiche emeralds.[[gia-trapiche-2015]]"
+        },
+        {
+          "question": "How do you get to Muzo?",
+          "answer": "Muzo is 90 km from Chiquinquirá: head west on Ruta Nacional 60 toward Pauna and Maripí, or come from Ubaté through Simijaca. The town also has an airfield for small planes.[[wiki-es-muzo]]"
+        }
+      ]
+    }
+  }
+}

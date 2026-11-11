@@ -118,6 +118,11 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                     {t('guides')}
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/emeralds" className={`${styles.navLink} ${navTextColorClass} ${navInteractiveClass}`}>
+                                    {t('emeralds')}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -247,6 +252,13 @@ const Header = ({ hideBookingCta = false }: HeaderProps = {}) => {
                                     className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
                                 >
                                     {tm('nav.guides')}
+                                </Link>
+                                <Link
+                                    href="/emeralds"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className={`flex items-center h-11 px-3 -mx-3 rounded-lg text-sm font-semibold transition-colors duration-200 ${mobileMenuTextColorClass} hover:bg-primary/10 hover:text-primary`}
+                                >
+                                    {tm('nav.emeralds')}
                                 </Link>
                                 <Link
                                     href="/#landing-howitworks-title"

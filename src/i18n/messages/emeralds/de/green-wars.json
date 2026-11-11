@@ -1,0 +1,317 @@
+{
+  "pages": {
+    "greenWars": {
+      "navLabel": "Grüne Kriege",
+      "metaTitle": "Kolumbiens Grüne Kriege: Smaragdkonflikte 1965–1990",
+      "metaDescription": "Die drei Grünen Kriege um Kolumbiens Smaragdminen als Ereignisse: Daten, Ursachen, der Preis für die Bergbauorte, der Frieden von 1990 und die Quellen.",
+      "title": "Die Grünen Kriege: Kolumbiens Smaragdkonflikte",
+      "lead": "Ein Vierteljahrhundert lang erlebten die Smaragdorte des westlichen Boyacá drei Kriege um die Minen. Hier steht, was geschah, Krieg für Krieg, nach kolumbianischen Quellen, und wie es endete.",
+      "imageAlt": "Bergleute und Besucher mit Helmen stehen zwischen Baumfarnen um einen rostigen Grubenwagen",
+      "sections": {
+        "what": {
+          "heading": "Was waren die Grünen Kriege?",
+          "answer": "„Guerras verdes“ nennen die Kolumbianer eine Reihe von Konflikten zwischen Smaragdhändlern, den esmeralderos, die vor allem in Boyacá ausgetragen wurden, deren Gewalt aber auch andere Landesteile erreichte. Spanischsprachige Quellen zählen zwischen 1965 und 1990 drei Kriege.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Die spanischsprachigen Quellen verbinden Smaragde und Gewalt seit den 1950er-Jahren, als die Auftragsmörder der parteipolitischen Violencia Boyacá erreichten.[[semana-molano-2017]] Das meiste im Folgenden stammt aus kolumbianischer Presse und spanischsprachigen Büchern und ist hier für Leser zusammengefasst, die sie nicht lesen können.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "approach": {
+          "heading": "Warum dieser Bereich niemanden namentlich nennt",
+          "note": "editorial",
+          "paragraphs": [
+            "Die kolumbianische Berichterstattung nennt die Bosse aller Fraktionen. Wir erzählen die Ereignisse und was sie für die Orte, die guaqueros und die Familien bedeuteten, nicht die Lebensläufe der Männer, die die Kriege führten. Die Quellen am Ende jeder Seite decken den Rest ab."
+          ]
+        },
+        "timeline": {
+          "heading": "Zeitleiste",
+          "answer": "Die Konflikte erwuchsen aus einem Jahrhundert staatlicher Konzessionen und einem Smaragdrausch in den 1960er-Jahren und endeten mit einem Frieden, der im Juli 1990 unterzeichnet wurde.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Die Daten weichen zwischen den Quellen ab, manchmal um Jahre; jeder Artikel dieses Bereichs stellt die Versionen nebeneinander.[[wiki-es-guerras-verdes]][[semana-reinsercion-1992]]"
+          ],
+          "timeline": [
+            {
+              "date": "1827–1828",
+              "text": "Das Finanzministerium der jungen Republik überträgt die Minen von Muzo einem General und zwei privaten Partnern. Die Quellen nennen unterschiedliche Jahre.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+            },
+            {
+              "date": "1947",
+              "text": "Die Banco de la República übernimmt den direkten Betrieb der Smaragdminen, mit Ausnahme von Chivor.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1950er-Jahre",
+              "text": "Der Zusammenhang zwischen Smaragden und Gewalt wird sichtbar, als die parteipolitischen Auftragsmörder von La Violencia nach Boyacá kommen.[[semana-molano-2017]]"
+            },
+            {
+              "date": "1965–1975",
+              "text": "Erster Grüner Krieg. Mehr als 1.200 Tote in Chiquinquirá, Muzo, Coscuez, Borbur und Somondoco.[[semana-molano-2017]]"
+            },
+            {
+              "date": "17. Juli 1973",
+              "text": "Die Regierung schließt die Minen und schreibt ihren Betrieb öffentlich aus.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1975–1978",
+              "text": "Zweiter Grüner Krieg; er endet mit dem ersten Friedenspakt zwischen den Smaragdhändlern des westlichen Boyacá.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "1984–1990",
+              "text": "Dritter Grüner Krieg, der blutigste, vermischt mit Drogenhandel, Guerilla und paramilitärischen Gruppen.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "6. Juni 1990",
+              "text": "In einer verlassenen Hahnenkampfarena in Quípama wird ein Waffenstillstand vereinbart.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "12. Juli 1990",
+              "text": "Der Frieden wird öffentlich mit einer Erklärung zur Achtung des Lebens unterzeichnet.[[semana-reinsercion-1992]]"
+            }
+          ]
+        },
+        "counting": {
+          "heading": "Wie viele starben",
+          "answer": "Niemand kennt die genaue Zahl, und die veröffentlichten Angaben gehen weit auseinander. Lesen Sie sie als Größenordnungen, nicht als Statistik.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Für den ersten Krieg: mehr als 1.200 Tote laut Alfredo Molano[[semana-molano-2017]]; mindestens 1.000 zwischen 1967 und 1973 laut Semana im Jahr 1992.[[semana-reinsercion-1992]]",
+            "Für den dritten Krieg: etwa 3.000 laut Semana[[semana-reinsercion-1992]]; zwischen 3.500 und 6.000 laut der spanischen Wikipedia.[[wiki-es-guerras-verdes]] Die Gemeindegeschichte von Maripí zählt zwischen 1960 und 1991 mindestens 5.000 Tote in der gesamten Region.[[wiki-es-maripi]]"
+          ]
+        },
+        "why": {
+          "heading": "Warum die Minen zum Schlachtfeld wurden",
+          "answer": "Im Kern ging es um die Kontrolle der Minen: wer sie ausbeuten durfte, wer verkaufen durfte, was herauskam, und wer das Geld bekam.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Geld veränderte den Einsatz. Nachdem die Devisenkrise von 1967 den Besitz von Dollar illegal gemacht hatte, wurden Smaragde zu einem Mittel, Dollar außer Landes zu bringen, und der Schmuggel wuchs.[[semana-reinsercion-1992]] Eine Exportsubvention von 15 Prozent führte zu überhöhten Rechnungen: Die registrierten Smaragdexporte erreichten 1973 80 Millionen Dollar, und im Dezember desselben Jahres wurde die Subvention gestrichen.[[semana-reinsercion-1992]]",
+            "In den 1980er-Jahren kamen Drogengeld und bewaffnete Gruppen, und die Minen wurden ebenso zu einem strategischen Korridor wie zu einer Quelle von Steinen.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Nach 1990",
+          "answer": "Der Frieden von 1990 hielt, wo die meisten kolumbianischen Waffenstillstände gescheitert waren; Semana stellte 1992 fest, dass er eingehalten wurde.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In den 2010er-Jahren kehrte die Gewalt zurück, und die Region lebt weiterhin mit Spannungen, während ausländische Unternehmen kommen und der Bergbau umstrukturiert wird.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "beforeTheWars": {
+      "metaTitle": "Vor den Grünen Kriegen: Konzessionen, Bank, La Violencia",
+      "metaDescription": "Wie Kolumbiens Smaragdminen von Konzessionen des 19. Jahrhunderts zur Zentralbank kamen, La Violencia in den Smaragdorten und das grüne Fieber.",
+      "title": "Vor den Kriegen: Konzessionen, die Bank und La Violencia",
+      "lead": "Die Grünen Kriege kamen nicht aus dem Nichts. Ein Jahrhundert der Konzessionen, ein Staat, der die Minen betrieb und dann aufgab, und ein politischer Krieg, der die Smaragdorte erreichte.",
+      "imageAlt": "Eine Besuchergruppe mit Helmen auf dem Hof einer Smaragdmine",
+      "sections": {
+        "concessions": {
+          "heading": "Eine Republik vergibt die Minen",
+          "answer": "Nach der Unabhängigkeit übertrug das neue Finanzministerium die Minen von Muzo einem General, der an der Seite Bolívars gekämpft hatte, und zwei privaten Partnern. Damit begann eine lange kolumbianische Tradition, in der der Staat natürliche Ressourcen an Einzelpersonen vergab.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Beim Jahr sind sich die Quellen uneinig: 1827 in der Darstellung der spanischen Wikipedia[[wiki-es-guerras-verdes]], 1828 bei Alfredo Molano.[[semana-molano-2017]] Das 19. Jahrhundert verging dann mit Bürgerkriegen und staatlichen Versuchen, diesen Reichtum zu verwalten.[[semana-molano-2017]]"
+          ]
+        },
+        "bank": {
+          "heading": "Die Zentralbank betreibt die Minen",
+          "answer": "Ab 1947 betrieb die Banco de la República die Smaragdminen direkt, mit Ausnahme von Chivor. Hunderte Kolumbianer versuchten derweil, inmitten staatlicher Gleichgültigkeit mit illegaler Suche ihren Lebensunterhalt zu verdienen.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "1966 gab die Bank die Minen an die Regierung zurück, und es folgten Landnahme und Plünderung.[[semana-reinsercion-1992]] Die spanische Wikipedia datiert die Rolle der Bank auf 1944, als sie einen Beauftragten für die Leitung der Minen ernannte.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "violencia": {
+          "heading": "La Violencia erreicht die Smaragdorte",
+          "answer": "Der Zusammenhang zwischen Gewalt und Smaragden wurde in den 1950er-Jahren offensichtlich, als in Boyacá die pájaros auftauchten, die parteipolitischen Auftragsmörder von La Violencia.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Einer von ihnen, ein ehemaliger Soldat, der zum Gesetzlosen geworden war, kam als Revolvermann der konservativen Händler, die das Smaragdgeschäft kontrollierten, ins westliche Boyacá und wurde mit der Kontrolle über eine Mine bei Muzo bezahlt. Er wurde im Juni 1965 in Bogotá nach fünf Stunden Gefecht mit mehr als 1.200 Soldaten getötet.[[semana-molano-2017]]"
+          ]
+        },
+        "fever": {
+          "heading": "Das grüne Fieber",
+          "answer": "In den 1960er-Jahren erlebte Boyacá ein regelrechtes Fieber nach grünem Gold. Hunderte Männer zogen mit ihren Familien nach Muzo, Chiquinquirá oder Pauna, auf der Suche nach dem fuego verde.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Als sich die Konflikte um die Minen verschärften, in denen sich riesige Gewinne mit den Waffen zu ihrer Verteidigung mischten, befahl die Regierung der Armee, die Smaragdminen zu besetzen.[[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "firstGreenWar": {
+      "metaTitle": "Der Erste Grüne Krieg (1965–1975) | Kolumbianische Smaragde",
+      "metaDescription": "Der Erste Grüne Krieg um Kolumbiens Smaragdminen: die Daten jeder Quelle, der Auslöser, die Besetzung durch die Armee, die Toten und die Ausschreibung 1973.",
+      "title": "Der Erste Grüne Krieg (1965–1975)",
+      "lead": "Der Tod eines Banditen, eine Währungskrise und eine Besetzung durch die Armee machten aus dem Smaragdrausch einen Krieg. Er endete, als der Staat die Minen ausschrieb.",
+      "imageAlt": "Bergleute und Besucher mit Helmen stehen zwischen Baumfarnen um einen rostigen Grubenwagen",
+      "sections": {
+        "dates": {
+          "heading": "Wann er stattfand",
+          "answer": "Die spanische Wikipedia und der Soziologe Alfredo Molano datieren den Ersten Grünen Krieg auf 1965 bis 1975.[[wiki-es-guerras-verdes]][[semana-molano-2017]]",
+          "paragraphs": [
+            "Semana datiert 1992 den ersten großen grünen Krieg auf 1967 bis 1973.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "trigger": {
+          "heading": "Was ihn auslöste",
+          "answer": "Er begann 1965 mit dem Tod des Banditen, der eine Mine bei Muzo kontrolliert hatte. Seine Männer und die Händler, die mit ihm gearbeitet hatten, wandten sich im Streit um die Minen und den Handel gegeneinander.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Die Devisenkrise von 1967, die den Besitz von Dollar illegal machte, trieb die Smaragde als Mittel zum Transfer von Dollar in den Schmuggel, und Semana führt den ersten Krieg darauf zurück.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "army": {
+          "heading": "Die Armee rückt ein",
+          "answer": "Als sich die Kämpfe um die Minen ausbreiteten, befahl die Regierung der Armee, die Smaragdminen zu besetzen.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Nach Molanos Deutung konnte der Einmarsch der Armee in das Gebiet die Konflikte nur verschärfen.[[semana-molano-2017]]"
+          ]
+        },
+        "cost": {
+          "heading": "Der Preis",
+          "answer": "Mehr als 1.200 Menschen starben in Chiquinquirá, Muzo, Coscuez, Borbur und Somondoco.[[semana-molano-2017]] Semana zählte zwischen 1967 und 1973 mindestens 1.000.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Unterdessen nahm das 1968 gegründete Staatsunternehmen, das die Minen betreiben sollte, mit registrierten Exporten nur etwa 200 Millionen Pesos im Jahr ein, während das Geschäft unter der Hand enorm war.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "closure": {
+          "heading": "Wie er endete",
+          "answer": "Am 17. Juli 1973 schloss die Regierung die Minen und schrieb ihren Betrieb öffentlich aus. Der erste Schritt nach der Ausschreibung war die Unterzeichnung eines Friedens, und der hielt nur kurz.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Die Minen wurden unter privaten Unternehmen aufgeteilt, die von den Händlern der Region gegründet worden waren, eine Aufteilung, die das Ende des ersten Krieges besiegelte.[[semana-molano-2017]][[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "secondGreenWar": {
+      "metaTitle": "Der Zweite Grüne Krieg (1975–1978) | Kolumbianische Smaragde",
+      "metaDescription": "Der Zweite Grüne Krieg: von Morden 1975 zum ersten Friedenspakt 1978, der Umzug des Handels in Bogotás Calle 14 und die 35.000 guaqueros von Muzo.",
+      "title": "Der Zweite Grüne Krieg (1975–1978)",
+      "lead": "Ein kurzer Krieg, während der Smaragdhandel von den Minen auf die Straßen Bogotás zog, und der erste schriftliche Frieden zwischen den Händlern des westlichen Boyacá.",
+      "imageAlt": "Bergleute und Besucher mit Helmen stehen zwischen Baumfarnen um einen rostigen Grubenwagen",
+      "sections": {
+        "dates": {
+          "heading": "Wann er stattfand",
+          "answer": "Der Zweite Grüne Krieg dauerte von 1975 bis 1978. Er begann 1975 mit der Ermordung der Brüder eines Smaragdhändlers.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Er brach aus, als der Frieden nach der Ausschreibung von 1973 unter dem Druck von Geld von außen und internen Streitigkeiten bereits zerfiel.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "street": {
+          "heading": "Der Handel zieht in die Calle 14",
+          "answer": "Während des unsicheren Friedens verlagerte sich das Geschäft von den Minen in die Calle 14 im Zentrum Bogotás. Der Verkauf, nicht der Abbau, wurde zum Kern des Handels.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Japanische Käufer wurden innerhalb weniger Jahre zu den größten Abnehmern und zu denjenigen, die die Preise bestimmten.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "fortunes": {
+          "heading": "Smaragdvermögen, offen zur Schau gestellt",
+          "answer": "Als die Smaragdpreise gegenüber dem Dollar stiegen, wurden die Gewinner des Handels zu Magnaten. Sie kauften große Ländereien in Cundinamarca und Boyacá, Paso-Fino-Pferde, Kasinos und Rennpferde.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In denselben Jahren beherrschten japanische Käufer, die sowohl auf der Straße als auch an den Minen kauften, zunehmend den Handel und bestimmten die Preise.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "pact": {
+          "heading": "Der erste Friedenspakt",
+          "answer": "1978 unterzeichneten die Smaragdhändler des westlichen Boyacá ihren ersten Friedenspakt.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Im selben Jahr öffnete eine öffentliche Ausschreibung den Smaragdabbau für private Betreiber, und die Händler konnten ihre Vermögen legalisieren.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "blocs": {
+          "heading": "Zwei Blöcke und 35.000 guaqueros",
+          "answer": "Aus diesem Krieg gingen zwei große Gruppen hervor: eine um Coscuez, Maripí und Pauna, die andere um Otanche, Borbur, Santa Bárbara und Muzo.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Um 1980 zählte Muzo bis zu 35.000 guaqueros.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "thirdGreenWar": {
+      "metaTitle": "Der Dritte Grüne Krieg (1984–1990) | Kolumbianische Smaragde",
+      "metaDescription": "Der blutigste Grüne Krieg: gebrochene Pakte, Kartelle und Guerilla in der Smaragdzone, das Massaker am Bach Itoco, die Opferzahl und wie er endete.",
+      "title": "Der Dritte Grüne Krieg (1984–1990)",
+      "lead": "Der längste und blutigste der Smaragdkriege vermischte alte Fehden mit Kokain, Guerilla und paramilitärischen Gruppen. Die Bergbauorte zahlten den Preis.",
+      "imageAlt": "Bergleute und Besucher mit Helmen stehen zwischen Baumfarnen um einen rostigen Grubenwagen",
+      "sections": {
+        "dates": {
+          "heading": "Wann er stattfand",
+          "answer": "Der Dritte Grüne Krieg dauerte von 1984 bis 1990. Er begann, als Familien die Pakte brachen, mit denen die früheren Kriege beendet worden waren.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Semana setzt seinen Beginn im Mai 1984 an, mit der Ermordung einer einflussreichen Person in den Minen von Coscuez.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "causes": {
+          "heading": "Drei Ursachen auf einmal",
+          "answer": "Semana nannte drei Ursachen: den Kampf zwischen Smaragdgruppen um die Minen, das Vordringen der FARC-Guerilla ins westliche Boyacá und die Rückkehr des militärischen Chefs des Medellín-Kokainkartells, der Muzo für sich wollte.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Muzo und Quípama waren Schlüsselstücke eines Luftkorridors über Paime, Pacho, Zipaquirá und Bogotá, der die Smaragdzone für den Transport von Truppen und Kokain wertvoll machte.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "terror": {
+          "heading": "Terror als Waffe",
+          "answer": "Terrorismus wurde zur Hauptwaffe. Im Juli 1989 zerstörte eine Bombe die Büros eines Bergbauunternehmens in Bogotá, und am 15. Juli kamen sechzig bewaffnete Männer an den Bach Itoco, wählten sechs Bauern aus und erschossen sie einen nach dem anderen vor Tausenden von guaqueros.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In diesem Konflikt bildeten sich paramilitärische Gruppen, die mit der FARC zusammenstießen und am schmutzigen Krieg gegen die Partei Unión Patriótica beteiligt waren.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "communities": {
+          "heading": "Die Orte dazwischen",
+          "answer": "Die Bewohner von Maripí wurden ab den 1980er-Jahren in den Konflikt hineingezogen, mit vielen Toten.[[wiki-es-maripi]]",
+          "paragraphs": [
+            "In der ersten Phase wurden viele Bergleute, guaqueros und Kleinhändler getötet.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "toll": {
+          "heading": "Die Opferzahl und das Ende",
+          "answer": "Semana zählte etwa 3.000 Tote[[semana-reinsercion-1992]]; die spanische Wikipedia nennt zwischen 3.500 und 6.000.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Er endete nach dem Tod des militärischen Chefs des Kartells im Dezember 1989 und dem Abkommen vom Juli 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "peace1990": {
+      "metaTitle": "Der Smaragdfrieden von 1990 im westlichen Boyacá",
+      "metaDescription": "Wie der Smaragdfrieden von 1990 zustande kam: Waffenstillstand in einer Hahnenkampfarena in Quípama, öffentliche Unterzeichnung am 12. Juli, warum er hielt.",
+      "title": "Der Smaragdfrieden von 1990",
+      "lead": "Nach drei Kriegen vereinbarten die Smaragdgruppen des westlichen Boyacá in einer verlassenen Hahnenkampfarena einen Waffenstillstand. Anders als die meisten kolumbianischen Waffenstillstände hielt er.",
+      "imageAlt": "Zwei Reisende mit erhobenen Armen vor steilen, bewaldeten grünen Berggipfeln",
+      "sections": {
+        "what": {
+          "heading": "Was vereinbart wurde",
+          "answer": "Am 12. Juli 1990 unterzeichneten die verfeindeten Smaragdgruppen des westlichen Boyacá einen öffentlichen Frieden, der auf einer Erklärung zur Achtung des Lebens beruhte.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Die spanische Wikipedia verzeichnet ihn als Abkommen zwischen den Anführern der beiden Hauptfraktionen, unterzeichnet am 12. Juli 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "gallera": {
+          "heading": "Ein Waffenstillstand in einer Hahnenkampfarena",
+          "answer": "Nachdem das Gebiet im Mai 1990 militarisiert worden war, zogen sich die Behörden zurück, und die Gruppen begannen, sich zu Gesprächen über einen Waffenstillstand zu treffen. Er wurde am 6. Juni 1990 in einer verlassenen Hahnenkampfarena in Quípama vereinbart.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Vermittelt wurden die Gespräche vom Bischof von Chiquinquirá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "signing": {
+          "heading": "Die öffentliche Unterzeichnung",
+          "answer": "Der Frieden wurde am 12. Juli öffentlich mit einer Erklärung zur Achtung des Lebens unterzeichnet.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Das Abkommen ordnete außerdem die Eigentumsverhältnisse an einem Bergbauunternehmen in Coscuez unter den Gruppen neu, die darum gekämpft hatten, und brachte einen zivilen Sprecher des westlichen Boyacá an den Verhandlungstisch.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "held": {
+          "heading": "Warum es darauf ankam",
+          "answer": "Semana stellte 1992 fest, dass dieser Waffenstillstand, anders als die meisten in Kolumbien unterzeichneten, eingehalten worden war.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Derselbe Bericht beschrieb, dass die Händler ins legale System wollten, und es war von einer vollständigen Legalisierung des Geschäfts die Rede.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "economy": {
+          "heading": "Das Geschäft nach dem Frieden",
+          "answer": "1991 wurde die kolumbianische Smaragdproduktion auf einen Handelswert von 300 Millionen Dollar geschätzt, etwa die Hälfte davon als Export registriert; Semana zufolge waren Smaragde damit nach Kaffee und Erdöl das drittwichtigste Exportgut des Landes.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Ein Jahr nach dem Frieden wurde dieselbe Vermittlung gesucht, um der Region Rionegro in Cundinamarca Frieden zu bringen.[[semana-reinsercion-1992]]",
+            "Die nächsten Sorgen des Handels waren keine Kugeln: Käufer, die die Preise beherrschten, und Steine, die in Mineral- und Pflanzenölen gebadet wurden, um besser auszusehen, und von denen manche auf Flügen Risse bekamen oder binnen Monaten nachdunkelten.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "after": {
+          "heading": "Was blieb",
+          "answer": "Der Krieg endete, die Armut nicht. 2016 berichtete Verdad Abierta, dass in den Smaragdorten auch ohne Krieg Armut, fehlende Perspektiven und die Abwesenheit des Staates fortbestanden und dass Frauen am schwersten darunter gelitten hatten.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Jahre später kehrte die Gewalt zurück, und rund um die Umstrukturierung des Bergbaus und die Ankunft ausländischer Unternehmen bestehen weiterhin Spannungen.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    }
+  }
+}

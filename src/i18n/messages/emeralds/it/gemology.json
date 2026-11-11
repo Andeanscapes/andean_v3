@@ -1,0 +1,234 @@
+{
+  "pages": {
+    "gemology": {
+      "navLabel": "Gemmologia",
+      "metaTitle": "Gemmologia dello smeraldo: colore, jardin e trattamenti",
+      "metaDescription": "Cos’è uno smeraldo: berillo verde colorato da cromo, vanadio e ferro, il jardin, le inclusioni trifasiche, i trattamenti con olio e resina e i dati chiave.",
+      "title": "Gemmologia dello smeraldo: cosa rende una pietra uno smeraldo",
+      "lead": "Berillo verde, qualche atomo di cromo e vanadio, un giardino di inclusioni e, spesso, un po’ d’olio. La scienza dietro il verde, dai laboratori che la studiano.",
+      "imageAlt": "Un minatore scalpella una parete di roccia alla luce della lampada frontale dentro una miniera di smeraldi",
+      "sections": {
+        "what": {
+          "heading": "Che cos’è uno smeraldo?",
+          "answer": "Lo smeraldo è la varietà verde o verde-bluastra del berillo, la specie minerale che comprende anche l’acquamarina.[[gia-emerald-description]]",
+          "paragraphs": [
+            "Dove finisca il berillo verde e cominci lo smeraldo è oggetto di discussione. Alcuni commercianti chiamano smeraldo qualsiasi berillo verde colorato dal cromo; la maggior parte di gemmologi, laboratori e commercianti chiama una pietra berillo verde quando il suo colore è troppo chiaro, e il GIA usa pietre di confronto classificate in laboratorio per decidere.[[gia-emerald-description]]"
+          ]
+        },
+        "color": {
+          "heading": "Da dove viene il verde",
+          "answer": "Cromo, vanadio e ferro causano il colore dello smeraldo; quali sono presenti, e in che quantità, determina il verde esatto di ogni cristallo.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "I colori più ricercati vanno dal verde-bluastro al verde puro, con saturazione vivida, un tono non troppo scuro e il colore distribuito in modo uniforme nella pietra. Se è troppo giallastra o troppo bluastra, la pietra è un’altra varietà di berillo.[[gia-emerald-quality]]"
+          ]
+        },
+        "jardin": {
+          "heading": "Il jardin: perché gli smeraldi sono raramente puri",
+          "answer": "La maggior parte degli smeraldi contiene inclusioni visibili a occhio nudo, spesso simili a muschio o a un giardino. Il commercio le chiama jardin, «giardino» in francese.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Il commercio accetta inclusioni visibili a occhio nudo negli smeraldi fini; le pietre pulite a occhio nudo sono rare e particolarmente preziose. Le inclusioni tolgono valore solo quando offuscano la trasparenza.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Inclusioni trifasiche e origine",
+          "answer": "L’inclusione colombiana classica è una cavità frastagliata piena di salamoia che contiene una bolla di gas e un cristallo di sale cubico, di solito lunga da 100 micrometri a 1 millimetro. Le inclusioni frastagliate più grandi di circa mezzo millimetro sono esclusive della Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "I laboratori dividono gli smeraldi in due famiglie. Gli smeraldi colombiani, afghani e cinesi (Davdar) si formano in contesti idrotermali o metamorfici e hanno spesso inclusioni multifase frastagliate; quelli di Zambia (Kafubu), Russia, Etiopia e Brasile sono ospitati in scisti e di solito le hanno squadrate.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Schema di un’inclusione fluida frastagliata all’interno di uno smeraldo con tre fasi indicate: salamoia, una bolla di gas e un cristallo di sale cubico.",
+            "caption": "Un’inclusione trifasica frastagliata, tipica degli smeraldi colombiani. Schema, non in scala."
+          }
+        },
+        "treatments": {
+          "heading": "Olio, resina e l’Emerald Report",
+          "answer": "Le fratture degli smeraldi che raggiungono la superficie vengono spesso riempite con oli, cere o resine artificiali per renderle meno visibili e migliorare la purezza apparente.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "I riempitivi variano per stabilità e quantità, da insignificante a importante. Uno smeraldo trattato va tenuto lontano dal calore, dai bruschi cambi di pressione atmosferica, dai prodotti chimici e perfino dall’acqua calda dei piatti.[[gia-gem-treatment]]",
+            "Dal 2000 il laboratorio del GIA classifica il miglioramento della purezza degli smeraldi come lieve, moderato o significativo. La classificazione descrive il trattamento; non è un grado di purezza.[[gia-emerald-quality]]"
+          ]
+        },
+        "facts": {
+          "heading": "Dati sullo smeraldo",
+          "answer": "Lo smeraldo è un berillo, Be₃Al₂Si₆O₁₈, con una durezza Mohs da 7,5 a 8, un peso specifico di 2,72 e un indice di rifrazione da 1,577 a 1,583.[[gia-emerald-facts]]",
+          "paragraphs": [
+            "Durezza non significa tenacità. Quasi tutti gli smeraldi hanno fratture e sono più fragili del corindone, quindi possono danneggiarsi durante il taglio, l’incastonatura o un uso poco attento.[[gia-emerald-quality]]",
+            "Lo smeraldo è la pietra del mese di maggio e la gemma del 20° e del 35° anniversario di matrimonio.[[gia-emerald-facts]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Lo smeraldo è un tipo di berillo?",
+          "answer": "Sì. Lo smeraldo è la varietà verde o verde-bluastra del berillo, la stessa specie minerale dell’acquamarina.[[gia-emerald-description]]"
+        },
+        {
+          "question": "Tutti gli smeraldi hanno inclusioni?",
+          "answer": "Quasi tutti. Le inclusioni visibili a occhio nudo, chiamate jardin, sono normali negli smeraldi, e le pietre pulite a occhio nudo sono rare e particolarmente preziose.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "Gli smeraldi sono trattati?",
+          "answer": "Spesso. Le fratture che raggiungono la superficie vengono comunemente riempite con oli, cere o resine artificiali per migliorare la purezza apparente.[[gia-gem-treatment]]"
+        }
+      ]
+    },
+    "colombianVsZambian": {
+      "metaTitle": "Smeraldi colombiani e zambiani: le vere differenze",
+      "metaDescription": "Come differiscono gli smeraldi colombiani e zambiani: geologia, ferro e colore, inclusioni frastagliate o squadrate, analisi di laboratorio e quale è migliore.",
+      "title": "Smeraldi colombiani e zambiani: cosa cambia davvero",
+      "lead": "Lo Zambia è il principale rivale della Colombia per gli smeraldi fini. Si formano in rocce diverse, portano tracce diverse e, in molte pietre, possono comunque somigliarsi. Ecco cosa usano i laboratori per distinguerli.",
+      "imageAlt": "Un visitatore con il casco tra colline verdi e pareti di roccia nella regione degli smeraldi",
+      "sections": {
+        "short": {
+          "heading": "La risposta breve",
+          "answer": "Si formano in contesti geologici diversi. Gli smeraldi colombiani appartengono al gruppo idrotermale/metamorfico; quelli zambiani di Kafubu sono ospitati in scisti, formatisi dove pegmatiti o altri corpi magmatici incontrarono rocce mafiche, ultramafiche o metamorfiche.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Lo Zambia è una delle fonti che, dal XX secolo, hanno sfidato il posto della Colombia sul mercato, insieme a Brasile e Russia. Con la diffusione della produzione, l’origine geografica è diventata un fattore importante per gli smeraldi fini.[[gia-origin-2019]]"
+          ]
+        },
+        "geology": {
+          "heading": "Rocce diverse, età diverse",
+          "answer": "Gli smeraldi colombiani si sono formati quando salamoie calde del bacino, dopo aver interagito con le evaporiti, circolarono attraverso argilliti nere ricche di materia organica.[[gia-trapiche-2015]] Gli smeraldi dello Zambia, come altri giacimenti in scisti, si sono formati invece dove pegmatiti o altri corpi magmatici incontrarono rocce mafiche, ultramafiche o metamorfiche.[[gia-origin-2019]]",
+          "paragraphs": [
+            "In Colombia la roccia ospite è l’argillite nera: la fascia occidentale si trova in rocce di 130-116 milioni di anni, e gli smeraldi si sono formati circa 65 milioni di anni fa a est e tra 38 e 32 milioni di anni fa a ovest.[[gia-trapiche-2015]]"
+          ]
+        },
+        "color": {
+          "heading": "Colore e ferro",
+          "answer": "Gli smeraldi ospitati in scisti, come quelli dello Zambia, tendono a un verde più scuro di quelli colombiani perché in genere contengono più ferro.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Nel commercio si dice che gli smeraldi colombiani abbiano un verde puro più caldo e intenso e quelli zambiani un verde più freddo e bluastro. Il GIA osserva che l’aspetto delle diverse provenienze si sovrappone.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Frastagliate o squadrate",
+          "answer": "Gli smeraldi colombiani mostrano di solito inclusioni trifasiche frastagliate; quelli ospitati in scisti le hanno in genere squadrate, e la mica è la loro inclusione solida più comune. Le inclusioni frastagliate più grandi di circa mezzo millimetro sono esclusive della Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Ai margini c’è sovrapposizione: un giacimento zambiano minore a Musakashi può mostrare inclusioni trifasiche frastagliate simili a quelle colombiane.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Schema di un’inclusione fluida frastagliata all’interno di uno smeraldo con tre fasi indicate: salamoia, una bolla di gas e un cristallo di sale cubico.",
+            "caption": "Un’inclusione trifasica frastagliata, tipica degli smeraldi colombiani. Schema, non in scala."
+          }
+        },
+        "lab": {
+          "heading": "Come decide un laboratorio",
+          "answer": "L’origine si determina combinando inclusioni, spettroscopia UV-Vis-NIR e chimica degli elementi in traccia misurata con ICP-MS ad ablazione laser.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Il ferro si vede nello spettro: gli smeraldi ospitati in scisti hanno una banda di assorbimento del ferro molto più forte a 810 nanometri. Quando una pietra non ha inclusioni diagnostiche né dati sugli elementi in traccia, un parere sull’origine può essere impossibile.[[gia-origin-2019]]"
+          ]
+        },
+        "better": {
+          "heading": "Il colombiano è migliore dello zambiano?",
+          "answer": "Non automaticamente. Il valore dipende dalla singola pietra: colore, purezza, taglio e dimensioni. L’aspetto delle diverse provenienze si sovrappone.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "L’origine conta dal punto di vista commerciale: è diventata un fattore importante per gli smeraldi di qualità fine.[[gia-origin-2019]] Ma una bella pietra zambiana batte una colombiana scadente; giudica la pietra, poi chiedi a un laboratorio la sua origine."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Gli smeraldi zambiani sono più scuri di quelli colombiani?",
+          "answer": "Tendono a esserlo. Gli smeraldi ospitati in scisti come quelli dello Zambia in genere contengono più ferro, che li rende di un verde più scuro.[[gia-origin-2019]]"
+        },
+        {
+          "question": "Un laboratorio sa distinguere uno smeraldo colombiano da uno zambiano?",
+          "answer": "Di solito sì, combinando inclusioni, spettroscopia e chimica degli elementi in traccia. Le grandi inclusioni frastagliate oltre circa mezzo millimetro sono esclusive della Colombia.[[gia-origin-2019]]"
+        }
+      ]
+    },
+    "emeraldValue": {
+      "metaTitle": "Valore degli smeraldi colombiani: colore, purezza e prezzo",
+      "metaDescription": "Cosa determina il prezzo di uno smeraldo colombiano: colore, jardin, taglio, peso in carati, trattamenti, certificati di laboratorio, origine e gota de aceite.",
+      "title": "Come si valuta uno smeraldo colombiano",
+      "lead": "Non esiste un prezzo al carato per «uno smeraldo colombiano». Esistono pietre, e ognuna si valuta prima per il colore, poi per purezza, taglio, dimensioni, trattamento e origine. Ecco cosa guardano i professionisti.",
+      "imageAlt": "Due uomini con casco e lampada frontale accanto a una cascata sotterranea",
+      "sections": {
+        "short": {
+          "heading": "La risposta breve",
+          "answer": "Gli smeraldi si valutano soprattutto per il colore, poi per purezza e trasparenza, taglio e peso in carati.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "A parità di qualità, il prezzo di uno smeraldo può salire in modo drastico con l’aumentare delle dimensioni.[[gia-emerald-quality]]"
+          ]
+        },
+        "color": {
+          "heading": "Prima viene il colore",
+          "answer": "Gli smeraldi più apprezzati vanno dal verde-bluastro al verde puro, con saturazione vivida, un tono non troppo scuro, alta trasparenza e colore uniforme senza zonature visibili.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Se la tinta vira troppo al giallo o al blu, la pietra non è più uno smeraldo ma un altro berillo, e il suo valore scende di conseguenza.[[gia-emerald-quality]]"
+          ]
+        },
+        "clarity": {
+          "heading": "La purezza e il jardin",
+          "answer": "Negli smeraldi ci si aspettano inclusioni visibili a occhio nudo, il jardin. Le pietre che ne sono prive sono rare e particolarmente preziose.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Le inclusioni diventano un problema solo quando offuscano la trasparenza; allora riducono il valore in modo drastico.[[gia-emerald-quality]]"
+          ]
+        },
+        "cut": {
+          "heading": "Il taglio, e gli smeraldi negli anelli",
+          "answer": "Il taglio decide quanto colore e quanto peso sopravvivono. Quasi tutti gli smeraldi hanno fratture, e gli errori costano peso e valore.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Il grezzo colombiano è particolarmente impegnativo: il suo colore è più intenso vicino alla superficie, quindi un taglio poco attento può lasciare una pietra molto più pallida del cristallo da cui proviene.[[gia-emerald-quality]]",
+            "Per gli anelli questo conta. Gli smeraldi sono più fragili del corindone, e il taglio smeraldo aiuta a proteggerli perché i suoi angoli vulnerabili sono sfaccettati e offrono un punto più sicuro per le griffe.[[gia-emerald-quality]]"
+          ]
+        },
+        "size": {
+          "heading": "Dimensioni",
+          "answer": "A parità di qualità, il prezzo sale in modo drastico con le dimensioni.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Le pietre da 1 a 5 carati sono apprezzate come pietre centrali; le misure più piccole in gioielleria vanno da 0,02 a 0,50 carati, e i pezzi più prestigiosi possono montare smeraldi oltre i 20 carati.[[gia-emerald-quality]]"
+          ]
+        },
+        "treatment": {
+          "heading": "Trattamento",
+          "answer": "Le fratture degli smeraldi vengono spesso riempite con oli, cere o resine artificiali per migliorare la purezza apparente. Il tipo e la quantità di riempitivo incidono sul valore.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "La quantità di riempitivo può andare da insignificante a importante, e la sua stabilità varia. Gli smeraldi trattati richiedono cura: niente calore, prodotti chimici, acqua calda dei piatti o bruschi cambi di pressione atmosferica.[[gia-gem-treatment]]"
+          ]
+        },
+        "reports": {
+          "heading": "Certificati di laboratorio",
+          "answer": "Un GIA Emerald Report classifica il miglioramento della purezza come lieve, moderato o significativo e include un’immagine della pietra; descrive il trattamento, non un grado di purezza.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "I pareri sull’origine combinano inclusioni, spettroscopia e chimica degli elementi in traccia; una pietra senza inclusioni diagnostiche può non ricevere alcun parere sull’origine.[[gia-origin-2019]]"
+          ]
+        },
+        "origin": {
+          "heading": "L’origine e la gota de aceite",
+          "answer": "Gota de aceite, «goccia d’olio», è il nome che il commercio dà agli smeraldi colombiani di alta qualità.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "L’origine è diventata un fattore importante nel prezzo degli smeraldi fini, ed è per questo che i laboratori investono per distinguere le pietre colombiane dalle altre.[[gia-origin-2019]]"
+          ]
+        },
+        "checklist": {
+          "heading": "Prima di comprare: cosa chiedere",
+          "note": "editorial",
+          "paragraphs": [
+            "Non vendiamo smeraldi e non indichiamo prezzi: una cifra senza la pietra davanti non significa nulla. Queste sono le domande che fanno i professionisti, chiunque sia il venditore."
+          ],
+          "list": [
+            "La pietra è trattata? Con cosa, e quanto?",
+            "Esiste un certificato di un laboratorio gemmologico indipendente, e la sua immagine corrisponde alla pietra?",
+            "Il certificato esprime un parere sull’origine, o dice che non è stato possibile?",
+            "Come va pulita e indossata questa pietra, dato il suo trattamento?"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Quanto vale uno smeraldo colombiano?",
+          "answer": "Non esiste un prezzo unico. Il valore dipende prima dal colore, poi da purezza, taglio e dimensioni, e a parità di qualità il prezzo sale in modo drastico con le dimensioni.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "Cosa significa gota de aceite?",
+          "answer": "In spagnolo significa «goccia d’olio», ed è il termine con cui il commercio indica gli smeraldi colombiani di alta qualità.[[gia-rainier-2016]]"
+        },
+        {
+          "question": "Come faccio a sapere se uno smeraldo è colombiano?",
+          "answer": "Solo un laboratorio gemmologico può esprimere un parere sull’origine, in base a inclusioni, spettroscopia ed elementi in traccia.[[gia-origin-2019]]"
+        }
+      ]
+    }
+  }
+}

@@ -14,7 +14,10 @@
     "sourcesTitle": "Sources",
     "relatedToursTitle": "Chivor emerald mine tours",
     "moreGuidesTitle": "More guides",
-    "breadcrumbLabel": "Breadcrumb"
+    "breadcrumbLabel": "Breadcrumb",
+    "emeraldWorldBody": "Looking for the bigger picture? Emerald World covers the history, geology, legends and culture of Colombian emeralds.",
+    "emeraldWorldCta": "Explore Emerald World",
+    "emeraldWorldDeeper": "Go deeper in Emerald World"
   },
   "articles": {
     "emeraldMineToursColombia": {

@@ -1,0 +1,317 @@
+{
+  "pages": {
+    "greenWars": {
+      "navLabel": "Guerres vertes",
+      "metaTitle": "Guerres vertes : les conflits de l’émeraude, 1965–1990",
+      "metaDescription": "Les trois guerres vertes pour les mines d’émeraudes colombiennes, racontées comme des faits : dates, causes, coût humain et paix de 1990.",
+      "title": "Les guerres vertes : les conflits de l’émeraude en Colombie",
+      "lead": "Pendant un quart de siècle, les villages émeraudiers de l’ouest du Boyacá ont vécu trois guerres pour les mines. Voici ce qui s’est passé, guerre par guerre, d’après les sources colombiennes, et comment cela s’est terminé.",
+      "imageAlt": "Mineurs et visiteurs casqués autour d’un wagonnet rouillé parmi les fougères arborescentes",
+      "sections": {
+        "what": {
+          "heading": "Que furent les guerres vertes ?",
+          "answer": "« Guerras verdes » est le nom que les Colombiens donnent à une série de conflits entre négociants d’émeraudes, les esmeralderos, menés surtout dans le Boyacá, avec des violences dans d’autres régions du pays. Les sources comptent trois guerres entre 1965 et 1990.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Les sources en espagnol lient émeraudes et violence dès les années 1950, quand les tueurs à gages de la Violencia partisane arrivèrent dans le Boyacá.[[semana-molano-2017]] Presque tout ce qui suit vient de la presse et de livres colombiens en espagnol, résumés ici pour les lecteurs qui ne peuvent pas les lire.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "approach": {
+          "heading": "Pourquoi cette rubrique ne nomme personne",
+          "note": "editorial",
+          "paragraphs": [
+            "La presse colombienne nomme les chefs de chaque camp. Nous racontons les faits et ce qu’ils ont signifié pour les villages, les guaqueros et les familles, pas la biographie des hommes qui ont mené ces guerres. Les sources en fin de page couvrent le reste."
+          ]
+        },
+        "timeline": {
+          "heading": "Chronologie",
+          "answer": "Les conflits sont nés d’un siècle de concessions publiques et d’une ruée vers l’émeraude dans les années 1960, et se sont terminés par une paix signée en juillet 1990.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Les dates diffèrent selon les sources, parfois de plusieurs années ; chaque article de la rubrique présente les versions côte à côte.[[wiki-es-guerras-verdes]][[semana-reinsercion-1992]]"
+          ],
+          "timeline": [
+            {
+              "date": "1827–1828",
+              "text": "Le ministère des Finances de la jeune république confie les mines de Muzo à un général et à deux associés privés. Les sources divergent sur l’année.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+            },
+            {
+              "date": "1947",
+              "text": "La Banque de la République prend en charge l’exploitation directe des mines d’émeraudes, sauf Chivor.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "Années 1950",
+              "text": "Le lien entre émeraudes et violence devient visible avec l’arrivée dans le Boyacá des tueurs partisans de la Violencia.[[semana-molano-2017]]"
+            },
+            {
+              "date": "1965–1975",
+              "text": "Première guerre verte. Plus de 1 200 morts à Chiquinquirá, Muzo, Coscuez, Borbur et Somondoco.[[semana-molano-2017]]"
+            },
+            {
+              "date": "17 juillet 1973",
+              "text": "Le gouvernement ferme les mines et met leur exploitation en adjudication publique.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1975–1978",
+              "text": "Deuxième guerre verte, close par le premier pacte de paix entre les négociants de l’ouest du Boyacá.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "1984–1990",
+              "text": "Troisième guerre verte, la plus meurtrière, mêlée au narcotrafic, à la guérilla et aux groupes paramilitaires.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "6 juin 1990",
+              "text": "Un cessez-le-feu est conclu dans une arène de combats de coqs abandonnée à Quípama.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "12 juillet 1990",
+              "text": "La paix est signée publiquement avec une déclaration de respect de la vie.[[semana-reinsercion-1992]]"
+            }
+          ]
+        },
+        "counting": {
+          "heading": "Combien de morts",
+          "answer": "Personne ne dispose d’un chiffre exact, et les nombres publiés varient beaucoup. Il faut les lire comme des ordres de grandeur, pas comme des statistiques.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Pour la première guerre : plus de 1 200 morts selon Alfredo Molano[[semana-molano-2017]] ; au moins 1 000 entre 1967 et 1973 selon Semana en 1992.[[semana-reinsercion-1992]]",
+            "Pour la troisième : environ 3 000 selon Semana[[semana-reinsercion-1992]] ; entre 3 500 et 6 000 selon Wikipédia en espagnol.[[wiki-es-guerras-verdes]] L’histoire municipale de Maripí compte au moins 5 000 morts dans toute la région entre 1960 et 1991.[[wiki-es-maripi]]"
+          ]
+        },
+        "why": {
+          "heading": "Pourquoi les mines sont devenues un champ de bataille",
+          "answer": "À la racine, il y avait le contrôle des mines : qui pouvait les exploiter, qui pouvait vendre ce qui en sortait et qui encaissait l’argent.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "L’argent a changé l’enjeu. Après la crise des changes de 1967, qui rendit illégale la détention de dollars, les émeraudes devinrent un moyen de sortir des dollars du pays et la contrebande grandit.[[semana-reinsercion-1992]] Une subvention de 15 pour cent à l’exportation entraîna des surfacturations : les exportations déclarées atteignirent 80 millions de dollars en 1973, et la subvention fut supprimée en décembre.[[semana-reinsercion-1992]]",
+            "Dans les années 1980 arrivèrent l’argent de la drogue et les groupes armés, et les mines devinrent un corridor stratégique autant qu’une source de pierres.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Après 1990",
+          "answer": "La paix de 1990 a tenu là où la plupart des cessez-le-feu colombiens avaient échoué ; Semana notait en 1992 qu’elle était respectée.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "La violence est revenue dans les années 2010, et la région vit encore des tensions avec l’arrivée d’entreprises étrangères et la restructuration minière.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "beforeTheWars": {
+      "metaTitle": "Avant les guerres vertes : concessions et Violencia",
+      "metaDescription": "Des concessions du XIXe siècle à la banque centrale : comment la Violencia a atteint les villages de l’émeraude, puis la fièvre verte.",
+      "title": "Avant les guerres : concessions, la Banque et la Violencia",
+      "lead": "Les guerres vertes ne sont pas nées de rien. Un siècle de concessions, un État qui exploita les mines puis les lâcha, et une guerre politique qui atteignit les villages de l’émeraude.",
+      "imageAlt": "Un groupe de visiteurs casqués dans la cour d’une mine d’émeraudes",
+      "sections": {
+        "concessions": {
+          "heading": "Une république distribue les mines",
+          "answer": "Après l’indépendance, le nouveau ministère des Finances confia les mines de Muzo à un général compagnon d’armes de Bolívar et à deux associés privés. Ainsi commença une longue tradition colombienne : l’État confie à des particuliers l’exploitation des ressources naturelles.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Les sources divergent sur l’année : 1827 selon Wikipédia en espagnol[[wiki-es-guerras-verdes]], 1828 selon Alfredo Molano.[[semana-molano-2017]] Le XIXe siècle passa ensuite entre guerres civiles et expériences publiques de gestion de cette richesse.[[semana-molano-2017]]"
+          ]
+        },
+        "bank": {
+          "heading": "La banque centrale exploite les mines",
+          "answer": "À partir de 1947, la Banque de la République exploita directement les mines d’émeraudes, sauf Chivor. Pendant ce temps, des centaines de Colombiens tentaient de vivre de la recherche illégale, dans l’indifférence de l’État.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En 1966, la Banque rendit les mines au gouvernement, et ce qui suivit fut l’invasion et le pillage.[[semana-reinsercion-1992]] Wikipédia en espagnol fait remonter le rôle de la Banque à 1944, quand elle nomma un délégué à l’exploitation.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "violencia": {
+          "heading": "La Violencia atteint les villages de l’émeraude",
+          "answer": "Le lien entre violence et émeraudes devint évident dans les années 1950, avec l’apparition dans le Boyacá des pájaros, les tueurs partisans de la Violencia.[[semana-molano-2017]]",
+          "paragraphs": [
+            "L’un d’eux, ancien militaire devenu hors-la-loi, arriva dans l’ouest du Boyacá comme tueur au service des négociants conservateurs qui tenaient le commerce de l’émeraude, et fut payé par le contrôle d’une mine près de Muzo. Il fut tué à Bogotá en juin 1965, après cinq heures de combat contre plus de 1 200 soldats.[[semana-molano-2017]]"
+          ]
+        },
+        "fever": {
+          "heading": "La fièvre verte",
+          "answer": "Dans les années 1960, le Boyacá vécut une véritable fièvre de l’or vert. Des centaines d’hommes et leurs familles partirent pour Muzo, Chiquinquirá ou Pauna à la recherche du fuego verde.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Quand les conflits pour le contrôle des mines s’aiguisèrent, mêlant profits fabuleux et armes pour les défendre, le gouvernement ordonna à l’armée d’occuper les mines d’émeraudes.[[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "firstGreenWar": {
+      "metaTitle": "La première guerre verte (1965–1975) | Émeraudes",
+      "metaDescription": "La première guerre verte pour les mines d’émeraudes : dates selon chaque source, déclencheur, occupation militaire, morts et adjudication de 1973.",
+      "title": "La première guerre verte (1965–1975)",
+      "lead": "La mort d’un bandit, une crise des changes et une occupation militaire ont changé la ruée vers l’émeraude en guerre. Elle a pris fin quand l’État a mis les mines en adjudication.",
+      "imageAlt": "Mineurs et visiteurs casqués autour d’un wagonnet rouillé parmi les fougères arborescentes",
+      "sections": {
+        "dates": {
+          "heading": "Quand",
+          "answer": "Wikipédia en espagnol et le sociologue Alfredo Molano datent la première guerre verte de 1965 à 1975.[[wiki-es-guerras-verdes]][[semana-molano-2017]]",
+          "paragraphs": [
+            "Semana, en 1992, date la première grande guerre verte de 1967 à 1973.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "trigger": {
+          "heading": "Le déclencheur",
+          "answer": "Elle commença avec la mort, en 1965, du bandit qui contrôlait une mine près de Muzo. Ses hommes et les négociants qui avaient travaillé avec lui s’affrontèrent pour les mines et le commerce.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "La crise des changes de 1967, qui rendit illégale la détention de dollars, poussa les émeraudes vers la contrebande pour sortir des dollars, et Semana y voit l’origine de la première guerre.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "army": {
+          "heading": "L’armée entre en scène",
+          "answer": "Quand les affrontements pour les mines s’étendirent, le gouvernement ordonna à l’armée d’occuper les mines d’émeraudes.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Pour Molano, l’entrée de l’armée dans la zone ne pouvait qu’aggraver les conflits.[[semana-molano-2017]]"
+          ]
+        },
+        "cost": {
+          "heading": "Le coût",
+          "answer": "Plus de 1 200 personnes moururent à Chiquinquirá, Muzo, Coscuez, Borbur et Somondoco.[[semana-molano-2017]] Semana en compta au moins 1 000 entre 1967 et 1973.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Pendant ce temps, l’entreprise publique créée en 1968 pour l’exploitation ne percevait qu’environ 200 millions de pesos par an d’exportations déclarées, alors que le commerce souterrain était énorme.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "closure": {
+          "heading": "Comment elle s’est terminée",
+          "answer": "Le 17 juillet 1973, le gouvernement ferma les mines et mit leur exploitation en adjudication publique. La première étape ensuite fut de signer la paix, qui ne dura que peu.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Les mines furent réparties entre des entreprises privées formées par les négociants de la région, un partage qui scella la fin de la première guerre.[[semana-molano-2017]][[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "secondGreenWar": {
+      "metaTitle": "La deuxième guerre verte (1975–1978) | Émeraudes",
+      "metaDescription": "La deuxième guerre verte : des assassinats de 1975 au premier pacte de paix de 1978, la Calle 14 de Bogotá et les guaqueros de Muzo.",
+      "title": "La deuxième guerre verte (1975–1978)",
+      "lead": "Une guerre courte, pendant que le commerce de l’émeraude passait des mines aux rues de Bogotá, et la première paix écrite entre les négociants de l’ouest du Boyacá.",
+      "imageAlt": "Mineurs et visiteurs casqués autour d’un wagonnet rouillé parmi les fougères arborescentes",
+      "sections": {
+        "dates": {
+          "heading": "Quand",
+          "answer": "La deuxième guerre verte dura de 1975 à 1978. Elle commença en 1975 avec l’assassinat des frères d’un négociant d’émeraudes.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Elle survint alors que la paix qui avait suivi l’adjudication de 1973 se défaisait déjà sous l’effet de l’argent extérieur et des querelles internes.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "street": {
+          "heading": "Le commerce passe à la Calle 14",
+          "answer": "Pendant la paix précaire, le commerce se déplaça des mines vers la Calle 14, dans le centre de Bogotá. La vente, plus que l’extraction, devint le cœur du métier.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "En quelques années, les acheteurs japonais devinrent les premiers acheteurs et ceux qui fixaient les prix.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "fortunes": {
+          "heading": "Les fortunes de l’émeraude au grand jour",
+          "answer": "Comme le prix des gemmes montait face au dollar, les gagnants du commerce devinrent des magnats. Ils achetèrent de vastes terres dans le Cundinamarca et le Boyacá, des chevaux de paso fino, des casinos et des chevaux de course.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Dans les mêmes années, les acheteurs japonais, qui achetaient dans la rue comme aux mines, en vinrent à dominer le commerce et à fixer les prix.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "pact": {
+          "heading": "Le premier pacte de paix",
+          "answer": "En 1978, les négociants d’émeraudes de l’ouest du Boyacá signèrent leur premier pacte de paix.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "La même année, une adjudication ouvrit l’exploitation aux particuliers, et les négociants purent régulariser leurs fortunes.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "blocs": {
+          "heading": "Deux blocs et 35 000 guaqueros",
+          "answer": "De cette guerre naquirent deux grands groupes : l’un autour de Coscuez, Maripí et Pauna, l’autre autour d’Otanche, Borbur, Santa Bárbara et Muzo.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "En 1980, Muzo comptait jusqu’à 35 000 guaqueros.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "thirdGreenWar": {
+      "metaTitle": "La troisième guerre verte (1984–1990) | Émeraudes",
+      "metaDescription": "La guerre verte la plus meurtrière : pactes rompus, cartels et guérilla, le massacre de la rivière Itoco, le bilan et la fin.",
+      "title": "La troisième guerre verte (1984–1990)",
+      "lead": "La plus longue et la plus meurtrière des guerres de l’émeraude a mêlé vieilles rancunes, cocaïne, guérilla et paramilitaires. Les villages miniers en ont payé le prix.",
+      "imageAlt": "Mineurs et visiteurs casqués autour d’un wagonnet rouillé parmi les fougères arborescentes",
+      "sections": {
+        "dates": {
+          "heading": "Quand",
+          "answer": "La troisième guerre verte dura de 1984 à 1990. Elle commença quand des familles rompirent les pactes qui avaient clos les guerres précédentes.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Semana situe son début en mai 1984, avec l’assassinat d’une figure influente des mines de Coscuez.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "causes": {
+          "heading": "Trois causes à la fois",
+          "answer": "Semana citait trois causes : la lutte entre groupes émeraudiers pour les mines, l’arrivée des FARC dans l’ouest du Boyacá et le retour du chef militaire du cartel de Medellín, qui voulait Muzo.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Muzo et Quípama étaient des pièces clés d’un corridor aérien passant par Paime, Pacho, Zipaquirá et Bogotá, ce qui rendait la zone émeraudière précieuse pour déplacer troupes et cocaïne.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "terror": {
+          "heading": "La terreur comme arme",
+          "answer": "Le terrorisme devint l’arme principale. En juillet 1989, une bombe ravagea les bureaux d’une entreprise minière à Bogotá, et le 15 juillet soixante hommes armés arrivèrent à la rivière Itoco, choisirent six paysans et les fusillèrent un par un devant des milliers de guaqueros.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Des groupes paramilitaires se formèrent dans ce conflit, affrontèrent les FARC et furent impliqués dans la guerre sale contre l’Union patriotique.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "communities": {
+          "heading": "Les villages pris au milieu",
+          "answer": "Les habitants de Maripí furent entraînés dans le conflit à partir des années 1980, avec de nombreux morts.[[wiki-es-maripi]]",
+          "paragraphs": [
+            "Dans la première phase, de nombreux mineurs, guaqueros et petits commerçants furent tués.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "toll": {
+          "heading": "Le bilan et la fin",
+          "answer": "Semana comptait environ 3 000 morts[[semana-reinsercion-1992]] ; Wikipédia en espagnol donne entre 3 500 et 6 000.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Elle prit fin après la mort du chef militaire du cartel en décembre 1989 et l’accord de juillet 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "peace1990": {
+      "metaTitle": "La paix de l’émeraude de 1990 dans l’ouest du Boyacá",
+      "metaDescription": "Comment s’est conclue la paix de l’émeraude de 1990 : un cessez-le-feu dans une arène de coqs à Quípama, la signature du 12 juillet.",
+      "title": "La paix de l’émeraude de 1990",
+      "lead": "Après trois guerres, les groupes émeraudiers de l’ouest du Boyacá ont conclu un cessez-le-feu dans une arène de combats de coqs abandonnée. Contrairement à la plupart des cessez-le-feu colombiens, il a tenu.",
+      "imageAlt": "Deux voyageurs, les bras levés, face à des sommets verdoyants, abrupts et boisés",
+      "sections": {
+        "what": {
+          "heading": "Ce qui fut conclu",
+          "answer": "Le 12 juillet 1990, les groupes émeraudiers rivaux de l’ouest du Boyacá signèrent une paix publique fondée sur une déclaration de respect de la vie.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Wikipédia en espagnol la présente comme un accord entre les chefs des deux principales factions, signé le 12 juillet 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "gallera": {
+          "heading": "Un cessez-le-feu dans une arène de combats de coqs",
+          "answer": "Après la militarisation de la zone en mai 1990, les autorités se retirèrent et les groupes commencèrent à se réunir pour parler de cessez-le-feu. Il fut conclu le 6 juin 1990 dans une arène de combats de coqs abandonnée à Quípama.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Les discussions se tinrent sous la médiation de l’évêque de Chiquinquirá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "signing": {
+          "heading": "La signature publique",
+          "answer": "La paix fut signée en public le 12 juillet avec une déclaration de respect de la vie.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "L’accord réorganisa aussi la propriété d’une entreprise minière de Coscuez entre les groupes qui se l’étaient disputée, et fit asseoir à la table un porte-parole civique de l’ouest du Boyacá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "held": {
+          "heading": "Pourquoi elle a compté",
+          "answer": "En 1992, Semana notait que, contrairement à la plupart des cessez-le-feu signés en Colombie, celui-ci avait été respecté.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Le même reportage décrivait des négociants désireux d’entrer dans la légalité, avec des discussions sur la légalisation complète du commerce.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "economy": {
+          "heading": "Le commerce après la paix",
+          "answer": "En 1991, la production colombienne d’émeraudes était estimée à 300 millions de dollars en valeur commerciale, dont environ la moitié déclarée à l’exportation ; selon Semana, l’émeraude devenait ainsi la troisième exportation du pays après le café et le pétrole.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Un an après la paix, on chercha la même médiation pour ramener la paix dans la région de Rionegro, dans le Cundinamarca.[[semana-reinsercion-1992]]",
+            "Les inquiétudes suivantes n’étaient plus les balles : des acheteurs qui dominaient les prix, et des pierres plongées dans des huiles minérales et végétales pour paraître plus belles, dont certaines éclataient en avion ou noircissaient en quelques mois.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "after": {
+          "heading": "Ce qui reste",
+          "answer": "La guerre a pris fin ; la pauvreté, non. En 2016, Verdad Abierta rapportait que, sans guerre, la pauvreté, le manque de perspectives et l’absence de l’État persistaient dans les villages émeraudiers, et que les femmes en avaient le plus souffert.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "La violence est revenue des années plus tard, et des tensions persistent autour de la restructuration minière et de l’arrivée d’entreprises étrangères.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    }
+  }
+}

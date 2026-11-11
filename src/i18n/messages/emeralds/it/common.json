@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "breadcrumbEmeralds": "Mondo Smeraldo",
+    "breadcrumbLabel": "Percorso di navigazione",
+    "updated": "Aggiornato",
+    "author": "Team di Andean Scapes",
+    "sourcesTitle": "Fonti",
+    "relatedTitle": "Inizia a leggere",
+    "visitTitle": "Visita di persona la regione degli smeraldi",
+    "visitBody": "Chivor, nella fascia orientale, è dove lavoriamo. Se vuoi entrare in una miniera attiva insieme ai minatori del posto, la nostra guida pratica spiega come funziona.",
+    "visitCta": "Leggi la guida ai tour nelle miniere di smeraldi",
+    "sourceRef": "Fonte {number}",
+    "sourceLanguage": {
+      "en": "(in inglese)",
+      "es": "(in spagnolo)",
+      "fr": "(in francese)",
+      "de": "(in tedesco)",
+      "it": "(in italiano)"
+    },
+    "sectionNavLabel": "Sezioni di Mondo Smeraldo",
+    "tocLabel": "In questa pagina",
+    "pagerLabel": "Altro in questa sezione",
+    "previous": "Precedente",
+    "next": "Successivo",
+    "authorPagesTitle": "Pagine di questo autore",
+    "faqTitle": "Domande frequenti"
+  },
+  "notes": {
+    "fieldNote": "Note sul campo: ciò che abbiamo visto nella regione",
+    "oralTradition": "Tradizione orale: raccontata sul posto, non confermata da documenti"
+  },
+  "illustrations": {
+    "beltMap": {
+      "western": "Fascia occidentale",
+      "eastern": "Fascia orientale",
+      "credit": "Mappa: Andean Scapes, coordinate dei capoluoghi municipali da Wikipedia in spagnolo"
+    },
+    "trapiche": {
+      "core": "Nucleo",
+      "arm": "Braccio scuro",
+      "sector": "Settore verde",
+      "credit": "Illustrazione: Andean Scapes"
+    },
+    "threePhase": {
+      "liquid": "Salamoia",
+      "gas": "Bolla di gas",
+      "crystal": "Cristallo di sale",
+      "credit": "Illustrazione: Andean Scapes"
+    }
+  },
+  "authors": {}
+}

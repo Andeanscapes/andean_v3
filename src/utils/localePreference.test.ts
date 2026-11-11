@@ -13,11 +13,11 @@ afterEach(() => window.localStorage.clear());
 describe('matchBrowserLocale', () => {
   it('maps regional tags to a supported locale, in preference order', () => {
     expect(matchBrowserLocale(['es-CO', 'en'])).toBe('es');
-    expect(matchBrowserLocale(['de-DE', 'fr-FR'])).toBe('fr');
+    expect(matchBrowserLocale(['pt-PT', 'fr-FR'])).toBe('fr');
   });
 
   it('returns null when no language is supported', () => {
-    expect(matchBrowserLocale(['de', 'pt-BR'])).toBeNull();
+    expect(matchBrowserLocale(['pt', 'ja-JP'])).toBeNull();
   });
 });
 
@@ -25,7 +25,7 @@ describe('stored preference', () => {
   it('round-trips a valid locale and ignores invalid values', () => {
     saveLocale('fr');
     expect(getSavedLocale()).toBe('fr');
-    window.localStorage.setItem('andean.locale', 'de');
+    window.localStorage.setItem('andean.locale', 'pt');
     expect(getSavedLocale()).toBeNull();
   });
 

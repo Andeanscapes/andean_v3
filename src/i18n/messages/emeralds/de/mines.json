@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "mines": {
+      "navLabel": "Minen",
+      "metaTitle": "Kolumbianische Smaragdminen: Muzo, Coscuez, Chivor",
+      "metaDescription": "Wo in Kolumbien Smaragde abgebaut werden: der westliche Gürtel mit Muzo und Coscuez, der östliche mit Chivor und Gachalá, und was „Muzo“ und „Chivor“ bedeuten.",
+      "title": "Kolumbiens Smaragdminen",
+      "lead": "Zwei Gürtel, acht Distrikte und drei berühmte Namen. Wo kolumbianische Smaragde aus der Erde kommen, wie sich die beiden Seiten unterscheiden und warum „Muzo“ manchmal eine Farbe ist und keine Mine.",
+      "imageAlt": "Ein Kind mit Bergmannshelm neben Erwachsenen an einer Smaragdmine",
+      "sections": {
+        "what": {
+          "heading": "Wo liegen Kolumbiens Smaragdminen?",
+          "answer": "Die meisten kolumbianischen Smaragde werden in Boyacá und Cundinamarca in den östlichen Anden abgebaut. Die drei großen Minen sind Muzo, Coscuez und Chivor.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Die Lagerstätten liegen in zwei Gürteln zu beiden Seiten des Beckens der Ostkordillere.[[gia-trapiche-2015]]"
+          ]
+        },
+        "western": {
+          "heading": "Der westliche Gürtel",
+          "answer": "Im westlichen Gürtel liegen die Distrikte Muzo, Coscuez, La Pita, Peñas Blancas und La Glorieta–Yacopí.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Seine Smaragde stecken in schwarzen Schiefern und dolomitischen Kalksteinen, die 130 bis 116 Millionen Jahre alt sind, und entstanden vor 38 bis 32 Millionen Jahren. Trapiche-Smaragde kommen in Kolumbien nur aus Muzo, Coscuez und Peñas Blancas.[[gia-trapiche-2015]]",
+            "Coscuez und Peñas Blancas sind benannte Hügel von San Pablo de Borbur.[[wiki-es-borbur]]"
+          ],
+          "figure": {
+            "alt": "Schematische Karte Zentralkolumbiens mit dem westlichen Smaragdgürtel nördlich von Bogotá und dem östlichen Gürtel nordöstlich davon.",
+            "caption": "Kolumbiens zwei Smaragdgürtel, jeder Bergbaudistrikt an seinem Gemeindehauptort eingezeichnet. Die Linien von Bogotá aus sind Luftlinien, keine Straßen."
+          }
+        },
+        "eastern": {
+          "heading": "Der östliche Gürtel",
+          "answer": "Im östlichen Gürtel liegen Chivor, Gachalá und Macanal. Seine Smaragde entstanden vor etwa 65 Millionen Jahren in einem Horizont aus schwarzem Schiefer und Kalkstein, der 135 bis 130 Millionen Jahre alt ist.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Historiker sehen in Chivor die Herkunft der ersten Smaragde, die in Amerika gehandelt wurden, und der ersten, die nach der spanischen Eroberung exportiert wurden.[[gia-rainier-2016]] Aus Gachalá stammt der Kristall von 858 Karat, der heute in der Smithsonian liegt.[[smithsonian-gachala]]"
+          ]
+        },
+        "names": {
+          "heading": "Wenn „Muzo“ eine Farbe ist",
+          "answer": "Im Handel beschreiben „Muzo“ und „Chivor“ oft eher die Farbe als die Mine: Muzo ein warmes, grasiges Grün mit einem Hauch Gelb, Chivor ein tieferes Grün.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Ein als „Muzo“ oder „Chivor“ verkaufter Stein trägt also eine Beschreibung, kein Herkunftszertifikat. Zur Herkunft kann sich nur ein Labor äußern, anhand von Einschlüssen, Spektroskopie und Spurenelementen.[[gia-origin-2019]]"
+          ]
+        },
+        "visiting": {
+          "heading": "Eine Mine besuchen",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Es sind aktive Betriebe. Besuche hängen von der Erlaubnis des Betreibers, einem lokalen Guide und dem Wetter auf den Straßen ab. Nach unserer Erfahrung in Chivor ist die Zeit unter Tage nur ein Teil des Tages; den größten Teil nehmen die Straße, der Berg und die Menschen rund um die Mine ein."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Wo werden in Kolumbien Smaragde abgebaut?",
+          "answer": "Vor allem in Boyacá und Cundinamarca. Die drei großen Minen sind Muzo, Coscuez und Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Was ist der Unterschied zwischen den beiden Smaragdgürteln?",
+          "answer": "Der westliche Gürtel (Muzo, Coscuez) entstand vor 38 bis 32 Millionen Jahren und ist Kolumbiens einzige Quelle für Trapiche; der östliche Gürtel (Chivor, Gachalá) entstand vor etwa 65 Millionen Jahren.[[gia-trapiche-2015]]"
+        }
+      ]
+    },
+    "muzo": {
+      "metaTitle": "Smaragde aus Muzo: Geschichte, Geologie und Trapiche",
+      "metaDescription": "Muzo, Kolumbiens Smaragdhauptstadt: das Volk der Muzo, die Eroberung, die Geologie der schwarzen Schiefer, Trapiche, der Kristall Fura und die Grünen Kriege.",
+      "title": "Muzo: die Hauptstadt der Smaragde",
+      "lead": "Ein Ort, benannt nach einem Volk, das jahrzehntelang gegen die Spanier kämpfte, schwarze Hügel voller Smaragde, der Trapiche, die Fura mit 11.000 Karat und das Schlimmste der Grünen Kriege.",
+      "imageAlt": "Drei Menschen stehen hinter einer hölzernen Minenkiste zwischen Baumfarnen in der Smaragdregion",
+      "sections": {
+        "short": {
+          "heading": "Wo liegt Muzo?",
+          "answer": "Muzo ist eine Gemeinde im Westen von Boyacá, 170 km von Tunja und 90 km von Chiquinquirá entfernt, weltweit bekannt für ihre Smaragdvorkommen.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Die englische Wikipedia nennt Muzo die bedeutendste Smaragdmine der Welt.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "name": {
+          "heading": "Der Name und das Volk",
+          "answer": "Der Ort ist nach den Muzo benannt, dem indigenen Volk im Westen von Boyacá; das Wort bedeutet „Mensch“.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Vor der Eroberung bauten die Muzo, ein kriegerisches karibisches Volk, Smaragde auf einfache Weise ab und verwendeten sie als Schmuck und im Handel zwischen den Clans.[[wiki-es-muzo]]"
+          ]
+        },
+        "conquest": {
+          "heading": "Eine lange Eroberung",
+          "answer": "Die Spanier brauchten etwa zwanzig Jahre Krieg, um die Muzo zu besiegen. Nach mehreren gescheiterten Feldzügen ab 1539 gründete Luis Lanchero am 20. Februar 1559 die Villa de la Santísima Trinidad de los Muzos.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Die englische Wikipedia spricht von fünf Jahrzehnten.[[wiki-en-colombian-emeralds]] Die Adern selbst wurden durch Zufall gefunden, schrieb Semana 1992: 1564 blieb ein großer grüner Stein im Hufeisen des Pferdes eines Konquistadors stecken.[[semana-reinsercion-1992]]",
+            "Im 16. Jahrhundert waren Smaragde aus Muzo beim Mogul-Adel Indiens begehrt.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "geology": {
+          "heading": "Das Gestein",
+          "answer": "Die Smaragde von Muzo stecken in schwarzen Schiefern und dolomitischen Kalksteinen der Formationen Rosablanca und Paja, die 130 bis 116 Millionen Jahre alt sind.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Wie im übrigen westlichen Gürtel entstanden die Smaragde von Muzo vor 38 bis 32 Millionen Jahren.[[gia-trapiche-2015]]"
+          ]
+        },
+        "trapiche": {
+          "heading": "Trapiche",
+          "answer": "Der französische Mineraloge Émile Bertrand beschrieb Trapiche-Smaragde erstmals 1879 und stellte „merkwürdige Smaragdkristalle … aus Muso, Neugranada“ vor.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "In Kolumbien stammen Trapiche-Smaragde nur aus Muzo, Coscuez und Peñas Blancas.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Schema eines Trapiche-Smaragds im Querschnitt: ein dunkler sechseckiger Kern, sechs dunkle Arme und sechs grüne Sektoren.",
+            "caption": "Ein Trapiche-Smaragd entlang seiner Achse gesehen, eine Besonderheit des westlichen Gürtels. Schematisch, nicht maßstabsgetreu."
+          }
+        },
+        "color": {
+          "heading": "Muzo-Grün",
+          "answer": "Im Handel bezeichnet „Muzo“ auch eine Farbe: ein warmes, grasiges Grün mit einem Hauch Gelb.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Semana schrieb 1992, dass die Minen von Muzo als einzige die „gota de aceite“ hervorbrachten, wie der Handel die feinsten Steine nennt.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "stones": {
+          "heading": "Fura",
+          "answer": "1999 förderte eine Mine in Muzo Fura, einen ungeschliffenen Kristall von etwa 11.000 Karat, 2,2 Kilogramm.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Er wurde nach der Legende von Fura und Tena benannt, den Hügeln, die sich etwa 30 km nördlich der Minen von Muzo erheben.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "conflict": {
+          "heading": "Muzo und die Grünen Kriege",
+          "answer": "Muzo stand im Zentrum der Grünen Kriege, der Konflikte um die Smaragdminen, die von 1965 bis 1990 andauerten.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Der erste Grüne Krieg kostete in Chiquinquirá, Muzo, Coscuez, Borbur und Somondoco mehr als 1.200 Menschen das Leben, und um 1980 gab es in Muzo bis zu 35.000 guaqueros.[[semana-molano-2017]]"
+          ]
+        },
+        "today": {
+          "heading": "Muzo heute",
+          "answer": "Der Bergbau prägt die Wirtschaft: Rund 75 % der Erwerbsbevölkerung von Muzo arbeiten im Abbau und Handel von Smaragden, daneben gibt es Zuckerrohr, Kakao, Maniok und Rinder.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Die guaquería, die unabhängige Suche, gehört zum Alltag, und viele der Suchenden sind Frauen.[[verdad-abierta-mujeres-2016]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Warum sind Smaragde aus Muzo berühmt?",
+          "answer": "Muzo liefert schon seit der Zeit vor der Eroberung Smaragde und gibt im Handel einem warmen, grasigen Grün seinen Namen.[[wiki-en-colombian-emeralds]] Außerdem ist es eine von nur drei kolumbianischen Quellen für Trapiche-Smaragde.[[gia-trapiche-2015]]"
+        },
+        {
+          "question": "Wie kommt man nach Muzo?",
+          "answer": "Muzo liegt 90 km von Chiquinquirá entfernt: Fahren Sie auf der Ruta Nacional 60 nach Westen in Richtung Pauna und Maripí, oder kommen Sie von Ubaté über Simijaca. Der Ort hat außerdem einen Flugplatz für Kleinflugzeuge.[[wiki-es-muzo]]"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "mines": {
+      "navLabel": "Mines",
+      "metaTitle": "Mines d’émeraudes en Colombie : Muzo, Coscuez, Chivor",
+      "metaDescription": "Où l’on extrait les émeraudes en Colombie : la ceinture occidentale de Muzo et Coscuez, l’orientale de Chivor et Gachalá, et le sens de Muzo et Chivor.",
+      "title": "Les mines d’émeraudes de Colombie",
+      "lead": "Deux ceintures, huit districts et trois noms célèbres. Où les émeraudes colombiennes sortent de terre, ce qui distingue les deux côtés, et pourquoi « Muzo » est parfois une couleur plutôt qu’une mine.",
+      "imageAlt": "Un enfant en casque de mineur avec des adultes dans une mine d’émeraudes",
+      "sections": {
+        "what": {
+          "heading": "Où sont les mines d’émeraudes de Colombie ?",
+          "answer": "La plupart des émeraudes colombiennes sont extraites dans le Boyacá et le Cundinamarca, dans les Andes orientales. Les trois grandes mines sont Muzo, Coscuez et Chivor.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Les gisements forment deux ceintures, de part et d’autre du bassin de la cordillère Orientale.[[gia-trapiche-2015]]"
+          ]
+        },
+        "western": {
+          "heading": "La ceinture occidentale",
+          "answer": "La ceinture occidentale regroupe les districts de Muzo, Coscuez, La Pita, Peñas Blancas et La Glorieta–Yacopí.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Ses émeraudes reposent dans des schistes noirs et des calcaires dolomitiques de 130 à 116 millions d’années, et se sont formées il y a 38 à 32 millions d’années. En Colombie, les émeraudes trapiche ne viennent que de Muzo, Coscuez et Peñas Blancas.[[gia-trapiche-2015]]",
+            "Coscuez et Peñas Blancas sont des collines nommées de San Pablo de Borbur.[[wiki-es-borbur]]"
+          ],
+          "figure": {
+            "alt": "Carte schématique du centre de la Colombie, avec la ceinture émeraudière occidentale au nord de Bogotá et la ceinture orientale au nord-est.",
+            "caption": "Les deux ceintures émeraudières de Colombie, chaque district placé à son chef-lieu. Les lignes depuis Bogotá sont des droites, pas des routes."
+          }
+        },
+        "eastern": {
+          "heading": "La ceinture orientale",
+          "answer": "La ceinture orientale regroupe Chivor, Gachalá et Macanal. Ses émeraudes se sont formées il y a environ 65 millions d’années, dans un horizon de schistes noirs et de calcaires vieux de 135 à 130 millions d’années.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Les historiens désignent Chivor comme la source des premières émeraudes échangées en Amérique et des premières exportées après la conquête espagnole.[[gia-rainier-2016]] Gachalá a livré le cristal de 858 carats conservé au Smithsonian.[[smithsonian-gachala]]"
+          ]
+        },
+        "names": {
+          "heading": "Quand « Muzo » est une couleur",
+          "answer": "Dans le commerce, « Muzo » et « Chivor » désignent souvent une couleur plutôt que la mine : Muzo, un vert chaud et herbacé aux nuances jaunes ; Chivor, un vert plus profond.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Une pierre vendue comme « Muzo » ou « Chivor » est donc une description, pas un certificat d’origine. Seul un laboratoire peut donner une opinion d’origine, à partir des inclusions, de la spectroscopie et des éléments traces.[[gia-origin-2019]]"
+          ]
+        },
+        "visiting": {
+          "heading": "Visiter une mine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Ce sont des sites en activité. Les visites dépendent de l’autorisation de l’exploitant, d’un guide local et de l’état des routes. D’après notre expérience à Chivor, le temps passé sous terre n’est qu’une partie de la journée ; le reste, c’est la route, la montagne et les gens autour de la mine."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Où extrait-on les émeraudes en Colombie ?",
+          "answer": "Surtout dans le Boyacá et le Cundinamarca. Les trois grandes mines sont Muzo, Coscuez et Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Qu’est-ce qui distingue les deux ceintures émeraudières ?",
+          "answer": "L’occidentale (Muzo, Coscuez) s’est formée il y a 38 à 32 millions d’années et est la seule source colombienne de trapiche ; l’orientale (Chivor, Gachalá) s’est formée il y a environ 65 millions d’années.[[gia-trapiche-2015]]"
+        }
+      ]
+    },
+    "muzo": {
+      "metaTitle": "Émeraudes de Muzo : histoire, géologie et trapiche",
+      "metaDescription": "Muzo, capitale de l’émeraude : le peuple muzo, la conquête, la géologie des schistes noirs, les émeraudes trapiche, la Fura et les guerres vertes.",
+      "title": "Muzo : la capitale de l’émeraude",
+      "lead": "Une ville qui porte le nom d’un peuple ayant résisté aux Espagnols pendant des décennies, des collines noires pleines d’émeraudes, le trapiche, la Fura de 11 000 carats et le pire des guerres vertes.",
+      "imageAlt": "Trois personnes debout derrière une caisse de mine en bois, parmi les fougères de la région émeraudière",
+      "sections": {
+        "short": {
+          "heading": "Où se trouve Muzo ?",
+          "answer": "Muzo est une commune de l’ouest du Boyacá, à 170 km de Tunja et 90 km de Chiquinquirá, connue dans le monde entier pour ses gisements d’émeraudes.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Wikipédia en anglais présente Muzo comme la mine d’émeraudes la plus importante du monde.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "name": {
+          "heading": "Le nom et le peuple",
+          "answer": "La ville tient son nom des Muzos, le peuple indigène de l’ouest du Boyacá ; le mot signifie « personne ».[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Avant la conquête, les Muzos, peuple caribe guerrier, extrayaient les émeraudes de façon rudimentaire et s’en servaient comme ornements et pour le troc entre clans.[[wiki-es-muzo]]"
+          ]
+        },
+        "conquest": {
+          "heading": "Une longue conquête",
+          "answer": "Il fallut aux Espagnols une vingtaine d’années de guerre pour vaincre les Muzos. Après plusieurs campagnes manquées à partir de 1539, Luis Lanchero fonda la Villa de la Santísima Trinidad de los Muzos le 20 février 1559.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Wikipédia en anglais parle de cinq décennies.[[wiki-en-colombian-emeralds]] Les veines furent découvertes par hasard, écrivait Semana en 1992 : en 1564, une grosse pierre verte resta prise dans le fer à cheval de la monture d’un conquistador.[[semana-reinsercion-1992]]",
+            "Au XVIe siècle, les émeraudes de Muzo étaient les préférées de la noblesse moghole de l’Inde.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "geology": {
+          "heading": "Les roches",
+          "answer": "Les émeraudes de Muzo reposent dans les schistes noirs et calcaires dolomitiques des formations Rosablanca et Paja, vieux de 130 à 116 millions d’années.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Comme le reste de la ceinture occidentale, les émeraudes de Muzo se sont formées il y a 38 à 32 millions d’années.[[gia-trapiche-2015]]"
+          ]
+        },
+        "trapiche": {
+          "heading": "Le trapiche",
+          "answer": "Le minéralogiste français Émile Bertrand a décrit pour la première fois les émeraudes trapiche en 1879, en présentant de « curieux cristaux d’émeraude… de Muso, Nouvelle-Grenade ».[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "En Colombie, les émeraudes trapiche ne viennent que de Muzo, Coscuez et Peñas Blancas.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Schéma de la section d’une émeraude trapiche : un noyau hexagonal sombre, six bras sombres et six secteurs verts.",
+            "caption": "Une émeraude trapiche vue dans l’axe, spécialité de la ceinture occidentale. Schéma, pas à l’échelle."
+          }
+        },
+        "color": {
+          "heading": "Le vert de Muzo",
+          "answer": "Dans le commerce, « Muzo » désigne aussi une couleur : un vert chaud et herbacé aux nuances jaunes.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Semana écrivait en 1992 que les mines de Muzo étaient les seules à produire la « gota de aceite », le nom que le commerce donne aux plus belles pierres.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "stones": {
+          "heading": "La Fura",
+          "answer": "En 1999, une mine de Muzo a livré la Fura, un cristal brut d’environ 11 000 carats, soit 2,2 kilogrammes.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Elle porte le nom de la légende de Fura et Tena, les collines qui se dressent à une trentaine de kilomètres au nord des mines de Muzo.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "conflict": {
+          "heading": "Muzo et les guerres vertes",
+          "answer": "Muzo fut au centre des guerres vertes, les conflits pour les mines d’émeraudes qui se sont déroulés de 1965 à 1990.[[semana-molano-2017]]",
+          "paragraphs": [
+            "La première guerre verte a fait plus de 1 200 morts à Chiquinquirá, Muzo, Coscuez, Borbur et Somondoco, et en 1980 Muzo comptait jusqu’à 35 000 guaqueros.[[semana-molano-2017]]"
+          ]
+        },
+        "today": {
+          "heading": "Muzo aujourd’hui",
+          "answer": "La mine domine l’économie : environ 75 % de la population active de Muzo travaille dans l’extraction et le commerce des émeraudes, à côté de la canne à sucre, du cacao, du manioc et de l’élevage.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La guaquería, la recherche indépendante, fait partie du quotidien, et beaucoup de chercheurs sont des femmes.[[verdad-abierta-mujeres-2016]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Pourquoi les émeraudes de Muzo sont-elles célèbres ?",
+          "answer": "Muzo produit des émeraudes depuis avant la conquête et donne son nom à un vert chaud et herbacé dans le commerce.[[wiki-en-colombian-emeralds]] C’est aussi l’une des trois seules sources colombiennes d’émeraudes trapiche.[[gia-trapiche-2015]]"
+        },
+        {
+          "question": "Comment se rendre à Muzo ?",
+          "answer": "Muzo est à 90 km de Chiquinquirá : on part vers l’ouest par la Ruta Nacional 60 en direction de Pauna et Maripí, ou l’on vient d’Ubaté par Simijaca. La ville dispose aussi d’un aérodrome pour petits avions.[[wiki-es-muzo]]"
+        }
+      ]
+    }
+  }
+}

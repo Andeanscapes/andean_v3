@@ -1,0 +1,313 @@
+{
+  "hub": {
+    "metaTitle": "Guide di viaggio sugli smeraldi in Colombia | Andean Scapes",
+    "metaDescription": "Guide alle miniere di smeraldi in Colombia: visitare una miniera attiva, sicurezza a Chivor, Rainier e Green Fire, lo smeraldo di Gachalá, Fura e Tena.",
+    "title": "Guide di viaggio sugli smeraldi in Colombia",
+    "lead": "Storia, geografia e consigli pratici sulle due fasce smeraldifere della Colombia, scritti dal team che organizza i tour a Chivor, con le fonti indicate.",
+    "readGuide": "Leggi la guida",
+    "imageAlt": "Visitatori con il casco in una miniera di smeraldi tra le montagne di Chivor, Boyacá"
+  },
+  "ui": {
+    "breadcrumbGuides": "Guide",
+    "updated": "Aggiornato",
+    "author": "Team Andean Scapes",
+    "sourcesTitle": "Fonti",
+    "relatedToursTitle": "Tour nelle miniere di smeraldi di Chivor",
+    "moreGuidesTitle": "Altre guide",
+    "breadcrumbLabel": "Percorso di navigazione",
+    "emeraldWorldBody": "Cerchi il quadro completo? Mondo Smeraldo racconta la storia, la geologia, le leggende e la cultura degli smeraldi colombiani.",
+    "emeraldWorldCta": "Esplora Mondo Smeraldo",
+    "emeraldWorldDeeper": "Approfondisci in Mondo Smeraldo"
+  },
+  "articles": {
+    "emeraldMineToursColombia": {
+      "metaTitle": "Miniere di smeraldi in Colombia: guida 2026 | Andean Scapes",
+      "metaDescription": "Come visitare una vera miniera di smeraldi in Colombia: le regioni, come arrivare a Chivor da Bogotá, cosa succede in miniera, sicurezza e cosa portare.",
+      "title": "Tour nelle miniere di smeraldi in Colombia: guida pratica 2026",
+      "lead": "Quasi tutti i «tour degli smeraldi» che Google mostra per primi si svolgono a Bogotá, tra gioiellieri e commercianti dell’Avenida Jiménez. Entrare in una miniera è un’altra cosa: viaggi fino alle regioni minerarie, indossi casco e stivali e accetti che potrebbe non comparire nessuna pietra. Ecco come funziona a Chivor.",
+      "imageAlt": "Visitatori con casco e stivali all’ingresso di una miniera di smeraldi a Chivor, Boyacá",
+      "sections": {
+        "whatIs": {
+          "heading": "Che cos’è un tour in una miniera di smeraldi?",
+          "paragraphs": [
+            "È una visita guidata a una miniera di smeraldi attiva, insieme ai minatori locali. Le miniere che visitiamo a Chivor sono vere miniere di smeraldi: alcune sono lavorate a mano, altre su scala più grande. Non sono miniere di carbone né ricostruzioni per turisti. È ciò che molti cercano come «minatore per un giorno»: una giornata accanto ai minatori, non un lavoro.",
+            "Entri con una guida locale, un casco e gli stivali. Il tempo sottoterra è solo una parte della giornata, che comprende anche la salita in 4x4 dal paese, la preparazione e, a seconda del tour, un’escursione a piedi o a cavallo lungo i sentieri minerari. Trovare uno smeraldo è possibile, ma mai garantito.",
+            "È diverso dai tour degli smeraldi di Bogotá, che mostrano il commercio, il taglio e la gioielleria in città ma non entrano mai in una miniera. Per vedere da dove viene la pietra devi andare nelle regioni minerarie."
+          ]
+        },
+        "regions": {
+          "heading": "Dove si trovano le miniere di smeraldi in Colombia?",
+          "paragraphs": [
+            "Gli smeraldi colombiani provengono da due fasce delle Ande orientali. La fascia occidentale, nel Boyacá occidentale, comprende Muzo, Coscuez, Maripí, Quípama, Otanche, Pauna e San Pablo de Borbur. La fascia orientale comprende Chivor, Somondoco, Macanal e Guateque nel Boyacá, e Gachalá e Ubalá nel Cundinamarca.",
+            "Sono destinazioni separate, a diverse ore di strada l’una dall’altra, quindi è difficile combinarle in un viaggio breve. Chivor è considerata l’origine dei primi smeraldi che lasciarono le Americhe dopo la conquista spagnola, e nel 1967 Gachalá ha prodotto uno degli smeraldi più famosi al mondo, un cristallo di 858 carati. Per dipartimento, quasi tutte si trovano nel Boyacá; nel Cundinamarca ci sono miniere a Gachalá e Ubalá, nella regione del Guavio."
+          ]
+        },
+        "chivor": {
+          "heading": "Perché visitare Chivor",
+          "paragraphs": [
+            "Chivor si trova a circa 2.000 metri sopra la valle del Sinaí, che più in basso diventa il fiume Guavio, con un clima fresco e notti fredde. Dal belvedere di El Púlpito, appena sotto le miniere, nelle giornate limpide si vede verso le Pianure Orientali (Llanos).",
+            "Oltre alla sua storia, che va dai popoli muisca all’ingegnere minerario Peter W. Rainier e al suo libro Green Fire, Chivor ti permette di entrare in miniere attive con minatori della comunità. La nostra base è l’Hacienda El Recuerdo a Mundo Nuevo (Ubalá), vicinissima a Chivor, una fattoria di bestiame e apicoltura dove alloggiano gli ospiti dei tour di due giorni."
+          ]
+        },
+        "gettingThere": {
+          "heading": "Come arrivare a Chivor, Boyacá, da Bogotá",
+          "paragraphs": [
+            "Da Bogotá prendi la strada verso Tunja; a El Sisga svolta a destra e scendi nella Valle de Tenza, poi prosegui fino a Chivor senza arrivare a Tunja. Vicino a Macanal attraversi il bacino di La Esmeralda in traghetto, negli orari di servizio, oppure lo aggiri in auto. Il viaggio dura circa 5-6 ore, perché l’ultimo tratto è una strada di montagna sterrata.",
+            "Puoi raggiungere il paese di Chivor in autobus, in auto o in moto; da lì il trasferimento locale in 4x4 fino alla miniera è incluso in tutti i tour. Se preferisci non guidare, offriamo un trasferimento privato in 4x4 andata e ritorno da Bogotá a pagamento; il prezzo è per veicolo e copre fino a 4 persone.",
+            "Un percorso alternativo via Ubalá, nella regione del Guavio, è adatto solo a moto o 4x4: sono circa 35 km di strada rurale fino all’hacienda. Con un’auto normale, l’opzione giusta è arrivare dal paese di Chivor."
+          ]
+        },
+        "inside": {
+          "heading": "Cosa succede dentro la miniera",
+          "paragraphs": [
+            "La giornata inizia con una chiacchierata con minatori e artigiani locali su come si trovano gli smeraldi. Poi ricevi l’attrezzatura di sicurezza ed entri nelle gallerie con la tua guida, dove ci sono acqua, fango e terreno irregolare.",
+            "All’interno vedi come lavorano i minatori, come si segue una vena e quali minerali accompagnano lo smeraldo. I tour di due giorni includono anche un laboratorio sugli smeraldi di circa un’ora su come si valuta la pietra.",
+            "Se durante la visita compare uno smeraldo, si decide sul posto con i minatori e la guida, che si dividono ciò che si trova. Il valore dell’esperienza sta nella cultura dello smeraldo, nella natura e nella cucina della regione, non nel ritrovamento."
+          ]
+        },
+        "choose": {
+          "heading": "Come scegliere il tuo tour",
+          "paragraphs": [
+            "La gita di un giorno include una miniera e un’escursione in un’unica giornata. Si può fare, ma è una giornata lunga: parti da Bogotá prima dell’alba e aggiungi altre 5-6 ore per il ritorno in auto.",
+            "Il tour di 2 giorni/1 notte include una miniera, un’escursione, il laboratorio, una notte all’Hacienda El Recuerdo e 4 pasti. Il tour più completo aggiunge una seconda miniera e una cavalcata guidata di circa 2 ore.",
+            "L’età minima è 5 anni, e a Chivor i cani possono entrare in miniera con il gruppo. Se hai mobilità ridotta, problemi cardiaci o una fobia grave, chiedici prima di prenotare."
+          ]
+        },
+        "safety": {
+          "heading": "Sicurezza, clima di Chivor e cosa portare",
+          "paragraphs": [
+            "Entri sempre con una guida e l’attrezzatura di sicurezza, in miniere ad accesso controllato, e ogni tour include una copertura di assistenza medica durante l’esperienza. Il team verifica le condizioni locali e della miniera prima di ogni partenza.",
+            "La stagione secca va da dicembre a febbraio e quella delle piogge da maggio ad agosto. Porta scarpe che possano bagnarsi e infangarsi, un cambio completo di vestiti, un asciugamano piccolo, una giacca leggera o impermeabile, acqua, crema solare e contanti per le spese locali."
+          ]
+        },
+        "logistics": {
+          "heading": "Non è una gita alla Cattedrale di Sale",
+          "paragraphs": [
+            "La Cattedrale di Sale di Zipaquirá è a un’ora da Bogotá, con parcheggio, ristoranti e autobus ogni pochi minuti. Una miniera di smeraldi è tutt’altra cosa. Chivor dista circa 160-180 km dalla capitale, a seconda del percorso, cioè 5-6 ore di strada; il Boyacá occidentale è altrettanto lontano o di più. Gli ingressi delle miniere non sono in paese: ci arrivi su piste di montagna sterrate che un’auto normale non riesce a salire.",
+            "Per questo il trasporto è la parte più difficile del viaggio. Il turismo nella regione è ancora piccolo, non esiste un mercato dei trasferimenti come nelle grandi destinazioni, e ciò che funziona è un 4x4 con autista da Bogotá. Quell’autista lavora un giorno intero all’andata e un altro al ritorno, e si vede nel prezzo. Il nostro trasferimento privato in 4x4, andata e ritorno Bogotá–Chivor–Bogotá, costa 1.700.000 COP per veicolo e porta fino a 4 persone (prezzo di riferimento a novembre 2026). Per una coppia sul tour di due giorni, a 475.000 COP a persona, il trasporto costa più del tour stesso. Puoi anche prendere un autobus fino al paese di Chivor, l’opzione più economica, e salire da lì con il nostro 4x4 locale.",
+            "L’altro problema è dove dormire e mangiare. Chivor è un piccolo comune con pochi hotel e pochi ristoranti, e la miniera è lontana dal centro. Se arrivi da solo devi organizzare separatamente alloggio, pasti, trasporto fino all’ingresso della miniera e visita, ognuno con un fornitore diverso e con poco segnale telefonico per coordinarli.",
+            "Un tour tutto incluso sistema questi pezzi in una volta: una notte all’Hacienda El Recuerdo, i pasti, il trasporto locale in 4x4 e la giornata in miniera, senza intermediari tra te e la gente della regione. E passi il viaggio con padroni di casa e guide che vivono lì, che possono cambiare il programma quando piove e che sanno ciò che nessuna mappa mostra. Puoi organizzare tutto da solo, certo; aspettati solo più telefonate e più sorprese."
+          ]
+        }
+      }
+    },
+    "chivorHistory": {
+      "metaTitle": "Storia della miniera di smeraldi di Chivor | Andean Scapes",
+      "metaDescription": "Da Somondoco a Peter Rainier e Green Fire: la storia delle miniere di smeraldi di Chivor, la loro riscoperta nel 1896 e il belvedere di El Púlpito.",
+      "title": "Storia della miniera di smeraldi di Chivor: da Somondoco a Green Fire",
+      "lead": "Chivor fu una delle prime fonti di smeraldi conosciute dai conquistadores, rimase perduta sotto la foresta per due secoli e visse una seconda età d’avventura negli anni Venti del Novecento. Questa è la sua storia, basata sulle ricerche pubblicate dal Gemological Institute of America (GIA).",
+      "imageAlt": "Montagne e valle delle miniere di smeraldi di Chivor, Boyacá",
+      "sections": {
+        "somondoco": {
+          "heading": "Somondoco: gli smeraldi prima della conquista",
+          "paragraphs": [
+            "Quando gli spagnoli raggiunsero le Ande orientali, i popoli chibcha (muisca) portavano già smeraldi nei loro gioielli. Il giacimento che oggi chiamiamo Chivor era noto come Somondoco, dal nome del villaggio vicino dove si selezionavano le pietre.",
+            "Secondo gli storici citati dal GIA, gli smeraldi di questa zona venivano scambiati molto prima della conquista, e Chivor è considerata l’origine dei primi smeraldi che lasciarono le Americhe verso il resto del mondo."
+          ]
+        },
+        "conquest": {
+          "heading": "1537: la spedizione di Valenzuela",
+          "paragraphs": [
+            "Nel 1537 Gonzalo Jiménez de Quesada venne a sapere delle miniere di Somondoco e mandò il capitano Pedro Fernández Valenzuela a cercarle. Valenzuela riferì che, dall’alto delle miniere, vedeva le pianure dell’Orinoco attraverso un’apertura nella cordigliera. Quel dettaglio si sarebbe rivelato decisivo secoli dopo.",
+            "Gli spagnoli sfruttarono Chivor nel XVI e XVII secolo con manodopera indigena, decimata in pochi decenni. Un decreto reale del 1593 ordinò un trattamento umano dei minatori; nel 1602 Filippo III ne pretese il rispetto, quando ormai era troppo tardi. La prima concessione documentata risale al 1592. Nel 1672 la miniera fu abbandonata per ordine della Corona, e la foresta la coprì per circa duecento anni mentre l’attenzione si spostava su Muzo."
+          ]
+        },
+        "rediscovery": {
+          "heading": "1896: la riscoperta di Francisco Restrepo",
+          "paragraphs": [
+            "Alla fine dell’Ottocento l’ingegnere minerario colombiano Francisco Restrepo studiò, nella Biblioteca Nazionale, le cronache dei frati che descrivevano le miniere perdute di Somondoco. Dopo circa otto anni di ricerche nella cordigliera trovò la miniera nel 1896: l’indizio decisivo fu la vista verso le pianure.",
+            "Dal 1911 vi lavorò il tedesco Fritz Klein, di Idar-Oberstein, che nel 1925 pubblicò il primo resoconto dettagliato della miniera, Smaragde unter dem Urwald (Smeraldi sotto la giungla). All’inizio degli anni Venti Chivor diede lo smeraldo Patricia, un cristallo di 632 carati oggi esposto all’American Museum of Natural History di New York."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter W. Rainier e Green Fire",
+          "paragraphs": [
+            "Peter W. Rainier, ingegnere minerario nato nell’Africa australe nel 1890, diresse Chivor dal 1926 al 1931 per una società di New York. Al suo arrivo piantò un palo di ferro su El Púlpito per segnare il limite della concessione. Quando il consiglio di amministrazione gli ordinò di chiudere la miniera in perdita, continuò a lavorare, e nel giro di una settimana comparve la prima vena.",
+            "Dopo il crollo del 1929 i suoi datori di lavoro chiusero la miniera. Rainier rimase nella regione e, con la moglie Margaret, fondò Las Cascadas, una piantagione di tè sui pendii della valle del Guavio a circa 15 km da Chivor, descritta come la prima piantagione di tè commerciale del Sud America. Quando lui era in miniera, i due si scambiavano segnali con le torce ogni notte.",
+            "Nel 1942 pubblicò le sue memorie, Green Fire. John Sinkankas, autore della principale bibliografia commentata di gemmologia, le definì «colorite, a volte sensazionalistiche», ma piene di dettagli preziosi. Nel 1954 la MGM fece uscire un film con lo stesso titolo, interpretato da Grace Kelly e Stewart Granger."
+          ]
+        },
+        "pulpito": {
+          "heading": "El Púlpito: il belvedere sulle pianure",
+          "paragraphs": [
+            "El Púlpito è un monolite di arenaria sospeso sulla valle del fiume Sinaí, appena sotto la miniera. Più in basso, i fiumi Rucio e Sinaí si uniscono e formano il Guavio.",
+            "Da qui si vede il varco tra le montagne che si apre sulle Pianure Orientali, la stessa vista che Valenzuela descrisse nel 1537 e che guidò Restrepo nel 1896. Nel 2015 un team del GIA che ripercorreva i passi di Rainier trovò nella roccia il foro lasciato dal suo palo di ferro. Il belvedere fa parte della nostra gita di un giorno."
+          ]
+        },
+        "today": {
+          "heading": "Chivor oggi: dove si trovano le miniere",
+          "paragraphs": [
+            "Oggi a Chivor si estrae soprattutto in gallerie sotterranee, in miniere di diverse dimensioni lungo la valle del Sinaí. Gli smeraldi si formano in vene all’interno di scisti neri del Cretaceo, e il cromo e il vanadio danno loro il verde leggermente bluastro che caratterizza le pietre di Chivor. Le miniere si trovano nel comune di Chivor, nella provincia di Oriente del Boyacá. Il paese è il punto di partenza; agli ingressi delle miniere si sale in 4x4.",
+            "I minatori hanno un loro vocabolario: le chispas sono piccoli cristalli dal colore intenso e le gotas de aceite (gocce d’olio) sono le più pregiate. In miniera sentirai entrambe le parole prima di vedere una sola pietra."
+          ]
+        }
+      }
+    },
+    "gachalaGuavio": {
+      "metaTitle": "Lo smeraldo di Gachalá e la valle del Guavio | Andean Scapes",
+      "metaDescription": "La storia dello smeraldo di Gachalá da 858 carati, oggi allo Smithsonian, e della valle del Guavio che unisce Gachalá a Chivor e all’Hacienda El Recuerdo.",
+      "title": "Lo smeraldo di Gachalá e la valle del Guavio",
+      "lead": "Lo smeraldo più famoso della fascia orientale non si trova in Colombia. È in una vetrina del National Museum of Natural History di Washington. È uscito da una miniera di Gachalá nel 1967, nella stessa valle del Guavio dove lavoriamo oggi.",
+      "imageAlt": "Paesaggio rurale della valle del Guavio vicino a Chivor",
+      "sections": {
+        "stone": {
+          "heading": "Lo smeraldo di Gachalá: 858 carati",
+          "paragraphs": [
+            "Lo smeraldo di Gachalá fu trovato nel 1967 nella miniera La Vega de San Juan, nel comune di Gachalá (Cundinamarca). È un cristallo di 858 carati, circa 172 grammi e circa 5 centimetri di lunghezza, di un verde intenso.",
+            "Il gioielliere newyorkese Harry Winston lo donò alla Smithsonian Institution nel 1969, e oggi fa parte della collezione permanente del National Museum of Natural History di Washington. Prende il nome dal comune in cui fu trovato; secondo la tradizione, Gachalá significa «luogo di Gacha» in lingua chibcha."
+          ]
+        },
+        "belt": {
+          "heading": "Miniere di smeraldi nel Cundinamarca: Gachalá e la fascia orientale",
+          "paragraphs": [
+            "Gachalá appartiene alla fascia smeraldifera orientale della Colombia, insieme a Chivor, Somondoco, Macanal, Guateque e Ubalá. È una fascia diversa da quella del Boyacá occidentale, dove si trovano Muzo e Coscuez.",
+            "In questa fascia gli smeraldi si trovano in vene all’interno di rocce sedimentarie del Cretaceo, e la sua storia mineraria risale ai popoli chibcha che già lavoravano la zona di Somondoco, oggi Chivor."
+          ]
+        },
+        "valley": {
+          "heading": "La valle del Guavio",
+          "paragraphs": [
+            "Sotto le miniere di Chivor, i fiumi Rucio e Sinaí si uniscono e formano il fiume Guavio. Un ponte sospeso sul Rucio segna il confine tra Cundinamarca e Boyacá, e sui pendii della valle, a circa 15 km da Chivor, si trovano le rovine di Las Cascadas, la piantagione di tè che Peter e Margaret Rainier fondarono negli anni Trenta. A valle, il Guavio alimenta il bacino della più grande centrale idroelettrica in funzione in Colombia, che riceve anche il fiume Chivor attraverso una galleria di 2,2 km.",
+            "Nel 2015 un team del GIA impiegò sei giorni per andare da Gachalá a Chivor, prima in 4x4 e poi a piedi e a dorso di mulo, passando per Las Cascadas e il villaggio di Montecristo. Descrissero un paesaggio di cascate alte centinaia di metri, bromelie e rapaci."
+          ]
+        },
+        "hacienda": {
+          "heading": "Hacienda El Recuerdo: la nostra base nel Guavio",
+          "paragraphs": [
+            "L’Hacienda El Recuerdo si trova a Mundo Nuevo, nel comune di Ubalá (Cundinamarca), nella regione del Guavio e vicinissima a Chivor. È una fattoria di bestiame e apicoltura con camere private e WiFi, dove alloggiano gli ospiti dei nostri tour di due giorni.",
+            "I tour iniziano e finiscono nel paese di Chivor. Da Ubalá sono circa 35 km di strada rurale fino all’hacienda, un percorso adatto solo a moto o 4x4; con un’auto normale è meglio arrivare da Chivor."
+          ]
+        },
+        "visit": {
+          "heading": "Come visitare la regione",
+          "paragraphs": [
+            "Per conoscere la fascia orientale senza organizzare una spedizione, parti da Chivor: una miniera, una notte all’Hacienda El Recuerdo e il ritorno a Bogotá attraverso la Valle de Tenza, circa 5-6 ore.",
+            "Se vuoi esplorare anche Gachalá e la valle del Guavio, verifica prima le condizioni delle strade, che sono rurali e cambiano con le piogge, e prevedi almeno un giorno in più."
+          ]
+        }
+      }
+    },
+    "travelSafety": {
+      "metaTitle": "Chivor è sicura? Guida 2026 per viaggiatori | Andean Scapes",
+      "metaDescription": "Cosa dicono gli avvisi di viaggio ufficiali sul Boyacá, perché la fascia smeraldifera orientale ha un’altra storia, e strade, soldi, foto ed emergenze a Chivor.",
+      "title": "Chivor è sicura? Cosa sapere prima di partire",
+      "lead": "Esce in quasi ogni conversazione con viaggiatori che arrivano da fuori della Colombia, ed è una domanda legittima. La risposta breve: Chivor non si trova in nessuna zona che gli avvisi di viaggio stranieri sconsigliano, ma è campagna di montagna e si viaggia seguendo alcune regole chiare. Eccole, con le fonti.",
+      "imageAlt": "Paesaggio di montagna nella regione smeraldifera di Chivor, Boyacá",
+      "sections": {
+        "advice": {
+          "heading": "Cosa dicono gli avvisi di viaggio ufficiali",
+          "paragraphs": [
+            "Il Regno Unito pubblica alcuni degli avvisi di viaggio più dettagliati sulla Colombia. La versione del 30 ottobre 2026 sconsiglia tutti i viaggi non essenziali nel Catatumbo, in gran parte dell’Arauca, nella fascia di 5 km lungo il confine con il Venezuela, in buona parte del Chocó e sulla costa pacifica del Valle del Cauca, tra le altre zone. Né il Boyacá né il Cundinamarca compaiono in quegli elenchi.",
+            "Questo non significa rischio zero. Lo stesso avviso osserva che il problema più comune per i visitatori sono i furti nelle grandi città, compresa La Candelaria a Bogotá, e che la copertura telefonica in campagna è limitata. Controlla anche gli avvisi del tuo governo: questi documenti cambiano spesso."
+          ]
+        },
+        "twoBelts": {
+          "heading": "Muzo o Chivor sono pericolose? Due storie diverse",
+          "paragraphs": [
+            "Cerca «Colombia smeraldi violenza» e quasi tutto ciò che trovi riguarda il Boyacá occidentale. Lì, tra il 1965 e il 1990, le cosiddette guerre verdi contrapposero gruppi smeraldiferi per il controllo delle miniere, con migliaia di morti secondo i dati citati dalla stampa colombiana. Finirono con un accordo di pace firmato il 12 luglio 1990. Dopo il 2013 ci sono stati nuovi episodi di tensione in quella zona.",
+            "Chivor si trova nell’altra fascia, quella orientale, a circa dieci ore di strada da Borbur. Il suo territorio è segnato dall’attività mineraria e da due delle più grandi centrali idroelettriche del paese."
+          ]
+        },
+        "infrastructure": {
+          "heading": "La diga di Chivor, il Guavio e le forze di sicurezza",
+          "paragraphs": [
+            "Il bacino che attraversi in traghetto vicino a Macanal si chiama La Esmeralda e alimenta la centrale di Chivor: 1.000 MW e otto turbine Pelton, costruita tra il 1970 e il 1977. A sud, a Mambita (Ubalá), la centrale del Guavio funziona all’interno della montagna. Con 1.260 MW è la più grande centrale in funzione in Colombia, e una galleria di 2,2 km devia il fiume Chivor nel suo bacino.",
+            "Entrambe sono infrastrutture strategiche, e nella regione c’è una presenza permanente delle forze di sicurezza colombiane. Lo diciamo per la nostra esperienza di lavoro sul posto, non come dato ufficiale, e non pubblichiamo luoghi né dettagli di questa presenza. Cosa facciamo: verifichiamo le condizioni locali e della miniera prima di ogni partenza."
+          ]
+        },
+        "roads": {
+          "heading": "Strade, orari e pioggia",
+          "paragraphs": [
+            "Da Bogotá servono circa 5-6 ore. L’ultimo tratto è una strada di montagna sterrata, ed è per questo che il viaggio si pianifica di giorno, come raccomanda l’avviso britannico per qualsiasi strada rurale del paese.",
+            "Il governo colombiano ha dichiarato un evento El Niño per il 2026–2027 con un’alta probabilità di forte intensità, e si prevedono piogge anomale e frane. Dopo forti piogge, informati sulla strada prima di partire. Il percorso alternativo via Ubalá è solo per moto o 4x4."
+          ]
+        },
+        "money": {
+          "heading": "Contanti e segnale",
+          "paragraphs": [
+            "Porta contanti per le spese locali: nelle miniere non ci sono bancomat né POS. Se devi prelevare, fallo a Bogotá, in orario bancario, all’interno di una banca o di un centro commerciale.",
+            "Il segnale telefonico in campagna è discontinuo. L’hacienda ha il WiFi. Prima di salire alla miniera, lascia il tuo itinerario a una persona di fiducia."
+          ]
+        },
+        "photos": {
+          "heading": "Cosa non fotografare",
+          "paragraphs": [
+            "In Colombia è illegale fotografare installazioni militari o siti strategici dello Stato. In pratica: niente foto a soldati, posti di blocco o impianti della diga. Dentro la miniera, chiedi prima di fotografare i minatori. È il loro posto di lavoro."
+          ]
+        },
+        "health": {
+          "heading": "Salute e assicurazione",
+          "paragraphs": [
+            "Chivor si trova a circa 2.000 m. Non è un’altitudine estrema, ma l’umidità e lo sforzo dentro la miniera si fanno sentire. Ogni tour include una copertura di assistenza medica durante l’esperienza. Un’assicurazione di viaggio completa non è inclusa, e se arrivi dall’estero te la consigliamo.",
+            "Se hai problemi cardiaci, una fobia grave o ti stai riprendendo da un infortunio, scrivici prima di prenotare."
+          ]
+        },
+        "emergency": {
+          "heading": "In caso di emergenza",
+          "paragraphs": [
+            "Il numero di emergenza in Colombia è il 123. Durante la giornata in miniera la guida resta con il gruppo dall’inizio alla fine, e prima del viaggio ricevi il WhatsApp del team per qualsiasi imprevisto lungo la strada.",
+            "Una regola non cambia mai: nessuno entra in miniera senza guida."
+          ]
+        }
+      }
+    },
+    "westernBoyaca": {
+      "metaTitle": "Fura e Tena, Muzo e smeraldi trapiche | Andean Scapes",
+      "metaDescription": "La leggenda di Fura e Tena, i muzo che fermarono gli spagnoli per vent’anni, gli smeraldi trapiche e il cammino verso la pace del 1990 nel Boyacá occidentale.",
+      "title": "Boyacá occidentale: Fura e Tena, Muzo e gli smeraldi trapiche",
+      "lead": "Fura e Tena viene spesso definita una leggenda muisca. Non lo è. Appartiene ai muzo, un popolo di lingua caribe che razziava i vicini muisca e impedì agli spagnoli di fondare un paese nella sua terra per vent’anni.",
+      "imageAlt": "Paesaggio di montagna nella regione smeraldifera del Boyacá occidentale",
+      "sections": {
+        "muzos": {
+          "heading": "I muzo, il popolo degli smeraldi",
+          "paragraphs": [
+            "Secondo il registro dei nomi geografici della Colombia, «muzo» viene da una lingua della famiglia caribe e significa «persona». I muzo estraevano gli smeraldi a mano e li usavano come ornamenti e per il baratto tra clan.",
+            "Luis Lanchero li attaccò nel 1539 e fallì. Ci provarono Diego de Martínez nel 1544, Melchor de Valdés nel 1550 e Pedro de Ursúa nel 1551. Il 20 febbraio 1559 Lanchero fondò finalmente la città di Santísima Trinidad de los Muzos, e nemmeno allora li aveva sottomessi del tutto."
+          ]
+        },
+        "legend": {
+          "heading": "La leggenda di Fura e Tena",
+          "paragraphs": [
+            "Nella versione raccolta da Julio Roberto Garavito, Are, il dio creatore, plasmò Fura, la donna, e Tena, l’uomo, da una manciata di terra e li gettò nel fiume Minero. Diede loro l’eterna giovinezza a una condizione: amarsi solo l’un l’altra.",
+            "Poi arrivò Zarbi, uno straniero in cerca di un fiore capace di curare ogni male. Fura andò con lui a cercarlo, e nella foresta si innamorarono. Con il tradimento arrivò la vecchiaia. Tena si conficcò la sua mazza da guerra nel cuore, disteso sulle ginocchia di Fura.",
+            "Zarbi fu trasformato in pietra, e il suo sangue nel fiume che separa per sempre i due amanti, oggi due colline. Le grida di Fura diventarono farfalle; le sue lacrime, smeraldi. Per questo, dice il racconto, l’acqua del Minero lava gli smeraldi di Muzo."
+          ]
+        },
+        "hills": {
+          "heading": "Dove si trovano Fura e Tena?",
+          "paragraphs": [
+            "Fura e Tena sono due colline che si fronteggiano sulle due sponde del fiume Minero, tra San Pablo de Borbur, Pauna e Muzo. Le altezze pubblicate sono di circa 840 m per Tena e 500 m per Fura. Per i muzo erano la sede dei loro dèi.",
+            "La farfalla morpho, blu elettrico e nera, fa parte della cultura della zona. Nella leggenda, ogni grido di Fura esplode in uno stormo di farfalle."
+          ]
+        },
+        "trapiche": {
+          "heading": "Che cos’è uno smeraldo trapiche?",
+          "paragraphs": [
+            "Alcuni smeraldi occidentali mostrano sei bracci scuri che si irradiano dal centro, come i raggi della ruota di un mulino per la canna da zucchero, un trapiche. Émile Bertrand li descrisse per primo nel 1879.",
+            "Provengono quasi solo da Muzo, Coscuez e Peñas Blancas. Testi più vecchi li attribuivano anche a Chivor, ma una revisione del 2015 su Gems & Gemology oggi considera improbabile questa origine. Se qualcuno ti offre un trapiche «di Chivor», chiedi due volte."
+          ]
+        },
+        "furaStone": {
+          "heading": "Uno smeraldo che porta il nome della leggenda",
+          "paragraphs": [
+            "Nel 1999 una miniera di Muzo produsse un cristallo grezzo di circa 11.000 carati, più di due chili. Fu chiamato Fura. Secondo articoli di stampa del 2011, uno più piccolo trovato insieme a lui fu chiamato Tena."
+          ]
+        },
+        "peace": {
+          "heading": "Dal conflitto alla pace del 1990",
+          "paragraphs": [
+            "La storia recente dell’ovest passa per le cosiddette guerre verdi, tre periodi di violenza tra gruppi smeraldiferi dal 1965 al 1990. Il primo, fino al 1975, lasciò da solo più di 1.200 morti secondo i dati citati dalla stampa. Nel 1980 Muzo contava circa 35.000 guaqueros, cercatori informali.",
+            "Il 12 luglio 1990 un accordo di pace chiuse quel ciclo; Muzo ne ha celebrato il 30° anniversario nel 2020. Dopo il 2013 ci sono stati nuovi episodi di tensione. Lo raccontiamo perché fa parte della regione e della sua gente, non come attrazione."
+          ]
+        },
+        "visit": {
+          "heading": "Com’è viaggiare a ovest",
+          "paragraphs": [
+            "Muzo si trova a circa 815 m con una media di 26 °C, niente a che vedere con i 2.000 m e le notti fredde di Chivor. Da Chiquinquirá ci arrivi con la Ruta 60 in direzione Pauna e Maripí.",
+            "Coscuez è nel nostro catalogo ma al momento non ha date. L’esperienza disponibile oggi è Chivor, nella fascia orientale."
+          ]
+        }
+      }
+    }
+  }
+}

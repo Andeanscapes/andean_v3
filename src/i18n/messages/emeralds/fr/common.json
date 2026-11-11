@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "breadcrumbEmeralds": "Monde Émeraude",
+    "breadcrumbLabel": "Fil d’Ariane",
+    "updated": "Mis à jour",
+    "author": "Équipe Andean Scapes",
+    "sourcesTitle": "Sources",
+    "relatedTitle": "Commencer la lecture",
+    "visitTitle": "Découvrir la région des émeraudes sur place",
+    "visitBody": "Chivor, dans la ceinture orientale, est l’endroit où nous travaillons. Si vous voulez entrer dans une mine en activité aux côtés de mineurs locaux, notre guide pratique explique comment cela se passe.",
+    "visitCta": "Lire le guide des visites de mines d’émeraudes",
+    "sourceRef": "Source {number}",
+    "sourceLanguage": {
+      "en": "(en anglais)",
+      "es": "(en espagnol)",
+      "fr": "(en français)",
+      "de": "(en allemand)",
+      "it": "(en italien)"
+    },
+    "sectionNavLabel": "Rubriques de Monde Émeraude",
+    "tocLabel": "Sur cette page",
+    "pagerLabel": "Dans la même rubrique",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "authorPagesTitle": "Pages de cet auteur",
+    "faqTitle": "Questions fréquentes"
+  },
+  "notes": {
+    "fieldNote": "Notes de terrain : ce que nous avons vu dans la région",
+    "oralTradition": "Tradition orale : racontée sur place, aucun document ne la confirme"
+  },
+  "illustrations": {
+    "beltMap": {
+      "western": "Ceinture occidentale",
+      "eastern": "Ceinture orientale",
+      "credit": "Carte : Andean Scapes, coordonnées des chefs-lieux d’après Wikipédia en espagnol"
+    },
+    "trapiche": {
+      "core": "Noyau",
+      "arm": "Bras sombre",
+      "sector": "Secteur vert",
+      "credit": "Illustration : Andean Scapes"
+    },
+    "threePhase": {
+      "liquid": "Saumure",
+      "gas": "Bulle de gaz",
+      "crystal": "Cristal de sel",
+      "credit": "Illustration : Andean Scapes"
+    }
+  },
+  "authors": {}
+}

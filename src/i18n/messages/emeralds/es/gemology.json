@@ -1,0 +1,234 @@
+{
+  "pages": {
+    "gemology": {
+      "navLabel": "Gemología",
+      "metaTitle": "Gemología de la esmeralda: color, jardín y tratamientos",
+      "metaDescription": "Qué es una esmeralda: berilo verde coloreado por cromo, vanadio y hierro, su jardín, las inclusiones trifásicas, los tratamientos con aceite y resina.",
+      "title": "Gemología de la esmeralda: qué hace que una piedra sea esmeralda",
+      "lead": "Berilo verde, unos átomos de cromo y vanadio, un jardín de inclusiones y, muchas veces, un poco de aceite. La ciencia detrás del verde, según los laboratorios que la estudian.",
+      "imageAlt": "Un minero pica un frente de roca con la luz de su linterna dentro de una mina de esmeraldas",
+      "sections": {
+        "what": {
+          "heading": "¿Qué es una esmeralda?",
+          "answer": "La esmeralda es la variedad verde a verde azulada del berilo, la misma especie mineral del aguamarina.[[gia-emerald-description]]",
+          "paragraphs": [
+            "Dónde termina el berilo verde y empieza la esmeralda es discutido. Algunos comerciantes llaman esmeralda a cualquier berilo verde coloreado por cromo; la mayoría de gemólogos, laboratorios y comerciantes lo llaman berilo verde cuando el color es demasiado claro, y el GIA usa piedras de comparación graduadas en laboratorio para decidir.[[gia-emerald-description]]"
+          ]
+        },
+        "color": {
+          "heading": "De dónde sale el verde",
+          "answer": "El cromo, el vanadio y el hierro dan el color de la esmeralda; cuáles están presentes, y en qué cantidad, define el verde exacto de cada cristal.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Los colores más deseados van del verde azulado al verde puro, con saturación viva, un tono no demasiado oscuro y el color repartido de forma pareja. Si tira demasiado a amarillo o a azul, la piedra es otra variedad de berilo.[[gia-emerald-quality]]"
+          ]
+        },
+        "jardin": {
+          "heading": "El jardín: por qué las esmeraldas casi nunca son limpias",
+          "answer": "Casi todas las esmeraldas tienen inclusiones visibles a simple vista, a menudo con aspecto de musgo o de jardín. El comercio las llama jardín.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "El comercio acepta inclusiones visibles en esmeraldas finas; las piedras limpias a simple vista son raras y especialmente valiosas. Las inclusiones solo restan valor cuando nublan la transparencia.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Inclusiones trifásicas y origen",
+          "answer": "La inclusión colombiana clásica es una cavidad dentada con salmuera que guarda una burbuja de gas y un cristal cúbico de sal, normalmente de 100 micrómetros a 1 milímetro. Las dentadas de más de medio milímetro son exclusivas de Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Los laboratorios separan las esmeraldas en dos familias. Las colombianas, afganas y chinas (Davdar) se forman en ambientes hidrotermales o metamórficos y suelen tener inclusiones multifásicas dentadas; las de Zambia (Kafubu), Rusia, Etiopía y Brasil están alojadas en esquistos y suelen tenerlas en bloque.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Diagrama de una inclusión fluida dentada dentro de una esmeralda con tres fases señaladas: salmuera, burbuja de gas y cristal cúbico de sal.",
+            "caption": "Una inclusión trifásica dentada, típica de las esmeraldas colombianas. Esquema, no a escala."
+          }
+        },
+        "treatments": {
+          "heading": "Aceite, resina y el informe de esmeralda",
+          "answer": "Las fracturas que llegan a la superficie de las esmeraldas se rellenan a menudo con aceites, ceras o resinas artificiales para que se vean menos y mejorar la claridad aparente.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "Los rellenos varían en estabilidad y cantidad, de insignificante a mayor. Una esmeralda rellena debe protegerse del calor, de cambios bruscos de presión, de químicos y hasta del agua caliente de lavar platos.[[gia-gem-treatment]]",
+            "Desde 2000 el laboratorio del GIA clasifica el realce de claridad de las esmeraldas como menor, moderado o significativo. La clasificación describe el tratamiento; no es un grado de claridad.[[gia-emerald-quality]]"
+          ]
+        },
+        "facts": {
+          "heading": "Datos de la esmeralda",
+          "answer": "La esmeralda es berilo, Be₃Al₂Si₆O₁₈, con dureza de 7,5 a 8 en la escala de Mohs, densidad de 2,72 e índice de refracción de 1,577 a 1,583.[[gia-emerald-facts]]",
+          "paragraphs": [
+            "Dureza no es tenacidad. Casi todas las esmeraldas tienen fracturas y son más frágiles que el corindón, así que pueden dañarse al tallarlas, montarlas o usarlas sin cuidado.[[gia-emerald-quality]]",
+            "La esmeralda es la piedra de mayo y la gema de los aniversarios de bodas número 20 y 35.[[gia-emerald-facts]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿La esmeralda es un tipo de berilo?",
+          "answer": "Sí. La esmeralda es la variedad verde a verde azulada del berilo, la misma especie mineral del aguamarina.[[gia-emerald-description]]"
+        },
+        {
+          "question": "¿Todas las esmeraldas tienen inclusiones?",
+          "answer": "Casi todas. Las inclusiones visibles, el jardín, son normales en la esmeralda, y las piedras limpias a simple vista son raras y especialmente valiosas.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "¿Las esmeraldas se tratan?",
+          "answer": "A menudo. Las fracturas que llegan a la superficie se rellenan con aceites, ceras o resinas artificiales para mejorar la claridad aparente.[[gia-gem-treatment]]"
+        }
+      ]
+    },
+    "colombianVsZambian": {
+      "metaTitle": "Esmeraldas colombianas vs. zambianas: diferencias reales",
+      "metaDescription": "En qué se diferencian las esmeraldas colombianas y las zambianas: geología, hierro y color, inclusiones dentadas o en bloque, cómo las distingue un laboratorio.",
+      "title": "Esmeraldas colombianas vs. zambianas: qué cambia de verdad",
+      "lead": "Zambia es la gran rival de Colombia en esmeraldas finas. Se forman en rocas distintas, llevan huellas distintas y, en muchas piedras, aun así se parecen. Esto es lo que usan los laboratorios para separarlas.",
+      "imageAlt": "Una visitante con casco entre colinas verdes y paredes de roca en la región esmeraldera",
+      "sections": {
+        "short": {
+          "heading": "La respuesta corta",
+          "answer": "Se forman en ambientes geológicos distintos. Las colombianas pertenecen al grupo hidrotermal/metamórfico; las zambianas de Kafubu están alojadas en esquistos, formadas donde pegmatitas u otros cuerpos magmáticos tocaron rocas máficas, ultramáficas o metamórficas.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Zambia es una de las fuentes que desde el siglo XX desafiaron el lugar de Colombia en el mercado, junto con Brasil y Rusia. Al multiplicarse la producción, el origen geográfico se volvió un factor importante para las esmeraldas finas.[[gia-origin-2019]]"
+          ]
+        },
+        "geology": {
+          "heading": "Rocas y edades distintas",
+          "answer": "Las esmeraldas colombianas se formaron cuando salmueras calientes de cuenca, tras interactuar con evaporitas, circularon por lutitas negras ricas en materia orgánica.[[gia-trapiche-2015]] Las de Zambia, como otros depósitos en esquistos, se formaron en cambio donde pegmatitas u otros cuerpos magmáticos tocaron rocas máficas, ultramáficas o metamórficas.[[gia-origin-2019]]",
+          "paragraphs": [
+            "En Colombia la roca madre es la lutita negra: el cinturón occidental está en rocas de 130 a 116 millones de años, y las esmeraldas se formaron hace unos 65 millones de años en el oriente y entre 38 y 32 millones en el occidente.[[gia-trapiche-2015]]"
+          ]
+        },
+        "color": {
+          "heading": "Color y hierro",
+          "answer": "Las esmeraldas alojadas en esquistos, como las zambianas, suelen ser de un verde más oscuro que las colombianas porque en general tienen más hierro.[[gia-origin-2019]]",
+          "paragraphs": [
+            "En el comercio se dice que las colombianas tienen un verde puro más cálido e intenso y las zambianas un verde más frío y azulado. El GIA advierte que la apariencia se superpone entre orígenes.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Dentadas o en bloque",
+          "answer": "Las colombianas suelen mostrar inclusiones trifásicas dentadas; las alojadas en esquistos las tienen en bloque, y la mica es su inclusión sólida más común. Las dentadas de más de medio milímetro son exclusivas de Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Hay zonas grises: un depósito menor de Zambia, Musakashi, puede mostrar inclusiones trifásicas dentadas parecidas a las colombianas.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Diagrama de una inclusión fluida dentada dentro de una esmeralda con tres fases señaladas: salmuera, burbuja de gas y cristal cúbico de sal.",
+            "caption": "Una inclusión trifásica dentada, típica de las esmeraldas colombianas. Esquema, no a escala."
+          }
+        },
+        "lab": {
+          "heading": "Cómo decide un laboratorio",
+          "answer": "El origen se determina combinando inclusiones, espectroscopía UV-Vis-NIR y química de elementos traza medida por ablación láser ICP-MS.[[gia-origin-2019]]",
+          "paragraphs": [
+            "El hierro aparece en el espectro: las esmeraldas alojadas en esquistos tienen una banda de absorción del hierro mucho más fuerte a 810 nanómetros. Si una piedra no tiene inclusiones diagnósticas ni datos de elementos traza, puede ser imposible dar una opinión de origen.[[gia-origin-2019]]"
+          ]
+        },
+        "better": {
+          "heading": "¿Es mejor la colombiana que la zambiana?",
+          "answer": "No automáticamente. El valor depende de cada piedra: color, claridad, talla y tamaño. La apariencia se superpone entre orígenes.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "El origen sí pesa comercialmente: se volvió un factor importante para las esmeraldas finas.[[gia-origin-2019]] Pero una zambiana fina le gana a una colombiana pobre; primero se juzga la piedra y después se le pregunta a un laboratorio por su origen."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿Las esmeraldas zambianas son más oscuras que las colombianas?",
+          "answer": "Suelen serlo. Las alojadas en esquistos, como las zambianas, tienen en general más hierro, que les da un verde más oscuro.[[gia-origin-2019]]"
+        },
+        {
+          "question": "¿Un laboratorio puede distinguir una esmeralda colombiana de una zambiana?",
+          "answer": "Por lo general sí, combinando inclusiones, espectroscopía y elementos traza. Las inclusiones dentadas de más de medio milímetro son exclusivas de Colombia.[[gia-origin-2019]]"
+        }
+      ]
+    },
+    "emeraldValue": {
+      "metaTitle": "Valor de la esmeralda colombiana: color, claridad y precio",
+      "metaDescription": "Qué define el precio de una esmeralda colombiana: color, jardín, talla, quilates, tratamiento con aceite o resina, informes de laboratorio y la gota de aceite.",
+      "title": "Cómo se valora una esmeralda colombiana",
+      "lead": "No existe un precio por quilate de “una esmeralda colombiana”. Existen piedras, y cada una se valora primero por su color, luego por su claridad, talla, tamaño, tratamiento y origen. Esto es lo que miran los profesionales.",
+      "imageAlt": "Dos hombres con casco y linterna junto a una cascada subterránea",
+      "sections": {
+        "short": {
+          "heading": "La respuesta corta",
+          "answer": "Las esmeraldas se valoran ante todo por el color, y luego por la claridad y la transparencia, la talla y el peso en quilates.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "A igual calidad, el precio de una esmeralda puede subir de forma drástica con el tamaño.[[gia-emerald-quality]]"
+          ]
+        },
+        "color": {
+          "heading": "Primero el color",
+          "answer": "Las esmeraldas más valoradas van del verde azulado al verde puro, con saturación viva, tono no demasiado oscuro, alta transparencia y color parejo, sin zonas visibles.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Si el tono se va demasiado al amarillo o al azul, la piedra deja de ser esmeralda y pasa a ser otro berilo, y su valor cae.[[gia-emerald-quality]]"
+          ]
+        },
+        "clarity": {
+          "heading": "Claridad y jardín",
+          "answer": "En una esmeralda se esperan inclusiones visibles, el jardín. Las piedras sin ellas son raras y especialmente valiosas.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Las inclusiones solo se vuelven un problema cuando nublan la transparencia; entonces el valor cae mucho.[[gia-emerald-quality]]"
+          ]
+        },
+        "cut": {
+          "heading": "La talla, y las esmeraldas en anillos",
+          "answer": "La talla decide cuánto color y cuánto peso sobreviven. Casi todas las esmeraldas tienen fracturas, y los errores cuestan peso y valor.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "El material colombiano en bruto es especialmente difícil: su color es más intenso cerca de la superficie, y una talla descuidada puede dejar una piedra mucho más pálida que el cristal original.[[gia-emerald-quality]]",
+            "En un anillo esto importa. La esmeralda es más frágil que el corindón, y la talla esmeralda ayuda a protegerla porque sus esquinas vulnerables están facetadas y dan un lugar más seguro a las garras.[[gia-emerald-quality]]"
+          ]
+        },
+        "size": {
+          "heading": "El tamaño",
+          "answer": "A igual calidad, el precio sube de forma drástica con el tamaño.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Las piedras de 1 a 5 quilates son populares como piedra central; las joyas más finas usan de 0,02 a 0,50 quilates, y las piezas de prestigio pueden llevar esmeraldas de más de 20.[[gia-emerald-quality]]"
+          ]
+        },
+        "treatment": {
+          "heading": "El tratamiento",
+          "answer": "Las fracturas de las esmeraldas se rellenan a menudo con aceites, ceras o resinas artificiales para mejorar la claridad aparente. El tipo y la cantidad de relleno afectan el valor.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "La cantidad de relleno puede ir de insignificante a mayor, y su estabilidad varía. Las esmeraldas rellenas piden cuidado: nada de calor, químicos, agua caliente ni cambios bruscos de presión.[[gia-gem-treatment]]"
+          ]
+        },
+        "reports": {
+          "heading": "Los informes de laboratorio",
+          "answer": "Un informe de esmeralda del GIA clasifica el realce de claridad como menor, moderado o significativo e incluye una imagen de la piedra; describe el tratamiento, no un grado de claridad.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Las opiniones de origen combinan inclusiones, espectroscopía y elementos traza; una piedra sin inclusiones diagnósticas puede quedarse sin opinión de origen.[[gia-origin-2019]]"
+          ]
+        },
+        "origin": {
+          "heading": "El origen y la gota de aceite",
+          "answer": "“Gota de aceite” es el nombre que el comercio da a las esmeraldas colombianas de alta calidad.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El origen se volvió un factor importante en el precio de las esmeraldas finas, y por eso los laboratorios invierten en distinguir las colombianas de las demás.[[gia-origin-2019]]"
+          ]
+        },
+        "checklist": {
+          "heading": "Antes de comprar: qué preguntar",
+          "note": "editorial",
+          "paragraphs": [
+            "Nosotros no vendemos esmeraldas ni damos precios: una cifra sin la piedra enfrente no significa nada. Estas son las preguntas que hacen los profesionales, sea quien sea el vendedor."
+          ],
+          "list": [
+            "¿La piedra está tratada, con qué y cuánto?",
+            "¿Tiene informe de un laboratorio gemológico independiente, y la imagen coincide con la piedra?",
+            "¿El informe da una opinión de origen, o dice que no fue posible?",
+            "¿Cómo se limpia y se usa esta piedra, según su tratamiento?"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿Cuánto vale una esmeralda colombiana?",
+          "answer": "No hay un precio único. El valor depende primero del color y luego de la claridad, la talla y el tamaño, y a igual calidad el precio sube de forma drástica con el tamaño.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "¿Qué significa gota de aceite?",
+          "answer": "Es el término del comercio para las esmeraldas colombianas de alta calidad.[[gia-rainier-2016]]"
+        },
+        {
+          "question": "¿Cómo sé si una esmeralda es colombiana?",
+          "answer": "Solo un laboratorio gemológico puede dar una opinión de origen, usando inclusiones, espectroscopía y elementos traza.[[gia-origin-2019]]"
+        }
+      ]
+    }
+  }
+}

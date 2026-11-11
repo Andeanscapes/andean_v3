@@ -1,0 +1,151 @@
+{
+  "pages": {
+    "mines": {
+      "navLabel": "Minas",
+      "metaTitle": "Minas de esmeraldas en Colombia: Muzo, Coscuez y Chivor",
+      "metaDescription": "Dónde se extraen las esmeraldas en Colombia: el cinturón occidental de Muzo y Coscuez, el oriental de Chivor y Gachalá, y qué significan Muzo y Chivor.",
+      "title": "Las minas de esmeraldas de Colombia",
+      "lead": "Dos cinturones, ocho distritos y tres nombres famosos. Dónde salen de la tierra las esmeraldas colombianas, en qué se diferencian los dos lados y por qué “Muzo” a veces es un color y no una mina.",
+      "imageAlt": "Un niño con casco minero junto a varios adultos en una mina de esmeraldas",
+      "sections": {
+        "what": {
+          "heading": "¿Dónde están las minas de esmeraldas de Colombia?",
+          "answer": "Casi todas las esmeraldas colombianas se extraen en Boyacá y Cundinamarca, en la cordillera Oriental. Las tres minas principales son Muzo, Coscuez y Chivor.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Los depósitos forman dos cinturones, a lado y lado de la cuenca de la cordillera Oriental.[[gia-trapiche-2015]]"
+          ]
+        },
+        "western": {
+          "heading": "El cinturón occidental",
+          "answer": "El cinturón occidental reúne los distritos de Muzo, Coscuez, La Pita, Peñas Blancas y La Glorieta–Yacopí.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Sus esmeraldas están en lutitas negras y calizas dolomíticas de 130 a 116 millones de años, y se formaron hace entre 38 y 32 millones de años. En Colombia, las esmeraldas trapiche solo salen de Muzo, Coscuez y Peñas Blancas.[[gia-trapiche-2015]]",
+            "Coscuez y Peñas Blancas son cerros con nombre propio de San Pablo de Borbur.[[wiki-es-borbur]]"
+          ],
+          "figure": {
+            "alt": "Mapa esquemático del centro de Colombia con el cinturón esmeraldero occidental al norte de Bogotá y el oriental al nororiente.",
+            "caption": "Los dos cinturones esmeralderos de Colombia, cada distrito minero en su cabecera municipal. Las líneas desde Bogotá son rectas, no carreteras."
+          }
+        },
+        "eastern": {
+          "heading": "El cinturón oriental",
+          "answer": "El cinturón oriental reúne Chivor, Gachalá y Macanal. Sus esmeraldas se formaron hace unos 65 millones de años en un horizonte de lutitas negras y calizas de 135 a 130 millones de años.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Los historiadores señalan a Chivor como la fuente de las primeras esmeraldas comerciadas en América y las primeras exportadas tras la conquista.[[gia-rainier-2016]] De Gachalá salió el cristal de 858 quilates que hoy está en el Smithsonian.[[smithsonian-gachala]]"
+          ]
+        },
+        "names": {
+          "heading": "Cuando “Muzo” es un color",
+          "answer": "En el comercio, “Muzo” y “Chivor” describen a menudo un color más que la mina: Muzo, un verde cálido y herbáceo con toques de amarillo; Chivor, un verde más profundo.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Así que una piedra vendida como “Muzo” o “Chivor” es una descripción, no un certificado de origen. El origen solo lo puede opinar un laboratorio, a partir de inclusiones, espectroscopía y elementos traza.[[gia-origin-2019]]"
+          ]
+        },
+        "visiting": {
+          "heading": "Visitar una mina",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Son lugares de trabajo. Las visitas dependen del permiso del operador, de un guía local y del clima en las carreteras. En nuestra experiencia en Chivor, el tiempo bajo tierra es solo una parte del día; el resto es la carretera, la montaña y la gente alrededor de la mina."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿Dónde se extraen las esmeraldas en Colombia?",
+          "answer": "Sobre todo en Boyacá y Cundinamarca. Las tres minas principales son Muzo, Coscuez y Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "¿En qué se diferencian los dos cinturones esmeralderos?",
+          "answer": "El occidental (Muzo, Coscuez) se formó hace entre 38 y 32 millones de años y es la única fuente colombiana de trapiche; el oriental (Chivor, Gachalá) se formó hace unos 65 millones de años.[[gia-trapiche-2015]]"
+        }
+      ]
+    },
+    "muzo": {
+      "metaTitle": "Esmeraldas de Muzo: historia, geología y trapiche",
+      "metaDescription": "Muzo, la capital de la esmeralda: el pueblo muzo, la conquista, la geología de lutitas negras, las esmeraldas trapiche, la Fura y las guerras verdes.",
+      "title": "Muzo: la capital de la esmeralda",
+      "lead": "Un pueblo con el nombre de un pueblo indígena que resistió a los españoles durante décadas, unos cerros negros llenos de esmeraldas, el trapiche, la Fura de 11.000 quilates y lo peor de las guerras verdes.",
+      "imageAlt": "Tres personas de pie detrás de un cajón minero de madera entre helechos en la región esmeraldera",
+      "sections": {
+        "short": {
+          "heading": "¿Dónde queda Muzo?",
+          "answer": "Muzo es un municipio del occidente de Boyacá, a 170 km de Tunja y 90 km de Chiquinquirá, conocido en el mundo por sus yacimientos de esmeraldas.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La Wikipedia en inglés llama a Muzo la mina de esmeraldas más importante del mundo.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "name": {
+          "heading": "El nombre y el pueblo",
+          "answer": "El pueblo toma su nombre de los muzos, la comunidad indígena del occidente de Boyacá; la palabra significa “persona”.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "Antes de la conquista los muzos, un pueblo caribe guerrero, extraían esmeraldas de forma rudimentaria y las usaban como adorno y para el trueque entre clanes.[[wiki-es-muzo]]"
+          ]
+        },
+        "conquest": {
+          "heading": "Una conquista larga",
+          "answer": "Los españoles necesitaron unos veinte años de guerra para vencer a los muzos. Tras varias campañas fallidas desde 1539, Luis Lanchero fundó la Villa de la Santísima Trinidad de los Muzos el 20 de febrero de 1559.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La Wikipedia en inglés habla de cinco décadas.[[wiki-en-colombian-emeralds]] Las vetas se encontraron por accidente, escribió Semana en 1992: en 1564 una gran piedra verde quedó pegada en la herradura del caballo de un conquistador.[[semana-reinsercion-1992]]",
+            "En el siglo XVI las esmeraldas de Muzo eran las preferidas de la nobleza mogol de la India.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "geology": {
+          "heading": "Las rocas",
+          "answer": "Las esmeraldas de Muzo están en lutitas negras y calizas dolomíticas de las formaciones Rosablanca y Paja, de 130 a 116 millones de años.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Como el resto del cinturón occidental, las esmeraldas de Muzo se formaron hace entre 38 y 32 millones de años.[[gia-trapiche-2015]]"
+          ]
+        },
+        "trapiche": {
+          "heading": "El trapiche",
+          "answer": "El mineralogista francés Émile Bertrand describió por primera vez las esmeraldas trapiche en 1879, al presentar unos “curiosos cristales de esmeralda… de Muso, Nueva Granada”.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "En Colombia las esmeraldas trapiche solo salen de Muzo, Coscuez y Peñas Blancas.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Diagrama del corte de una esmeralda trapiche: un núcleo hexagonal oscuro, seis brazos oscuros y seis sectores verdes.",
+            "caption": "Una esmeralda trapiche vista a lo largo de su eje, especialidad del cinturón occidental. Esquema, no a escala."
+          }
+        },
+        "color": {
+          "heading": "El verde Muzo",
+          "answer": "En el comercio, “Muzo” también nombra un color: un verde cálido y herbáceo con toques de amarillo.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Semana escribió en 1992 que las minas de Muzo eran las únicas que producían la “gota de aceite”, el nombre del comercio para las piedras más finas.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "stones": {
+          "heading": "La Fura",
+          "answer": "En 1999 una mina de Muzo entregó la Fura, un cristal en bruto de unos 11.000 quilates, 2,2 kilogramos.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Se bautizó por la leyenda de Fura y Tena, los cerros que se levantan unos 30 km al norte de las minas de Muzo.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "conflict": {
+          "heading": "Muzo y las guerras verdes",
+          "answer": "Muzo estuvo en el centro de las guerras verdes, los conflictos por las minas de esmeraldas que se libraron entre 1965 y 1990.[[semana-molano-2017]]",
+          "paragraphs": [
+            "La primera guerra verde dejó más de 1.200 muertos en Chiquinquirá, Muzo, Coscuez, Borbur y Somondoco, y hacia 1980 llegó a haber 35.000 guaqueros en Muzo.[[semana-molano-2017]]"
+          ]
+        },
+        "today": {
+          "heading": "Muzo hoy",
+          "answer": "La minería domina la economía: cerca del 75% de la población activa de Muzo trabaja en la explotación y el comercio de esmeraldas, junto a la caña, el cacao, la yuca y el ganado.[[wiki-es-muzo]]",
+          "paragraphs": [
+            "La guaquería, la búsqueda por cuenta propia, es parte de la vida diaria, y muchas de quienes buscan son mujeres.[[verdad-abierta-mujeres-2016]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "¿Por qué son famosas las esmeraldas de Muzo?",
+          "answer": "Muzo produce esmeraldas desde antes de la conquista y da nombre a un verde cálido y herbáceo en el comercio.[[wiki-en-colombian-emeralds]] Además es una de solo tres fuentes colombianas de esmeraldas trapiche.[[gia-trapiche-2015]]"
+        },
+        {
+          "question": "¿Cómo se llega a Muzo?",
+          "answer": "Muzo queda a 90 km de Chiquinquirá: se va al occidente por la Ruta Nacional 60 hacia Pauna y Maripí, o se llega desde Ubaté pasando por Simijaca. El pueblo tiene además un aeropuerto para aviones pequeños.[[wiki-es-muzo]]"
+        }
+      ]
+    }
+  }
+}

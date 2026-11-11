@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import { safeJsonLd } from './jsonLd';
 import {
+  buildArticleLd,
   buildBreadcrumbLd,
+  buildCollectionPageLd,
   buildFaqLd,
   buildTouristTripLd,
   buildTravelAgencyLd,
@@ -117,5 +119,49 @@ describe('buildBreadcrumbLd / buildFaqLd', () => {
     expect(ld.mainEntity).toEqual([
       { '@type': 'Question', name: 'Q?', acceptedAnswer: { '@type': 'Answer', text: 'A.' } },
     ]);
+  });
+});
+
+describe('buildCollectionPageLd', () => {
+  it('nests the visible links as an ItemList and credits the organization', () => {
+    const ld = buildCollectionPageLd({
+      name: 'Emerald World',
+      description: 'd',
+      url: 'https://andeanscapes.com/emeralds',
+      inLanguage: 'en',
+      organizationId: 'https://andeanscapes.com/#organization',
+      items: [{ name: 'Chivor', url: 'https://andeanscapes.com/guides/chivor-emerald-mine-history' }],
+      citations: [{ label: 'GIA' }],
+    });
+
+    expect(ld['@type']).toBe('CollectionPage');
+    expect(ld.publisher).toEqual({ '@id': 'https://andeanscapes.com/#organization' });
+    expect(ld.mainEntity).toEqual({
+      '@type': 'ItemList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Chivor', url: 'https://andeanscapes.com/guides/chivor-emerald-mine-history' },
+      ],
+    });
+    expect(ld.citation).toEqual([{ '@type': 'CreativeWork', name: 'GIA' }]);
+  });
+});
+
+describe('about entities', () => {
+  it('adds about to articles only when given', () => {
+    const base = {
+      headline: 'h',
+      description: 'd',
+      url: 'https://andeanscapes.com/emeralds/mines/muzo',
+      imageUrl: 'https://cdn.example.com/a.webp',
+      inLanguage: 'en',
+      datePublished: '2026-11-10',
+      dateModified: '2026-11-10',
+      organizationId: 'https://andeanscapes.com/#organization',
+      organizationName: 'Andean Scapes',
+      citations: [],
+    };
+    const about = [{ '@type': 'Thing', name: 'Muzo', sameAs: 'https://www.wikidata.org/wiki/Q1431785' }];
+    expect(buildArticleLd({ ...base, about })).toMatchObject({ about });
+    expect(buildArticleLd(base)).not.toHaveProperty('about');
   });
 });
