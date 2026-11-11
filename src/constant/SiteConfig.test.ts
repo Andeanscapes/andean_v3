@@ -5,6 +5,8 @@ import { locales } from '@/i18n/routing';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
+import de from '@/i18n/messages/de.json';
+import itMessages from '@/i18n/messages/it.json';
 import { getExperienceFaqKeys } from './SiteConfig';
 
 afterEach(() => vi.unstubAllEnvs());
@@ -78,7 +80,7 @@ describe('getExperienceFaqKeys', () => {
   });
 
   const experienceIds = Object.keys(EXPERIENCE_METADATA_NAMESPACE) as ExperienceId[];
-  const messages = { en, es, fr };
+  const messages = { en, es, fr, de, it: itMessages };
 
   const lookup = (tree: unknown, key: string): unknown =>
     key.split('.').reduce<unknown>(

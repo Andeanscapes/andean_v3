@@ -8,6 +8,8 @@ import { locales, type Locale } from '@/i18n/routing';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
+import de from '@/i18n/messages/de.json';
+import itMessages from '@/i18n/messages/it.json';
 
 const navigation = vi.hoisted(() => ({ pathname: '/' }));
 
@@ -33,11 +35,13 @@ vi.mock('@/contexts/ThemeContext', () => ({
 
 import LanguageSelector from './LanguageSelector';
 
-const messages = { en, es, fr };
+const messages = { en, es, fr, de, it: itMessages };
 const labels = {
   en: 'Select language: English',
   es: 'Seleccionar idioma: Español',
   fr: 'Choisir la langue : Français',
+  de: 'Sprache wählen: Deutsch',
+  it: 'Seleziona lingua: Italiano',
 };
 
 function selector(locale: Locale, pathname = '/') {
@@ -60,7 +64,7 @@ describe('LanguageSelector', () => {
 
       expect(trigger?.getAttribute('aria-label')).toBe(labels[locale]);
       expect(disclosure?.hasAttribute('hidden')).toBe(true);
-      expect(disclosure?.querySelectorAll('a')).toHaveLength(3);
+      expect(disclosure?.querySelectorAll('a')).toHaveLength(languages.length);
 
       for (const language of languages) {
         const link = disclosure?.querySelector(`a[hreflang="${language.code}"]`);
@@ -96,10 +100,8 @@ describe('LanguageSelector', () => {
     expect(screen.queryAllByRole('link')).toHaveLength(0);
 
     await user.keyboard(' ');
-    await user.tab();
-    await user.tab();
-    await user.tab();
-    await user.tab();
+    // Tab through every language link and one step past the menu.
+    for (let step = 0; step <= languages.length; step += 1) await user.tab();
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
   });
 });

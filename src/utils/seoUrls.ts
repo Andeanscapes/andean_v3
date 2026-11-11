@@ -4,7 +4,7 @@
  * The single place the locale prefix rule (English unprefixed) is applied to
  * absolute URLs. Paths passed in are locale-free (`/`, `/experiences`, ...).
  */
-import { locales, type Locale } from '@/i18n/routing';
+import { indexableLocales, locales, LOCALE_CONFIG, type Locale } from '@/i18n/locales';
 import { SITE_INFO } from '@/constant/SiteConfig';
 import { experiencePath } from '@/utils/experienceRoutes';
 
@@ -29,8 +29,8 @@ export function buildAbsoluteLocalizedUrl(locale: string, path: string) {
 /** hreflang map (every locale + `x-default` → English) for a locale-free path. */
 export function buildLocalizedAlternates(path: string): Record<string, string> {
   const languages: Record<string, string> = {};
-  for (const locale of locales) {
-    languages[locale] = buildAbsoluteLocalizedUrl(locale, path);
+  for (const locale of indexableLocales) {
+    languages[LOCALE_CONFIG[locale].hreflang] = buildAbsoluteLocalizedUrl(locale, path);
   }
   languages['x-default'] = buildAbsoluteLocalizedUrl('en', path);
   return languages;
@@ -52,18 +52,17 @@ export function sanitizeLocale(locale: string): Locale {
 export const SEO_SITE_URL = SITE_URL;
 
 /** Open Graph expects `language_TERRITORY`; the market each locale serves. */
-const OG_LOCALES: Record<Locale, string> = { en: 'en_US', es: 'es_CO', fr: 'fr_FR' };
 
 export function toOgLocale(locale: string): string {
-  return OG_LOCALES[sanitizeLocale(locale)];
+  return LOCALE_CONFIG[sanitizeLocale(locale)].ogLocale;
 }
 
 /** `locale` + `alternateLocale` for a page's `openGraph` metadata. */
 export function buildOgLocale(locale: string): { locale: string; alternateLocale: string[] } {
   const current = sanitizeLocale(locale);
   return {
-    locale: OG_LOCALES[current],
-    alternateLocale: locales.filter((other) => other !== current).map((other) => OG_LOCALES[other]),
+    locale: LOCALE_CONFIG[current].ogLocale,
+    alternateLocale: indexableLocales.filter((other) => other !== current).map((other) => LOCALE_CONFIG[other].ogLocale),
   };
 }
 

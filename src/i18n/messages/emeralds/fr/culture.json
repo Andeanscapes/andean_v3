@@ -1,0 +1,109 @@
+{
+  "pages": {
+    "culture": {
+      "navLabel": "Culture",
+      "metaTitle": "Culture de l’émeraude en Colombie : cuisine, musique, foi",
+      "metaDescription": "Comment on vit dans les régions émeraudières : Boyacá tropical, cuisine de la mine, norteña, jeux de cartes, marchés d’émeraudes et foi.",
+      "title": "La culture de l’émeraude : comment vivent les régions minières",
+      "lead": "Ici, une émeraude signifie rarement le luxe. Elle signifie des fermes, de longues journées sous terre, une cuisine pensée pour la mine, la norteña à la radio, un marché sur sol de terre et une basilique en descendant.",
+      "imageAlt": "Un groupe de visiteurs casqués dans la cour d’une mine d’émeraudes",
+      "sections": {
+        "what": {
+          "heading": "Ce que couvre cette rubrique",
+          "note": "editorial",
+          "paragraphs": [
+            "L’essentiel de ce qui suit vient des notes de terrain des voyages de Fuego Verde : ce que nous avons mangé, entendu et vu. Quand un document confirme un détail, il porte sa source."
+          ]
+        },
+        "tropical": {
+          "heading": "Le Boyacá tropical",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Les régions émeraudières sont des montagnes chaudes, humides et paysannes, rien à voir avec le haut plateau froid qu’imaginent la plupart des voyageurs en entendant Boyacá. Le cacao, le bétail et le miel partagent les pentes avec les mines, et la culture passe dans le Cundinamarca sans demander la permission."
+          ]
+        },
+        "table": {
+          "heading": "La table",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Dans l’Oriente : les avíos emportés à la mine, la carne oreada, les nacumas. À Coscuez : arroz de fines, gallina Nicaragua, gallina borracha, des noms que personne n’a vraiment su nous expliquer.",
+            "À Gachalá, le plat que l’on cite est la gallina campesina, une poule fermière servie avec des arepas de maïs, du consommé, du manioc et de l’arracacha.[[wiki-es-gachala]]"
+          ]
+        },
+        "music": {
+          "heading": "Norteña, cacho et cartes",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La norteña, l’accordéon du nord du Mexique, sort des voitures et des boutiques dans les deux régions. À Coscuez, les soirées appartiennent au cacho et aux cartes, à la tomata et aux vieilles jeeps garées devant."
+          ]
+        },
+        "markets": {
+          "heading": "Le marché sur sol de terre",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Sur la Plaza del Chácaro, près de Coscuez, les pierres passent de main en main entre guaqueros, acheteurs et mineurs encore noircis par la galerie. Certains acheteurs lisent une émeraude en cinq secondes.",
+            "La recherche indépendante, la guaquería, existe dans les villages émeraudiers de l’ouest du Boyacá depuis plus de soixante-dix ans, depuis l’époque où la banque centrale gérait les mines.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "devotion": {
+          "heading": "La foi en descendant",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La route vers l’Occidente commence à Chiquinquirá et sa basilique, et la dévotion à la Vierge traverse la région. Quand la troisième guerre verte a pris fin, c’est l’évêque de Chiquinquirá qui a servi de médiateur pour le cessez-le-feu de 1990.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    },
+    "guaqueros": {
+      "metaTitle": "Guaqueros : les chercheurs d’émeraudes de Colombie",
+      "metaDescription": "Qui sont les guaqueros : départs avant l’aube vers les mines, lutte pour la terre rejetée, le tambreo, les femmes qui cherchent.",
+      "title": "Guaqueros : ceux qui cherchent seuls",
+      "lead": "Avant l’aube, des centaines de personnes attendent aux portes des mines la terre que les entreprises rejettent. Voici comment se cherche l’émeraude quand on n’a pas de mine.",
+      "imageAlt": "Un mineur attaque un front de roche à la lumière de sa lampe frontale dans une mine d’émeraudes",
+      "sections": {
+        "who": {
+          "heading": "Qu’est-ce qu’un guaquero ?",
+          "answer": "Un guaquero est un chercheur d’émeraudes indépendant qui travaille sans titre minier. Dans les villages émeraudiers de l’ouest du Boyacá, comme Muzo, Maripí, Pauna, Santa Bárbara, Otanche et San Pablo de Borbur, la guaquería existe depuis plus de soixante-dix ans.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Certains creusent des trous dans la montagne pour leur propre compte et sans permis, d’autres parcourent les galeries inactives autrefois exploitées par les entreprises, et les plus hardis entrent la nuit dans les galeries actives. Dans la région, on parle de minería de hecho, d’exploitation de fait.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "dawn": {
+          "heading": "La matinée d’une guaquera",
+          "answer": "Une guaquera interrogée à Muzo se lève à 3 h 30, prépare les repas de ses quatre enfants et, à 4 h 30, attend sur la place du marché avec une quarantaine de personnes les camionnettes vers les mines, à 50 minutes. Elle emporte les 10 000 pesos de l’aller et espère trouver une pierre pour payer le retour.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Quand elle n’a pas un peso, elle part à deux heures du matin et y va à pied.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "voladoras": {
+          "heading": "La lutte pour la terre",
+          "answer": "Les entreprises distribuent la terre qui sort de leurs galeries, et les guaqueros la lavent en espérant qu’une pierre ait échappé. Les entrepreneurs de la région estiment qu’on explore dix tonnes de terre stérile pour chaque carat d’émeraude.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Chaque matin, entre 50 et 500 guaqueros attendent aux portes des mines ; si le bruit court qu’une mine « donne », ils peuvent être plus de 3 000. Les lieux où la terre est déversée s’appellent voladoras, et la ruée provoque bousculades, bagarres et os cassés.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "tambreo": {
+          "heading": "Des mines à ciel ouvert aux galeries",
+          "answer": "Au milieu des années 1970, les premières exploitations à ciel ouvert ont entaillé la montagne au bulldozer, et la terre tombait dans les ruisseaux, où les guaqueros pelletaient la boue à la recherche de pierres. On appelait cela le tambreo, qui attira des gens de toute la Colombie dans des campements improvisés comme La Catorce, Matecafé et La Nevera, entre Muzo et Quípama.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "En 1980, Muzo comptait jusqu’à 35 000 guaqueros.[[semana-molano-2017]] Quand l’exploitation est passée aux galeries, il y a eu moins de terre pour eux ; ils disent trouver aujourd’hui moins d’émeraudes, et de moindre qualité, si bien qu’ils travaillent en groupe et partagent ce qu’ils trouvent.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "women": {
+          "heading": "Les femmes dans les mines",
+          "answer": "La guaquería est un métier où les femmes sont nombreuses, car les entreprises minières ont peu de postes pour elles.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Dans les voladoras, les femmes ont subi le pire, des bousculades écrasantes au harcèlement, et dans les villages émeraudiers beaucoup sont veuves des guerres vertes.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "everyone": {
+          "heading": "Tout le monde guaquea",
+          "answer": "« Les militaires, les policiers, les juges, les maires, les prêtres, les ingénieurs, tout le monde guaquea la nuit, en laissant l’uniforme de côté. Les émeraudes rendent tout le monde fou », écrivait le journaliste Pedro Claver Téllez dans La guerra verde, cité par Verdad Abierta.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "L’habitude est ancienne. Dans les décennies où la banque centrale exploitait les mines, des centaines de Colombiens tentaient déjà de vivre de la recherche illégale, dans l’indifférence de l’État.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    }
+  }
+}

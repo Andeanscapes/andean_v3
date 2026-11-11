@@ -9,7 +9,7 @@ describe('toIcuLocale', () => {
   });
 
   it('falls back to es-CO for an unknown locale', () => {
-    expect(toIcuLocale('de')).toBe('es-CO');
+    expect(toIcuLocale('pt')).toBe('es-CO');
     expect(toIcuLocale('')).toBe('es-CO');
   });
 });

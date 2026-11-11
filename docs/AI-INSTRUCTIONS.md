@@ -51,6 +51,7 @@ If guidance elsewhere conflicts with this file, this file wins.
 - Public-shell concerns live in `src/app/[locale]/(public)/layout.tsx`.
 - API routes live under `src/app/api/**/route.ts`.
 - Locale routing is defined in `src/i18n/routing.ts` with `localePrefix: 'as-needed'`.
+- `src/i18n/locales.ts` is the source of truth for languages (label, hreflang, Open Graph and ICU locales, text direction). A new language ships with `indexable: false`: it renders and appears in the selector but is `noindex` and stays out of hreflang and the sitemap until a native reviewer approves it.
 - Request-level i18n resolution is handled in `src/i18n/request.ts`.
 
 AI expectations:
@@ -256,6 +257,7 @@ Current base URL: `https://cdn.andeanscapes.com/services` (public, unauthenticat
 - The CLI scripts (`fixtures:fetch`, `verify:feed`) run under `vite-node`, which does **not** load `.env` files. They read the shell only, so a `.env.local` override applies to `npm run dev` but not to `npm test` — pass it inline: `REMOTE_DATA_BASE_URL=… npm test`.
 - Do not commit `.env.development`, `.env.production`, `.env.local`, `.dev.vars`, or `.env.wrangler`. Use `.env.example` for safe variable names and documented public defaults. A fresh clone must copy it to `.env.local` before `npm run dev`.
 - Never reintroduce a local data registry. Tests read the gitignored `fixtures/` copies of the live feed (see Testing Guidance).
+- Exception — editorial structure: `src/lib/content/guides.structure.ts`, `emeralds.structure.ts` (pages and `EMERALD_AUTHORS`), `emeraldMap.ts` (published place coordinates for the belt map) and `sources.ts` hold page slugs, nesting, section ids, authors, map points and bibliographic sources for the guides and Emerald World (`/emeralds`). They carry no business data (prices, dates, availability, media inventory); that stays in the feed. Their copy lives in server-only bundles under `src/i18n/messages/{guides,emeralds}/`. Sources must never be tour operators, review platforms, jewelers, auction houses or emerald sellers (`src/lib/content/editorialSources.test.ts`).
 
 When adding a new experience (v1 contract, current production):
 1. Publish `experience-<kebab-id>.json` to the feed.

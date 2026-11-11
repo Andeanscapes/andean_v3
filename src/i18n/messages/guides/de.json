@@ -1,0 +1,313 @@
+{
+  "hub": {
+    "metaTitle": "Smaragd-Reiseführer für Kolumbien | Andean Scapes",
+    "metaDescription": "Ratgeber zu Kolumbiens Smaragdminen: Minenbesuch, Sicherheit in Chivor, Peter Rainier und Green Fire, der Gachalá-Smaragd und die Legende von Fura und Tena.",
+    "title": "Smaragd-Reiseführer für Kolumbien",
+    "lead": "Geschichte, Geografie und praktische Tipps zu Kolumbiens zwei Smaragdgürteln, geschrieben vom Team, das die Touren in Chivor durchführt, mit Quellenangaben.",
+    "readGuide": "Ratgeber lesen",
+    "imageAlt": "Besucher einer Smaragdmine mit Helmen in den Bergen von Chivor, Boyacá"
+  },
+  "ui": {
+    "breadcrumbGuides": "Ratgeber",
+    "updated": "Aktualisiert",
+    "author": "Team von Andean Scapes",
+    "sourcesTitle": "Quellen",
+    "relatedToursTitle": "Touren in die Smaragdminen von Chivor",
+    "moreGuidesTitle": "Weitere Ratgeber",
+    "breadcrumbLabel": "Brotkrümelnavigation",
+    "emeraldWorldBody": "Sie möchten das große Ganze sehen? Die Smaragdwelt behandelt Geschichte, Geologie, Legenden und Kultur der kolumbianischen Smaragde.",
+    "emeraldWorldCta": "Smaragdwelt erkunden",
+    "emeraldWorldDeeper": "Mehr dazu in der Smaragdwelt"
+  },
+  "articles": {
+    "emeraldMineToursColombia": {
+      "metaTitle": "Smaragdminen-Touren in Kolumbien: Ratgeber 2026",
+      "metaDescription": "So besuchen Sie eine echte Smaragdmine in Kolumbien: die Smaragdregionen, Anreise von Bogotá nach Chivor, Ablauf in der Mine, Sicherheit und Packliste.",
+      "title": "Smaragdminen-Touren in Kolumbien: ein praktischer Ratgeber für 2026",
+      "lead": "Fast jede „Smaragdtour“ ganz oben bei Google findet in Bogotá statt, zwischen Juwelieren und den Händlern der Avenida Jiménez. In eine Mine zu gehen ist etwas anderes: Sie reisen in die Bergbauregionen, setzen Helm und Stiefel auf und nehmen in Kauf, dass vielleicht kein Stein auftaucht. So funktioniert es in Chivor.",
+      "imageAlt": "Besucher mit Helmen und Stiefeln am Eingang einer Smaragdmine in Chivor, Boyacá",
+      "sections": {
+        "whatIs": {
+          "heading": "Was ist eine Smaragdminen-Tour?",
+          "paragraphs": [
+            "Es ist ein geführter Besuch in einer aktiven Smaragdmine, gemeinsam mit einheimischen Bergleuten. Die Minen, die wir in Chivor besuchen, sind echte Smaragdminen: Einige werden von Hand betrieben, andere in größerem Maßstab. Es sind keine Kohleminen und keine für Touristen gebauten Kulissen. Es ist das, was viele als „Bergmann für einen Tag“ suchen: ein Tag an der Seite der Bergleute, keine Arbeitsstelle.",
+            "Sie gehen mit einem einheimischen Guide, Helm und Stiefeln hinein. Die Zeit unter Tage ist nur ein Teil des Tages, zu dem auch die Fahrt im 4x4 vom Ort hinauf, die Vorbereitung und je nach Tour eine Wanderung oder ein Ausritt auf den Bergbaupfaden gehören. Einen Smaragd zu finden ist möglich, aber nie garantiert.",
+            "Das unterscheidet sich von den Smaragdtouren in Bogotá, die Handel, Schliff und Schmuck in der Stadt zeigen, aber nie eine Mine betreten. Wer sehen will, woher der Stein kommt, muss in die Bergbauregionen reisen."
+          ]
+        },
+        "regions": {
+          "heading": "Wo liegen die Smaragdminen in Kolumbien?",
+          "paragraphs": [
+            "Kolumbianische Smaragde stammen aus zwei Gürteln in den Ostanden. Zum westlichen Gürtel im Westen von Boyacá gehören Muzo, Coscuez, Maripí, Quípama, Otanche, Pauna und San Pablo de Borbur. Zum östlichen Gürtel gehören Chivor, Somondoco, Macanal und Guateque in Boyacá sowie Gachalá und Ubalá in Cundinamarca.",
+            "Es sind getrennte Reiseziele, mehrere Autostunden voneinander entfernt, und lassen sich auf einer kurzen Reise schlecht kombinieren. Chivor gilt als Herkunftsort der ersten Smaragde, die nach der spanischen Eroberung Amerika verließen, und 1967 brachte Gachalá einen der berühmtesten Smaragde der Welt hervor, einen Kristall von 858 Karat. Nach Departements betrachtet liegen fast alle in Boyacá; in Cundinamarca gibt es Minen in Gachalá und Ubalá, in der Region Guavio."
+          ]
+        },
+        "chivor": {
+          "heading": "Warum Chivor",
+          "paragraphs": [
+            "Chivor liegt auf rund 2.000 Metern über dem Tal des Sinaí, der weiter unten zum Fluss Guavio wird, mit kühlem Klima und kalten Nächten. Vom Aussichtspunkt El Púlpito, direkt unterhalb der Minen, sehen Sie an klaren Tagen bis zu den Ostebenen (Llanos).",
+            "Neben seiner Geschichte, die von den Muisca bis zum Bergbauingenieur Peter W. Rainier und seinem Buch Green Fire reicht, bietet Chivor die Möglichkeit, aktive Minen mit Bergleuten aus der Gemeinde zu betreten. Unsere Basis ist die Hacienda El Recuerdo in Mundo Nuevo (Ubalá), ganz in der Nähe von Chivor, ein Hof mit Rinderhaltung und Imkerei, auf dem die Gäste der zweitägigen Touren übernachten."
+          ]
+        },
+        "gettingThere": {
+          "heading": "Anreise von Bogotá nach Chivor, Boyacá",
+          "paragraphs": [
+            "Von Bogotá nehmen Sie die Straße Richtung Tunja; bei El Sisga biegen Sie rechts ab, hinunter ins Tenza-Tal, und fahren weiter nach Chivor, ohne bis Tunja zu fahren. Bei Macanal überqueren Sie den Stausee La Esmeralda während der Betriebszeiten mit der Fähre oder umfahren ihn. Die Fahrt dauert etwa 5 bis 6 Stunden, weil der letzte Abschnitt eine unbefestigte Bergstraße ist.",
+            "Den Ort Chivor erreichen Sie mit Bus, Auto oder Motorrad; von dort ist die lokale 4x4-Fahrt zur Mine in jeder Tour enthalten. Wenn Sie nicht selbst fahren möchten, bieten wir gegen Aufpreis einen privaten 4x4-Transfer ab Bogotá hin und zurück an; der Preis gilt pro Fahrzeug für bis zu 4 Personen.",
+            "Eine alternative Route über Ubalá in der Region Guavio eignet sich nur für Motorrad oder 4x4: Es sind etwa 35 km Landstraße bis zur Hacienda. Mit einem normalen Auto ist die Anreise über den Ort Chivor die richtige Wahl."
+          ]
+        },
+        "inside": {
+          "heading": "Was in der Mine passiert",
+          "paragraphs": [
+            "Der Tag beginnt mit einem Gespräch mit einheimischen Bergleuten und Kunsthandwerkern darüber, wie Smaragde gefunden werden. Dann erhalten Sie die Schutzausrüstung und gehen mit Ihrem Guide in die Stollen, wo es Wasser, Schlamm und unebenen Boden gibt.",
+            "Drinnen sehen Sie, wie die Bergleute arbeiten, wie man einer Ader folgt und welche Minerale den Smaragd begleiten. Die zweitägigen Touren umfassen außerdem einen etwa einstündigen Smaragd-Workshop dazu, wie der Stein bewertet wird.",
+            "Taucht während des Besuchs ein Smaragd auf, wird vor Ort mit den Bergleuten und dem Guide vereinbart, wie mit dem Fund umgegangen wird; sie teilen, was gefunden wird. Der Wert des Erlebnisses liegt in der Smaragdkultur, der Natur und der Küche der Region, nicht im Fund."
+          ]
+        },
+        "choose": {
+          "heading": "So wählen Sie Ihre Tour",
+          "paragraphs": [
+            "Der Tagesausflug umfasst eine Mine und eine Wanderung an einem einzigen Tag. Das ist machbar, aber ein langer Tag: Sie verlassen Bogotá vor Sonnenaufgang und rechnen weitere 5 bis 6 Stunden für die Rückfahrt.",
+            "Die Tour mit 2 Tagen und 1 Nacht umfasst eine Mine, eine Wanderung, den Workshop, eine Nacht in der Hacienda El Recuerdo und 4 Mahlzeiten. Die umfassendste Tour ergänzt eine zweite Mine und einen geführten Ausritt von etwa 2 Stunden.",
+            "Das Mindestalter beträgt 5 Jahre, und Hunde dürfen die Gruppe in Chivor in die Mine begleiten. Wenn Sie eingeschränkt mobil sind, eine Herzerkrankung oder eine starke Phobie haben, fragen Sie uns vor der Buchung."
+          ]
+        },
+        "safety": {
+          "heading": "Sicherheit, Wetter in Chivor und Packliste",
+          "paragraphs": [
+            "Sie gehen immer mit Guide und Schutzausrüstung in Minen mit kontrolliertem Zugang, und jede Tour beinhaltet eine medizinische Assistance-Deckung während des Erlebnisses. Das Team prüft vor jeder Abfahrt die Lage vor Ort und in der Mine.",
+            "Die Trockenzeit dauert von Dezember bis Februar, die Regenzeit von Mai bis August. Bringen Sie Schuhe mit, die nass und schlammig werden dürfen, Kleidung zum kompletten Wechseln, ein kleines Handtuch, eine leichte oder wasserdichte Jacke, Wasser, Sonnencreme und Bargeld für Ausgaben vor Ort."
+          ]
+        },
+        "logistics": {
+          "heading": "Das ist kein Ausflug zur Salzkathedrale",
+          "paragraphs": [
+            "Die Salzkathedrale von Zipaquirá liegt eine Stunde von Bogotá entfernt, mit Parkplätzen, Restaurants und Bussen im Minutentakt. Eine Smaragdmine ist etwas anderes. Chivor liegt je nach Route etwa 160 bis 180 km von der Hauptstadt entfernt, das bedeutet 5 bis 6 Stunden Fahrt; der Westen von Boyacá ist genauso weit oder weiter. Die Mineneingänge liegen nicht im Ort: Sie erreichen sie über unbefestigte Bergpisten, die ein normales Auto nicht hinaufkommt.",
+            "Damit ist der Transport der schwierigste Teil der Reise. Der Tourismus in der Region ist noch klein, es gibt keinen Transfermarkt wie in den großen Reisezielen, und was funktioniert, ist ein 4x4 mit Fahrer ab Bogotá. Dieser Fahrer ist einen ganzen Tag hin und einen weiteren zurück unterwegs, und das merkt man am Preis. Unser privater 4x4-Transfer, hin und zurück Bogotá–Chivor–Bogotá, kostet 1.700.000 COP pro Fahrzeug für bis zu 4 Personen (Richtpreis, Stand November 2026). Für ein Paar auf der zweitägigen Tour zu 475.000 COP pro Person kostet der Transport mehr als die Tour selbst. Sie können auch mit dem Bus in den Ort Chivor fahren, die günstigste Option, und von dort mit unserem lokalen 4x4 hinauffahren.",
+            "Das andere Problem ist, wo man schläft und isst. Chivor ist eine kleine Gemeinde mit wenigen Hotels und wenigen Restaurants, und die Mine liegt weit vom Ortskern entfernt. Wer auf eigene Faust anreist, muss Unterkunft, Verpflegung, Transport zum Mineneingang und den Minenbesuch einzeln organisieren, jeweils bei einem anderen Anbieter und mit wenig Handyempfang, um alles abzustimmen.",
+            "Eine Pauschaltour regelt diese Teile auf einmal: eine Nacht in der Hacienda El Recuerdo, Mahlzeiten, lokaler 4x4-Transport und der Minentag, ohne Zwischenhändler zwischen Ihnen und den Menschen der Region. Und Sie verbringen die Reise mit Gastgebern und Guides, die dort leben, die den Plan ändern können, wenn es regnet, und die wissen, was keine Karte zeigt. Natürlich können Sie alles selbst zusammenstellen; rechnen Sie dann nur mit mehr Telefonaten und mehr Überraschungen."
+          ]
+        }
+      }
+    },
+    "chivorHistory": {
+      "metaTitle": "Geschichte der Smaragdmine Chivor | Andean Scapes",
+      "metaDescription": "Von Somondoco zu Peter Rainier und Green Fire: die Geschichte der Smaragdminen von Chivor, ihre Wiederentdeckung 1896 und der Aussichtspunkt El Púlpito.",
+      "title": "Geschichte der Smaragdmine Chivor: von Somondoco bis Green Fire",
+      "lead": "Chivor war eine der ersten Smaragdquellen, die die Konquistadoren kannten, lag zwei Jahrhunderte verschollen unter dem Wald und erlebte in den 1920er-Jahren eine zweite Zeit der Abenteuer. Das ist seine Geschichte, gestützt auf Forschung des Gemological Institute of America (GIA).",
+      "imageAlt": "Berge und Tal der Smaragdminen von Chivor, Boyacá",
+      "sections": {
+        "somondoco": {
+          "heading": "Somondoco: Smaragde vor der Eroberung",
+          "paragraphs": [
+            "Als die Spanier die Ostanden erreichten, trugen die Chibcha (Muisca) bereits Smaragde in ihrem Schmuck. Die Lagerstätte, die wir heute Chivor nennen, hieß Somondoco, nach dem nahegelegenen Dorf, in dem die Steine sortiert wurden.",
+            "Nach den von GIA zitierten Historikern wurden Smaragde aus dieser Gegend lange vor der Eroberung gehandelt, und Chivor gilt als Herkunftsort der ersten Smaragde, die Amerika in Richtung übrige Welt verließen."
+          ]
+        },
+        "conquest": {
+          "heading": "1537: die Expedition von Valenzuela",
+          "paragraphs": [
+            "1537 erfuhr Gonzalo Jiménez de Quesada von den Minen von Somondoco und schickte Hauptmann Pedro Fernández Valenzuela, um sie zu finden. Valenzuela berichtete, dass er von den Höhen der Minen durch eine Öffnung im Gebirge die Ebenen des Orinoco sehen konnte. Dieses Detail sollte Jahrhunderte später entscheidend werden.",
+            "Die Spanier betrieben Chivor im 16. und 17. Jahrhundert mit indigenen Arbeitskräften, die innerhalb weniger Jahrzehnte dezimiert wurden. Ein königlicher Erlass von 1593 ordnete eine menschliche Behandlung der Bergleute an; 1602 verlangte Philipp III. seine Durchsetzung, doch da war es zu spät. Die erste verzeichnete Konzession stammt von 1592. 1672 wurde die Mine auf Anordnung der Krone aufgegeben, und der Wald bedeckte sie rund zweihundert Jahre lang, während sich die Aufmerksamkeit auf Muzo verlagerte."
+          ]
+        },
+        "rediscovery": {
+          "heading": "1896: die Wiederentdeckung durch Francisco Restrepo",
+          "paragraphs": [
+            "Ende des 19. Jahrhunderts studierte der kolumbianische Bergbauingenieur Francisco Restrepo in der Nationalbibliothek die Chroniken der Ordensbrüder, die die verschollenen Minen von Somondoco beschrieben. Nach rund acht Jahren Suche im Gebirge fand er die Mine 1896: Der entscheidende Hinweis war der Blick auf die Ebenen.",
+            "Ab 1911 arbeitete dort der Deutsche Fritz Klein aus Idar-Oberstein, der 1925 den ersten ausführlichen Bericht über die Mine veröffentlichte, Smaragde unter dem Urwald. Anfang der 1920er-Jahre brachte Chivor den Patricia-Smaragd hervor, einen Kristall von 632 Karat, der heute im American Museum of Natural History in New York ausgestellt ist."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter W. Rainier und Green Fire",
+          "paragraphs": [
+            "Peter W. Rainier, ein 1890 im südlichen Afrika geborener Bergbauingenieur, leitete Chivor von 1926 bis 1931 für ein New Yorker Unternehmen. Bei seiner Ankunft schlug er einen Eisenpflock in El Púlpito, um die Grenze der Konzession zu markieren. Als der Vorstand ihm befahl, die verlustreiche Mine zu schließen, arbeitete er weiter, und innerhalb einer Woche zeigte sich die erste Ader.",
+            "Nach dem Börsenkrach von 1929 schlossen seine Arbeitgeber die Mine. Rainier blieb in der Region und gründete mit seiner Frau Margaret Las Cascadas, eine Teeplantage an den Hängen des Guavio-Tals etwa 15 km von Chivor entfernt, die als erste kommerzielle Teeplantage Südamerikas beschrieben wird. Wenn er in der Mine war, gaben sich die beiden jede Nacht Zeichen mit Taschenlampen.",
+            "1942 veröffentlichte er seine Erinnerungen, Green Fire. John Sinkankas, Autor der wichtigsten kommentierten Bibliografie der Gemmologie, nannte das Buch „farbig, mitunter reißerisch“, aber voller wertvoller Details. 1954 brachte MGM einen gleichnamigen Film mit Grace Kelly und Stewart Granger heraus."
+          ]
+        },
+        "pulpito": {
+          "heading": "El Púlpito: der Aussichtspunkt über den Ebenen",
+          "paragraphs": [
+            "El Púlpito ist ein Sandsteinmonolith, der direkt unterhalb der Mine über dem Tal des Flusses Sinaí hängt. Weiter unten vereinen sich die Flüsse Rucio und Sinaí zum Guavio.",
+            "Von hier sehen Sie die Lücke in den Bergen, die zu den Ostebenen hinausblickt, denselben Blick, den Valenzuela 1537 beschrieb und der Restrepo 1896 leitete. 2015 fand ein GIA-Team auf den Spuren Rainiers das Loch, das sein Eisenpflock im Fels hinterlassen hatte. Der Aussichtspunkt ist Teil unseres Tagesausflugs."
+          ]
+        },
+        "today": {
+          "heading": "Chivor heute: wo die Minen liegen",
+          "paragraphs": [
+            "Heute wird in Chivor überwiegend in Stollen unter Tage abgebaut, in Minen unterschiedlicher Größe entlang des Sinaí-Tals. Smaragde bilden sich in Adern in kreidezeitlichen Schwarzschiefern, und Chrom und Vanadium verleihen ihnen das leicht bläuliche Grün, das die Steine aus Chivor auszeichnet. Die Minen liegen in der Gemeinde Chivor, in der Provinz Oriente von Boyacá. Der Ort ist der Ausgangspunkt; zu den Mineneingängen fahren Sie im 4x4 hinauf.",
+            "Bergleute haben ihren eigenen Wortschatz: chispas sind kleine, intensiv gefärbte Kristalle, und gotas de aceite (Öltropfen) sind die feinsten. In der Mine hören Sie beide Wörter, bevor Sie einen einzigen Stein sehen."
+          ]
+        }
+      }
+    },
+    "gachalaGuavio": {
+      "metaTitle": "Der Gachalá-Smaragd und das Guavio-Tal | Andean Scapes",
+      "metaDescription": "Die Geschichte des Gachalá-Smaragds mit 858 Karat, heute im Smithsonian, und des Guavio-Tals, das Gachalá mit Chivor und der Hacienda El Recuerdo verbindet.",
+      "title": "Der Gachalá-Smaragd und das Guavio-Tal",
+      "lead": "Der berühmteste Smaragd des östlichen Gürtels befindet sich nicht in Kolumbien. Er liegt in einer Vitrine des National Museum of Natural History in Washington. Er kam 1967 aus einer Mine in Gachalá, im selben Guavio-Tal, in dem wir heute arbeiten.",
+      "imageAlt": "Ländliche Landschaft im Guavio-Tal bei Chivor",
+      "sections": {
+        "stone": {
+          "heading": "Der Gachalá-Smaragd: 858 Karat",
+          "paragraphs": [
+            "Der Gachalá-Smaragd wurde 1967 in der Mine La Vega de San Juan in der Gemeinde Gachalá (Cundinamarca) gefunden. Es ist ein Kristall von 858 Karat, etwa 172 Gramm schwer und rund 5 Zentimeter lang, von intensivem Grün.",
+            "Der New Yorker Juwelier Harry Winston schenkte ihn 1969 der Smithsonian Institution, und heute gehört er zur Dauersammlung des National Museum of Natural History in Washington. Benannt ist er nach der Gemeinde, in der er gefunden wurde; der Überlieferung nach bedeutet Gachalá in der Chibcha-Sprache „Ort des Gacha“."
+          ]
+        },
+        "belt": {
+          "heading": "Smaragdminen in Cundinamarca: Gachalá und der östliche Gürtel",
+          "paragraphs": [
+            "Gachalá gehört zusammen mit Chivor, Somondoco, Macanal, Guateque und Ubalá zum östlichen Smaragdgürtel Kolumbiens. Es ist ein anderer Gürtel als der Westen von Boyacá, wo Muzo und Coscuez liegen.",
+            "In diesem Gürtel kommen Smaragde in Adern in kreidezeitlichen Sedimentgesteinen vor, und seine Bergbaugeschichte reicht zurück bis zu den Chibcha, die bereits das Gebiet von Somondoco, dem heutigen Chivor, bearbeiteten."
+          ]
+        },
+        "valley": {
+          "heading": "Das Guavio-Tal",
+          "paragraphs": [
+            "Unterhalb der Minen von Chivor vereinen sich die Flüsse Rucio und Sinaí zum Fluss Guavio. Eine Hängebrücke über den Rucio markiert die Grenze zwischen Cundinamarca und Boyacá, und an den Hängen des Tals, etwa 15 km von Chivor entfernt, liegen die Ruinen von Las Cascadas, der Teeplantage, die Peter und Margaret Rainier in den 1930er-Jahren gründeten. Flussabwärts speist der Guavio den Stausee des größten in Betrieb befindlichen Wasserkraftwerks Kolumbiens, das über einen 2,2 km langen Tunnel auch den Fluss Chivor aufnimmt.",
+            "2015 reiste ein GIA-Team sechs Tage lang von Gachalá nach Chivor, zuerst im 4x4, dann zu Fuß und mit Maultieren, über Las Cascadas und den Weiler Montecristo. Es beschrieb eine Landschaft mit Hunderte Meter hohen Wasserfällen, Bromelien und Greifvögeln."
+          ]
+        },
+        "hacienda": {
+          "heading": "Hacienda El Recuerdo: unsere Basis im Guavio",
+          "paragraphs": [
+            "Die Hacienda El Recuerdo liegt in Mundo Nuevo in der Gemeinde Ubalá (Cundinamarca), in der Region Guavio und ganz in der Nähe von Chivor. Es ist ein Hof mit Rinderhaltung und Imkerei, mit Privatzimmern und WLAN, auf dem die Gäste unserer zweitägigen Touren übernachten.",
+            "Die Touren beginnen und enden im Ort Chivor. Von Ubalá sind es etwa 35 km Landstraße bis zur Hacienda, eine Strecke nur für Motorrad oder 4x4; mit einem normalen Auto reisen Sie am besten über Chivor an."
+          ]
+        },
+        "visit": {
+          "heading": "So besuchen Sie die Region",
+          "paragraphs": [
+            "Um den östlichen Gürtel zu erleben, ohne eine Expedition zu planen, beginnen Sie in Chivor: eine Mine, eine Nacht in der Hacienda El Recuerdo und die Rückfahrt nach Bogotá durch das Tenza-Tal, etwa 5 bis 6 Stunden.",
+            "Wenn Sie auch Gachalá und das Guavio-Tal erkunden möchten, prüfen Sie vorher den Straßenzustand, denn die Straßen sind ländlich und verändern sich mit dem Regen, und planen Sie mindestens einen zusätzlichen Tag ein."
+          ]
+        }
+      }
+    },
+    "travelSafety": {
+      "metaTitle": "Ist Chivor sicher? Reiseratgeber 2026 | Andean Scapes",
+      "metaDescription": "Was offizielle Reisehinweise zu Boyacá sagen, warum Kolumbiens östlicher Smaragdgürtel eine andere Geschichte hat, dazu Straßen, Geld, Fotos und Notfälle.",
+      "title": "Ist Chivor sicher? Was Sie vor der Reise wissen sollten",
+      "lead": "Die Frage kommt in fast jedem Gespräch mit Reisenden aus dem Ausland auf, und sie ist berechtigt. Die kurze Antwort: Chivor liegt in keinem Gebiet, von dem ausländische Reisehinweise abraten, aber es ist ländliches Bergland, und man reist nach ein paar klaren Regeln. Hier sind sie, mit Quellen.",
+      "imageAlt": "Berglandschaft in der Smaragdregion von Chivor, Boyacá",
+      "sections": {
+        "advice": {
+          "heading": "Was offizielle Reisehinweise sagen",
+          "paragraphs": [
+            "Das Vereinigte Königreich veröffentlicht einige der ausführlichsten Reisehinweise zu Kolumbien. Die Fassung vom 30. Oktober 2026 rät unter anderem von allen nicht unbedingt notwendigen Reisen nach Catatumbo, in den Großteil von Arauca, in den 5 km breiten Streifen entlang der Grenze zu Venezuela, in weite Teile von Chocó und an die Pazifikküste des Valle del Cauca ab. Weder Boyacá noch Cundinamarca stehen auf diesen Listen.",
+            "Das bedeutet nicht, dass es kein Risiko gibt. Dieselben Hinweise vermerken, dass Diebstahl in Großstädten das häufigste Problem für Besucher ist, auch in La Candelaria in Bogotá, und dass der Mobilfunkempfang auf dem Land begrenzt ist. Prüfen Sie auch die Hinweise Ihrer eigenen Regierung: Diese Dokumente ändern sich oft."
+          ]
+        },
+        "twoBelts": {
+          "heading": "Sind Muzo oder Chivor gefährlich? Zwei verschiedene Geschichten",
+          "paragraphs": [
+            "Wer nach „Kolumbien Smaragde Gewalt“ sucht, findet fast nur Ergebnisse über den Westen von Boyacá. Dort lieferten sich zwischen 1965 und 1990 in den sogenannten grünen Kriegen Smaragdgruppen Kämpfe um die Kontrolle der Minen, mit Tausenden Toten laut Zahlen, die die kolumbianische Presse zitiert. Sie endeten mit einem Friedensabkommen, das am 12. Juli 1990 unterzeichnet wurde. Nach 2013 gab es in diesem Gebiet erneut Phasen der Spannung.",
+            "Chivor liegt im anderen, dem östlichen Gürtel, etwa zehn Autostunden von Borbur entfernt. Seine Umgebung ist vom Bergbau und von zwei der größten Wasserkraftwerke des Landes geprägt."
+          ]
+        },
+        "infrastructure": {
+          "heading": "Der Chivor-Staudamm, der Guavio und die Sicherheitskräfte",
+          "paragraphs": [
+            "Der Stausee, den Sie bei Macanal mit der Fähre überqueren, heißt La Esmeralda und speist das Kraftwerk Chivor: 1.000 MW und acht Pelton-Turbinen, gebaut zwischen 1970 und 1977. Im Süden, in Mambita (Ubalá), arbeitet das Kraftwerk Guavio im Inneren des Berges. Mit 1.260 MW ist es das größte in Betrieb befindliche Kraftwerk Kolumbiens, und ein 2,2 km langer Tunnel leitet den Fluss Chivor in seinen Stausee um.",
+            "Beide sind strategische Infrastruktur, und in der Region sind die kolumbianischen Sicherheitskräfte dauerhaft präsent. Das sagen wir aus unserer Erfahrung vor Ort, nicht als offizielle Angabe, und wir veröffentlichen keine Standorte oder Einzelheiten dieser Präsenz. Was wir tun: Vor jeder Abfahrt prüfen wir die Lage vor Ort und in der Mine."
+          ]
+        },
+        "roads": {
+          "heading": "Straßen, Zeitplanung und Regen",
+          "paragraphs": [
+            "Von Bogotá dauert die Fahrt etwa 5 bis 6 Stunden. Der letzte Abschnitt ist eine unbefestigte Bergstraße, deshalb wird die Fahrt bei Tageslicht geplant, wie es die britischen Hinweise für jede Landstraße im Land empfehlen.",
+            "Die kolumbianische Regierung hat für 2026–2027 ein El-Niño-Ereignis mit hoher Wahrscheinlichkeit starker Ausprägung ausgerufen, und es werden ungewöhnliche Niederschläge und Erdrutsche erwartet. Fragen Sie nach starkem Regen vor der Abfahrt nach dem Straßenzustand. Die alternative Route über Ubalá ist nur für Motorräder oder 4x4 geeignet."
+          ]
+        },
+        "money": {
+          "heading": "Bargeld und Empfang",
+          "paragraphs": [
+            "Bringen Sie Bargeld für Ausgaben vor Ort mit: In den Minen gibt es weder Geldautomaten noch Kartenterminals. Wenn Sie Geld abheben müssen, tun Sie das in Bogotá, während der Öffnungszeiten der Banken, in einer Bank oder einem Einkaufszentrum.",
+            "Der Mobilfunkempfang auf dem Land ist lückenhaft. Die Hacienda hat WLAN. Hinterlassen Sie Ihren Reiseplan bei einer Vertrauensperson, bevor Sie zur Mine hinauffahren."
+          ]
+        },
+        "photos": {
+          "heading": "Was Sie nicht fotografieren sollten",
+          "paragraphs": [
+            "Militärische Einrichtungen oder strategische staatliche Anlagen zu fotografieren ist in Kolumbien verboten. In der Praxis heißt das: keine Fotos von Soldaten, Kontrollposten oder den Anlagen des Staudamms. Fragen Sie in der Mine, bevor Sie die Bergleute fotografieren. Es ist ihr Arbeitsplatz."
+          ]
+        },
+        "health": {
+          "heading": "Gesundheit und Versicherung",
+          "paragraphs": [
+            "Chivor liegt auf etwa 2.000 m. Das ist keine extreme Höhe, aber die Feuchtigkeit und die Anstrengung in der Mine machen sich bemerkbar. Jede Tour beinhaltet eine medizinische Assistance-Deckung während des Erlebnisses. Eine umfassende Reiseversicherung ist nicht enthalten, und wenn Sie aus dem Ausland anreisen, empfehlen wir sie.",
+            "Wenn Sie eine Herzerkrankung oder eine starke Phobie haben oder sich von einer Verletzung erholen, schreiben Sie uns vor der Buchung."
+          ]
+        },
+        "emergency": {
+          "heading": "Im Notfall",
+          "paragraphs": [
+            "Die Notrufnummer in Kolumbien ist 123. Während des Minentags bleibt der Guide von Anfang bis Ende bei der Gruppe, und vor der Reise erhalten Sie die WhatsApp-Nummer des Teams für alles, was unterwegs anfällt.",
+            "Eine Regel gilt immer: Niemand betritt die Mine ohne Guide."
+          ]
+        }
+      }
+    },
+    "westernBoyaca": {
+      "metaTitle": "Fura und Tena, Muzo und Trapiche-Smaragde | Andean Scapes",
+      "metaDescription": "Die Legende von Fura und Tena, das Volk der Muzo, das die Spanier zwanzig Jahre lang abwehrte, Trapiche-Smaragde und der Weg zum Frieden von 1990.",
+      "title": "Westen von Boyacá: Fura und Tena, Muzo und Trapiche-Smaragde",
+      "lead": "Fura und Tena wird oft als Legende der Muisca bezeichnet. Das ist sie nicht. Sie gehört den Muzo, einem karibischsprachigen Volk, das seine Muisca-Nachbarn überfiel und die Spanier zwanzig Jahre lang daran hinderte, in seinem Land einen Ort zu gründen.",
+      "imageAlt": "Berglandschaft in der Smaragdregion im Westen von Boyacá",
+      "sections": {
+        "muzos": {
+          "heading": "Die Muzo, das Volk der Smaragde",
+          "paragraphs": [
+            "Laut dem kolumbianischen Verzeichnis geografischer Namen stammt „muzo“ aus einer Sprache der karibischen Sprachfamilie und bedeutet „Person“. Die Muzo bauten Smaragde von Hand ab und nutzten sie als Schmuck und zum Tauschhandel zwischen den Clans.",
+            "Luis Lanchero zog 1539 gegen sie und scheiterte. Diego de Martínez versuchte es 1544, Melchor de Valdés 1550 und Pedro de Ursúa 1551. Am 20. Februar 1559 gründete Lanchero schließlich den Ort Santísima Trinidad de los Muzos, und selbst dann hatte er sie nicht vollständig unterworfen."
+          ]
+        },
+        "legend": {
+          "heading": "Die Legende von Fura und Tena",
+          "paragraphs": [
+            "In der von Julio Roberto Garavito aufgezeichneten Fassung formte Are, der Schöpfergott, aus einer Handvoll Erde Fura, die Frau, und Tena, den Mann, und warf sie in den Fluss Minero. Er schenkte ihnen ewige Jugend unter einer Bedingung: Sie sollten nur einander lieben.",
+            "Dann kam Zarbi, ein Fremder auf der Suche nach einer Blume, die jedes Leiden heilen konnte. Fura ging mit ihm, um sie zu suchen, und im Wald verliebten sie sich. Mit dem Verrat kam das Alter. Tena stieß sich seine Kriegskeule ins eigene Herz, quer über Furas Knien liegend.",
+            "Zarbi wurde zu Stein, und sein Blut wurde zum Fluss, der die beiden Liebenden, heute zwei Hügel, für immer trennt. Furas Schreie wurden zu Schmetterlingen, ihre Tränen zu Smaragden. Deshalb, so die Erzählung, spült das Wasser des Minero die Smaragde von Muzo."
+          ]
+        },
+        "hills": {
+          "heading": "Wo liegen Fura und Tena?",
+          "paragraphs": [
+            "Fura und Tena sind zwei Hügel, die sich über den Fluss Minero hinweg gegenüberstehen, zwischen San Pablo de Borbur, Pauna und Muzo. Die veröffentlichten Höhen liegen bei etwa 840 m für Tena und 500 m für Fura. Für die Muzo waren sie der Sitz ihrer Götter.",
+            "Der Morphofalter, elektrisch blau und schwarz, gehört zur Kultur der Gegend. In der Legende zerspringt jeder von Furas Schreien in einen Schwarm Schmetterlinge."
+          ]
+        },
+        "trapiche": {
+          "heading": "Was ist ein Trapiche-Smaragd?",
+          "paragraphs": [
+            "Manche Smaragde aus dem Westen zeigen sechs dunkle Arme, die vom Zentrum ausstrahlen wie die Speichen des Rades einer Zuckerrohrmühle, eines trapiche. Émile Bertrand beschrieb sie erstmals 1879.",
+            "Sie stammen fast nur aus Muzo, Coscuez und Peñas Blancas. Ältere Texte nannten auch Chivor, doch eine Übersichtsarbeit von 2015 in Gems & Gemology hält diese Herkunft inzwischen für unwahrscheinlich. Wenn Ihnen jemand einen Trapiche „aus Chivor“ anbietet, fragen Sie lieber zweimal nach."
+          ]
+        },
+        "furaStone": {
+          "heading": "Ein Smaragd, benannt nach der Legende",
+          "paragraphs": [
+            "1999 brachte eine Mine in Muzo einen Rohkristall von etwa 11.000 Karat hervor, mehr als zwei Kilo. Er erhielt den Namen Fura. Laut Presseberichten von 2011 wurde ein kleinerer, der mit ihm gefunden wurde, Tena genannt."
+          ]
+        },
+        "peace": {
+          "heading": "Vom Konflikt zum Frieden von 1990",
+          "paragraphs": [
+            "Die jüngere Geschichte des Westens führt durch die sogenannten grünen Kriege, drei Gewaltphasen zwischen Smaragdgruppen von 1965 bis 1990. Allein die erste, bis 1975, forderte laut von der Presse zitierten Zahlen mehr als 1.200 Tote. 1980 gab es in Muzo rund 35.000 guaqueros, informelle Schürfer.",
+            "Am 12. Juli 1990 beendete ein Friedensabkommen diesen Zyklus; Muzo beging 2020 den 30. Jahrestag. Nach 2013 gab es erneut Phasen der Spannung. Wir erzählen das, weil es zur Region und ihren Menschen gehört, nicht als Attraktion."
+          ]
+        },
+        "visit": {
+          "heading": "Wie das Reisen im Westen ist",
+          "paragraphs": [
+            "Muzo liegt auf etwa 815 m und hat im Schnitt 26 °C, ganz anders als die 2.000 m und kalten Nächte von Chivor. Von Chiquinquirá erreichen Sie es über die Route 60 Richtung Pauna und Maripí.",
+            "Coscuez ist in unserem Katalog, hat aber derzeit keine Termine. Das Erlebnis, das heute verfügbar ist, ist Chivor im östlichen Gürtel."
+          ]
+        }
+      }
+    }
+  }
+}

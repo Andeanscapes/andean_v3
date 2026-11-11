@@ -27,6 +27,7 @@ const Footer = ({ flagshipExperiencePath }: FooterProps) => {
         { label: t('allyHacienda'), href: `${flagshipExperiencePath}#accommodation`, isPartner: true },
         { label: t('allyExperiences'), href: '/experiences', isPartner: false },
         { label: t('allyGuides'), href: '/guides', isPartner: false },
+        { label: t('allyEmeralds'), href: '/emeralds', isPartner: false },
     ];
 
     return (

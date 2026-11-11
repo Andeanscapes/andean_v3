@@ -1,0 +1,357 @@
+{
+  "pages": {
+    "fuegoVerde": {
+      "navLabel": "Fuego Verde",
+      "metaTitle": "Fuego Verde: Journeys in Colombia’s Emerald Country",
+      "metaDescription": "Four documentary journeys through Colombia’s emerald regions: Chivor and Green Fire, Fura and Tena, Coscuez and its market, and the stones with a name.",
+      "title": "Fuego Verde: four journeys into Colombia’s emerald country",
+      "lead": "A documentary series filmed in the emerald regions of Boyacá and Cundinamarca. Each episode has a written page here, with what we saw on the road and the documents behind every fact.",
+      "imageAlt": "Visitors in helmets listen to a miner inside an emerald mine tunnel",
+      "sections": {
+        "what": {
+          "heading": "What is Fuego Verde?",
+          "note": "editorial",
+          "paragraphs": [
+            "Fuego Verde is a short documentary series that Andean Scapes filmed in Colombia’s emerald regions. The name is the Spanish title of Green Fire, the 1942 memoir of the engineer who ran the Chivor mine in the 1920s.",
+            "The videos are short. These pages are the long version: the same route, the places named on screen, the stories told in the towns, and the sources that confirm or contradict them."
+          ]
+        },
+        "twoRegions": {
+          "heading": "Two regions, one emerald country",
+          "answer": "Colombia’s emeralds come from two belts on either side of the Eastern Cordillera basin, and they did not form at the same time: about 65 million years ago in the east, between 38 and 32 million years ago in the west.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Oriente, the eastern belt, is Chivor, Gachalá and Macanal. Occidente, the western belt, is Muzo, Coscuez, La Pita, Peñas Blancas and La Glorieta–Yacopí.[[gia-trapiche-2015]] Episode 1 travels the east. Episodes 2 and 3 cross to the west. Episode 4 follows the stones that left both."
+          ],
+          "figure": {
+            "alt": "Schematic map of central Colombia with the western emerald belt north of Bogotá and the eastern belt to the northeast.",
+            "caption": "The two regions the series travels. Each mining district is plotted at its municipal seat; lines from Bogotá are straight, not roads."
+          }
+        },
+        "howToRead": {
+          "heading": "How to read these pages",
+          "note": "editorial",
+          "paragraphs": [
+            "Sections marked Field notes are what we saw and heard on the road. Sections marked Oral tradition are stories told in the region that no document we found confirms. Everything else carries a numbered source.",
+            "Quotes in italics come from the narration. The Spanish original is on the Spanish page; the English and French pages translate it."
+          ]
+        }
+      }
+    },
+    "episodeOriente": {
+      "metaTitle": "Oriente: Chivor, Gachalá and Green Fire | Fuego Verde 1",
+      "metaDescription": "Tropical Boyacá: emerald farms, norteña music, two belts of different ages, Peter Rainier at Chivor, Grace Kelly and tea in the Andes.",
+      "title": "Episode 1. Oriente: Chivor, Gachalá and Green Fire",
+      "lead": "An anti-advert for the emerald region, a Boyacá most travelers never see, and the engineer whose memoir became a Hollywood film.",
+      "imageAlt": "A group of visitors in miners’ helmets on a grassy hillside in the emerald region",
+      "sections": {
+        "hook": {
+          "heading": "The worst tourism campaign in Colombia",
+          "note": "fieldNote",
+          "paragraphs": [
+            "The episode opens by telling you not to come. There is mud. It is hot. Some roads are questionable. Ask about the history and someone ends up talking about violence.",
+            "All of that is true. It is also badly incomplete, which is the point of the next twenty minutes on the road."
+          ],
+          "quote": {
+            "text": "Don’t come to the emerald region. There is mud. It is hot. Some roads are… questionable.",
+            "attribution": "Fuego Verde, episode 1 (narration, translated from Spanish)"
+          }
+        },
+        "otherBoyaca": {
+          "heading": "The other Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Most travelers know one Boyacá: Villa de Leyva, Ráquira, El Cocuy. Cold mornings, páramo, a ruana over the shoulders. We packed for that one.",
+            "The emerald Boyacá is a different place. Tropical mountains, thick vegetation, cacao, heat. Hot, humid, campesino. We spent the first hour reconsidering the clothes in the bag."
+          ]
+        },
+        "borders": {
+          "heading": "Emeralds ignore department lines",
+          "note": "fieldNote",
+          "paragraphs": [
+            "The emerald culture does not stop at the edge of Boyacá. It runs on into Cundinamarca, through Gachalá and Ubalá in the east, and it splits the region in two: people here say Oriente and Occidente before they say a department."
+          ]
+        },
+        "table": {
+          "heading": "Farms, avíos and norteña music",
+          "note": "fieldNote",
+          "paragraphs": [
+            "We came looking for mines and found farms first: cattle, honey, cacao. And food built for long days underground: avíos packed for the mine, carne oreada, nacumas. Apparently looking for emeralds makes you hungry.",
+            "The soundtrack is norteña, the accordion music of northern Mexico, playing from every car and shop between the mountains of Boyacá and Cundinamarca. It is the first sign that an emerald here rarely means luxury. It can mean the work of a lifetime."
+          ]
+        },
+        "ages": {
+          "heading": "Two belts, two ages",
+          "answer": "Eastern-belt emeralds formed about 65 million years ago; western-belt emeralds between 38 and 32 million years ago.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "The dates come from argon–argon analysis of green muscovite, a mica that grew together with the emeralds, so they date the mineralization itself.[[gia-trapiche-2015]] The eastern date falls at the Cretaceous–Tertiary boundary, the moment the dinosaurs disappeared.[[gia-trapiche-2015]] Even in age, the two regions contradict each other."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter Rainier at Chivor",
+          "answer": "Peter W. Rainier was the mining engineer hired by a New York consortium, the Colombia Emerald Development Corporation, to reopen the abandoned Chivor mine. He managed it from 1926 to 1931.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Born in 1890 in Swaziland, “in the back of an ox wagon”, Rainier arrived at Chivor in 1926 and planted an iron stake into El Púlpito, the rock that marks the edge of the concession.[[gia-rainier-2016]] Under him the abandoned mine became very profitable again; by 1931 it had produced 46,250 carats, and in that same year, at the height of production, he lost control of it.[[gia-rainier-2016]]",
+            "He told the story in Green Fire, published in 1942, long after he had left Colombia.[[rainier-green-fire-1942]] He dedicated it in part to “Joaquin the bandit, who challenged me to a duel and was the most evil man I ever met.”[[gia-rainier-2016]]"
+          ]
+        },
+        "film": {
+          "heading": "Chivor, emeralds and Grace Kelly",
+          "answer": "Green Fire became an MGM film starring Grace Kelly and Stewart Granger. It opened in New York on 24 December 1954.[[afi-green-fire-1954]]",
+          "paragraphs": [
+            "MGM read the galleys of Rainier’s book in September 1942; a screenplay treatment followed in December 1952.[[afi-green-fire-1954]] The film kept the title and changed almost everything else: GIA describes its plot as only vaguely similar to the book.[[gia-rainier-2016]]"
+          ]
+        },
+        "cascadas": {
+          "heading": "Gachalá, Las Cascadas and the tea",
+          "answer": "With his wife Margaret, Rainier founded South America’s first commercial tea plantation at Las Cascadas, on a high slope of the Guavio valley near Gachalá.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Chivor peak stood across the valley, 15 kilometers down the Guavio river. When Rainier was at the mine, he and Margaret signaled each other every night with 18-inch flashlights.[[gia-rainier-2016]]"
+          ],
+          "quote": {
+            "text": "Apparently emeralds were not exotic enough. Someone also had to grow tea in the Andes.",
+            "attribution": "Fuego Verde, episode 1 (narration, translated from Spanish)"
+          }
+        },
+        "next": {
+          "heading": "The other side of the mountain",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Mud, heat, norteña, emeralds, Grace Kelly, Hollywood and tea, and this was only Oriente. On the other side of the mountain was the part of the region we were still afraid to visit."
+          ]
+        }
+      }
+    },
+    "episodeOccidente": {
+      "metaTitle": "Occidente: Fura, Tena and the Minero River | Fuego Verde 2",
+      "metaDescription": "Down from Chiquinquirá into western Boyacá: Boca de Monte, the Minero river, the hills of Fura and Tena, their legend, and why Occidente is much more than Muzo.",
+      "title": "Episode 2. Occidente: Fura, Tena and the Minero river",
+      "lead": "A love story with infidelity, death and emeralds, in which the main characters are two mountains. They exist, and you can stand between them.",
+      "imageAlt": "A couple in helmets on a motorbike on a forested mountain road",
+      "sections": {
+        "hook": {
+          "heading": "A love story told by mountains",
+          "note": "fieldNote",
+          "paragraphs": [
+            "This story has love, infidelity, death and emeralds. The strange part is that the protagonists are two mountains, Fura and Tena, and they are real. To understand why, you have to go down the cordillera first."
+          ]
+        },
+        "descent": {
+          "heading": "Down from Chiquinquirá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Chiquinquirá and its basilica were familiar; the road down into this part of Boyacá was not. At dawn, Boca de Monte gave the first clue: fog, colors, and mountains as far as you could see. Boyacá suddenly looked enormous.",
+            "Then a sign: Muzo. That name everyone knows. Emeralds, mines, the world’s emerald capital. We drove straight past it."
+          ]
+        },
+        "mistake": {
+          "heading": "Occidente is not only Muzo",
+          "answer": "The western belt has five mining districts: Muzo, Coscuez, La Pita, Peñas Blancas and La Glorieta–Yacopí.[[gia-trapiche-2015]] Thinking Occidente means Muzo was our first mistake.",
+          "paragraphs": [
+            "Maripí takes its name from the Muzo language, where it means “red flower”.[[wiki-es-maripi]] San Pablo de Borbur calls itself “the emerald municipality of Colombia” for the number of deposits in its territory.[[wiki-es-borbur]] On the road the list keeps growing: Maripí with La Pita and Cunas, Coper, Pauna, Borbur. Our mental map of Occidente was much smaller than Occidente."
+          ]
+        },
+        "river": {
+          "heading": "The dark river",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Past Pauna the forest changes, the air warms and the Minero appears: dark, heavy with sediment. The obvious explanation is mining, and it is only part of it.",
+            "The western emeralds sit in black shales and dolomitic limestones 130 to 116 million years old.[[gia-trapiche-2015]] The river carries that black rock downstream, and mining can add more solids in some stretches. Even the water had more than one story."
+          ]
+        },
+        "hills": {
+          "heading": "Fura and Tena exist",
+          "answer": "Fura rises in San Pablo de Borbur and Tena in Pauna, facing each other across the Minero river.[[wiki-es-borbur]]",
+          "paragraphs": [
+            "Their heights depend on the source. Spanish Wikipedia’s article on the hills gives about 840 meters for Tena and 500 for Fura[[wiki-es-fura-tena]], while its article on Borbur gives Fura 800 meters.[[wiki-es-borbur]]",
+            "The hills were a place of worship for the Muzo people, the seat of their gods, and the forest around them is known for its butterflies, the blue Morpho among them.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "legend": {
+          "heading": "The legend, as it is told here",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Fura and Tena swore to love each other. Zarbi appeared. Fura broke the promise. Tena discovered the betrayal and died. Fura wept: her tears became emeralds and her cries became butterflies. Are turned the two of them into mountains, and in one version Zarbi became a torrent, the Minero river.",
+            "Look at the valley again with that in mind: Fura on one side, Tena on the other, and Zarbi running between them. The written legend is credited to Julio Roberto Garavito.[[wiki-es-fura-tena]]"
+          ],
+          "quote": {
+            "text": "Love. Infidelity. Death. Emeralds. Butterflies. Basically a Colombian telenovela written in the mountains.",
+            "attribution": "Fuego Verde, episode 2 (narration, translated from Spanish)"
+          }
+        },
+        "map": {
+          "heading": "Trapiche, an emerald of the west",
+          "answer": "In Colombia, trapiche emeralds, with six dark arms running out from a core like the spokes of a sugar-mill wheel, are only found in the western deposits of Muzo, Coscuez and Peñas Blancas.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "The French mineralogist Émile Bertrand first described them in 1879, presenting “curious crystals of emerald… from Muso, New Granada.”[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Diagram of a trapiche emerald cross-section: a dark hexagonal core, six dark arms and six green sectors.",
+            "caption": "A trapiche emerald seen down its axis. Schematic, not to scale."
+          }
+        },
+        "next": {
+          "heading": "Still missing: the culture at work",
+          "note": "fieldNote",
+          "paragraphs": [
+            "So far we had seen the landscape, the mines and the legend. We had not yet seen how this culture feels when it is alive: when it works, trades, eats and gathers around an emerald. For that, one more place: Coscuez."
+          ]
+        }
+      }
+    },
+    "episodeCoscuez": {
+      "metaTitle": "Coscuez, Cielo Abierto and Plaza del Chácaro | Fuego Verde 3",
+      "metaDescription": "Coscuez without a filter: mud roads, the Cielo Abierto viewpoint, Territorio Vásquez, the mine, the Plaza del Chácaro emerald market, games and food.",
+      "title": "Episode 3. Coscuez: Cielo Abierto, the mine and Plaza del Chácaro",
+      "lead": "From outside, Occidente looks like mud, liquor and people fighting over green stones. Coscuez showed us what we did not know how to see.",
+      "imageAlt": "Four people in helmets at the entrance of an emerald mine",
+      "sections": {
+        "hook": {
+          "heading": "Mud, liquor and green stones",
+          "note": "fieldNote",
+          "paragraphs": [
+            "From the outside, Occidente looks like mud, liquor and people fighting over green stones. That is what we thought too, until Coscuez. The problem was not the place. It was everything we did not know how to look at."
+          ]
+        },
+        "arrival": {
+          "heading": "Arriving",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez makes little effort to look modern. Dirt road, mud, motorbikes, old jeeps, zinc shacks. Nothing that says premium destination."
+          ]
+        },
+        "cieloAbierto": {
+          "heading": "Cielo Abierto",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Above the settlement is Cielo Abierto, a viewpoint from which all of Occidente seems to open at once: Las Quinchas, Quípama, Muzo, Pauna, one mountain behind another.",
+            "Coscuez itself is one of the named hills of San Pablo de Borbur, alongside Peñas Blancas.[[wiki-es-borbur]]"
+          ]
+        },
+        "vasquez": {
+          "heading": "Territorio Vásquez",
+          "answer": "Territorio Vásquez is not a tourism brand. Between 1863 and 1883 it was vacant public land of the Republic of Colombia, a baldío, covering today’s Puerto Boyacá, Otanche and Borbur.[[wiki-es-territorio-vasquez]]",
+          "paragraphs": [
+            "It was named after Cayetano Vásquez, a martyr of the independence. It was created mainly to build the western road and found settlements along it, and it was disputed in the nineteenth century between the states of Cundinamarca and Boyacá.[[wiki-es-territorio-vasquez]]"
+          ]
+        },
+        "mine": {
+          "heading": "Down in the mine",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Below, the story changes: tunnels, mud, noise, hands. People going into the mountain waiting for the vein to finally show color. Coscuez is one of the five mining districts of the western belt.[[gia-trapiche-2015]]",
+            "An emerald does not start in a jewelry shop. It starts here, in work, patience and darkness."
+          ]
+        },
+        "chacaro": {
+          "heading": "Plaza del Chácaro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Close by is the Plaza del Chácaro: an earth floor, stalls, motorbikes, guaqueros, buyers, miners still black from the tunnel, and stones passing from hand to hand. Some people look at an emerald for five seconds and know far more than we did after half an hour. They see quality, color, crystal. We saw green.",
+            "Independent searching, guaquería, has existed in the emerald towns of western Boyacá for more than seventy years.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "life": {
+          "heading": "Cards, cacho and gallina borracha",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez does not end at the mine. There is the music, the cacho and the naipe, tomata, the jeeps, the conversations. And the food: arroz de fines, gallina Nicaragua, gallina borracha."
+          ],
+          "quote": {
+            "text": "I don’t know who named these dishes, but clearly they were not afraid of committing to a name.",
+            "attribution": "Fuego Verde, episode 3 (narration, translated from Spanish)"
+          }
+        },
+        "identity": {
+          "heading": "That is not backwardness",
+          "note": "fieldNote",
+          "paragraphs": [
+            "You can build an old hotel, buy a jeep, put on popular music and hang photos of emeralds. You cannot manufacture Coscuez. Here the mine, the food, the games, the roads, the stories and the people grew up together. That is not backwardness. It is identity.",
+            "After seeing where these stones come from, one question was left: what has to happen for an emerald to stop being a stone and end up with a name of its own? That is the next episode."
+          ]
+        }
+      }
+    },
+    "episodeExtraordinary": {
+      "metaTitle": "Extraordinary Colombian Emeralds | Fuego Verde 4",
+      "metaDescription": "Three-phase inclusions, Fura and Tena, Patricia and the $10 bonus, the Gachalá emerald, Emilia and the sister that vanished under a cape.",
+      "title": "Episode 4. Extraordinary emeralds, and the one that went missing",
+      "lead": "An emerald almost half a meter long left a Colombian mine hidden under a ruana and was never seen again. Before the vault and the display case, there was always a mountain.",
+      "imageAlt": "Two men with helmets and headlamps beside an underground waterfall",
+      "sections": {
+        "hook": {
+          "heading": "An emerald that disappeared",
+          "note": "oralTradition",
+          "paragraphs": [
+            "An emerald almost half a meter long disappeared. First it left a Colombian mine hidden under a ruana. It was sold, it reached the United States, and then its trail was lost. This happened in Gachalá.",
+            "That is how the story is told in the region. The documents tell a slightly different one, further down this page."
+          ]
+        },
+        "belts": {
+          "heading": "Before the shine",
+          "answer": "We learn to look at emeralds once they leave the mountain, polished and priced. In Colombia they come from two belts: Chivor and Gachalá in the east, Muzo and Coscuez in the west, mineralized about 65 and between 38 and 32 million years ago.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "And no, the age gap does not mean thirty million extra years to fatten the eastern stones. They are separate geological episodes, each of which left traces inside the crystals.[[gia-trapiche-2015]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Salt water, gas and a tiny cube of salt",
+          "answer": "The most identifiable feature of Colombian emeralds is the jagged three-phase inclusion: a pocket of brine holding a gas bubble and a cubic crystal, typically halite or sylvite, usually between 100 micrometers and 1 millimeter.[[gia-origin-2019]]",
+          "paragraphs": [
+            "For years, seeing those three phases meant one thing: Colombia. Today similar inclusions are known in emeralds from Afghanistan and China, and from a minor deposit at Musakashi, in Zambia.[[gia-origin-2019]]",
+            "Size settles it. Jagged fluid inclusions larger than about 500 micrometers, half a millimeter, are unique to Colombia and count as diagnostic evidence of origin.[[gia-origin-2019]] Even the bubbles need an ID card."
+          ],
+          "figure": {
+            "alt": "Diagram of a jagged fluid inclusion inside an emerald with three labeled phases: brine, a gas bubble and a cubic salt crystal.",
+            "caption": "A three-phase inclusion, the classic fingerprint of Colombian emeralds. Schematic, not to scale."
+          }
+        },
+        "giants": {
+          "heading": "Bigger is not better",
+          "paragraphs": [
+            "In 1999 Muzo produced Fura, an uncut crystal of about 11,000 carats, 2.2 kilograms.[[wiki-es-esmeralda-fura]] The same year it produced Tena, around 2,000 carats, far smaller and celebrated as the more valuable of the two for its dark, even green.[[wiki-es-esmeralda-tena]]",
+            "In Gachalá, Emilia weighed 7,025 carats according to the 1996 El Tiempo account.[[el-tiempo-emilia-1996]] Being the biggest does not guarantee winning."
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia and the ten dollars",
+          "answer": "Patricia is a 632-carat crystal from Chivor, now at the American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "The pocket was opened in January 1921 by a mine worker named Justo Daza; the manager reached into the vein up to his elbow and pulled the crystal out.[[gia-rainier-2016]] Spanish-language sources date the find to 1920.[[wiki-es-chivor]]",
+            "Daza is said to have received about ten dollars.[[gia-rainier-2016]] The stone went to New York. Justo, with ten dollars."
+          ],
+          "quote": {
+            "text": "Human Resources, we need to talk.",
+            "attribution": "Fuego Verde, episode 4 (narration, translated from Spanish)"
+          }
+        },
+        "gachala": {
+          "heading": "Gachalá, again",
+          "answer": "The Gachalá emerald is an 858-carat crystal found in 1967 and kept in the Smithsonian’s National Museum of Natural History since 1969.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Just when you think Gachalá has shown enough, there is another one. It was found at the Vega de San Juan mine.[[smithsonian-gachala]]"
+          ]
+        },
+        "indiecita": {
+          "heading": "La Indiecita, the one that is missing",
+          "note": "oralTradition",
+          "paragraphs": [
+            "In Gachalá’s mining memory, Emilia had a sister: purer, almost half a meter long, carried out of the mine under a ruana, sold, taken to the United States and lost. People call it La Indiecita.",
+            "The record is close but not identical. In 1996 El Tiempo heard the mine owner’s version: on the day Emilia appeared, a worker named Tito Daza found a second stone, wrapped it in a cape, and sold it months later; it was said to have been resold in the United States.[[el-tiempo-emilia-1996]] Spanish Wikipedia instead describes an 8,000-carat stone found by Tito Daza three years later and known as “La Tito”.[[wiki-es-gachala]] No document we found calls it La Indiecita.",
+            "The series also mentions two stories we could not document: El Monstro, a Gachalá crystal said to weigh 16,020 carats, and an explosion at Chivor that destroyed a crystal possibly larger than Patricia. Justo Daza, who found Patricia in Chivor, and Tito Daza, of the Gachalá story, are different people."
+          ]
+        },
+        "closing": {
+          "heading": "What the label cannot say",
+          "note": "fieldNote",
+          "paragraphs": [
+            "A laboratory can tell you what an emerald holds inside. A museum can tell you what it weighs. No label can tell you everything that happened before. Before New York, Washington, a vault or a display case, there was a mountain, a mine, and someone who had to bring the stone out."
+          ],
+          "quote": {
+            "text": "Next time you see a Colombian emerald, don’t only look at the stone. Ask yourself what had to happen before it reached your hands.",
+            "attribution": "Fuego Verde, episode 4 (narration, translated from Spanish)"
+          }
+        }
+      }
+    }
+  }
+}

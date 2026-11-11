@@ -5,10 +5,12 @@ import { locales } from '@/i18n/routing';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
+import de from '@/i18n/messages/de.json';
+import itMessages from '@/i18n/messages/it.json';
 import { BUSINESS_INFO, REVIEW_PLATFORM_LINKS } from '@/constant/SiteConfig';
 import { OperatorTrust } from './OperatorTrust';
 
-const messages = { en, es, fr };
+const messages = { en, es, fr, de, it: itMessages };
 
 describe('OperatorTrust', () => {
   it.each(locales)('names the operator, the technology provider and the booking platforms in %s', (locale) => {

@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "famousEmeralds": {
+      "navLabel": "Émeraudes célèbres",
+      "metaTitle": "Émeraudes colombiennes célèbres : Patricia, Fura, Tena",
+      "metaDescription": "Les émeraudes colombiennes qui portent un nom : lieu de découverte, poids selon chaque source, lieu actuel et ce qu’aucun document ne confirme.",
+      "title": "Émeraudes colombiennes célèbres",
+      "lead": "Certaines émeraudes cessent d’être des pierres et finissent par porter un nom. Patricia, Gachalá, Emilia, Fura et Tena, avec le poids donné par chaque source et les histoires que les archives laissent de côté.",
+      "imageAlt": "Deux hommes examinent un petit objet tenu entre leurs doigts sur une table en bois",
+      "sections": {
+        "what": {
+          "heading": "Comment nous traitons ces pierres",
+          "note": "editorial",
+          "paragraphs": [
+            "Les poids changent d’une source à l’autre, les dates glissent, et certaines pierres n’existent que dans la mémoire d’un village. Pour chacune, nous donnons tous les chiffres trouvés, qui les donne, et où la pierre se trouverait aujourd’hui."
+          ]
+        },
+        "weights": {
+          "heading": "Lire un carat",
+          "answer": "Le cristal de Gachalá pèse 858 carats.[[smithsonian-gachala]] Un carat vaut 0,2 gramme, soit environ 172 grammes.",
+          "paragraphs": [
+            "La Fura, d’environ 11 000 carats, est donc un cristal de 2,2 kilogrammes.[[wiki-es-esmeralda-fura]] Les cristaux de cette taille et de cette couleur sont rarement conservés entiers ; la plupart sont taillés, ce qui explique en partie la célébrité des survivants.[[smithsonian-gachala]]"
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia (Chivor, 632 carats)",
+          "answer": "Patricia est un cristal hexagonal biterminé de 632 carats trouvé à Chivor et conservé à l’American Museum of Natural History de New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Le GIA date la découverte de janvier 1921 ; les sources en espagnol disent 1920.[[wiki-es-chivor]] L’histoire complète, avec les dix dollars, a sa propre page."
+          ]
+        },
+        "gachala": {
+          "heading": "Gachalá (858 carats)",
+          "answer": "L’émeraude de Gachalá est un cristal de 858 carats trouvé en 1967 à Gachalá, dans le Cundinamarca.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Elle provient de la mine de Vega de San Juan et est entrée dans la collection du Smithsonian en 1969.[[smithsonian-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia (Gachalá, environ 7 000 carats)",
+          "answer": "Emilia a été trouvée en 1969 dans la mine Las Cruces, à Gachalá. El Tiempo lui donnait 7 025 carats[[el-tiempo-emilia-1996]] ; Wikipédia en espagnol donne 7 015 carats et la date du 15 juillet 1969.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Le lieu où elle se trouve aujourd’hui est discuté. Le propriétaire de la mine a dit à El Tiempo qu’elle était réapparue dans un musée en Suisse[[el-tiempo-emilia-1996]] ; Wikipédia en espagnol la dit conservée au Museo del Oro de la Banque de la République.[[wiki-es-gachala]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura et Tena (Muzo, 1999)",
+          "answer": "La Fura est un cristal brut d’environ 11 000 carats trouvé en 1999 à Muzo et baptisé d’après la légende de Fura et Tena.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, d’environ 2 000 carats et quelque 400 grammes, est sortie la même année. Son vert sombre et régulier en fait la plus estimée des deux.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "monstro": {
+          "heading": "El Monstro",
+          "note": "oralTradition",
+          "paragraphs": [
+            "À Gachalá, on parle d’El Monstro, un cristal qui aurait pesé 16 020 carats. Nous n’avons trouvé ni document, ni fiche de musée, ni article de presse qui le confirme. Nous le gardons ici, signalé, jusqu’à ce qu’une preuve apparaisse."
+          ]
+        }
+      }
+    },
+    "patricia": {
+      "metaTitle": "L’émeraude Patricia : 632 carats de Chivor et dix dollars",
+      "metaDescription": "L’émeraude Patricia, 632 carats de Chivor : sa sortie de la veine, la question 1920 ou 1921, les dix dollars du mineur et où elle est.",
+      "title": "Patricia : 632 carats de Chivor",
+      "lead": "Un mineur a ouvert la poche, le directeur a plongé le bras jusqu’au coude, et un cristal à six faces a fini dans la poche d’une veste. La pierre est partie à New York. Le mineur, dit-on, a reçu dix dollars.",
+      "imageAlt": "Deux visiteurs avec lampe frontale dans une galerie étroite d’une mine à Chivor",
+      "sections": {
+        "stone": {
+          "heading": "La pierre",
+          "answer": "Patricia est un cristal d’émeraude hexagonal biterminé de 632 carats provenant de la mine de Chivor, aujourd’hui à l’American Museum of Natural History de New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Wikipédia en espagnol lui donne 8 centimètres de haut et 5,5 de diamètre.[[wiki-es-chivor]]"
+          ]
+        },
+        "find": {
+          "heading": "Comment elle est sortie",
+          "answer": "Un ouvrier de la mine nommé Justo Daza mit au jour à Chivor ce qui semblait être une veine et une poche productives.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Le directeur se souvenait d’avoir plongé le bras dans la veine « jusqu’au coude », d’en avoir d’abord tiré de petits cristaux d’albite, d’apatite et de quartz, puis d’avoir refermé la main sur un gros objet qu’il mit en poche sans le regarder. « Si ce que j’ai dans la poche est une émeraude, j’aurai rempli mon contrat », dit-il à un collègue.[[gia-rainier-2016]]"
+          ]
+        },
+        "date": {
+          "heading": "1920 ou 1921 ?",
+          "answer": "Le GIA, citant le récit du directeur de la mine publié en 1925, date la découverte de janvier 1921.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "L’article de Wikipédia en espagnol sur Chivor indique 1920[[wiki-es-chivor]], et Semana écrivait en 1992 décembre 1920.[[semana-reinsercion-1992]] Nous suivons le GIA, qui cite le récit du directeur présent sur place, et montrons les autres dates parce que le lecteur les rencontrera."
+          ]
+        },
+        "ten": {
+          "heading": "Les dix dollars",
+          "answer": "Justo Daza aurait reçu une dizaine de dollars.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Semana le racontait autrement en 1992 : la pierre aurait été achetée à son propriétaire pour 10 dollars et revendue à l’étranger 60 000 dollars de l’époque.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Où elle se trouve",
+          "answer": "Patricia fait partie de la collection de l’American Museum of Natural History de New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Wikipédia en espagnol attribue le don au gérant légal de la mine à l’époque.[[wiki-es-chivor]] Le site du musée bloque la lecture automatique, si bien que nous ne l’avons pas encore vérifié sur sa fiche."
+          ]
+        }
+      }
+    },
+    "emiliaAndLaTito": {
+      "metaTitle": "Emilia et sa sœur : les émeraudes de Gachalá de 1969",
+      "metaDescription": "Emilia, émeraude d’environ 7 000 carats trouvée à Gachalá en 1969, et la pierre plus pure sortie le même jour : le récit de 1996 et La Indiecita.",
+      "title": "Emilia et sa sœur : les émeraudes de Gachalá",
+      "lead": "Le jour où Emilia est sortie d’une mine de Gachalá, une seconde pierre, plus pure, est apparue sous un pan de terre effondré. Elle a quitté la mine enveloppée dans une cape. Voici ce que disent les archives, et où elles s’arrêtent.",
+      "imageAlt": "Deux visiteurs casqués avec lampe frontale dans une galerie de mine d’émeraudes",
+      "sections": {
+        "short": {
+          "heading": "La réponse courte",
+          "answer": "Emilia est une émeraude d’environ 7 000 carats trouvée en 1969 dans la mine Las Cruces, à Gachalá. Le même jour, selon le propriétaire de la mine, un ouvrier trouva une seconde pierre, plus pure, et la sortit cachée dans une cape.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Notre source principale est un article d’El Tiempo de 1996 fondé sur les souvenirs du propriétaire de la mine et du fils de l’homme qui négocia la vente d’Emilia.[[el-tiempo-emilia-1996]] Wikipédia en espagnol raconte une version en partie différente.[[wiki-es-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia",
+          "answer": "Emilia pesait 7 025 carats, près de trois livres. Le lendemain de la découverte, elle fut confiée à la Banque de la République.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Wikipédia en espagnol donne 7 015 carats, la date du 15 juillet 1969, une vente à Bogotá pour 20 millions de pesos et une conservation au Museo del Oro.[[wiki-es-gachala]] Le propriétaire, qui disait avoir reçu 30 000 pesos pour sa part, se souvenait qu’elle était réapparue derrière la vitre d’un musée suisse.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sister": {
+          "heading": "La sœur",
+          "answer": "Le même jour, un ouvrier nommé Tito Daza dirigea le tuyau de lavage vers l’endroit d’où Emilia était sortie. Un pan de terre s’effondra, des éclats verts apparurent dans la boue, et il lava la pierre et l’enveloppa dans une cape.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Il ne dit rien à personne à la mine, prétexta un mal de ventre et partit en serrant la pierre contre lui. Le propriétaire la garda trois mois sur sa table de nuit. Il la décrivait d’environ 12 centimètres de diamètre, une cinquantaine de long, huit livres et demie, en forme de coin, et plus pure qu’Emilia.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sale": {
+          "heading": "La vente",
+          "answer": "Quelques mois plus tard, elle fut vendue dans la maison du propriétaire pour 5 millions de pesos. Plus tard, l’acheteur leur montra une revue en anglais affirmant qu’elle avait été vendue aux États-Unis pour 87 millions de pesos.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Le propriétaire partit aux États-Unis et contacta Interpol ; Daza passa deux mois en prison avant le retrait de la plainte. En 1996, Daza était devenu le gendre du propriétaire.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "versions": {
+          "heading": "La Tito, La Indiecita et autres noms",
+          "answer": "Les archives ne s’accordent ni sur la date, ni sur le poids, ni sur le nom de la seconde pierre.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Wikipédia en espagnol décrit une pierre de 8 000 carats trouvée par Tito Daza trois ans après Emilia, au même endroit, connue à Gachalá sous le nom de « La Tito » et emportée secrètement en Suisse.[[wiki-es-gachala]] La mémoire régionale recueillie pour Fuego Verde appelle La Indiecita la sœur d’Emilia et la dit sortie sous une ruana ; le récit de 1996 parle d’une cape et ne lui donne pas de nom.[[el-tiempo-emilia-1996]]",
+            "Tito Daza, de Gachalá, n’est pas Justo Daza, le mineur de Chivor lié à l’émeraude Patricia en 1921.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "curse": {
+          "heading": "Une malédiction au nom de femme",
+          "answer": "El Tiempo a intitulé son récit « Une malédiction au nom de femme ». Selon l’article, trouver une émeraude, c’est gagner à la loterie et la perdre en même temps.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Pour ceux qui les ont trouvées, ces pierres ont rarement été la fortune promise. En 1996, le propriétaire vivait à Gachetá et racontait l’histoire depuis un banc de la place principale.[[el-tiempo-emilia-1996]]"
+          ]
+        }
+      }
+    }
+  }
+}

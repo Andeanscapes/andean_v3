@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "breadcrumbEmeralds": "Smaragdwelt",
+    "breadcrumbLabel": "Brotkrumennavigation",
+    "updated": "Aktualisiert",
+    "author": "Team von Andean Scapes",
+    "sourcesTitle": "Quellen",
+    "relatedTitle": "Hier weiterlesen",
+    "visitTitle": "Erleben Sie die Smaragdregion selbst",
+    "visitBody": "Chivor im östlichen Gürtel ist der Ort, an dem wir arbeiten. Wenn Sie zusammen mit Bergleuten aus der Region in eine aktive Mine gehen möchten, erklärt unser praktischer Leitfaden, wie das abläuft.",
+    "visitCta": "Zum Leitfaden für Touren in Smaragdminen",
+    "sourceRef": "Quelle {number}",
+    "sourceLanguage": {
+      "en": "(auf Englisch)",
+      "es": "(auf Spanisch)",
+      "fr": "(auf Französisch)",
+      "de": "(auf Deutsch)",
+      "it": "(auf Italienisch)"
+    },
+    "sectionNavLabel": "Bereiche der Smaragdwelt",
+    "tocLabel": "Auf dieser Seite",
+    "pagerLabel": "Mehr in diesem Bereich",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "authorPagesTitle": "Seiten dieses Autors",
+    "faqTitle": "Häufig gestellte Fragen"
+  },
+  "notes": {
+    "fieldNote": "Feldnotizen: was wir in der Region gesehen haben",
+    "oralTradition": "Mündliche Überlieferung: vor Ort erzählt, nicht durch Dokumente belegt"
+  },
+  "illustrations": {
+    "beltMap": {
+      "western": "Westlicher Gürtel",
+      "eastern": "Östlicher Gürtel",
+      "credit": "Karte: Andean Scapes, Koordinaten der Gemeindehauptorte aus der spanischen Wikipedia"
+    },
+    "trapiche": {
+      "core": "Kern",
+      "arm": "Dunkler Arm",
+      "sector": "Grüner Sektor",
+      "credit": "Illustration: Andean Scapes"
+    },
+    "threePhase": {
+      "liquid": "Salzlösung",
+      "gas": "Gasblase",
+      "crystal": "Salzkristall",
+      "credit": "Illustration: Andean Scapes"
+    }
+  },
+  "authors": {}
+}

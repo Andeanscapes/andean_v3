@@ -5,12 +5,14 @@ import { locales, type Locale } from '@/i18n/routing';
 import en from '@/i18n/messages/en.json';
 import es from '@/i18n/messages/es.json';
 import fr from '@/i18n/messages/fr.json';
+import de from '@/i18n/messages/de.json';
+import itMessages from '@/i18n/messages/it.json';
 import { LANDING_FIXTURE, cloneFixture } from '@/test/fixtures';
 
 vi.mock('next-intl/server', () => ({
   getTranslations: async ({ locale }: { locale: Locale }) => createTranslator({
     locale,
-    messages: { en, es, fr }[locale],
+    messages: { en, es, fr, de, it: itMessages }[locale],
   }),
 }));
 
@@ -22,7 +24,7 @@ vi.mock('next/navigation', async (importOriginal) => ({
 import { getLandingDataSSR } from '@/lib/services/landing.service';
 import LandingFaqs from './LandingFaqs';
 
-const messages = { en, es, fr };
+const messages = { en, es, fr, de, it: itMessages };
 
 describe('LandingFaqs progressive disclosure', () => {
   beforeEach(() => {

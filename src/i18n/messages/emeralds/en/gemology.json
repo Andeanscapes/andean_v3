@@ -1,0 +1,234 @@
+{
+  "pages": {
+    "gemology": {
+      "navLabel": "Gemology",
+      "metaTitle": "Emerald Gemology: Color, Jardin and Treatments",
+      "metaDescription": "What an emerald is: green beryl colored by chromium, vanadium and iron, its jardin, three-phase inclusions, oil and resin treatments and key facts.",
+      "title": "Emerald gemology: what makes a stone an emerald",
+      "lead": "Green beryl, a few atoms of chromium and vanadium, a garden of inclusions and, often, a little oil. The science behind the green, from the laboratories that study it.",
+      "imageAlt": "A miner chips at a rock face by headlamp inside an emerald mine",
+      "sections": {
+        "what": {
+          "heading": "What is an emerald?",
+          "answer": "Emerald is the green to bluish green variety of beryl, the mineral species that also includes aquamarine.[[gia-emerald-description]]",
+          "paragraphs": [
+            "Where green beryl ends and emerald begins is disputed. Some traders call any green beryl colored by chromium an emerald; most gemologists, laboratories and dealers call a stone green beryl when its color is too light, and GIA uses lab-graded comparison stones to decide.[[gia-emerald-description]]"
+          ]
+        },
+        "color": {
+          "heading": "Where the green comes from",
+          "answer": "Chromium, vanadium and iron cause emerald’s color; which of them are present, and in what amounts, sets the exact green of each crystal.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "The most desirable colors run from bluish green to pure green, with vivid saturation, a tone that is not too dark and color spread evenly through the stone. Too yellowish or too bluish, and the stone is another variety of beryl.[[gia-emerald-quality]]"
+          ]
+        },
+        "jardin": {
+          "heading": "The jardin: why emeralds are rarely clean",
+          "answer": "Most emeralds contain inclusions visible to the naked eye, often mossy or garden-like. The trade calls them jardin, French for garden.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "The trade accepts eye-visible inclusions in fine emeralds; eye-clean stones are rare and especially valuable. Inclusions only cost value when they cloud transparency.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Three-phase inclusions and origin",
+          "answer": "The classic Colombian inclusion is a jagged pocket of brine holding a gas bubble and a cubic salt crystal, usually 100 micrometers to 1 millimeter long. Jagged inclusions larger than about half a millimeter are unique to Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Laboratories sort emeralds into two families. Colombian, Afghan and Chinese (Davdar) emeralds form in hydrothermal or metamorphic settings and often have jagged multiphase inclusions; emeralds from Zambia (Kafubu), Russia, Ethiopia and Brazil are schist-hosted and usually have blocky ones.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Diagram of a jagged fluid inclusion inside an emerald with three labeled phases: brine, a gas bubble and a cubic salt crystal.",
+            "caption": "A jagged three-phase inclusion, typical of Colombian emeralds. Schematic, not to scale."
+          }
+        },
+        "treatments": {
+          "heading": "Oil, resin and the Emerald Report",
+          "answer": "Surface-reaching fractures in emeralds are often filled with oils, waxes or artificial resins to make them less visible and improve apparent clarity.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "The fillers vary in stability and amount, from insignificant to major. A filled emerald should be kept away from heat, sudden changes in air pressure, chemicals and even hot dishwater.[[gia-gem-treatment]]",
+            "Since 2000 the GIA laboratory has classified emerald clarity enhancement as minor, moderate or significant. The classification describes the treatment; it is not a clarity grade.[[gia-emerald-quality]]"
+          ]
+        },
+        "facts": {
+          "heading": "Emerald facts",
+          "answer": "Emerald is beryl, Be₃Al₂Si₆O₁₈, with a Mohs hardness of 7.5 to 8, a specific gravity of 2.72 and a refractive index of 1.577 to 1.583.[[gia-emerald-facts]]",
+          "paragraphs": [
+            "Hardness is not toughness. Almost all emeralds have fractures and are more brittle than corundum, so they can be damaged in cutting, setting or careless wear.[[gia-emerald-quality]]",
+            "Emerald is the birthstone for May and the gem of the 20th and 35th wedding anniversaries.[[gia-emerald-facts]]"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Is emerald a type of beryl?",
+          "answer": "Yes. Emerald is the green to bluish green variety of beryl, the same mineral species as aquamarine.[[gia-emerald-description]]"
+        },
+        {
+          "question": "Do all emeralds have inclusions?",
+          "answer": "Almost all do. Eye-visible inclusions, called jardin, are normal in emeralds, and eye-clean stones are rare and especially valuable.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "Are emeralds treated?",
+          "answer": "Often. Surface-reaching fractures are commonly filled with oils, waxes or artificial resins to improve apparent clarity.[[gia-gem-treatment]]"
+        }
+      ]
+    },
+    "colombianVsZambian": {
+      "metaTitle": "Colombian vs Zambian Emeralds: Real Differences",
+      "metaDescription": "How Colombian and Zambian emeralds differ: geology, iron and color, jagged versus blocky inclusions, how laboratories tell them apart, and which is better.",
+      "title": "Colombian vs Zambian emeralds: what is actually different",
+      "lead": "Zambia is Colombia’s biggest rival for fine emeralds. They form in different rocks, carry different traces and, in many stones, can still look alike. Here is what laboratories use to tell them apart.",
+      "imageAlt": "A visitor in a helmet among green hills and rock faces in the emerald region",
+      "sections": {
+        "short": {
+          "heading": "The short answer",
+          "answer": "They form in different geological settings. Colombian emeralds belong to the hydrothermal/metamorphic group; Zambian emeralds from Kafubu are schist-hosted, formed where pegmatites or other magmatic bodies met mafic, ultramafic or metamorphic rocks.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Zambia is one of the sources that, from the 20th century, challenged Colombia’s place in the market, alongside Brazil and Russia. As production spread, geographic origin became an important factor for fine emeralds.[[gia-origin-2019]]"
+          ]
+        },
+        "geology": {
+          "heading": "Different rocks, different ages",
+          "answer": "Colombian emeralds formed when hot basin brines, after interacting with evaporites, circulated through black shales rich in organic matter.[[gia-trapiche-2015]] Zambia’s emeralds, like other schist-hosted deposits, formed instead where pegmatites or other magmatic bodies met mafic, ultramafic or metamorphic rocks.[[gia-origin-2019]]",
+          "paragraphs": [
+            "In Colombia the host is black shale: the western belt sits in rocks 130 to 116 million years old, and the emeralds formed about 65 million years ago in the east and 38 to 32 million years ago in the west.[[gia-trapiche-2015]]"
+          ]
+        },
+        "color": {
+          "heading": "Color and iron",
+          "answer": "Schist-hosted emeralds such as Zambia’s tend to be a darker green than Colombian ones because they generally contain more iron.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Trade lore says Colombian emeralds have a warmer, more intense pure green and Zambian ones a cooler, more bluish green. GIA notes that appearance overlaps between sources.[[gia-emerald-quality]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Jagged versus blocky",
+          "answer": "Colombian emeralds typically show jagged three-phase inclusions; schist-hosted emeralds generally have blocky ones, and mica is their most common solid inclusion. Jagged inclusions larger than about half a millimeter are unique to Colombia.[[gia-origin-2019]]",
+          "paragraphs": [
+            "There is overlap at the edges: a minor Zambian deposit at Musakashi can show jagged three-phase inclusions similar to Colombian ones.[[gia-origin-2019]]"
+          ],
+          "figure": {
+            "alt": "Diagram of a jagged fluid inclusion inside an emerald with three labeled phases: brine, a gas bubble and a cubic salt crystal.",
+            "caption": "A jagged three-phase inclusion, typical of Colombian emeralds. Schematic, not to scale."
+          }
+        },
+        "lab": {
+          "heading": "How a laboratory decides",
+          "answer": "Origin is determined by combining inclusions, UV-Vis-NIR spectroscopy and trace-element chemistry measured by laser ablation ICP-MS.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Iron shows up in the spectrum: schist-hosted emeralds have a much stronger iron absorption band at 810 nanometers. When a stone lacks diagnostic inclusions and trace-element data, an origin opinion may be impossible.[[gia-origin-2019]]"
+          ]
+        },
+        "better": {
+          "heading": "Is Colombian better than Zambian?",
+          "answer": "Not automatically. Value depends on the individual stone: its color, clarity, cut and size. Appearance overlaps between sources.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Origin does matter commercially: it has become an important factor for fine-quality emeralds.[[gia-origin-2019]] But a fine Zambian stone beats a poor Colombian one; judge the stone, then ask a laboratory about its origin."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Are Zambian emeralds darker than Colombian ones?",
+          "answer": "They tend to be. Schist-hosted emeralds like Zambia’s generally contain more iron, which makes them a darker green.[[gia-origin-2019]]"
+        },
+        {
+          "question": "Can a laboratory tell a Colombian emerald from a Zambian one?",
+          "answer": "Usually, by combining inclusions, spectroscopy and trace-element chemistry. Large jagged inclusions over about half a millimeter are unique to Colombia.[[gia-origin-2019]]"
+        }
+      ]
+    },
+    "emeraldValue": {
+      "metaTitle": "Colombian Emerald Value: Color, Clarity and Price",
+      "metaDescription": "What drives the price of a Colombian emerald: color, the jardin, cut, carat weight, oil and resin treatment, lab reports, origin and the gota de aceite.",
+      "title": "How a Colombian emerald is valued",
+      "lead": "There is no price per carat for “a Colombian emerald”. There are stones, and each one is valued for its color first, then its clarity, cut, size, treatment and origin. This is what professionals look at.",
+      "imageAlt": "Two men with helmets and headlamps beside an underground waterfall",
+      "sections": {
+        "short": {
+          "heading": "The short answer",
+          "answer": "Emeralds are valued above all for color, then for clarity and transparency, cut and carat weight.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Quality for quality, the price of an emerald can rise dramatically as size increases.[[gia-emerald-quality]]"
+          ]
+        },
+        "color": {
+          "heading": "Color comes first",
+          "answer": "The most valued emeralds are bluish green to pure green with vivid saturation, a tone that is not too dark, high transparency and even color with no visible zoning.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "If the hue drifts too yellow or too blue, the stone is no longer emerald but another beryl, and its value drops accordingly.[[gia-emerald-quality]]"
+          ]
+        },
+        "clarity": {
+          "heading": "Clarity and the jardin",
+          "answer": "Eye-visible inclusions, the jardin, are expected in emeralds. Stones without them are rare and especially valuable.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Inclusions only become a problem when they cloud transparency; then they reduce value dramatically.[[gia-emerald-quality]]"
+          ]
+        },
+        "cut": {
+          "heading": "Cut, and emeralds in rings",
+          "answer": "Cutting decides how much color and weight survive. Almost all emeralds have fractures, and mistakes cost weight and value.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Colombian rough is especially challenging: its color is more intense near the surface, so careless cutting can leave a stone much paler than the crystal it came from.[[gia-emerald-quality]]",
+            "For rings this matters. Emeralds are more brittle than corundum, and the emerald cut helps protect them because its vulnerable corners are faceted and give a safer place for prongs.[[gia-emerald-quality]]"
+          ]
+        },
+        "size": {
+          "heading": "Size",
+          "answer": "Quality for quality, price rises dramatically with size.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Stones of 1 to 5 carats are popular as center stones; the smallest jewelry sizes run from 0.02 to 0.50 carat, and prestigious pieces can hold emeralds over 20 carats.[[gia-emerald-quality]]"
+          ]
+        },
+        "treatment": {
+          "heading": "Treatment",
+          "answer": "Fractures in emeralds are often filled with oils, waxes or artificial resins to improve apparent clarity. The type and amount of filler affect value.[[gia-gem-treatment]]",
+          "paragraphs": [
+            "The amount of filler can range from insignificant to major, and its stability varies. Filled emeralds need care: no heat, chemicals, hot dishwater or sudden air-pressure changes.[[gia-gem-treatment]]"
+          ]
+        },
+        "reports": {
+          "heading": "Laboratory reports",
+          "answer": "A GIA Emerald Report classifies clarity enhancement as minor, moderate or significant and includes an image of the stone; it describes the treatment, not a clarity grade.[[gia-emerald-quality]]",
+          "paragraphs": [
+            "Origin opinions combine inclusions, spectroscopy and trace-element chemistry; a stone without diagnostic inclusions may get no origin opinion at all.[[gia-origin-2019]]"
+          ]
+        },
+        "origin": {
+          "heading": "Origin and the gota de aceite",
+          "answer": "Gota de aceite, “drop of oil”, is the trade’s name for high-quality Colombian emeralds.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Origin has become an important factor in the price of fine emeralds, which is why laboratories invest in telling Colombian stones from others.[[gia-origin-2019]]"
+          ]
+        },
+        "checklist": {
+          "heading": "Before you buy: what to ask",
+          "note": "editorial",
+          "paragraphs": [
+            "We do not sell emeralds and we do not quote prices: a figure without the stone in front of you means nothing. These are the questions professionals ask, whoever the seller is."
+          ],
+          "list": [
+            "Is the stone treated, with what, and how much?",
+            "Is there a report from an independent gemological laboratory, and does its image match the stone?",
+            "Does the report give an origin opinion, or does it say none was possible?",
+            "How should this stone be cleaned and worn, given its treatment?"
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "How much is a Colombian emerald worth?",
+          "answer": "There is no single price. Value depends on color first, then clarity, cut and size, and price rises dramatically with size for the same quality.[[gia-emerald-quality]]"
+        },
+        {
+          "question": "What does gota de aceite mean?",
+          "answer": "Spanish for “drop of oil”, it is the trade’s term for high-quality Colombian emeralds.[[gia-rainier-2016]]"
+        },
+        {
+          "question": "How do I know an emerald is Colombian?",
+          "answer": "Only a gemological laboratory can give an origin opinion, using inclusions, spectroscopy and trace elements.[[gia-origin-2019]]"
+        }
+      ]
+    }
+  }
+}

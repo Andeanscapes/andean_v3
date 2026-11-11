@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "breadcrumbEmeralds": "Emerald World",
+    "breadcrumbLabel": "Breadcrumb",
+    "updated": "Updated",
+    "author": "Andean Scapes team",
+    "sourcesTitle": "Sources",
+    "relatedTitle": "Start reading",
+    "visitTitle": "See the emerald region for yourself",
+    "visitBody": "Chivor, in the eastern belt, is where we work. If you want to walk into a working mine alongside local miners, our practical guide explains how it works.",
+    "visitCta": "Read the emerald mine tours guide",
+    "sourceRef": "Source {number}",
+    "sourceLanguage": {
+      "en": "(in English)",
+      "es": "(in Spanish)",
+      "fr": "(in French)",
+      "de": "(in German)",
+      "it": "(in Italian)"
+    },
+    "sectionNavLabel": "Emerald World sections",
+    "tocLabel": "On this page",
+    "pagerLabel": "More in this section",
+    "previous": "Previous",
+    "next": "Next",
+    "authorPagesTitle": "Pages by this author",
+    "faqTitle": "Frequently asked questions"
+  },
+  "notes": {
+    "fieldNote": "Field notes: what we saw in the region",
+    "oralTradition": "Oral tradition: told locally, not confirmed by documents"
+  },
+  "illustrations": {
+    "beltMap": {
+      "western": "Western belt",
+      "eastern": "Eastern belt",
+      "credit": "Map: Andean Scapes, municipal-seat coordinates from Spanish Wikipedia"
+    },
+    "trapiche": {
+      "core": "Core",
+      "arm": "Dark arm",
+      "sector": "Green sector",
+      "credit": "Illustration: Andean Scapes"
+    },
+    "threePhase": {
+      "liquid": "Brine",
+      "gas": "Gas bubble",
+      "crystal": "Salt crystal",
+      "credit": "Illustration: Andean Scapes"
+    }
+  },
+  "authors": {}
+}

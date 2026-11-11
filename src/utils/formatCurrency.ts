@@ -1,3 +1,5 @@
+import { isLocale, LOCALE_CONFIG } from '@/i18n/locales';
+
 /**
  * Currency formatting helpers.
  *
@@ -6,17 +8,10 @@
  * for the same amount and currency.
  */
 
-/** Maps an app locale (`en` | `es` | `fr`) to the ICU locale used for formatting. */
-const ICU_LOCALE_BY_APP_LOCALE: Record<string, string> = {
-  en: 'en-US',
-  es: 'es-CO',
-  fr: 'fr-FR',
-};
-
 const DEFAULT_ICU_LOCALE = 'es-CO';
 
 export function toIcuLocale(locale: string): string {
-  return ICU_LOCALE_BY_APP_LOCALE[locale] ?? DEFAULT_ICU_LOCALE;
+  return isLocale(locale) ? LOCALE_CONFIG[locale].icuLocale : DEFAULT_ICU_LOCALE;
 }
 
 /**

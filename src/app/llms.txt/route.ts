@@ -3,6 +3,8 @@ import { CONTACT_INFO, SITE_INFO, SOCIAL_LINKS } from '@/constant/SiteConfig';
 import { getExperiencesCatalogSSR } from '@/lib/services/experiences-catalog.service';
 import { GUIDES, guidePath } from '@/lib/content/guides.structure';
 import { getGuideContentSSR, getGuidesUiSSR } from '@/lib/services/guides.service';
+import { EMERALD_PAGES, emeraldPath } from '@/lib/content/emeralds.structure';
+import { getEmeraldContentSSR, getEmeraldsUiSSR } from '@/lib/services/emeralds.service';
 import { buildAbsoluteLocalizedUrl, buildExperiencePath, SEO_SITE_URL } from '@/utils/seoUrls';
 
 // Built from the catalog feed like `sitemap.ts`, so it shares its build-time
@@ -13,16 +15,25 @@ export const dynamic = 'force-static';
 const LOCALE = 'en';
 
 export async function GET(): Promise<Response> {
-  const [t, catalog, guidesUi] = await Promise.all([
+  const [t, catalog, guidesUi, emeraldsUi] = await Promise.all([
     getTranslations({ locale: LOCALE }),
     getExperiencesCatalogSSR(),
     getGuidesUiSSR(LOCALE),
+    getEmeraldsUiSSR(LOCALE),
   ]);
 
   const guideLines = await Promise.all(
     GUIDES.map(async (guide) => {
       const content = await getGuideContentSSR(LOCALE, guide);
       const url = buildAbsoluteLocalizedUrl(LOCALE, guidePath(guide.slug));
+      return `- [${content.title}](${url}): ${content.metaDescription}`;
+    }),
+  );
+
+  const emeraldLines = await Promise.all(
+    EMERALD_PAGES.map(async (page) => {
+      const content = await getEmeraldContentSSR(LOCALE, page);
+      const url = buildAbsoluteLocalizedUrl(LOCALE, emeraldPath(page));
       return `- [${content.title}](${url}): ${content.metaDescription}`;
     }),
   );
@@ -48,6 +59,10 @@ export async function GET(): Promise<Response> {
     `## ${guidesUi('ui.breadcrumbGuides')}`,
     '',
     ...guideLines,
+    '',
+    `## ${emeraldsUi('ui.breadcrumbEmeralds')}`,
+    '',
+    ...emeraldLines,
     '',
     `## ${t('Seo.llmsContactHeading')}`,
     '',

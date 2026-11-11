@@ -6,6 +6,7 @@ import {getMessages, setRequestLocale} from 'next-intl/server';
 import {Providers} from '@/app/providers';
 
 import {locales, routing, type Locale} from '@/i18n/routing';
+import {LOCALE_CONFIG} from '@/i18n/locales';
 import { SITE_INFO } from '@/constant/SiteConfig';
 import { THEME_INIT_SCRIPT } from '@/app/themeInitScript';
 
@@ -36,7 +37,7 @@ export const viewport: Viewport = {
  * makes relative OG/Twitter image paths resolve against the canonical domain.
  * `GOOGLE_SITE_VERIFICATION` is the Search Console token (omitted when unset).
  */
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
   title: SITE_INFO.name,
   applicationName: SITE_INFO.name,
@@ -49,6 +50,13 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
+
+/** Languages awaiting native review stay out of search results (`LocaleConfig.indexable`). */
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const {locale} = await params;
+  const indexable = (locales as readonly string[]).includes(locale) ? LOCALE_CONFIG[locale as Locale].indexable : true;
+  return indexable ? baseMetadata : {...baseMetadata, robots: {index: false, follow: true}};
+}
 
 export default async function LocaleLayout({
   children,
@@ -68,6 +76,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      dir={LOCALE_CONFIG[locale].dir}
       data-scroll-behavior="smooth"
       className={`${inter.variable}`}
       suppressHydrationWarning

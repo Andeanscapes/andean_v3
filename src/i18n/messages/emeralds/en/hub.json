@@ -1,0 +1,87 @@
+{
+  "pages": {
+    "hub": {
+      "metaTitle": "Colombian Emeralds: Mines, Legends and History",
+      "metaDescription": "Colombian emeralds explained: what an emerald is, where Colombia mines them, Muzo and Chivor, famous stones, legends, the Green Wars and the mining culture.",
+      "title": "Colombian emeralds: mines, legends and history",
+      "lead": "Emerald World is our sourced reference on Colombian emeralds: the gem itself, the two mining belts, the stones with a name, the legends, the Green Wars and the everyday life of the people who search for them.",
+      "imageAlt": "Two travelers with their arms raised in front of steep, forested green mountain peaks in Colombia",
+      "sections": {
+        "what": {
+          "heading": "What is Emerald World?",
+          "note": "editorial",
+          "answer": "Emerald World is Andean Scapes' reference library on emeralds, focused on Colombia: where they come from, how they form, the mines and towns that produce them, the stones that made history and the culture of the people who mine them. Every page separates legend from documented fact and lists its sources.",
+          "paragraphs": [
+            "We work in Chivor, in Colombia's eastern emerald belt, and we kept hearing the same questions from travelers: why Colombian emeralds are so famous, how a mine actually works, what the Fura and Tena legend says, what happened during the Green Wars. Emerald World is where we answer them properly.",
+            "Start with Fuego Verde, our four documentary journeys through Oriente, Occidente, Coscuez and the stones with a name. Then go deeper by topic: mythology, the Green Wars told war by war, famous emeralds with every weight each source gives, and the culture of the people who mine and search."
+          ]
+        },
+        "emerald": {
+          "heading": "What is an emerald, and why are Colombian ones famous?",
+          "answer": "An emerald is the green to bluish green variety of the mineral beryl.[[gia-emerald-description]] Colombia is the largest producer and is estimated to account for 70 to 90% of the world emerald market.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Chromium, vanadium and iron give emerald its color. Colombian emeralds are said to have a warmer, more intense pure green than Zambian ones, though GIA notes that appearance overlaps between sources.[[gia-emerald-quality]]",
+            "Fine and extra-fine emeralds are extremely rare, even though commercial-grade stones are plentiful.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "belts": {
+          "heading": "Where do Colombian emeralds come from?",
+          "answer": "Colombian emeralds come from two belts on either side of the Eastern Cordillera basin. The western belt holds the mining districts of Muzo, Coscuez, La Pita, Peñas Blancas and La Glorieta–Yacopí; the eastern belt holds Chivor, Gachalá and Macanal.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "The two belts did not form at the same time. Dating of the green muscovite that grew with the emeralds gives about 65 million years for the eastern belt, at the Cretaceous–Tertiary boundary, and between 38 and 32 million years for the western belt.[[gia-trapiche-2015]] In Colombia, trapiche emeralds, with six dark arms running out from the center, are only found in the western deposits of Muzo, Coscuez and Peñas Blancas.[[gia-trapiche-2015]]",
+            "The eastern belt has its own story. The mining engineer Peter W. Rainier ran Chivor from 1926 to 1931.[[gia-rainier-2016]] His memoir, Green Fire, came out in 1942[[rainier-green-fire-1942]], and MGM filmed it with Grace Kelly and Stewart Granger; the film opened in New York in December 1954.[[afi-green-fire-1954]] In 1967 the Vega de San Juan mine in Gachalá gave up an 858-carat crystal, now in the Smithsonian’s National Museum of Natural History.[[smithsonian-gachala]]"
+          ],
+          "figure": {
+            "alt": "Schematic map of central Colombia. The western emerald belt (Muzo, San Pablo de Borbur, Maripí, Yacopí) lies north of Bogotá; the eastern belt (Chivor, Macanal, Gachalá) lies to the northeast.",
+            "caption": "The two emerald belts, with each mining district plotted at its municipal seat. Lines from Bogotá are straight, not roads."
+          }
+        },
+        "culture": {
+          "heading": "Emerald culture is more than mines",
+          "note": "fieldNote",
+          "answer": "In Colombia's emerald regions an emerald rarely means luxury. It can mean the work of a lifetime. Around the mines there are farms, cattle, cacao and honey, roadside food for long days, norteña music on every radio and markets where stones change hands in the open.",
+          "paragraphs": [
+            "Many travelers imagine Boyacá as cold highlands. The emerald regions are different: hot, humid, tropical mountains where the mining culture also crosses into Cundinamarca, because emeralds never respected departmental borders.",
+            "This living culture is the part that rarely reaches a search result, and it is the part we document first-hand. What you read about it here is our own field observation from the towns and mines, and stories told locally are presented as oral tradition when no document confirms them."
+          ],
+          "list": [
+            "Oriente: Chivor, Gachalá and the Guavio valley, where Rainier lived and worked.[[gia-rainier-2016]]",
+            "Occidente: Muzo, Coscuez, Pauna, Borbur and the hills of Fura and Tena above the Minero river.",
+            "The people: miners, independent searchers and the families who live around the mines."
+          ]
+        },
+        "method": {
+          "heading": "How we research",
+          "note": "editorial",
+          "paragraphs": [
+            "Documented facts are tied to the sources listed at the end of each page, and we prefer scholarly and museum sources such as Gems & Gemology and the Smithsonian, Colombian archives and press, and primary documents. What we saw in the field is presented as our own observation. When sources disagree we show both versions.",
+            "We never cite tour operators, jewelers or emerald sellers, so nothing here is written to sell you a stone. Dates show when a page was last checked, and we correct errors when new evidence appears."
+          ],
+          "list": [
+            "Legend is labeled as legend, oral tradition as oral tradition, and documented fact is cited.",
+            "Weights, dates and current locations of famous stones come from the institution that holds them.",
+            "Sensitive history, such as the Green Wars, is told from Spanish-language Colombian sources and the memory of the communities."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Where are emeralds mined in Colombia?",
+          "answer": "Mostly in Boyacá and Cundinamarca. The three major mines are Muzo, Coscuez and Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Why are Colombian emeralds so valuable?",
+          "answer": "Colombia produces most of the world’s fine emeralds, and the finest stones combine an intense pure green with high transparency, which is rare.[[wiki-en-colombian-emeralds]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "Are Colombian emeralds better than Zambian emeralds?",
+          "answer": "Not automatically. Zambian emeralds tend to be darker because of more iron, and value depends on the individual stone, since appearance overlaps between sources.[[gia-origin-2019]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "What is a trapiche emerald?",
+          "answer": "An emerald with six dark arms running out from a core like the spokes of a wheel. In Colombia they come only from Muzo, Coscuez and Peñas Blancas.[[gia-trapiche-2015]]"
+        }
+      ]
+    }
+  }
+}

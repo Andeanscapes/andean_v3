@@ -10,6 +10,10 @@ import { getExperiencesListSSR } from '@/lib/services/experiences-list.service';
 import { ExperienceCard } from '@/components/ExperienceList/ExperienceCard';
 import { GuideHero } from '@/components/Guide/GuideHero';
 import { GuideBreadcrumb } from '@/components/Guide/GuideBreadcrumb';
+import { GuideSections } from '@/components/Guide/GuideSections';
+import { GuideSources } from '@/components/Guide/GuideSources';
+import { EMERALDS_ROOT, emeraldPath, getEmeraldPageById } from '@/lib/content/emeralds.structure';
+import { getEmeraldContentSSR } from '@/lib/services/emeralds.service';
 import { OperatorTrust } from '@/components/OperatorTrust/OperatorTrust';
 import { formatMoney } from '@/utils/formatCurrency';
 import { safeJsonLd } from '@/utils/jsonLd';
@@ -89,6 +93,16 @@ export default async function GuidePage({ params }: GuidePageParams) {
     })),
   );
 
+  // Titles and descriptions come from Emerald World's own copy, so a renamed page updates here too.
+  const emeraldLinks = await Promise.all(
+    (guide.emeraldLinks ?? []).map(async (id) => {
+      const page = getEmeraldPageById(id);
+      if (!page) throw new Error(`[Guides] Unknown Emerald World page "${id}"`);
+      const emeraldContent = await getEmeraldContentSSR(locale, page);
+      return { href: emeraldPath(page), title: emeraldContent.title, description: emeraldContent.metaDescription };
+    }),
+  );
+
   const articleLd = buildArticleLd({
     headline: content.title,
     description: content.metaDescription,
@@ -133,41 +147,29 @@ export default async function GuidePage({ params }: GuidePageParams) {
         </GuideHero>
 
         <div className="container mx-auto max-w-3xl px-4 py-10 md:py-14 lg:px-6">
-          {content.sections.map((section) => (
-            <section key={section.id} aria-labelledby={`guide-${section.id}`} className="mb-10 last:mb-0">
-              <h2 id={`guide-${section.id}`} className="text-balance text-xl font-bold leading-tight md:text-3xl">
-                {section.heading}
+          <GuideSections sections={content.sections} idPrefix="guide" />
+          {emeraldLinks.length > 0 ? (
+            <nav aria-labelledby="guide-emerald-world" className="mt-12 rounded-2xl bg-base-200/60 p-6">
+              <h2 id="guide-emerald-world" className="text-lg font-bold">
+                {ui('ui.emeraldWorldDeeper')}
               </h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="mt-4 text-base leading-relaxed text-base-content/85">
-                  {paragraph}
-                </p>
-              ))}
-            </section>
-          ))}
-
-          <section aria-labelledby="guide-sources" className="mt-12 border-t border-base-content/10 pt-8">
-            <h2 id="guide-sources" className="text-lg font-bold">
-              {ui('ui.sourcesTitle')}
-            </h2>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-base-content/75">
-              {guide.sources.map((source) => (
-                <li key={source.label}>
-                  {source.url ? (
-                    <a
-                      href={source.url}
-                      rel="noopener noreferrer"
-                      className="rounded-sm underline underline-offset-4 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              <ul className="mt-4 space-y-4">
+                {emeraldLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      prefetch={false}
+                      className="rounded-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     >
-                      {source.label}
-                    </a>
-                  ) : (
-                    source.label
-                  )}
-                </li>
-              ))}
-            </ol>
-          </section>
+                      {link.title}
+                    </Link>
+                    <p className="mt-1 text-sm leading-relaxed text-base-content/75">{link.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
+          <GuideSources title={ui('ui.sourcesTitle')} sources={guide.sources} headingId="guide-sources" />
         </div>
       </article>
 
@@ -210,6 +212,15 @@ export default async function GuidePage({ params }: GuidePageParams) {
             </li>
           ))}
         </ul>
+        <p className="mt-8 text-sm leading-relaxed text-base-content/75">
+          {ui('ui.emeraldWorldBody')}{' '}
+          <Link
+            href={EMERALDS_ROOT}
+            className="rounded-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            {ui('ui.emeraldWorldCta')}
+          </Link>
+        </p>
       </nav>
     </>
   );

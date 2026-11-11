@@ -1,0 +1,1586 @@
+{
+  "Home": {
+    "metaTitle": "Tour privati nelle miniere di smeraldi | Andean Scapes",
+    "metaDescription": "Scopri l’eredità smeraldifera della Colombia con tour privati nelle Ande: Muzo, Coscuez, Chivor e Gachalá. Mete e attività variano secondo l’itinerario."
+  },
+  "Seo": {
+    "breadcrumbHome": "Home",
+    "breadcrumbExperiences": "Esperienze",
+    "llmsContactHeading": "Contatti"
+  },
+  "Landing": {
+    "brand": {
+      "hero": {
+        "eyebrow": "Tour privati nelle Ande colombiane",
+        "title": "Tour privati nelle miniere di smeraldi in Colombia",
+        "subtitle": "Tour privati nelle Ande dedicati al turismo degli smeraldi e al patrimonio minerario della Colombia, da Muzo e Coscuez a Chivor e Gachalá.",
+        "description": "Esplora le regioni degli smeraldi della Colombia con tour privati e guide locali. Mete e attività pratiche dipendono dall’itinerario; trovare uno smeraldo non è mai garantito.",
+        "primaryCta": "Trova la tua esperienza",
+        "secondaryCta": "Chiedi su WhatsApp",
+        "chips": {
+          "smallGroups": "Max 10 viaggiatori",
+          "hostedByLocals": "Ospitati da gente del posto",
+          "flexiblePlanning": "Date flessibili",
+          "securePayments": "Pagamento online sicuro",
+          "englishSupport": "Inglese e spagnolo"
+        },
+        "search": {
+          "destinationLabel": "Dove",
+          "experienceTypeLabel": "Tipo",
+          "durationLabel": "Durata",
+          "submit": "Cerca esperienze",
+          "destinations": {
+            "chivor": "Chivor, Boyacá",
+            "all": "Tutte le destinazioni"
+          },
+          "experienceTypes": {
+            "all": "Tutti i tipi",
+            "nature": "Natura",
+            "culture": "Cultura",
+            "adventure": "Avventura"
+          },
+          "durations": {
+            "all": "Qualsiasi durata",
+            "oneDay": "1 giorno",
+            "twoDayOneNight": "2 giorni / 1 notte",
+            "threeDayTwoNight": "3 giorni / 2 notti"
+          }
+        },
+        "bookingCard": {
+          "reserveLabel": "Prenota la tua data",
+          "askFirstLabel": "Prima fai le tue domande",
+          "nextAvailability": "Prossima disponibilità"
+        }
+      },
+      "categories": {
+        "title": "Tour degli smeraldi ed esperienze in Boyacá",
+        "cta": "Esplora",
+        "items": {
+          "emerald": {
+            "title": "Turismo degli smeraldi in Colombia",
+            "description": "Scopri il patrimonio minerario degli smeraldi e le comunità locali di Muzo, Coscuez, Chivor e Gachalá. La disponibilità dei tour varia secondo la destinazione.",
+            "exclusiveAccess": "Visite organizzate con famiglie di minatori e guide locali"
+          },
+          "nature": {
+            "title": "Percorri sentieri andini nascosti",
+            "description": "Páramos, foreste nebulose e cascate nascoste. Percorsi che la maggior parte dei viaggiatori non trova mai."
+          },
+          "rural": {
+            "title": "Soggiorna con famiglie rurali",
+            "description": "Svegliati in una fattoria attiva, condividi un pasto con la famiglia che ti ospita, impara i mestieri che ha ereditato."
+          },
+          "horseback": {
+            "title": "Cavalca antichi sentieri di montagna",
+            "description": "Sentieri andini a piedi o a cavallo, come qui si viaggia da secoli."
+          }
+        }
+      },
+      "featured": {
+        "title": "Altri tour degli smeraldi",
+        "viewAll": "Vedi tutte le esperienze",
+        "nextAvailability": "Prossima disponibilità: {date}. Solo {count, plural, one {# posto rimasto} other {# posti rimasti}}",
+        "nextAvailabilityDate": "Prossima disponibilità: {date}",
+        "fromLabel": "Da",
+        "perPersonLabel": "/ persona",
+        "viewDetails": "Vedi dettagli",
+        "badges": {
+          "featured": "In evidenza",
+          "new": "Novità"
+        },
+        "items": {
+          "emerald": {
+            "title": "Avventura nelle miniere di smeraldi",
+            "description": "Due giorni a Chivor. Visita una miniera di smeraldi attiva, prova a cercare smeraldi con guide locali e scopri la vita dei minatori.",
+            "duration": "2 giorni / 1 notte",
+            "location": "Chivor, Boyacá"
+          },
+          "pottery": {
+            "title": "Esperienza di ceramica ancestrale",
+            "description": "Siediti accanto ai maestri vasai di Ráquira e modella l’argilla con le stesse tecniche tramandate da 500 anni.",
+            "duration": "1 giorno",
+            "location": "Ráquira, Boyacá"
+          }
+        }
+      },
+      "whyUs": {
+        "title": "Ospitati dalle famiglie che vivono qui",
+        "lead": "Siamo una rete di host locali, non un tour operator. Condividono ciò che conoscono davvero.",
+        "portrait": {
+          "alt": "Host locali di Andean Scapes con caschi da minatore a Chivor, Boyacá",
+          "caption": "Host locali · Chivor, Boyacá"
+        },
+        "items": {
+          "localHosts": {
+            "title": "Famiglie e guide della regione",
+            "description": "Viaggi con le famiglie e le guide che hanno costruito la loro vita in questi luoghi, non con il rappresentante di un’agenzia."
+          },
+          "smallGroups": {
+            "title": "Gruppi di massimo 10 persone",
+            "description": "Abbastanza piccoli perché il tuo host ricordi il tuo nome. Abbastanza grandi per condividere il momento."
+          },
+          "culturalAccess": {
+            "title": "Accessi che non puoi comprare altrove",
+            "description": "Una parte di ciò che ti mostriamo, come la miniera, la cucina dell’hacienda e la fattoria di famiglia, esiste grazie a una fiducia costruita negli anni."
+          },
+          "secureBooking": {
+            "title": "Prenotazione semplice e sicura",
+            "description": "Prenota il tuo posto con un acconto del 25%. Il resto lo paghi il giorno stesso. Assistenza su WhatsApp in ogni fase."
+          }
+        }
+      },
+      "howItWorks": {
+        "title": "Dall’idea all’esperienza in 4 passi",
+        "steps": {
+          "explore": {
+            "title": "Sfoglia",
+            "description": "Filtra per destinazione, tipo e durata per trovare ciò che si adatta al tuo viaggio."
+          },
+          "choose": {
+            "title": "Scegli le date",
+            "description": "Scegli una data libera e dicci quante persone verranno."
+          },
+          "pay": {
+            "title": "Prenota con il 25%",
+            "description": "Assicurati il posto con un piccolo acconto. Ti confermiamo su WhatsApp entro un’ora."
+          },
+          "travel": {
+            "title": "Presentati",
+            "description": "Il tuo host ti aspetta al punto di partenza. A tutto il resto pensiamo noi."
+          }
+        }
+      },
+      "travelerSegments": {
+        "title": "Chi viaggia con noi",
+        "cta": "Trova la tua esperienza",
+        "segments": {
+          "couples": {
+            "label": "Coppie",
+            "title": "Per coppie che vogliono tempo per sé",
+            "bullet1": "Host privati",
+            "bullet2": "Paesaggi tranquilli",
+            "bullet3": "Soggiorni con spazio per staccare davvero",
+            "imageAlt": "Due viaggiatori esaminano uno smeraldo grezzo su un tavolo"
+          },
+          "families": {
+            "label": "Famiglie",
+            "title": "Per famiglie che esplorano insieme",
+            "bullet1": "Visite in fattoria",
+            "bullet2": "Escursioni facili",
+            "bullet3": "Attività pratiche per bambini curiosi",
+            "imageAlt": "Bambino con casco da minatore insieme alla sua famiglia nella miniera di smeraldi"
+          },
+          "nomads": {
+            "label": "Nomadi digitali",
+            "title": "Per nomadi digitali che si fermano a lungo",
+            "bullet1": "Soggiorni di più giorni",
+            "bullet2": "Wifi affidabile",
+            "bullet3": "Un ritmo e una comunità locali",
+            "imageAlt": "Due viaggiatori lavorano al portatile in una stanza con vista sulle montagne"
+          },
+          "private": {
+            "label": "Gruppi privati",
+            "title": "Per gruppi privati e viaggi speciali",
+            "bullet1": "Itinerari di un giorno o di più giorni",
+            "bullet2": "Costruiti attorno al tuo gruppo",
+            "bullet3": "Amici, team o viaggi per occasioni importanti",
+            "imageAlt": "Gruppo di viaggiatori con caschi da minatore nella miniera di smeraldi"
+          },
+          "adventure": {
+            "label": "Amanti dell’avventura",
+            "title": "Per chi cerca l’avventura",
+            "bullet1": "Percorsi fuoristrada",
+            "bullet2": "Sentieri a cavallo",
+            "bullet3": "Escursioni con panorami difficili da descrivere",
+            "imageAlt": "Due viaggiatori con caschi da minatore e una moto da fuoristrada su un sentiero di montagna"
+          },
+          "culture": {
+            "label": "Amanti della cultura",
+            "title": "Per chi ama la cultura",
+            "bullet1": "Laboratori con minatori locali",
+            "bullet2": "Vasai, tessitori e contadini",
+            "bullet3": "Impari facendo",
+            "imageAlt": "Gruppo di viaggiatori con caschi da minatore all’ingresso di una miniera"
+          }
+        }
+      },
+      "trustStats": {
+        "rating": "Valutazione media",
+        "travelers": "Viaggiatori ospitati",
+        "recommend": "Lo consiglierebbero",
+        "local": "Proprietà locale",
+        "safe": "Verificato e sicuro",
+        "srTitle": "Statistiche di fiducia"
+      },
+      "location": {
+        "title": "Le regioni degli smeraldi della Colombia",
+        "mapAlt": "Mappa con Bogotá e Chivor, Boyacá, Colombia",
+        "cta": "Pianifica il percorso",
+        "bullets": {
+          "region": "Terra di smeraldi: Muzo, Coscuez, Chivor e Gachalá",
+          "driving": "Chivor e San Pablo de Borbur si trovano a est di Bogotá",
+          "transport": "Il trasporto locale dipende dal viaggio; i transfer da Bogotá sono facoltativi e indicati in ogni pagina",
+          "customizable": "Itinerari costruiti attorno alle tue date e al tuo gruppo",
+          "languages": "Il supporto linguistico varia secondo l’esperienza; controlla la pagina di ogni viaggio",
+          "plans": "Consulta la pagina di ogni esperienza per durata e servizi inclusi"
+        }
+      },
+      "safety": {
+        "title": "Come garantiamo la sicurezza",
+        "lead": "Ogni host, percorso e metodo di pagamento viene verificato prima di entrare nella rete.",
+        "protocolLink": "Consulta il nostro protocollo di sicurezza e logistica",
+        "protocolComingSoon": "Prossimamente",
+        "groups": {
+          "financial": "Prenotazione senza rischi",
+          "operational": "Verificato sul posto",
+          "assistance": "Assistenza lungo il percorso"
+        },
+        "items": {
+          "guides": "Guide locali che conoscono ogni percorso",
+          "meetingPoints": "Punti d’incontro fissi e verificati",
+          "payments": "Pagamenti crittografati end-to-end",
+          "deposit": "Acconto del 25%, saldo il giorno stesso",
+          "whatsapp": "Assistenza WhatsApp per tutto il viaggio",
+          "flexible": "Cambio data gratuito fino a 48 ore prima"
+        }
+      },
+      "globalCtas": {
+        "explore": "Vedi tutte le esperienze",
+        "whatsapp": "Scrivici su WhatsApp",
+        "mobileFromLabel": "Da",
+        "mobileBookNow": "Prenota ora"
+      }
+    },
+    "reviews": {
+      "sectionTitle": "Cosa dicono i viaggiatori",
+      "subtitle": "Recensioni di ospiti Airbnb verificati, tradotte dallo spagnolo.",
+      "outOf5Aria": "su 5",
+      "ratingSource": "Recensioni verificate degli ospiti su Airbnb",
+      "readMore": "Leggi la recensione completa",
+      "readLess": "Mostra meno",
+      "verifiedGuest": "Ospite verificato",
+      "opensInNewTab": "(si apre in una nuova scheda)",
+      "verifiedStay": "Hacienda El Recuerdo · Airbnb",
+      "countries": {
+        "colombia": "Colombia",
+        "spain": "Spagna"
+      },
+      "items": {
+        "carlosTulio": {
+          "headline": "Volevo restare più a lungo.",
+          "comment": "La proprietà è bellissima e le camere sono comode, qui c’è tantissimo da fare. Volevo restare più a lungo."
+        },
+        "anamaria": {
+          "headline": "Heinner è un ottimo host.",
+          "comment": "Il soggiorno all’Hacienda El Recuerdo è stato meraviglioso. Un posto molto accogliente e tranquillo. Si riesce davvero a entrare in contatto con la natura. Yesid e Marlen sono persone molto attente e gentili, ci hanno fatto sentire a casa. Heinner è un ottimo host. È stata un’esperienza eccellente. L’unica cosa da considerare è il mezzo con cui si arriva alla proprietà, perché si trova in mezzo alle montagne. Nel complesso, è un’esperienza che resta nel cuore per chi, come noi, ama l’avventura e la natura. Speriamo di tornare!"
+        },
+        "odessa": {
+          "headline": "È stata un’esperienza incredibile!",
+          "comment": "Non posso che parlare bene di questo soggiorno. Heinner ci ha aiutato moltissimo già prima dell’arrivo, offrendosi di guidarci fino alla proprietà dalla città o di organizzare il trasporto. La sua famiglia vive qui e sono tutti così gentili e accoglienti che ci siamo sentiti subito come in visita da amici. Heinner è molto coinvolto nella comunità locale e ha organizzato un tour per farci visitare le miniere di smeraldi della zona! È stata un’esperienza incredibile! Ci è piaciuto camminare per la proprietà, osservare gli uccelli e perfino mungere le mucche. Tutti i pasti erano preparati in casa dalla mamma di Heinner ed erano perfetti. Il wifi era veloce e affidabile e c’è un ottimo spazio di coworking con scrivanie."
+        },
+        "sandraPatricia": {
+          "headline": "Ci siamo sentiti a casa.",
+          "comment": "Il soggiorno all’Hacienda El Recuerdo è stato molto piacevole. I nostri host Marlen, Yesid, Heinner, Kyra e Luna sono stati molto attenti, sempre pronti a qualsiasi cosa ci servisse. La camera era molto comoda e abbiamo dormito benissimo. Il cibo era delizioso e preparato con grande amore. Ci siamo sentiti a casa. Soggiornare a El Recuerdo è un’ottima scelta — non si tratta solo di riposare, ma di conoscere i dintorni, fare attività di ecoturismo, conoscere la gente del posto, le nostre radici, e apprezzare le meraviglie del nostro paese. Lo consigliamo e torneremo!"
+        },
+        "camilo": {
+          "headline": "Un contatto eccezionale con la natura.",
+          "comment": "Esperienza eccellente, un posto molto tranquillo con tanto spazio per le attività all’interno della proprietà. Un contatto eccezionale con la natura. Consigliatissimo."
+        }
+      },
+      "platforms": {
+        "title": "Altre recensioni e prenotazioni su",
+        "google": "Google",
+        "airbnb": "Airbnb Experiences",
+        "getyourguide": "GetYourGuide",
+        "readReviews": "Leggi le recensioni",
+        "book": "Vedi e prenota"
+      }
+    },
+    "faqs": {
+      "showAll": "Mostra tutte le domande",
+      "title": "Turismo degli smeraldi in Colombia",
+      "description": "Siamo specializzati in tour privati nelle Ande colombiane, con un’attenzione particolare alle destinazioni degli smeraldi, al patrimonio minerario locale e alle esperienze guidate dalle comunità.",
+      "enquiryTitle": "Pianifica il tuo tour privato nelle Ande",
+      "enquiryDescription": "Dicci le tue date, quante persone siete e cosa ti interessa. Chiedi di destinazioni, lingue delle guide e opzioni di itinerario prima di scegliere il tour.",
+      "planImageAlt": "Viaggiatore con macchina fotografica e casco da minatore in una valle verde a Chivor",
+      "items": {
+        "whatIsAndeanScapes": {
+          "question": "Che cos’è Andean Scapes?",
+          "answer": "Andean Scapes crea tour privati nelle Ande colombiane per viaggiatori locali e internazionali, con un’attenzione particolare al turismo degli smeraldi, al patrimonio minerario e alle comunità locali."
+        },
+        "emeraldMineTour": {
+          "question": "Cosa posso vivere in un tour in una miniera di smeraldi in Colombia?",
+          "answer": "Le nostre partenze si svolgono attualmente a Chivor, Boyacá, nella fascia orientale degli smeraldi della Colombia. Entri in vere miniere di smeraldi attive con una guida locale, casco e stivali, accanto ai minatori del posto: non sono miniere di carbone né ricostruzioni per turisti. Puoi scegliere una gita di un giorno (1 miniera e un’escursione), un tour di 2 giorni/1 notte (1 miniera e un’escursione) o un tour di 2 giorni/1 notte con 2 miniere e passeggiata a cavallo. Trovare uno smeraldo è possibile, ma mai garantito."
+        },
+        "minerForADay": {
+          "question": "Posso fare il minatore per un giorno a Chivor e tenere uno smeraldo?",
+          "answer": "Passi davvero la giornata accanto ai minatori, con attrezzatura di sicurezza e una guida, ma è un’esperienza per visitatori, non un lavoro in miniera. Trovare uno smeraldo non è garantito: può succedere, e se salta fuori una pietra si concorda sul momento con i minatori e la guida. Il vero valore è la cultura degli smeraldi, la natura e la cucina della regione."
+        },
+        "emeraldRegions": {
+          "question": "Dove si trovano le miniere di smeraldi in Colombia?",
+          "answer": "La Colombia ha due zone principali di smeraldi nelle Ande orientali: il Boyacá occidentale (Muzo, Coscuez e San Pablo de Borbur) e l’est (Chivor, Gachalá e la regione del Guavio). Sono destinazioni separate, a diverse ore di strada l’una dall’altra. Controlla la pagina delle esperienze per vedere quali destinazioni hanno date disponibili."
+        },
+        "privateTours": {
+          "question": "Offrite tour privati nelle Ande colombiane?",
+          "answer": "I tour privati con guide locali sono il nostro focus. Adattiamo l’itinerario al tuo gruppo, ai tuoi interessi e alle tue date, con un’attenzione particolare al turismo degli smeraldi e al patrimonio culturale e naturale delle Ande."
+        },
+        "privateOrShared": {
+          "question": "I vostri tour sono privati o condivisi?",
+          "answer": "Ci concentriamo su tour privati su misura per il tuo gruppo. Disponibilità, itinerario e servizi inclusi dipendono dalla destinazione e dal piano scelto."
+        },
+        "spanish": {
+          "question": "Devo parlare spagnolo?",
+          "answer": "I tour sono guidati in spagnolo. Se hai bisogno di assistenza in un’altra lingua, possiamo organizzare un traduttore con un costo aggiuntivo; chiedicelo prima di prenotare."
+        },
+        "afterReserve": {
+          "question": "Cosa succede dopo la prenotazione?",
+          "answer": "Dopo la prenotazione, il team conferma la disponibilità e ti invia l’itinerario dettagliato, il punto d’incontro, le indicazioni per prepararti e ogni coordinamento necessario prima del viaggio."
+        },
+        "questionsFirst": {
+          "question": "Posso fare domande prima di pagare?",
+          "answer": "Sì. Puoi contattare Andean Scapes prima di prenotare per confermare dettagli, date, opzioni di trasporto, dimensione del gruppo o esigenze particolari."
+        },
+        "transportHelp": {
+          "question": "Come arrivo a Chivor da Bogotá?",
+          "answer": "Chivor dista circa 5–6 ore di auto da Bogotá: prendi la strada verso Tunja, a El Sisga scendi nella Valle di Tenza e prosegui fino a Chivor; l’ultimo tratto è una strada di montagna sterrata. Puoi raggiungere il paese di Chivor in autobus, auto o moto, e da lì il nostro 4x4 locale ti porta alla miniera, incluso in ogni tour. Offriamo anche un transfer privato in 4x4 andata e ritorno da Bogotá con costo aggiuntivo; il prezzo è per veicolo e copre fino a 4 persone."
+        },
+        "meals": {
+          "question": "I pasti sono inclusi?",
+          "answer": "Sì. A Chivor, i tour di 2 giorni/1 notte includono 4 pasti: 2 colazioni, 1 pranzo al sacco tradizionale (fiambre) e 1 cena; la gita di un giorno include colazione e pranzo al sacco. Il menu è locale e teniamo conto di restrizioni alimentari se ce le segnali al momento della prenotazione."
+        },
+        "families": {
+          "question": "Le esperienze sono adatte a famiglie e bambini?",
+          "answer": "Sì, dai 5 anni in su. Ci sono camminate, fango e umidità, quindi sono adatte a famiglie che amano l’avventura; i gruppi con bambini piccoli devono prima consultare il team. Ogni partecipante, adulto o bambino, conta come un posto: non esiste una tariffa ridotta per bambini."
+        },
+        "bring": {
+          "question": "Cosa devo portare?",
+          "answer": "Scarpe che possano bagnarsi e infangarsi, un cambio completo di vestiti, un asciugamano piccolo, una giacca leggera o impermeabile, una borraccia, crema solare, un cappellino, i tuoi farmaci personali e contanti per le spese locali. Casco e stivali di sicurezza per la miniera li forniamo noi."
+        },
+        "payment": {
+          "question": "Come funziona l’acconto o il pagamento?",
+          "answer": "Prima il team conferma la disponibilità per la tua data; poi paghi un acconto tra il 25% e il 30% del totale, secondo il tour (la percentuale esatta compare al momento della prenotazione), per bloccare la prenotazione. Il saldo si paga secondo le condizioni del tour. Non chiediamo mai il pagamento completo prima di confermare la prenotazione."
+        },
+        "customized": {
+          "question": "Le esperienze si possono personalizzare?",
+          "answer": "In molti casi sì. Il team può aiutarti ad adattare orari, trasporto, alloggio, pasti o attività in base alla disponibilità e al tipo di esperienza."
+        },
+        "localOrInternational": {
+          "question": "Andean Scapes è solo per viaggiatori internazionali?",
+          "answer": "No. Andean Scapes accoglie sia viaggiatori colombiani sia internazionali che cercano esperienze autentiche, locali e ben organizzate."
+        },
+        "safety": {
+          "question": "È sicuro visitare una miniera di smeraldi?",
+          "answer": "Entri sempre con una guida locale e attrezzatura di sicurezza (casco e stivali), in miniere ad accesso controllato. Ogni tour include una copertura di assistenza medica durante l’esperienza, e il team verifica le condizioni locali e della miniera prima di ogni partenza. Dentro la miniera ci sono acqua, fango e terreno irregolare, quindi serve uno sforzo fisico da moderato a elevato; se hai problemi cardiaci, una fobia grave o mobilità ridotta, chiedici prima di prenotare."
+        },
+        "cancellation": {
+          "question": "Posso cancellare o cambiare la data?",
+          "answer": "Sì. Puoi cancellare o spostare la data fino a 7 giorni prima del tour, al massimo 2 volte. Dopo questo termine l’acconto non è rimborsabile e ogni modifica è soggetta ai costi già sostenuti, come assicurazione o pasti prenotati."
+        },
+        "pets": {
+          "question": "Posso portare il mio cane?",
+          "answer": "Sì, siamo pet-friendly. A Chivor, in ogni tour, i cani possono entrare in miniera con il gruppo e restare all’hacienda. Devono essere vaccinati e sotto controllo; accordati con il team al momento della prenotazione."
+        },
+        "bestSeason": {
+          "question": "Qual è il periodo migliore per visitare Chivor?",
+          "answer": "Chivor si trova a circa 2.000 m, con clima fresco e notti fredde. La stagione secca va da dicembre a febbraio e quella delle piogge da maggio ad agosto. La miniera ha sempre zone bagnate, quindi nella stagione delle piogge porta abbigliamento impermeabile."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Il tuo tour privato nelle Ande colombiane inizia con una data.",
+      "subtitle": "Prenota oggi con il 25%. Il tuo host locale conferma i dettagli su WhatsApp.",
+      "primaryCta": "Prenota la tua esperienza",
+      "secondaryCta": "Prima scrivici su WhatsApp",
+      "bookAria": "Prenota la tua esperienza Andean Scapes"
+    },
+    "hero": {
+      "badge": "Avventura nelle miniere di smeraldi",
+      "title": "Dentro le miniere di smeraldi di Chivor",
+      "subtitle": "Due giorni con le famiglie di minatori che lavorano queste vene da generazioni.",
+      "description": "Visita in miniera, pasti, alloggio locale, guida bilingue e attrezzatura di sicurezza — tutto incluso.",
+      "chips": {
+        "smallGroups": "Max 10 viaggiatori",
+        "localGuides": "Guida locale",
+        "mealsIncluded": "Tutti i pasti inclusi",
+        "securePayment": "Pagamento sicuro"
+      }
+    },
+    "filters": {
+      "fromLabel": "Da",
+      "perPersonLabel": "/ persona",
+      "reviewsCountLabel": "{count} recensioni",
+      "selectDateLabel": "Scegli una data",
+      "peopleLabel": "Viaggiatori",
+      "arrivalLabel": "Come arrivi",
+      "ctaLabel": "Prenota ora",
+      "depositNoteLabel": "Acconto del {percent}% per confermare",
+      "trustSecure": "Pagamento crittografato",
+      "trustCancellation": "Cancellazione gratuita",
+      "trustVerified": "Host verificato",
+      "whatsappCta": "Domande? WhatsApp",
+      "fallbackDate": "Date flessibili",
+      "transport": {
+        "carNo4x4": "Ho un’auto (non 4x4)",
+        "have4x4": "Ho un 4x4",
+        "bus": "Autobus di linea",
+        "roundtrip": "Transfer andata e ritorno"
+      }
+    },
+    "tiers": {
+      "sectionTitle": "Scegli il tuo soggiorno",
+      "bestSellerLabel": "Scelta dell’host",
+      "items": {
+        "heritage": {
+          "label": "Hacienda El Recuerdo",
+          "description": "L’attuale soggiorno di Andean Scapes: una notte in un’hacienda coloniale con camere private, pasti fatti in casa e l’attenzione di un host locale.",
+          "tag": "Prima esperienza attuale",
+          "cta": "Prenota il soggiorno in hacienda"
+        },
+        "day": {
+          "label": "Esperienza di un giorno",
+          "description": "Un’intera giornata dentro la miniera — senza bisogno di pernottare.",
+          "tag": "La più flessibile",
+          "cta": "Prenota l’esperienza di un giorno"
+        },
+        "night": {
+          "label": "Avventura di 1 notte",
+          "description": "Due giorni, una notte — per conoscere a fondo la terra degli smeraldi.",
+          "tag": "La più venduta",
+          "cta": "Prenota con pernottamento"
+        },
+        "private": {
+          "label": "Gruppo privato",
+          "description": "Accesso esclusivo per il tuo gruppo — date e itinerario completamente personalizzati.",
+          "tag": "Su misura",
+          "cta": "Richiedi un gruppo privato"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Cosa lo rende diverso",
+      "items": {
+        "mining": {
+          "title": "Vera estrazione di smeraldi",
+          "description": "Lavora una vena accanto alle famiglie che estraggono a Chivor da generazioni.",
+          "badge": "Esperienza di punta"
+        },
+        "access": {
+          "title": "Accessi che non puoi comprare altrove",
+          "description": "L’hacienda, l’ingresso della miniera, la cena con la famiglia che ti ospita — possibili grazie alla fiducia, non al turismo."
+        },
+        "culture": {
+          "title": "Il Boyacá, senza filtri",
+          "description": "Paesaggi di montagna, cucina locale e storie che non finiscono nelle guide."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "Cosa è incluso",
+      "includedLabel": "Incluso",
+      "notIncludedLabel": "Non incluso",
+      "logistics": {
+        "start": "Orario di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto",
+        "difficulty": "Difficoltà"
+      },
+      "logisticsValues": {
+        "duration": "2 giorni / 1 notte",
+        "transport": "Coordinamento 4x4 locale dall’Hacienda El Recuerdo",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guida bilingue",
+        "equipment": "Tutta l’attrezzatura di sicurezza",
+        "meals": "Pasti (colazione, pranzo, cena)",
+        "insurance": "Assicurazione di viaggio",
+        "mineAccess": "Accesso alla miniera",
+        "workshop": "Laboratorio di selezione degli smeraldi",
+        "smallGroups": "Gruppo piccolo (max 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Transfer dall’aeroporto",
+        "personalDrinks": "Bevande personali",
+        "souvenirs": "Gemme come souvenir"
+      }
+    }
+  },
+  "Header": {
+    "selectLanguage": "Seleziona lingua: {language}",
+    "bookNow": "Prenota ora",
+    "experiences": "Esperienze",
+    "toggleTheme": "Cambia tema",
+    "lightMode": "Modalità chiara",
+    "darkMode": "Modalità scura",
+    "guides": "Guide",
+    "emeralds": "Mondo Smeraldo"
+  },
+  "ExperiencesList": {
+    "metaTitle": "Tour nelle miniere di smeraldi di Chivor | Andean Scapes",
+    "metaDescription": "Confronta i tour guidati nelle miniere di smeraldi di Chivor, Boyacá: in giornata, 2 giorni con una miniera o 2 miniere e cavallo. Sempre con una guida locale.",
+    "hero": {
+      "title": "Confronta i tour nelle miniere di smeraldi in Colombia",
+      "subtitle": "Confronta una gita di un giorno a Chivor con i tour di due giorni che includono un soggiorno in hacienda: una miniera, oppure due miniere con passeggiata a cavallo. Ogni tour include la ricerca pratica di smeraldi.",
+      "summary": "Tour in piccoli gruppi con guide locali",
+      "highlightText": "Visite a miniere attive e la possibilità di cercare smeraldi",
+      "ctaLabel": "Esplora le esperienze",
+      "helperText": "Piccoli gruppi · Esperienza locale · Pianificazione flessibile",
+      "badges": {
+        "nature": "Natura",
+        "culture": "Cultura",
+        "hosted": "Ospitati da gente del posto"
+      }
+    },
+    "sectionTitle": "Esplora le esperienze",
+    "sectionSubtitle": "Avventure selezionate con host locali",
+    "featuredTag": "In evidenza",
+    "comingSoonTag": "Prossimamente",
+    "planBadges": {
+      "basic": "Basic",
+      "core": "Core",
+      "prime": "Prime"
+    },
+    "mineBadges": {
+      "chivor": "Chivor",
+      "coscuez": "Coscuez"
+    },
+    "carousel": {
+      "roleDescription": "carosello",
+      "gallery": "Foto: {title}",
+      "previous": "Foto precedente",
+      "next": "Foto successiva",
+      "slideLabel": "Foto {current} di {total}"
+    },
+    "fromLabel": "Da",
+    "priceQualifierPerPerson": "a persona",
+    "viewDetails": "Vedi l’esperienza",
+    "transportIncluded": "Trasporto incluso",
+    "cardMeta": {
+      "duration2d1n": "2G / 1N",
+      "startsInChivor": "Partenza da Chivor",
+      "smallGroup": "Gruppo piccolo",
+      "durationDaysNights": "{nights, plural, =0 {{days, plural, one {# giorno} other {# giorni}}} other {{days}G / {nights}N}}",
+      "startsIn": "Partenza da {locality}"
+    },
+    "smallGroups": "Piccoli gruppi",
+    "privateTour": "Tour privato",
+    "localGuides": "Guide locali esperte",
+    "twoMines": "2 miniere di smeraldi",
+    "horsebackRiding": "Passeggiata a cavallo",
+    "allMeals": "Tutti i pasti",
+    "haciendaStay": "Soggiorno in hacienda",
+    "breakfastAndFiambre": "Colazione e pranzo fiambre",
+    "cards": {
+      "culture": {
+        "title": "Percorso della cultura andina",
+        "description": "Tradizioni locali, storie di artigiani e scorci panoramici in tutto il Boyacá."
+      },
+      "nature": {
+        "title": "Fuga nella natura",
+        "description": "Un’esperienza più lenta, tra panorami di montagna, cucina locale e passeggiate nella natura."
+      }
+    },
+    "ruralHotelStay": "Soggiorno in hotel rurale",
+    "furaTena": "Escursione a Fura e Tena"
+  },
+  "BookingCtas": {
+    "whatsappCta": "Scrivici su WhatsApp",
+    "whatsappMiningQuote": "Ciao! Mi interessa l’Avventura nelle miniere di smeraldi all’Hacienda El Recuerdo a Chivor. Potete aiutarmi con la disponibilità?"
+  },
+  "ChivorEmeraldCore": {
+    "metaTitle": "Smeraldi a Chivor: 2 giorni e hacienda | Andean Scapes",
+    "metaDescription": "Minatore per un giorno a Chivor, Boyacá: miniera di smeraldi con ricerca pratica, laboratorio, pasti e una notte in hacienda. Trovare smeraldi non è garantito.",
+    "subtitle": "Esperienza mineraria di smeraldi 2G/1N con soggiorno all’Hacienda El Recuerdo a Chivor, Boyacá",
+    "selectDate": "Scegli la data",
+    "selectPeople": "Quante persone?",
+    "peopleCountLabel": "Numero di persone",
+    "roomModeLabel": "Tipo di camera",
+    "roomModePrivate": "Privata",
+    "roomModeCouple": "Coppia",
+    "transportLabel": "Come preferisci arrivare?",
+    "transportNoOwnCar": "Non ho un’auto mia",
+    "transportHaveOwnCar": "Ho un 4x4 mio",
+    "transportBus": "Trasporto in autobus",
+    "contactLabel": "Dati di contatto",
+    "nameLabel": "Nome",
+    "phoneLabel": "Telefono",
+    "emailLabel": "Email (facoltativa)",
+    "includesTitle": "Cosa è incluso?",
+    "includesItem1": "1 notte con bagno privato",
+    "includesItem2": "Pasti (colazione, pranzo, cena)",
+    "includesItem3": "Tour in miniera di 6 ore",
+    "includesItem4": "Laboratorio di selezione degli smeraldi",
+    "includesItem5": "Trasporto dall’Hacienda El Recuerdo",
+    "includesDetails": "Vedi dettagli",
+    "pricePerPerson": "Prezzo a persona",
+    "totalPrice": "Prezzo totale",
+    "depositPercent": "Acconto (25%)",
+    "paymentButton": "Procedi al pagamento",
+    "termsCheckbox": "Accetto i termini e le condizioni",
+    "whatsappCta": "Oppure chiedi su WhatsApp"
+  },
+  "ChivorEmeraldBasic": {
+    "metaTitle": "Chivor, miniera di smeraldi in giornata | Andean Scapes",
+    "metaDescription": "Passa una giornata nelle miniere di smeraldi di Chivor: ingresso guidato, belvedere del Pulpito, colazione e pranzo fiambre, rientro nel pomeriggio."
+  },
+  "ChivorEmeraldPrime": {
+    "metaTitle": "Chivor: 2 miniere di smeraldi e cavallo | Andean Scapes",
+    "metaDescription": "Visita due miniere di smeraldi di Chivor con passeggiata a cavallo, ricerca pratica, pasti e soggiorno in hacienda. Trovare smeraldi non è garantito.",
+    "subtitle": "Esperienza mineraria di smeraldi 2G/1N con passeggiata a cavallo e soggiorno all’Hacienda El Recuerdo a Chivor, Boyacá",
+    "selectDate": "Scegli la data",
+    "selectPeople": "Quante persone?",
+    "peopleCountLabel": "Numero di persone",
+    "roomModeLabel": "Tipo di camera",
+    "roomModePrivate": "Privata",
+    "roomModeCouple": "Coppia",
+    "transportLabel": "Come preferisci arrivare?",
+    "transportNoOwnCar": "Non ho un’auto mia",
+    "transportHaveOwnCar": "Ho un 4x4 mio",
+    "transportBus": "Trasporto in autobus",
+    "contactLabel": "Dati di contatto",
+    "nameLabel": "Nome",
+    "phoneLabel": "Telefono",
+    "emailLabel": "Email (facoltativa)",
+    "includesTitle": "Cosa è incluso?",
+    "includesItem1": "1 notte con bagno privato",
+    "includesItem2": "Pasti (colazione, pranzo, cena)",
+    "includesItem3": "Tour in miniera con passeggiata a cavallo",
+    "includesItem4": "Laboratorio di selezione degli smeraldi",
+    "includesItem5": "Trasporto dall’Hacienda El Recuerdo",
+    "includesDetails": "Vedi dettagli",
+    "pricePerPerson": "Prezzo a persona",
+    "totalPrice": "Prezzo totale",
+    "depositPercent": "Acconto (25%)",
+    "paymentButton": "Procedi al pagamento",
+    "termsCheckbox": "Accetto i termini e le condizioni",
+    "whatsappCta": "Oppure chiedi su WhatsApp"
+  },
+  "experiences": {
+    "common": {
+      "deposit": "Prenota con",
+      "balance": "Saldo da pagare il giorno del tour",
+      "security": "Pagamento sicuro al 100% con Mercado Pago",
+      "ctaPrimary": "Paga l’acconto del {percent}%",
+      "ctaSecondary": "Domande? Scrivici su WhatsApp"
+    },
+    "ui": {
+      "availableDates": "Date disponibili",
+      "spotsAvailable": "{count, plural, one {# posto} other {# posti}}",
+      "controlledDatesNote": "Date gestite per motivi logistici.",
+      "limitedSpots": "Posti limitati",
+      "limitedSpotsShort": "Limitati",
+      "officialDates": "Date ufficiali",
+      "depositLabel": "Acconto",
+      "heroCta": "Vedi le date",
+      "heroSummary": "{duration} • Visita in miniera + laboratorio sugli smeraldi • Partenza da Chivor • Piccoli gruppi",
+      "onSelectedDates": "in date selezionate",
+      "fromLabel": "Da",
+      "perPersonLabel": "a persona",
+      "reviewsCountLabel": "({count} recensioni)",
+      "freeCancellation": "Cancellazione gratuita",
+      "verifiedReviews": "Recensioni verificate",
+      "verifiedGuideBadge": "GUIDA VERIFICATA",
+      "totalLabel": "Totale",
+      "payTodayLabel": "Paghi oggi",
+      "balanceNote": "Saldo il giorno del tour. Conferma immediata.",
+      "termsCheckbox": "Accetto i termini e le condizioni",
+      "completeRequiredFields": "Compila tutti i campi obbligatori per continuare",
+      "processing": "Elaborazione...",
+      "paymentMethods": "Carta · PSE · Pagamento sicuro",
+      "validationError": "Errore di convalida",
+      "paymentWaiting": "Completa il pagamento nella scheda di Mercado Pago. Questa pagina si aggiorna da sola. Riferimento: {reference}.",
+      "paymentReopen": "Apri di nuovo Mercado Pago",
+      "paymentOpensInNewTab": "(si apre in una nuova scheda)",
+      "paymentTitleApproved": "Acconto ricevuto",
+      "paymentTitlePending": "Pagamento in corso",
+      "paymentTitleRejected": "Pagamento non approvato",
+      "paymentTitleUnconfirmed": "Non siamo ancora riusciti a confermare il tuo pagamento",
+      "paymentTitleWaiting": "In attesa del tuo pagamento",
+      "paymentTitleChecking": "Stiamo verificando il tuo pagamento",
+      "paymentWhatsappApprovedCta": "Invia la conferma su WhatsApp",
+      "paymentWhatsappHelpCta": "Contattaci su WhatsApp",
+      "paymentWhatsappApprovedMessage": "Ciao! Ho appena pagato l’acconto per {title}. Riferimento del pagamento: {reference}.",
+      "paymentWhatsappHelpMessage": "Ciao! Ho bisogno di aiuto con il pagamento per {title}. Riferimento del pagamento: {reference}.",
+      "paymentChecking": "Verifica del pagamento in corso...",
+      "paymentStatusApproved": "Inviaci la conferma su WhatsApp e confermeremo a breve la tua prenotazione. Riferimento: {reference}.",
+      "paymentStatusPending": "Il tuo pagamento è in elaborazione. Riferimento: {reference}. Inviacelo su WhatsApp e lo confermeremo.",
+      "paymentStatusRejected": "Il pagamento non è stato approvato. Puoi riprovare o contattarci su WhatsApp. Riferimento: {reference}.",
+      "paymentStatusNotFound": "Non abbiamo ancora trovato un pagamento per questa prenotazione. Se hai già pagato, contattaci su WhatsApp con il riferimento {reference}.",
+      "paymentStatusError": "Al momento non riusciamo a verificare il tuo pagamento. Riferimento: {reference}. Contattaci su WhatsApp indicandolo.",
+      "paymentLinkError": "Non siamo riusciti ad avviare il pagamento. Riprova o contattaci su WhatsApp.",
+      "paymentUnavailableError": "La tua selezione non è più disponibile. Controlla la data e le camere.",
+      "scrollHint": "Scorri per vedere altre date",
+      "lowAvailability": "Pochi posti disponibili",
+      "mobileDockSummaryLabel": "La tua prenotazione",
+      "mobileDockEmptySummary": "Scegli data, ospiti e alloggio",
+      "mobileDockEmptySummaryDayTrip": "Scegli data e ospiti",
+      "mobileDockPeopleSummary": "{count, plural, one {# ospite} other {# ospiti}}",
+      "mobileDockViewDetails": "Dettagli",
+      "mobileDockHideDetails": "Nascondi",
+      "mobileDockDate": "Data",
+      "mobileDockPeople": "Ospiti",
+      "mobileDockStay": "Alloggio",
+      "mobileDockRoom": "Camera",
+      "mobileDockTransport": "Trasporto",
+      "mobileDockNotSelected": "Non selezionato",
+      "mobileDockMissingDate": "Scegli la data",
+      "mobileDockMissingStay": "Scegli l’alloggio",
+      "mobileDockMissingRooms": "Scegli la camera",
+      "mobileDockMissingTransport": "Scegli il trasporto",
+      "mobileDockMissingContact": "Completa i dati di contatto",
+      "mobileDockMissingTerms": "Accetta i termini",
+      "termsToastMessage": "Accetta i termini e le condizioni per continuare.",
+      "mobileDockTrustLine": "12 prenotazioni di recente · Pagamento sicuro",
+      "transportTooltipCarNo4x4": "Le strade di montagna vicino alla destinazione possono essere dissestate. Controlla i dettagli del percorso prima di scegliere il veicolo.",
+      "selectedDateLabel": "Selezionata",
+      "roomPickerTitle": "Scelta delle camere",
+      "howManyPeople": "Quante persone?",
+      "peopleLabel": "Persone",
+      "roomType": "Tipo di camera:",
+      "guestsPerRoom": "Ospiti per camera",
+      "numberOfRooms": "Numero di camere",
+      "guests": "ospiti",
+      "privateBathroom": "bagno privato",
+      "private": "Privata",
+      "couple": "Coppia",
+      "roomMixHint": "Se serve, aggiungi più di un tipo di camera",
+      "selectedRoomsLabel": "Camere selezionate",
+      "clearSelection": "Cancella",
+      "noRoomsSelected": "Nessuna camera selezionata",
+      "addRoom": "Aggiungi camera",
+      "editRooms": "Rivedi / modifica",
+      "suggestedRoomsLabel": "Consigliato per {count} {count, plural, one {persona} other {persone}} ✨",
+      "suggestedRoomsNote": "In base alle dimensioni del tuo gruppo — modifica se necessario",
+      "addRoundtripTransfer": "Aggiungi il trasporto andata e ritorno {origin} ↔ {destination}",
+      "roundtripTransferPerVehicle": "per veicolo",
+      "roundtripTransferVehicles": "{count, plural, one {# veicolo} other {# veicoli}}",
+      "roundtripTransferLineItem": "{origin} ↔ {destination} andata e ritorno",
+      "allInclusiveLineItem": "Pasti e pernottamento inclusi per {count, plural, one {# persona} other {# persone}}; per il trasporto vedi i dettagli del viaggio",
+      "dayTripLineItem": "Tour giornaliero per {count, plural, one {# persona} other {# persone}}",
+      "roomSelectionTitle": "Scegli le camere",
+      "closeModal": "Chiudi",
+      "decrease": "Diminuisci",
+      "increase": "Aumenta",
+      "meetingPoint": "Punto d’incontro",
+      "validation": {
+        "selectDate": "Seleziona una data disponibile",
+        "peopleMin": "Minimo {min, plural, one {# persona} other {# persone}}",
+        "peopleMax": "Massimo {max, plural, one {# persona} other {# persone}}",
+        "roomRequired": "Seleziona almeno un tipo di camera",
+        "transportRequired": "Seleziona l’opzione di trasporto",
+        "termsRequired": "Devi accettare i termini e le condizioni",
+        "contactName": "Nome obbligatorio (minimo 2 caratteri)",
+        "contactPhone": "Numero di telefono non valido (minimo 7 cifre)",
+        "contactEmail": "Email non valida"
+      },
+      "unitsAvailable": "{count} unità",
+      "coupleNote": "💑 L’opzione Coppia semplifica la scelta: 2 persone in una camera condivisa.",
+      "selectTierTitle": "Scegli il tuo alloggio",
+      "tierPriceRange": "Fascia di prezzo",
+      "changeTierWarning": "Cambiando categoria, la selezione delle camere verrà azzerata",
+      "tripLogistics": "Logistica del viaggio",
+      "whatIsIncluded": "Cosa è incluso?",
+      "viewFullDetails": "Vedi tutti i dettagli",
+      "selectedTierLabel": "Selezionato",
+      "contactDataTitle": "Dati di contatto per confermare il tuo posto",
+      "fullName": "Nome e cognome",
+      "fullNamePlaceholder": "Mario Rossi",
+      "phone": "Telefono",
+      "phonePlaceholder": "+57 300 123 4567",
+      "email": "Email",
+      "emailPlaceholder": "tua@email.com",
+      "emailHelper": "Facoltativo - per una conferma aggiuntiva",
+      "startingPoint": "Da dove parti?",
+      "howToArrive": "Come arriverai?",
+      "transportNote": "Scegli qui sotto come arrivare. Il viaggio fino alla destinazione può essere separato; qui trovi il trasferimento facoltativo e il relativo prezzo.",
+      "roomMode": {
+        "standard": "Camera standard",
+        "family": "Camera familiare",
+        "cabin": "Cabaña"
+      },
+      "experienceDetails": {
+        "selectDate": "Seleziona una data",
+        "overviewTitle": "Panoramica dell’esperienza",
+        "valuePropositionsTitle": "Cosa rende diversa questa esperienza in miniera",
+        "tile1Title": "Miniera autentica",
+        "tile1Desc": "Vivi la vera estrazione di smeraldi con esperte guide locali in miniere storiche",
+        "tile2Title": "Accesso locale raro",
+        "tile2Desc": "Visita miniere di smeraldi in attività e scopri come le squadre locali selezionano le pietre",
+        "tile3Title": "Natura e cultura",
+        "tile3Desc": "Vivi da vicino la cultura andina autentica e i paesaggi di montagna",
+        "tripLogisticsTitle": "Logistica del viaggio e dettagli inclusi",
+        "itineraryTitle": "Itinerario giorno per giorno",
+        "includedLabel": "Incluso",
+        "notIncludedLabel": "Non incluso",
+        "faqsTitle": "Domande frequenti",
+        "hostPreparationTitle": "Host e preparazione",
+        "idealFor": "Ideale per",
+        "goodToKnow": "Buono a sapersi",
+        "faq1Q": "Qual è il livello di difficoltà?",
+        "faq1A": "Per le visite in miniera servono una forma fisica di base e la capacità di camminare con impegno moderato",
+        "faq2Q": "Qual è la stagione migliore per visitarle?",
+        "faq2A": "Il clima cambia con la stagione e le condizioni della montagna; controlla le previsioni e le note di preparazione prima del viaggio.",
+        "faq3Q": "Come organizzo il trasporto?",
+        "faq3A": "Il viaggio fino a Chivor non è incluso — una volta lì, il trasporto locale sì: da Chivor alla miniera o alle miniere, a Hacienda El Recuerdo e ritorno. Per arrivare a Chivor puoi guidare tu (per l’ultimo tratto si consiglia un 4x4), prendere l’autobus o aggiungere il nostro trasferimento andata e ritorno da Bogotá al momento della prenotazione.",
+        "coscuezTransportFaqQ": "Come arrivo all’esperienza di Coscuez?",
+        "coscuezTransportFaqA": "L’esperienza si svolge a partire da San Pablo de Borbur, Boyacá. Il viaggio fino a Borbur è separato dal tour; puoi guidare, prendere un autobus o scegliere il trasferimento privato facoltativo andata e ritorno da Bogotá. Il prezzo del trasferimento compare quando scegli l’opzione di trasporto.",
+        "checkDatesBtn": "Vedi le date",
+        "talkToHostBtn": "Parla con l’host",
+        "bookNowBtn": "Prenota ora",
+        "experienceSummary": "Incontra famiglie di minatori locali, scopri come si trovano e si selezionano gli smeraldi e conosci i paesaggi e la cultura di Boyacá.",
+        "valueStackPrivateMineAccess": "Visita guidata a una miniera locale",
+        "valueStackLocalExpertGuides": "Guide locali esperte",
+        "valueStackAllMealsIncluded": "Tutti i pasti inclusi",
+        "valueStackHaciendaStay": "Pernottamento in hacienda incluso",
+        "valueStackBreakfastFiambre": "Colazione e pranzo di fiambre inclusi",
+        "valueStackSameDayReturn": "Rientro in giornata",
+        "valueStackTwoMines": "2 miniere di smeraldi",
+        "valueStackHorsebackRiding": "Escursione a cavallo",
+        "accommodationTitle": "Il tuo alloggio",
+        "selectYourStayTitle": "Opzioni di alloggio",
+        "addonsTitle": "Extra facoltativi",
+        "addonsPerPerson": "a persona",
+        "addonsTeamConfirmation": "Il team conferma disponibilità e prezzo finale",
+        "addonsIncludedLabel": "Incluso",
+        "addonsIncludedNote": "Incluso nel tuo piano. Partecipare è facoltativo; se rinunci non è previsto rimborso.",
+        "hostChoiceLabel": "Scelta dell’host",
+        "selectedLabel": "Selezionato",
+        "tierBadgeHeritage": "Storico / Tradizionale",
+        "tierBadgeAdventure": "Avventura all’aperto",
+        "tierBadgeDefault": "Alloggio d’autore",
+        "selectedStayLabel": "Selezionato",
+        "locationLabel": "Posizione",
+        "maxCapacityLabel": "Fino a {count}",
+        "privateBathroomYes": "Bagno privato",
+        "privateBathroomNo": "Bagno in comune",
+        "wifiYes": "WiFi",
+        "wifiNo": "Niente WiFi",
+        "viewGalleryLabel": "Vedi la galleria",
+        "gallerySubtitle": "Camera, viste e servizi",
+        "activityGallerySubtitle": "Foto e momenti salienti dell’attività",
+        "closeGalleryLabel": "Chiudi",
+        "perNightLabel": "/notte",
+        "perPersonPerNightLabel": "/persona/notte",
+        "includedServicesLabel": "Servizi inclusi",
+        "roomCapacityLabel": "Fino a {count} ospiti",
+        "tierBadgeBorbur": "Hotel rurale a Borbur",
+        "valueStackRuralHotelStay": "Pernottamento in hotel rurale",
+        "valueStackFuraTena": "Escursione a Fura e Tena",
+        "faqsHeading": "Prima di prenotare il tuo tour in una miniera di smeraldi"
+      },
+      "packageTags": {
+        "allInclusive": "Soggiorno tutto incluso",
+        "dayTrip": "Gita in giornata"
+      },
+      "sharedDateUnavailable": "La data indicata in questo link non è più disponibile. Scegline un’altra."
+    },
+    "tiers": {
+      "borbur": {
+        "name": "Hotel rurale a Borbur",
+        "desc": "Alloggio privato a San Pablo de Borbur con letto matrimoniale e bagno privato. Un ambiente rurale confortevole come base per le giornate nelle miniere di smeraldi di Coscuez.",
+        "rooms": {
+          "standard": "Camera doppia con bagno privato"
+        }
+      },
+      "heritage": {
+        "name": "Hacienda El Recuerdo",
+        "desc": "Un soggiorno in una hacienda coloniale circondata dalla terra degli smeraldi. Fascino rustico, camere private e pasti fatti in casa.",
+        "rooms": {
+          "standard": "Camera standard",
+          "family": "Suite familiare"
+        },
+        "services": {
+          "breakfast": "Colazione tradizionale",
+          "dinner": "Cena casalinga"
+        },
+        "tierNote": "Un soggiorno in una hacienda coloniale, dentro le tradizioni della terra degli smeraldi — camere private, pasti fatti in casa e attenzione personale da parte dell’host.",
+        "idealFor1": "Appassionati di cultura e storia",
+        "idealFor2": "Famiglie e piccoli gruppi",
+        "idealFor3": "Viaggiatori attenti al comfort",
+        "goodToKnow1": "Bagno privato e acqua calda inclusi",
+        "goodToKnow2": "Pasti in hacienda preparati dalla famiglia che ti ospita",
+        "itinerary": {
+          "day1Title": "Giorno 1 — Spedizione in miniera",
+          "day2Title": "Giorno 2 — Scoperta e saluti",
+          "stop1Title": "Entra nella miniera di smeraldi",
+          "stop1ShortDesc": "Ti aspetta la miniera di smeraldi più storica della Colombia",
+          "stop1Desc": "Inizia la tua giornata in una delle miniere di smeraldi più storiche della Colombia. La tua guida, legata all’hacienda, ti accompagna nelle gallerie tradizionali raccontandoti l’epoca coloniale.",
+          "stop2Title": "Seconda miniera e laboratorio di selezione",
+          "stop2ShortDesc": "Impara a classificare e selezionare le gemme",
+          "stop2Desc": "Visita un altro giacimento di smeraldi e impara le tecniche professionali di classificazione nel laboratorio dell’hacienda.",
+          "stop3Title": "Check-in a Hacienda El Recuerdo",
+          "stop3ShortDesc": "Sistemati nella tua hacienda coloniale",
+          "stop3Desc": "Arrivo a Hacienda El Recuerdo — il tuo alloggio coloniale con camere private e una cena di benvenuto fatta in casa.",
+          "stop4Title": "Colazione tradizionale in hacienda",
+          "stop4ShortDesc": "Inizia il secondo giorno con sapori andini casalinghi",
+          "stop4Desc": "Goditi una colazione casalinga nella sala da pranzo dell’hacienda, con ingredienti locali freschi.",
+          "stop5Title": "Masterclass di gemmologia",
+          "stop5ShortDesc": "Spiegazioni esperte su qualità e origine degli smeraldi",
+          "stop5Desc": "Spiegazioni esperte su qualità, origine e mercato degli smeraldi — nel cortile dell’hacienda.",
+          "stop6Title": "Selezione finale e saluti",
+          "stop6ShortDesc": "Consegna dei certificati e saluti",
+          "stop6Desc": "Ripercorri il viaggio e ricevi il tuo certificato di partecipazione all’hacienda."
+        }
+      },
+      "adventure": {
+        "name": "Glamping Avventura",
+        "desc": "Dormi sotto le stelle in cupole geodetiche con vista panoramica sulle montagne.",
+        "rooms": {
+          "dome": "Cupola Stellare"
+        },
+        "itinerary": {
+          "day1Title": "Giorno 1 — Spedizione in miniera",
+          "day2Title": "Giorno 2 — Scoperta e saluti",
+          "stop1Title": "Entra nella miniera di smeraldi",
+          "stop1ShortDesc": "Ti aspetta la miniera di smeraldi più storica della Colombia",
+          "stop1Desc": "Inizia la tua giornata in una delle miniere di smeraldi più storiche della Colombia. Percorri sentieri impervi all’aperto per raggiungere il giacimento principale.",
+          "stop2Title": "Seconda miniera e laboratorio di selezione",
+          "stop2ShortDesc": "Impara a classificare le gemme a cielo aperto",
+          "stop2Desc": "Visita un altro giacimento di smeraldi e impara le tecniche professionali di classificazione in una postazione di selezione all’aperto.",
+          "stop3Title": "Check-in nelle cupole del glamping",
+          "stop3ShortDesc": "Sistemati nella tua cupola geodetica sotto le stelle",
+          "stop3Desc": "Arrivo al glamping — cupole geodetiche con vista panoramica sulle montagne e attrezzatura per osservare le stelle.",
+          "stop4Title": "Colazione all’alba all’aperto",
+          "stop4ShortDesc": "Inizia il secondo giorno con sapori andini a cielo aperto",
+          "stop4Desc": "Goditi la colazione sulla terrazza della cupola, tra panorami di montagna e l’aria fresca del mattino.",
+          "stop5Title": "Masterclass di gemmologia",
+          "stop5ShortDesc": "Spiegazioni esperte su qualità e origine degli smeraldi",
+          "stop5Desc": "Spiegazioni esperte su qualità, origine e mercato degli smeraldi — vicino al belvedere della miniera.",
+          "stop6Title": "Selezione finale e saluti",
+          "stop6ShortDesc": "Consegna dei certificati e saluti",
+          "stop6Desc": "Ripercorri il viaggio e ricevi il tuo certificato di partecipazione al belvedere."
+        },
+        "tierNote": "Dormi sotto le stelle in una cupola geodetica con vista panoramica sulle Ande.",
+        "idealFor1": "Amanti dell’avventura e del trekking",
+        "idealFor2": "Coppie e fughe romantiche",
+        "idealFor3": "Amanti della natura e dell’ecoturismo",
+        "goodToKnow1": "Cupola geodetica all’aperto — porta abiti caldi a strati",
+        "goodToKnow2": "Niente WiFi — una vera disconnessione digitale"
+      }
+    },
+    "chivorEmeraldCore": {
+      "title": "Tour della miniera di smeraldi di Chivor, Boyacá: 2 giorni in hacienda",
+      "cardTitle": "Tour di 2 giorni in miniera di smeraldi con notte in hacienda",
+      "subtitle": "Esperienza tutto incluso a Chivor (Boyacá), Colombia 🇨🇴",
+      "description": "Fai una visita guidata dentro una miniera di smeraldi attiva a Chivor e prova a cercare smeraldi con guide locali. Impara a selezionare le gemme, goditi i pasti inclusi e pernotta a Hacienda El Recuerdo; trovare uno smeraldo non è garantito.",
+      "includesFullDetails": "Include guida specializzata bilingue, attrezzatura di sicurezza, coordinamento del trasporto locale da Hacienda El Recuerdo, assicurazione contro gli infortuni, pasti e laboratorio sugli smeraldi.",
+      "includes": {
+        "guide": "Guida specializzata",
+        "equipment": "Attrezzatura di sicurezza",
+        "transport": "Coordinamento del trasporto locale",
+        "insurance": "Assicurazione contro gli infortuni"
+      },
+      "transport": {
+        "carNo4x4": "Auto propria (non 4x4)",
+        "carNo4x4Description": "Si aggiunge il costo del trasporto locale in 4x4",
+        "have4x4": "Ho un 4x4",
+        "have4x4Description": "Nessun costo aggiuntivo",
+        "bus": "Autobus di linea",
+        "busDescription": "Trasferimento locale dal terminal incluso",
+        "roundtripTransfer": "Trasferimento privato andata e ritorno",
+        "roundtripTransferDescription": "Servizio con veicolo privato, massimo 4 persone per veicolo"
+      },
+      "roomMode": {
+        "standardSingle": "Camera standard (1)",
+        "standardCouple": "Camera standard (2)",
+        "familySingle": "Camera familiare (1)",
+        "familyCouple": "Camera familiare (2)",
+        "familyThree": "Camera familiare (3)",
+        "cabinSingle": "Cabaña (1)",
+        "cabinCouple": "Cabaña (2)",
+        "cabinSix": "Cabaña (6)",
+        "standard": "Camera standard",
+        "family": "Camera familiare",
+        "cabin": "Cabaña"
+      },
+      "experienceDetails": {
+        "selectDate": "Seleziona una data",
+        "overviewTitle": "Panoramica dell’esperienza",
+        "valuePropositionsTitle": "Cosa rende diversa questa esperienza in miniera",
+        "tile1Title": "Miniera autentica",
+        "tile1Desc": "Vivi la vera estrazione di smeraldi con esperte guide locali in miniere storiche",
+        "tile2Title": "Accesso locale raro",
+        "tile2Desc": "Accesso esclusivo a miniere di smeraldi attive e laboratori di selezione",
+        "tile3Title": "Natura e cultura",
+        "tile3Desc": "Vivi da vicino la cultura andina autentica e i paesaggi di montagna",
+        "tripLogisticsTitle": "Logistica del viaggio e dettagli inclusi",
+        "itineraryTitle": "Itinerario interattivo",
+        "includedLabel": "Incluso",
+        "notIncludedLabel": "Non incluso",
+        "faqsTitle": "Domande frequenti",
+        "hostPreparationTitle": "Host e preparazione",
+        "idealFor": "Ideale per",
+        "goodToKnow": "Buono a sapersi",
+        "faq1Q": "Qual è il livello di difficoltà?",
+        "faq1A": "Impegno moderato: circa 2 ore e mezza di attività in 1 miniera e 2 ore di camminata su terreno rurale irregolare, con acqua, fango e umidità dentro la miniera. Il tempo sottoterra è solo una parte della giornata. Sconsigliato a persone con mobilità molto ridotta.",
+        "exploreHiddenHeart": "Esplora il cuore nascosto delle Ande",
+        "checkDatesBtn": "Vedi le date",
+        "talkToHostBtn": "Parla con l’host",
+        "bookNowBtn": "Prenota ora",
+        "faqStartQ": "A che ora inizia il tour e quando devo partire da Bogotá?",
+        "faqStartA": "La giornata in miniera inizia alle 9:00 a Chivor. Con 5–6 ore di viaggio da Bogotá, conviene partire tra le 3:00 e le 4:00. Puoi anche arrivare nel pomeriggio e visitare la miniera il giorno dopo, d’accordo con il team; in quel caso parti da Bogotá entro mezzogiorno."
+      },
+      "logistics": {
+        "start": "Ora di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto locale",
+        "difficulty": "Difficoltà",
+        "end": "Ora di fine"
+      },
+      "logisticsValues": {
+        "duration": "2 giorni / 1 notte",
+        "transport": "Incluso: da Chivor alla miniera, a Hacienda El Recuerdo e ritorno a Chivor",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guida mineraria esperta",
+        "equipment": "Attrezzatura di sicurezza",
+        "meals": "Pasti (colazione, pranzo, cena)",
+        "insurance": "Assicurazione di viaggio",
+        "mineAccess": "Accesso esclusivo alla miniera",
+        "workshop": "Laboratorio di classificazione delle gemme",
+        "smallGroups": "Piccoli gruppi (massimo 10 persone)",
+        "healthInsurance": "Assicurazione sanitaria"
+      },
+      "notIncluded": {
+        "airportTransfer": "Trasporto da e per l’aeroporto",
+        "drinks": "Bevande personali",
+        "souvenirs": "Gemme come souvenir",
+        "transportToChivor": "Trasporto fino a Chivor (trasferimento andata e ritorno da Bogotá disponibile come extra)"
+      },
+      "itinerary": {
+        "day1Title": "Giorno 1 — Miniera di smeraldi e hacienda",
+        "day2Title": "Giorno 2 — Mattina in hacienda e mercato degli smeraldi",
+        "stop4Title": "Pranzo tradizionale di fiambre",
+        "stop4ShortDesc": "Fiambre colombiano su foglia di platano",
+        "stop4Desc": "Goditi un pranzo tradizionale colombiano di fiambre a Hacienda El Recuerdo, servito su foglia di platano prima di entrare in miniera.",
+        "stop7Title": "Una notte in camera privata in hacienda",
+        "stop7ShortDesc": "Camera privata con bagno proprio",
+        "stop7Desc": "Trascorri la notte a Hacienda El Recuerdo in una comoda camera privata con bagno proprio, circondato dalle montagne di Chivor."
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Apicoltura e allevamento",
+          "description": "Attività guidate di apicoltura e allevamento a Hacienda El Recuerdo. Disponibili nel piano 2G/1N."
+        },
+        "horsebackRiding": {
+          "label": "Escursione guidata a cavallo",
+          "description": "Un’uscita guidata a cavallo lungo i sentieri rurali della zona. Prezzo quotato a parte rispetto al totale del piano."
+        }
+      },
+      "host": {
+        "bio": "Host locale specializzato in percorsi nelle miniere di smeraldi ed esperienze culturali andine.",
+        "idealFor1": "Amanti dell’avventura",
+        "idealFor2": "Appassionati di cultura",
+        "idealFor3": "Amanti della natura",
+        "goodToKnow1": "Richiesta una forma fisica di base",
+        "goodToKnow2": "Consigliate scarpe chiuse",
+        "goodToKnow3": "Piccoli gruppi"
+      }
+    },
+    "chivorEmeraldBasic": {
+      "title": "Gita in giornata alla miniera di smeraldi di Chivor, Boyacá",
+      "cardTitle": "Gita in giornata alle miniere di smeraldi: colazione e fiambre",
+      "subtitle": "Tour giornaliero a Chivor (Boyacá): visita in miniera, belvedere del Pulpito e pranzo di fiambre, rientro nel pomeriggio",
+      "description": "Si parte alle 9:00 e si rientra nello stesso pomeriggio. Racconto sulla storia degli smeraldi, ingresso guidato in una miniera di smeraldi attiva, camminata guidata tra le miniere, belvedere del Pulpito e pranzo tradizionale di fiambre a Hacienda El Recuerdo. Incluso il tragitto interno in 4x4 Chivor - miniere - Chivor.",
+      "transport": {
+        "carNo4x4": "Auto propria (non 4x4)",
+        "carNo4x4Description": "Si aggiunge il costo del trasporto locale in 4x4",
+        "have4x4": "Ho un 4x4",
+        "have4x4Description": "Nessun costo aggiuntivo",
+        "bus": "Autobus di linea",
+        "busDescription": "Trasferimento locale dal terminal incluso",
+        "roundtripTransfer": "Trasferimento privato andata e ritorno",
+        "roundtripTransferDescription": "Servizio con veicolo privato, massimo 4 persone per veicolo"
+      },
+      "roomMode": {
+        "standardSingle": "Visita in giornata (1)",
+        "standardCouple": "Visita in giornata (2)"
+      },
+      "tier": {
+        "tag": "Visita in giornata",
+        "name": "Visita in giornata",
+        "description": "Senza pernottamento. Colazione e pranzo di fiambre a Hacienda El Recuerdo.",
+        "roomStandard": "Visita in giornata"
+      },
+      "logistics": {
+        "start": "Ora di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto locale",
+        "difficulty": "Difficoltà"
+      },
+      "logisticsValues": {
+        "duration": "1 giorno (rientro nello stesso pomeriggio)",
+        "transport": "Incluso: 4x4 da Chivor alle miniere e ritorno a Chivor",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guide locali specializzate",
+        "equipment": "Attrezzatura di sicurezza",
+        "meals": "Colazione e pranzo di fiambre",
+        "insurance": "Assicurazione di viaggio",
+        "mineAccess": "Ingresso guidato in miniera",
+        "workshop": "Racconto e laboratorio sugli smeraldi",
+        "smallGroups": "Piccoli gruppi (massimo 10 persone)",
+        "healthInsurance": "Assistenza medica"
+      },
+      "notIncluded": {
+        "airportTransfer": "Trasporto da e per l’aeroporto",
+        "drinks": "Bevande personali",
+        "souvenirs": "Gemme come souvenir",
+        "transportToChivor": "Trasporto fino a Chivor (trasferimento andata e ritorno da Bogotá disponibile come extra)"
+      },
+      "host": {
+        "bio": "Host locale specializzato in percorsi nelle miniere di smeraldi ed esperienze culturali andine.",
+        "idealFor1": "Esploratori in giornata",
+        "idealFor2": "Appassionati di cultura",
+        "idealFor3": "Amanti della natura",
+        "goodToKnow1": "Indossa scarpe comode e porta una giacca leggera",
+        "goodToKnow2": "Arriva alle 9:00 nella data scelta",
+        "goodToKnow3": "Camminata moderata all’interno dell’area mineraria"
+      },
+      "itinerary": {
+        "day1Title": "Giorno 1 — Gita in giornata alle miniere di smeraldi",
+        "stop5Title": "Pranzo di fiambre in hacienda",
+        "stop5ShortDesc": "Fiambre colombiano su foglia di platano",
+        "stop5Desc": "Goditi un pranzo tradizionale colombiano di fiambre a Hacienda El Recuerdo, servito su foglia di platano, prima della camminata tra le miniere.",
+        "stop6Title": "Camminata guidata tra le miniere",
+        "stop6ShortDesc": "Sentieri di montagna con una guida locale",
+        "stop6Desc": "Una camminata guidata nell’area delle miniere di smeraldi con la tua guida locale, per capire come si lavora in miniera prima di rientrare a Chivor."
+      },
+      "experienceDetails": {
+        "faq1Q": "Quanto è impegnativo?",
+        "faq1A": "È una giornata lunga con impegno moderato: circa 2 ore di attività in miniera e 1 ora di camminata su terreno rurale, con acqua, fango e umidità dentro la miniera. A questo si aggiungono 5–6 ore di viaggio per tratta da Bogotá nello stesso giorno. Sconsigliato a persone con mobilità molto ridotta.",
+        "faqStartQ": "A che ora inizia il tour e quando devo partire da Bogotá?",
+        "faqStartA": "Il tour inizia alle 9:00 a Chivor e termina in giornata. Con 5–6 ore di viaggio da Bogotá, conviene partire tra le 3:00 e le 4:00. Se preferisci un ritmo più tranquillo, valuta un tour di 2 giorni/1 notte."
+      }
+    },
+    "chivorEmeraldPrime": {
+      "title": "Tour di Chivor, Boyacá: 2 giorni, 2 miniere, cavallo e hacienda",
+      "cardTitle": "Tour di 2 giorni: 2 miniere di smeraldi, cavallo e hacienda",
+      "subtitle": "Esperienza culturale e naturalistica tutto incluso a Chivor (Boyacá), Colombia 🇨🇴",
+      "description": "Visita due miniere di smeraldi a Chivor, raggiungi la seconda a cavallo e prova a cercare smeraldi con guide locali. Include i pasti e una notte a Hacienda El Recuerdo; trovare uno smeraldo non è garantito.",
+      "includesFullDetails": "Include guida specializzata bilingue, attrezzatura di sicurezza, coordinamento del trasporto locale da Hacienda El Recuerdo, assicurazione contro gli infortuni, pasti e laboratorio sugli smeraldi.",
+      "includes": {
+        "guide": "Guida specializzata",
+        "equipment": "Attrezzatura di sicurezza",
+        "transport": "Coordinamento del trasporto locale",
+        "insurance": "Assicurazione contro gli infortuni"
+      },
+      "transport": {
+        "carNo4x4": "Auto propria (non 4x4)",
+        "carNo4x4Description": "Si aggiunge il costo del trasporto locale in 4x4",
+        "have4x4": "Ho un 4x4",
+        "have4x4Description": "Nessun costo aggiuntivo",
+        "bus": "Autobus di linea",
+        "busDescription": "Trasferimento locale dal terminal incluso",
+        "roundtripTransfer": "Trasferimento privato andata e ritorno",
+        "roundtripTransferDescription": "Servizio con veicolo privato, massimo 4 persone per veicolo"
+      },
+      "roomMode": {
+        "standardSingle": "Camera standard (1)",
+        "standardCouple": "Camera standard (2)",
+        "familySingle": "Camera familiare (1)",
+        "familyCouple": "Camera familiare (2)",
+        "familyThree": "Camera familiare (3)",
+        "cabinSingle": "Cabaña (1)",
+        "cabinCouple": "Cabaña (2)",
+        "cabinSix": "Cabaña (6)",
+        "standard": "Camera standard",
+        "family": "Camera familiare",
+        "cabin": "Cabaña"
+      },
+      "experienceDetails": {
+        "selectDate": "Seleziona una data",
+        "overviewTitle": "Panoramica dell’esperienza",
+        "valuePropositionsTitle": "Cosa rende diversa questa esperienza in miniera",
+        "tile1Title": "Miniera autentica",
+        "tile1Desc": "Vivi la vera estrazione di smeraldi con esperte guide locali in miniere storiche",
+        "tile2Title": "Accesso locale raro",
+        "tile2Desc": "Accesso esclusivo a miniere di smeraldi attive e laboratori di selezione",
+        "tile3Title": "Natura e cultura",
+        "tile3Desc": "Vivi da vicino la cultura andina autentica e i paesaggi di montagna",
+        "tripLogisticsTitle": "Logistica del viaggio e dettagli inclusi",
+        "itineraryTitle": "Itinerario interattivo",
+        "includedLabel": "Incluso",
+        "notIncludedLabel": "Non incluso",
+        "faqsTitle": "Domande frequenti",
+        "hostPreparationTitle": "Host e preparazione",
+        "idealFor": "Ideale per",
+        "goodToKnow": "Buono a sapersi",
+        "faq1Q": "Qual è il livello di difficoltà?",
+        "faq1A": "Impegno elevato: circa 5 ore di attività in 2 miniere e 2 ore a cavallo, con acqua, fango e terreno irregolare. Se l’uscita a cavallo non è possibile, viene sostituita da un percorso in 4x4 senza variazioni di prezzo. Sconsigliato a persone con mobilità molto ridotta.",
+        "exploreHiddenHeart": "Esplora il cuore nascosto delle Ande",
+        "checkDatesBtn": "Vedi le date",
+        "talkToHostBtn": "Parla con l’host",
+        "bookNowBtn": "Prenota ora",
+        "faqStartQ": "A che ora inizia il tour e quando devo partire da Bogotá?",
+        "faqStartA": "La giornata inizia alle 8:00 a Chivor perché comprende due miniere. Indicativamente, parti da Bogotá verso le 3:00, o prima se prevedi più di 5 ore di viaggio. Puoi anche arrivare nel pomeriggio e iniziare il giorno dopo, d’accordo con il team; in quel caso parti da Bogotá entro mezzogiorno."
+      },
+      "logistics": {
+        "start": "Ora di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto locale",
+        "difficulty": "Difficoltà",
+        "end": "Ora di fine"
+      },
+      "logisticsValues": {
+        "duration": "2 giorni / 1 notte",
+        "transport": "Incluso: da Chivor a entrambe le miniere, a Hacienda El Recuerdo e ritorno a Chivor",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guida mineraria esperta",
+        "equipment": "Attrezzatura di sicurezza",
+        "meals": "Pasti (colazione, pranzo, cena)",
+        "insurance": "Assicurazione di viaggio",
+        "mineAccess": "Accesso a 2 miniere di smeraldi",
+        "workshop": "Laboratorio di classificazione delle gemme",
+        "smallGroups": "Piccoli gruppi (massimo 10 persone)",
+        "healthInsurance": "Assicurazione sanitaria"
+      },
+      "notIncluded": {
+        "airportTransfer": "Trasporto da e per l’aeroporto",
+        "drinks": "Bevande personali",
+        "souvenirs": "Gemme come souvenir",
+        "transportToChivor": "Trasporto fino a Chivor (trasferimento andata e ritorno da Bogotá disponibile come extra)"
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Apicoltura e allevamento",
+          "description": "Attività guidate di apicoltura e allevamento a Hacienda El Recuerdo. Disponibili nel piano 2G/1N."
+        },
+        "horsebackRiding": {
+          "label": "Escursione guidata a cavallo",
+          "description": "Un’uscita guidata a cavallo lungo i sentieri rurali della zona. Prezzo quotato a parte rispetto al totale del piano."
+        }
+      },
+      "host": {
+        "bio": "Host locale specializzato in percorsi nelle miniere di smeraldi ed esperienze culturali andine.",
+        "idealFor1": "Amanti dell’avventura",
+        "idealFor2": "Appassionati di cultura",
+        "idealFor3": "Amanti della natura",
+        "goodToKnow1": "Richiesta una forma fisica di base",
+        "goodToKnow2": "Consigliate scarpe chiuse",
+        "goodToKnow3": "Piccoli gruppi"
+      },
+      "itinerary": {
+        "day1Title": "Giorno 1 — Due miniere e cavallo",
+        "day2Title": "Giorno 2 — Mattina in hacienda e mercato degli smeraldi",
+        "stop5Title": "Pranzo tradizionale di fiambre",
+        "stop5ShortDesc": "Fiambre colombiano su foglia di platano",
+        "stop5Desc": "Goditi un pranzo tradizionale colombiano di fiambre a Hacienda El Recuerdo, servito su foglia di platano dopo la visita in miniera.",
+        "stop6Title": "A cavallo fino a una seconda miniera",
+        "stop6ShortDesc": "In sella tra le colline di Mundo Nuevo",
+        "stop6Desc": "Attraversa a cavallo le colline smeraldifere di Mundo Nuevo fino all’ingresso di una miniera artigianale.",
+        "stop7Title": "Incontra i minatori artigianali di Chivor",
+        "stop7ShortDesc": "Saperi ancestrali tramandati di generazione in generazione",
+        "stop7Desc": "Visita una seconda miniera di smeraldi e scopri come lavorano i minatori artigianali di Chivor, con conoscenze ancestrali e tradizioni tramandate di generazione in generazione.",
+        "stop9Title": "Una notte in una hacienda privata",
+        "stop9ShortDesc": "Camera privata con bagno proprio",
+        "stop9Desc": "Trascorri la notte a Hacienda El Recuerdo in una comoda camera privata con bagno proprio, circondato dalle montagne di Chivor."
+      }
+    },
+    "itineraryStops": {
+      "welcomeBreakfast": {
+        "title": "Colazione di benvenuto",
+        "shortDesc": "Una colazione colombiana per iniziare la giornata",
+        "description": "Inizia la tua giornata a Chivor con una colazione tradizionale colombiana prima di salire verso le montagne degli smeraldi."
+      },
+      "historyTalk": {
+        "title": "Racconto su storia degli smeraldi e gioielleria",
+        "shortDesc": "Artigiani locali raccontano la vita in miniera",
+        "description": "Un incontro introduttivo con artigiani locali sulla storia degli smeraldi, sulla vita in miniera e sulle basi della lavorazione dei gioielli."
+      },
+      "minesViewpoint": {
+        "title": "Belvedere panoramico sulle miniere di Chivor",
+        "shortDesc": "Ampie vedute sulla valle degli smeraldi",
+        "description": "Ammira dall’alto il paesaggio minerario di Chivor — le montagne e l’area delle miniere da un punto panoramico privilegiato."
+      },
+      "mineVisit": {
+        "title": "Visita guidata in una vera miniera di smeraldi",
+        "shortDesc": "Casco, lampade e istruzioni di sicurezza",
+        "description": "Una visita guidata dentro una vera miniera di smeraldi, con casco, lampade e istruzioni di sicurezza chiare."
+      },
+      "haciendaDinner": {
+        "title": "Cena a Hacienda El Recuerdo",
+        "shortDesc": "Cena andina fatta in casa",
+        "description": "Una cena andina fatta in casa nella fattoria, con ingredienti locali e servizio a conduzione familiare."
+      },
+      "haciendaBreakfast": {
+        "title": "Colazione in hacienda",
+        "shortDesc": "Una mattina andina tranquilla",
+        "description": "Svegliati in un paesaggio andino tranquillo e goditi una colazione tradizionale colombiana a Hacienda El Recuerdo."
+      },
+      "optionalMarket": {
+        "title": "(Facoltativo) Minatori locali e mercato degli smeraldi",
+        "shortDesc": "Dove si commerciano gli smeraldi di Chivor",
+        "description": "Facoltativo: incontra minatori locali e visita il mercato degli smeraldi, dove si comprano e vendono le pietre delle miniere della regione."
+      },
+      "borburBreakfast": {
+        "title": "Colazione di benvenuto a Borbur",
+        "shortDesc": "Conosci le tue guide della regione",
+        "description": "Inizia la tua esperienza a Coscuez con la colazione e l’incontro con le guide a San Pablo de Borbur."
+      },
+      "chacaroWorkshop": {
+        "title": "Laboratorio sugli smeraldi e visita a Plaza del Chácaro",
+        "shortDesc": "La storia mineraria nella piazza storica",
+        "description": "Visita Plaza del Chácaro (circa 1 ora) per conoscere le tradizioni dell’estrazione di smeraldi direttamente dai minatori al lavoro, esplorare l’area mineraria e capire il mestiere che definisce Coscuez."
+      },
+      "miningLunch": {
+        "title": "Pranzo",
+        "shortDesc": "Un pasto durante l’esperienza in miniera",
+        "description": "Goditi il pranzo prima della visita guidata alla miniera di smeraldi."
+      },
+      "ruralHotelDinner": {
+        "title": "Cena e serata in hotel rurale",
+        "shortDesc": "Ti sistemi per la notte a Borbur",
+        "description": "Rientra in hotel rurale per una cena casalinga tradizionale con cucina locale di Boyacá, poi riposati per la serata."
+      },
+      "ruralHotelStay": {
+        "title": "Pernottamento in hotel rurale a Borbur",
+        "shortDesc": "Riposo in camera privata",
+        "description": "Trascorri la notte nell’hotel rurale di Borbur, in una camera privata con bagno proprio."
+      }
+    },
+    "coscuezEmeraldCore": {
+      "title": "Coscuez: 2 giorni in miniera di smeraldi, belvedere e hotel rurale",
+      "cardTitle": "2 giorni in miniera di smeraldi, belvedere e hotel rurale",
+      "subtitle": "2G/1N in miniera di smeraldi a Coscuez con pernottamento in hotel rurale a Borbur, Boyacá",
+      "description": "Esplora una vera miniera di smeraldi a Coscuez con guide specializzate, visita Plaza del Chácaro e cammina fino a un belvedere all’aperto. Notte in hotel rurale a Borbur, 4 pasti inclusi.",
+      "selectDate": "Seleziona la data",
+      "selectPeople": "Quante persone?",
+      "peopleCountLabel": "Numero di persone",
+      "roomModeLabel": "Tipo di camera",
+      "roomModePrivate": "Privata",
+      "roomModeCouple": "Coppia",
+      "transportLabel": "Come preferisci arrivare?",
+      "logistics": {
+        "start": "Ora di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto locale",
+        "difficulty": "Difficoltà"
+      },
+      "logisticsValues": {
+        "duration": "2G/1N",
+        "transport": "Trasporto locale incluso",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guide specializzate della regione",
+        "equipment": "Attrezzatura di sicurezza completa per l’accesso in miniera",
+        "meals": "4 pasti: 2 colazioni, 1 pranzo, 1 cena",
+        "insurance": "Copertura di assistenza medica",
+        "mineAccess": "Ingresso guidato in miniera di smeraldi con attrezzatura di sicurezza completa",
+        "workshop": "Laboratorio sugli smeraldi e visita alla storica Plaza del Chácaro",
+        "smallGroups": "Esperienza locale personalizzata, massimo 10 viaggiatori",
+        "healthInsurance": "Polizza di assistenza medica inclusa"
+      },
+      "notIncluded": {
+        "airportTransfer": "I trasferimenti da e per l’aeroporto non sono inclusi",
+        "drinks": "Bevande personali",
+        "souvenirs": "Souvenir e acquisto di smeraldi",
+        "transportToBorbur": "Il viaggio fino a Borbur non è incluso; il trasferimento privato andata e ritorno da Bogotá è facoltativo"
+      },
+      "transport": {
+        "carNo4x4": "Auto normale",
+        "carNo4x4Description": "Ritrovo nel centro di Borbur; il trasporto locale copre tutti i percorsi nell’area delle miniere",
+        "have4x4": "Il tuo 4x4",
+        "have4x4Description": "Guida fino a Borbur; coordiniamo noi tutto il trasporto locale nell’area delle miniere di smeraldi",
+        "bus": "Autobus di linea",
+        "busDescription": "Prendi Transportes Reina da Bogotá o da altre città (5–6 ore); conferma la fermata a Borbur",
+        "roundtripTransfer": "Trasferimento privato andata e ritorno",
+        "roundtripTransferDescription": "Trasferimento privato facoltativo andata e ritorno da Bogotá con ritiro in hotel, fino a 4 persone per veicolo. Prezzo indicato nel riepilogo della prenotazione."
+      },
+      "roomMode": {
+        "standardSingle": "Camera singola, bagno privato",
+        "standardCouple": "Camera doppia, bagno privato"
+      },
+      "addons": {},
+      "host": {
+        "bio": "Guide specializzate della regione, con profonda conoscenza delle miniere di smeraldi di Coscuez e dei sentieri di montagna",
+        "idealFor1": "Viaggiatori che cercano l’autentica cultura mineraria degli smeraldi e un contatto genuino con la gente del posto",
+        "idealFor2": "Famiglie con bambini dai 5 anni in su che vogliono conoscere da vicino la geologia e la vita rurale",
+        "idealFor3": "Amanti dell’avventura a proprio agio su terreno montano e con l’attività fisica",
+        "goodToKnow1": "Età minima: 5 anni; i gruppi con bambini più piccoli richiedono un accordo preventivo",
+        "goodToKnow2": "Tour solo in spagnolo; non sono disponibili traduttori",
+        "goodToKnow3": "Animali benvenuti previo accordo; non tutte le aree delle attività sono accessibili agli animali"
+      },
+      "itinerary": {
+        "day1Title": "Giorno 1: Arrivo ed esperienza in miniera di smeraldi",
+        "day2Title": "Giorno 2: Ritorno a Borbur",
+        "stop6Title": "Camminata guidata fino al belvedere",
+        "stop6ShortDesc": "Trekking fino a un punto panoramico sulla regione",
+        "stop6Desc": "Una camminata di 2–3 ore nel paesaggio di Coscuez fino a un belvedere all’aperto sulla valle. Riposati e osserva le montagne e il territorio rurale.",
+        "stop9Title": "Colazione e saluti",
+        "stop9ShortDesc": "L’ultima mattina a Borbur",
+        "stop9Desc": "Goditi la colazione in hotel prima della fine della tua esperienza a Coscuez."
+      }
+    },
+    "coscuezEmeraldPrime": {
+      "title": "Coscuez: 2 giorni in miniera di smeraldi e 4x4 a Fura e Tena",
+      "cardTitle": "2 giorni in miniera di smeraldi e gita in 4x4 a Fura e Tena",
+      "subtitle": "2G/1N in miniera di smeraldi ed escursione in montagna a Fura e Tena, con pernottamento in hotel rurale a Borbur",
+      "description": "Esplora una vera miniera di smeraldi a Coscuez e Plaza del Chácaro, poi raggiungi in 4x4 Fura e Tena per una camminata guidata e un pranzo in montagna. Hotel rurale a Borbur, 5 pasti inclusi.",
+      "selectDate": "Seleziona la data",
+      "selectPeople": "Quante persone?",
+      "peopleCountLabel": "Numero di persone",
+      "roomModeLabel": "Tipo di camera",
+      "roomModePrivate": "Privata",
+      "roomModeCouple": "Coppia",
+      "transportLabel": "Come preferisci arrivare?",
+      "logistics": {
+        "start": "Ora di inizio",
+        "duration": "Durata",
+        "transport": "Trasporto locale",
+        "difficulty": "Difficoltà"
+      },
+      "logisticsValues": {
+        "duration": "2G/1N",
+        "transport": "Locale + 4x4 per l’escursione del giorno 2",
+        "difficulty": "Moderata"
+      },
+      "included": {
+        "guide": "Guide specializzate della regione",
+        "equipment": "Attrezzatura di sicurezza completa per l’accesso in miniera",
+        "meals": "5 pasti: 2 colazioni, 2 pranzi, 1 cena",
+        "insurance": "Copertura di assistenza medica",
+        "mineAccess": "Ingresso guidato in miniera di smeraldi con attrezzatura di sicurezza completa",
+        "workshop": "Laboratorio sugli smeraldi e visita alla storica Plaza del Chácaro",
+        "smallGroups": "Esperienza locale personalizzata, massimo 10 viaggiatori",
+        "healthInsurance": "Polizza di assistenza medica inclusa"
+      },
+      "notIncluded": {
+        "airportTransfer": "I trasferimenti da e per l’aeroporto non sono inclusi",
+        "drinks": "Bevande personali",
+        "souvenirs": "Souvenir e acquisto di smeraldi",
+        "transportToBorbur": "Il viaggio fino a Borbur non è incluso; il trasferimento privato andata e ritorno da Bogotá è facoltativo"
+      },
+      "transport": {
+        "carNo4x4": "Auto normale",
+        "carNo4x4Description": "Ritrovo nel centro di Borbur; 4x4 fornito per l’escursione a Fura e Tena del giorno 2",
+        "have4x4": "Il tuo 4x4",
+        "have4x4Description": "Guida fino a Borbur; puoi usare il tuo veicolo per l’escursione in montagna a Fura e Tena del giorno 2",
+        "bus": "Autobus di linea",
+        "busDescription": "Prendi Transportes Reina da Bogotá o da altre città (5–6 ore); conferma la fermata a Borbur",
+        "roundtripTransfer": "Trasferimento privato andata e ritorno",
+        "roundtripTransferDescription": "Trasferimento privato facoltativo andata e ritorno da Bogotá con ritiro in hotel, fino a 4 persone per veicolo. Prezzo indicato nel riepilogo della prenotazione."
+      },
+      "roomMode": {
+        "standardSingle": "Camera singola, bagno privato",
+        "standardCouple": "Camera doppia, bagno privato"
+      },
+      "addons": {},
+      "host": {
+        "bio": "Guide specializzate con profonda conoscenza delle miniere di smeraldi di Coscuez, del paesaggio montano di Fura e Tena e della cultura locale",
+        "idealFor1": "Avventurieri che cercano 2 giorni pieni di cultura e natura selvaggia",
+        "idealFor2": "Famiglie con bambini dai 5 anni in su che vogliono più tempo nella natura, viste di montagna e nozioni di geologia",
+        "idealFor3": "Appassionati di outdoor a proprio agio con trekking, spostamenti in 4x4 e un maggiore impegno fisico e di quota",
+        "goodToKnow1": "Età minima: 5 anni; i gruppi con bambini più piccoli richiedono un accordo preventivo",
+        "goodToKnow2": "Tour solo in spagnolo; non sono disponibili traduttori",
+        "goodToKnow3": "Animali benvenuti previo accordo; non tutte le aree delle attività sono accessibili agli animali"
+      },
+      "itinerary": {
+        "day1Title": "Giorno 1: Arrivo ed esperienza in miniera di smeraldi",
+        "day2Title": "Giorno 2: Escursione in 4x4 sulle montagne di Fura e Tena",
+        "stop8Title": "Colazione e partenza in 4x4 per Fura e Tena",
+        "stop8ShortDesc": "Partenza al mattino presto per l’escursione in montagna",
+        "stop8Desc": "Dopo colazione, partenza in 4x4 per il tragitto panoramico di circa 45 minuti fino alla zona di Fura e Tena, in alta montagna.",
+        "stop9Title": "Camminata guidata nel paesaggio di Chanares",
+        "stop9ShortDesc": "Trekking panoramico su terreno d’alta montagna",
+        "stop9Desc": "Una camminata guidata nel paesaggio naturale di Chanares, con viste sulle vette e sulle valli che caratterizzano la zona di Fura e Tena.",
+        "stop10Title": "Pranzo al sacco tradizionale in montagna",
+        "stop10ShortDesc": "Fiambre con vista sulle montagne",
+        "stop10Desc": "Goditi un fiambre tradizionale (pranzo al sacco) con cucina locale di Boyacá nella zona di Chanares, circondato dal paesaggio montano.",
+        "stop11Title": "Ritorno a Borbur e serata",
+        "stop11ShortDesc": "Rientro e riposo prima della partenza",
+        "stop11Desc": "Rientro in 4x4 a Borbur, con partenza possibile dopo mezzogiorno di domenica. Tempo per riposare o esplorare il paese di Borbur prima di ripartire."
+      }
+    }
+  },
+  "Footer": {
+    "contactUs": "Contattaci",
+    "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
+    "whatsapp": "whatsapp",
+    "instagram": "Instagram",
+    "whatsappMessage": "Ciao! Mi interessano i servizi di Andean Scapes",
+    "valueProposition": "Andean Scapes: avventure selezionate nella capitale degli smeraldi.",
+    "startWhatsapp": "Avvia una chat WhatsApp",
+    "sendEmail": "Invia un’email",
+    "territoryEssentials": "Il territorio in breve",
+    "logistics": "Logistica",
+    "transportation": "Trasporti",
+    "staySelection": "Opzioni di soggiorno",
+    "allyNetwork": "La nostra rete di partner selezionati",
+    "partner": "Partner",
+    "allyHacienda": "Hacienda El Recuerdo",
+    "allyGlamping": "Glamping Aventura",
+    "allyExperiences": "Tutte le esperienze",
+    "legalSafety": "Note legali e sicurezza",
+    "certifications": "Certificazioni",
+    "insurance": "Assicurazione",
+    "terms": "Termini",
+    "privacy": "Privacy",
+    "comingSoon": "Prossimamente",
+    "allRightsReserved": "Tutti i diritti riservati.",
+    "allyGuides": "Guide",
+    "allyEmeralds": "Mondo Smeraldo"
+  },
+  "MobileMenu": {
+    "brandLine": "Soggiorni ed esperienze autentiche nelle Ande colombiane",
+    "exploreExperiences": "Esplora le esperienze",
+    "planOnWhatsApp": "Pianifica il viaggio su WhatsApp",
+    "whatsappMessage": "Ciao! Vorrei aiuto per pianificare un viaggio con Andean Scapes.",
+    "sectionQuickExplore": "Esplora in breve",
+    "sectionNavigate": "Naviga",
+    "trustMicroCopy": "Piccoli gruppi · Host locali · Pianificazione flessibile · Assistenza WhatsApp",
+    "dialogLabel": "Navigazione mobile",
+    "closeMenu": "Chiudi menu",
+    "openMenu": "Apri menu",
+    "chips": {
+      "emerald": "Smeraldi",
+      "nature": "Natura",
+      "rural": "Rurale e lodge",
+      "horseback": "A cavallo"
+    },
+    "nav": {
+      "howItWorks": "Come funziona",
+      "reviews": "Recensioni",
+      "faq": "FAQ",
+      "guides": "Guide",
+      "emeralds": "Mondo Smeraldo"
+    }
+  },
+  "Error": {
+    "title": "Qualcosa è andato storto",
+    "description": "Non siamo riusciti a caricare questa pagina. Di solito è un problema temporaneo — riprova tra qualche istante.",
+    "retry": "Riprova",
+    "backHome": "Torna alla home",
+    "reference": "Riferimento"
+  },
+  "CoscuezEmeraldCore": {
+    "metaTitle": "Coscuez: miniera di smeraldi + hotel rurale | Andean Scapes",
+    "metaDescription": "Vivi le miniere di smeraldi di Coscuez con un soggiorno 2G/1N in hotel rurale a Borbur, pasti e tour in miniera con guide locali."
+  },
+  "CoscuezEmeraldPrime": {
+    "metaTitle": "Miniera di Coscuez + Fura e Tena in 4x4 | Andean Scapes",
+    "metaDescription": "Miniere di smeraldi di Coscuez ed escursione in montagna a Fura e Tena, con soggiorno 2G/1N in hotel rurale a Borbur, 5 pasti e guide locali."
+  },
+  "Trust": {
+    "title": "Chi organizza questo tour",
+    "lead": "La stessa azienda pianifica il viaggio, risponde ai tuoi messaggi e gestisce la giornata a Chivor. Questi sono i dati che puoi verificare prima di pagare qualsiasi cosa.",
+    "operatorLabel": "Tour operator",
+    "operatorDetail": "{legalName}, società colombiana (NIT {taxId}), con sede legale in {address}, Colombia.",
+    "technologyLabel": "Sito web e prenotazioni",
+    "technologyDetail": "{name}, società registrata nello stato della Georgia (USA), sviluppa questo sito web e gestisce il processo di prenotazione online.",
+    "paymentLabel": "Come paghi",
+    "paymentDetail": "Prima confermiamo la tua data. Solo allora paghi un acconto tra il 25% e il 30%; il saldo segue le condizioni del tour. Non chiediamo mai l’intero importo in anticipo.",
+    "includedLabel": "Il giorno del tour",
+    "includedDetail": "Una guida locale resta con il gruppo, casco e stivali sono forniti e durante l’esperienza è attiva una copertura di assistenza medica.",
+    "platformsLabel": "Presenti anche, con recensioni verificate, su",
+    "opensInNewTab": "(si apre in una nuova scheda)"
+  },
+  "BookingShare": {
+    "title": "Prenota: {title} | Andean Scapes",
+    "description": "Scegli la data e prenota con un acconto del 25–30%, da pagare solo dopo che abbiamo confermato la disponibilità."
+  }
+}

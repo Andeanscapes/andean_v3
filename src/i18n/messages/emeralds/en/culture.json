@@ -1,0 +1,109 @@
+{
+  "pages": {
+    "culture": {
+      "navLabel": "Culture",
+      "metaTitle": "Emerald Culture in Colombia: Food, Music, Markets and Faith",
+      "metaDescription": "How people live in Colombia’s emerald regions: tropical Boyacá, mine food, norteña music, card games, emerald markets and faith.",
+      "title": "Emerald culture: how the mining regions live",
+      "lead": "An emerald here rarely means luxury. It means farms, long days underground, food built for the mine, norteña on the radio, a market on an earth floor and a basilica on the way down.",
+      "imageAlt": "A group of visitors in helmets in the yard of an emerald mine",
+      "sections": {
+        "what": {
+          "heading": "What this section covers",
+          "note": "editorial",
+          "paragraphs": [
+            "Most of what follows is field notes from the Fuego Verde journeys: what we ate, heard and saw. Where a document confirms a detail, it carries a source."
+          ]
+        },
+        "tropical": {
+          "heading": "Tropical Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "The emerald regions are hot, humid, campesino mountains, nothing like the cold highland most travelers picture when they hear Boyacá. Cacao, cattle and honey share the slopes with the mines, and the culture crosses into Cundinamarca without asking."
+          ]
+        },
+        "table": {
+          "heading": "The table",
+          "note": "fieldNote",
+          "paragraphs": [
+            "In Oriente: avíos packed for the mine, carne oreada, nacumas. In Coscuez: arroz de fines, gallina Nicaragua, gallina borracha, names nobody could fully explain to us.",
+            "In Gachalá the dish people point to is gallina campesina, a free-range hen served with corn arepas, consommé, cassava and arracacha.[[wiki-es-gachala]]"
+          ]
+        },
+        "music": {
+          "heading": "Norteña, cacho and naipe",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Norteña, the accordion music of northern Mexico, plays from cars and shops across both regions. In Coscuez the evenings belong to cacho and naipe, dice and cards, and to tomata, and to the old jeeps parked outside."
+          ]
+        },
+        "markets": {
+          "heading": "The market on an earth floor",
+          "note": "fieldNote",
+          "paragraphs": [
+            "In the Plaza del Chácaro, near Coscuez, stones pass from hand to hand between guaqueros, buyers and miners still black from the tunnel. Some buyers read an emerald in five seconds.",
+            "Searching on your own, guaquería, has existed in the emerald towns of western Boyacá for more than seventy years, since the mines were run by the central bank.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "devotion": {
+          "heading": "Faith on the way down",
+          "note": "fieldNote",
+          "paragraphs": [
+            "The road into Occidente starts at Chiquinquirá and its basilica, and devotion to the Virgin there runs through the region. When the third Green War ended, it was the bishop of Chiquinquirá who mediated the ceasefire of 1990.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    },
+    "guaqueros": {
+      "metaTitle": "Guaqueros: Colombia’s Independent Emerald Searchers",
+      "metaDescription": "Who Colombia’s guaqueros are: dawn trips to the mines, fighting for discarded earth, the 1970s tambreo, women who search and why everyone guaquea.",
+      "title": "Guaqueros: the people who search on their own",
+      "lead": "Before dawn, hundreds of people wait at the gates of the mines for the earth the companies throw away. This is how emerald searching works for those without a mine.",
+      "imageAlt": "A miner chips at a rock face by headlamp inside an emerald mine",
+      "sections": {
+        "who": {
+          "heading": "Who is a guaquero?",
+          "answer": "A guaquero is an independent emerald searcher who works without a mining title. In the emerald towns of western Boyacá such as Muzo, Maripí, Pauna, Santa Bárbara, Otanche and San Pablo de Borbur, guaquería has existed for more than seventy years.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Some dig holes in the mountain on their own account without permits, others walk the inactive tunnels companies once worked, and the boldest go into active ones at night. People in the region call it minería de hecho, de facto mining.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "dawn": {
+          "heading": "A guaquera’s morning",
+          "answer": "One guaquera interviewed in Muzo gets up at 3:30, cooks for her four children and, by 4:30, waits at the market square with about forty others for the trucks to the mines, 50 minutes away. She carries the 10,000-peso fare out and hopes to find a stone to pay the fare back.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "When there is no money for the fare, she leaves at two in the morning and walks.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "voladoras": {
+          "heading": "Fighting for the earth",
+          "answer": "Companies hand out the earth that comes out of their tunnels, and guaqueros wash it hoping a stone slipped through. Businessmen in the region estimate that ten tonnes of barren earth are explored for each carat of emerald.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Every morning between 50 and 500 guaqueros wait at the mine gates; if word spreads that a mine is showing color, more than 3,000 come. The places where the earth is dumped are called voladoras, and the scramble brings shoves, fights and broken bones.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "tambreo": {
+          "heading": "From open pits to tunnels",
+          "answer": "In the mid-1970s the first open-pit operations cut the mountain with bulldozers, and the earth fell into the creeks, where guaqueros shoveled the mud for stones. It was called tambreo, and it drew people from all over Colombia into improvised settlements such as La Catorce, Matecafé and La Nevera, between Muzo and Quípama.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "By 1980 Muzo had as many as 35,000 guaqueros.[[semana-molano-2017]] When mining later moved into tunnels, there was less earth for them, and they say they now find fewer and poorer stones, so they work in groups and share what they find.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "women": {
+          "heading": "Women in the mines",
+          "answer": "Searching is a trade full of women, because there are few jobs for them in the mining companies.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "In the voladoras women have taken the worst of it, from crushing scrambles to harassment, and in the emerald towns many are widows of the Green Wars.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "everyone": {
+          "heading": "Everyone guaquea",
+          "answer": "“Soldiers, police, judges, mayors, priests, engineers, everyone guaquea at night, setting the uniform aside. Emeralds drive everyone mad,” the journalist Pedro Claver Téllez wrote in La guerra verde, as quoted by Verdad Abierta.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "The habit is old. In the decades when the central bank ran the mines, hundreds of Colombians already tried to make a living searching illegally, in the middle of state indifference.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    }
+  }
+}

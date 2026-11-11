@@ -1,0 +1,109 @@
+{
+  "pages": {
+    "culture": {
+      "navLabel": "Cultura",
+      "metaTitle": "Cultura esmeraldera en Colombia: comida, música y fe",
+      "metaDescription": "Cómo se vive en la región esmeraldera: la Boyacá tropical, la comida de la mina, la norteña, el naipe, las plazas de esmeraldas y la fe.",
+      "title": "Cultura esmeraldera: cómo vive la región minera",
+      "lead": "Aquí una esmeralda casi nunca significa lujo. Significa fincas, jornadas largas bajo tierra, comida pensada para la mina, norteña en la radio, una plaza de tierra y una basílica en la bajada.",
+      "imageAlt": "Un grupo de visitantes con casco en el patio de una mina de esmeraldas",
+      "sections": {
+        "what": {
+          "heading": "Qué cubre esta sección",
+          "note": "editorial",
+          "paragraphs": [
+            "Casi todo lo que sigue son notas de campo de los viajes de Fuego Verde: lo que comimos, oímos y vimos. Cuando un documento confirma un detalle, lleva su fuente."
+          ]
+        },
+        "tropical": {
+          "heading": "La Boyacá tropical",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La región esmeraldera son montañas calientes, húmedas y campesinas, nada que ver con el altiplano frío que imagina casi todo el que oye Boyacá. El cacao, el ganado y la miel comparten las laderas con las minas, y la cultura pasa a Cundinamarca sin pedir permiso."
+          ]
+        },
+        "table": {
+          "heading": "La mesa",
+          "note": "fieldNote",
+          "paragraphs": [
+            "En Oriente: avíos para la mina, carne oreada, nacumas. En Coscuez: arroz de fines, gallina Nicaragua, gallina borracha, nombres que nadie nos supo explicar del todo.",
+            "En Gachalá el plato que señala la gente es la gallina campesina, acompañada de arepas de maíz, consomé, yuca y arracacha.[[wiki-es-gachala]]"
+          ]
+        },
+        "music": {
+          "heading": "Norteña, cacho y naipe",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La norteña, el acordeón del norte de México, suena en carros y tiendas de las dos regiones. En Coscuez las tardes son del cacho y el naipe, de la tomata y de los camperos viejos parqueados afuera."
+          ]
+        },
+        "markets": {
+          "heading": "La plaza de tierra",
+          "note": "fieldNote",
+          "paragraphs": [
+            "En la Plaza del Chácaro, cerca de Coscuez, las piedras pasan de mano en mano entre guaqueros, compradores y mineros todavía con el tizne del túnel. Hay compradores que leen una esmeralda en cinco segundos.",
+            "Buscar por cuenta propia, la guaquería, existe en los pueblos esmeralderos del occidente de Boyacá desde hace más de setenta años, desde que las minas las administraba el Banco de la República.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "devotion": {
+          "heading": "La fe en la bajada",
+          "note": "fieldNote",
+          "paragraphs": [
+            "El camino al Occidente empieza en Chiquinquirá y su basílica, y la devoción a la Virgen atraviesa la región. Cuando terminó la tercera guerra verde, fue el obispo de Chiquinquirá quien medió el cese al fuego de 1990.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    },
+    "guaqueros": {
+      "metaTitle": "Guaqueros: los buscadores independientes de esmeraldas",
+      "metaDescription": "Quiénes son los guaqueros: madrugadas hacia las minas, la pelea por la tierra que botan las empresas, el tambreo, las mujeres que buscan.",
+      "title": "Guaqueros: los que buscan por su cuenta",
+      "lead": "Antes del amanecer, cientos de personas esperan en la puerta de las minas la tierra que las empresas botan. Así funciona la búsqueda de esmeraldas para quienes no tienen mina.",
+      "imageAlt": "Un minero pica un frente de roca con la luz de su linterna dentro de una mina de esmeraldas",
+      "sections": {
+        "who": {
+          "heading": "¿Qué es un guaquero?",
+          "answer": "Un guaquero es un buscador independiente de esmeraldas que trabaja sin título minero. En los pueblos esmeralderos del occidente de Boyacá, como Muzo, Maripí, Pauna, Santa Bárbara, Otanche y San Pablo de Borbur, la guaquería existe hace más de setenta años.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Unos abren huecos en la montaña por su cuenta y sin permisos, otros recorren los túneles inactivos que alguna vez explotaron las empresas, y los más aguerridos entran de noche a los socavones activos. En la región lo llaman minería de hecho.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "dawn": {
+          "heading": "La mañana de una guaquera",
+          "answer": "Una guaquera entrevistada en Muzo se levanta a las 3:30, prepara la comida de sus cuatro hijos y a las 4:30 espera en la plaza de mercado con unas cuarenta personas el mochilero hacia las minas, a 50 minutos. Lleva los 10.000 pesos del pasaje de ida y espera encontrar una piedra para pagar el regreso.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Cuando no tiene un peso, sale a las dos de la mañana y llega caminando.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "voladoras": {
+          "heading": "La pelea por la tierra",
+          "answer": "Las empresas reparten la tierra que sale de sus túneles, y los guaqueros la lavan esperando que se haya colado una piedra. Los empresarios de la zona calculan que por cada quilate de esmeralda se exploran diez toneladas de tierra estéril.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Cada mañana llegan a la puerta de las minas entre 50 y 500 guaqueros; si corre el rumor de que la mina está pintando, pueden ser más de 3.000. Los sitios donde se bota la tierra se llaman voladoras, y la rebatiña deja empujones, peleas y huesos rotos.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "tambreo": {
+          "heading": "De la mina a cielo abierto al túnel",
+          "answer": "A mediados de los setenta las primeras explotaciones a cielo abierto cortaron la montaña con buldóceres, y la tierra caía a las quebradas, donde los guaqueros paleaban el lodo buscando piedras. Se llamó tambreo, y atrajo gente de todo el país a asentamientos improvisados como La Catorce, Matecafé y La Nevera, entre Muzo y Quípama.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Hacia 1980 llegó a haber 35.000 guaqueros en Muzo.[[semana-molano-2017]] Cuando la explotación pasó a túneles hubo menos tierra para ellos, y dicen que ahora encuentran menos esmeraldas y de menor calidad, así que trabajan en grupos y reparten lo que sale.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "women": {
+          "heading": "Las mujeres en las minas",
+          "answer": "La guaquería es un oficio con muchas mujeres, porque en las empresas mineras hay pocos puestos para ellas.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "En las voladoras las mujeres han llevado la peor parte, desde las rebatiñas hasta el acoso, y en los pueblos esmeralderos muchas son viudas de las guerras verdes.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "everyone": {
+          "heading": "Todo el mundo guaquea",
+          "answer": "“Los militares, los policías, los jueces, los alcaldes, los sacerdotes, los ingenieros, todo el mundo guaquea en las noches, echando de lado el uniforme. Las esmeraldas enloquecen a todo el mundo”, escribió el periodista Pedro Claver Téllez en La guerra verde, citado por Verdad Abierta.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "La costumbre es vieja. En las décadas en que el Banco de la República explotaba las minas, cientos de colombianos ya intentaban ganarse la vida guaqueando de forma ilegal, en medio de la indiferencia estatal.[[semana-reinsercion-1992]]"
+          ]
+        }
+      }
+    }
+  }
+}

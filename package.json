@@ -32,6 +32,7 @@
     "upload": "npm run build:worker && dotenv -e .env.wrangler -- opennextjs-cloudflare upload",
     "cf-typegen": "dotenv -e .env.wrangler -- wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "verify:feed": "vite-node -c vitest.config.mts scripts/verify-feed.ts",
+    "seo:index-status": "vite-node -c vitest.config.mts scripts/seo-index-status.ts",
     "feed:stage-hero-variants": "vite-node -c vitest.config.mts scripts/stage-hero-variants.ts",
     "feed:publish": "vite-node -c vitest.config.mts scripts/publish-feed.ts",
     "feed:sync": "dotenv -e .env.wrangler -- vite-node -c vitest.config.mts scripts/sync-media.ts",

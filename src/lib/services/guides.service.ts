@@ -16,6 +16,8 @@ const guideMessageLoaders: Record<Locale, () => Promise<{ default: Record<string
   en: () => import('@/i18n/messages/guides/en.json'),
   es: () => import('@/i18n/messages/guides/es.json'),
   fr: () => import('@/i18n/messages/guides/fr.json'),
+  de: () => import('@/i18n/messages/guides/de.json'),
+  it: () => import('@/i18n/messages/guides/it.json'),
 };
 
 const GuideSectionSchema = z.object({

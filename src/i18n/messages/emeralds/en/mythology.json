@@ -1,0 +1,115 @@
+{
+  "pages": {
+    "mythology": {
+      "navLabel": "Mythology",
+      "metaTitle": "Emerald Mythology: Fura, Tena and the Muzo People",
+      "metaDescription": "Legends around Colombian emeralds: Fura and Tena in their versions, the sacred hills of the Muzo and what ancient cultures believed emeralds did.",
+      "title": "Emerald mythology: the stories behind the green",
+      "lead": "Before emeralds were a trade, they were sacred. The legends of western Boyacá, how they changed as they were retold, and how to tell a myth from a record.",
+      "imageAlt": "A visitor in a helmet among green hills and rock faces in the emerald region",
+      "sections": {
+        "what": {
+          "heading": "What this section covers",
+          "note": "editorial",
+          "paragraphs": [
+            "Legends are part of the emerald story, and they travel: each retelling changes a detail. Here we give each version with the source that records it, and we say plainly when a story has no written trace."
+          ]
+        },
+        "muzo": {
+          "heading": "The Muzo and their sacred hills",
+          "answer": "The hills of Fura and Tena were a place of worship for the Muzo people, who held them to be the seat of their gods.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "Emeralds also traveled long before the conquest. When Tunja fell in 1537, the Spanish seized nearly 2,000 emeralds, and the stones were traded for centuries, north as far as the Aztecs and south to the Incas.[[gia-rainier-2016]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura and Tena, in brief",
+          "answer": "Fura and Tena were the first couple, shaped by the god Are and bound to be faithful to keep their youth. Fura broke the promise, the two aged and died, and Are turned them into hills above the Minero river, where Fura’s tears became emeralds.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Sources do not even agree on which people the god belongs to: English Wikipedia makes Are a Muisca god[[wiki-en-colombian-emeralds]], while the Spanish-language tradition places the story among the Muzo, whose hills these are.[[wiki-es-fura-tena]] Our long article compares every version we found."
+          ]
+        },
+        "meanings": {
+          "heading": "What emeralds were believed to do",
+          "note": "editorial",
+          "answer": "In antiquity emeralds were valued not only for their beauty: they were believed to sharpen intelligence, protect marriages, ease childbirth and let their owner foresee the future.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "These are beliefs, not properties. We report them because they explain why emeralds mattered to the people who mined and traded them, and we do not repeat them as claims about the stone."
+          ]
+        }
+      }
+    },
+    "furaTenaLegend": {
+      "metaTitle": "The Legend of Fura and Tena: Every Version Compared",
+      "metaDescription": "The Fura and Tena emerald legend compared: the western Boyacá version, the enemy-tribes version, the English one, the hills and the 1999 stones.",
+      "title": "The legend of Fura and Tena, and its versions",
+      "lead": "Two lovers, one broken promise, tears that turned to emeralds. The best-known legend of Colombia’s emerald country is told differently in Spanish and in English. Here are all the versions we found, side by side.",
+      "imageAlt": "Three people stand behind a wooden mine box among tree ferns in western Boyacá",
+      "sections": {
+        "short": {
+          "heading": "The short answer",
+          "answer": "Fura and Tena are two hills above the Minero river in western Boyacá and the lovers of Colombia’s best-known emerald legend. Spanish Wikipedia credits the written legend to Julio Roberto Garavito.[[wiki-es-fura-tena]]",
+          "paragraphs": [
+            "The legend is tied to a real landscape: two hills facing each other across the Minero river, Fura in San Pablo de Borbur and Tena in Pauna.[[wiki-es-borbur]]"
+          ]
+        },
+        "garavito": {
+          "heading": "The version told in the region",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Are, the creator, shaped Fura and Tena and gave them eternal youth on one condition: that they love only each other. Then came Zarbi. Fura broke the promise. Tena discovered the betrayal and died.",
+            "Fura wept. Her tears became emeralds and her cries became butterflies. Are turned the two of them into mountains, and in one version Zarbi became the torrent that keeps them apart: the Minero river. This is the version we heard on the road and tell in Fuego Verde, episode 2."
+          ]
+        },
+        "enemies": {
+          "heading": "The enemy-tribes version",
+          "answer": "Another version, given on Spanish Wikipedia’s page about the Fura emerald, makes the lovers children of two chiefs of enemy tribes who fell in love against their families’ will; after a lovers’ quarrel Tena dies and both become rivers and mountains of emeralds.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Spanish Wikipedia’s article on the Tena emerald tells it with a harder ending: Tena takes his own life, and Fura’s tears become emeralds.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "englishVersion": {
+          "heading": "The version in English",
+          "answer": "The English-language version most readers find makes Fura and Tena two immortals created by the Muisca god Are to populate the earth. Fura was unfaithful; both lost their immortality, aged and died, and Are, taking pity, turned them into crags protected from storms and serpents, in whose depths Fura’s tears became emeralds.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "That telling has no Zarbi and gives the hills a protective role: they are “the official guardians of Colombia’s emerald zone”.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "differences": {
+          "heading": "What changes between versions",
+          "paragraphs": [
+            "The constants are the broken promise, Tena’s death and the tears that become emeralds.[[wiki-es-fura-tena]] The people change: Muisca in English[[wiki-en-colombian-emeralds]], Muzo in the Spanish tradition tied to the hills.[[wiki-es-fura-tena]] So does the cause of the tragedy, an outsider in one telling and feuding families in another.[[wiki-es-esmeralda-fura]]"
+          ],
+          "list": [
+            "Who is unfaithful: Fura, in every version we found.",
+            "Who dies first: Tena.",
+            "The third character: Zarbi in the regional telling; absent in English.",
+            "The river: the Minero, sometimes Zarbi himself transformed."
+          ]
+        },
+        "hills": {
+          "heading": "The hills themselves",
+          "answer": "The hills are real and separated by the Minero river.[[wiki-es-fura-tena]] Which one is taller depends on which article you read.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Heights vary by source. Spanish Wikipedia’s article on the hills gives Tena about 840 meters and Fura about 500[[wiki-es-fura-tena]]; its article on Borbur gives Fura 800 meters[[wiki-es-borbur]]; English Wikipedia gives the same two figures with the hills swapped.[[wiki-en-colombian-emeralds]]",
+            "Fura stands in the vereda of San Isidro, in San Pablo de Borbur; Tena rises opposite, in Pauna.[[wiki-es-borbur]] The forest around them is known for its butterflies, the blue Morpho among them, which keeps one detail of the legend visible.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "stones": {
+          "heading": "Emeralds named Fura and Tena",
+          "answer": "In 1999 a mine in Muzo produced an uncut crystal of about 11,000 carats, 2.2 kilograms, and named it Fura after the legend.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Tena, around 2,000 carats and dark green, came out the same year and is described as the more valuable of the two.[[wiki-es-esmeralda-tena]] Both are told on our famous-emeralds page."
+          ]
+        },
+        "seeing": {
+          "heading": "Seeing them",
+          "note": "fieldNote",
+          "paragraphs": [
+            "From Chanares you can walk to a viewpoint through forest full of butterflies. From there the legend stops being a story: Fura on one side, Tena on the other, and the Minero running between them."
+          ]
+        }
+      }
+    }
+  }
+}

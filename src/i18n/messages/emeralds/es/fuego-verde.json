@@ -1,0 +1,357 @@
+{
+  "pages": {
+    "fuegoVerde": {
+      "navLabel": "Fuego Verde",
+      "metaTitle": "Fuego Verde: viajes por la región esmeraldera de Colombia",
+      "metaDescription": "Cuatro viajes documentales por la región esmeraldera: Chivor y Green Fire, Fura y Tena, Coscuez y su plaza, y las piedras con nombre propio.",
+      "title": "Fuego Verde: cuatro viajes por la tierra de las esmeraldas",
+      "lead": "Una serie documental grabada en la región esmeraldera de Boyacá y Cundinamarca. Cada episodio tiene aquí su versión escrita, con lo que vimos en el camino y los documentos detrás de cada dato.",
+      "imageAlt": "Visitantes con casco escuchan a un minero dentro de un túnel de una mina de esmeraldas",
+      "sections": {
+        "what": {
+          "heading": "¿Qué es Fuego Verde?",
+          "note": "editorial",
+          "paragraphs": [
+            "Fuego Verde es una serie documental corta que Andean Scapes grabó en la región esmeraldera de Colombia. El nombre traduce Green Fire, las memorias de 1942 del ingeniero que dirigió la mina de Chivor en los años veinte.",
+            "Los videos son cortos. Estas páginas son la versión larga: la misma ruta, los lugares que aparecen en pantalla, las historias que se cuentan en los pueblos y las fuentes que las confirman o las contradicen."
+          ]
+        },
+        "twoRegions": {
+          "heading": "Dos regiones, una tierra esmeraldera",
+          "answer": "Las esmeraldas colombianas vienen de dos cinturones, a lado y lado de la cuenca de la cordillera Oriental, y no se formaron al mismo tiempo: hace unos 65 millones de años en el oriente, y entre 38 y 32 millones de años en el occidente.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Oriente, el cinturón oriental, es Chivor, Gachalá y Macanal. Occidente, el cinturón occidental, es Muzo, Coscuez, La Pita, Peñas Blancas y La Glorieta–Yacopí.[[gia-trapiche-2015]] El episodio 1 recorre el oriente. Los episodios 2 y 3 cruzan al occidente. El episodio 4 sigue a las piedras que salieron de ambos."
+          ],
+          "figure": {
+            "alt": "Mapa esquemático del centro de Colombia con el cinturón esmeraldero occidental al norte de Bogotá y el oriental al nororiente.",
+            "caption": "Las dos regiones que recorre la serie. Cada distrito minero está ubicado en su cabecera municipal; las líneas desde Bogotá son rectas, no carreteras."
+          }
+        },
+        "howToRead": {
+          "heading": "Cómo leer estas páginas",
+          "note": "editorial",
+          "paragraphs": [
+            "Las secciones marcadas como Notas de campo son lo que vimos y oímos en el camino. Las marcadas como Tradición oral son historias que se cuentan en la región y que ningún documento que encontramos confirma. Todo lo demás lleva una fuente numerada.",
+            "Las citas en cursiva vienen de la narración original en español; las páginas en inglés y francés las traducen."
+          ]
+        }
+      }
+    },
+    "episodeOriente": {
+      "metaTitle": "Oriente: Chivor, Gachalá y Green Fire | Fuego Verde 1",
+      "metaDescription": "La Boyacá caliente: fincas, música norteña, dos cinturones de distinta edad, Peter Rainier en Chivor, Grace Kelly y té en los Andes.",
+      "title": "Episodio 1. Oriente: Chivor, Gachalá y Green Fire",
+      "lead": "Una antipublicidad de la región esmeraldera, una Boyacá que casi ningún viajero conoce y el ingeniero cuyas memorias terminaron en Hollywood.",
+      "imageAlt": "Un grupo de visitantes con casco minero en una ladera de pasto de la región esmeraldera",
+      "sections": {
+        "hook": {
+          "heading": "La peor campaña de turismo de Colombia",
+          "note": "fieldNote",
+          "paragraphs": [
+            "El episodio empieza pidiéndote que no vengas. Hay barro. Hace calor. Algunas carreteras son cuestionables. Y si preguntas por la historia, alguien termina hablando de violencia.",
+            "Todo eso es cierto. También es ridículamente incompleto, y de eso trata el resto del camino."
+          ],
+          "quote": {
+            "text": "No vengas a la región esmeraldera. Hay barro. Hace calor. Algunas carreteras son… cuestionables.",
+            "attribution": "Fuego Verde, episodio 1 (narración)"
+          }
+        },
+        "otherBoyaca": {
+          "heading": "La otra Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Casi todos los viajeros conocen una sola Boyacá: Villa de Leyva, Ráquira, El Cocuy. Mañanas frías, páramo, ruana. Para esa empacamos.",
+            "La Boyacá esmeraldera es otra. Montañas tropicales, vegetación espesa, cacao, calor. Caliente, húmeda, campesina. La primera hora la pasamos reconsiderando la ropa de la maleta."
+          ]
+        },
+        "borders": {
+          "heading": "Las esmeraldas no respetan fronteras",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La cultura esmeraldera no se detiene en el límite de Boyacá. Sigue hacia Cundinamarca, por Gachalá y Ubalá en el oriente, y parte la región en dos: aquí la gente dice Oriente y Occidente antes que decir un departamento."
+          ]
+        },
+        "table": {
+          "heading": "Fincas, avíos y música norteña",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Vinimos buscando minas y primero encontramos fincas: ganado, miel, cacao. Y comida pensada para jornadas largas bajo tierra: avíos para la mina, carne oreada, nacumas. Aparentemente buscar esmeraldas abre el apetito.",
+            "La banda sonora es norteña, el acordeón del norte de México, sonando en cada carro y cada tienda entre las montañas de Boyacá y Cundinamarca. Es la primera señal de que aquí una esmeralda casi nunca significa lujo. Puede significar el trabajo de toda una vida."
+          ]
+        },
+        "ages": {
+          "heading": "Dos cinturones, dos edades",
+          "answer": "Las esmeraldas del cinturón oriental se formaron hace unos 65 millones de años; las del occidental, entre 38 y 32 millones de años.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Las fechas salen de la datación argón–argón de la moscovita verde, una mica que creció junto con las esmeraldas, así que fechan la mineralización misma.[[gia-trapiche-2015]] La fecha oriental cae en el límite entre el Cretácico y el Terciario, cuando desaparecieron los dinosaurios.[[gia-trapiche-2015]] Hasta en la edad las dos regiones se llevan la contraria."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter Rainier en Chivor",
+          "answer": "Peter W. Rainier fue el ingeniero de minas contratado por un consorcio de Nueva York, la Colombia Emerald Development Corporation, para reabrir la mina abandonada de Chivor. La dirigió entre 1926 y 1931.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Nacido en 1890 en Suazilandia, “en la parte de atrás de una carreta de bueyes”, Rainier llegó a Chivor en 1926 y clavó una estaca de hierro en El Púlpito, la roca que marca el borde de la concesión.[[gia-rainier-2016]] Con él la mina abandonada volvió a ser muy rentable; hacia 1931 había producido 46.250 quilates, y ese mismo año, en plena producción, perdió el control.[[gia-rainier-2016]]",
+            "Contó la historia en Green Fire, publicado en 1942, mucho después de haber salido de Colombia.[[rainier-green-fire-1942]] Lo dedicó en parte a “Joaquín el bandido, que me retó a duelo y fue el hombre más malvado que conocí”.[[gia-rainier-2016]]"
+          ]
+        },
+        "film": {
+          "heading": "Chivor, esmeraldas y Grace Kelly",
+          "answer": "Green Fire se convirtió en una película de la MGM con Grace Kelly y Stewart Granger. Se estrenó en Nueva York el 24 de diciembre de 1954.[[afi-green-fire-1954]]",
+          "paragraphs": [
+            "La MGM leyó las galeras del libro de Rainier en septiembre de 1942; un tratamiento de guion llegó en diciembre de 1952.[[afi-green-fire-1954]] La película conservó el título y cambió casi todo lo demás: el GIA describe su trama como apenas vagamente parecida al libro.[[gia-rainier-2016]]"
+          ]
+        },
+        "cascadas": {
+          "heading": "Gachalá, Las Cascadas y el té",
+          "answer": "Con su esposa Margaret, Rainier fundó la primera plantación comercial de té de Suramérica en Las Cascadas, en una ladera alta del valle del Guavio, cerca de Gachalá.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El pico de Chivor quedaba al otro lado del valle, 15 kilómetros río Guavio abajo. Cuando Rainier estaba en la mina, él y Margaret se hacían señales cada noche con linternas de 18 pulgadas.[[gia-rainier-2016]]"
+          ],
+          "quote": {
+            "text": "Porque aparentemente las esmeraldas no eran suficientemente exóticas. También había que cultivar té en los Andes.",
+            "attribution": "Fuego Verde, episodio 1 (narración)"
+          }
+        },
+        "next": {
+          "heading": "Al otro lado de la montaña",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Barro, calor, norteña, esmeraldas, Grace Kelly, Hollywood y té, y apenas estábamos conociendo Oriente. Al otro lado de la montaña estaba la parte de la región que todavía nos daba miedo conocer."
+          ]
+        }
+      }
+    },
+    "episodeOccidente": {
+      "metaTitle": "Occidente: Fura, Tena y el río Minero | Fuego Verde 2",
+      "metaDescription": "Bajando de Chiquinquirá al occidente de Boyacá: Boca de Monte, el río Minero, los cerros de Fura y Tena y por qué Occidente no es solo Muzo.",
+      "title": "Episodio 2. Occidente: Fura, Tena y el río Minero",
+      "lead": "Una historia de amor con infidelidad, muerte y esmeraldas, cuyos protagonistas son dos montañas. Existen, y uno puede pararse entre ellas.",
+      "imageAlt": "Una pareja con casco en una moto en una carretera de montaña entre el bosque",
+      "sections": {
+        "hook": {
+          "heading": "Una historia de amor contada por montañas",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Esta historia tiene amor, infidelidad, muerte y esmeraldas. Lo raro es que los protagonistas son dos montañas, Fura y Tena, y existen. Para entender por qué, primero hay que bajar la cordillera."
+          ]
+        },
+        "descent": {
+          "heading": "Bajando desde Chiquinquirá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Chiquinquirá y su basílica eran conocidas; el camino hacia esta parte de Boyacá no. De madrugada, Boca de Monte dio la primera pista: niebla, colores y montañas hasta donde alcanzaba la vista. De repente Boyacá se veía enorme.",
+            "Luego, una señal: Muzo. Ese nombre lo conoce todo el mundo. Esmeraldas, minas, la capital mundial de la esmeralda. Seguimos derecho. Muzo puede esperar."
+          ]
+        },
+        "mistake": {
+          "heading": "Occidente no es solo Muzo",
+          "answer": "El cinturón occidental tiene cinco distritos mineros: Muzo, Coscuez, La Pita, Peñas Blancas y La Glorieta–Yacopí.[[gia-trapiche-2015]] Pensar que Occidente era Muzo fue nuestro primer error.",
+          "paragraphs": [
+            "Maripí toma su nombre de la lengua muzo, en la que significa “flor colorada”.[[wiki-es-maripi]] San Pablo de Borbur se presenta como “el municipio esmeralda de Colombia” por la cantidad de yacimientos en su territorio.[[wiki-es-borbur]] En la carretera la lista sigue creciendo: Maripí con La Pita y Cunas, Coper, Pauna, Borbur. Nuestro mapa de Occidente era mucho más pequeño que Occidente."
+          ]
+        },
+        "river": {
+          "heading": "El río oscuro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Pasando Pauna el bosque cambia, el aire se calienta y aparece el Minero: oscuro, cargado de sedimentos. La explicación obvia es la minería, y es solo una parte.",
+            "Las esmeraldas occidentales están en lutitas negras y calizas dolomíticas de entre 130 y 116 millones de años.[[gia-trapiche-2015]] El río arrastra esa roca negra, y la minería puede aumentar los sólidos en algunos tramos. Hasta el agua tenía más de una historia."
+          ]
+        },
+        "hills": {
+          "heading": "Fura y Tena existen",
+          "answer": "Fura se levanta en San Pablo de Borbur y Tena en Pauna, una frente a la otra, separadas por el río Minero.[[wiki-es-borbur]]",
+          "paragraphs": [
+            "Las alturas dependen de la fuente. El artículo de Wikipedia en español sobre los cerros da unos 840 metros para Tena y 500 para Fura[[wiki-es-fura-tena]], mientras que el artículo sobre Borbur le da 800 metros a Fura.[[wiki-es-borbur]]",
+            "Los cerros fueron lugar de culto de los muzos, asiento de sus dioses, y el bosque que los rodea es conocido por sus mariposas, entre ellas la Morpho azul.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "legend": {
+          "heading": "La leyenda, como se cuenta aquí",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Fura y Tena se juraron amor. Apareció Zarbi. Fura rompió la promesa. Tena descubrió la traición y murió. Fura lloró: sus lágrimas se convirtieron en esmeraldas y sus gritos en mariposas. Are convirtió a los dos en montañas, y en una de las versiones Zarbi terminó convertido en torrente, el río Minero.",
+            "Mira otra vez el valle con eso en mente: Fura de un lado, Tena del otro y Zarbi corriendo entre los dos. La leyenda escrita se atribuye a Julio Roberto Garavito.[[wiki-es-fura-tena]]"
+          ],
+          "quote": {
+            "text": "Amor. Infidelidad. Muerte. Esmeraldas. Mariposas. Básicamente, una novela colombiana escrita en las montañas.",
+            "attribution": "Fuego Verde, episodio 2 (narración)"
+          }
+        },
+        "map": {
+          "heading": "Trapiche, una esmeralda del occidente",
+          "answer": "En Colombia, las esmeraldas trapiche, con seis brazos oscuros que salen de un núcleo como los rayos de la rueda de un trapiche, solo aparecen en los depósitos occidentales de Muzo, Coscuez y Peñas Blancas.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "El mineralogista francés Émile Bertrand las describió por primera vez en 1879, al presentar unos “curiosos cristales de esmeralda… de Muso, Nueva Granada”.[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Diagrama del corte de una esmeralda trapiche: un núcleo hexagonal oscuro, seis brazos oscuros y seis sectores verdes.",
+            "caption": "Una esmeralda trapiche vista a lo largo de su eje. Esquema, no a escala."
+          }
+        },
+        "next": {
+          "heading": "Faltaba la cultura en acción",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Hasta ahí habíamos visto el paisaje, las minas y la leyenda. Faltaba ver cómo se siente esta cultura cuando está viva: cuando trabaja, negocia, come y se reúne alrededor de una esmeralda. Para eso faltaba un lugar: Coscuez."
+          ]
+        }
+      }
+    },
+    "episodeCoscuez": {
+      "metaTitle": "Coscuez y la Plaza del Chácaro | Fuego Verde 3",
+      "metaDescription": "Coscuez sin filtro: caminos destapados, el mirador de Cielo Abierto, el Territorio Vásquez, la mina, la Plaza del Chácaro, los juegos y la comida.",
+      "title": "Episodio 3. Coscuez: Cielo Abierto, la mina y la Plaza del Chácaro",
+      "lead": "Desde afuera, Occidente parece barro, trago y gente peleándose por piedras verdes. Coscuez nos mostró lo que no sabíamos mirar.",
+      "imageAlt": "Cuatro personas con casco en la entrada de una mina de esmeraldas",
+      "sections": {
+        "hook": {
+          "heading": "Barro, trago y piedras verdes",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Desde afuera, Occidente parece barro, trago y gente peleándose por piedras verdes. Eso pensábamos también, hasta Coscuez. El problema no era el lugar. Era todo lo que no sabíamos mirar."
+          ]
+        },
+        "arrival": {
+          "heading": "La llegada",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez no hace mucho esfuerzo por parecer moderno. Camino destapado, barro, motos, camperos viejos, casetas de zinc. Nada muy “destino turístico premium”."
+          ]
+        },
+        "cieloAbierto": {
+          "heading": "Cielo Abierto",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Arriba está Cielo Abierto, un mirador desde donde Occidente parece abrirse entero: Las Quinchas, Quípama, Muzo, Pauna, montañas una detrás de otra.",
+            "Coscuez es uno de los cerros con nombre propio de San Pablo de Borbur, junto a Peñas Blancas.[[wiki-es-borbur]]"
+          ]
+        },
+        "vasquez": {
+          "heading": "Territorio Vásquez",
+          "answer": "El Territorio Vásquez no es una marca turística. Entre 1863 y 1883 fue un bien baldío de la República de Colombia que abarcaba los actuales Puerto Boyacá, Otanche y Borbur.[[wiki-es-territorio-vasquez]]",
+          "paragraphs": [
+            "Recibió su nombre del mártir de la independencia Cayetano Vásquez. Se creó sobre todo para construir el camino de occidente y fundar poblaciones a su paso, y en el siglo XIX se lo disputaron los Estados de Cundinamarca y Boyacá.[[wiki-es-territorio-vasquez]]"
+          ]
+        },
+        "mine": {
+          "heading": "Abajo, en la mina",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Abajo la historia cambia: túneles, barro, ruido, manos. Gente entrando a la montaña esperando que la veta por fin pinte. Coscuez es uno de los cinco distritos mineros del cinturón occidental.[[gia-trapiche-2015]]",
+            "Una esmeralda no empieza en una joyería. Empieza aquí, en trabajo, paciencia y oscuridad."
+          ]
+        },
+        "chacaro": {
+          "heading": "La Plaza del Chácaro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Muy cerca está la Plaza del Chácaro: piso de tierra, casetas, motos, guaqueros, compradores, mineros todavía con el tizne de la mina y piedras pasando de mano en mano. Hay gente que mira una esmeralda cinco segundos y sabe muchísimo más que nosotros después de media hora. Ellos ven calidad, color, cristal. Nosotros, verde.",
+            "La guaquería existe en los pueblos esmeralderos del occidente de Boyacá desde hace más de setenta años.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "life": {
+          "heading": "Naipe, cacho y gallina borracha",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez no termina en la mina. También está la música, el cacho y el naipe, la tomata, los camperos, las conversaciones. Y la comida: arroz de fines, gallina Nicaragua, gallina borracha."
+          ],
+          "quote": {
+            "text": "No sé quién bautizó estos platos, pero claramente no tenía miedo de comprometerse con un nombre.",
+            "attribution": "Fuego Verde, episodio 3 (narración)"
+          }
+        },
+        "identity": {
+          "heading": "Eso no es atraso",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Puedes construir un hotel viejo, comprar un campero, poner música popular y colgar fotos de esmeraldas. No puedes fabricar Coscuez. Aquí la mina, la comida, los juegos, las carreteras, las historias y la gente crecieron juntas. Eso no es atraso. Es identidad.",
+            "Después de ver de dónde salen estas piedras quedó una pregunta: ¿qué tiene que pasar para que una esmeralda deje de ser una piedra y termine con nombre propio? De eso trata el siguiente episodio."
+          ]
+        }
+      }
+    },
+    "episodeExtraordinary": {
+      "metaTitle": "Esmeraldas extraordinarias | Fuego Verde 4",
+      "metaDescription": "Inclusiones trifásicas, Fura y Tena, Patricia y la bonificación de diez dólares, la esmeralda de Gachalá, Emilia y la hermana que desapareció bajo una capa.",
+      "title": "Episodio 4. Esmeraldas extraordinarias, y la que se perdió",
+      "lead": "Una esmeralda de casi medio metro salió de una mina colombiana escondida bajo una ruana y nunca se volvió a ver. Antes de la bóveda y la vitrina, siempre hubo una montaña.",
+      "imageAlt": "Dos hombres con casco y linterna junto a una cascada subterránea",
+      "sections": {
+        "hook": {
+          "heading": "Una esmeralda que desapareció",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Una esmeralda de casi medio metro desapareció. Antes salió de una mina colombiana escondida bajo una ruana. Fue vendida, llegó a Estados Unidos y después se perdió su rastro. Ocurrió en Gachalá.",
+            "Así se cuenta en la región. Los documentos cuentan una historia un poco distinta, más abajo en esta página."
+          ]
+        },
+        "belts": {
+          "heading": "Antes del brillo",
+          "answer": "Nos enseñaron a mirar las esmeraldas cuando ya salieron de la montaña, pulidas y con precio. En Colombia vienen de dos cinturones: Chivor y Gachalá en el oriente, Muzo y Coscuez en el occidente, mineralizados hace unos 65 y entre 38 y 32 millones de años.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Y no, la diferencia de edad no significa treinta millones de años extra para engordar las esmeraldas del oriente. Son episodios geológicos distintos, y cada uno dejó pistas dentro del cristal.[[gia-trapiche-2015]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Agua salada, gas y un cubito de sal",
+          "answer": "El rasgo más reconocible de las esmeraldas colombianas es la inclusión trifásica dentada: una cavidad con salmuera que guarda una burbuja de gas y un cristal cúbico, normalmente halita o silvita, de entre 100 micrómetros y 1 milímetro.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Durante años, ver esas tres fases hacía pensar inmediatamente en Colombia. Hoy se conocen inclusiones parecidas en esmeraldas de Afganistán y China, y de un depósito menor en Musakashi, Zambia.[[gia-origin-2019]]",
+            "El tamaño lo decide. Las inclusiones fluidas dentadas de más de unos 500 micrómetros, medio milímetro, son exclusivas de Colombia y se consideran prueba diagnóstica del origen.[[gia-origin-2019]] Hasta las burbujas necesitan cédula."
+          ],
+          "figure": {
+            "alt": "Diagrama de una inclusión fluida dentada dentro de una esmeralda con tres fases señaladas: salmuera, burbuja de gas y cristal cúbico de sal.",
+            "caption": "Una inclusión trifásica, la huella clásica de las esmeraldas colombianas. Esquema, no a escala."
+          }
+        },
+        "giants": {
+          "heading": "Ser la más grande no basta",
+          "paragraphs": [
+            "En 1999 Muzo entregó la Fura, un cristal en bruto de unos 11.000 quilates, 2,2 kilogramos.[[wiki-es-esmeralda-fura]] Ese mismo año apareció la Tena, de unos 2.000 quilates, mucho más pequeña y celebrada como la más valiosa de las dos por su verde oscuro y parejo.[[wiki-es-esmeralda-tena]]",
+            "En Gachalá, Emilia pesó 7.025 quilates según el relato publicado por El Tiempo en 1996.[[el-tiempo-emilia-1996]] Ser la más grande no garantiza ganar."
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia y los diez dólares",
+          "answer": "Patricia es un cristal de 632 quilates de Chivor que hoy está en el Museo Americano de Historia Natural de Nueva York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El bolsillo lo abrió en enero de 1921 un trabajador de la mina llamado Justo Daza; el administrador metió el brazo en la veta hasta el codo y sacó el cristal.[[gia-rainier-2016]] Las fuentes en español fechan el hallazgo en 1920.[[wiki-es-chivor]]",
+            "Se dice que Daza recibió unos diez dólares.[[gia-rainier-2016]] La piedra llegó a Nueva York. Justo, con diez dólares."
+          ],
+          "quote": {
+            "text": "Recursos Humanos, tenemos que hablar.",
+            "attribution": "Fuego Verde, episodio 4 (narración)"
+          }
+        },
+        "gachala": {
+          "heading": "Gachalá, otra vez",
+          "answer": "La esmeralda de Gachalá es un cristal de 858 quilates hallado en 1967 que está en el Museo Nacional de Historia Natural del Smithsonian desde 1969.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Cuando crees que Gachalá ya mostró suficiente, aparece otra. Salió de la mina Vega de San Juan.[[smithsonian-gachala]]"
+          ]
+        },
+        "indiecita": {
+          "heading": "La Indiecita, la que falta",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Según la memoria minera de Gachalá, Emilia tuvo una hermana: más pura, de casi medio metro, sacada de la mina bajo una ruana, vendida, llevada a Estados Unidos y perdida. La llaman La Indiecita.",
+            "El registro se parece, pero no es idéntico. En 1996 El Tiempo recogió la versión del dueño de la mina: el día que apareció Emilia, un trabajador llamado Tito Daza encontró una segunda piedra, la envolvió en una capa y la vendió meses después; se dijo que la habían revendido en Estados Unidos.[[el-tiempo-emilia-1996]] Wikipedia en español habla en cambio de una piedra de 8.000 quilates hallada por Tito Daza tres años después y conocida como “La Tito”.[[wiki-es-gachala]] Ningún documento que encontramos la llama La Indiecita.",
+            "La serie menciona además dos historias que no pudimos documentar: El Monstro, un cristal de Gachalá que según se cuenta pesó 16.020 quilates, y una explosión en Chivor que destruyó un cristal posiblemente mayor que Patricia. Justo Daza, quien encontró a Patricia en Chivor, y Tito Daza, el de la historia de Gachalá, son personas distintas."
+          ]
+        },
+        "closing": {
+          "heading": "Lo que la ficha no dice",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Un laboratorio puede decirte qué tiene una esmeralda por dentro. Un museo, cuánto pesa. Ninguna ficha puede contarte todo lo que ocurrió antes. Antes de Nueva York, Washington, una bóveda o una vitrina, hubo una montaña, una mina y alguien que tuvo que sacarla de allí."
+          ],
+          "quote": {
+            "text": "La próxima vez que veas una esmeralda colombiana, no mires solamente la piedra. Pregúntate qué tuvo que pasar antes de que llegara a tus manos.",
+            "attribution": "Fuego Verde, episodio 4 (narración)"
+          }
+        }
+      }
+    }
+  }
+}

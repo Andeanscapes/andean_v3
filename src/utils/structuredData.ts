@@ -128,6 +128,20 @@ export function buildTouristTripLd(input: TouristTripInput) {
   };
 }
 
+/** Entity a page is about, e.g. `{ '@type': 'Thing', name, sameAs: wikidataUrl }`. */
+export interface JsonLdThing {
+  '@type': string;
+  name: string;
+  sameAs: string;
+}
+
+export interface JsonLdCitation {
+  label: string;
+  url?: string;
+  /** Language of the cited work (`en`, `es`…). */
+  language?: string;
+}
+
 export interface ArticleInput {
   headline: string;
   description: string;
@@ -139,8 +153,20 @@ export interface ArticleInput {
   /** `@id` of the TravelAgency node: the team is author and publisher. */
   organizationId: string;
   organizationName: string;
+  /** Named writer; without it the organization is the author. */
+  author?: { name: string; url: string };
+  about?: readonly JsonLdThing[];
   /** Sources listed visibly on the page. */
-  citations: readonly { label: string; url?: string }[];
+  citations: readonly JsonLdCitation[];
+}
+
+function toCitations(sources: readonly JsonLdCitation[]) {
+  return sources.map((source) => ({
+    '@type': 'CreativeWork',
+    name: source.label,
+    ...(source.url ? { url: source.url } : {}),
+    ...(source.language ? { inLanguage: source.language } : {}),
+  }));
 }
 
 export function buildArticleLd(input: ArticleInput) {
@@ -156,13 +182,69 @@ export function buildArticleLd(input: ArticleInput) {
     datePublished: input.datePublished,
     dateModified: input.dateModified,
     mainEntityOfPage: input.url,
-    author: organization,
+    author: input.author ? { '@type': 'Person', name: input.author.name, url: input.author.url } : organization,
     publisher: organization,
-    citation: input.citations.map((source) => ({
-      '@type': 'CreativeWork',
-      name: source.label,
-      ...(source.url ? { url: source.url } : {}),
-    })),
+    ...(input.about?.length ? { about: [...input.about] } : {}),
+    citation: toCitations(input.citations),
+  };
+}
+
+export interface PersonInput {
+  name: string;
+  url: string;
+  jobTitle: string;
+  description: string;
+  imageUrl?: string;
+  sameAs: readonly string[];
+  /** `@id` of the TravelAgency node the person works for. */
+  organizationId: string;
+}
+
+export function buildPersonLd(input: PersonInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: input.name,
+    url: input.url,
+    jobTitle: input.jobTitle,
+    description: input.description,
+    ...(input.imageUrl ? { image: input.imageUrl } : {}),
+    sameAs: [...input.sameAs],
+    worksFor: { '@id': input.organizationId },
+  };
+}
+
+export interface CollectionPageInput {
+  name: string;
+  description: string;
+  url: string;
+  inLanguage: string;
+  /** `@id` of the TravelAgency node, which publishes the collection. */
+  organizationId: string;
+  /** Linked pages rendered on the hub, in visible order. */
+  items: readonly JsonLdBreadcrumb[];
+  citations: readonly JsonLdCitation[];
+  about?: readonly JsonLdThing[];
+}
+
+/** Hub page grouping editorial pages; `mainEntity` is the visible list of links. */
+export function buildCollectionPageLd(input: CollectionPageInput) {
+  const itemList = {
+    '@type': 'ItemList',
+    itemListElement: buildItemListLd(input.items).itemListElement,
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    inLanguage: input.inLanguage,
+    publisher: { '@id': input.organizationId },
+    mainEntity: itemList,
+    ...(input.about?.length ? { about: [...input.about] } : {}),
+    citation: toCitations(input.citations),
   };
 }
 

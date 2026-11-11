@@ -511,7 +511,8 @@
     "toggleTheme": "Toggle theme",
     "lightMode": "Light mode",
     "darkMode": "Dark mode",
-    "guides": "Guides"
+    "guides": "Guides",
+    "emeralds": "Emerald World"
   },
   "ExperiencesList": {
     "metaTitle": "Emerald Mine Tours in Colombia | Chivor | Andean Scapes",
@@ -1521,7 +1522,8 @@
     "privacy": "Privacy",
     "comingSoon": "Coming soon",
     "allRightsReserved": "All rights reserved.",
-    "allyGuides": "Guides"
+    "allyGuides": "Guides",
+    "allyEmeralds": "Emerald World"
   },
   "MobileMenu": {
     "brandLine": "Authentic stays & experiences in the Colombian Andes",
@@ -1544,7 +1546,8 @@
       "howItWorks": "How It Works",
       "reviews": "Reviews",
       "faq": "FAQ",
-      "guides": "Guides"
+      "guides": "Guides",
+      "emeralds": "Emerald World"
     }
   },
   "Error": {

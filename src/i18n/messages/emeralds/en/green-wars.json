@@ -1,0 +1,317 @@
+{
+  "pages": {
+    "greenWars": {
+      "navLabel": "Green Wars",
+      "metaTitle": "Colombia’s Green Wars: Emerald Conflicts, 1965–1990",
+      "metaDescription": "The three Green Wars over Colombia’s emerald mines, told as events: dates, causes, the cost for mining towns, the 1990 peace and the Spanish record.",
+      "title": "The Green Wars: Colombia’s emerald conflicts",
+      "lead": "For a quarter of a century the emerald towns of western Boyacá lived through three wars over the mines. This is what happened, war by war, from Colombian sources, and how it ended.",
+      "imageAlt": "Miners and visitors in helmets stand around a rusted mine cart among tree ferns",
+      "sections": {
+        "what": {
+          "heading": "What were the Green Wars?",
+          "answer": "“Guerras verdes” is the name Colombians give to a series of conflicts between emerald dealers, the esmeralderos, fought mainly in Boyacá but with violence in other parts of the country. Spanish-language sources count three wars between 1965 and 1990.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "The Spanish-language record links emeralds and violence from the 1950s, when hired gunmen of the partisan Violencia reached Boyacá.[[semana-molano-2017]] Most of what follows comes from Colombian press and books in Spanish, summarized here for readers who cannot read them.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "approach": {
+          "heading": "Why this section names no one",
+          "note": "editorial",
+          "paragraphs": [
+            "Colombian reporting names the bosses of every faction. We tell the events and what they meant for the towns, the guaqueros and the families, not the biographies of the men who ran the wars. The sources at the end of each page cover the rest."
+          ]
+        },
+        "timeline": {
+          "heading": "Timeline",
+          "answer": "The conflicts grew out of a century of state concessions and an emerald rush in the 1960s, and ended with a peace signed in July 1990.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "The dates differ between sources, sometimes by years; each article on this section shows the versions side by side.[[wiki-es-guerras-verdes]][[semana-reinsercion-1992]]"
+          ],
+          "timeline": [
+            {
+              "date": "1827–1828",
+              "text": "The new republic’s Ministry of Finance grants the Muzo mines to a general and two private partners. Sources disagree on the year.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+            },
+            {
+              "date": "1947",
+              "text": "The Banco de la República takes over direct operation of the emerald mines, except Chivor.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1950s",
+              "text": "The relation between emeralds and violence becomes visible with the arrival of the partisan gunmen of La Violencia in Boyacá.[[semana-molano-2017]]"
+            },
+            {
+              "date": "1965–1975",
+              "text": "First Green War. More than 1,200 dead in Chiquinquirá, Muzo, Coscuez, Borbur and Somondoco.[[semana-molano-2017]]"
+            },
+            {
+              "date": "17 July 1973",
+              "text": "The government closes the mines and puts their operation out to public tender.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1975–1978",
+              "text": "Second Green War, ending with the first peace pact between the emerald dealers of western Boyacá.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "1984–1990",
+              "text": "Third Green War, the deadliest, mixed with drug trafficking, guerrillas and paramilitary groups.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "6 June 1990",
+              "text": "A ceasefire is agreed in an abandoned cockfighting pit in Quípama.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "12 July 1990",
+              "text": "The peace is signed publicly with a declaration of respect for life.[[semana-reinsercion-1992]]"
+            }
+          ]
+        },
+        "counting": {
+          "heading": "How many died",
+          "answer": "Nobody has an exact count, and the published figures differ widely. Read them as orders of magnitude, not statistics.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "For the first war: more than 1,200 dead according to Alfredo Molano[[semana-molano-2017]]; at least 1,000 between 1967 and 1973 according to Semana in 1992.[[semana-reinsercion-1992]]",
+            "For the third war: about 3,000 according to Semana[[semana-reinsercion-1992]]; between 3,500 and 6,000 according to Spanish Wikipedia.[[wiki-es-guerras-verdes]] The municipal history of Maripí counts at least 5,000 deaths across the region between 1960 and 1991.[[wiki-es-maripi]]"
+          ]
+        },
+        "why": {
+          "heading": "Why the mines became a battlefield",
+          "answer": "At the root was control of the mines: who could work them, who could sell what came out, and who took the money.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Money changed the stakes. After the 1967 exchange crisis made holding dollars illegal, emeralds became a way to take dollars out of the country, and contraband grew.[[semana-reinsercion-1992]] A 15 percent export subsidy led to over-invoiced shipments: registered emerald exports reached 80 million dollars in 1973, and the subsidy was withdrawn that December.[[semana-reinsercion-1992]]",
+            "In the 1980s drug money and armed groups arrived, and the mines became a strategic corridor as much as a source of stones.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "After 1990",
+          "answer": "The 1990 peace held where most Colombian ceasefires had failed; Semana noted in 1992 that it was being respected.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Violence returned in the 2010s, and the region still lives with tension as foreign companies arrive and mining is restructured.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "beforeTheWars": {
+      "metaTitle": "Before the Green Wars: Concessions, Bank and La Violencia",
+      "metaDescription": "How Colombia’s emerald mines went from 19th-century concessions to the central bank, La Violencia in the emerald towns and the green fever.",
+      "title": "Before the wars: concessions, the bank and La Violencia",
+      "lead": "The Green Wars did not start from nothing. A century of concessions, a state that ran the mines and then let them go, and a political war that reached the emerald towns.",
+      "imageAlt": "A group of visitors in helmets in the yard of an emerald mine",
+      "sections": {
+        "concessions": {
+          "heading": "A republic hands out the mines",
+          "answer": "After independence, the new Ministry of Finance granted the Muzo mines to a general who had fought alongside Bolívar and to two private partners. It started a long Colombian tradition of the state handing natural resources to individuals.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Sources disagree on the year: 1827 in Spanish Wikipedia’s account[[wiki-es-guerras-verdes]], 1828 in Alfredo Molano’s.[[semana-molano-2017]] The nineteenth century then went by in civil wars and state experiments in managing that wealth.[[semana-molano-2017]]"
+          ]
+        },
+        "bank": {
+          "heading": "The central bank runs the mines",
+          "answer": "From 1947 the Banco de la República operated the emerald mines directly, except Chivor. Hundreds of Colombians meanwhile tried to make a living searching illegally, in the middle of state indifference.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In 1966 the bank handed the mines back to the government, and what followed was invasion and looting.[[semana-reinsercion-1992]] Spanish Wikipedia dates the bank’s role from 1944, when it named a delegate to run the mines.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "violencia": {
+          "heading": "La Violencia reaches the emerald towns",
+          "answer": "The link between violence and emeralds became plain in the 1950s, with the appearance in Boyacá of the pájaros, the partisan gunmen of La Violencia.[[semana-molano-2017]]",
+          "paragraphs": [
+            "One of them, a former soldier turned outlaw, came to western Boyacá as a gunman for the conservative traders who ran the emerald business and was paid with control of a mine near Muzo. He was killed in Bogotá in June 1965, after five hours of combat with more than 1,200 soldiers.[[semana-molano-2017]]"
+          ]
+        },
+        "fever": {
+          "heading": "The green fever",
+          "answer": "In the 1960s Boyacá lived a real green-gold fever. Hundreds of men and their families moved to Muzo, Chiquinquirá or Pauna in search of the fuego verde.[[semana-molano-2017]]",
+          "paragraphs": [
+            "When conflicts over the mines grew sharper, mixing huge profits with the weapons to defend them, the government ordered the army to occupy the emerald mines.[[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "firstGreenWar": {
+      "metaTitle": "The First Green War (1965–1975) | Colombian Emeralds",
+      "metaDescription": "The first Green War over Colombia’s emerald mines: dates in each source, the trigger, the army occupation, the dead and the 1973 tender.",
+      "title": "The first Green War (1965–1975)",
+      "lead": "The death of a bandit, a currency crisis and an army occupation turned the emerald rush into a war. It ended when the state put the mines out to tender.",
+      "imageAlt": "Miners and visitors in helmets stand around a rusted mine cart among tree ferns",
+      "sections": {
+        "dates": {
+          "heading": "When it happened",
+          "answer": "Spanish Wikipedia and the sociologist Alfredo Molano date the first Green War from 1965 to 1975.[[wiki-es-guerras-verdes]][[semana-molano-2017]]",
+          "paragraphs": [
+            "Semana, writing in 1992, dates the first great green war from 1967 to 1973.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "trigger": {
+          "heading": "What set it off",
+          "answer": "It began with the death in 1965 of the bandit who had controlled a mine near Muzo. His men and the dealers who had worked with him turned on each other over the mines and the trade.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "The 1967 exchange crisis, which made holding dollars illegal, pushed emeralds into contraband as a way to move dollars, and Semana traces the first war to it.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "army": {
+          "heading": "The army moves in",
+          "answer": "As fights over the mines spread, the government ordered the army to occupy the emerald mines.[[semana-molano-2017]]",
+          "paragraphs": [
+            "In Molano’s reading, the army’s entry into the area could only make the conflicts worse.[[semana-molano-2017]]"
+          ]
+        },
+        "cost": {
+          "heading": "The cost",
+          "answer": "More than 1,200 people died in Chiquinquirá, Muzo, Coscuez, Borbur and Somondoco.[[semana-molano-2017]] Semana counted at least 1,000 between 1967 and 1973.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Meanwhile the state company created in 1968 to run the mines took in only about 200 million pesos a year in registered exports, while the business under the table was enormous.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "closure": {
+          "heading": "How it ended",
+          "answer": "On 17 July 1973 the government closed the mines and put their operation out to public tender. The first step after the tender was to sign a peace, and it held only briefly.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "The mines were divided among private companies formed by the region’s dealers, a split that sealed the end of the first war.[[semana-molano-2017]][[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "secondGreenWar": {
+      "metaTitle": "The Second Green War (1975–1978) | Colombian Emeralds",
+      "metaDescription": "The second Green War: from killings in 1975 to the first peace pact in 1978, the move of the trade to Bogotá’s Calle 14, and the 35,000 guaqueros of Muzo.",
+      "title": "The second Green War (1975–1978)",
+      "lead": "A short war while the emerald trade moved from the mines to the streets of Bogotá, and the first written peace between the dealers of western Boyacá.",
+      "imageAlt": "Miners and visitors in helmets stand around a rusted mine cart among tree ferns",
+      "sections": {
+        "dates": {
+          "heading": "When it happened",
+          "answer": "The second Green War ran from 1975 to 1978. It began in 1975 with the killing of the brothers of an emerald dealer.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "It came while the peace that followed the 1973 tender was already falling apart under outside money and internal disputes.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "street": {
+          "heading": "The trade moves to Calle 14",
+          "answer": "During the uneasy peace the business moved from the mines to Calle 14 in central Bogotá. Selling, not mining, became the heart of the trade.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Japanese buyers became, within a few years, the largest buyers and the ones who set prices.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "fortunes": {
+          "heading": "Emerald fortunes on the surface",
+          "answer": "As emerald prices rose against the dollar, the trade’s winners became magnates. They bought large estates in Cundinamarca and Boyacá, paso fino horses, casinos and racehorses.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In the same years Japanese buyers, who bought both in the street and at the mines, came to dominate the trade and set prices.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "pact": {
+          "heading": "The first peace pact",
+          "answer": "In 1978 the emerald dealers of western Boyacá signed their first peace pact.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "The same year a public tender opened emerald mining to private operators, and dealers could formalize their fortunes.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "blocs": {
+          "heading": "Two blocs and 35,000 guaqueros",
+          "answer": "Out of this war two large groups formed: one around Coscuez, Maripí and Pauna, and another around Otanche, Borbur, Santa Bárbara and Muzo.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "By 1980 Muzo had as many as 35,000 guaqueros.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "thirdGreenWar": {
+      "metaTitle": "The Third Green War (1984–1990) | Colombian Emeralds",
+      "metaDescription": "The deadliest Green War: broken pacts, cartels and guerrillas in the emerald zone, the Itoco creek massacre, the toll and how it ended.",
+      "title": "The third Green War (1984–1990)",
+      "lead": "The longest and deadliest of the emerald wars mixed old feuds with cocaine, guerrillas and paramilitary groups. The mining towns paid for it.",
+      "imageAlt": "Miners and visitors in helmets stand around a rusted mine cart among tree ferns",
+      "sections": {
+        "dates": {
+          "heading": "When it happened",
+          "answer": "The third Green War ran from 1984 to 1990. It began when families broke the pacts that had ended the earlier wars.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Semana places its start in May 1984, with the killing of an influential figure at the Coscuez mines.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "causes": {
+          "heading": "Three causes at once",
+          "answer": "Semana named three causes: the fight between emerald groups for the mines, the arrival of the FARC guerrillas in western Boyacá, and the return of the military chief of the Medellín cocaine cartel, who wanted Muzo.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Muzo and Quípama were key pieces of an air corridor running through Paime, Pacho, Zipaquirá and Bogotá, which made the emerald zone valuable for moving troops and cocaine.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "terror": {
+          "heading": "Terror as a weapon",
+          "answer": "Terrorism became the main weapon. In July 1989 a bomb wrecked a mining company’s offices in Bogotá, and on 15 July sixty armed men came to the Itoco creek, picked out six peasants and shot them one by one in front of thousands of guaqueros.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Paramilitary groups formed in this conflict, clashed with the FARC and were involved in the dirty war against the Unión Patriótica party.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "communities": {
+          "heading": "The towns in the middle",
+          "answer": "The people of Maripí were drawn into the conflict from the 1980s, with many deaths.[[wiki-es-maripi]]",
+          "paragraphs": [
+            "In the first stage many miners, guaqueros and small traders were killed.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "toll": {
+          "heading": "The toll and the end",
+          "answer": "Semana counted about 3,000 dead[[semana-reinsercion-1992]]; Spanish Wikipedia gives between 3,500 and 6,000.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "It ended after the death of the cartel’s military chief in December 1989 and the accord of July 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "peace1990": {
+      "metaTitle": "The 1990 Emerald Peace in Western Boyacá",
+      "metaDescription": "How the 1990 emerald peace was agreed: a ceasefire in a Quípama cockfighting pit, the public signing on 12 July and why it held.",
+      "title": "The emerald peace of 1990",
+      "lead": "After three wars, the emerald groups of western Boyacá agreed a ceasefire in an abandoned cockfighting pit. Unlike most Colombian ceasefires, it held.",
+      "imageAlt": "Two travelers with their arms raised in front of steep, forested green mountain peaks",
+      "sections": {
+        "what": {
+          "heading": "What was agreed",
+          "answer": "On 12 July 1990 the warring emerald groups of western Boyacá signed a public peace built on a declaration of respect for life.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Spanish Wikipedia records it as an accord between the leaders of the two main factions, signed on 12 July 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "gallera": {
+          "heading": "A ceasefire in a cockfighting pit",
+          "answer": "After the area was militarized in May 1990, the authorities withdrew and the groups began meeting to talk about a ceasefire. It was agreed on 6 June 1990 in an abandoned cockfighting pit in Quípama.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "The talks were mediated by the bishop of Chiquinquirá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "signing": {
+          "heading": "The public signing",
+          "answer": "The peace was signed in public on 12 July with a declaration of respect for life.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "The agreement also reorganized the ownership of a Coscuez mining company among the groups that had fought over it, and brought a civic spokesman of western Boyacá to the table.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "held": {
+          "heading": "Why it mattered",
+          "answer": "Writing in 1992, Semana noted that, unlike most ceasefires signed in Colombia, this one had been respected.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "The same report described the dealers wanting to enter the legal system, with talk of fully legalizing the business.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "economy": {
+          "heading": "The business after the peace",
+          "answer": "By 1991 Colombian emerald production was estimated at 300 million dollars in commercial value, about half of it registered as exports; Semana reckoned that made emeralds the country’s third export after coffee and oil.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "A year after the peace, the same mediation was sought to bring peace to the Rionegro region of Cundinamarca.[[semana-reinsercion-1992]]",
+            "The trade’s next worries were not bullets: buyers who dominated pricing, and stones bathed in mineral and vegetable oils to look finer, some of which cracked on flights or darkened within months.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "after": {
+          "heading": "What remained",
+          "answer": "The war ended; poverty did not. In 2016 Verdad Abierta reported that, with no war left, poverty, lack of opportunity and the absence of the state persisted in the emerald towns, and that women had borne the worst of it.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "Violence returned years later, and tensions persist around the restructuring of mining and the arrival of foreign companies.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    }
+  }
+}

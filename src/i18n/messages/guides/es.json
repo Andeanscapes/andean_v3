@@ -14,7 +14,10 @@
     "sourcesTitle": "Fuentes",
     "relatedToursTitle": "Tours a minas de esmeraldas en Chivor",
     "moreGuidesTitle": "Más guías",
-    "breadcrumbLabel": "Ruta de navegación"
+    "breadcrumbLabel": "Ruta de navegación",
+    "emeraldWorldBody": "¿Quieres ver el panorama completo? Mundo Esmeralda reúne la historia, la geología, las leyendas y la cultura de las esmeraldas colombianas.",
+    "emeraldWorldCta": "Explorar Mundo Esmeralda",
+    "emeraldWorldDeeper": "Profundiza en Mundo Esmeralda"
   },
   "articles": {
     "emeraldMineToursColombia": {

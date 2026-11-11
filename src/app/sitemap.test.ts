@@ -39,6 +39,20 @@ describe('sitemap', () => {
     expect(guide?.lastModified).toBeTruthy();
   });
 
+  it('lists the Emerald World hub in each locale, with lastModified', async () => {
+    const entries = await sitemap();
+    const urls = entries.map((entry) => entry.url);
+
+    expect(urls).toEqual(
+      expect.arrayContaining([
+        'https://andeanscapes.com/emeralds',
+        'https://andeanscapes.com/es/emeralds',
+        'https://andeanscapes.com/fr/emeralds',
+      ]),
+    );
+    expect(entries.find((entry) => entry.url === 'https://andeanscapes.com/emeralds')?.lastModified).toBeTruthy();
+  });
+
   it('gives every entry hreflang alternates including x-default', async () => {
     for (const entry of await sitemap()) {
       const languages = entry.alternates?.languages ?? {};

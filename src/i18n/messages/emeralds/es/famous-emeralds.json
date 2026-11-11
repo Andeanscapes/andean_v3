@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "famousEmeralds": {
+      "navLabel": "Esmeraldas famosas",
+      "metaTitle": "Esmeraldas colombianas famosas: Patricia, Fura y Tena",
+      "metaDescription": "Las esmeraldas colombianas con nombre propio: dónde se encontraron, cuánto pesan según cada fuente, dónde están hoy y lo que no se confirma.",
+      "title": "Esmeraldas colombianas famosas",
+      "lead": "Algunas esmeraldas dejan de ser piedras y terminan con nombre propio. Patricia, Gachalá, Emilia, Fura y Tena, con los pesos que da cada fuente y las historias que los registros dejan por fuera.",
+      "imageAlt": "Dos hombres examinan algo pequeño que sostienen entre los dedos sobre una mesa de madera",
+      "sections": {
+        "what": {
+          "heading": "Cómo tratamos estas piedras",
+          "note": "editorial",
+          "paragraphs": [
+            "Los pesos cambian entre fuentes, las fechas se corren y algunas piedras solo existen en la memoria de un pueblo. Para cada una damos todas las cifras que encontramos, quién las da y dónde se dice que está la piedra hoy."
+          ]
+        },
+        "weights": {
+          "heading": "Cómo leer un quilate",
+          "answer": "El cristal de Gachalá pesa 858 quilates.[[smithsonian-gachala]] Un quilate equivale a 0,2 gramos, así que son unos 172 gramos.",
+          "paragraphs": [
+            "Así, la Fura, de unos 11.000 quilates, es un cristal de 2,2 kilogramos.[[wiki-es-esmeralda-fura]] Rara vez se conservan enteros cristales de este tamaño y color; casi siempre se tallan, y por eso los que sobreviven son famosos.[[smithsonian-gachala]]"
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia (Chivor, 632 quilates)",
+          "answer": "Patricia es un cristal hexagonal biterminado de 632 quilates hallado en Chivor y conservado en el Museo Americano de Historia Natural de Nueva York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El GIA fecha el hallazgo en enero de 1921; las fuentes en español dicen 1920.[[wiki-es-chivor]] La historia completa, con los diez dólares, tiene su propia página."
+          ]
+        },
+        "gachala": {
+          "heading": "Gachalá (858 quilates)",
+          "answer": "La esmeralda de Gachalá es un cristal de 858 quilates hallado en 1967 en Gachalá, Cundinamarca.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Salió de la mina Vega de San Juan y entró a la colección del Smithsonian en 1969.[[smithsonian-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia (Gachalá, unos 7.000 quilates)",
+          "answer": "Emilia apareció en 1969 en la mina Las Cruces de Gachalá. El Tiempo le dio 7.025 quilates[[el-tiempo-emilia-1996]]; Wikipedia en español da 7.015 quilates y la fecha 15 de julio de 1969.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Dónde está hoy está en discusión. El dueño de la mina le dijo a El Tiempo que después apareció en un museo de Suiza[[el-tiempo-emilia-1996]]; Wikipedia en español dice que se conserva en el Museo del Oro del Banco de la República.[[wiki-es-gachala]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura y Tena (Muzo, 1999)",
+          "answer": "La Fura es un cristal en bruto de unos 11.000 quilates hallado en 1999 en Muzo y bautizado por la leyenda de Fura y Tena.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "La Tena, de unos 2.000 quilates y unos 400 gramos, salió el mismo año. Su verde oscuro y parejo la hace la más valorada de las dos.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "monstro": {
+          "heading": "El Monstro",
+          "note": "oralTradition",
+          "paragraphs": [
+            "En Gachalá se habla de El Monstro, un cristal que según se cuenta pesó 16.020 quilates. No hemos encontrado documento, ficha de museo ni nota de prensa que lo confirme. Lo dejamos aquí, marcado, hasta que aparezca uno."
+          ]
+        }
+      }
+    },
+    "patricia": {
+      "metaTitle": "La esmeralda Patricia: 632 quilates de Chivor y diez dólares",
+      "metaDescription": "La esmeralda Patricia, 632 quilates de Chivor: cómo salió de la veta, la duda entre 1920 y 1921, los diez dólares del minero y dónde está.",
+      "title": "Patricia: 632 quilates de Chivor",
+      "lead": "Un minero abrió el bolsillo, el administrador metió el brazo hasta el codo y un cristal de seis caras terminó en el bolsillo de una chaqueta. La piedra llegó a Nueva York. El minero, según se cuenta, recibió diez dólares.",
+      "imageAlt": "Dos visitantes con linterna en un túnel estrecho de una mina en Chivor",
+      "sections": {
+        "stone": {
+          "heading": "La piedra",
+          "answer": "Patricia es un cristal hexagonal biterminado de esmeralda de 632 quilates de la mina de Chivor, hoy en el Museo Americano de Historia Natural de Nueva York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Wikipedia en español le da 8 centímetros de alto y 5,5 de diámetro.[[wiki-es-chivor]]"
+          ]
+        },
+        "find": {
+          "heading": "Cómo salió",
+          "answer": "Un trabajador de la mina llamado Justo Daza descubrió en Chivor lo que parecía una veta y un bolsillo productivos.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El administrador recordaba haber metido el brazo en la veta “hasta el codo”, sacando primero pequeños cristales de albita, apatita y cuarzo, y luego haber cerrado la mano sobre algo grande que se guardó en el bolsillo sin mirarlo. “Si lo que tengo en el bolsillo es una esmeralda, habré cumplido mi contrato”, le dijo a un colega.[[gia-rainier-2016]]"
+          ]
+        },
+        "date": {
+          "heading": "¿1920 o 1921?",
+          "answer": "El GIA, citando el relato del administrador de la mina publicado en 1925, fecha el hallazgo en enero de 1921.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "El artículo de Wikipedia en español sobre Chivor dice 1920[[wiki-es-chivor]], y Semana escribió en 1992 diciembre de 1920.[[semana-reinsercion-1992]] Seguimos al GIA, que cita el relato del administrador que estuvo allí, y mostramos las otras fechas porque el lector se las va a encontrar."
+          ]
+        },
+        "ten": {
+          "heading": "Los diez dólares",
+          "answer": "Se dice que Justo Daza recibió unos diez dólares.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Semana lo contó distinto en 1992: la piedra se le compró a su propietario por 10 dólares y se vendió en el exterior por 60.000 dólares de la época.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Dónde está",
+          "answer": "Patricia está en la colección del Museo Americano de Historia Natural de Nueva York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Wikipedia en español atribuye la donación al administrador legal de la mina en ese momento.[[wiki-es-chivor]] La página del museo bloquea la lectura automática, así que todavía no lo hemos contrastado con su ficha."
+          ]
+        }
+      }
+    },
+    "emiliaAndLaTito": {
+      "metaTitle": "Emilia y su hermana: las esmeraldas de Gachalá de 1969",
+      "metaDescription": "Emilia, una esmeralda de unos 7.000 quilates hallada en Gachalá en 1969, y la piedra más pura que salió ese día: el relato de 1996 y La Indiecita.",
+      "title": "Emilia y su hermana: las esmeraldas de Gachalá",
+      "lead": "El mismo día que Emilia salió de una mina de Gachalá, una segunda piedra, más pura, apareció bajo un banco de tierra que se vino abajo. Salió de la mina envuelta en una capa. Esto dice el registro, y aquí termina.",
+      "imageAlt": "Dos visitantes con casco y linterna en un túnel de una mina de esmeraldas",
+      "sections": {
+        "short": {
+          "heading": "La respuesta corta",
+          "answer": "Emilia es una esmeralda de unos 7.000 quilates hallada en 1969 en la mina Las Cruces de Gachalá. Ese mismo día, según el dueño de la mina, un trabajador encontró una segunda piedra, más pura, y la sacó escondida en una capa.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Nuestra fuente principal es un artículo de El Tiempo de 1996 basado en los recuerdos del dueño de la mina y del hijo del hombre que negoció la venta de Emilia.[[el-tiempo-emilia-1996]] Wikipedia en español cuenta una versión en parte distinta.[[wiki-es-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia",
+          "answer": "Emilia pesó 7.025 quilates, casi tres libras. Al día siguiente del hallazgo pasó a custodia del Banco de la República.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Wikipedia en español da 7.015 quilates, la fecha 15 de julio de 1969, una venta en Bogotá por 20 millones de pesos y su conservación en el Museo del Oro.[[wiki-es-gachala]] El dueño, que dijo haber recibido 30.000 pesos por su parte, recordaba que después apareció detrás de los vidrios de un museo en Suiza.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sister": {
+          "heading": "La hermana",
+          "answer": "Ese mismo día, un trabajador llamado Tito Daza apuntó la manguera de lavar al sitio donde había salido Emilia. Un banco de tierra se vino abajo, aparecieron destellos verdes en el barro, y él lavó la piedra y la envolvió en una capa.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "No le dijo nada a nadie en la mina, alegó dolor de estómago y se fue apretando la piedra contra el vientre. El dueño la tuvo tres meses en la mesa de noche. La describió con unos 12 centímetros de diámetro, unos 50 de largo, ocho libras y media, forma de cuña, y más pura que Emilia.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sale": {
+          "heading": "La venta",
+          "answer": "Meses después se vendió en la casa del dueño por 5 millones de pesos. Tiempo más tarde, el comprador les mostró una revista en inglés que decía que se había vendido en Estados Unidos por 87 millones de pesos.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "El dueño viajó a Estados Unidos y contactó a la Interpol; Daza pasó dos meses en la cárcel antes de que se retirara la denuncia. En 1996 Daza era el yerno del dueño.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "versions": {
+          "heading": "La Tito, La Indiecita y otros nombres",
+          "answer": "El registro no coincide en la fecha, el peso ni el nombre de la segunda piedra.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Wikipedia en español describe una piedra de 8.000 quilates hallada por Tito Daza tres años después de Emilia, en el mismo lugar, conocida en Gachalá como “La Tito” y llevada en secreto a Suiza.[[wiki-es-gachala]] La memoria regional que recogimos para Fuego Verde llama La Indiecita a la hermana de Emilia y dice que salió bajo una ruana; el relato de 1996 habla de una capa y no le da nombre.[[el-tiempo-emilia-1996]]",
+            "Tito Daza, el de Gachalá, no es Justo Daza, el minero de Chivor ligado a la esmeralda Patricia en 1921.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "curse": {
+          "heading": "Una maldición con nombre de mujer",
+          "answer": "El Tiempo tituló su historia “Una maldición con nombre de mujer”. En palabras del artículo, encontrar una esmeralda es como ganarse la lotería y perderla al mismo tiempo.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Para quienes las encontraron, estas piedras casi nunca fueron la fortuna que prometían. En 1996 el dueño vivía en Gachetá y contaba la historia desde un banco del parque principal.[[el-tiempo-emilia-1996]]"
+          ]
+        }
+      }
+    }
+  }
+}

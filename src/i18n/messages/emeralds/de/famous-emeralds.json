@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "famousEmeralds": {
+      "navLabel": "Berühmte Smaragde",
+      "metaTitle": "Berühmte Smaragde Kolumbiens: Patricia, Gachalá, Fura, Tena",
+      "metaDescription": "Kolumbianische Smaragde mit Namen: wo sie gefunden wurden, was sie laut jeder Quelle wiegen, wo sie heute sind und welche Geschichten kein Beleg bestätigt.",
+      "title": "Berühmte kolumbianische Smaragde",
+      "lead": "Manche Smaragde hören auf, bloße Steine zu sein, und bekommen einen Namen. Patricia, Gachalá, Emilia, Fura und Tena, mit den Gewichten, die jede Quelle angibt, und den Geschichten, die in den Belegen fehlen.",
+      "imageAlt": "Zwei Männer betrachten an einem Holztisch etwas Kleines, das sie zwischen den Fingern halten",
+      "sections": {
+        "what": {
+          "heading": "Wie wir mit diesen Steinen umgehen",
+          "note": "editorial",
+          "paragraphs": [
+            "Gewichte ändern sich von Quelle zu Quelle, Daten verschieben sich, und manche Steine leben nur in der Erinnerung eines Ortes. Für jeden Stein nennen wir jede Zahl, die wir gefunden haben, wer sie angibt und wo sich der Stein heute befinden soll."
+          ]
+        },
+        "weights": {
+          "heading": "Ein Karat lesen",
+          "answer": "Der Kristall von Gachalá wiegt 858 Karat.[[smithsonian-gachala]] Ein Karat entspricht 0,2 Gramm, das sind also etwa 172 Gramm.",
+          "paragraphs": [
+            "Damit ist Fura mit etwa 11.000 Karat ein Kristall von 2,2 Kilogramm.[[wiki-es-esmeralda-fura]] Kristalle dieser Größe und Farbe bleiben selten ganz; die meisten werden zu Edelsteinen geschliffen, und auch deshalb sind die erhaltenen so berühmt.[[smithsonian-gachala]]"
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia (Chivor, 632 Karat)",
+          "answer": "Patricia ist ein doppelendiger, sechsseitiger Kristall von 632 Karat, der in Chivor gefunden wurde und im American Museum of Natural History in New York aufbewahrt wird.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Das GIA datiert den Fund auf Januar 1921; spanischsprachige Quellen nennen 1920.[[wiki-es-chivor]] Die ganze Geschichte, samt der zehn Dollar, steht auf einer eigenen Seite."
+          ]
+        },
+        "gachala": {
+          "heading": "Gachalá (858 Karat)",
+          "answer": "Der Smaragd von Gachalá ist ein Kristall von 858 Karat, der 1967 in Gachalá, Cundinamarca, gefunden wurde.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Er stammt aus der Mine Vega de San Juan und kam 1969 in die Sammlung der Smithsonian.[[smithsonian-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia (Gachalá, etwa 7.000 Karat)",
+          "answer": "Emilia wurde 1969 in der Mine Las Cruces in Gachalá gefunden. El Tiempo gab ihr Gewicht mit 7.025 Karat an[[el-tiempo-emilia-1996]]; die spanische Wikipedia nennt 7.015 Karat und als Datum den 15. Juli 1969.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Wo sie heute ist, ist umstritten. Der Minenbesitzer erzählte El Tiempo, sie sei später in einem Museum in der Schweiz aufgetaucht[[el-tiempo-emilia-1996]]; laut spanischer Wikipedia wird sie im Museo del Oro der Banco de la República aufbewahrt.[[wiki-es-gachala]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura und Tena (Muzo, 1999)",
+          "answer": "Fura ist ein ungeschliffener Kristall von etwa 11.000 Karat, der 1999 in Muzo gefunden und nach der Legende von Fura und Tena benannt wurde.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Tena, rund 2.000 Karat und etwa 400 Gramm schwer, kam im selben Jahr ans Licht. Sein dunkles, gleichmäßiges Grün macht ihn zum höher bewerteten der beiden.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "monstro": {
+          "heading": "El Monstro",
+          "note": "oralTradition",
+          "paragraphs": [
+            "In Gachalá erzählt man von El Monstro, einem Kristall, der 16.020 Karat wiegen soll. Wir haben kein Dokument, keinen Museumseintrag und keinen Pressebericht gefunden, der das bestätigt. Wir führen ihn hier, gekennzeichnet, bis einer auftaucht."
+          ]
+        }
+      }
+    },
+    "patricia": {
+      "metaTitle": "Der Smaragd Patricia: 632 Karat aus Chivor und 10 Dollar",
+      "metaDescription": "Der Smaragd Patricia, 632 Karat aus Chivor: wie er aus der Ader kam, die Frage 1920 oder 1921, die 10 Dollar des Bergmanns und wo er heute ist.",
+      "title": "Patricia: 632 Karat aus Chivor",
+      "lead": "Ein Bergmann öffnete die Tasche, der Verwalter griff bis zum Ellbogen hinein, und ein sechsseitiger Kristall wanderte in eine Jackentasche. Der Stein ging nach New York. Der Bergmann bekam, so heißt es, zehn Dollar.",
+      "imageAlt": "Zwei Besucher mit Stirnlampen in einem engen Minenstollen in Chivor",
+      "sections": {
+        "stone": {
+          "heading": "Der Stein",
+          "answer": "Patricia ist ein doppelendiger, sechseckiger Smaragdkristall von 632 Karat aus der Mine Chivor, heute im American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Die spanische Wikipedia gibt seine Größe mit 8 Zentimetern Höhe und 5,5 Zentimetern Durchmesser an.[[wiki-es-chivor]]"
+          ]
+        },
+        "find": {
+          "heading": "Wie er ans Licht kam",
+          "answer": "Ein Minenarbeiter namens Justo Daza legte in Chivor etwas frei, das wie eine ergiebige Ader mit Tasche aussah.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Der Verwalter erinnerte sich, „bis zum Ellbogen“ in die Ader gegriffen zu haben; zuerst zog er kleine Albit-, Apatit- und Quarzkristalle heraus, dann schloss sich seine Hand um etwas Großes, das er ungesehen einsteckte. „Wenn das, was in meiner Tasche ist, ein Smaragd ist, habe ich meinen Vertrag erfüllt“, sagte er zu einem Kollegen.[[gia-rainier-2016]]"
+          ]
+        },
+        "date": {
+          "heading": "1920 oder 1921?",
+          "answer": "Das GIA datiert den Fund unter Berufung auf den Bericht des Minenverwalters von 1925 auf Januar 1921.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Der Artikel der spanischen Wikipedia über Chivor nennt 1920[[wiki-es-chivor]], und Semana schrieb 1992 Dezember 1920.[[semana-reinsercion-1992]] Wir folgen dem GIA, das den Bericht des anwesenden Verwalters zitiert, und nennen die anderen Daten, weil Leser auf sie stoßen werden."
+          ]
+        },
+        "ten": {
+          "heading": "Die zehn Dollar",
+          "answer": "Justo Daza soll etwa zehn Dollar erhalten haben.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Semana erzählte es 1992 anders: Der Stein sei seinem Besitzer für 10 Dollar abgekauft und im Ausland für 60.000 Dollar damaliger Währung verkauft worden.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Wo er ist",
+          "answer": "Patricia befindet sich in der Sammlung des American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Laut spanischer Wikipedia hat ihn der damalige rechtliche Verwalter der Mine gestiftet.[[wiki-es-chivor]] Die Website des Museums blockiert automatisiertes Auslesen, daher haben wir das noch nicht mit seinem Eintrag abgeglichen."
+          ]
+        }
+      }
+    },
+    "emiliaAndLaTito": {
+      "metaTitle": "Emilia und ihre Schwester: die Smaragde von Gachalá 1969",
+      "metaDescription": "Emilia, ein 1969 in Gachalá gefundener Smaragd von 7.000 Karat, und der reinere Stein vom selben Tag: der Bericht von 1996, andere Versionen, La Indiecita.",
+      "title": "Emilia und ihre Schwester: die Smaragde von Gachalá",
+      "lead": "Am selben Tag, an dem Emilia aus einer Mine in Gachalá kam, tauchte unter einer einstürzenden Erdwand ein zweiter, reinerer Stein auf. Er verließ die Mine in einen Umhang gewickelt. Das ist, was die Belege sagen, und wo sie enden.",
+      "imageAlt": "Zwei Besucher mit Helmen und Stirnlampen in einem Stollen einer Smaragdmine",
+      "sections": {
+        "short": {
+          "heading": "Die kurze Antwort",
+          "answer": "Emilia ist ein Smaragd von etwa 7.000 Karat, der 1969 in der Mine Las Cruces in Gachalá gefunden wurde. Am selben Tag fand nach Angaben des Minenbesitzers ein Arbeiter einen zweiten, reineren Stein und brachte ihn, in einem Umhang versteckt, aus der Mine.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Unsere Hauptquelle ist ein Artikel von El Tiempo aus dem Jahr 1996, der auf den Erinnerungen des Minenbesitzers und des Sohnes des Mannes beruht, der den Verkauf von Emilia aushandelte.[[el-tiempo-emilia-1996]] Die spanische Wikipedia erzählt eine teilweise abweichende Version.[[wiki-es-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia",
+          "answer": "Emilia wog 7.025 Karat, fast drei Pfund. Am Tag nach dem Fund ging sie in die Obhut der Banco de la República über.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Die spanische Wikipedia nennt 7.015 Karat, den 15. Juli 1969 als Datum, einen Verkauf in Bogotá für 20 Millionen Pesos und das Museo del Oro als Aufbewahrungsort.[[wiki-es-gachala]] Der Besitzer, der nach eigenen Worten 30.000 Pesos für seinen Anteil erhielt, erinnerte sich, dass sie später hinter Glas in einem Schweizer Museum auftauchte.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sister": {
+          "heading": "Die Schwester",
+          "answer": "Am selben Tag richtete ein Arbeiter namens Tito Daza den Waschschlauch auf die Stelle, an der Emilia herausgekommen war. Eine Erdwand stürzte ein, im Schlamm blitzte es grün, und er wusch den Stein und wickelte ihn in einen Umhang.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Er sagte in der Mine niemandem etwas, gab Bauchschmerzen vor und ging, den Stein an den Bauch gedrückt. Der Besitzer bewahrte ihn drei Monate auf seinem Nachttisch auf. Er beschrieb ihn als etwa 12 Zentimeter breit, rund 50 lang, 8,5 Pfund schwer, keilförmig und reiner als Emilia.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sale": {
+          "heading": "Der Verkauf",
+          "answer": "Monate später wurde er im Haus des Besitzers für 5 Millionen Pesos verkauft. Einige Zeit danach zeigte ihnen der Käufer eine englischsprachige Zeitschrift, laut der er in den Vereinigten Staaten für 87 Millionen Pesos verkauft worden war.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Der Besitzer reiste in die Vereinigten Staaten und wandte sich an Interpol; Daza saß zwei Monate im Gefängnis, bevor die Anzeige zurückgezogen wurde. 1996 war Daza der Schwiegersohn des Besitzers.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "versions": {
+          "heading": "La Tito, La Indiecita und andere Namen",
+          "answer": "Die Belege sind sich über Datum, Gewicht und Namen des zweiten Steins nicht einig.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Die spanische Wikipedia beschreibt einen Stein von 8.000 Karat, den Tito Daza drei Jahre nach Emilia an derselben Stelle fand, in Gachalá als „La Tito“ bekannt und heimlich in die Schweiz gebracht.[[wiki-es-gachala]] Die regionale Erinnerung, die wir für Fuego Verde aufgezeichnet haben, nennt Emilias Schwester La Indiecita und sagt, sie habe die Mine unter einer ruana verlassen; der Bericht von 1996 spricht von einem Umhang und nennt keinen Namen.[[el-tiempo-emilia-1996]]",
+            "Tito Daza aus Gachalá ist nicht Justo Daza, der Bergmann aus Chivor, der 1921 mit dem Smaragd Patricia in Verbindung steht.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "curse": {
+          "heading": "Ein Fluch mit Frauennamen",
+          "answer": "El Tiempo überschrieb seine Geschichte mit „ein Fluch mit Frauennamen“. Mit den Worten des Artikels ist einen Smaragd zu finden, als gewinne man im Lotto und verliere den Gewinn im selben Moment.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Für die Menschen, die sie fanden, waren diese Steine selten das Vermögen, das sie versprachen. 1996 lebte der Besitzer in Gachetá und erzählte die Geschichte von einer Bank auf dem Hauptplatz aus.[[el-tiempo-emilia-1996]]"
+          ]
+        }
+      }
+    }
+  }
+}

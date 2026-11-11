@@ -14,7 +14,10 @@
     "sourcesTitle": "Sources",
     "relatedToursTitle": "Visites des mines d’émeraudes de Chivor",
     "moreGuidesTitle": "Autres guides",
-    "breadcrumbLabel": "Fil d’Ariane"
+    "breadcrumbLabel": "Fil d’Ariane",
+    "emeraldWorldBody": "Envie d’aller plus loin ? Monde Émeraude couvre l’histoire, la géologie, les légendes et la culture des émeraudes colombiennes.",
+    "emeraldWorldCta": "Explorer Monde Émeraude",
+    "emeraldWorldDeeper": "Aller plus loin dans Monde Émeraude"
   },
   "articles": {
     "emeraldMineToursColombia": {

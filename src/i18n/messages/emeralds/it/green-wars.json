@@ -1,0 +1,317 @@
+{
+  "pages": {
+    "greenWars": {
+      "navLabel": "Guerre verdi",
+      "metaTitle": "Le guerre verdi della Colombia: smeraldi, 1965–1990",
+      "metaDescription": "Le tre guerre verdi per le miniere di smeraldi colombiane, raccontate come fatti: date, cause, il costo per i paesi minerari, la pace del 1990 e le fonti.",
+      "title": "Le guerre verdi: i conflitti degli smeraldi in Colombia",
+      "lead": "Per un quarto di secolo i paesi degli smeraldi del Boyacá occidentale hanno vissuto tre guerre per le miniere. Ecco cosa è successo, guerra per guerra, secondo fonti colombiane, e come è finita.",
+      "imageAlt": "Minatori e visitatori con il casco attorno a un vagoncino da miniera arrugginito tra le felci arboree",
+      "sections": {
+        "what": {
+          "heading": "Che cosa furono le guerre verdi?",
+          "answer": "«Guerras verdes» è il nome che i colombiani danno a una serie di conflitti tra commercianti di smeraldi, gli esmeralderos, combattuti soprattutto nel Boyacá ma con episodi di violenza in altre parti del paese. Le fonti in lingua spagnola contano tre guerre tra il 1965 e il 1990.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Le fonti in lingua spagnola collegano smeraldi e violenza a partire dagli anni Cinquanta, quando i sicari della Violencia tra i partiti arrivarono nel Boyacá.[[semana-molano-2017]] Quasi tutto ciò che segue viene dalla stampa e dai libri colombiani in spagnolo, riassunti qui per chi non può leggerli.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "approach": {
+          "heading": "Perché questa sezione non fa nomi",
+          "note": "editorial",
+          "paragraphs": [
+            "Il giornalismo colombiano fa i nomi dei capi di ogni fazione. Noi raccontiamo i fatti e ciò che hanno significato per i paesi, i guaqueros e le famiglie, non le biografie degli uomini che guidarono le guerre. Le fonti in fondo a ogni pagina coprono il resto."
+          ]
+        },
+        "timeline": {
+          "heading": "Cronologia",
+          "answer": "I conflitti nacquero da un secolo di concessioni statali e da una corsa agli smeraldi negli anni Sessanta, e finirono con una pace firmata nel luglio 1990.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Le date cambiano da una fonte all’altra, a volte di anni; ogni articolo di questa sezione mette le versioni a confronto.[[wiki-es-guerras-verdes]][[semana-reinsercion-1992]]"
+          ],
+          "timeline": [
+            {
+              "date": "1827–1828",
+              "text": "Il ministero delle Finanze della nuova repubblica concede le miniere di Muzo a un generale e a due soci privati. Le fonti non concordano sull’anno.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+            },
+            {
+              "date": "1947",
+              "text": "Il Banco de la República assume la gestione diretta delle miniere di smeraldi, tranne Chivor.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "Anni ’50",
+              "text": "Il legame tra smeraldi e violenza diventa visibile con l’arrivo nel Boyacá dei sicari di partito della Violencia.[[semana-molano-2017]]"
+            },
+            {
+              "date": "1965–1975",
+              "text": "Prima guerra verde. Più di 1.200 morti a Chiquinquirá, Muzo, Coscuez, Borbur e Somondoco.[[semana-molano-2017]]"
+            },
+            {
+              "date": "17 luglio 1973",
+              "text": "Il governo chiude le miniere e ne mette la gestione a gara pubblica.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "1975–1978",
+              "text": "Seconda guerra verde, che si chiude con il primo patto di pace tra i commercianti di smeraldi del Boyacá occidentale.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "1984–1990",
+              "text": "Terza guerra verde, la più sanguinosa, intrecciata con narcotraffico, guerriglia e gruppi paramilitari.[[wiki-es-guerras-verdes]]"
+            },
+            {
+              "date": "6 giugno 1990",
+              "text": "Si concorda un cessate il fuoco in una gallera abbandonata, un’arena per combattimenti di galli, a Quípama.[[semana-reinsercion-1992]]"
+            },
+            {
+              "date": "12 luglio 1990",
+              "text": "La pace viene firmata pubblicamente con una dichiarazione di rispetto per la vita.[[semana-reinsercion-1992]]"
+            }
+          ]
+        },
+        "counting": {
+          "heading": "Quanti morti",
+          "answer": "Nessuno ha un conteggio esatto, e le cifre pubblicate variano molto. Vanno lette come ordini di grandezza, non come statistiche.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Per la prima guerra: più di 1.200 morti secondo Alfredo Molano[[semana-molano-2017]]; almeno 1.000 tra il 1967 e il 1973 secondo Semana nel 1992.[[semana-reinsercion-1992]]",
+            "Per la terza guerra: circa 3.000 secondo Semana[[semana-reinsercion-1992]]; tra 3.500 e 6.000 secondo Wikipedia in spagnolo.[[wiki-es-guerras-verdes]] La storia municipale di Maripí conta almeno 5.000 morti nella regione tra il 1960 e il 1991.[[wiki-es-maripi]]"
+          ]
+        },
+        "why": {
+          "heading": "Perché le miniere diventarono un campo di battaglia",
+          "answer": "Alla radice c’era il controllo delle miniere: chi poteva lavorarle, chi poteva vendere ciò che ne usciva e chi incassava il denaro.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Il denaro cambiò la posta in gioco. Dopo che la crisi valutaria del 1967 rese illegale detenere dollari, gli smeraldi diventarono un modo per portare dollari fuori dal paese, e il contrabbando crebbe.[[semana-reinsercion-1992]] Un sussidio all’esportazione del 15 per cento portò a spedizioni sovrafatturate: le esportazioni registrate di smeraldi raggiunsero 80 milioni di dollari nel 1973, e il sussidio fu ritirato a dicembre di quell’anno.[[semana-reinsercion-1992]]",
+            "Negli anni Ottanta arrivarono il denaro della droga e i gruppi armati, e le miniere diventarono un corridoio strategico oltre che una fonte di pietre.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Dopo il 1990",
+          "answer": "La pace del 1990 resse dove la maggior parte dei cessate il fuoco colombiani era fallita; Semana notava nel 1992 che veniva rispettata.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "La violenza è tornata negli anni Dieci del Duemila, e la regione vive ancora tensioni con l’arrivo di aziende straniere e la ristrutturazione del settore minerario.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "beforeTheWars": {
+      "metaTitle": "Prima delle guerre verdi: concessioni, banca e Violencia",
+      "metaDescription": "Come le miniere di smeraldi colombiane passarono dalle concessioni dell’Ottocento alla banca centrale, la Violencia nei paesi degli smeraldi e la febbre verde.",
+      "title": "Prima delle guerre: le concessioni, la banca e la Violencia",
+      "lead": "Le guerre verdi non nacquero dal nulla. Un secolo di concessioni, uno Stato che gestì le miniere e poi le abbandonò, e una guerra politica che arrivò fino ai paesi degli smeraldi.",
+      "imageAlt": "Un gruppo di visitatori con il casco nel cortile di una miniera di smeraldi",
+      "sections": {
+        "concessions": {
+          "heading": "Una repubblica distribuisce le miniere",
+          "answer": "Dopo l’indipendenza, il nuovo ministero delle Finanze concesse le miniere di Muzo a un generale che aveva combattuto al fianco di Bolívar e a due soci privati. Iniziò così una lunga tradizione colombiana: lo Stato che affida le risorse naturali a privati.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Le fonti non concordano sull’anno: 1827 secondo Wikipedia in spagnolo[[wiki-es-guerras-verdes]], 1828 secondo Alfredo Molano.[[semana-molano-2017]] L’Ottocento passò poi tra guerre civili ed esperimenti statali per gestire quella ricchezza.[[semana-molano-2017]]"
+          ]
+        },
+        "bank": {
+          "heading": "La banca centrale gestisce le miniere",
+          "answer": "Dal 1947 il Banco de la República gestì direttamente le miniere di smeraldi, tranne Chivor. Nel frattempo centinaia di colombiani cercavano di guadagnarsi da vivere scavando illegalmente, nell’indifferenza dello Stato.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Nel 1966 la banca restituì le miniere al governo, e seguirono invasioni e saccheggi.[[semana-reinsercion-1992]] Wikipedia in spagnolo fa risalire il ruolo della banca al 1944, quando nominò un delegato per gestire le miniere.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "violencia": {
+          "heading": "La Violencia arriva nei paesi degli smeraldi",
+          "answer": "Il legame tra violenza e smeraldi divenne evidente negli anni Cinquanta, con la comparsa nel Boyacá dei pájaros, i sicari di partito della Violencia.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Uno di loro, un ex soldato diventato fuorilegge, arrivò nel Boyacá occidentale come sicario dei commercianti conservatori che controllavano il business degli smeraldi e fu pagato con il controllo di una miniera vicino a Muzo. Fu ucciso a Bogotá nel giugno 1965, dopo cinque ore di combattimento contro più di 1.200 soldati.[[semana-molano-2017]]"
+          ]
+        },
+        "fever": {
+          "heading": "La febbre verde",
+          "answer": "Negli anni Sessanta il Boyacá visse una vera febbre dell’oro verde. Centinaia di uomini con le loro famiglie si trasferirono a Muzo, Chiquinquirá o Pauna in cerca del fuego verde.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Quando i conflitti per le miniere si inasprirono, unendo profitti enormi e armi per difenderli, il governo ordinò all’esercito di occupare le miniere di smeraldi.[[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "firstGreenWar": {
+      "metaTitle": "La prima guerra verde (1965–1975) | Smeraldi colombiani",
+      "metaDescription": "La prima guerra verde per le miniere di smeraldi colombiane: le date nelle varie fonti, la scintilla, l’occupazione militare, i morti e la gara del 1973.",
+      "title": "La prima guerra verde (1965–1975)",
+      "lead": "La morte di un bandito, una crisi valutaria e un’occupazione militare trasformarono la corsa agli smeraldi in una guerra. Finì quando lo Stato mise le miniere a gara.",
+      "imageAlt": "Minatori e visitatori con il casco attorno a un vagoncino da miniera arrugginito tra le felci arboree",
+      "sections": {
+        "dates": {
+          "heading": "Quando accadde",
+          "answer": "Wikipedia in spagnolo e il sociologo Alfredo Molano datano la prima guerra verde dal 1965 al 1975.[[wiki-es-guerras-verdes]][[semana-molano-2017]]",
+          "paragraphs": [
+            "Semana, nel 1992, colloca la prima grande guerra verde tra il 1967 e il 1973.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "trigger": {
+          "heading": "Cosa la scatenò",
+          "answer": "Cominciò con la morte, nel 1965, del bandito che aveva controllato una miniera vicino a Muzo. I suoi uomini e i commercianti che avevano lavorato con lui si scontrarono per le miniere e per il commercio.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "La crisi valutaria del 1967, che rese illegale detenere dollari, spinse gli smeraldi nel contrabbando come mezzo per muovere dollari, e Semana fa risalire a questo la prima guerra.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "army": {
+          "heading": "Entra l’esercito",
+          "answer": "Mentre gli scontri per le miniere si diffondevano, il governo ordinò all’esercito di occupare le miniere di smeraldi.[[semana-molano-2017]]",
+          "paragraphs": [
+            "Nella lettura di Molano, l’ingresso dell’esercito nella zona non poteva che aggravare i conflitti.[[semana-molano-2017]]"
+          ]
+        },
+        "cost": {
+          "heading": "Il costo",
+          "answer": "Più di 1.200 persone morirono a Chiquinquirá, Muzo, Coscuez, Borbur e Somondoco.[[semana-molano-2017]] Semana contò almeno 1.000 morti tra il 1967 e il 1973.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Nel frattempo l’azienda statale creata nel 1968 per gestire le miniere incassava solo circa 200 milioni di pesos l’anno di esportazioni registrate, mentre il giro d’affari sottobanco era enorme.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "closure": {
+          "heading": "Come finì",
+          "answer": "Il 17 luglio 1973 il governo chiuse le miniere e ne mise la gestione a gara pubblica. Il primo passo dopo la gara fu firmare una pace, che durò poco.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Le miniere furono divise tra società private formate dai commercianti della regione, una spartizione che segnò la fine della prima guerra.[[semana-molano-2017]][[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "secondGreenWar": {
+      "metaTitle": "La seconda guerra verde (1975–1978) | Smeraldi colombiani",
+      "metaDescription": "La seconda guerra verde: dagli omicidi del 1975 al primo patto di pace del 1978, il commercio spostato nella Calle 14 di Bogotá e i 35.000 guaqueros di Muzo.",
+      "title": "La seconda guerra verde (1975–1978)",
+      "lead": "Una guerra breve mentre il commercio degli smeraldi si spostava dalle miniere alle strade di Bogotá, e la prima pace scritta tra i commercianti del Boyacá occidentale.",
+      "imageAlt": "Minatori e visitatori con il casco attorno a un vagoncino da miniera arrugginito tra le felci arboree",
+      "sections": {
+        "dates": {
+          "heading": "Quando accadde",
+          "answer": "La seconda guerra verde durò dal 1975 al 1978. Cominciò nel 1975 con l’uccisione dei fratelli di un commerciante di smeraldi.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Arrivò mentre la pace seguita alla gara del 1973 stava già cedendo sotto il peso del denaro esterno e delle dispute interne.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "street": {
+          "heading": "Il commercio si sposta nella Calle 14",
+          "answer": "Durante la pace precaria il business si spostò dalle miniere alla Calle 14, nel centro di Bogotá. La vendita, non l’estrazione, divenne il cuore del commercio.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In pochi anni gli acquirenti giapponesi diventarono i maggiori compratori e quelli che fissavano i prezzi.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "fortunes": {
+          "heading": "Fortune di smeraldi alla luce del sole",
+          "answer": "Con l’aumento dei prezzi degli smeraldi rispetto al dollaro, i vincitori del commercio diventarono magnati. Comprarono grandi tenute nel Cundinamarca e nel Boyacá, cavalli di paso fino, casinò e cavalli da corsa.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Negli stessi anni gli acquirenti giapponesi, che compravano sia in strada sia nelle miniere, arrivarono a dominare il commercio e a fissare i prezzi.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "pact": {
+          "heading": "Il primo patto di pace",
+          "answer": "Nel 1978 i commercianti di smeraldi del Boyacá occidentale firmarono il loro primo patto di pace.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Lo stesso anno una gara pubblica aprì l’estrazione degli smeraldi agli operatori privati, e i commercianti poterono regolarizzare le loro fortune.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "blocs": {
+          "heading": "Due blocchi e 35.000 guaqueros",
+          "answer": "Da questa guerra nacquero due grandi gruppi: uno attorno a Coscuez, Maripí e Pauna, l’altro attorno a Otanche, Borbur, Santa Bárbara e Muzo.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Nel 1980 Muzo contava fino a 35.000 guaqueros.[[wiki-es-guerras-verdes]][[semana-molano-2017]]"
+          ]
+        }
+      }
+    },
+    "thirdGreenWar": {
+      "metaTitle": "La terza guerra verde (1984–1990) | Smeraldi colombiani",
+      "metaDescription": "La guerra verde più sanguinosa: patti infranti, cartelli e guerriglia nella zona degli smeraldi, il massacro del torrente Itoco, il bilancio e la fine.",
+      "title": "La terza guerra verde (1984–1990)",
+      "lead": "La più lunga e sanguinosa delle guerre degli smeraldi mescolò vecchie faide con cocaina, guerriglia e gruppi paramilitari. A pagarne il prezzo furono i paesi minerari.",
+      "imageAlt": "Minatori e visitatori con il casco attorno a un vagoncino da miniera arrugginito tra le felci arboree",
+      "sections": {
+        "dates": {
+          "heading": "Quando accadde",
+          "answer": "La terza guerra verde durò dal 1984 al 1990. Cominciò quando alcune famiglie ruppero i patti che avevano chiuso le guerre precedenti.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Semana ne colloca l’inizio nel maggio 1984, con l’uccisione di una figura influente nelle miniere di Coscuez.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "causes": {
+          "heading": "Tre cause insieme",
+          "answer": "Semana indicò tre cause: la lotta tra i gruppi degli smeraldi per le miniere, l’arrivo della guerriglia delle FARC nel Boyacá occidentale e il ritorno del capo militare del cartello di Medellín, che voleva Muzo.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Muzo e Quípama erano tasselli chiave di un corridoio aereo che passava per Paime, Pacho, Zipaquirá e Bogotá, e questo rendeva la zona degli smeraldi preziosa per muovere truppe e cocaina.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "terror": {
+          "heading": "Il terrore come arma",
+          "answer": "Il terrorismo divenne l’arma principale. Nel luglio 1989 una bomba distrusse gli uffici di una società mineraria a Bogotá, e il 15 luglio sessanta uomini armati arrivarono al torrente Itoco, scelsero sei contadini e li fucilarono uno per uno davanti a migliaia di guaqueros.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "In questo conflitto si formarono gruppi paramilitari, che si scontrarono con le FARC e presero parte alla guerra sporca contro il partito Unión Patriótica.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "communities": {
+          "heading": "I paesi in mezzo",
+          "answer": "La popolazione di Maripí fu trascinata nel conflitto a partire dagli anni Ottanta, con molti morti.[[wiki-es-maripi]]",
+          "paragraphs": [
+            "Nella prima fase furono uccisi molti minatori, guaqueros e piccoli commercianti.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "toll": {
+          "heading": "Il bilancio e la fine",
+          "answer": "Semana contò circa 3.000 morti[[semana-reinsercion-1992]]; Wikipedia in spagnolo ne indica tra 3.500 e 6.000.[[wiki-es-guerras-verdes]]",
+          "paragraphs": [
+            "Finì dopo la morte del capo militare del cartello nel dicembre 1989 e l’accordo del luglio 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    },
+    "peace1990": {
+      "metaTitle": "La pace degli smeraldi del 1990 nel Boyacá occidentale",
+      "metaDescription": "Come si arrivò alla pace degli smeraldi del 1990: un cessate il fuoco in una gallera di Quípama, la firma pubblica del 12 luglio e perché ha retto.",
+      "title": "La pace degli smeraldi del 1990",
+      "lead": "Dopo tre guerre, i gruppi degli smeraldi del Boyacá occidentale concordarono un cessate il fuoco in un’arena abbandonata per combattimenti di galli. A differenza della maggior parte dei cessate il fuoco colombiani, resse.",
+      "imageAlt": "Due viaggiatori con le braccia alzate davanti a ripide vette verdi e boscose",
+      "sections": {
+        "what": {
+          "heading": "Cosa fu concordato",
+          "answer": "Il 12 luglio 1990 i gruppi degli smeraldi in guerra nel Boyacá occidentale firmarono una pace pubblica fondata su una dichiarazione di rispetto per la vita.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Wikipedia in spagnolo la registra come un accordo tra i capi delle due fazioni principali, firmato il 12 luglio 1990.[[wiki-es-guerras-verdes]]"
+          ]
+        },
+        "gallera": {
+          "heading": "Un cessate il fuoco in una gallera",
+          "answer": "Dopo la militarizzazione della zona nel maggio 1990, le autorità si ritirarono e i gruppi cominciarono a incontrarsi per parlare di un cessate il fuoco. Fu concordato il 6 giugno 1990 in una gallera abbandonata a Quípama.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "I colloqui furono mediati dal vescovo di Chiquinquirá.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "signing": {
+          "heading": "La firma pubblica",
+          "answer": "La pace fu firmata in pubblico il 12 luglio con una dichiarazione di rispetto per la vita.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "L’accordo riorganizzò anche la proprietà di una società mineraria di Coscuez tra i gruppi che se l’erano contesa, e portò al tavolo un portavoce civico del Boyacá occidentale.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "held": {
+          "heading": "Perché contò",
+          "answer": "Nel 1992 Semana osservava che, a differenza della maggior parte dei cessate il fuoco firmati in Colombia, questo era stato rispettato.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Lo stesso articolo descriveva commercianti desiderosi di entrare nella legalità, e si parlava di legalizzare del tutto il business.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "economy": {
+          "heading": "Il business dopo la pace",
+          "answer": "Nel 1991 la produzione colombiana di smeraldi era stimata in 300 milioni di dollari di valore commerciale, circa la metà registrata come esportazioni; Semana calcolava che questo facesse degli smeraldi il terzo prodotto d’esportazione del paese dopo caffè e petrolio.[[semana-reinsercion-1992]]",
+          "paragraphs": [
+            "Un anno dopo la pace, si cercò la stessa mediazione per portare la pace nella regione di Rionegro, nel Cundinamarca.[[semana-reinsercion-1992]]",
+            "Le preoccupazioni successive del commercio non erano i proiettili: compratori che dominavano i prezzi e pietre immerse in oli minerali e vegetali per sembrare più belle, alcune delle quali si incrinavano in volo o si scurivano nel giro di mesi.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "after": {
+          "heading": "Cosa è rimasto",
+          "answer": "La guerra finì; la povertà no. Nel 2016 Verdad Abierta riferiva che, senza più guerra, nei paesi degli smeraldi persistevano povertà, mancanza di opportunità e assenza dello Stato, e che le donne ne avevano pagato il prezzo più alto.[[verdad-abierta-mujeres-2016]]",
+          "paragraphs": [
+            "La violenza è tornata anni dopo, e restano tensioni legate alla ristrutturazione del settore minerario e all’arrivo di aziende straniere.[[wiki-es-guerras-verdes]]"
+          ]
+        }
+      }
+    }
+  }
+}

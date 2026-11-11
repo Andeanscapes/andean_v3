@@ -8,6 +8,8 @@ const messageLoaders: Record<Locale, () => Promise<{ default: Record<string, unk
   en: () => import('./messages/en.json'),
   es: () => import('./messages/es.json'),
   fr: () => import('./messages/fr.json'),
+  de: () => import('./messages/de.json'),
+  it: () => import('./messages/it.json'),
 };
 
 export default getRequestConfig(async ({locale, requestLocale}) => {

@@ -1,0 +1,159 @@
+{
+  "pages": {
+    "famousEmeralds": {
+      "navLabel": "Famous emeralds",
+      "metaTitle": "Famous Colombian Emeralds: Patricia, Gachalá, Fura, Tena",
+      "metaDescription": "The Colombian emeralds with a name: where they were found, what they weigh in each source, where they are now, and the stories that no record confirms.",
+      "title": "Famous Colombian emeralds",
+      "lead": "Some emeralds stop being stones and end up with a name. Patricia, Gachalá, Emilia, Fura and Tena, with the weights each source gives and the stories the records leave out.",
+      "imageAlt": "Two men examine something small held between their fingers at a wooden table",
+      "sections": {
+        "what": {
+          "heading": "How we handle these stones",
+          "note": "editorial",
+          "paragraphs": [
+            "Weights change between sources, dates drift, and some stones live only in the memory of a town. For each one we give every figure we found, who gives it, and where the stone is said to be today."
+          ]
+        },
+        "weights": {
+          "heading": "Reading a carat",
+          "answer": "The Gachalá crystal weighs 858 carats.[[smithsonian-gachala]] A carat is 0.2 grams, so that is about 172 grams.",
+          "paragraphs": [
+            "That makes Fura, at about 11,000 carats, a crystal of 2.2 kilograms.[[wiki-es-esmeralda-fura]] Crystals of this size and color are rarely kept whole; most are cut into gems, which is part of why the survivors are famous.[[smithsonian-gachala]]"
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia (Chivor, 632 carats)",
+          "answer": "Patricia is a doubly terminated, six-sided crystal of 632 carats found at Chivor and kept at the American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "GIA dates the find to January 1921; Spanish-language sources say 1920.[[wiki-es-chivor]] The full story, with the ten dollars, is on its own page."
+          ]
+        },
+        "gachala": {
+          "heading": "Gachalá (858 carats)",
+          "answer": "The Gachalá emerald is an 858-carat crystal found in 1967 in Gachalá, Cundinamarca.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "It came from the Vega de San Juan mine and entered the Smithsonian collection in 1969.[[smithsonian-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia (Gachalá, about 7,000 carats)",
+          "answer": "Emilia was found in 1969 at the Las Cruces mine in Gachalá. El Tiempo gave its weight as 7,025 carats[[el-tiempo-emilia-1996]]; Spanish Wikipedia gives 7,015 carats and the date 15 July 1969.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Where it is now is disputed. The mine owner told El Tiempo it later appeared in a museum in Switzerland[[el-tiempo-emilia-1996]]; Spanish Wikipedia says it is kept at the Museo del Oro of the Banco de la República.[[wiki-es-gachala]]"
+          ]
+        },
+        "furaTena": {
+          "heading": "Fura and Tena (Muzo, 1999)",
+          "answer": "Fura is an uncut crystal of about 11,000 carats found in 1999 in Muzo and named after the legend of Fura and Tena.[[wiki-es-esmeralda-fura]]",
+          "paragraphs": [
+            "Tena, around 2,000 carats and about 400 grams, came out the same year. Its dark, even green makes it the more valued of the two.[[wiki-es-esmeralda-tena]]"
+          ]
+        },
+        "monstro": {
+          "heading": "El Monstro",
+          "note": "oralTradition",
+          "paragraphs": [
+            "In Gachalá people speak of El Monstro, a crystal said to weigh 16,020 carats. We have found no document, museum record or press report that confirms it. We keep it here, labeled, until one appears."
+          ]
+        }
+      }
+    },
+    "patricia": {
+      "metaTitle": "The Patricia Emerald: 632 Carats from Chivor and a $10 Bonus",
+      "metaDescription": "The Patricia emerald, 632 carats from Chivor: how it came out of the vein, the 1920 or 1921 question, the miner’s $10 and where it is now.",
+      "title": "Patricia: 632 carats from Chivor",
+      "lead": "A miner opened the pocket, the manager reached in up to his elbow, and a six-sided crystal came out into a jacket pocket. The stone went to New York. The miner, the story goes, got ten dollars.",
+      "imageAlt": "Two visitors with headlamps in a narrow mine tunnel in Chivor",
+      "sections": {
+        "stone": {
+          "heading": "The stone",
+          "answer": "Patricia is a doubly terminated hexagonal emerald crystal of 632 carats from the Chivor mine, now at the American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Spanish Wikipedia gives its size as 8 centimeters tall and 5.5 centimeters across.[[wiki-es-chivor]]"
+          ]
+        },
+        "find": {
+          "heading": "How it came out",
+          "answer": "A mine worker named Justo Daza uncovered what looked like a productive vein and pocket at Chivor.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "The manager recalled reaching into the vein “up to his elbow”, first pulling out small albite, apatite and quartz crystals, then closing his hand on something large and pocketing it without looking. “If what is in my pocket is an emerald, I will have fulfilled my contract,” he told a colleague.[[gia-rainier-2016]]"
+          ]
+        },
+        "date": {
+          "heading": "1920 or 1921?",
+          "answer": "GIA, citing the 1925 account of the mine manager, dates the find to January 1921.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Spanish Wikipedia’s article on Chivor says 1920[[wiki-es-chivor]], and Semana, in 1992, wrote December 1920.[[semana-reinsercion-1992]] We follow GIA, which cites the account of the manager who was there, and show the other dates because readers will meet them."
+          ]
+        },
+        "ten": {
+          "heading": "The ten dollars",
+          "answer": "Justo Daza is said to have received about ten dollars.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Semana told it differently in 1992: the stone was bought from its owner for 10 dollars and sold abroad for 60,000 dollars of the time.[[semana-reinsercion-1992]]"
+          ]
+        },
+        "today": {
+          "heading": "Where it is",
+          "answer": "Patricia is in the collection of the American Museum of Natural History in New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Spanish Wikipedia credits the mine’s legal manager of the time with donating it.[[wiki-es-chivor]] The museum’s own website blocks automated reading, so we have not checked that against its record yet."
+          ]
+        }
+      }
+    },
+    "emiliaAndLaTito": {
+      "metaTitle": "Emilia and Her Sister: The Gachalá Emeralds of 1969",
+      "metaDescription": "Emilia, a 7,000-carat emerald found in Gachalá in 1969, and the purer stone found the same day: the 1996 account, other versions, La Indiecita.",
+      "title": "Emilia and her sister: the Gachalá emeralds",
+      "lead": "The same day Emilia came out of a Gachalá mine, a second, purer stone appeared under a collapsing bank of earth. It left the mine wrapped in a cape. This is what the record says, and where it stops.",
+      "imageAlt": "Two visitors with helmets and headlamps in an emerald mine tunnel",
+      "sections": {
+        "short": {
+          "heading": "The short answer",
+          "answer": "Emilia is an emerald of about 7,000 carats found in 1969 at the Las Cruces mine in Gachalá. On the same day, according to the mine owner, a worker found a second, purer stone and took it out of the mine hidden in a cape.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Our main source is a 1996 El Tiempo article built on the memories of the mine owner and the son of the man who negotiated Emilia’s sale.[[el-tiempo-emilia-1996]] Spanish Wikipedia tells a partly different version.[[wiki-es-gachala]]"
+          ]
+        },
+        "emilia": {
+          "heading": "Emilia",
+          "answer": "Emilia weighed 7,025 carats, almost three pounds. The day after the find it passed into the custody of the Banco de la República.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "Spanish Wikipedia gives 7,015 carats, the date 15 July 1969, a sale in Bogotá for 20 million pesos and a home at the Museo del Oro.[[wiki-es-gachala]] The owner, who said he was paid 30,000 pesos for his share, remembered it later turning up behind glass in a Swiss museum.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sister": {
+          "heading": "The sister",
+          "answer": "The same day, a worker named Tito Daza turned the washing hose on the spot where Emilia had come out. A bank of earth collapsed, green flashes appeared in the mud, and he washed the stone and wrapped it in a cape.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "He told no one at the mine, said he had a stomachache and left, holding the stone against his belly. The owner kept it three months on his bedside table. He described it as about 12 centimeters across, around 50 long, 8.5 pounds, wedge-shaped, and purer than Emilia.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "sale": {
+          "heading": "The sale",
+          "answer": "Months later it was sold in the owner’s house for 5 million pesos. Some time after, the buyer showed them an English-language magazine saying it had been sold in the United States for 87 million pesos.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "The owner went to the United States and contacted Interpol; Daza spent two months in prison before the complaint was withdrawn. By 1996 Daza was the owner’s son-in-law.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "versions": {
+          "heading": "La Tito, La Indiecita and other names",
+          "answer": "The record does not agree on the second stone’s date, weight or name.[[wiki-es-gachala]]",
+          "paragraphs": [
+            "Spanish Wikipedia describes an 8,000-carat stone found by Tito Daza three years after Emilia, at the same place, known in Gachalá as “La Tito” and taken secretly to Switzerland.[[wiki-es-gachala]] The regional memory we recorded for Fuego Verde calls Emilia’s sister La Indiecita and says it left under a ruana; the 1996 account says a cape and gives no name.[[el-tiempo-emilia-1996]]",
+            "Tito Daza of Gachalá is not Justo Daza, the Chivor miner linked to the Patricia emerald in 1921.[[el-tiempo-emilia-1996]]"
+          ]
+        },
+        "curse": {
+          "heading": "A curse with a woman’s name",
+          "answer": "El Tiempo titled its story “a curse with a woman’s name”. In the words of the article, finding an emerald is like winning the lottery and losing it at the same time.[[el-tiempo-emilia-1996]]",
+          "paragraphs": [
+            "For the people who found them, these stones were rarely the fortune they promised. In 1996 the owner lived in Gachetá and told the story from a bench in the main square.[[el-tiempo-emilia-1996]]"
+          ]
+        }
+      }
+    }
+  }
+}

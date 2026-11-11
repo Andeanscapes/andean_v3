@@ -1,0 +1,357 @@
+{
+  "pages": {
+    "fuegoVerde": {
+      "navLabel": "Fuego Verde",
+      "metaTitle": "Fuego Verde: viaggi nella terra degli smeraldi",
+      "metaDescription": "Quattro viaggi documentari nelle regioni colombiane degli smeraldi: Chivor e Green Fire, Fura e Tena, Coscuez e il suo mercato, le pietre con un nome.",
+      "title": "Fuego Verde: quattro viaggi nella terra degli smeraldi colombiani",
+      "lead": "Una serie documentaria girata nelle regioni degli smeraldi di Boyacá e Cundinamarca. Ogni episodio ha qui la sua pagina scritta, con ciò che abbiamo visto lungo la strada e i documenti dietro ogni dato.",
+      "imageAlt": "Visitatori con il casco ascoltano un minatore dentro la galleria di una miniera di smeraldi",
+      "sections": {
+        "what": {
+          "heading": "Che cos’è Fuego Verde?",
+          "note": "editorial",
+          "paragraphs": [
+            "Fuego Verde è una breve serie documentaria che Andean Scapes ha girato nelle regioni colombiane degli smeraldi. Il nome è il titolo spagnolo di Green Fire, le memorie del 1942 dell’ingegnere che diresse la miniera di Chivor negli anni Venti.",
+            "I video sono brevi. Queste pagine sono la versione lunga: lo stesso percorso, i luoghi che compaiono sullo schermo, le storie raccontate nei paesi e le fonti che le confermano o le smentiscono."
+          ]
+        },
+        "twoRegions": {
+          "heading": "Due regioni, una terra degli smeraldi",
+          "answer": "Gli smeraldi colombiani provengono da due fasce ai lati del bacino della Cordigliera Orientale, e non si sono formati nello stesso momento: circa 65 milioni di anni fa a est, tra 38 e 32 milioni di anni fa a ovest.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Oriente, la fascia orientale, comprende Chivor, Gachalá e Macanal. Occidente, la fascia occidentale, comprende Muzo, Coscuez, La Pita, Peñas Blancas e La Glorieta–Yacopí.[[gia-trapiche-2015]] L’episodio 1 percorre l’est. Gli episodi 2 e 3 passano a ovest. L’episodio 4 segue le pietre uscite da entrambe."
+          ],
+          "figure": {
+            "alt": "Mappa schematica della Colombia centrale con la fascia occidentale degli smeraldi a nord di Bogotá e quella orientale a nord-est.",
+            "caption": "Le due regioni percorse dalla serie. Ogni distretto minerario è indicato nel suo capoluogo comunale; le linee da Bogotá sono rette, non strade."
+          }
+        },
+        "howToRead": {
+          "heading": "Come leggere queste pagine",
+          "note": "editorial",
+          "paragraphs": [
+            "Le sezioni indicate come Note di campo raccontano ciò che abbiamo visto e sentito lungo la strada. Quelle indicate come Tradizione orale sono storie che si raccontano nella regione e che nessun documento trovato da noi conferma. Tutto il resto ha una fonte numerata.",
+            "Le citazioni in corsivo vengono dalla narrazione. L’originale spagnolo si trova nella pagina in spagnolo; le pagine nelle altre lingue lo traducono."
+          ]
+        }
+      }
+    },
+    "episodeOriente": {
+      "metaTitle": "Oriente: Chivor, Gachalá e Green Fire | Fuego Verde 1",
+      "metaDescription": "Boyacá tropicale: fattorie, musica norteña, due fasce di età diverse, Peter Rainier a Chivor, Grace Kelly e il tè sulle Ande.",
+      "title": "Episodio 1. Oriente: Chivor, Gachalá e Green Fire",
+      "lead": "Un’antipubblicità della regione degli smeraldi, un Boyacá che quasi nessun viaggiatore vede e l’ingegnere le cui memorie diventarono un film di Hollywood.",
+      "imageAlt": "Un gruppo di visitatori con il casco da minatore su un pendio erboso della regione degli smeraldi",
+      "sections": {
+        "hook": {
+          "heading": "La peggiore campagna turistica della Colombia",
+          "note": "fieldNote",
+          "paragraphs": [
+            "L’episodio si apre dicendoti di non venire. C’è fango. Fa caldo. Alcune strade sono discutibili. Chiedi della storia e qualcuno finisce per parlare di violenza.",
+            "È tutto vero. Ed è anche molto incompleto, ed è proprio di questo che parlano i venti minuti di strada che seguono."
+          ],
+          "quote": {
+            "text": "Non venire nella regione degli smeraldi. C’è fango. Fa caldo. Alcune strade sono… discutibili.",
+            "attribution": "Fuego Verde, episodio 1 (narrazione, tradotta dallo spagnolo)"
+          }
+        },
+        "otherBoyaca": {
+          "heading": "L’altro Boyacá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Quasi tutti i viaggiatori conoscono un solo Boyacá: Villa de Leyva, Ráquira, El Cocuy. Mattine fredde, páramo, una ruana sulle spalle. Avevamo fatto i bagagli per quello.",
+            "Il Boyacá degli smeraldi è un altro posto. Montagne tropicali, vegetazione fitta, cacao, caldo. Caldo, umido, contadino. La prima ora l’abbiamo passata a ripensare ai vestiti in valigia."
+          ]
+        },
+        "borders": {
+          "heading": "Gli smeraldi ignorano i confini",
+          "note": "fieldNote",
+          "paragraphs": [
+            "La cultura degli smeraldi non si ferma al confine del Boyacá. Prosegue nel Cundinamarca, attraverso Gachalá e Ubalá a est, e divide la regione in due: qui la gente dice Oriente e Occidente prima ancora di nominare un dipartimento."
+          ]
+        },
+        "table": {
+          "heading": "Fattorie, avíos e musica norteña",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Siamo venuti a cercare miniere e abbiamo trovato prima le fattorie: bestiame, miele, cacao. E un cibo pensato per lunghe giornate sottoterra: avíos preparati per la miniera, carne oreada, nacumas. A quanto pare cercare smeraldi mette fame.",
+            "La colonna sonora è la norteña, la musica a fisarmonica del nord del Messico, che esce da ogni auto e ogni negozio tra le montagne di Boyacá e Cundinamarca. È il primo segnale che qui uno smeraldo raramente significa lusso. Può significare il lavoro di una vita."
+          ]
+        },
+        "ages": {
+          "heading": "Due fasce, due età",
+          "answer": "Gli smeraldi della fascia orientale si sono formati circa 65 milioni di anni fa; quelli della fascia occidentale tra 38 e 32 milioni di anni fa.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Le date vengono dall’analisi argon–argon della muscovite verde, una mica cresciuta insieme agli smeraldi, e quindi datano la mineralizzazione stessa.[[gia-trapiche-2015]] La data orientale cade al limite tra Cretaceo e Terziario, il momento in cui scomparvero i dinosauri.[[gia-trapiche-2015]] Anche nell’età le due regioni si contraddicono."
+          ]
+        },
+        "rainier": {
+          "heading": "Peter Rainier a Chivor",
+          "answer": "Peter W. Rainier era l’ingegnere minerario assunto da un consorzio di New York, la Colombia Emerald Development Corporation, per riaprire la miniera abbandonata di Chivor. La diresse dal 1926 al 1931.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "Nato nel 1890 nello Swaziland, «sul retro di un carro trainato da buoi», Rainier arrivò a Chivor nel 1926 e piantò un paletto di ferro in El Púlpito, la roccia che segna il limite della concessione.[[gia-rainier-2016]] Con lui la miniera abbandonata tornò molto redditizia; nel 1931 aveva prodotto 46.250 carati, e in quello stesso anno, al culmine della produzione, ne perse il controllo.[[gia-rainier-2016]]",
+            "Raccontò la storia in Green Fire, pubblicato nel 1942, molto tempo dopo aver lasciato la Colombia.[[rainier-green-fire-1942]] Lo dedicò in parte a «Joaquin il bandito, che mi sfidò a duello e fu l’uomo più malvagio che abbia mai conosciuto».[[gia-rainier-2016]]"
+          ]
+        },
+        "film": {
+          "heading": "Chivor, gli smeraldi e Grace Kelly",
+          "answer": "Green Fire divenne un film della MGM con Grace Kelly e Stewart Granger. Uscì a New York il 24 dicembre 1954.[[afi-green-fire-1954]]",
+          "paragraphs": [
+            "La MGM lesse le bozze del libro di Rainier nel settembre 1942; un trattamento della sceneggiatura arrivò nel dicembre 1952.[[afi-green-fire-1954]] Il film mantenne il titolo e cambiò quasi tutto il resto: il GIA descrive la trama come solo vagamente simile al libro.[[gia-rainier-2016]]"
+          ]
+        },
+        "cascadas": {
+          "heading": "Gachalá, Las Cascadas e il tè",
+          "answer": "Con la moglie Margaret, Rainier fondò la prima piantagione commerciale di tè del Sud America a Las Cascadas, su un pendio alto della valle del Guavio vicino a Gachalá.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "La cima di Chivor si trovava dall’altra parte della valle, 15 chilometri più a valle lungo il fiume Guavio. Quando Rainier era in miniera, lui e Margaret si facevano segnali ogni notte con torce da 18 pollici.[[gia-rainier-2016]]"
+          ],
+          "quote": {
+            "text": "A quanto pare gli smeraldi non erano abbastanza esotici. Qualcuno doveva anche coltivare il tè sulle Ande.",
+            "attribution": "Fuego Verde, episodio 1 (narrazione, tradotta dallo spagnolo)"
+          }
+        },
+        "next": {
+          "heading": "L’altro lato della montagna",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Fango, caldo, norteña, smeraldi, Grace Kelly, Hollywood e tè, ed era solo l’Oriente. Dall’altro lato della montagna c’era la parte della regione che ancora avevamo paura di visitare."
+          ]
+        }
+      }
+    },
+    "episodeOccidente": {
+      "metaTitle": "Occidente: Fura, Tena e il fiume Minero | Fuego Verde 2",
+      "metaDescription": "Da Chiquinquirá al Boyacá occidentale: Boca de Monte, il fiume Minero, i monti Fura e Tena, la loro leggenda e perché l’Occidente non è solo Muzo.",
+      "title": "Episodio 2. Occidente: Fura, Tena e il fiume Minero",
+      "lead": "Una storia d’amore con tradimento, morte e smeraldi, in cui i protagonisti sono due montagne. Esistono, e puoi stare in piedi tra loro.",
+      "imageAlt": "Una coppia con il casco su una moto lungo una strada di montagna nel bosco",
+      "sections": {
+        "hook": {
+          "heading": "Una storia d’amore raccontata dalle montagne",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Questa storia ha amore, tradimento, morte e smeraldi. La cosa strana è che i protagonisti sono due montagne, Fura e Tena, e sono reali. Per capire perché, prima bisogna scendere dalla cordigliera."
+          ]
+        },
+        "descent": {
+          "heading": "Scendendo da Chiquinquirá",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Chiquinquirá e la sua basilica le conoscevamo; la strada che scende in questa parte del Boyacá no. All’alba, Boca de Monte ha dato il primo indizio: nebbia, colori e montagne a perdita d’occhio. All’improvviso il Boyacá sembrava enorme.",
+            "Poi un cartello: Muzo. Quel nome lo conoscono tutti. Smeraldi, miniere, la capitale mondiale dello smeraldo. Siamo passati oltre senza fermarci."
+          ]
+        },
+        "mistake": {
+          "heading": "L’Occidente non è solo Muzo",
+          "answer": "La fascia occidentale ha cinque distretti minerari: Muzo, Coscuez, La Pita, Peñas Blancas e La Glorieta–Yacopí.[[gia-trapiche-2015]] Pensare che Occidente volesse dire Muzo è stato il nostro primo errore.",
+          "paragraphs": [
+            "Maripí prende il nome dalla lingua muzo, in cui significa «fiore rosso».[[wiki-es-maripi]] San Pablo de Borbur si definisce «il comune smeraldo della Colombia» per il numero di giacimenti nel suo territorio.[[wiki-es-borbur]] Lungo la strada l’elenco continua a crescere: Maripí con La Pita e Cunas, Coper, Pauna, Borbur. La nostra mappa mentale dell’Occidente era molto più piccola dell’Occidente."
+          ]
+        },
+        "river": {
+          "heading": "Il fiume scuro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Dopo Pauna il bosco cambia, l’aria si scalda e compare il Minero: scuro, carico di sedimenti. La spiegazione ovvia è l’attività mineraria, ed è solo una parte.",
+            "Gli smeraldi occidentali si trovano in argilliti nere e calcari dolomitici di 130-116 milioni di anni fa.[[gia-trapiche-2015]] Il fiume trascina a valle quella roccia nera, e in alcuni tratti le miniere possono aggiungere altri solidi. Anche l’acqua aveva più di una storia."
+          ]
+        },
+        "hills": {
+          "heading": "Fura e Tena esistono",
+          "answer": "Fura si innalza a San Pablo de Borbur e Tena a Pauna, una di fronte all’altra, separate dal fiume Minero.[[wiki-es-borbur]]",
+          "paragraphs": [
+            "Le altezze dipendono dalla fonte. La voce di Wikipedia in spagnolo sui due monti indica circa 840 metri per Tena e 500 per Fura[[wiki-es-fura-tena]], mentre la voce su Borbur attribuisce a Fura 800 metri.[[wiki-es-borbur]]",
+            "I monti erano un luogo di culto per il popolo muzo, la sede dei suoi dèi, e il bosco che li circonda è noto per le farfalle, tra cui la Morpho blu.[[wiki-es-fura-tena]]"
+          ]
+        },
+        "legend": {
+          "heading": "La leggenda, come si racconta qui",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Fura e Tena si giurarono amore. Apparve Zarbi. Fura ruppe la promessa. Tena scoprì il tradimento e morì. Fura pianse: le sue lacrime diventarono smeraldi e le sue grida farfalle. Are trasformò entrambi in montagne, e in una versione Zarbi divenne un torrente, il fiume Minero.",
+            "Guarda di nuovo la valle con questo in mente: Fura da un lato, Tena dall’altro e Zarbi che scorre tra loro. La leggenda scritta è attribuita a Julio Roberto Garavito.[[wiki-es-fura-tena]]"
+          ],
+          "quote": {
+            "text": "Amore. Tradimento. Morte. Smeraldi. Farfalle. In pratica una telenovela colombiana scritta nelle montagne.",
+            "attribution": "Fuego Verde, episodio 2 (narrazione, tradotta dallo spagnolo)"
+          }
+        },
+        "map": {
+          "heading": "Trapiche, uno smeraldo dell’ovest",
+          "answer": "In Colombia gli smeraldi trapiche, con sei bracci scuri che partono da un nucleo come i raggi della ruota di un mulino da zucchero, si trovano solo nei giacimenti occidentali di Muzo, Coscuez e Peñas Blancas.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Il mineralogista francese Émile Bertrand li descrisse per la prima volta nel 1879, presentando «curiosi cristalli di smeraldo… da Muso, Nuova Granada».[[gia-trapiche-2015]]"
+          ],
+          "figure": {
+            "alt": "Schema della sezione di uno smeraldo trapiche: un nucleo esagonale scuro, sei bracci scuri e sei settori verdi.",
+            "caption": "Uno smeraldo trapiche visto lungo il suo asse. Schema, non in scala."
+          }
+        },
+        "next": {
+          "heading": "Mancava ancora la cultura all’opera",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Fin lì avevamo visto il paesaggio, le miniere e la leggenda. Non avevamo ancora visto come si sente questa cultura quando è viva: quando lavora, commercia, mangia e si riunisce attorno a uno smeraldo. Per questo serviva un altro posto: Coscuez."
+          ]
+        }
+      }
+    },
+    "episodeCoscuez": {
+      "metaTitle": "Coscuez, Cielo Abierto e Plaza del Chácaro | Fuego Verde 3",
+      "metaDescription": "Coscuez senza filtri: strade di fango, il belvedere di Cielo Abierto, il Territorio Vásquez, la miniera, il mercato di Plaza del Chácaro, giochi e cibo.",
+      "title": "Episodio 3. Coscuez: Cielo Abierto, la miniera e Plaza del Chácaro",
+      "lead": "Da fuori, l’Occidente sembra fango, alcol e gente che litiga per pietre verdi. Coscuez ci ha mostrato quello che non sapevamo vedere.",
+      "imageAlt": "Quattro persone con il casco all’ingresso di una miniera di smeraldi",
+      "sections": {
+        "hook": {
+          "heading": "Fango, alcol e pietre verdi",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Da fuori, l’Occidente sembra fango, alcol e gente che litiga per pietre verdi. Lo pensavamo anche noi, fino a Coscuez. Il problema non era il posto. Era tutto ciò che non sapevamo guardare."
+          ]
+        },
+        "arrival": {
+          "heading": "L’arrivo",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez non si sforza molto di sembrare moderna. Strada sterrata, fango, moto, vecchie jeep, baracche di lamiera. Niente che dica destinazione di lusso."
+          ]
+        },
+        "cieloAbierto": {
+          "heading": "Cielo Abierto",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Sopra l’abitato c’è Cielo Abierto, un belvedere da cui tutto l’Occidente sembra aprirsi in una volta: Las Quinchas, Quípama, Muzo, Pauna, una montagna dietro l’altra.",
+            "Coscuez stessa è uno dei monti con un nome proprio di San Pablo de Borbur, insieme a Peñas Blancas.[[wiki-es-borbur]]"
+          ]
+        },
+        "vasquez": {
+          "heading": "Territorio Vásquez",
+          "answer": "Il Territorio Vásquez non è un marchio turistico. Tra il 1863 e il 1883 fu una terra pubblica non assegnata della Repubblica di Colombia, un baldío, che comprendeva le attuali Puerto Boyacá, Otanche e Borbur.[[wiki-es-territorio-vasquez]]",
+          "paragraphs": [
+            "Prese il nome da Cayetano Vásquez, un martire dell’indipendenza. Fu creato soprattutto per costruire la strada dell’ovest e fondare insediamenti lungo il percorso, e nel XIX secolo fu conteso tra gli stati di Cundinamarca e Boyacá.[[wiki-es-territorio-vasquez]]"
+          ]
+        },
+        "mine": {
+          "heading": "Giù in miniera",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Là sotto la storia cambia: gallerie, fango, rumore, mani. Gente che entra nella montagna aspettando che la vena mostri finalmente il colore. Coscuez è uno dei cinque distretti minerari della fascia occidentale.[[gia-trapiche-2015]]",
+            "Uno smeraldo non comincia in gioielleria. Comincia qui, nel lavoro, nella pazienza e nel buio."
+          ]
+        },
+        "chacaro": {
+          "heading": "Plaza del Chácaro",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Poco lontano c’è la Plaza del Chácaro: pavimento di terra, bancarelle, moto, guaqueros, compratori, minatori ancora neri di galleria e pietre che passano di mano in mano. C’è chi guarda uno smeraldo per cinque secondi e ne sa molto più di quanto ne sapessimo noi dopo mezz’ora. Loro vedono qualità, colore, cristallo. Noi vedevamo verde.",
+            "La ricerca indipendente, la guaquería, esiste nei paesi degli smeraldi del Boyacá occidentale da più di settant’anni.[[verdad-abierta-mujeres-2016]]"
+          ]
+        },
+        "life": {
+          "heading": "Carte, cacho e gallina borracha",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Coscuez non finisce alla miniera. Ci sono la musica, il cacho e il naipe, la tomata, le jeep, le conversazioni. E il cibo: arroz de fines, gallina Nicaragua, gallina borracha."
+          ],
+          "quote": {
+            "text": "Non so chi abbia dato il nome a questi piatti, ma di certo non aveva paura di sbilanciarsi.",
+            "attribution": "Fuego Verde, episodio 3 (narrazione, tradotta dallo spagnolo)"
+          }
+        },
+        "identity": {
+          "heading": "Questa non è arretratezza",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Puoi costruire un vecchio albergo, comprare una jeep, mettere musica popolare e appendere foto di smeraldi. Coscuez non puoi fabbricarla. Qui la miniera, il cibo, i giochi, le strade, le storie e le persone sono cresciuti insieme. Questa non è arretratezza. È identità.",
+            "Dopo aver visto da dove vengono queste pietre, restava una domanda: cosa deve succedere perché uno smeraldo smetta di essere una pietra e finisca con un nome tutto suo? È il prossimo episodio."
+          ]
+        }
+      }
+    },
+    "episodeExtraordinary": {
+      "metaTitle": "Smeraldi colombiani straordinari | Fuego Verde 4",
+      "metaDescription": "Inclusioni trifasiche, Fura e Tena, Patricia e il premio da 10 dollari, lo smeraldo di Gachalá, Emilia e la sorella sparita sotto una mantella.",
+      "title": "Episodio 4. Smeraldi straordinari, e quello scomparso",
+      "lead": "Uno smeraldo lungo quasi mezzo metro uscì da una miniera colombiana nascosto sotto una ruana e non fu mai più visto. Prima del caveau e della vetrina, c’è sempre stata una montagna.",
+      "imageAlt": "Due uomini con casco e lampada frontale accanto a una cascata sotterranea",
+      "sections": {
+        "hook": {
+          "heading": "Uno smeraldo scomparso",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Uno smeraldo lungo quasi mezzo metro è scomparso. Prima uscì da una miniera colombiana nascosto sotto una ruana. Fu venduto, arrivò negli Stati Uniti e poi se ne persero le tracce. Successe a Gachalá.",
+            "Così si racconta nella regione. I documenti raccontano una storia un po’ diversa, più in basso in questa pagina."
+          ]
+        },
+        "belts": {
+          "heading": "Prima della lucentezza",
+          "answer": "Impariamo a guardare gli smeraldi quando hanno già lasciato la montagna, lucidati e con un prezzo. In Colombia provengono da due fasce: Chivor e Gachalá a est, Muzo e Coscuez a ovest, mineralizzate circa 65 e tra 38 e 32 milioni di anni fa.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "E no, la differenza di età non significa trenta milioni di anni in più per far crescere le pietre dell’est. Sono episodi geologici distinti, e ciascuno ha lasciato tracce dentro i cristalli.[[gia-trapiche-2015]]"
+          ]
+        },
+        "inclusions": {
+          "heading": "Acqua salata, gas e un minuscolo cubo di sale",
+          "answer": "Il tratto più riconoscibile degli smeraldi colombiani è l’inclusione trifasica frastagliata: una cavità di salamoia che contiene una bolla di gas e un cristallo cubico, di solito halite o silvite, in genere tra 100 micrometri e 1 millimetro.[[gia-origin-2019]]",
+          "paragraphs": [
+            "Per anni vedere quelle tre fasi voleva dire una cosa sola: Colombia. Oggi inclusioni simili si conoscono in smeraldi dell’Afghanistan e della Cina, e di un giacimento minore a Musakashi, in Zambia.[[gia-origin-2019]]",
+            "A decidere è la dimensione. Le inclusioni fluide frastagliate più grandi di circa 500 micrometri, mezzo millimetro, sono esclusive della Colombia e valgono come prova diagnostica dell’origine.[[gia-origin-2019]] Anche le bolle hanno bisogno di una carta d’identità."
+          ],
+          "figure": {
+            "alt": "Schema di un’inclusione fluida frastagliata in uno smeraldo con tre fasi indicate: salamoia, bolla di gas e cristallo cubico di sale.",
+            "caption": "Un’inclusione trifasica, la classica impronta degli smeraldi colombiani. Schema, non in scala."
+          }
+        },
+        "giants": {
+          "heading": "Più grande non vuol dire migliore",
+          "paragraphs": [
+            "Nel 1999 Muzo restituì Fura, un cristallo grezzo di circa 11.000 carati, 2,2 chilogrammi.[[wiki-es-esmeralda-fura]] Lo stesso anno restituì Tena, di circa 2.000 carati, molto più piccola e celebrata come la più preziosa delle due per il suo verde scuro e uniforme.[[wiki-es-esmeralda-tena]]",
+            "A Gachalá, Emilia pesava 7.025 carati secondo il resoconto di El Tiempo del 1996.[[el-tiempo-emilia-1996]] Essere la più grande non garantisce di vincere."
+          ]
+        },
+        "patricia": {
+          "heading": "Patricia e i dieci dollari",
+          "answer": "Patricia è un cristallo di 632 carati proveniente da Chivor, oggi all’American Museum of Natural History di New York.[[gia-rainier-2016]]",
+          "paragraphs": [
+            "La sacca fu aperta nel gennaio 1921 da un lavoratore della miniera di nome Justo Daza; il direttore infilò il braccio nella vena fino al gomito ed estrasse il cristallo.[[gia-rainier-2016]] Le fonti in lingua spagnola datano la scoperta al 1920.[[wiki-es-chivor]]",
+            "Si dice che Daza abbia ricevuto circa dieci dollari.[[gia-rainier-2016]] La pietra andò a New York. Justo, con dieci dollari."
+          ],
+          "quote": {
+            "text": "Risorse umane, dobbiamo parlare.",
+            "attribution": "Fuego Verde, episodio 4 (narrazione, tradotta dallo spagnolo)"
+          }
+        },
+        "gachala": {
+          "heading": "Ancora Gachalá",
+          "answer": "Lo smeraldo di Gachalá è un cristallo di 858 carati trovato nel 1967 e conservato dal 1969 al National Museum of Natural History dello Smithsonian.[[smithsonian-gachala]]",
+          "paragraphs": [
+            "Proprio quando pensi che Gachalá abbia mostrato abbastanza, ne spunta un altro. Fu trovato nella miniera Vega de San Juan.[[smithsonian-gachala]]"
+          ]
+        },
+        "indiecita": {
+          "heading": "La Indiecita, quella che manca",
+          "note": "oralTradition",
+          "paragraphs": [
+            "Nella memoria mineraria di Gachalá, Emilia aveva una sorella: più pura, lunga quasi mezzo metro, portata fuori dalla miniera sotto una ruana, venduta, portata negli Stati Uniti e perduta. La gente la chiama La Indiecita.",
+            "I documenti si avvicinano, ma non coincidono. Nel 1996 El Tiempo raccolse la versione del proprietario della miniera: il giorno in cui comparve Emilia, un lavoratore di nome Tito Daza trovò una seconda pietra, la avvolse in una mantella e la vendette mesi dopo; si disse che fosse stata rivenduta negli Stati Uniti.[[el-tiempo-emilia-1996]] Wikipedia in spagnolo descrive invece una pietra di 8.000 carati trovata da Tito Daza tre anni dopo e nota come «La Tito».[[wiki-es-gachala]] Nessun documento che abbiamo trovato la chiama La Indiecita.",
+            "La serie cita anche due storie che non siamo riusciti a documentare: El Monstro, un cristallo di Gachalá che avrebbe pesato 16.020 carati, e un’esplosione a Chivor che distrusse un cristallo forse più grande di Patricia. Justo Daza, che trovò Patricia a Chivor, e Tito Daza, della storia di Gachalá, sono persone diverse."
+          ]
+        },
+        "closing": {
+          "heading": "Quello che l’etichetta non dice",
+          "note": "fieldNote",
+          "paragraphs": [
+            "Un laboratorio può dirti cosa contiene uno smeraldo. Un museo può dirti quanto pesa. Nessuna etichetta può raccontarti tutto ciò che è successo prima. Prima di New York, di Washington, di un caveau o di una vetrina, c’erano una montagna, una miniera e qualcuno che ha dovuto portare fuori la pietra."
+          ],
+          "quote": {
+            "text": "La prossima volta che vedi uno smeraldo colombiano, non guardare solo la pietra. Chiediti cosa è dovuto succedere prima che arrivasse nelle tue mani.",
+            "attribution": "Fuego Verde, episodio 4 (narrazione, tradotta dallo spagnolo)"
+          }
+        }
+      }
+    }
+  }
+}

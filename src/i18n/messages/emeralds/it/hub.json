@@ -1,0 +1,87 @@
+{
+  "pages": {
+    "hub": {
+      "metaTitle": "Smeraldi colombiani: miniere, leggende e storia",
+      "metaDescription": "Gli smeraldi colombiani spiegati: cos’è uno smeraldo, dove si estrae in Colombia, Muzo e Chivor, pietre famose, leggende, Guerre Verdi e cultura mineraria.",
+      "title": "Smeraldi colombiani: miniere, leggende e storia",
+      "lead": "Mondo Smeraldo è il nostro riferimento documentato sugli smeraldi colombiani: la gemma in sé, le due fasce minerarie, le pietre con un nome, le leggende, le Guerre Verdi e la vita quotidiana di chi li cerca.",
+      "imageAlt": "Due viaggiatori con le braccia alzate davanti a ripide cime montuose verdi e boscose in Colombia",
+      "sections": {
+        "what": {
+          "heading": "Che cos’è Mondo Smeraldo?",
+          "note": "editorial",
+          "answer": "Mondo Smeraldo è la biblioteca di riferimento di Andean Scapes sugli smeraldi, con un focus sulla Colombia: da dove vengono, come si formano, le miniere e i paesi che li producono, le pietre che hanno fatto la storia e la cultura di chi li estrae. Ogni pagina separa la leggenda dai fatti documentati e ne elenca le fonti.",
+          "paragraphs": [
+            "Lavoriamo a Chivor, nella fascia orientale degli smeraldi colombiani, e continuavamo a sentire le stesse domande dai viaggiatori: perché gli smeraldi colombiani sono così famosi, come funziona davvero una miniera, cosa racconta la leggenda di Fura e Tena, cosa è successo durante le Guerre Verdi. Mondo Smeraldo è il luogo in cui rispondiamo come si deve.",
+            "Comincia da Fuego Verde, i nostri quattro viaggi documentari attraverso l’Oriente, l’Occidente, Coscuez e le pietre con un nome. Poi approfondisci per tema: la mitologia, le Guerre Verdi raccontate una per una, gli smeraldi famosi con ogni peso indicato da ciascuna fonte, e la cultura di chi estrae e cerca."
+          ]
+        },
+        "emerald": {
+          "heading": "Che cos’è uno smeraldo, e perché quelli colombiani sono famosi?",
+          "answer": "Lo smeraldo è la varietà verde o verde-bluastra del minerale berillo.[[gia-emerald-description]] La Colombia è il maggiore produttore e si stima che rappresenti dal 70 al 90% del mercato mondiale degli smeraldi.[[wiki-en-colombian-emeralds]]",
+          "paragraphs": [
+            "Cromo, vanadio e ferro danno allo smeraldo il suo colore. Si dice che gli smeraldi colombiani abbiano un verde puro più caldo e intenso di quelli dello Zambia, anche se il GIA osserva che l’aspetto delle pietre di diverse provenienze si sovrappone.[[gia-emerald-quality]]",
+            "Gli smeraldi fini ed extra fini sono estremamente rari, anche se le pietre di qualità commerciale abbondano.[[wiki-en-colombian-emeralds]]"
+          ]
+        },
+        "belts": {
+          "heading": "Da dove vengono gli smeraldi colombiani?",
+          "answer": "Gli smeraldi colombiani provengono da due fasce ai lati del bacino della Cordigliera Orientale. La fascia occidentale comprende i distretti minerari di Muzo, Coscuez, La Pita, Peñas Blancas e La Glorieta–Yacopí; quella orientale comprende Chivor, Gachalá e Macanal.[[gia-trapiche-2015]]",
+          "paragraphs": [
+            "Le due fasce non si sono formate nello stesso momento. La datazione della muscovite verde cresciuta insieme agli smeraldi indica circa 65 milioni di anni per la fascia orientale, al limite tra Cretaceo e Terziario, e tra 38 e 32 milioni di anni per quella occidentale.[[gia-trapiche-2015]] In Colombia gli smeraldi trapiche, con sei bracci scuri che partono dal centro, si trovano solo nei giacimenti occidentali di Muzo, Coscuez e Peñas Blancas.[[gia-trapiche-2015]]",
+            "La fascia orientale ha una storia tutta sua. L’ingegnere minerario Peter W. Rainier diresse Chivor dal 1926 al 1931.[[gia-rainier-2016]] Le sue memorie, Green Fire, uscirono nel 1942[[rainier-green-fire-1942]], e la MGM ne trasse un film con Grace Kelly e Stewart Granger, uscito a New York nel dicembre 1954.[[afi-green-fire-1954]] Nel 1967 la miniera Vega de San Juan a Gachalá restituì un cristallo di 858 carati, oggi al National Museum of Natural History dello Smithsonian.[[smithsonian-gachala]]"
+          ],
+          "figure": {
+            "alt": "Mappa schematica della Colombia centrale. La fascia occidentale degli smeraldi (Muzo, San Pablo de Borbur, Maripí, Yacopí) si trova a nord di Bogotá; la fascia orientale (Chivor, Macanal, Gachalá) a nord-est.",
+            "caption": "Le due fasce degli smeraldi, con ogni distretto minerario indicato nel suo capoluogo municipale. Le linee da Bogotá sono rette, non strade."
+          }
+        },
+        "culture": {
+          "heading": "La cultura dello smeraldo va oltre le miniere",
+          "note": "fieldNote",
+          "answer": "Nelle regioni dello smeraldo della Colombia uno smeraldo raramente significa lusso. Può significare il lavoro di una vita. Intorno alle miniere ci sono fattorie, bestiame, cacao e miele, cibo lungo la strada per le giornate lunghe, musica norteña su ogni radio e mercati dove le pietre passano di mano all’aperto.",
+          "paragraphs": [
+            "Molti viaggiatori immaginano il Boyacá come un altopiano freddo. Le regioni dello smeraldo sono diverse: montagne tropicali calde e umide, dove la cultura mineraria sconfina anche nel Cundinamarca, perché gli smeraldi non hanno mai rispettato i confini dei dipartimenti.",
+            "Questa cultura viva è la parte che raramente arriva nei risultati di ricerca, ed è quella che documentiamo in prima persona. Ciò che ne leggi qui è la nostra osservazione sul campo nei paesi e nelle miniere, e le storie raccontate sul posto sono presentate come tradizione orale quando nessun documento le conferma."
+          ],
+          "list": [
+            "Oriente: Chivor, Gachalá e la valle del Guavio, dove Rainier visse e lavorò.[[gia-rainier-2016]]",
+            "Occidente: Muzo, Coscuez, Pauna, Borbur e le colline di Fura e Tena sopra il fiume Minero.",
+            "Le persone: minatori, cercatori indipendenti e le famiglie che vivono intorno alle miniere."
+          ]
+        },
+        "method": {
+          "heading": "Come facciamo ricerca",
+          "note": "editorial",
+          "paragraphs": [
+            "I fatti documentati sono collegati alle fonti elencate alla fine di ogni pagina, e preferiamo fonti accademiche e museali come Gems & Gemology e lo Smithsonian, archivi e stampa colombiani e documenti primari. Ciò che abbiamo visto sul campo è presentato come nostra osservazione. Quando le fonti non concordano, mostriamo entrambe le versioni.",
+            "Non citiamo mai tour operator, gioiellieri o venditori di smeraldi, quindi niente qui è scritto per venderti una pietra. Le date indicano quando una pagina è stata verificata l’ultima volta, e correggiamo gli errori quando emergono nuove prove."
+          ],
+          "list": [
+            "La leggenda è indicata come leggenda, la tradizione orale come tradizione orale, e i fatti documentati sono citati.",
+            "Pesi, date e collocazione attuale delle pietre famose provengono dall’istituzione che le custodisce.",
+            "La storia delicata, come quella delle Guerre Verdi, è raccontata a partire da fonti colombiane in spagnolo e dalla memoria delle comunità."
+          ]
+        }
+      },
+      "faq": [
+        {
+          "question": "Dove si estraggono gli smeraldi in Colombia?",
+          "answer": "Soprattutto nel Boyacá e nel Cundinamarca. Le tre miniere principali sono Muzo, Coscuez e Chivor.[[wiki-en-colombian-emeralds]]"
+        },
+        {
+          "question": "Perché gli smeraldi colombiani hanno tanto valore?",
+          "answer": "La Colombia produce la maggior parte degli smeraldi fini del mondo, e le pietre migliori uniscono un verde puro e intenso a un’elevata trasparenza, una combinazione rara.[[wiki-en-colombian-emeralds]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "Gli smeraldi colombiani sono migliori di quelli dello Zambia?",
+          "answer": "Non automaticamente. Gli smeraldi dello Zambia tendono a essere più scuri per il maggiore contenuto di ferro, e il valore dipende dalla singola pietra, perché l’aspetto delle diverse provenienze si sovrappone.[[gia-origin-2019]][[gia-emerald-quality]]"
+        },
+        {
+          "question": "Che cos’è uno smeraldo trapiche?",
+          "answer": "Uno smeraldo con sei bracci scuri che partono da un nucleo come i raggi di una ruota. In Colombia provengono solo da Muzo, Coscuez e Peñas Blancas.[[gia-trapiche-2015]]"
+        }
+      ]
+    }
+  }
+}

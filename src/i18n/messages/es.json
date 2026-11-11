@@ -511,7 +511,8 @@
     "lightMode": "Modo claro",
     "darkMode": "Modo oscuro",
     "experiences": "Experiencias",
-    "guides": "Guías"
+    "guides": "Guías",
+    "emeralds": "Mundo Esmeralda"
   },
   "ExperiencesList": {
     "metaTitle": "Tours a Minas de Esmeraldas en Colombia | Chivor | Andean Scapes",
@@ -1521,7 +1522,8 @@
     "privacy": "Privacidad",
     "comingSoon": "Próximamente",
     "allRightsReserved": "Todos los derechos reservados.",
-    "allyGuides": "Guías"
+    "allyGuides": "Guías",
+    "allyEmeralds": "Mundo Esmeralda"
   },
   "MobileMenu": {
     "brandLine": "Estancias y experiencias auténticas en los Andes colombianos",
@@ -1544,7 +1546,8 @@
       "howItWorks": "Cómo Funciona",
       "reviews": "Reseñas",
       "faq": "Preguntas Frecuentes",
-      "guides": "Guías"
+      "guides": "Guías",
+      "emeralds": "Mundo Esmeralda"
     }
   },
   "Error": {

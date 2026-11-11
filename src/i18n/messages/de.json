@@ -1,0 +1,1586 @@
+{
+  "Home": {
+    "metaTitle": "Private Smaragdminen-Touren in Kolumbien | Andean Scapes",
+    "metaDescription": "Kolumbiens Smaragderbe auf privaten Touren in den Anden: Muzo, Coscuez, Chivor und Gachalá. Ziele und Aktivitäten hängen vom Reiseverlauf ab."
+  },
+  "Seo": {
+    "breadcrumbHome": "Startseite",
+    "breadcrumbExperiences": "Erlebnisse",
+    "llmsContactHeading": "Kontakt"
+  },
+  "Landing": {
+    "brand": {
+      "hero": {
+        "eyebrow": "Private Touren in den Anden Kolumbiens",
+        "title": "Private Smaragdminen-Touren in Kolumbien",
+        "subtitle": "Private Touren in den Anden rund um Smaragdtourismus und Bergbauerbe in Kolumbien, von Muzo und Coscuez bis Chivor und Gachalá.",
+        "description": "Erkunden Sie Kolumbiens Smaragdregionen auf privaten Touren mit lokalen Guides. Ziele und praktische Aktivitäten hängen vom Reiseverlauf ab; einen Smaragd zu finden ist nie garantiert.",
+        "primaryCta": "Ihr Erlebnis finden",
+        "secondaryCta": "Per WhatsApp fragen",
+        "chips": {
+          "smallGroups": "Max. 10 Reisende",
+          "hostedByLocals": "Mit Gastgebern vor Ort",
+          "flexiblePlanning": "Flexible Termine",
+          "securePayments": "Sichere Online-Zahlung",
+          "englishSupport": "Englisch & Spanisch"
+        },
+        "search": {
+          "destinationLabel": "Wohin",
+          "experienceTypeLabel": "Art",
+          "durationLabel": "Dauer",
+          "submit": "Erlebnisse suchen",
+          "destinations": {
+            "chivor": "Chivor, Boyacá",
+            "all": "Alle Ziele"
+          },
+          "experienceTypes": {
+            "all": "Alle Arten",
+            "nature": "Natur",
+            "culture": "Kultur",
+            "adventure": "Abenteuer"
+          },
+          "durations": {
+            "all": "Beliebige Dauer",
+            "oneDay": "1 Tag",
+            "twoDayOneNight": "2 Tage / 1 Nacht",
+            "threeDayTwoNight": "3 Tage / 2 Nächte"
+          }
+        },
+        "bookingCard": {
+          "reserveLabel": "Termin reservieren",
+          "askFirstLabel": "Erst Fragen stellen",
+          "nextAvailability": "Nächster freier Termin"
+        }
+      },
+      "categories": {
+        "title": "Smaragdtouren und Erlebnisse in Boyacá",
+        "cta": "Ansehen",
+        "items": {
+          "emerald": {
+            "title": "Smaragdtourismus in Kolumbien",
+            "description": "Lernen Sie Kolumbiens Smaragdbergbau und die Gemeinden in Muzo, Coscuez, Chivor und Gachalá kennen. Das Tourangebot ist je nach Ziel unterschiedlich.",
+            "exclusiveAccess": "Besuche, organisiert mit lokalen Bergbaufamilien und Guides"
+          },
+          "nature": {
+            "title": "Abgelegene Wege in den Anden",
+            "description": "Páramos, Nebelwälder und versteckte Wasserfälle. Wege, die die meisten Reisenden nie finden."
+          },
+          "rural": {
+            "title": "Bei Gastgebern auf dem Land wohnen",
+            "description": "Wachen Sie auf einem bewirtschafteten Hof auf, essen Sie mit der Gastfamilie und lernen Sie das Handwerk, das sie geerbt hat."
+          },
+          "horseback": {
+            "title": "Auf alten Bergpfaden reiten",
+            "description": "Andenpfade zu Fuß oder zu Pferd, so wie die Menschen hier seit Jahrhunderten unterwegs sind."
+          }
+        }
+      },
+      "featured": {
+        "title": "Weitere Smaragdtouren",
+        "viewAll": "Alle Erlebnisse ansehen",
+        "nextAvailability": "Nächster freier Termin: {date}. Nur noch {count, plural, one {# Platz} other {# Plätze}} frei",
+        "nextAvailabilityDate": "Nächster freier Termin: {date}",
+        "fromLabel": "Ab",
+        "perPersonLabel": "/ Person",
+        "viewDetails": "Details ansehen",
+        "badges": {
+          "featured": "Empfohlen",
+          "new": "Neu"
+        },
+        "items": {
+          "emerald": {
+            "title": "Smaragdminen-Abenteuer",
+            "description": "Zwei Tage in Chivor. Besuchen Sie eine aktive Smaragdmine, suchen Sie mit lokalen Guides nach Smaragden und erfahren Sie, wie das Leben im Bergbau aussieht.",
+            "duration": "2 Tage / 1 Nacht",
+            "location": "Chivor, Boyacá"
+          },
+          "pottery": {
+            "title": "Traditionelle Töpferei",
+            "description": "Setzen Sie sich zu erfahrenen Töpfern in Ráquira und formen Sie Ton mit Techniken, die seit 500 Jahren weitergegeben werden.",
+            "duration": "1 Tag",
+            "location": "Ráquira, Boyacá"
+          }
+        }
+      },
+      "whyUs": {
+        "title": "Begleitet von den Familien, die hier leben",
+        "lead": "Wir sind ein Netzwerk lokaler Gastgeber, kein Reiseveranstalter. Sie teilen, was sie wirklich wissen.",
+        "portrait": {
+          "alt": "Lokale Gastgeber von Andean Scapes mit Grubenhelmen in Chivor, Boyacá",
+          "caption": "Lokale Gastgeber · Chivor, Boyacá"
+        },
+        "items": {
+          "localHosts": {
+            "title": "Familien und Guides aus der Region",
+            "description": "Sie reisen mit den Familien und Guides, die sich an diesen Orten ihr Leben aufgebaut haben, nicht mit einem Firmenvertreter."
+          },
+          "smallGroups": {
+            "title": "Gruppen mit höchstens 10 Personen",
+            "description": "Klein genug, dass Ihr Gastgeber Ihren Namen kennt. Groß genug, um den Moment zu teilen."
+          },
+          "culturalAccess": {
+            "title": "Zugang, den man anderswo nicht kaufen kann",
+            "description": "Manches, was wir Ihnen zeigen, etwa die Mine, die Küche der Hacienda und den Familienhof, gibt es nur dank Vertrauen, das über Jahre gewachsen ist."
+          },
+          "secureBooking": {
+            "title": "Einfach und sicher buchen",
+            "description": "Reservieren Sie Ihren Platz mit 25 % Anzahlung. Den Rest zahlen Sie am Tag selbst. WhatsApp-Support die ganze Zeit."
+          }
+        }
+      },
+      "howItWorks": {
+        "title": "In 4 Schritten von der Idee zum Erlebnis",
+        "steps": {
+          "explore": {
+            "title": "Stöbern",
+            "description": "Filtern Sie nach Ziel, Art und Dauer, um das Passende für Ihre Reise zu finden."
+          },
+          "choose": {
+            "title": "Termin wählen",
+            "description": "Wählen Sie einen freien Termin und sagen Sie uns, wie viele mitkommen."
+          },
+          "pay": {
+            "title": "Mit 25 % reservieren",
+            "description": "Sichern Sie Ihren Platz mit einer kleinen Anzahlung. Wir bestätigen innerhalb einer Stunde per WhatsApp."
+          },
+          "travel": {
+            "title": "Anreisen",
+            "description": "Ihr Gastgeber empfängt Sie am Treffpunkt. Um alles andere kümmern wir uns."
+          }
+        }
+      },
+      "travelerSegments": {
+        "title": "Wer mit uns reist",
+        "cta": "Ihr Erlebnis finden",
+        "segments": {
+          "couples": {
+            "label": "Paare",
+            "title": "Für Paare, die Zeit für sich wollen",
+            "bullet1": "Private Gastgeber",
+            "bullet2": "Ruhige Landschaften",
+            "bullet3": "Unterkünfte, in denen Sie wirklich abschalten können",
+            "imageAlt": "Zwei Reisende betrachten an einem Tisch einen Rohsmaragd"
+          },
+          "families": {
+            "label": "Familien",
+            "title": "Für Familien, die gemeinsam entdecken",
+            "bullet1": "Besuche auf dem Hof",
+            "bullet2": "Leichte Wanderungen",
+            "bullet3": "Aktivitäten zum Mitmachen für neugierige Kinder",
+            "imageAlt": "Kind mit Grubenhelm und seiner Familie an der Smaragdmine"
+          },
+          "nomads": {
+            "label": "Digitale Nomaden",
+            "title": "Für digitale Nomaden, die länger bleiben",
+            "bullet1": "Mehrtägige Aufenthalte",
+            "bullet2": "Zuverlässiges WLAN",
+            "bullet3": "Lokaler Rhythmus und Gemeinschaft",
+            "imageAlt": "Zwei Reisende arbeiten an Laptops in einem Zimmer mit Bergblick"
+          },
+          "private": {
+            "label": "Private Gruppen",
+            "title": "Für private Gruppen und besondere Reisen",
+            "bullet1": "Ganztägige oder mehrtägige Reiseverläufe",
+            "bullet2": "Auf Ihre Gruppe zugeschnitten",
+            "bullet3": "Freunde, Teams oder Reisen zu besonderen Anlässen",
+            "imageAlt": "Reisegruppe mit Grubenhelmen an der Smaragdmine"
+          },
+          "adventure": {
+            "label": "Abenteuerlustige",
+            "title": "Für Reisende auf der Suche nach Abenteuer",
+            "bullet1": "Offroad-Strecken",
+            "bullet2": "Reitwege",
+            "bullet3": "Wanderungen mit Aussichten, die schwer zu beschreiben sind",
+            "imageAlt": "Zwei Reisende mit Grubenhelmen und einem Geländemotorrad auf einem Bergweg"
+          },
+          "culture": {
+            "label": "Kulturinteressierte",
+            "title": "Für Kulturinteressierte",
+            "bullet1": "Workshops mit lokalen Bergleuten",
+            "bullet2": "Töpfer, Weber und Bauern",
+            "bullet3": "Sie lernen durch Mitmachen",
+            "imageAlt": "Reisegruppe mit Grubenhelmen an einem Mineneingang"
+          }
+        }
+      },
+      "trustStats": {
+        "rating": "Durchschnittliche Bewertung",
+        "travelers": "Betreute Reisende",
+        "recommend": "Würden uns empfehlen",
+        "local": "In lokaler Hand",
+        "safe": "Geprüft & sicher",
+        "srTitle": "Vertrauensstatistiken"
+      },
+      "location": {
+        "title": "Kolumbiens Smaragdregionen",
+        "mapAlt": "Karte mit Bogotá und Chivor, Boyacá, Kolumbien",
+        "cta": "Route planen",
+        "bullets": {
+          "region": "Smaragdland: Muzo, Coscuez, Chivor und Gachalá",
+          "driving": "Chivor und San Pablo de Borbur liegen östlich von Bogotá",
+          "transport": "Der Transport vor Ort hängt von der Reise ab; Transfers ab Bogotá sind optional und auf jeder Seite angegeben",
+          "customizable": "Reiseverläufe passend zu Ihren Terminen und Ihrer Gruppe",
+          "languages": "Die Sprachunterstützung variiert je nach Erlebnis; prüfen Sie die jeweilige Reiseseite",
+          "plans": "Dauer und Leistungen finden Sie auf der jeweiligen Erlebnisseite"
+        }
+      },
+      "safety": {
+        "title": "So sorgen wir für Sicherheit",
+        "lead": "Jeder Gastgeber, jede Route und jede Zahlungsart wird geprüft, bevor sie Teil des Netzwerks wird.",
+        "protocolLink": "Unser Sicherheits- und Logistikprotokoll ansehen",
+        "protocolComingSoon": "Demnächst",
+        "groups": {
+          "financial": "Risikofrei buchen",
+          "operational": "Vor Ort geprüft",
+          "assistance": "Unterstützung unterwegs"
+        },
+        "items": {
+          "guides": "Lokale Guides, die jede Route kennen",
+          "meetingPoints": "Feste, geprüfte Treffpunkte",
+          "payments": "Durchgehend verschlüsselte Zahlungen",
+          "deposit": "25 % Anzahlung, Rest am Tag selbst",
+          "whatsapp": "WhatsApp-Support während der gesamten Reise",
+          "flexible": "Kostenlos umbuchen bis 48 Stunden vorher"
+        }
+      },
+      "globalCtas": {
+        "explore": "Alle Erlebnisse ansehen",
+        "whatsapp": "Per WhatsApp schreiben",
+        "mobileFromLabel": "Ab",
+        "mobileBookNow": "Jetzt buchen"
+      }
+    },
+    "reviews": {
+      "sectionTitle": "Was Reisende sagen",
+      "subtitle": "Bewertungen verifizierter Airbnb-Gäste, aus dem Spanischen übersetzt.",
+      "outOf5Aria": "von 5",
+      "ratingSource": "Verifizierte Gästebewertungen auf Airbnb",
+      "readMore": "Ganze Bewertung lesen",
+      "readLess": "Weniger anzeigen",
+      "verifiedGuest": "Verifizierter Gast",
+      "opensInNewTab": "(öffnet in einem neuen Tab)",
+      "verifiedStay": "Hacienda El Recuerdo · Airbnb",
+      "countries": {
+        "colombia": "Kolumbien",
+        "spain": "Spanien"
+      },
+      "items": {
+        "carlosTulio": {
+          "headline": "Ich wollte länger bleiben.",
+          "comment": "Das Anwesen ist wunderschön und die Zimmer sind bequem, es gibt hier so viel zu tun. Ich wollte länger bleiben."
+        },
+        "anamaria": {
+          "headline": "Heinner ist ein ausgezeichneter Gastgeber.",
+          "comment": "Unser Aufenthalt in der Hacienda El Recuerdo war wunderbar. Ein sehr einladender und ruhiger Ort. Man kann sich hier wirklich mit der Natur verbinden. Yesid und Marlen sind sehr aufmerksame und freundliche Menschen, bei denen wir uns wie zu Hause gefühlt haben. Heinner ist ein ausgezeichneter Gastgeber. Es war ein ausgezeichnetes Erlebnis. Man sollte nur bedenken, wie man zum Anwesen kommt, denn es liegt mitten in den Bergen. Alles in allem ein Erlebnis, das man nicht vergisst, für alle, die Abenteuer und Natur lieben. Wir hoffen, wiederzukommen!"
+        },
+        "odessa": {
+          "headline": "Es war ein unglaubliches Erlebnis!",
+          "comment": "Ich kann gar nicht genug Gutes über diesen Aufenthalt sagen. Heinner hat uns schon vor der Ankunft sehr geholfen und angeboten, uns aus der Stadt zum Anwesen zu führen oder einen Transport zu organisieren. Seine Familie lebt hier, und alle sind so freundlich und herzlich, dass wir uns sofort wie bei Freunden fühlten. Heinner ist eng mit der Gemeinde vor Ort verbunden und hat eine Tour organisiert, damit wir die Smaragdminen der Gegend besuchen konnten! Es war ein unglaubliches Erlebnis! Wir sind gern über das Anwesen gelaufen, haben Vögel beobachtet und sogar Kühe gemolken. Alle Mahlzeiten hat Heinners Mutter selbst gekocht, und sie waren perfekt. Das WLAN war schnell und zuverlässig, und es gibt einen tollen Coworking-Bereich mit Schreibtischen."
+        },
+        "sandraPatricia": {
+          "headline": "Wir haben uns wie zu Hause gefühlt.",
+          "comment": "Unser Aufenthalt in der Hacienda El Recuerdo war sehr angenehm. Unsere Gastgeber Marlen, Yesid, Heinner, Kyra und Luna waren sehr aufmerksam und haben sich immer um alles gekümmert, was wir brauchten. Das Zimmer war sehr bequem und wir haben wunderbar geschlafen. Das Essen war köstlich und mit viel Liebe zubereitet. Wir haben uns wie zu Hause gefühlt. Ein Aufenthalt in El Recuerdo ist eine sehr gute Wahl — es geht nicht nur ums Ausruhen, sondern darum, die Umgebung kennenzulernen, Ökotourismus zu erleben, die Menschen vor Ort und unsere Wurzeln kennenzulernen und die Schönheit unseres Landes zu schätzen. Wir empfehlen es und kommen wieder!"
+        },
+        "camilo": {
+          "headline": "Eine außergewöhnliche Verbindung zur Natur.",
+          "comment": "Ausgezeichnetes Erlebnis, ein sehr ruhiger Ort mit viel Platz für Aktivitäten auf dem Anwesen. Eine außergewöhnliche Verbindung zur Natur. Sehr zu empfehlen."
+        }
+      },
+      "platforms": {
+        "title": "Weitere Bewertungen und Buchungen auf",
+        "google": "Google",
+        "airbnb": "Airbnb Experiences",
+        "getyourguide": "GetYourGuide",
+        "readReviews": "Bewertungen lesen",
+        "book": "Ansehen & buchen"
+      }
+    },
+    "faqs": {
+      "showAll": "Alle Fragen anzeigen",
+      "title": "Smaragdtourismus in Kolumbien",
+      "description": "Wir sind auf private Touren in den kolumbianischen Anden spezialisiert, mit besonderem Fokus auf Smaragdregionen, das lokale Bergbauerbe und Erlebnisse, die von den Gemeinden selbst gestaltet werden.",
+      "enquiryTitle": "Planen Sie Ihre private Anden-Tour",
+      "enquiryDescription": "Nennen Sie uns Ihre Termine, Gruppengröße und Interessen. Fragen Sie nach Zielen, Sprachen der Guides und Optionen für den Reiseverlauf, bevor Sie Ihre Tour wählen.",
+      "planImageAlt": "Reisender mit Kamera und Grubenhelm in einem grünen Tal in Chivor",
+      "items": {
+        "whatIsAndeanScapes": {
+          "question": "Was ist Andean Scapes?",
+          "answer": "Andean Scapes organisiert private Touren in den Anden Kolumbiens für Reisende aus dem In- und Ausland, mit besonderem Fokus auf Smaragdtourismus, Bergbauerbe und lokale Gemeinden."
+        },
+        "emeraldMineTour": {
+          "question": "Was erlebe ich bei einer Smaragdminen-Tour in Kolumbien?",
+          "answer": "Unsere Touren finden derzeit in Chivor, Boyacá, im östlichen Smaragdgürtel Kolumbiens statt. Sie betreten echte, aktive Smaragdminen mit einem lokalen Guide, Helm und Stiefeln, gemeinsam mit Bergleuten aus der Region: Es sind weder Kohleminen noch Nachbauten für Touristen. Zur Wahl stehen ein Tagesausflug (1 Mine und eine Wanderung), eine Tour mit 2 Tagen/1 Nacht (1 Mine und eine Wanderung) oder eine Tour mit 2 Tagen/1 Nacht mit 2 Minen und Ausritt. Einen Smaragd zu finden ist möglich, aber nie garantiert."
+        },
+        "minerForADay": {
+          "question": "Kann ich in Chivor einen Tag lang Bergmann sein und einen Smaragd behalten?",
+          "answer": "Sie verbringen den Tag tatsächlich mit Bergleuten, mit Schutzausrüstung und Guide, aber es ist ein Besuchererlebnis, keine Bergbauarbeit. Ein Smaragdfund ist nicht garantiert: Er kann vorkommen, und wenn ein Stein auftaucht, wird vor Ort mit den Bergleuten und dem Guide vereinbart, was damit geschieht. Der eigentliche Wert liegt in der Smaragdkultur, der Natur und dem Essen der Region."
+        },
+        "emeraldRegions": {
+          "question": "Wo liegen die Smaragdminen in Kolumbien?",
+          "answer": "Kolumbien hat zwei große Smaragdzonen in der Ostkordillere der Anden: das westliche Boyacá (Muzo, Coscuez und San Pablo de Borbur) und den Osten (Chivor, Gachalá und die Region Guavio). Es sind getrennte Ziele, mehrere Autostunden voneinander entfernt. Auf der Seite mit den Erlebnissen sehen Sie, für welche Ziele Termine frei sind."
+        },
+        "privateTours": {
+          "question": "Bieten Sie private Touren in den kolumbianischen Anden an?",
+          "answer": "Private Touren mit lokalen Guides sind unser Schwerpunkt. Wir passen den Reiseverlauf an Ihre Gruppe, Ihre Interessen und Termine an, mit besonderem Fokus auf Smaragdtourismus und das kulturelle und natürliche Erbe der Anden."
+        },
+        "privateOrShared": {
+          "question": "Sind Ihre Touren privat oder in gemischten Gruppen?",
+          "answer": "Wir konzentrieren uns auf private Touren, die auf Ihre Gruppe zugeschnitten sind. Verfügbarkeit, Reiseverlauf und Leistungen hängen vom Ziel und vom gewählten Paket ab."
+        },
+        "spanish": {
+          "question": "Muss ich Spanisch sprechen?",
+          "answer": "Die Touren werden auf Spanisch geführt. Wenn Sie Unterstützung in einer anderen Sprache brauchen, können wir gegen Aufpreis einen Dolmetscher organisieren; fragen Sie uns vor der Buchung."
+        },
+        "afterReserve": {
+          "question": "Was passiert nach meiner Reservierung?",
+          "answer": "Nach der Reservierung bestätigt das Team die Verfügbarkeit und schickt Ihnen den detaillierten Reiseverlauf, den Treffpunkt, Hinweise zur Vorbereitung und alles, was vor der Reise abzustimmen ist."
+        },
+        "questionsFirst": {
+          "question": "Kann ich vor dem Bezahlen Fragen stellen?",
+          "answer": "Ja. Sie können Andean Scapes vor der Buchung kontaktieren, um Details, Termine, Transportmöglichkeiten, Gruppengröße oder besondere Bedürfnisse zu klären."
+        },
+        "transportHelp": {
+          "question": "Wie komme ich von Bogotá nach Chivor?",
+          "answer": "Chivor liegt etwa 5–6 Autostunden von Bogotá entfernt: Fahren Sie Richtung Tunja, biegen Sie bei El Sisga ins Tenza-Tal ab und fahren Sie weiter bis Chivor; das letzte Stück ist eine unbefestigte Bergstraße. Den Ort Chivor erreichen Sie mit Bus, Auto oder Motorrad, und von dort bringt Sie unser lokaler 4x4 zur Mine, bei jeder Tour inklusive. Gegen Aufpreis bieten wir auch einen privaten 4x4-Transfer ab Bogotá hin und zurück an; der Preis gilt pro Fahrzeug und für bis zu 4 Personen."
+        },
+        "meals": {
+          "question": "Sind Mahlzeiten inbegriffen?",
+          "answer": "Ja. In Chivor umfassen die Touren mit 2 Tagen/1 Nacht 4 Mahlzeiten: 2 Frühstücke, 1 traditionelles Lunchpaket (fiambre) und 1 Abendessen; der Tagesausflug umfasst Frühstück und ein Lunchpaket. Das Essen ist regional, und wir berücksichtigen Ernährungseinschränkungen, wenn Sie uns bei der Buchung Bescheid geben."
+        },
+        "families": {
+          "question": "Sind die Erlebnisse für Familien und Kinder geeignet?",
+          "answer": "Ja, ab 5 Jahren. Rechnen Sie mit Wandern, Schlamm und Feuchtigkeit; die Touren passen also zu Familien, die Abenteuer mögen. Gruppen mit kleinen Kindern sollten vorher beim Team nachfragen. Jede teilnehmende Person, ob Erwachsener oder Kind, zählt als ein Platz: Es gibt keinen Kindertarif."
+        },
+        "bring": {
+          "question": "Was sollte ich mitbringen?",
+          "answer": "Schuhe, die nass und schmutzig werden dürfen, komplette Wechselkleidung, ein kleines Handtuch, eine leichte oder wasserdichte Jacke, eine Trinkflasche, Sonnencreme, eine Kappe, Ihre persönlichen Medikamente und Bargeld für Ausgaben vor Ort. Helm und Sicherheitsstiefel für die Mine stellen wir."
+        },
+        "payment": {
+          "question": "Wie funktioniert die Anzahlung bzw. Zahlung?",
+          "answer": "Zuerst bestätigt das Team die Verfügbarkeit für Ihren Termin; dann leisten Sie je nach Tour eine Anzahlung von 25 % bis 30 % des Gesamtbetrags (der genaue Prozentsatz wird bei der Buchung angezeigt), um die Buchung zu sichern. Der Restbetrag wird gemäß den Tourbedingungen bezahlt. Wir verlangen nie die volle Zahlung, bevor Ihre Buchung bestätigt ist."
+        },
+        "customized": {
+          "question": "Können Erlebnisse angepasst werden?",
+          "answer": "In vielen Fällen ja. Das Team kann je nach Verfügbarkeit und Art des Erlebnisses Zeiten, Transport, Unterkunft, Mahlzeiten oder Aktivitäten anpassen."
+        },
+        "localOrInternational": {
+          "question": "Ist Andean Scapes nur für internationale Reisende?",
+          "answer": "Nein. Andean Scapes heißt kolumbianische wie internationale Reisende willkommen, die authentische, lokale und gut organisierte Erlebnisse suchen."
+        },
+        "safety": {
+          "question": "Ist der Besuch einer Smaragdmine sicher?",
+          "answer": "Sie betreten die Mine immer mit einem lokalen Guide und Schutzausrüstung (Helm und Stiefel), in Minen mit kontrolliertem Zugang. Jede Tour umfasst eine medizinische Notfallversicherung während des Erlebnisses, und das Team prüft vor jeder Abfahrt die Lage vor Ort und in der Mine. In der Mine gibt es Wasser, Schlamm und unebenen Boden, daher ist mittlere bis hohe körperliche Anstrengung nötig; wenn Sie eine Herzerkrankung, eine starke Phobie oder eingeschränkte Mobilität haben, fragen Sie uns vor der Buchung."
+        },
+        "cancellation": {
+          "question": "Kann ich stornieren oder meinen Termin ändern?",
+          "answer": "Ja. Sie können bis 7 Tage vor der Tour stornieren oder umbuchen, höchstens 2 Mal. Nach dieser Frist wird die Anzahlung nicht erstattet, und jede Änderung hängt von bereits entstandenen Kosten ab, etwa für Versicherung oder gebuchte Mahlzeiten."
+        },
+        "pets": {
+          "question": "Kann ich meinen Hund mitbringen?",
+          "answer": "Ja, Haustiere sind willkommen. In Chivor dürfen Hunde bei jeder Tour mit der Gruppe in die Mine und in der Hacienda übernachten. Sie müssen geimpft sein und unter Kontrolle bleiben; stimmen Sie das bei der Buchung mit dem Team ab."
+        },
+        "bestSeason": {
+          "question": "Wann ist die beste Reisezeit für Chivor?",
+          "answer": "Chivor liegt auf etwa 2.000 m, mit kühlem Klima und kalten Nächten. Die Trockenzeit dauert von Dezember bis Februar, die Regenzeit von Mai bis August. In der Mine gibt es immer nasse Bereiche, bringen Sie in der Regenzeit also wasserdichte Kleidung mit."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Ihre private Tour in den kolumbianischen Anden beginnt mit einem Termin.",
+      "subtitle": "Reservieren Sie heute mit 25 %. Ihr lokaler Gastgeber bestätigt die Details per WhatsApp.",
+      "primaryCta": "Erlebnis reservieren",
+      "secondaryCta": "Erst per WhatsApp fragen",
+      "bookAria": "Ihr Erlebnis bei Andean Scapes reservieren"
+    },
+    "hero": {
+      "badge": "Smaragdminen-Abenteuer",
+      "title": "In den Smaragdminen von Chivor",
+      "subtitle": "Zwei Tage mit den Bergbaufamilien, die diese Adern seit Generationen abbauen.",
+      "description": "Minenbesuch, Mahlzeiten, Unterkunft vor Ort, zweisprachiger Guide und Schutzausrüstung — inklusive.",
+      "chips": {
+        "smallGroups": "Max. 10 Reisende",
+        "localGuides": "Lokaler Guide",
+        "mealsIncluded": "Alle Mahlzeiten inklusive",
+        "securePayment": "Sichere Zahlung"
+      }
+    },
+    "filters": {
+      "fromLabel": "Ab",
+      "perPersonLabel": "/ Person",
+      "reviewsCountLabel": "{count} Bewertungen",
+      "selectDateLabel": "Termin wählen",
+      "peopleLabel": "Reisende",
+      "arrivalLabel": "Anreise",
+      "ctaLabel": "Jetzt reservieren",
+      "depositNoteLabel": "{percent} % Anzahlung zur Bestätigung",
+      "trustSecure": "Verschlüsselte Zahlung",
+      "trustCancellation": "Kostenlose Stornierung",
+      "trustVerified": "Geprüfter Gastgeber",
+      "whatsappCta": "Fragen? WhatsApp",
+      "fallbackDate": "Flexible Termine",
+      "transport": {
+        "carNo4x4": "Ich habe ein Auto (kein 4x4)",
+        "have4x4": "Ich habe einen 4x4",
+        "bus": "Öffentlicher Bus",
+        "roundtrip": "Transfer hin und zurück"
+      }
+    },
+    "tiers": {
+      "sectionTitle": "Wählen Sie Ihren Aufenthalt",
+      "bestSellerLabel": "Empfehlung des Gastgebers",
+      "items": {
+        "heritage": {
+          "label": "Hacienda El Recuerdo",
+          "description": "Die aktuelle Unterkunft von Andean Scapes: eine Nacht in einer Kolonial-Hacienda mit Privatzimmern, hausgemachtem Essen und persönlicher Betreuung durch die Gastgeber.",
+          "tag": "Aktuelles Einstiegserlebnis",
+          "cta": "Hacienda-Aufenthalt buchen"
+        },
+        "day": {
+          "label": "Tageserlebnis",
+          "description": "Ein ganzer Tag in der Mine — ohne Übernachtung.",
+          "tag": "Am flexibelsten",
+          "cta": "Tageserlebnis buchen"
+        },
+        "night": {
+          "label": "Abenteuer mit 1 Nacht",
+          "description": "Zwei Tage, eine Nacht — das ganze Smaragdland aus nächster Nähe.",
+          "tag": "Bestseller",
+          "cta": "Mit Übernachtung buchen"
+        },
+        "private": {
+          "label": "Private Gruppe",
+          "description": "Exklusiver Zugang für Ihre Gruppe — Termine und Reiseverlauf ganz nach Wunsch.",
+          "tag": "Individuell",
+          "cta": "Private Gruppe anfragen"
+        }
+      }
+    },
+    "valueProps": {
+      "title": "Was hier anders ist",
+      "items": {
+        "mining": {
+          "title": "Echter Smaragdbergbau",
+          "description": "Arbeiten Sie an einer Ader, zusammen mit den Familien, die seit Generationen in Chivor Bergbau betreiben.",
+          "badge": "Aushängeschild"
+        },
+        "access": {
+          "title": "Zugang, den man anderswo nicht kaufen kann",
+          "description": "Die Hacienda, der Mineneingang, das Abendessen mit der Gastfamilie — möglich durch Vertrauen, nicht durch Tourismus."
+        },
+        "culture": {
+          "title": "Boyacá, ungefiltert",
+          "description": "Berglandschaften, regionale Küche und Geschichten, die in keinem Reiseführer stehen."
+        }
+      }
+    },
+    "inclusions": {
+      "sectionTitle": "Was inbegriffen ist",
+      "includedLabel": "Inbegriffen",
+      "notIncludedLabel": "Nicht inbegriffen",
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Transport",
+        "difficulty": "Schwierigkeit"
+      },
+      "logisticsValues": {
+        "duration": "2 Tage / 1 Nacht",
+        "transport": "Lokaler 4x4-Transport ab Hacienda El Recuerdo",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Zweisprachiger Guide",
+        "equipment": "Komplette Schutzausrüstung",
+        "meals": "Mahlzeiten (Frühstück, Mittagessen, Abendessen)",
+        "insurance": "Reiseversicherung",
+        "mineAccess": "Zugang zur Mine",
+        "workshop": "Workshop zum Sortieren von Smaragden",
+        "smallGroups": "Kleine Gruppe (max. 10)"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfer",
+        "personalDrinks": "Persönliche Getränke",
+        "souvenirs": "Edelsteine als Souvenir"
+      }
+    }
+  },
+  "Header": {
+    "selectLanguage": "Sprache wählen: {language}",
+    "bookNow": "Jetzt buchen",
+    "experiences": "Erlebnisse",
+    "toggleTheme": "Design wechseln",
+    "lightMode": "Heller Modus",
+    "darkMode": "Dunkler Modus",
+    "guides": "Ratgeber",
+    "emeralds": "Smaragdwelt"
+  },
+  "ExperiencesList": {
+    "metaTitle": "Smaragdminen-Touren in Kolumbien | Chivor | Andean Scapes",
+    "metaDescription": "Geführte Smaragdminen-Touren in Chivor, Boyacá: Tagesausflug, 2-Tages-Tour mit einer Mine oder 2 Minen mit Ausritt. Immer in einer aktiven Mine.",
+    "hero": {
+      "title": "Smaragdminen-Touren in Kolumbien im Vergleich",
+      "subtitle": "Vergleichen Sie einen Tagesausflug nach Chivor mit zweitägigen Touren inklusive Übernachtung in der Hacienda: eine Mine oder zwei Minen mit Ausritt. Bei jeder Tour suchen Sie selbst nach Smaragden.",
+      "summary": "Touren in kleinen Gruppen mit lokalen Guides",
+      "highlightText": "Besuche in aktiven Minen und die Chance, nach Smaragden zu suchen",
+      "ctaLabel": "Erlebnisse ansehen",
+      "helperText": "Kleine Gruppen · Lokales Wissen · Flexible Planung",
+      "badges": {
+        "nature": "Natur",
+        "culture": "Kultur",
+        "hosted": "Mit Gastgebern vor Ort"
+      }
+    },
+    "sectionTitle": "Erlebnisse entdecken",
+    "sectionSubtitle": "Ausgewählte Abenteuer mit lokalen Gastgebern",
+    "featuredTag": "Empfohlen",
+    "comingSoonTag": "Demnächst",
+    "planBadges": {
+      "basic": "Basic",
+      "core": "Core",
+      "prime": "Prime"
+    },
+    "mineBadges": {
+      "chivor": "Chivor",
+      "coscuez": "Coscuez"
+    },
+    "carousel": {
+      "roleDescription": "Karussell",
+      "gallery": "Fotos: {title}",
+      "previous": "Vorheriges Foto",
+      "next": "Nächstes Foto",
+      "slideLabel": "Foto {current} von {total}"
+    },
+    "fromLabel": "Ab",
+    "priceQualifierPerPerson": "pro Person",
+    "viewDetails": "Erlebnis ansehen",
+    "transportIncluded": "Transport inklusive",
+    "cardMeta": {
+      "duration2d1n": "2 T / 1 N",
+      "startsInChivor": "Start in Chivor",
+      "smallGroup": "Kleine Gruppe",
+      "durationDaysNights": "{nights, plural, =0 {{days, plural, one {# Tag} other {# Tage}}} other {{days} T / {nights} N}}",
+      "startsIn": "Start in {locality}"
+    },
+    "smallGroups": "Kleine Gruppen",
+    "privateTour": "Private Tour",
+    "localGuides": "Erfahrene lokale Guides",
+    "twoMines": "2 Smaragdminen",
+    "horsebackRiding": "Ausritt",
+    "allMeals": "Alle Mahlzeiten",
+    "haciendaStay": "Übernachtung in der Hacienda",
+    "breakfastAndFiambre": "Frühstück & fiambre zum Mittag",
+    "cards": {
+      "culture": {
+        "title": "Andine Kulturroute",
+        "description": "Lokale Traditionen, Geschichten von Kunsthandwerkern und schöne Ausblicke in ganz Boyacá."
+      },
+      "nature": {
+        "title": "Auszeit in der Natur",
+        "description": "Ein ruhigeres Erlebnis mit Bergblick, regionaler Küche und Spaziergängen in der Natur."
+      }
+    },
+    "ruralHotelStay": "Übernachtung im Landhotel",
+    "furaTena": "Ausflug zu Fura & Tena"
+  },
+  "BookingCtas": {
+    "whatsappCta": "Per WhatsApp chatten",
+    "whatsappMiningQuote": "Hallo! Ich interessiere mich für das Smaragdminen-Abenteuer in der Hacienda El Recuerdo in Chivor. Können Sie mir bei der Verfügbarkeit helfen?"
+  },
+  "ChivorEmeraldCore": {
+    "metaTitle": "Smaragdmine Chivor: 2 Tage + Hacienda | Andean Scapes",
+    "metaDescription": "Einen Tag Bergmann in Chivor, Boyacá: Smaragdmine mit eigener Suche, Workshop, Mahlzeiten und Nacht in der Hacienda. Kein Smaragdfund garantiert.",
+    "subtitle": "Smaragdminen-Erlebnis mit 2 Tagen/1 Nacht und Übernachtung in der Hacienda El Recuerdo in Chivor, Boyacá",
+    "selectDate": "Termin wählen",
+    "selectPeople": "Wie viele Personen?",
+    "peopleCountLabel": "Anzahl der Personen",
+    "roomModeLabel": "Zimmerart",
+    "roomModePrivate": "Einzeln",
+    "roomModeCouple": "Paar",
+    "transportLabel": "Wie möchten Sie anreisen?",
+    "transportNoOwnCar": "Ich habe kein eigenes Auto",
+    "transportHaveOwnCar": "Ich habe einen eigenen 4x4",
+    "transportBus": "Mit dem Bus",
+    "contactLabel": "Kontaktdaten",
+    "nameLabel": "Name",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail (optional)",
+    "includesTitle": "Was ist inbegriffen?",
+    "includesItem1": "1 Nacht mit eigenem Bad",
+    "includesItem2": "Mahlzeiten (Frühstück, Mittagessen, Abendessen)",
+    "includesItem3": "6-stündige Minentour",
+    "includesItem4": "Workshop zum Sortieren von Smaragden",
+    "includesItem5": "Transport ab Hacienda El Recuerdo",
+    "includesDetails": "Details ansehen",
+    "pricePerPerson": "Preis pro Person",
+    "totalPrice": "Gesamtpreis",
+    "depositPercent": "Anzahlung (25 %)",
+    "paymentButton": "Weiter zur Zahlung",
+    "termsCheckbox": "Ich akzeptiere die Allgemeinen Geschäftsbedingungen",
+    "whatsappCta": "Oder per WhatsApp anfragen"
+  },
+  "ChivorEmeraldBasic": {
+    "metaTitle": "Tagesausflug Smaragdmine Chivor, Boyacá | Andean Scapes",
+    "metaDescription": "Ein Tag in den Smaragdminen von Chivor: geführter Mineneinstieg, Aussichtspunkt Pulpito, Frühstück und fiambre zum Mittag, am Nachmittag zurück."
+  },
+  "ChivorEmeraldPrime": {
+    "metaTitle": "Smaragdmine Chivor: 2 Minen + Ausritt | Andean Scapes",
+    "metaDescription": "Zwei Smaragdminen in Chivor mit Ausritt, eigener Suche, Mahlzeiten und Übernachtung in der Hacienda. Ein Smaragdfund ist nicht garantiert.",
+    "subtitle": "Smaragdminen-Erlebnis mit 2 Tagen/1 Nacht, Ausritt und Übernachtung in der Hacienda El Recuerdo in Chivor, Boyacá",
+    "selectDate": "Termin wählen",
+    "selectPeople": "Wie viele Personen?",
+    "peopleCountLabel": "Anzahl der Personen",
+    "roomModeLabel": "Zimmerart",
+    "roomModePrivate": "Einzeln",
+    "roomModeCouple": "Paar",
+    "transportLabel": "Wie möchten Sie anreisen?",
+    "transportNoOwnCar": "Ich habe kein eigenes Auto",
+    "transportHaveOwnCar": "Ich habe einen eigenen 4x4",
+    "transportBus": "Mit dem Bus",
+    "contactLabel": "Kontaktdaten",
+    "nameLabel": "Name",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail (optional)",
+    "includesTitle": "Was ist inbegriffen?",
+    "includesItem1": "1 Nacht mit eigenem Bad",
+    "includesItem2": "Mahlzeiten (Frühstück, Mittagessen, Abendessen)",
+    "includesItem3": "Minentour mit Ausritt",
+    "includesItem4": "Workshop zum Sortieren von Smaragden",
+    "includesItem5": "Transport ab Hacienda El Recuerdo",
+    "includesDetails": "Details ansehen",
+    "pricePerPerson": "Preis pro Person",
+    "totalPrice": "Gesamtpreis",
+    "depositPercent": "Anzahlung (25 %)",
+    "paymentButton": "Weiter zur Zahlung",
+    "termsCheckbox": "Ich akzeptiere die Allgemeinen Geschäftsbedingungen",
+    "whatsappCta": "Oder per WhatsApp anfragen"
+  },
+  "experiences": {
+    "common": {
+      "deposit": "Reservieren mit",
+      "balance": "Restbetrag am Tourtag zu zahlen",
+      "security": "100 % sichere Zahlung mit Mercado Pago",
+      "ctaPrimary": "{percent} % Anzahlung leisten",
+      "ctaSecondary": "Fragen? Schreiben Sie uns auf WhatsApp"
+    },
+    "ui": {
+      "availableDates": "Verfügbare Termine",
+      "spotsAvailable": "{count, plural, one {# Platz} other {# Plätze}}",
+      "controlledDatesNote": "Termine aus logistischen Gründen festgelegt.",
+      "limitedSpots": "Begrenzte Plätze",
+      "limitedSpotsShort": "Begrenzt",
+      "officialDates": "Offizielle Termine",
+      "depositLabel": "Anzahlung",
+      "heroCta": "Termine prüfen",
+      "heroSummary": "{duration} • Minenbesuch + Smaragd-Workshop • Start in Chivor • Kleine Gruppen",
+      "onSelectedDates": "an ausgewählten Terminen",
+      "fromLabel": "Ab",
+      "perPersonLabel": "pro Person",
+      "reviewsCountLabel": "({count} Bewertungen)",
+      "freeCancellation": "Kostenlose Stornierung",
+      "verifiedReviews": "Verifizierte Bewertungen",
+      "verifiedGuideBadge": "VERIFIZIERTER GUIDE",
+      "totalLabel": "Gesamt",
+      "payTodayLabel": "Heute zahlen",
+      "balanceNote": "Restbetrag am Tourtag fällig. Sofortige Bestätigung.",
+      "termsCheckbox": "Ich akzeptiere die Allgemeinen Geschäftsbedingungen",
+      "completeRequiredFields": "Füllen Sie alle Pflichtfelder aus, um fortzufahren",
+      "processing": "Wird verarbeitet...",
+      "paymentMethods": "Karte · PSE · Sichere Zahlung",
+      "validationError": "Validierungsfehler",
+      "paymentWaiting": "Schließen Sie Ihre Zahlung im Mercado-Pago-Tab ab. Diese Seite aktualisiert sich automatisch. Referenz: {reference}.",
+      "paymentReopen": "Mercado Pago erneut öffnen",
+      "paymentOpensInNewTab": "(öffnet in einem neuen Tab)",
+      "paymentTitleApproved": "Anzahlung erhalten",
+      "paymentTitlePending": "Zahlung in Bearbeitung",
+      "paymentTitleRejected": "Zahlung nicht genehmigt",
+      "paymentTitleUnconfirmed": "Wir konnten Ihre Zahlung noch nicht bestätigen",
+      "paymentTitleWaiting": "Warten auf Ihre Zahlung",
+      "paymentTitleChecking": "Ihre Zahlung wird geprüft",
+      "paymentWhatsappApprovedCta": "Bestätigung per WhatsApp senden",
+      "paymentWhatsappHelpCta": "Kontaktieren Sie uns auf WhatsApp",
+      "paymentWhatsappApprovedMessage": "Hallo! Ich habe gerade die Anzahlung für {title} bezahlt. Zahlungsreferenz: {reference}.",
+      "paymentWhatsappHelpMessage": "Hallo! Ich brauche Hilfe bei meiner Zahlung für {title}. Zahlungsreferenz: {reference}.",
+      "paymentChecking": "Ihre Zahlung wird geprüft...",
+      "paymentStatusApproved": "Senden Sie uns die Bestätigung per WhatsApp, und wir bestätigen Ihre Buchung in Kürze. Referenz: {reference}.",
+      "paymentStatusPending": "Ihre Zahlung wird bearbeitet. Referenz: {reference}. Senden Sie sie uns per WhatsApp, und wir bestätigen sie.",
+      "paymentStatusRejected": "Die Zahlung wurde nicht genehmigt. Sie können es erneut versuchen oder uns auf WhatsApp kontaktieren. Referenz: {reference}.",
+      "paymentStatusNotFound": "Wir haben noch keine Zahlung für diese Buchung gefunden. Falls Sie bezahlt haben, kontaktieren Sie uns auf WhatsApp mit der Referenz {reference}.",
+      "paymentStatusError": "Wir konnten Ihre Zahlung gerade nicht prüfen. Referenz: {reference}. Kontaktieren Sie uns damit auf WhatsApp.",
+      "paymentLinkError": "Wir konnten die Zahlung nicht starten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns auf WhatsApp.",
+      "paymentUnavailableError": "Ihre Auswahl ist nicht mehr verfügbar. Bitte prüfen Sie Datum und Zimmer.",
+      "scrollHint": "Scrollen Sie, um weitere Termine zu sehen",
+      "lowAvailability": "Geringe Verfügbarkeit",
+      "mobileDockSummaryLabel": "Ihre Buchung",
+      "mobileDockEmptySummary": "Datum, Gäste und Unterkunft wählen",
+      "mobileDockEmptySummaryDayTrip": "Datum und Gäste wählen",
+      "mobileDockPeopleSummary": "{count, plural, one {# Gast} other {# Gäste}}",
+      "mobileDockViewDetails": "Details",
+      "mobileDockHideDetails": "Ausblenden",
+      "mobileDockDate": "Datum",
+      "mobileDockPeople": "Gäste",
+      "mobileDockStay": "Unterkunft",
+      "mobileDockRoom": "Zimmer",
+      "mobileDockTransport": "Transport",
+      "mobileDockNotSelected": "Nicht ausgewählt",
+      "mobileDockMissingDate": "Datum wählen",
+      "mobileDockMissingStay": "Unterkunft wählen",
+      "mobileDockMissingRooms": "Zimmer wählen",
+      "mobileDockMissingTransport": "Transport wählen",
+      "mobileDockMissingContact": "Kontaktdaten ergänzen",
+      "mobileDockMissingTerms": "AGB akzeptieren",
+      "termsToastMessage": "Bitte akzeptieren Sie die Allgemeinen Geschäftsbedingungen, um fortzufahren.",
+      "mobileDockTrustLine": "12 kürzlich gebucht · Sichere Zahlung",
+      "transportTooltipCarNo4x4": "Die Bergstraßen in der Nähe des Ziels können holprig sein. Prüfen Sie die Routendetails, bevor Sie Ihr Fahrzeug wählen.",
+      "selectedDateLabel": "Ausgewählt",
+      "roomPickerTitle": "Zimmerauswahl",
+      "howManyPeople": "Wie viele Personen?",
+      "peopleLabel": "Personen",
+      "roomType": "Zimmertyp:",
+      "guestsPerRoom": "Gäste pro Zimmer",
+      "numberOfRooms": "Anzahl der Zimmer",
+      "guests": "Gäste",
+      "privateBathroom": "eigenes Bad",
+      "private": "Privat",
+      "couple": "Paar",
+      "roomMixHint": "Bei Bedarf mehr als einen Zimmertyp hinzufügen",
+      "selectedRoomsLabel": "Ausgewählte Zimmer",
+      "clearSelection": "Zurücksetzen",
+      "noRoomsSelected": "Keine Zimmer ausgewählt",
+      "addRoom": "Zimmer hinzufügen",
+      "editRooms": "Prüfen / bearbeiten",
+      "suggestedRoomsLabel": "Vorschlag für {count} {count, plural, one {Person} other {Personen}} ✨",
+      "suggestedRoomsNote": "Basierend auf Ihrer Gruppengröße — bei Bedarf anpassen",
+      "addRoundtripTransfer": "Hin- und Rücktransport {origin} ↔ {destination} hinzufügen",
+      "roundtripTransferPerVehicle": "pro Fahrzeug",
+      "roundtripTransferVehicles": "{count, plural, one {# Fahrzeug} other {# Fahrzeuge}}",
+      "roundtripTransferLineItem": "{origin} ↔ {destination} hin und zurück",
+      "allInclusiveLineItem": "Mahlzeiten und Übernachtung inklusive für {count, plural, one {# Person} other {# Personen}}; Transport siehe Reisedetails",
+      "dayTripLineItem": "Tagestour für {count, plural, one {# Person} other {# Personen}}",
+      "roomSelectionTitle": "Zimmer wählen",
+      "closeModal": "Schließen",
+      "decrease": "Verringern",
+      "increase": "Erhöhen",
+      "meetingPoint": "Treffpunkt",
+      "validation": {
+        "selectDate": "Wählen Sie ein verfügbares Datum",
+        "peopleMin": "Mindestens {min, plural, one {# Person} other {# Personen}}",
+        "peopleMax": "Höchstens {max, plural, one {# Person} other {# Personen}}",
+        "roomRequired": "Wählen Sie mindestens einen Zimmertyp",
+        "transportRequired": "Wählen Sie Ihre Transportoption",
+        "termsRequired": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren",
+        "contactName": "Name erforderlich (mindestens 2 Zeichen)",
+        "contactPhone": "Ungültige Telefonnummer (mindestens 7 Ziffern)",
+        "contactEmail": "Ungültige E-Mail-Adresse"
+      },
+      "unitsAvailable": "{count} Einheiten",
+      "coupleNote": "💑 „Paar“ vereinfacht die Auswahl auf 2 Personen in einem gemeinsamen Zimmer.",
+      "selectTierTitle": "Wählen Sie Ihre Unterkunft",
+      "tierPriceRange": "Preisspanne",
+      "changeTierWarning": "Wenn Sie die Kategorie wechseln, wird Ihre Zimmerauswahl zurückgesetzt",
+      "tripLogistics": "Reiselogistik",
+      "whatIsIncluded": "Was ist inbegriffen?",
+      "viewFullDetails": "Alle Details ansehen",
+      "selectedTierLabel": "Ausgewählt",
+      "contactDataTitle": "Kontaktdaten zur Bestätigung Ihres Platzes",
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "Max Mustermann",
+      "phone": "Telefon",
+      "phonePlaceholder": "+57 300 123 4567",
+      "email": "E-Mail",
+      "emailPlaceholder": "your@email.com",
+      "emailHelper": "Optional – für eine zusätzliche Bestätigung",
+      "startingPoint": "Wo starten Sie?",
+      "howToArrive": "Wie reisen Sie an?",
+      "transportNote": "Wählen Sie unten eine Anreiseoption. Die Anreise zum Ziel kann separat sein; der optionale Transfer und sein Preis werden hier angezeigt.",
+      "roomMode": {
+        "standard": "Standardzimmer",
+        "family": "Familienzimmer",
+        "cabin": "Hütte"
+      },
+      "experienceDetails": {
+        "selectDate": "Datum wählen",
+        "overviewTitle": "Überblick über das Erlebnis",
+        "valuePropositionsTitle": "Was den Smaragdbergbau besonders macht",
+        "tile1Title": "Echter Bergbau",
+        "tile1Desc": "Erleben Sie echten Smaragdbergbau mit erfahrenen lokalen Guides in historischen Minen",
+        "tile2Title": "Seltener lokaler Zugang",
+        "tile2Desc": "Besuchen Sie aktive Smaragdminen und erfahren Sie, wie lokale Teams die Steine sortieren",
+        "tile3Title": "Natur & Kultur",
+        "tile3Desc": "Erleben Sie authentische Andenkultur und Berglandschaften aus nächster Nähe",
+        "tripLogisticsTitle": "Reiselogistik & Leistungen im Detail",
+        "itineraryTitle": "Reiseverlauf Tag für Tag",
+        "includedLabel": "Inbegriffen",
+        "notIncludedLabel": "Nicht inbegriffen",
+        "faqsTitle": "Häufig gestellte Fragen",
+        "hostPreparationTitle": "Gastgeber & Vorbereitung",
+        "idealFor": "Ideal für",
+        "goodToKnow": "Gut zu wissen",
+        "faq1Q": "Wie anspruchsvoll ist die Tour?",
+        "faq1A": "Für die Minentouren sind moderate Wanderungen und eine Grundfitness erforderlich",
+        "faq2Q": "Was ist die beste Reisezeit?",
+        "faq2A": "Das Wetter ändert sich je nach Jahreszeit und Bedingungen in den Bergen; prüfen Sie vor Ihrer Reise die Vorhersage und die Hinweise zur Vorbereitung.",
+        "faq3Q": "Wie organisiere ich den Transport?",
+        "faq3A": "Die Anreise nach Chivor ist nicht inbegriffen — vor Ort ist der lokale Transport enthalten: von Chivor zur Mine bzw. den Minen, zur Hacienda El Recuerdo und zurück. Nach Chivor gelangen Sie mit dem eigenen Auto (für das letzte Stück wird ein 4x4 empfohlen), mit dem Bus oder mit unserem Hin- und Rücktransfer ab Bogotá, den Sie bei der Buchung hinzufügen können.",
+        "coscuezTransportFaqQ": "Wie komme ich zum Coscuez-Erlebnis?",
+        "coscuezTransportFaqA": "Ausgangspunkt des Erlebnisses ist San Pablo de Borbur, Boyacá. Die Anreise nach Borbur ist nicht Teil der Tour; Sie können mit dem Auto oder Bus anreisen oder den optionalen privaten Hin- und Rücktransfer ab Bogotá wählen. Der Transferpreis wird angezeigt, wenn Sie Ihre Transportoption auswählen.",
+        "checkDatesBtn": "Termine prüfen",
+        "talkToHostBtn": "Gastgeber kontaktieren",
+        "bookNowBtn": "Jetzt buchen",
+        "experienceSummary": "Lernen Sie lokale Bergbaufamilien kennen, erfahren Sie, wie Smaragde gefunden und sortiert werden, und erleben Sie die Landschaften und die Kultur von Boyacá.",
+        "valueStackPrivateMineAccess": "Geführter Besuch einer lokalen Mine",
+        "valueStackLocalExpertGuides": "Erfahrene lokale Guides",
+        "valueStackAllMealsIncluded": "Alle Mahlzeiten inbegriffen",
+        "valueStackHaciendaStay": "Übernachtung in der Hacienda inbegriffen",
+        "valueStackBreakfastFiambre": "Frühstück & Fiambre-Mittagessen inbegriffen",
+        "valueStackSameDayReturn": "Am selben Tag zurück",
+        "valueStackTwoMines": "2 Smaragdminen",
+        "valueStackHorsebackRiding": "Ausritt",
+        "accommodationTitle": "Ihre Unterkunft",
+        "selectYourStayTitle": "Unterkunftsoptionen",
+        "addonsTitle": "Optionale Extras",
+        "addonsPerPerson": "pro Person",
+        "addonsTeamConfirmation": "Das Team bestätigt Verfügbarkeit und Endpreis",
+        "addonsIncludedLabel": "Inbegriffen",
+        "addonsIncludedNote": "In Ihrem Paket enthalten. Teilnahme optional, keine Erstattung bei Nichtteilnahme.",
+        "hostChoiceLabel": "Empfehlung des Gastgebers",
+        "selectedLabel": "Ausgewählt",
+        "tierBadgeHeritage": "Kulturerbe / Traditionell",
+        "tierBadgeAdventure": "Outdoor-Abenteuer",
+        "tierBadgeDefault": "Ausgewählte Unterkunft",
+        "selectedStayLabel": "Ausgewählt",
+        "locationLabel": "Lage",
+        "maxCapacityLabel": "Bis zu {count}",
+        "privateBathroomYes": "Eigenes Bad",
+        "privateBathroomNo": "Gemeinschaftsbad",
+        "wifiYes": "WLAN",
+        "wifiNo": "Kein WLAN",
+        "viewGalleryLabel": "Galerie ansehen",
+        "gallerySubtitle": "Zimmer, Aussicht und Ausstattung",
+        "activityGallerySubtitle": "Fotos und Höhepunkte der Aktivität",
+        "closeGalleryLabel": "Schließen",
+        "perNightLabel": "/Nacht",
+        "perPersonPerNightLabel": "/Person/Nacht",
+        "includedServicesLabel": "Inbegriffene Leistungen",
+        "roomCapacityLabel": "Bis zu {count} Gäste",
+        "tierBadgeBorbur": "Landhotel in Borbur",
+        "valueStackRuralHotelStay": "Übernachtung im Landhotel",
+        "valueStackFuraTena": "Ausflug nach Fura & Tena",
+        "faqsHeading": "Bevor Sie Ihre Smaragdminen-Tour buchen"
+      },
+      "packageTags": {
+        "allInclusive": "All-inclusive-Aufenthalt",
+        "dayTrip": "Tagesausflug"
+      },
+      "sharedDateUnavailable": "Das Datum in diesem Link ist nicht mehr verfügbar. Bitte wählen Sie ein anderes."
+    },
+    "tiers": {
+      "borbur": {
+        "name": "Landhotel in Borbur",
+        "desc": "Private Unterkunft in San Pablo de Borbur mit Doppelbett und eigenem Bad. Eine komfortable ländliche Basis für Ihre Smaragdbergbau-Touren in Coscuez.",
+        "rooms": {
+          "standard": "Doppelzimmer mit eigenem Bad"
+        }
+      },
+      "heritage": {
+        "name": "Hacienda El Recuerdo",
+        "desc": "Eine Unterkunft mit kolonialem Erbe inmitten des Smaragdlands. Rustikaler Charme mit privaten Zimmern und hausgemachten Mahlzeiten.",
+        "rooms": {
+          "standard": "Standardzimmer",
+          "family": "Familiensuite"
+        },
+        "services": {
+          "breakfast": "Traditionelles Frühstück",
+          "dinner": "Hausgemachtes Abendessen"
+        },
+        "tierNote": "Ein Aufenthalt in einer Kolonial-Hacienda, geprägt von der Tradition des Smaragdlands — private Zimmer, hausgemachte Mahlzeiten und persönliche Betreuung durch die Gastgeber.",
+        "idealFor1": "Kultur- und Geschichtsinteressierte",
+        "idealFor2": "Familien & kleine Gruppen",
+        "idealFor3": "Komfortbewusste Reisende",
+        "goodToKnow1": "Eigenes Bad und Warmwasser inbegriffen",
+        "goodToKnow2": "Mahlzeiten der Hacienda, zubereitet von der lokalen Gastgeberfamilie",
+        "itinerary": {
+          "day1Title": "Tag 1 — Bergbau-Expedition",
+          "day2Title": "Tag 2 — Entdeckungen & Abschied",
+          "stop1Title": "Einstieg in die Smaragdmine",
+          "stop1ShortDesc": "Kolumbiens geschichtsträchtigste Smaragdmine erwartet Sie",
+          "stop1Desc": "Beginnen Sie Ihr Bergbauabenteuer in einer der geschichtsträchtigsten Smaragdminen Kolumbiens. Ihr Guide von der Hacienda führt Sie durch traditionelle Stollen und erklärt den Hintergrund aus der Kolonialzeit.",
+          "stop2Title": "Zweite Mine & Sortierwerkstatt",
+          "stop2ShortDesc": "Professionelles Bewerten und Sortieren von Edelsteinen lernen",
+          "stop2Desc": "Besuchen Sie eine weitere Smaragdlagerstätte und lernen Sie in der Werkstatt der Hacienda professionelle Bewertungstechniken.",
+          "stop3Title": "Check-in in der Hacienda El Recuerdo",
+          "stop3ShortDesc": "Ankommen in Ihrer Unterkunft mit kolonialem Erbe",
+          "stop3Desc": "Ankunft in der Hacienda El Recuerdo — Ihrer Unterkunft mit kolonialem Erbe, privaten Zimmern und hausgemachtem Begrüßungsabendessen.",
+          "stop4Title": "Traditionelles Frühstück in der Hacienda",
+          "stop4ShortDesc": "Der zweite Tag beginnt mit hausgemachten Andenaromen",
+          "stop4Desc": "Genießen Sie im Speisesaal der Hacienda ein hausgemachtes Frühstück mit frischen lokalen Zutaten.",
+          "stop5Title": "Gemmologie-Masterclass",
+          "stop5ShortDesc": "Fachwissen zu Qualität und Herkunft von Smaragden",
+          "stop5Desc": "Fachwissen zu Qualität und Herkunft von Smaragden sowie zur Branche — im Innenhof der Hacienda.",
+          "stop6Title": "Abschließendes Sortieren & Abschied",
+          "stop6ShortDesc": "Zertifikatsübergabe und Abschied",
+          "stop6Desc": "Lassen Sie die Reise Revue passieren und erhalten Sie in der Hacienda Ihr Teilnahmezertifikat."
+        }
+      },
+      "adventure": {
+        "name": "Glamping-Abenteuer",
+        "desc": "Schlafen Sie unter den Sternen in geodätischen Kuppeln mit Panoramablick auf die Berge.",
+        "rooms": {
+          "dome": "Sternenkuppel"
+        },
+        "itinerary": {
+          "day1Title": "Tag 1 — Bergbau-Expedition",
+          "day2Title": "Tag 2 — Entdeckungen & Abschied",
+          "stop1Title": "Einstieg in die Smaragdmine",
+          "stop1ShortDesc": "Kolumbiens geschichtsträchtigste Smaragdmine erwartet Sie",
+          "stop1Desc": "Beginnen Sie Ihr Bergbauabenteuer in einer der geschichtsträchtigsten Smaragdminen Kolumbiens. Über unwegsame Pfade wandern Sie zur Hauptlagerstätte.",
+          "stop2Title": "Zweite Mine & Sortierwerkstatt",
+          "stop2ShortDesc": "Professionelle Edelsteinbewertung unter freiem Himmel lernen",
+          "stop2Desc": "Besuchen Sie eine weitere Smaragdlagerstätte und lernen Sie an einer Sortierstation im Freien professionelle Bewertungstechniken.",
+          "stop3Title": "Check-in in den Glamping-Kuppeln",
+          "stop3ShortDesc": "Ankommen in Ihrer geodätischen Kuppel unter den Sternen",
+          "stop3Desc": "Ankunft auf Ihrem Glamping-Platz — geodätische Kuppeln mit Panoramablick auf die Berge und Ausstattung zur Sternenbeobachtung.",
+          "stop4Title": "Frühstück im Freien bei Sonnenaufgang",
+          "stop4ShortDesc": "Der zweite Tag beginnt mit Andenaromen unter freiem Himmel",
+          "stop4Desc": "Genießen Sie das Frühstück auf der Terrasse der Kuppel mit Bergpanorama und frischer Morgenluft.",
+          "stop5Title": "Gemmologie-Masterclass",
+          "stop5ShortDesc": "Fachwissen zu Qualität und Herkunft von Smaragden",
+          "stop5Desc": "Fachwissen zu Qualität und Herkunft von Smaragden sowie zur Branche — am Aussichtspunkt bei der Mine.",
+          "stop6Title": "Abschließendes Sortieren & Abschied",
+          "stop6ShortDesc": "Zertifikatsübergabe und Abschied",
+          "stop6Desc": "Lassen Sie die Reise Revue passieren und erhalten Sie am Aussichtspunkt Ihr Teilnahmezertifikat."
+        },
+        "tierNote": "Schlafen Sie unter den Sternen in einer geodätischen Kuppel mit Panoramablick auf die Anden.",
+        "idealFor1": "Abenteuerlustige & Wanderer",
+        "idealFor2": "Paare & romantische Auszeiten",
+        "idealFor3": "Natur- und Ökoreisende",
+        "goodToKnow1": "Geodätische Kuppel im Freien — bringen Sie warme Kleidung mit",
+        "goodToKnow2": "Kein WLAN — vollständige digitale Auszeit"
+      }
+    },
+    "chivorEmeraldCore": {
+      "title": "Smaragdminen-Tour in Chivor, Boyacá, Kolumbien: 2 Tage mit Hacienda-Aufenthalt",
+      "cardTitle": "2-tägige Smaragdminen-Tour & Hacienda-Aufenthalt",
+      "subtitle": "All-inclusive-Erlebnis in Chivor (Boyacá), Kolumbien 🇨🇴",
+      "description": "Besuchen Sie mit einem Guide eine aktive Smaragdmine in Chivor und suchen Sie mit lokalen Guides selbst nach Smaragden. Lernen Sie das Sortieren von Edelsteinen, genießen Sie die inbegriffenen Mahlzeiten und übernachten Sie in der Hacienda El Recuerdo; ein Smaragdfund ist nicht garantiert.",
+      "includesFullDetails": "Inklusive zweisprachigem Fachguide, Sicherheitsausrüstung, Koordination des lokalen Transports ab der Hacienda El Recuerdo, Unfallversicherung, Mahlzeiten und Smaragd-Workshop.",
+      "includes": {
+        "guide": "Fachguide",
+        "equipment": "Sicherheitsausrüstung",
+        "transport": "Koordination des lokalen Transports",
+        "insurance": "Unfallversicherung"
+      },
+      "transport": {
+        "carNo4x4": "Eigenes Auto (kein 4x4)",
+        "carNo4x4Description": "Zusätzliche Kosten für lokalen 4x4-Transport",
+        "have4x4": "Ich habe einen 4x4",
+        "have4x4Description": "Keine zusätzlichen Kosten",
+        "bus": "Öffentlicher Bus",
+        "busDescription": "Lokaler Transfer ab Busbahnhof inbegriffen",
+        "roundtripTransfer": "Privater Hin- und Rücktransfer",
+        "roundtripTransferDescription": "Privater Fahrzeugservice, max. 4 Personen pro Fahrzeug"
+      },
+      "roomMode": {
+        "standardSingle": "Standardzimmer (1)",
+        "standardCouple": "Standardzimmer (2)",
+        "familySingle": "Familienzimmer (1)",
+        "familyCouple": "Familienzimmer (2)",
+        "familyThree": "Familienzimmer (3)",
+        "cabinSingle": "Hütte (1)",
+        "cabinCouple": "Hütte (2)",
+        "cabinSix": "Hütte (6)",
+        "standard": "Standardzimmer",
+        "family": "Familienzimmer",
+        "cabin": "Hütte"
+      },
+      "experienceDetails": {
+        "selectDate": "Datum wählen",
+        "overviewTitle": "Überblick über das Erlebnis",
+        "valuePropositionsTitle": "Was den Smaragdbergbau besonders macht",
+        "tile1Title": "Echter Bergbau",
+        "tile1Desc": "Erleben Sie echten Smaragdbergbau mit erfahrenen lokalen Guides in historischen Minen",
+        "tile2Title": "Seltener lokaler Zugang",
+        "tile2Desc": "Exklusiver Zugang zu aktiven Smaragdminen und Sortierwerkstätten",
+        "tile3Title": "Natur & Kultur",
+        "tile3Desc": "Erleben Sie authentische Andenkultur und Berglandschaften aus nächster Nähe",
+        "tripLogisticsTitle": "Reiselogistik & Leistungen im Detail",
+        "itineraryTitle": "Interaktiver Reiseverlauf",
+        "includedLabel": "Inbegriffen",
+        "notIncludedLabel": "Nicht inbegriffen",
+        "faqsTitle": "Häufig gestellte Fragen",
+        "hostPreparationTitle": "Gastgeber & Vorbereitung",
+        "idealFor": "Ideal für",
+        "goodToKnow": "Gut zu wissen",
+        "faq1Q": "Wie anspruchsvoll ist die Tour?",
+        "faq1A": "Mittlerer Aufwand: etwa 2,5 Stunden Bergbauaktivität in 1 Mine und eine 2-stündige Wanderung über unebenes ländliches Gelände, mit Wasser, Schlamm und Feuchtigkeit in der Mine. Die Zeit unter Tage ist nur ein Teil des Tages. Nicht empfohlen bei stark eingeschränkter Mobilität.",
+        "exploreHiddenHeart": "Entdecken Sie einen abgelegenen Winkel der Anden",
+        "checkDatesBtn": "Termine prüfen",
+        "talkToHostBtn": "Gastgeber kontaktieren",
+        "bookNowBtn": "Jetzt buchen",
+        "faqStartQ": "Wann beginnt die Tour, und wann sollte ich in Bogotá losfahren?",
+        "faqStartA": "Der Minentag beginnt um 9:00 Uhr in Chivor. Bei 5–6 Stunden Fahrt ab Bogotá sollten Sie zwischen 3:00 und 4:00 Uhr losfahren. Sie können auch nach Absprache mit dem Team am Nachmittag anreisen und die Mine am nächsten Tag besuchen; in diesem Fall fahren Sie bis Mittag in Bogotá los."
+      },
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Lokaler Transport",
+        "difficulty": "Schwierigkeitsgrad",
+        "end": "Endzeit"
+      },
+      "logisticsValues": {
+        "duration": "2 Tage / 1 Nacht",
+        "transport": "Inbegriffen: von Chivor zur Mine, zur Hacienda El Recuerdo und zurück nach Chivor",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Erfahrener Bergbau-Guide",
+        "equipment": "Sicherheitsausrüstung",
+        "meals": "Mahlzeiten (Frühstück, Mittagessen, Abendessen)",
+        "insurance": "Reiseversicherung",
+        "mineAccess": "Exklusiver Minenzugang",
+        "workshop": "Workshop zur Edelsteinklassifizierung",
+        "smallGroups": "Kleine Gruppen (max. 10 Personen)",
+        "healthInsurance": "Krankenversicherung"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfer",
+        "drinks": "Persönliche Getränke",
+        "souvenirs": "Edelsteine als Souvenir",
+        "transportToChivor": "Anreise nach Chivor (Hin- und Rücktransfer ab Bogotá als Zusatzleistung buchbar)"
+      },
+      "itinerary": {
+        "day1Title": "Tag 1 — Smaragdmine & Hacienda",
+        "day2Title": "Tag 2 — Vormittag in der Hacienda & Smaragdmarkt",
+        "stop4Title": "Traditionelles Fiambre-Mittagessen",
+        "stop4ShortDesc": "Kolumbianisches Fiambre auf Bananenblatt",
+        "stop4Desc": "Genießen Sie vor dem Einstieg in die Mine ein traditionelles kolumbianisches Fiambre-Mittagessen in der Hacienda El Recuerdo, serviert auf Bananenblatt.",
+        "stop7Title": "Eine Nacht im privaten Hacienda-Zimmer",
+        "stop7ShortDesc": "Privates Zimmer mit eigenem Bad",
+        "stop7Desc": "Übernachten Sie in der Hacienda El Recuerdo in einem komfortablen privaten Zimmer mit eigenem Bad, umgeben von den Bergen von Chivor."
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Imkerei & Viehzucht",
+          "description": "Geführte Aktivitäten zu Imkerei und Viehzucht in der Hacienda El Recuerdo. Verfügbar im Paket 2T/1N."
+        },
+        "horsebackRiding": {
+          "label": "Geführter Ausritt",
+          "description": "Ein geführter Ritt auf den ländlichen Wegen der Gegend. Wird getrennt vom Paketpreis berechnet."
+        }
+      },
+      "host": {
+        "bio": "Lokaler Gastgeber mit Schwerpunkt auf Smaragdbergbau-Routen und kulturellen Erlebnissen in den Anden.",
+        "idealFor1": "Abenteuerlustige",
+        "idealFor2": "Kulturinteressierte",
+        "idealFor3": "Naturliebhaber",
+        "goodToKnow1": "Grundfitness erforderlich",
+        "goodToKnow2": "Geschlossene Schuhe empfohlen",
+        "goodToKnow3": "Kleine Gruppen"
+      }
+    },
+    "chivorEmeraldBasic": {
+      "title": "Tagesausflug zur Smaragdmine in Chivor, Boyacá: Frühstück & Fiambre",
+      "cardTitle": "Tagesausflug zu den Smaragdminen: Frühstück & Fiambre-Mittagessen",
+      "subtitle": "Tagestour in Chivor (Boyacá): Minenbesuch, Aussichtspunkt Pulpito und Fiambre-Mittagessen, Rückkehr am selben Nachmittag",
+      "description": "Start um 9:00 Uhr, Rückkehr am selben Nachmittag. Vortrag zur Geschichte der Smaragde, geführter Einstieg in eine aktive Smaragdmine, geführter Rundgang um die Minen, Aussichtspunkt Pulpito und ein traditionelles Fiambre-Mittagessen in der Hacienda El Recuerdo. Interne 4x4-Fahrt Chivor - Minen - Chivor inbegriffen.",
+      "transport": {
+        "carNo4x4": "Eigenes Auto (kein 4x4)",
+        "carNo4x4Description": "Zusätzliche Kosten für lokalen 4x4-Transport",
+        "have4x4": "Ich habe einen 4x4",
+        "have4x4Description": "Keine zusätzlichen Kosten",
+        "bus": "Öffentlicher Bus",
+        "busDescription": "Lokaler Transfer ab Busbahnhof inbegriffen",
+        "roundtripTransfer": "Privater Hin- und Rücktransfer",
+        "roundtripTransferDescription": "Privater Fahrzeugservice, max. 4 Personen pro Fahrzeug"
+      },
+      "roomMode": {
+        "standardSingle": "Tagesbesuch (1)",
+        "standardCouple": "Tagesbesuch (2)"
+      },
+      "tier": {
+        "tag": "Tagesbesuch",
+        "name": "Tagesbesuch",
+        "description": "Keine Übernachtung. Frühstück und Fiambre-Mittagessen in der Hacienda El Recuerdo.",
+        "roomStandard": "Tagesbesuch"
+      },
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Lokaler Transport",
+        "difficulty": "Schwierigkeitsgrad"
+      },
+      "logisticsValues": {
+        "duration": "1 Tag (Rückkehr am selben Nachmittag)",
+        "transport": "Inbegriffen: 4x4 von Chivor zu den Minen und zurück nach Chivor",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Spezialisierte lokale Guides",
+        "equipment": "Sicherheitsausrüstung",
+        "meals": "Frühstück und Fiambre-Mittagessen",
+        "insurance": "Reiseversicherung",
+        "mineAccess": "Geführter Einstieg in die Mine",
+        "workshop": "Smaragd-Vortrag und Workshop",
+        "smallGroups": "Kleine Gruppen (max. 10 Personen)",
+        "healthInsurance": "Medizinische Assistance"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfer",
+        "drinks": "Persönliche Getränke",
+        "souvenirs": "Edelsteine als Souvenir",
+        "transportToChivor": "Anreise nach Chivor (Hin- und Rücktransfer ab Bogotá als Zusatzleistung buchbar)"
+      },
+      "host": {
+        "bio": "Lokaler Gastgeber mit Schwerpunkt auf Smaragdbergbau-Routen und kulturellen Erlebnissen in den Anden.",
+        "idealFor1": "Tagesausflügler",
+        "idealFor2": "Kulturinteressierte",
+        "idealFor3": "Naturliebhaber",
+        "goodToKnow1": "Tragen Sie bequeme Schuhe und bringen Sie eine leichte Jacke mit",
+        "goodToKnow2": "Ankunft um 9:00 Uhr am gewählten Datum",
+        "goodToKnow3": "Moderate Gehstrecken im Bergbaugebiet"
+      },
+      "itinerary": {
+        "day1Title": "Tag 1 — Tagesausflug zu den Smaragdminen",
+        "stop5Title": "Fiambre-Mittagessen in der Hacienda",
+        "stop5ShortDesc": "Kolumbianisches Fiambre auf Bananenblatt",
+        "stop5Desc": "Genießen Sie vor dem Rundgang um die Minen ein traditionelles kolumbianisches Fiambre-Mittagessen in der Hacienda El Recuerdo, serviert auf Bananenblatt.",
+        "stop6Title": "Geführter Rundgang um die Minen",
+        "stop6ShortDesc": "Bergpfade mit einem lokalen Guide",
+        "stop6Desc": "Ein geführter Rundgang durch das Smaragd-Bergbaugebiet mit Ihrem lokalen Guide, bei dem Sie erfahren, wie die Minen betrieben werden, bevor es zurück nach Chivor geht."
+      },
+      "experienceDetails": {
+        "faq1Q": "Wie anstrengend ist es?",
+        "faq1A": "Es ist ein langer Tag mit mittlerem Aufwand: etwa 2 Stunden Bergbauaktivität und eine 1-stündige Wanderung über ländliches Gelände, mit Wasser, Schlamm und Feuchtigkeit in der Mine. Hinzu kommen am selben Tag jeweils 5–6 Stunden Fahrt ab bzw. nach Bogotá. Nicht empfohlen bei stark eingeschränkter Mobilität.",
+        "faqStartQ": "Wann beginnt die Tour, und wann sollte ich in Bogotá losfahren?",
+        "faqStartA": "Die Tour beginnt um 9:00 Uhr in Chivor und endet am selben Tag. Bei 5–6 Stunden Fahrt ab Bogotá sollten Sie zwischen 3:00 und 4:00 Uhr losfahren. Wenn Sie es ruhiger angehen möchten, ziehen Sie eine Tour mit 2 Tagen/1 Nacht in Betracht."
+      }
+    },
+    "chivorEmeraldPrime": {
+      "title": "Smaragdminen-Tour Chivor, Boyacá: 2 Tage, 2 Minen, Ausritt & Hacienda",
+      "cardTitle": "2-tägige Smaragdminen-Tour mit 2 Minen, Ausritt & Hacienda",
+      "subtitle": "All-inclusive-Kultur- und Naturerlebnis in Chivor (Boyacá), Kolumbien 🇨🇴",
+      "description": "Besuchen Sie zwei Smaragdminen in Chivor, reiten Sie zur zweiten und suchen Sie mit lokalen Guides selbst nach Smaragden. Inklusive Mahlzeiten und Übernachtung in der Hacienda El Recuerdo; ein Smaragdfund ist nicht garantiert.",
+      "includesFullDetails": "Inklusive zweisprachigem Fachguide, Sicherheitsausrüstung, Koordination des lokalen Transports ab der Hacienda El Recuerdo, Unfallversicherung, Mahlzeiten und Smaragd-Workshop.",
+      "includes": {
+        "guide": "Fachguide",
+        "equipment": "Sicherheitsausrüstung",
+        "transport": "Koordination des lokalen Transports",
+        "insurance": "Unfallversicherung"
+      },
+      "transport": {
+        "carNo4x4": "Eigenes Auto (kein 4x4)",
+        "carNo4x4Description": "Zusätzliche Kosten für lokalen 4x4-Transport",
+        "have4x4": "Ich habe einen 4x4",
+        "have4x4Description": "Keine zusätzlichen Kosten",
+        "bus": "Öffentlicher Bus",
+        "busDescription": "Lokaler Transfer ab Busbahnhof inbegriffen",
+        "roundtripTransfer": "Privater Hin- und Rücktransfer",
+        "roundtripTransferDescription": "Privater Fahrzeugservice, max. 4 Personen pro Fahrzeug"
+      },
+      "roomMode": {
+        "standardSingle": "Standardzimmer (1)",
+        "standardCouple": "Standardzimmer (2)",
+        "familySingle": "Familienzimmer (1)",
+        "familyCouple": "Familienzimmer (2)",
+        "familyThree": "Familienzimmer (3)",
+        "cabinSingle": "Hütte (1)",
+        "cabinCouple": "Hütte (2)",
+        "cabinSix": "Hütte (6)",
+        "standard": "Standardzimmer",
+        "family": "Familienzimmer",
+        "cabin": "Hütte"
+      },
+      "experienceDetails": {
+        "selectDate": "Datum wählen",
+        "overviewTitle": "Überblick über das Erlebnis",
+        "valuePropositionsTitle": "Was den Smaragdbergbau besonders macht",
+        "tile1Title": "Echter Bergbau",
+        "tile1Desc": "Erleben Sie echten Smaragdbergbau mit erfahrenen lokalen Guides in historischen Minen",
+        "tile2Title": "Seltener lokaler Zugang",
+        "tile2Desc": "Exklusiver Zugang zu aktiven Smaragdminen und Sortierwerkstätten",
+        "tile3Title": "Natur & Kultur",
+        "tile3Desc": "Erleben Sie authentische Andenkultur und Berglandschaften aus nächster Nähe",
+        "tripLogisticsTitle": "Reiselogistik & Leistungen im Detail",
+        "itineraryTitle": "Interaktiver Reiseverlauf",
+        "includedLabel": "Inbegriffen",
+        "notIncludedLabel": "Nicht inbegriffen",
+        "faqsTitle": "Häufig gestellte Fragen",
+        "hostPreparationTitle": "Gastgeber & Vorbereitung",
+        "idealFor": "Ideal für",
+        "goodToKnow": "Gut zu wissen",
+        "faq1Q": "Wie anspruchsvoll ist die Tour?",
+        "faq1A": "Hoher Aufwand: etwa 5 Stunden Bergbauaktivität in 2 Minen und ein 2-stündiger Ausritt, mit Wasser, Schlamm und unebenem Boden. Falls der Ausritt nicht stattfinden kann, wird er ohne Preisänderung durch eine 4x4-Route ersetzt. Nicht empfohlen bei stark eingeschränkter Mobilität.",
+        "exploreHiddenHeart": "Entdecken Sie einen abgelegenen Winkel der Anden",
+        "checkDatesBtn": "Termine prüfen",
+        "talkToHostBtn": "Gastgeber kontaktieren",
+        "bookNowBtn": "Jetzt buchen",
+        "faqStartQ": "Wann beginnt die Tour, und wann sollte ich in Bogotá losfahren?",
+        "faqStartA": "Der Tag beginnt um 8:00 Uhr in Chivor, da er zwei Minen umfasst. Als Richtwert fahren Sie gegen 3:00 Uhr in Bogotá los, oder früher, wenn Sie mit mehr als 5 Stunden Fahrt rechnen. Sie können auch nach Absprache mit dem Team am Nachmittag anreisen und am nächsten Tag starten; in diesem Fall fahren Sie bis Mittag in Bogotá los."
+      },
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Lokaler Transport",
+        "difficulty": "Schwierigkeitsgrad",
+        "end": "Endzeit"
+      },
+      "logisticsValues": {
+        "duration": "2 Tage / 1 Nacht",
+        "transport": "Inbegriffen: von Chivor zu beiden Minen, zur Hacienda El Recuerdo und zurück nach Chivor",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Erfahrener Bergbau-Guide",
+        "equipment": "Sicherheitsausrüstung",
+        "meals": "Mahlzeiten (Frühstück, Mittagessen, Abendessen)",
+        "insurance": "Reiseversicherung",
+        "mineAccess": "Zugang zu 2 Smaragdminen",
+        "workshop": "Workshop zur Edelsteinklassifizierung",
+        "smallGroups": "Kleine Gruppen (max. 10 Personen)",
+        "healthInsurance": "Krankenversicherung"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfer",
+        "drinks": "Persönliche Getränke",
+        "souvenirs": "Edelsteine als Souvenir",
+        "transportToChivor": "Anreise nach Chivor (Hin- und Rücktransfer ab Bogotá als Zusatzleistung buchbar)"
+      },
+      "addons": {
+        "apiaryCattle": {
+          "label": "Imkerei & Viehzucht",
+          "description": "Geführte Aktivitäten zu Imkerei und Viehzucht in der Hacienda El Recuerdo. Verfügbar im Paket 2T/1N."
+        },
+        "horsebackRiding": {
+          "label": "Geführter Ausritt",
+          "description": "Ein geführter Ritt auf den ländlichen Wegen der Gegend. Wird getrennt vom Paketpreis berechnet."
+        }
+      },
+      "host": {
+        "bio": "Lokaler Gastgeber mit Schwerpunkt auf Smaragdbergbau-Routen und kulturellen Erlebnissen in den Anden.",
+        "idealFor1": "Abenteuerlustige",
+        "idealFor2": "Kulturinteressierte",
+        "idealFor3": "Naturliebhaber",
+        "goodToKnow1": "Grundfitness erforderlich",
+        "goodToKnow2": "Geschlossene Schuhe empfohlen",
+        "goodToKnow3": "Kleine Gruppen"
+      },
+      "itinerary": {
+        "day1Title": "Tag 1 — Zwei Minen & Ausritt",
+        "day2Title": "Tag 2 — Vormittag in der Hacienda & Smaragdmarkt",
+        "stop5Title": "Traditionelles Fiambre-Mittagessen",
+        "stop5ShortDesc": "Kolumbianisches Fiambre auf Bananenblatt",
+        "stop5Desc": "Genießen Sie nach dem Minenbesuch ein traditionelles kolumbianisches Fiambre-Mittagessen in der Hacienda El Recuerdo, serviert auf Bananenblatt.",
+        "stop6Title": "Ausritt zu einer zweiten Mine",
+        "stop6ShortDesc": "Ritt durch die Hügel von Mundo Nuevo",
+        "stop6Desc": "Reiten Sie durch die Smaragdhügel von Mundo Nuevo zum Eingang einer handwerklich betriebenen Mine.",
+        "stop7Title": "Die Kleinbergleute von Chivor kennenlernen",
+        "stop7ShortDesc": "Überliefertes Wissen, über Generationen weitergegeben",
+        "stop7Desc": "Besuchen Sie eine zweite Smaragdmine und erfahren Sie, wie die Kleinbergleute von Chivor arbeiten, mit überliefertem Wissen und Traditionen, die über Generationen weitergegeben wurden.",
+        "stop9Title": "Eine Nacht in einer privaten Hacienda",
+        "stop9ShortDesc": "Privates Zimmer mit eigenem Bad",
+        "stop9Desc": "Übernachten Sie in der Hacienda El Recuerdo in einem komfortablen privaten Zimmer mit eigenem Bad, umgeben von den Bergen von Chivor."
+      }
+    },
+    "itineraryStops": {
+      "welcomeBreakfast": {
+        "title": "Begrüßungsfrühstück",
+        "shortDesc": "Ein kolumbianisches Frühstück zum Tagesbeginn",
+        "description": "Beginnen Sie Ihr Abenteuer in Chivor mit einem traditionellen kolumbianischen Frühstück, bevor es in die Smaragdberge geht."
+      },
+      "historyTalk": {
+        "title": "Vortrag zu Smaragdgeschichte & Schmuck",
+        "shortDesc": "Lokale Kunsthandwerker über das Leben im Bergbau",
+        "description": "Ein einführender Vortrag mit lokalen Kunsthandwerkern über die Geschichte der Smaragde, das Leben im Bergbau und die Grundlagen der Schmuckherstellung."
+      },
+      "minesViewpoint": {
+        "title": "Panorama-Aussichtspunkt über die Minen von Chivor",
+        "shortDesc": "Weiter Blick über das Smaragdtal",
+        "description": "Genießen Sie den Panoramablick über die Smaragd-Bergbaulandschaft von Chivor — die Berge und das Minengebiet von einem herausragenden Aussichtspunkt aus."
+      },
+      "mineVisit": {
+        "title": "Geführter Besuch einer echten Smaragdmine",
+        "shortDesc": "Helm, Lampen und Sicherheitseinweisung",
+        "description": "Ein geführter Besuch im Inneren einer echten Smaragdmine, mit Helm, Lampen und einer klaren Sicherheitseinweisung."
+      },
+      "haciendaDinner": {
+        "title": "Abendessen in der Hacienda El Recuerdo",
+        "shortDesc": "Hausgemachtes Abendessen aus den Anden",
+        "description": "Ein hausgemachtes Abendessen aus den Anden auf dem Hof, mit lokalen Zutaten und familiärem Service."
+      },
+      "haciendaBreakfast": {
+        "title": "Frühstück in der Hacienda",
+        "shortDesc": "Ein ruhiger Morgen in den Anden",
+        "description": "Wachen Sie in einer friedlichen Andenlandschaft auf und genießen Sie ein traditionelles kolumbianisches Frühstück in der Hacienda El Recuerdo."
+      },
+      "optionalMarket": {
+        "title": "(Optional) Lokale Bergleute & der Smaragdmarkt",
+        "shortDesc": "Wo die Smaragde von Chivor gehandelt werden",
+        "description": "Optional: Treffen Sie lokale Bergleute und besuchen Sie den Smaragdmarkt, auf dem Steine aus den Minen der Region gekauft und verkauft werden."
+      },
+      "borburBreakfast": {
+        "title": "Begrüßungsfrühstück in Borbur",
+        "shortDesc": "Lernen Sie Ihre regionalen Guides kennen",
+        "description": "Beginnen Sie Ihr Coscuez-Erlebnis mit einem Frühstück und lernen Sie die Guides in San Pablo de Borbur kennen."
+      },
+      "chacaroWorkshop": {
+        "title": "Smaragd-Workshop & Besuch der Plaza Chacaro",
+        "shortDesc": "Bergbaugeschichte auf dem historischen Platz",
+        "description": "Besuchen Sie die Plaza Chacaro (ca. 1 Stunde), lernen Sie die Traditionen des Smaragdbergbaus direkt von aktiven Bergleuten kennen, erkunden Sie das Minengebiet und verstehen Sie das Handwerk, das Coscuez prägt."
+      },
+      "miningLunch": {
+        "title": "Mittagessen",
+        "shortDesc": "Eine Mahlzeit während des Bergbauerlebnisses",
+        "description": "Genießen Sie das Mittagessen vor dem geführten Besuch der Smaragdmine."
+      },
+      "ruralHotelDinner": {
+        "title": "Abendessen & Abend im Landhotel",
+        "shortDesc": "Ankommen für die Nacht in Borbur",
+        "description": "Kehren Sie in Ihr Landhotel zurück zu einem traditionellen hausgemachten Abendessen mit lokaler Küche aus Boyacá und lassen Sie den Abend ruhig ausklingen."
+      },
+      "ruralHotelStay": {
+        "title": "Übernachtung im Landhotel in Borbur",
+        "shortDesc": "Erholung in einem privaten Zimmer",
+        "description": "Übernachten Sie im Landhotel in Borbur in einem privaten Zimmer mit eigenem Bad."
+      }
+    },
+    "coscuezEmeraldCore": {
+      "title": "Coscuez: 2-tägige Smaragdminen-Tour, Wanderung zum Aussichtspunkt & Landhotel",
+      "cardTitle": "2-tägige Smaragdminen-Tour, Wanderung zum Aussichtspunkt & Landhotel",
+      "subtitle": "2T/1N Smaragdbergbau in Coscuez mit Übernachtung im Landhotel in Borbur, Boyacá",
+      "description": "Erkunden Sie mit spezialisierten Guides eine echte Smaragdmine in Coscuez, besuchen Sie die Plaza Chacaro und wandern Sie zu einem Aussichtspunkt unter freiem Himmel. Übernachtung in einem Landhotel in Borbur, 4 Mahlzeiten inbegriffen.",
+      "selectDate": "Wählen Sie Ihr Datum",
+      "selectPeople": "Wie viele Personen?",
+      "peopleCountLabel": "Anzahl der Personen",
+      "roomModeLabel": "Zimmertyp",
+      "roomModePrivate": "Privat",
+      "roomModeCouple": "Paar",
+      "transportLabel": "Wie möchten Sie anreisen?",
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Lokaler Transport",
+        "difficulty": "Schwierigkeitsgrad"
+      },
+      "logisticsValues": {
+        "duration": "2T/1N",
+        "transport": "Lokaler Transport inbegriffen",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Spezialisierte Guides aus der Region",
+        "equipment": "Vollständige Sicherheitsausrüstung für den Mineneinstieg",
+        "meals": "4 Mahlzeiten: 2 Frühstücke, 1 Mittagessen, 1 Abendessen",
+        "insurance": "Medizinische Assistance",
+        "mineAccess": "Geführter Einstieg in die Smaragdmine mit kompletter Sicherheitsausrüstung",
+        "workshop": "Smaragd-Workshop und Besuch der historischen Plaza Chacaro",
+        "smallGroups": "Persönliches lokales Erlebnis, max. 10 Reisende",
+        "healthInsurance": "Police für medizinische Assistance inbegriffen"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfers sind nicht inbegriffen",
+        "drinks": "Persönliche Getränke",
+        "souvenirs": "Souvenirs und Smaragdkäufe",
+        "transportToBorbur": "Die Anreise nach Borbur ist nicht inbegriffen; ein privater Hin- und Rücktransfer ab Bogotá ist optional"
+      },
+      "transport": {
+        "carNo4x4": "Normales Auto",
+        "carNo4x4Description": "Treffpunkt im Ortszentrum von Borbur; alle Strecken im Minengebiet übernimmt der lokale Transport",
+        "have4x4": "Eigener 4x4",
+        "have4x4Description": "Fahren Sie nach Borbur; wir koordinieren den gesamten lokalen Transport im Smaragd-Bergbaugebiet",
+        "bus": "Öffentlicher Bus",
+        "busDescription": "Nehmen Sie Transportes Reina ab Bogotá oder anderen Städten (5–6 Stunden); bestätigen Sie den Halt in Borbur",
+        "roundtripTransfer": "Privater Hin- und Rücktransfer",
+        "roundtripTransferDescription": "Optionaler privater Hin- und Rücktransfer ab Bogotá mit Abholung am Hotel, für bis zu 4 Personen pro Fahrzeug. Preis in der Buchungsübersicht."
+      },
+      "roomMode": {
+        "standardSingle": "Einzelzimmer, eigenes Bad",
+        "standardCouple": "Doppelzimmer, eigenes Bad"
+      },
+      "addons": {},
+      "host": {
+        "bio": "Regionale Fachguides mit fundiertem Wissen über den Smaragdbergbau in Coscuez und die Bergpfade",
+        "idealFor1": "Reisende, die authentische Smaragd-Bergbaukultur und echten Kontakt zu Einheimischen suchen",
+        "idealFor2": "Familien mit Kindern ab 5 Jahren, die anschaulich Geologie und ländliches Leben kennenlernen möchten",
+        "idealFor3": "Abenteuerlustige, die mit Berggelände und körperlicher Aktivität gut zurechtkommen",
+        "goodToKnow1": "Mindestalter: 5 Jahre; Gruppen mit jüngeren Kindern nur nach vorheriger Absprache",
+        "goodToKnow2": "Touren nur auf Spanisch; Übersetzer sind nicht verfügbar",
+        "goodToKnow3": "Haustiere nach vorheriger Absprache willkommen; nicht alle Aktivitätsbereiche sind für Haustiere zugänglich"
+      },
+      "itinerary": {
+        "day1Title": "Tag 1: Ankunft & Smaragdbergbau-Erlebnis",
+        "day2Title": "Tag 2: Rückkehr nach Borbur",
+        "stop6Title": "Geführte Wanderung zum Bergaussichtspunkt",
+        "stop6ShortDesc": "Wanderung zu einem Aussichtspunkt mit Blick über die Region",
+        "stop6Desc": "Eine 2- bis 3-stündige Wanderung durch die Landschaft von Coscuez zu einem Aussichtspunkt unter freiem Himmel mit Blick über das Tal. Rasten Sie und genießen Sie die Aussicht auf die Berge und das ländliche Gelände.",
+        "stop9Title": "Frühstück und Abschied",
+        "stop9ShortDesc": "Der letzte Morgen in Borbur",
+        "stop9Desc": "Genießen Sie das Frühstück im Hotel, bevor Ihr Coscuez-Erlebnis endet."
+      }
+    },
+    "coscuezEmeraldPrime": {
+      "title": "Coscuez: 2-tägige Smaragdminen-Tour & 4x4-Ausflug nach Fura & Tena",
+      "cardTitle": "2-tägige Smaragdminen-Tour & 4x4-Ausflug nach Fura & Tena",
+      "subtitle": "2T/1N Smaragdbergbau und Bergausflug nach Fura & Tena mit Übernachtung im Landhotel in Borbur",
+      "description": "Erkunden Sie eine echte Smaragdmine in Coscuez und die Plaza Chacaro und fahren Sie dann mit dem 4x4 nach Fura & Tena zu einer geführten Wanderung und einem Mittagessen in den Bergen. Landhotel in Borbur, 5 Mahlzeiten inbegriffen.",
+      "selectDate": "Wählen Sie Ihr Datum",
+      "selectPeople": "Wie viele Personen?",
+      "peopleCountLabel": "Anzahl der Personen",
+      "roomModeLabel": "Zimmertyp",
+      "roomModePrivate": "Privat",
+      "roomModeCouple": "Paar",
+      "transportLabel": "Wie möchten Sie anreisen?",
+      "logistics": {
+        "start": "Startzeit",
+        "duration": "Dauer",
+        "transport": "Lokaler Transport",
+        "difficulty": "Schwierigkeitsgrad"
+      },
+      "logisticsValues": {
+        "duration": "2T/1N",
+        "transport": "Lokal + 4x4 für den Ausflug an Tag 2",
+        "difficulty": "Mittel"
+      },
+      "included": {
+        "guide": "Spezialisierte Guides aus der Region",
+        "equipment": "Vollständige Sicherheitsausrüstung für den Mineneinstieg",
+        "meals": "5 Mahlzeiten: 2 Frühstücke, 2 Mittagessen, 1 Abendessen",
+        "insurance": "Medizinische Assistance",
+        "mineAccess": "Geführter Einstieg in die Smaragdmine mit kompletter Sicherheitsausrüstung",
+        "workshop": "Smaragd-Workshop und Besuch der historischen Plaza Chacaro",
+        "smallGroups": "Persönliches lokales Erlebnis, max. 10 Reisende",
+        "healthInsurance": "Police für medizinische Assistance inbegriffen"
+      },
+      "notIncluded": {
+        "airportTransfer": "Flughafentransfers sind nicht inbegriffen",
+        "drinks": "Persönliche Getränke",
+        "souvenirs": "Souvenirs und Smaragdkäufe",
+        "transportToBorbur": "Die Anreise nach Borbur ist nicht inbegriffen; ein privater Hin- und Rücktransfer ab Bogotá ist optional"
+      },
+      "transport": {
+        "carNo4x4": "Normales Auto",
+        "carNo4x4Description": "Treffpunkt im Ortszentrum von Borbur; 4x4 für den Ausflug nach Fura & Tena an Tag 2 wird gestellt",
+        "have4x4": "Eigener 4x4",
+        "have4x4Description": "Fahren Sie nach Borbur; Ihr Fahrzeug kann für den Bergausflug nach Fura & Tena an Tag 2 genutzt werden",
+        "bus": "Öffentlicher Bus",
+        "busDescription": "Nehmen Sie Transportes Reina ab Bogotá oder anderen Städten (5–6 Stunden); bestätigen Sie den Halt in Borbur",
+        "roundtripTransfer": "Privater Hin- und Rücktransfer",
+        "roundtripTransferDescription": "Optionaler privater Hin- und Rücktransfer ab Bogotá mit Abholung am Hotel, für bis zu 4 Personen pro Fahrzeug. Preis in der Buchungsübersicht."
+      },
+      "roomMode": {
+        "standardSingle": "Einzelzimmer, eigenes Bad",
+        "standardCouple": "Doppelzimmer, eigenes Bad"
+      },
+      "addons": {},
+      "host": {
+        "bio": "Fachguides mit fundiertem Wissen über den Smaragdbergbau in Coscuez, die Berglandschaft von Fura & Tena und die lokale Kultur",
+        "idealFor1": "Abenteurer, die an 2 vollen Tagen Kultur und Wildnis intensiv erleben möchten",
+        "idealFor2": "Familien mit Kindern ab 5 Jahren, die mehr Natur, Bergblicke und Geologie kennenlernen möchten",
+        "idealFor3": "Outdoor-Begeisterte, die mit Wanderungen, 4x4-Fahrten und höheren körperlichen Anforderungen sowie Höhenlagen zurechtkommen",
+        "goodToKnow1": "Mindestalter: 5 Jahre; Gruppen mit jüngeren Kindern nur nach vorheriger Absprache",
+        "goodToKnow2": "Touren nur auf Spanisch; Übersetzer sind nicht verfügbar",
+        "goodToKnow3": "Haustiere nach vorheriger Absprache willkommen; nicht alle Aktivitätsbereiche sind für Haustiere zugänglich"
+      },
+      "itinerary": {
+        "day1Title": "Tag 1: Ankunft & Smaragdbergbau-Erlebnis",
+        "day2Title": "Tag 2: 4x4-Bergausflug nach Fura & Tena",
+        "stop8Title": "Frühstück & 4x4-Abfahrt nach Fura & Tena",
+        "stop8ShortDesc": "Abfahrt am frühen Morgen zum Bergausflug",
+        "stop8Desc": "Nach dem Frühstück geht es mit dem 4x4 auf eine landschaftlich reizvolle Fahrt von ca. 45 Minuten in das Gebiet von Fura & Tena im Hochgebirge.",
+        "stop9Title": "Geführte Wanderung durch die Landschaft von Chanares",
+        "stop9ShortDesc": "Wanderung durch hochgelegenes Berggelände",
+        "stop9Desc": "Eine geführte Wanderung durch die Naturlandschaft von Chanares mit Blick auf die umliegenden Gipfel und Täler, die typisch für die Region Fura & Tena sind.",
+        "stop10Title": "Traditionelles Lunchpaket in den Bergen",
+        "stop10ShortDesc": "Fiambre mit Bergblick",
+        "stop10Desc": "Genießen Sie ein traditionelles Fiambre (Lunchpaket) mit lokaler Küche aus Boyacá im Gebiet von Chanares, umgeben von Berglandschaft.",
+        "stop11Title": "Rückkehr nach Borbur & Abend",
+        "stop11ShortDesc": "Rückfahrt und Erholung vor der Abreise",
+        "stop11Desc": "Rückfahrt mit dem 4x4 nach Borbur; Abreise ist am Sonntag ab Mittag möglich. Zeit zum Ausruhen oder für einen Rundgang durch Borbur vor der Abfahrt."
+      }
+    }
+  },
+  "Footer": {
+    "contactUs": "Kontakt",
+    "address": "Hacienda EL Recuerdo (Mundo Nuevo - Ubalá)",
+    "whatsapp": "whatsapp",
+    "instagram": "Instagram",
+    "whatsappMessage": "Hallo! Ich interessiere mich für die Angebote von Andean Scapes",
+    "valueProposition": "Andean Scapes: Ausgewählte Abenteuer in der Hauptstadt der Smaragde.",
+    "startWhatsapp": "WhatsApp-Chat starten",
+    "sendEmail": "E-Mail senden",
+    "territoryEssentials": "Wissenswertes zur Region",
+    "logistics": "Logistik",
+    "transportation": "Transport",
+    "staySelection": "Unterkünfte",
+    "allyNetwork": "Unser ausgewähltes Partnernetzwerk",
+    "partner": "Partner",
+    "allyHacienda": "Hacienda El Recuerdo",
+    "allyGlamping": "Glamping Aventura",
+    "allyExperiences": "Alle Erlebnisse",
+    "legalSafety": "Rechtliches & Sicherheit",
+    "certifications": "Zertifizierungen",
+    "insurance": "Versicherung",
+    "terms": "AGB",
+    "privacy": "Datenschutz",
+    "comingSoon": "Demnächst",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "allyGuides": "Ratgeber",
+    "allyEmeralds": "Smaragdwelt"
+  },
+  "MobileMenu": {
+    "brandLine": "Authentische Unterkünfte & Erlebnisse in den kolumbianischen Anden",
+    "exploreExperiences": "Erlebnisse ansehen",
+    "planOnWhatsApp": "Reise per WhatsApp planen",
+    "whatsappMessage": "Hallo! Ich hätte gern Hilfe bei der Planung einer Reise mit Andean Scapes.",
+    "sectionQuickExplore": "Schnellzugriff",
+    "sectionNavigate": "Navigation",
+    "trustMicroCopy": "Kleine Gruppen · Lokale Gastgeber · Flexible Planung · WhatsApp-Support",
+    "dialogLabel": "Mobile Navigation",
+    "closeMenu": "Menü schließen",
+    "openMenu": "Menü öffnen",
+    "chips": {
+      "emerald": "Smaragde",
+      "nature": "Natur",
+      "rural": "Land & Lodge",
+      "horseback": "Reiten"
+    },
+    "nav": {
+      "howItWorks": "So funktioniert’s",
+      "reviews": "Bewertungen",
+      "faq": "FAQ",
+      "guides": "Ratgeber",
+      "emeralds": "Smaragdwelt"
+    }
+  },
+  "Error": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Diese Seite konnte gerade nicht geladen werden. Das ist meist nur vorübergehend — bitte versuchen Sie es gleich noch einmal.",
+    "retry": "Erneut versuchen",
+    "backHome": "Zur Startseite",
+    "reference": "Referenz"
+  },
+  "CoscuezEmeraldCore": {
+    "metaTitle": "Smaragdmine Coscuez + Landhotel | Andean Scapes",
+    "metaDescription": "Smaragdminen von Coscuez mit 2 Tagen/1 Nacht im Landhotel in Borbur, Mahlzeiten und Minentour mit lokalen Guides."
+  },
+  "CoscuezEmeraldPrime": {
+    "metaTitle": "Smaragdmine Coscuez + Fura & Tena im 4x4 | Andean Scapes",
+    "metaDescription": "Smaragdminen von Coscuez und Bergausflug zu Fura & Tena mit 2 Tagen/1 Nacht im Landhotel in Borbur, 5 Mahlzeiten und lokalen Guides."
+  },
+  "Trust": {
+    "title": "Wer diese Tour durchführt",
+    "lead": "Dasselbe Unternehmen plant die Reise, beantwortet Ihre Nachrichten und führt den Tag in Chivor durch. Diese Angaben können Sie prüfen, bevor Sie etwas bezahlen.",
+    "operatorLabel": "Reiseveranstalter",
+    "operatorDetail": "{legalName}, ein kolumbianisches Unternehmen (NIT {taxId}), Sitz: {address}, Kolumbien.",
+    "technologyLabel": "Website und Buchungen",
+    "technologyDetail": "{name}, ein im Bundesstaat Georgia (USA) eingetragenes Unternehmen, entwickelt diese Website und wickelt die Online-Reservierung ab.",
+    "paymentLabel": "So bezahlen Sie",
+    "paymentDetail": "Wir bestätigen zuerst Ihren Termin. Erst dann zahlen Sie eine Anzahlung von 25 % bis 30 %; der Rest richtet sich nach den Tourbedingungen. Wir verlangen nie den vollen Betrag im Voraus.",
+    "includedLabel": "Am Tag selbst",
+    "includedDetail": "Ein lokaler Guide bleibt bei der Gruppe, Helm und Stiefel werden gestellt, und während des Erlebnisses gilt eine medizinische Notfallversicherung.",
+    "platformsLabel": "Auch gelistet, mit verifizierten Bewertungen, auf",
+    "opensInNewTab": "(öffnet in einem neuen Tab)"
+  },
+  "BookingShare": {
+    "title": "Buchen: {title} | Andean Scapes",
+    "description": "Wählen Sie Ihren Termin und reservieren Sie mit 25–30 % Anzahlung, die erst nach unserer Bestätigung der Verfügbarkeit fällig wird."
+  }
+}
